@@ -3,9 +3,9 @@ This wiki contains the documentation for all active NUnit projects as well as de
 
 ####User Documentation
  * [NUnit](https://github.com/nunit/docs/wiki/NUnit-Documentation) covers NUnit itself, including the framework, engine and console runner.
- * [NUnit-Gui](https://github.com/nunit/docs/wiki/GUI-Documentation) covers the new NUnit 3.0 GUI.
- * [NUnit VS Adapter](https://github.com/nunit/docs/wiki/VS-Adapter-Documentation) covers the Visual Studio test adapters for both NUnit V2 and V3.
- * [NUnit Project Editor](https://github.com/nunit/docs/wiki/Project-Editor-Documentation) covers the Windows program for creating and editing `.nunit` project files.
+ * [NUnit-Gui](https://github.com/nunit/docs/wiki/NUnit-Gui) covers the new NUnit 3.0 GUI.
+ * [NUnit VS Adapter](https://github.com/nunit/docs/wiki/VS-Adapter) covers the Visual Studio test adapters for both NUnit V2 and V3.
+ * [NUnit Project Editor](https://github.com/nunit/docs/wiki/Project-Editor) covers the Windows program for creating and editing `.nunit` project files.
 
 ####Developer Documentation
  * [NUnit Vision](https://github.com/nunit/docs/wiki/NUnit-Vision) covers our vision for NUnit and its future.
