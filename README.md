@@ -15,4 +15,4 @@ This wiki contains the documentation for all active NUnit projects as well as de
  * [NUnit Roadmap](https://github.com/nunit/docs/wiki/NUnit-Roadmap) shows our plans for coming releases.
  * [Team practices](https://github.com/nunit/docs/wiki/Team-Practices) describe how NUnit works and how our teams work.
  * [Specifications](https://github.com/nunit/docs/wiki/Specifications) are descriptions of features we plan to add.
- * [Developer FAQ](https://github.com/nunit/docs/wiki/Developer FAQ) contains basic info for those who want to work on NUnit.
+ * [Developer FAQ](https://github.com/nunit/docs/wiki/Developer_FAQ) contains basic info for those who want to work on NUnit.
