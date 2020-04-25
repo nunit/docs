@@ -6,7 +6,7 @@ This wiki contains the documentation for all active NUnit projects as well as de
  * [NUnit VS Adapter](https://github.com/nunit/docs/wiki/Visual-Studio-Test-Adapter) covers the Visual Studio test adapters for both NUnit V2 and V3.
  * [NUnit VS Test Generator](https://github.com/nunit/docs/wiki/Visual-Studio-Test-Generator) covers the Visual Studio extension for generating tests in both NUnit V2 and V3.
  * [NUnit Xamarin Runners](https://github.com/nunit/docs/wiki/NUnit-Xamarin-Runners) covers the NUnit test runners for Xamarin and mobile devices.
- * [NUnit Gui](https://github.com/CharliePoole/nunit-gui/wiki) covers the new NUnit 3 GUI.
+ * [NUnit Gui](https://github.com/TestCentric/testcentric-gui/wiki) covers the new NUnit 3 GUI.
  * [Project Editor](http://github.com/CharliePoole/nunit-project-editor/wiki/Project-Editor) covers the Windows program for creating and editing `.nunit` project files.
 
 
