@@ -8,6 +8,7 @@ This wiki contains the documentation for all active NUnit projects as well as de
  * [NUnit Xamarin Runners](https://github.com/nunit/docs/wiki/NUnit-Xamarin-Runners) covers the NUnit test runners for Xamarin and mobile devices.
  * [NUnit Gui](https://github.com/TestCentric/testcentric-gui/wiki) covers the new NUnit 3 GUI.
  * [Project Editor](http://github.com/CharliePoole/nunit-project-editor/wiki/Project-Editor) covers the Windows program for creating and editing `.nunit` project files.
+ * [NUnit Analyzers](https://github.com/nunit/docs/wiki/NUnit-Analyzers) covers the NUnit Analyzers for NUnit V3.
 
 
 #### Developer Documentation
