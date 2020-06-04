@@ -91,7 +91,7 @@ You should commit the CHANGES file separately from the version number changes si
 
 ### Update the Documentation
 
-The [Release Notes](https://github.com/nunit/docs/wiki/Release-Notes) section of the documentation wiki should match the content of the CHANGES.txt file except for any format differences.
+The [Release Notes](xref:frameworkreleasenotes) section of the documentation wiki should match the content of the CHANGES.txt file except for any format differences.
 
 > [!NOTE]
 Now that the documentation is being kept in a github wiki, it may be possible to use the github markdown text directly in this file for future releases.

@@ -1,3 +1,7 @@
+---
+uid: frameworkreleasenotes
+---
+
 # Framework Release
 
 ## NUnit 3.12 - May 14, 2019
