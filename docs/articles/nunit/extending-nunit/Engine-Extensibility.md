@@ -1,3 +1,7 @@
+---
+uid: engineextensibility
+---
+
 # Engine Extensibility
 
 The NUnit Test Engine uses a plugin architecture to allow new functionality to be added by third parties. We originally planned to use `Mono.Addins` for this purpose and did so in the first betas. Because `Mono.Addins` no longer supports .NET 2.0, we were using a modified version that we created ourselves and which we would have to maintain in the future. Since `Mono.Addins` has many more features than we expect to use we decided to return to a custom plugin architecture.

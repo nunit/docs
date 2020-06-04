@@ -10,5 +10,5 @@
  * [NUnit Agent](NUnit-Agent.md)
  * [Attribute Hierarchy](Attribute-Hierarchy.md)
  * [Test Discovery And Execution](Test-Discovery-And-Execution.md)
- * [Engine Extensibility](Engine-Extensibility.md)
+ * [Engine Extensibility](xref:engineextensibility)
 

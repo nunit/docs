@@ -70,4 +70,5 @@ As of version 3.4, the NUnit Engine supports four types of extensions. The indiv
 
 Once an extension is written and compiled, it has to be placed somewhere such that NUnit will find it.
 
- > This section is under construction. For now see <https://github.com/nunit/docs/wiki/Engine-Extensibility#locating-addins>
+[!NOTE]
+ > This section is under construction. For now see [The Engine Extensibility page](xref:engineextensibility)
