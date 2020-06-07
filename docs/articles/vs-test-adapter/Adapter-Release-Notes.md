@@ -68,7 +68,6 @@ This release has three major changes.
 
 * [582](https://github.com/nunit/nunit3-vs-adapter/issues/582) TestCase with enclosed double quotes error
 
-
 ### Other resolved issues
 
 * [679](https://github.com/nunit/nunit3-vs-adapter/issues/679) Build.cake does not work in a pure visual studio preview installation.  Fixed by [PR #680](https://github.com/nunit/nunit3-vs-adapter/pull/680) by [Ove Bastiansen](https://github.com/ovebastiansen)
@@ -101,10 +100,9 @@ This release is a major performance improvement release.  When used from Visual 
 ### Resolved Issues
 
 * [645](https://github.com/nunit/nunit3-vs-adapter/issues/645) NUnit3TestAdapter 3.14.0 includes NUnit3.TestAdapter.dll versioned 3.13.  Version number of dll corrected to match package version 3.15
-* [580](https://github.com/nunit/nunit3-vs-adapter/issues/580) Fix licenseUrl in nuspec, will be deprecated 
+* [580](https://github.com/nunit/nunit3-vs-adapter/issues/580) Fix licenseUrl in nuspec, will be deprecated
 
-
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.14 - August 8, 2019
 
@@ -112,11 +110,9 @@ This release is a major performance improvement release.  When used from Visual 
 
 * [609](https://github.com/nunit/nunit3-vs-adapter/issues/609) Request to change working directory from Windows/System32 to another directory
 and
-  [303](https://github.com/nunit/nunit3-vs-adapter/issues/303) Directory.GetCurrentDirectory is C:\WINDOWS\system32 for NUnit3TestAdapter.  If your currentdirectory points to either Windows directory or the Program Files folders, it will be redirected to your temp folder. 
-* [621](https://github.com/nunit/nunit3-vs-adapter/issues/621) TestContext.Progress output.  It will only go to the console, not the test output. 
+  [303](https://github.com/nunit/nunit3-vs-adapter/issues/303) Directory.GetCurrentDirectory is C:\WINDOWS\system32 for NUnit3TestAdapter.  If your currentdirectory points to either Windows directory or the Program Files folders, it will be redirected to your temp folder.
+* [621](https://github.com/nunit/nunit3-vs-adapter/issues/621) TestContext.Progress output.  It will only go to the console, not the test output.
 * [222](https://github.com/nunit/nunit3-vs-adapter/issues/222) NUnit3TestAdapter errors when running xUnit tests.  Thanks to [nvborisenko](https://github.com/nvborisenko) for the [Pull Request](https://github.com/nunit/nunit3-vs-adapter/pull/624)
-
-
 
 ### Resolved Issues
 
@@ -127,7 +123,7 @@ and
 
 This version also includes the latest version 3.10 of the NUnit.Engine.dll
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.13 - February 20, 2019
 
@@ -153,13 +149,11 @@ If you still want to see the properties, you can enable that again setting a run
 
 ### Other fixes
 
-* [599](https://github.com/nunit/nunit3-vs-adapter/issues/599)   Url in the repo header pointing to [nunit.org](https://nunit.org) changed to https, also some other similar changes other places.  Thanks to [Julian Verdurmen](https://github.com/304NotModified) for fixing these. 
+* [599](https://github.com/nunit/nunit3-vs-adapter/issues/599)   Url in the repo header pointing to [nunit.org](https://nunit.org) changed to https, also some other similar changes other places.  Thanks to [Julian Verdurmen](https://github.com/304NotModified) for fixing these.
 
----
-
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.12 - December 19, 2018
-
 
 ### Enhancements
 
