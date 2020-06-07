@@ -479,7 +479,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Resolved Issues
 
-* 75 Update adapter to use final release of NUnit 3.0 
+* 75 Update adapter to use final release of NUnit 3.0
 
 ----
 
@@ -495,7 +495,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 56 Exception System.Reflection.TargetInvocationException after NUnit 3.0.0-beta-5 upgrade
 * 68 NUnit3TestExecutor.MakeTestFilter does not create valid xml
 * 69 NUnit 3.0.0-rc-2 : System.Reflection.TargetInvocationException
-* 70 NUnit3TestExecutor.MakeTestFilter creates element not handled by NUnit.Framework.Internal.TestFilter 
+* 70 NUnit3TestExecutor.MakeTestFilter creates element not handled by NUnit.Framework.Internal.TestFilter
 
 ----
 
@@ -696,7 +696,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * Works with Visual Studio 2012 Update 1 as well as the RTM.
 * Supports filtering and sorting tests by Traits under Update 1.
 * Supports use of standard filter expressions when running under TFS Update 1.
-* NUnit Categories specified on the fixture class are now recognized and honored. 
+* NUnit Categories specified on the fixture class are now recognized and honored.
 
 ### Bug Fixes
 
@@ -704,7 +704,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * 1075893 Test execution fails if solution contains native C++ project
 * 1076012 No source information found for async test methods
 * 1087629 TestFixture Category not being recognised as traits in VS2012 update 1
-* 1091020 Adapter doesn't support TFS Build traits/test case filtering 
+* 1091020 Adapter doesn't support TFS Build traits/test case filtering
 
 ----
 
@@ -712,7 +712,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Bug Fixes
 
-* 1074544 Failures in Test Discovery not reporting sufficient information 
+* 1074544 Failures in Test Discovery not reporting sufficient information
 
 ----
 
@@ -720,7 +720,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Bug Fixes
 
-* 1072150 NUnit adapter 0.93 won't run selected tests 
+* 1072150 NUnit adapter 0.93 won't run selected tests
 
 ----
 
@@ -734,7 +734,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * Console output from tests is now displayed in the Visual Studio Output window.
 * TestFixtureSetUp and TestFixtureTearDown errors are now displayed in the Output window.
 * The caret line (------^) is no longer displayed in the IDE since it depends on use of a fixed font.
-* Tests may now be grouped and filtered by Category (only under the November CTP update for VS2012). 
+* Tests may now be grouped and filtered by Category (only under the November CTP update for VS2012).
 
 ### Bug Fixes
 
@@ -749,7 +749,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * 1065254 Cannot open test from Test Explorer for tests in a Parameterized Test Fixture
 * 1065306 Generic Fixtures aren't discovered.
 * 1066393 Unable to display source for test cases with an alternate name set
-* 1066518 Executed fast test appears in Not Run category in Test Explorer 
+* 1066518 Executed fast test appears in Not Run category in Test Explorer
 
 ----
 
@@ -758,12 +758,12 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 ### Features
 
 * Works with Visual Studio 2012 Release Candidate
-* Uses NUnit 2.6 
+* Uses NUnit 2.6
 
 ### Bug Fixes
 
 * 992837 Unable to Debug using VS Test Adapter
-* 994146 Can't run tests under .NET 2.0/3.5 
+* 994146 Can't run tests under .NET 2.0/3.5
 
 ----
 
@@ -772,7 +772,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 ### Features
 
 * Built against Visual Studio 11 Beta 1
-* Uses NUnit 2.6 
+* Uses NUnit 2.6
 
 ----
 
@@ -781,4 +781,4 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 ### Features
 
 * First release of the test adapter. Compatible with the Visual Studio 11 Developer Preview.
-* Uses NUnit 2.6. 
+* Uses NUnit 2.6.
