@@ -2,11 +2,14 @@
 uid: constraints
 ---
 
+# Constraints
+
 This page lists all the constraints available in NUnit.
+
 * [Alphabetical List of Constraints](#alphabetical-list-of-constraints)
 * [Constraints by Category](#constraints-by-category)
 
-#### Alphabetical List of Constraints
+## Alphabetical List of Constraints
 
 Constraint Name                      | 
 -------------------------------------|
@@ -64,9 +67,9 @@ Constraint Name                      |
 [UniqueItemsConstraint](UniqueItemsConstraint.md)            |
 [XmlSerializableConstraint](XmlSerializableConstraint.md)        |
 
-#### Constraints by Category
+## Constraints by Category
 
-##### Collection Constraints
+### Collection Constraints
   
 Constraint Name                      | 
 -------------------------------------|
@@ -85,7 +88,8 @@ Constraint Name                      |
 [SomeItemsConstraint](SomeItemsConstraint.md)              |
 [UniqueItemsConstraint](UniqueItemsConstraint.md)            |
 
-##### Comparison Constraints
+### Comparison Constraints
+
 Constraint Name                      |
 -------------------------------------|
 [GreaterThanConstraint](GreaterThanConstraint.md)            |
@@ -94,14 +98,15 @@ Constraint Name                      |
 [LessThanOrEqualConstraint](LessThanOrEqualConstraint.md)        |
 [RangeConstraint](RangeConstraint.md)                  |
 
-##### Compound Constraints
+### Compound Constraints
 Constraint Name                      |
 -------------------------------------|
 [AndConstraint](AndConstraint.md)                    |
 [NotConstraint](NotConstraint.md)                    |
 [OrConstraint](OrConstraint.md)                     |
 
-##### Condition Constraints
+### Condition Constraints
+
 Constraint Name                      | 
 -------------------------------------|
 [EmptyConstraint](EmptyConstraint.md)                  |
@@ -110,7 +115,8 @@ Constraint Name                      |
 [NullConstraint](NullConstraint.md)                   |
 [TrueConstraint](TrueConstraint.md)                   |
 
-##### File and Directory Constraints
+### File and Directory Constraints
+
 Constraint Name                      |
 -------------------------------------|
 [EmptyDirectoryConstraint](EmptyDirectoryConstraint.md)         |
@@ -119,7 +125,8 @@ Constraint Name                      |
 [SamePathOrUnderConstraint](SamePathOrUnderConstraint.md)        |
 [SubPathConstraint](SubPathConstraint.md)                |
 
-##### String Constraints
+### String Constraints
+
 Constraint Name                      |
 -------------------------------------|
 [EmptyStringConstraint](EmptyStringConstraint.md)            |
@@ -128,7 +135,8 @@ Constraint Name                      |
 [StartsWithConstraint](StartsWithConstraint.md)             |
 [SubstringConstraint](SubstringConstraint.md)              |
 
-##### Type Constraints
+### Type Constraints
+
 Constraint Name                      |
 -------------------------------------|
 [AssignableFromConstraint](AssignableFromConstraint.md)         |
@@ -136,6 +144,6 @@ Constraint Name                      |
 [ExactTypeConstraint](ExactTypeConstraint.md)              |
 [InstanceOfTypeConstraint](InstanceOfTypeConstraint.md)         |
 
-**See also:**
- * [Constraint Model](xref:constraintmodel)
-   
+## See also
+
+* [Constraint Model](xref:constraintmodel)
