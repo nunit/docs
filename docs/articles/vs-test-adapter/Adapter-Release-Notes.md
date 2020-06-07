@@ -133,7 +133,7 @@ The VSIX is also made compatible with the upcoming VS 2019. Please note support 
 
 The [NUnit internal properties](https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs) have been "over-populating" in the Test Explorer.  These are now filtered out, although you may still see these when you have [Source Based Discovery (SBD)](https://docs.microsoft.com/en-us/visualstudio/test/test-explorer-faq?view=vs-2017) turned on (which is the default in VS).  Once you have run, they will be gone. We expect this part of the issue (SBD) to be fixed in VS.
 
-If you still want to see the properties, you can enable that again setting a runsettings property [ShowInternalProperties]() to true.
+If you still want to see the properties, you can enable that again setting a runsettings property `ShowInternalProperties` to true.
 
 ### Enhancements
 
