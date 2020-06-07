@@ -160,7 +160,7 @@ If you still want to see the properties, you can enable that again setting a run
 * [215](https://github.com/nunit/nunit3-vs-adapter/issues/215) Generate NUnit xml file of test results, specified in .runsettings file for reporting
 * [573](https://github.com/nunit/nunit3-vs-adapter/issues/573) NUnit3TestDiscoverer Could not load file or assembly 'nunit.engine'
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.11.2 - November 22, 2018
 
@@ -173,11 +173,12 @@ This is a yet another hotfix release to fix the missing categories issue.
 ### Reopened issues
 
 This issue was fixed, with a workaround, in 3.11 but had unforeseen consequences, and has been reopened as of this release
+
 * [506](https://github.com/nunit/nunit3-vs-adapter/issues/506) Test categories aren't propagated to vstest trx logs
 
 This probably need to be fixed in VSTest itself.  
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.11.1 - November 21, 2018
 
@@ -188,16 +189,17 @@ This is a hotfix release to fix the duplicated traits issue.
 * [559](https://github.com/nunit/nunit3-vs-adapter/issues/559) Duplicating tags in Test Explorer when using NUnit3TestAdapter 3.11.0
 * [561](https://github.com/nunit/nunit3-vs-adapter/issues/561) Test task aborted when using TestCategory filters
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.11 - October 28, 2018
 
-###  Features
+### Features
+
 * [PR 500](https://github.com/nunit/nunit3-vs-adapter/pull/500) NUnit3VsAdapter to support managed sources only based on [RFC](https://github.com/Microsoft/vstest-docs/blob/master/RFCs/0020-Improving-Logic-To-Pass-Sources-To-Adapters.md)  (Thanks to [mayankbansal018](https://github.com/mayankbansal018) for this PR)
 
 * [543](https://github.com/nunit/nunit3-vs-adapter/issues/543) Adapter should pass `Error` and `Progress` messages to vstest engine as well as stdOut messages (Thanks to [NikolayPianikov](https://github.com/NikolayPianikov) for [PR 544](https://github.com/nunit/nunit3-vs-adapter/pull/544)). Also fixes this [TeamCity issue](https://youtrack.jetbrains.com/issue/TW-55900)  
 
-* Mono.Cecil is now embedded with the adapter, so user dependencies are no longer overwritten. 
+* Mono.Cecil is now embedded with the adapter, so user dependencies are no longer overwritten.
 
 * Indentation of the test log format makes it easier to see what information belongs to which assembly.
 
@@ -216,30 +218,29 @@ Exception thrown while loading tests if In-Proc VSTest DataCollector is used (Th
 
 * [506](https://github.com/nunit/nunit3-vs-adapter/issues/506) Test categories aren't propagated to vstest trx logs
 
-* [516](https://github.com/nunit/nunit3-vs-adapter/issues/516) ArgumentException when whitespace sent to logger 
+* [516](https://github.com/nunit/nunit3-vs-adapter/issues/516) ArgumentException when whitespace sent to logger
 
 * [538](https://github.com/nunit/nunit3-vs-adapter/issues/538)  NuGet Package : Add repository metadata  (Thanks to [MaximRouiller](https://github.com/MaximRouiller) for [PR 539](https://github.com/nunit/nunit3-vs-adapter/pull/539))
 
 * [540](https://github.com/nunit/nunit3-vs-adapter/issues/540) Missing null check before runner dispose
 
- 
-
 ### Notes
 
-* [518](https://github.com/nunit/nunit3-vs-adapter/issues/518)  NUnit VSIX test adapters deprecation notice added.  NUnit will still deliver a vsix for this version. 
+* [518](https://github.com/nunit/nunit3-vs-adapter/issues/518)  NUnit VSIX test adapters deprecation notice added.  NUnit will still deliver a vsix for this version.
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.10 - March 5, 2018
 
-###  Features
+### Features
 
-* [461](https://github.com/nunit/nunit3-vs-adapter/issues/461)  Publish symbols with the adapter for debugging into the adapter and nunit, see 
+* [461](https://github.com/nunit/nunit3-vs-adapter/issues/461)  Publish symbols with the adapter for debugging into the adapter and nunit
 
 ### Resolved Issues
+
 * [47](https://github.com/nunit/nunit3-vs-adapter/issues/47)  Adapter runs explicit tests when TFS TestCaseFilter is used
 * [296](https://github.com/nunit/nunit3-vs-adapter/issues/296) Mono.Cecil causes OutOfMemoryException with new .csproj PDBs  
-* [310](https://github.com/nunit/nunit3-vs-adapter/issues/310) Consistent Category Display in Test Explorer Window 
+* [310](https://github.com/nunit/nunit3-vs-adapter/issues/310) Consistent Category Display in Test Explorer Window
 * [365](https://github.com/nunit/nunit3-vs-adapter/issues/365) An exception occurred while invoking executor: Could not load file or assembly System.Runtime.InteropServices.RuntimeInformation (Thanks to [halex2005](https://github.com/halex2005) for [PR 418](https://github.com/nunit/nunit3-vs-adapter/pull/418))
 * [419](https://github.com/nunit/nunit3-vs-adapter/issues/419)  Test result is Skipped when an exception has been thrown and the only warning is in TearDown
 * [444](https://github.com/nunit/nunit3-vs-adapter/issues/444)  Dump file is not created when the test crashes
