@@ -45,7 +45,7 @@ This release has three major changes.
 
 2. The filter syntax issues we've had with special names and characters have been mostly solved, thanks to excellent work by [John M.Wright](https://github.com/johnmwright).  The filter syntax is now closer to a correct FQN (Full Qualified Name), but this might cause some issues with your own filter in some rare cases.  The fix done resolves a lot of issues, all of them listed below.  For a detailed explanation of what has been done, see the [Pull Request #668](https://github.com/nunit/nunit3-vs-adapter/pull/668).
 
-3. You can now use the NUnit filter syntax, either from command line or through settings in the runsettings file. This was due to an idea by [Michael Letterle](https://github.com/mletterle) and a subsequent implementation [Pull Request #669](https://github.com/nunit/nunit3-vs-adapter/pull/669).  Michael also wrote [a great blogpost](http://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/) to explain how this works, and how he arrived at the solution.  For more information see the [NUnit Test Selection Language](https://github.com/nunit/docs/wiki/Test-Selection-Language).
+3. You can now use the NUnit filter syntax, either from command line or through settings in the runsettings file. This was due to an idea by [Michael Letterle](https://github.com/mletterle) and a subsequent implementation [Pull Request #669](https://github.com/nunit/nunit3-vs-adapter/pull/669).  Michael also wrote [a great blogpost](http://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/) to explain how this works, and how he arrived at the solution.  For more information see the [NUnit Test Selection Language](xref:TestSelectionLanguage).
 
 ##### Resolved issues
 
@@ -131,7 +131,7 @@ This version also includes the latest version 3.10 of the NUnit.Engine.dll
 
 #### NUnit3 Test Adapter for Visual Studio - Version 3.13 - February 20, 2019
 
-This release focuses on producing NUnit test result XML which can be useful when you need reports using tools that support the NUnit format.  This can be enabled using [a new setting](https://github.com/nunit/docs/wiki/Tips-And-Tricks#testoutputxml) in the [runsettings file](https://marketplace.visualstudio.com/items?itemName=OsirisTerje.Runsettings-19151).  
+This release focuses on producing NUnit test result XML which can be useful when you need reports using tools that support the NUnit format.  This can be enabled using [a new setting](xref:tipsandtricks#testoutputxml) in the [runsettings file](https://marketplace.visualstudio.com/items?itemName=OsirisTerje.Runsettings-19151).  
 
 The VSIX is also made compatible with the upcoming VS 2019. Please note support for the VSIX is being deprecated in Visual Studio, and we strongly recommend you to change your test projects to use the [NuGet adapter version](https://www.nuget.org/packages/NUnit3TestAdapter/).
 
