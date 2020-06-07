@@ -417,18 +417,18 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Features
 
- * This is the final production release of the 3.0 adapter. It continues to use the 3.0.1 release of the NUnit TestEngine.
+* This is the final production release of the 3.0 adapter. It continues to use the 3.0.1 release of the NUnit TestEngine.
 
- * The adapter now uses a `.runsettings` file for all optional settings. Registry entries used in the CTP releases are no longer used.
+* The adapter now uses a `.runsettings` file for all optional settings. Registry entries used in the CTP releases are no longer used.
 
 ### Resolved Issues
 
- * 49 Need a way to specify test settings
- * 52 Having ApartmentAttribute on both classes and methods causes test runner to hang
- * 85 Failure to run tests under vstest.console from VS2015
- * 92 Provide option to run in parallel for parallelized tests
- * 120 The ability to set the LevelOfParallelism attribute through the VS adapter
- * 153 TFS Filter that matches no names runs all tests
+* 49 Need a way to specify test settings
+* 52 Having ApartmentAttribute on both classes and methods causes test runner to hang
+* 85 Failure to run tests under vstest.console from VS2015
+* 92 Provide option to run in parallel for parallelized tests
+* 120 The ability to set the LevelOfParallelism attribute through the VS adapter
+* 153 TFS Filter that matches no names runs all tests
 
 ---
 
@@ -436,24 +436,24 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Features
 
- * The adapter continues to use the 3.0.1 release of the NUnit TestEngine.
+* The adapter continues to use the 3.0.1 release of the NUnit TestEngine.
 
 ### Resolved Issues
 
- * 2 CI Build
- * 34 Identifying Non-Primitive Parameterized Inputs in Adapter vs Console
- * 50 NuGet version install script doesn't work with VS 2015
- * 66 Build the adapter in AppVeyor
- * 84 CopyLocal=False is an issue in a specific use case
- * 94 More Information Link in Adapter Broken
- * 96 Working directory is set to VS TestWindow extension directory
- * 102 Package VS2012 assemblies as a private NuGet Package
- * 104 Can't overload async/await methods with NUnit Test Adapter
- * 106 Explicit tests appear as warnings in NUnit 3.0
- * 109 NUnit 2 tests are detected as errors
- * 112 Test adapter fails to load an assembly that references a class from NUnit.Framework but contains no tests
- * 117 Version 3.0.8.0 as NuGet package only. No tests detected in Visual Studio 2015
- * 118 Corrupted ignore.addins file in installation
+* 2 CI Build
+* 34 Identifying Non-Primitive Parameterized Inputs in Adapter vs Console
+* 50 NuGet version install script doesn't work with VS 2015
+* 66 Build the adapter in AppVeyor
+* 84 CopyLocal=False is an issue in a specific use case
+* 94 More Information Link in Adapter Broken
+* 96 Working directory is set to VS TestWindow extension directory
+* 102 Package VS2012 assemblies as a private NuGet Package
+* 104 Can't overload async/await methods with NUnit Test Adapter
+* 106 Explicit tests appear as warnings in NUnit 3.0
+* 109 NUnit 2 tests are detected as errors
+* 112 Test adapter fails to load an assembly that references a class from NUnit.Framework but contains no tests
+* 117 Version 3.0.8.0 as NuGet package only. No tests detected in Visual Studio 2015
+* 118 Corrupted ignore.addins file in installation
 
 ---
 
@@ -461,13 +461,13 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Features
 
- * The adapter now uses the 3.0.1 release of the NUnit TestEngine.
+* The adapter now uses the 3.0.1 release of the NUnit TestEngine.
 
 ### Resolved Issues
 
- * 81 Cannot run tests with '>' in name
- * 86 Generic Test Fixtures are not getting triggered
- * 88 Upgrade adapter to use NUnit 3.0.1
+* 81 Cannot run tests with '>' in name
+* 86 Generic Test Fixtures are not getting triggered
+* 88 Upgrade adapter to use NUnit 3.0.1
 
 ---
 
@@ -475,11 +475,11 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Features
 
- * The adapter now uses the released NUnit 3.0 TestEngine.
+* The adapter now uses the released NUnit 3.0 TestEngine.
 
 ### Resolved Issues
 
- * 75 Update adapter to use final release of NUnit 3.0 
+* 75 Update adapter to use final release of NUnit 3.0 
 
 ---
 
@@ -487,15 +487,15 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Features
 
- * This release continues to use the NUnit RC 2 Engine.
+* This release continues to use the NUnit RC 2 Engine.
 
 ### Resolved Issues
 
- * 14 NUnit Adapter throws System.Reflection.TargetInvocationException, even if the solution build is OK
- * 56 Exception System.Reflection.TargetInvocationException after NUnit 3.0.0-beta-5 upgrade
- * 68 NUnit3TestExecutor.MakeTestFilter does not create valid xml
- * 69 NUnit 3.0.0-rc-2 : System.Reflection.TargetInvocationException
- * 70 NUnit3TestExecutor.MakeTestFilter creates element not handled by NUnit.Framework.Internal.TestFilter 
+* 14 NUnit Adapter throws System.Reflection.TargetInvocationException, even if the solution build is OK
+* 56 Exception System.Reflection.TargetInvocationException after NUnit 3.0.0-beta-5 upgrade
+* 68 NUnit3TestExecutor.MakeTestFilter does not create valid xml
+* 69 NUnit 3.0.0-rc-2 : System.Reflection.TargetInvocationException
+* 70 NUnit3TestExecutor.MakeTestFilter creates element not handled by NUnit.Framework.Internal.TestFilter 
 
 ---
 
@@ -503,15 +503,15 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Features
 
- * This release uses the NUnit RC 2 Engine.
+* This release uses the NUnit RC 2 Engine.
 
 ### Resolved Issues
 
- * 27 Async void methods do not show up as not runnable
- * 43 Remove Wrappers for Engine Classes
- * 45 Remove workaround for tests not sending events
- * 53 Replace core engine
- * 57 Confusing message when an NUnit V2 test is detected
+* 27 Async void methods do not show up as not runnable
+* 43 Remove Wrappers for Engine Classes
+* 45 Remove workaround for tests not sending events
+* 53 Replace core engine
+* 57 Confusing message when an NUnit V2 test is detected
 
 ---
 
@@ -519,18 +519,18 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Features
 
- * This release continues to use the NUnit 3.0 beta-2 engine but is nevertheless able to run tests that reference NUnit 3.0 beta-3 framework.
+* This release continues to use the NUnit 3.0 beta-2 engine but is nevertheless able to run tests that reference NUnit 3.0 beta-3 framework.
 
- * When a debugger is attached, only a single worker thread is used to run tests.
+* When a debugger is attached, only a single worker thread is used to run tests.
 
- * The adapter now compensates for the fact that NUnit does not send results for tests that were skipped due to an attribute on the fixture by generating those results itself.
+* The adapter now compensates for the fact that NUnit does not send results for tests that were skipped due to an attribute on the fixture by generating those results itself.
 
 ### Resolved Issues
 
- * 16 Adapter does not detect C++/CLI assemblies
- * 26 Ignored test case does not show up as ignored
- * 33 Inconsistent display behavior in Test Explorer
- * 36 Option to set number of worker threads
+* 16 Adapter does not detect C++/CLI assemblies
+* 26 Ignored test case does not show up as ignored
+* 33 Inconsistent display behavior in Test Explorer
+* 36 Option to set number of worker threads
 
 ---
 
@@ -542,7 +542,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Resolved Issues
 
- * 29 Latest test adapter locking dlls
+* 29 Latest test adapter locking dlls
 
 ---
 
@@ -550,17 +550,17 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * The adapter now uses the new nunit.core.engine to load and run tests, eliminating ad-hoc code that worked directly with the framework. This will allow us to much greater flexibility in the future.
+* The adapter now uses the new nunit.core.engine to load and run tests, eliminating ad-hoc code that worked directly with the framework. This will allow us to much greater flexibility in the future.
 
- * The adapter has been upgraded to use the beta-2 release of the NUnit core engine. Because the API has changed from beta-1, the adapter can only run tests built against the beta-2 release of NUnit.
+* The adapter has been upgraded to use the beta-2 release of the NUnit core engine. Because the API has changed from beta-1, the adapter can only run tests built against the beta-2 release of NUnit.
 
 ### Resolved Issues
 
- * 13 Adapter will not load as a NuGet package
- * 17 Can't read app.config settings within test methods
- * 18 Separate NUnit3TestDemo from NUnitTestAdapter solution
- * 19 Use core engine
- * 20 Upgrade NUnit to beta-2
+* 13 Adapter will not load as a NuGet package
+* 17 Can't read app.config settings within test methods
+* 18 Separate NUnit3TestDemo from NUnitTestAdapter solution
+* 19 Use core engine
+* 20 Upgrade NUnit to beta-2
 
 ---
 
@@ -568,7 +568,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * Initial release of the test adapter using NUnit 3.0. Note that the adapter may **not** be used to run tests written against earlier versions of NUnit. The original adapter is still available for that purpose and both adapters may be installed if necessary.
+* Initial release of the test adapter using NUnit 3.0. Note that the adapter may **not** be used to run tests written against earlier versions of NUnit. The original adapter is still available for that purpose and both adapters may be installed if necessary.
 
 ---
 
@@ -576,14 +576,14 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * Tested for up to VS2015 Pre-release CTP 6
- * Updated to use NUnit 2.6.4
- * Adapter does not try to discover tests if the nunit.framework version is 3.0 or greater
+* Tested for up to VS2015 Pre-release CTP 6
+* Updated to use NUnit 2.6.4
+* Adapter does not try to discover tests if the nunit.framework version is 3.0 or greater
 
 ### Bug Fixes
 
- * #61 Confusing NUnit version message made clearer
- * #62 Adapter uses shadowcopy setting in discoverer but not in the executor
+* #61 Confusing NUnit version message made clearer
+* #62 Adapter uses shadowcopy setting in discoverer but not in the executor
 
 ---
 
@@ -591,17 +591,17 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * Tested for up to VS2013 Update 3
- * Bugs 39 and 40 was inability to run under VS2012. This is now fixed.
+* Tested for up to VS2013 Update 3
+* Bugs 39 and 40 was inability to run under VS2012. This is now fixed.
 
 ### Bug Fixes
 
- * #24 Long-running tests ignored
- * #34 Adapter causes ArgumentException to be thrown by Microsoft logger proxy's SendMessage method
- * #37 TestExecution throws Exception System.InvalidOperationException in TFS Build
- * #38 NUnit only accepts absolute paths to test assembly
- * #39 VSTest unable to find NUnit tests since 1.1.0.0
- * #40 NUnit version 1.1.0.0 is broken with test class which ran under 1.0.0.0
+* #24 Long-running tests ignored
+* #34 Adapter causes ArgumentException to be thrown by Microsoft logger proxy's SendMessage method
+* #37 TestExecution throws Exception System.InvalidOperationException in TFS Build
+* #38 NUnit only accepts absolute paths to test assembly
+* #39 VSTest unable to find NUnit tests since 1.1.0.0
+* #40 NUnit version 1.1.0.0 is broken with test class which ran under 1.0.0.0
 
 ---
 
@@ -609,16 +609,16 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * Support for NUnit 2.6.3
- * Tested for up to VS2013 Update 2 RC
- * Shadow copy now disabled by default, see issue #7 Unable to disable shadow copy.
- * Registry settings added for some customization options, see Tips and Tricks
- * All code moved to github
+* Support for NUnit 2.6.3
+* Tested for up to VS2013 Update 2 RC
+* Shadow copy now disabled by default, see issue #7 Unable to disable shadow copy.
+* Registry settings added for some customization options, see Tips and Tricks
+* All code moved to github
 
 ### Bug Fixes
 
- * #13 Category attribute not working with TFS test case filter
- * #21 Xamarin.iOS NUnit project causes adapter to throw
+* #13 Category attribute not working with TFS test case filter
+* #21 Xamarin.iOS NUnit project causes adapter to throw
 
 ---
 
@@ -626,11 +626,11 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * This is the release version 1.0 of the test adapter.
+* This is the release version 1.0 of the test adapter.
 
 ### Bug Fixes
 
- * #1208148 The test result output node is not shown for debug/trace statements
+* #1208148 The test result output node is not shown for debug/trace statements
 
 ---
 
@@ -638,13 +638,13 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * This is the release candidate for version 1.0 of the test adapter.
+* This is the release candidate for version 1.0 of the test adapter.
 
 ### Bug Fixes
 
- * #1208161 NUnit Test Adapter runs [Explicit] unit tests in TFS Build
- * #1210536 No Source Available for Async Tests
- * #1165188 Clicking "Run Selected Tests" doesn't show Trace.WriteLine() output
+* #1208161 NUnit Test Adapter runs [Explicit] unit tests in TFS Build
+* #1210536 No Source Available for Async Tests
+* #1165188 Clicking "Run Selected Tests" doesn't show Trace.WriteLine() output
 
 ---
 
@@ -652,11 +652,11 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * Support for Visual Studio 2013 Preview
+* Support for Visual Studio 2013 Preview
 
 ### Bug Fixes
 
- * #1189268 Profile a test will crash with exception
+* #1189268 Profile a test will crash with exception
 
 ---
 
@@ -664,7 +664,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Bug Fixes
 
- * #1188000, adapter dont work with solutions with only .net 2.0/3.5 project
+* #1188000, adapter dont work with solutions with only .net 2.0/3.5 project
 
 ---
 
@@ -672,20 +672,20 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Bug Fixes
 
- * Hotfix for debug issue
+* Hotfix for debug issue
 
 ## NUnit Test Adapter for Visual Studio (Beta 5) - Version 0.95 - May 10, 2013
 
 ### Features
 
- * #1174925 Add support for installing the adapter from NuGet
+* #1174925 Add support for installing the adapter from NuGet
 
 ### Bug Fixes
 
- * #1155617 Grouping by class name in VS 2012 doesn't work
- * #1165359 Exception after building Coded UI test
- * #1116747 vstest.executionengine.x86.exe does not terminate
- * #1093178 Eliminate unnecessary files from VSIX
+* #1155617 Grouping by class name in VS 2012 doesn't work
+* #1165359 Exception after building Coded UI test
+* #1116747 vstest.executionengine.x86.exe does not terminate
+* #1093178 Eliminate unnecessary files from VSIX
 
 ---
 
@@ -693,18 +693,18 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * Works with Visual Studio 2012 Update 1 as well as the RTM.
- * Supports filtering and sorting tests by Traits under Update 1.
- * Supports use of standard filter expressions when running under TFS Update 1.
- * NUnit Categories specified on the fixture class are now recognized and honored. 
+* Works with Visual Studio 2012 Update 1 as well as the RTM.
+* Supports filtering and sorting tests by Traits under Update 1.
+* Supports use of standard filter expressions when running under TFS Update 1.
+* NUnit Categories specified on the fixture class are now recognized and honored. 
 
 ### Bug Fixes
 
- * 1074891 Can't test multiple assemblies referencing different NUnit versions
- * 1075893 Test execution fails if solution contains native C++ project
- * 1076012 No source information found for async test methods
- * 1087629 TestFixture Category not being recognised as traits in VS2012 update 1
- * 1091020 Adapter doesn't support TFS Build traits/test case filtering 
+* 1074891 Can't test multiple assemblies referencing different NUnit versions
+* 1075893 Test execution fails if solution contains native C++ project
+* 1076012 No source information found for async test methods
+* 1087629 TestFixture Category not being recognised as traits in VS2012 update 1
+* 1091020 Adapter doesn't support TFS Build traits/test case filtering 
 
 ---
 
@@ -712,7 +712,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Bug Fixes
 
- * 1074544 Failures in Test Discovery not reporting sufficient information 
+* 1074544 Failures in Test Discovery not reporting sufficient information 
 
 ---
 
@@ -720,7 +720,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Bug Fixes
 
- * 1072150 NUnit adapter 0.93 won't run selected tests 
+* 1072150 NUnit adapter 0.93 won't run selected tests 
 
 ---
 
@@ -728,28 +728,28 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * Works with Visual Studio 2012 RTM. Some features require the November CTP update.
- * The adapter now uses NUnit 2.6.2. Among other things, this allows us to support async test methods. See the NUnit Release Notes for more info.
- * Source file and line number can now be found for test cases that have an alternate name set.
- * Console output from tests is now displayed in the Visual Studio Output window.
- * TestFixtureSetUp and TestFixtureTearDown errors are now displayed in the Output window.
- * The caret line (------^) is no longer displayed in the IDE since it depends on use of a fixed font.
- * Tests may now be grouped and filtered by Category (only under the November CTP update for VS2012). 
+* Works with Visual Studio 2012 RTM. Some features require the November CTP update.
+* The adapter now uses NUnit 2.6.2. Among other things, this allows us to support async test methods. See the NUnit Release Notes for more info.
+* Source file and line number can now be found for test cases that have an alternate name set.
+* Console output from tests is now displayed in the Visual Studio Output window.
+* TestFixtureSetUp and TestFixtureTearDown errors are now displayed in the Output window.
+* The caret line (------^) is no longer displayed in the IDE since it depends on use of a fixed font.
+* Tests may now be grouped and filtered by Category (only under the November CTP update for VS2012). 
 
 ### Bug Fixes
 
- * 1021144 Text output from tests not displayed in Visual Studio IDE
- * 1033623 Not possible to include or exclude tests based on [Category] attribute Released
- * 1040779 Null reference exception on generic test fixtures
- * 1064620 Support async test methods
- * 1065209 Should call both RecordEnd and RecordResult at end of a test
- * 1065212 Upgrade NUnit to 2.6.2
- * 1065223 Error messages assume a fixed font, but don't get one
- * 1065225 No display for TestFixtureSetUp/TearDown or SetUpFixture errors
- * 1065254 Cannot open test from Test Explorer for tests in a Parameterized Test Fixture
- * 1065306 Generic Fixtures aren't discovered.
- * 1066393 Unable to display source for test cases with an alternate name set
- * 1066518 Executed fast test appears in Not Run category in Test Explorer 
+* 1021144 Text output from tests not displayed in Visual Studio IDE
+* 1033623 Not possible to include or exclude tests based on [Category] attribute Released
+* 1040779 Null reference exception on generic test fixtures
+* 1064620 Support async test methods
+* 1065209 Should call both RecordEnd and RecordResult at end of a test
+* 1065212 Upgrade NUnit to 2.6.2
+* 1065223 Error messages assume a fixed font, but don't get one
+* 1065225 No display for TestFixtureSetUp/TearDown or SetUpFixture errors
+* 1065254 Cannot open test from Test Explorer for tests in a Parameterized Test Fixture
+* 1065306 Generic Fixtures aren't discovered.
+* 1066393 Unable to display source for test cases with an alternate name set
+* 1066518 Executed fast test appears in Not Run category in Test Explorer 
 
 ---
 
@@ -757,13 +757,13 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * Works with Visual Studio 2012 Release Candidate
- * Uses NUnit 2.6 
+* Works with Visual Studio 2012 Release Candidate
+* Uses NUnit 2.6 
 
 ### Bug Fixes
 
- * 992837 Unable to Debug using VS Test Adapter
- * 994146 Can't run tests under .NET 2.0/3.5 
+* 992837 Unable to Debug using VS Test Adapter
+* 994146 Can't run tests under .NET 2.0/3.5 
 
 ---
 
@@ -771,8 +771,8 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * Built against Visual Studio 11 Beta 1
- * Uses NUnit 2.6 
+* Built against Visual Studio 11 Beta 1
+* Uses NUnit 2.6 
 
 ---
 
@@ -780,5 +780,5 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Features
 
- * First release of the test adapter. Compatible with the Visual Studio 11 Developer Preview.
- * Uses NUnit 2.6. 
+* First release of the test adapter. Compatible with the Visual Studio 11 Developer Preview.
+* Uses NUnit 2.6. 
