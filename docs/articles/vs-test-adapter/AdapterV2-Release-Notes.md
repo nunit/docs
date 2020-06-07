@@ -4,7 +4,7 @@
 
 ### Features
 
-* [#180](https://github.com/nunit/nunit-vs-adapter/issues/180) Nunit 2 test adapter does not support Visual Studio 2019 
+* [#180](https://github.com/nunit/nunit-vs-adapter/issues/180) Nunit 2 test adapter does not support Visual Studio 2019
 * [#175](https://github.com/nunit/nunit-vs-adapter/issues/175) NuGet Package : Add `repository` metadata. Thanks to [MaximRouiller](https://github.com/MaximRouiller) for the PR
 * [#174](https://github.com/nunit/nunit-vs-adapter/issues/174)  NUnitTestAdapter 2.1.1 not working with Visual Studio 2017 15.8.0  
 
@@ -21,10 +21,11 @@ Hotfix release
 
 ### Bug Fixes
 
-* #142 NUnit Test Adapter 2.1 doesn't work with projects that target .NET Framework 3.5 / CLR 2.0 
+* #142 NUnit Test Adapter 2.1 doesn't work with projects that target .NET Framework 3.5 / CLR 2.0
 * #144 Adapter requires test project pdb's to be generated for tests to be executed
- 
+
 ---
+
 ## NUnit Test Adapter for Visual Studio - Version 2.1 - March 4, 2017
 
 ### Features
@@ -35,13 +36,14 @@ Hotfix release
 
 ### Bug Fixes
 
-* #84 NUnit load failure 
+* #84 NUnit load failure
 * #87 Can't overload async/await methods
 
 ### Notes
 
-* The NUnit V2 adapter does not support the Live Unit Testing feature in VS 2017.  That support is only included with the NUnit V3 adapter. 
-* The package including both the adapter and the framework are discontinued. Please install the separate packages instead when upgrading. 
+* The NUnit V2 adapter does not support the Live Unit Testing feature in VS 2017.  That support is only included with the NUnit V3 adapter.
+* The package including both the adapter and the framework are discontinued. Please install the separate packages instead when upgrading.
+
 ---
 
 ## NUnit Test Adapter for Visual Studio - Version 2.0 - April 1, 2015
@@ -56,7 +58,9 @@ Hotfix release
 
 * #61 Confusing NUnit version message made clearer
 * #62 Adapter uses shadowcopy setting in discoverer but not in the executor
+
 ---
+
 ## NUnit Test Adapter for Visual Studio (RTM) - Version 1.2 - September 17, 2014
 
 ### Features
@@ -89,7 +93,9 @@ Hotfix release
 
 * #13 Category attribute not working with TFS test case filter
 * #21 Xamarin.iOS NUnit project causes adapter to throw
+
 ---
+
 ## NUnit Test Adapter for Visual Studio (RTM) - Version 1.0 - September 12, 2013
 
 ### Features
@@ -114,7 +120,7 @@ Hotfix release
 * #1210536 No Source Available for Async Tests
 * #1165188 Clicking "Run Selected Tests" doesn't show Trace.WriteLine() output
 
-----
+---
 
 ## NUnit Test Adapter for Visual Studio (Beta 6) - Version 0.96 - June 28, 2013
 
@@ -126,7 +132,7 @@ Hotfix release
 
 * #1189268 Profile a test will crash with exception
 
-----
+---
 
 ## NUnit Test Adapter for Visual Studio (Beta 5) - Version 0.95.2 - June 7, 2013
 
@@ -134,7 +140,7 @@ Hotfix release
 
 * #1188000, adapter dont work with solutions with only .net 2.0/3.5 project
 
-----
+---
 
 ## NUnit Test Adapter for Visual Studio (Beta 5) - Version 0.95.1 Hotfix- May 28, 2013
 
@@ -142,7 +148,7 @@ Hotfix release
 
 * Hotfix for debug issue
 
-----
+---
 
 ## NUnit Test Adapter for Visual Studio (Beta 5) - Version 0.95 - May 10, 2013
 
@@ -156,7 +162,9 @@ Hotfix release
 * #1165359 Exception after building Coded UI test
 * #1116747 vstest.executionengine.x86.exe does not terminate
 * #1093178 Eliminate unnecessary files from VSIX
+
 ---
+
 ## NUnit Test Adapter for Visual Studio (Beta 4) - Version 0.94 - December 22, 2012
 
 ### Features
@@ -164,7 +172,7 @@ Hotfix release
 * Works with Visual Studio 2012 Update 1 as well as the RTM.
 * Supports filtering and sorting tests by Traits under Update 1.
 * Supports use of standard filter expressions when running under TFS Update 1.
-* NUnit Categories specified on the fixture class are now recognized and honored. 
+* NUnit Categories specified on the fixture class are now recognized and honored.
 
 ### Bug Fixes
 
@@ -172,25 +180,25 @@ Hotfix release
 * 1075893 Test execution fails if solution contains native C++ project
 * 1076012 No source information found for async test methods
 * 1087629 TestFixture Category not being recognised as traits in VS2012 update 1
-* 1091020 Adapter doesn't support TFS Build traits/test case filtering 
+* 1091020 Adapter doesn't support TFS Build traits/test case filtering
 
-----
+---
 
 ## NUnit Test Adapter for Visual Studio (Beta 3-2) - Version 0.93.2 - November 2, 2012
 
 ### Bug Fixes
 
-* 1074544 Failures in Test Discovery not reporting sufficient information 
+* 1074544 Failures in Test Discovery not reporting sufficient information
 
-----
+---
 
 ## NUnit Test Adapter for Visual Studio (Beta 3-1) - Version 0.93.1 - October 26, 2012
 
 ### Bug Fixes
 
-* 1072150 NUnit adapter 0.93 won't run selected tests 
+* 1072150 NUnit adapter 0.93 won't run selected tests
 
-----
+---
 
 ## NUnit Test Adapter for Visual Studio (Beta 3) - Version 0.93 - October 24, 2012
 
@@ -202,7 +210,7 @@ Hotfix release
 * Console output from tests is now displayed in the Visual Studio Output window.
 * TestFixtureSetUp and TestFixtureTearDown errors are now displayed in the Output window.
 * The caret line (------^) is no longer displayed in the IDE since it depends on use of a fixed font.
-* Tests may now be grouped and filtered by Category (only under the November CTP update for VS2012). 
+* Tests may now be grouped and filtered by Category (only under the November CTP update for VS2012).
 
 ### Bug Fixes
 
@@ -217,36 +225,36 @@ Hotfix release
 * 1065254 Cannot open test from Test Explorer for tests in a Parameterized Test Fixture
 * 1065306 Generic Fixtures aren't discovered.
 * 1066393 Unable to display source for test cases with an alternate name set
-* 1066518 Executed fast test appears in Not Run category in Test Explorer 
+* 1066518 Executed fast test appears in Not Run category in Test Explorer
 
-----
+---
 
 ## NUnit Test Adapter for Visual Studio (Beta 2) - Version 0.92 - May 3, 2012
 
 ### Features
 
 * Works with Visual Studio 2012 Release Candidate
-* Uses NUnit 2.6 
+* Uses NUnit 2.6
 
 ### Bug Fixes
 
 * 992837 Unable to Debug using VS Test Adapter
-* 994146 Can't run tests under .NET 2.0/3.5 
+* 994146 Can't run tests under .NET 2.0/3.5
 
-----
+---
 
 ## NUnit Test Adapter for Visual Studio (Beta 1) - Version 0.91 - February 29, 2012
 
 ### Features
 
 * Built against Visual Studio 11 Beta 1
-* Uses NUnit 2.6 
+* Uses NUnit 2.6
 
-----
+---
 
 ## NUnit Test Adapter for Visual Studio (Alpha) - Version 0.90 - February 21, 2012
 
 ### Features
 
 * First release of the test adapter. Compatible with the Visual Studio 11 Developer Preview.
-* Uses NUnit 2.6. 
+* Uses NUnit 2.6.
