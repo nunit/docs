@@ -294,28 +294,28 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * [231](https://github.com/nunit/nunit3-vs-adapter/issues/231) Improved message on failed loading. See also [PR 309](https://github.com/nunit/nunit3-vs-adapter/pull/309)
 * [338](https://github.com/nunit/nunit3-vs-adapter/issues/338) Unhandled Exception when running through vstest.console.exe /listtests
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.7 - January 25, 2017
 
 ### Features
 
- * The adapter now uses version 3.6 of the engine to run tests
- * Warning messages are displayed. Note that Visual Studio currently lists them as skipped.
- * Multiple assertion failures in a Multiple Assert block are displayed.
+* The adapter now uses version 3.6 of the engine to run tests
+* Warning messages are displayed. Note that Visual Studio currently lists them as skipped.
+* Multiple assertion failures in a Multiple Assert block are displayed.
 
 ### Resolved Issues
 
- * 218 No tests found to run when TestFixture is a nested class
- * 256 Rename $RANDOM_SEED$
- * 258 Modify adapter to display multiple assert information
- * 268 Make the Icon Larger
- * 272 URL for "More information" should point to correct landing page
- * 273 Report Warnings in VS adapter
- * 276 Adapter requires test project pbd's to be generated for tests to be executed
- * 288 Test parameters containing semicolons are truncated
+* 218 No tests found to run when TestFixture is a nested class
+* 256 Rename $RANDOM_SEED$
+* 258 Modify adapter to display multiple assert information
+* 268 Make the Icon Larger
+* 272 URL for "More information" should point to correct landing page
+* 273 Report Warnings in VS adapter
+* 276 Adapter requires test project pbd's to be generated for tests to be executed
+* 288 Test parameters containing semicolons are truncated
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.6.1 - December 5, 2016
 
@@ -324,77 +324,77 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Resolved Issues
 
- * 260 VSIX no longer visible in Visual Studio 2012
+* 260 VSIX no longer visible in Visual Studio 2012
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.6 - November 15, 2016
 
 ### Features
 
- * Adds support for Visual Studio "15"
+* Adds support for Visual Studio "15"
 
 ### Resolved Issues
 
- * 253 Warnings about $RANDOM_SEED$ during build
- * 262 Support for VS 15
+* 253 Warnings about $RANDOM_SEED$ during build
+* 262 Support for VS 15
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.5 - October 22, 2016
 
 ### Features
 
- * The adapter now uses version 3.5 of the NUnit engine
- * The NuGet package is now installed as a tool and no longer creates unnecessary references in the project
+* The adapter now uses version 3.5 of the NUnit engine
+* The NuGet package is now installed as a tool and no longer creates unnecessary references in the project
 
 ### Resolved Issues
 
- * 97 Tests with dynamic/random parameters are never run closed:done is:bug pri:normal
- * 204 If a test writes to Console.Error, the test passes but the session fails
- * 220 Visual Studio Test Adapter - Writing to test output throws an error
- * 221 Change adapter package to use tools directory
- * 236 Update adapter to use Version 3.5 of the Engine
- * 238 Just warn upon failing to restore random seed
- * 239 Remove Error-level log messages from adapter where we don't want run to fail
- * 243 NuGet package and copy local
+* 97 Tests with dynamic/random parameters are never run closed:done is:bug pri:normal
+* 204 If a test writes to Console.Error, the test passes but the session fails
+* 220 Visual Studio Test Adapter - Writing to test output throws an error
+* 221 Change adapter package to use tools directory
+* 236 Update adapter to use Version 3.5 of the Engine
+* 238 Just warn upon failing to restore random seed
+* 239 Remove Error-level log messages from adapter where we don't want run to fail
+* 243 NuGet package and copy local
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.4.1 - August 5, 2016
 
 ### Features
 
- * We now use Cake to build and package the adapter.
+* We now use Cake to build and package the adapter.
 
 ### Resolved Issues
 
- * 198 Create Cake script for build
- * 202 NUnit3 Test Adapter not running all tests in Visual Studio 2015
- * 205 Adapter fails to find Mono.Cecil when targeting .NET 3.5
+* 198 Create Cake script for build
+* 202 NUnit3 Test Adapter not running all tests in Visual Studio 2015
+* 205 Adapter fails to find Mono.Cecil when targeting .NET 3.5
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.4 - July 2, 2016
 
 ### Features
 
- * The adapter now uses the NUnit 3.4.1 TestEngine.
- * TestRunParameters may now be provided in the `.runsettings` file.
- * Immediate text output from tests now displays in the Output window. This includes any output produced through Console.Error, TestContext.Error or TestContext.Progress.
+* The adapter now uses the NUnit 3.4.1 TestEngine.
+* TestRunParameters may now be provided in the `.runsettings` file.
+* Immediate text output from tests now displays in the Output window. This includes any output produced through Console.Error, TestContext.Error or TestContext.Progress.
 
 ### Resolved Issues
 
- * 132 Print to console not shown with v3 of adapter
- * 138 Cannot run navigation tests under the console runner
- * 145 Implement TestRunParameters inside .runsettings for runtime parameters
- * 180 Upgrade to NUnit 3.4.1
- * 181 Can't run requiring a 32-bit process
- * 183 Use Mono.Cecil to retrieve source code locations
- * 190 NUnit30Settings.xml is used by other process leads to hidden tests
- * 192 Corrupt NUnit3Settings.xml causes crash
+* 132 Print to console not shown with v3 of adapter
+* 138 Cannot run navigation tests under the console runner
+* 145 Implement TestRunParameters inside .runsettings for runtime parameters
+* 180 Upgrade to NUnit 3.4.1
+* 181 Can't run requiring a 32-bit process
+* 183 Use Mono.Cecil to retrieve source code locations
+* 190 NUnit30Settings.xml is used by other process leads to hidden tests
+* 192 Corrupt NUnit3Settings.xml causes crash
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.2 - June 3, 2016
 
