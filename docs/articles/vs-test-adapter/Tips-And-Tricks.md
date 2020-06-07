@@ -65,10 +65,10 @@ The folder can be
 *(From version 3.12)*
 
 #### InternalTraceLevel
-This setting is a diagnostic setting forwarded to NUnit, and not used by the adapter itself.  For further information see the [NUnit Tracelevel documentation](https://github.com/nunit/docs/wiki/Internal-Trace-Spec)
+This setting is a diagnostic setting forwarded to NUnit, and not used by the adapter itself.  For further information see the [NUnit Tracelevel documentation](xref:internaltracespec)
 
 #### NumberOfTestWorkers
-This  setting is sent to NUnit to determine how  [parallelization](https://github.com/nunit/docs/wiki/Parallelizable-Attribute) should be performed.  
+This  setting is sent to NUnit to determine how  [parallelization](xref:parallelizableattribute) should be performed.  
 Note in particular that NUnit can either run directly or for parallel runs use queue of threads.  Set to 0, it will run directly, set to 1 it will use a queue with a single thread.  
 
 #### ShadowCopyFiles
