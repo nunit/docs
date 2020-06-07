@@ -364,7 +364,7 @@ This is a hotfix release that addresses occasional hangs when using test paralle
 ## NUnit 3.7 - May 29, 2017
 
 This release of NUnit expands on parallel test execution to allow test methods to
-be run in parallel. Please see the [Parallelizable Attribute](https://github.com/nunit/docs/wiki/Parallelizable-Attribute)
+be run in parallel. Please see the [Parallelizable Attribute](xref:parallelizableattribute)
 for more information.
 
 NUnit 3.7 also drops the Portable build of the framework and replaces it with a
