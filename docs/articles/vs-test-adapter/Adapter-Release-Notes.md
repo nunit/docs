@@ -33,7 +33,7 @@ Together with these, the following issues are changed:
 * [676](https://github.com/nunit/nunit3-vs-adapter/issues/676)  Test cases are skipped with TestCaseSource under Visual Studio 2019.  This works under 3.16.0, but need the changes below in a runsettings file under 3.16.1
 
 Note that this hotfix changes some of the new defaults introduced in 3.16.0.  
-These can be set back using the two new runsettings [UseParentFQNForParametrizedTests](https://github.com/nunit/docs/wiki/Tips-And-Tricks#UseParentFQNForParametrizedTests) and [UseNUnitIdforTestCaseId](https://github.com/nunit/docs/wiki/Tips-And-Tricks#UseNUnitIdforTestCaseId)
+These can be set back using the two new runsettings [UseParentFQNForParametrizedTests](xref:tipsandtricks#useparentfqnforparametrizedtests) and [UseNUnitIdforTestCaseId](xref:tipsandtricks#usenunitidfortestcaseid)
 
 ----
 
