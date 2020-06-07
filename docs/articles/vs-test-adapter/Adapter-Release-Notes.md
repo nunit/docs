@@ -400,18 +400,18 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Features
 
- * The adapter now uses the NUnit 3.2.1 TestEngine.
+* The adapter now uses the NUnit 3.2.1 TestEngine.
 
 ### Resolved Issues
 
- * 131 NUnit test adapter not running all tests - only on VS2015
- * 135 Upgrade TestEngine to 3.2.1
- * 162 Visual Studio 15 support
- * 163 No source location when inheriting test methods from base test fixture
- * 174 Clarify that NUnit v2 tests are not discovered by v3 adapter
- * 176 More Information link in vsix broken
+* 131 NUnit test adapter not running all tests - only on VS2015
+* 135 Upgrade TestEngine to 3.2.1
+* 162 Visual Studio 15 support
+* 163 No source location when inheriting test methods from base test fixture
+* 174 Clarify that NUnit v2 tests are not discovered by v3 adapter
+* 176 More Information link in vsix broken
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.0 - April 2, 2016
 
