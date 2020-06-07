@@ -6,7 +6,6 @@ This is the first beta release published on [Nuget](https://nuget.org).
 
 It contains new features and some bugfixes.
 
-
 ### Features and Enhancements
 
 * [675](https://github.com/nunit/nunit3-vs-adapter/issues/675) Ability to set StopOnError via .runsettings
@@ -26,7 +25,7 @@ It contains new features and some bugfixes.
 This release is a hotfix release intended to fix three major issues:
 
 * [686](https://github.com/nunit/nunit3-vs-adapter/issues/686) NUnit3TestAdapter3.16. dotnet filter argument is not applied
-* [690](https://github.com/nunit/nunit3-vs-adapter/issues/690) Can run only one test case from combinatorial test 
+* [690](https://github.com/nunit/nunit3-vs-adapter/issues/690) Can run only one test case from combinatorial test
 * [692](https://github.com/nunit/nunit3-vs-adapter/issues/692) NUnit Test Adaptor 3.16.0 never displays results of test under Visual Studio 2015
 
 Together with these, the following issues are changed:
@@ -42,7 +41,7 @@ These can be set back using the two new runsettings [UseParentFQNForParametrized
 
 This release has three major changes.  
 
-1. The support for .NET Core 1.* has been removed.  This is done to open up more functionality for the later .NET Core versions.  Also, since .NET Core 1.* is no longer supported by Microsoft, we decided to remove the support too.  If you do have .NET Core 1.* solutions and can't upgrade, you should stay with the the adapter 3.15.1 or lower.  The change also means we now support dump files in .NET Core :-).  It also means the total size of the package has been reduced by around 30%.
+1. The support for .NET Core `1.*` has been removed.  This is done to open up more functionality for the later .NET Core versions.  Also, since .NET Core `1.*` is no longer supported by Microsoft, we decided to remove the support too.  If you do have .NET Core 1.* solutions and can't upgrade, you should stay with the the adapter 3.15.1 or lower.  The change also means we now support dump files in .NET Core :-).  It also means the total size of the package has been reduced by around 30%.
 
 2. The filter syntax issues we've had with special names and characters have been mostly solved, thanks to excellent work by [John M.Wright](https://github.com/johnmwright).  The filter syntax is now closer to a correct FQN (Full Qualified Name), but this might cause some issues with your own filter in some rare cases.  The fix done resolves a lot of issues, all of them listed below.  For a detailed explanation of what has been done, see the [Pull Request #668](https://github.com/nunit/nunit3-vs-adapter/pull/668).
 
