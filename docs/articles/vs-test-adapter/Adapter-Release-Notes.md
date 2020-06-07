@@ -244,17 +244,18 @@ Exception thrown while loading tests if In-Proc VSTest DataCollector is used (Th
 * [365](https://github.com/nunit/nunit3-vs-adapter/issues/365) An exception occurred while invoking executor: Could not load file or assembly System.Runtime.InteropServices.RuntimeInformation (Thanks to [halex2005](https://github.com/halex2005) for [PR 418](https://github.com/nunit/nunit3-vs-adapter/pull/418))
 * [419](https://github.com/nunit/nunit3-vs-adapter/issues/419)  Test result is Skipped when an exception has been thrown and the only warning is in TearDown
 * [444](https://github.com/nunit/nunit3-vs-adapter/issues/444)  Dump file is not created when the test crashes
-* [452](https://github.com/nunit/nunit3-vs-adapter/issues/452) Adapter does not seem to respect any TestCategory filtering 
+* [452](https://github.com/nunit/nunit3-vs-adapter/issues/452) Adapter does not seem to respect any TestCategory filtering
 * [460](https://github.com/nunit/nunit3-vs-adapter/issues/460)  Failure to load dependency assembly causes hang
 
 Also see [Release Readiness Review](https://github.com/nunit/nunit3-vs-adapter/issues/472)  
 
-###  Special thanks
+### Special thanks
+
 Special thanks to :  [Joseph Musser](https://github.com/jnm2) for awesome work on this release,
 
 and to [Loren Halvorsen](https://www.linkedin.com/in/lorenhalvorson/) for the workaround for VSTest [issue 261](https://github.com/nunit/nunit3-vs-adapter/issues/261#issuecomment-259970442).  
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.9 - October 29, 2017
 
@@ -262,34 +263,28 @@ and to [Loren Halvorsen](https://www.linkedin.com/in/lorenhalvorson/) for the wo
 
 This version supports Visual Studio from version 2012, Update 1 and upwards, and all subsequent versions in 2013, 2015 and 2017.  Visual Studio 2012 RTM is then no longer supported.
 
-
 ### Features
-
 
 * [390](https://github.com/nunit/nunit3-vs-adapter/issues/390) Pass DisableAppDomain and DisableParallelization settings to the Engine
 * [392](https://github.com/nunit/nunit3-vs-adapter/issues/392) Improve performance of discovery (Thanks to [Navin (Microsoft)](https://github.com/navin22) for [PR 393](https://github.com/nunit/nunit3-vs-adapter/pull/393), [PR 406](https://github.com/nunit/nunit3-vs-adapter/pull/406) )
 * [394](https://github.com/nunit/nunit3-vs-adapter/issues/394) The adapter tests are updated to use NUnit 3.8.1
 
-
-
 ### Resolved Issues
-
 
 * [372](https://github.com/nunit/nunit3-vs-adapter/issues/372) netcoreapp + CultureInfo.CurrentCulture = bad time  (Thanks to [Aaron Housh (Dispersia)](https://github.com/Dispersia)  for [PR 380](https://github.com/nunit/nunit3-vs-adapter/pull/380) )
 * [386](https://github.com/nunit/nunit3-vs-adapter/issues/386) DateTime.Parse issue during test discovery with certain cultures  (Also fixed by  [PR 380](https://github.com/nunit/nunit3-vs-adapter/pull/380) )
 * [302](https://github.com/nunit/nunit3-vs-adapter/issues/302) BadImageFormatException building solution with unmanaged projects
 
----
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.8 - July 19, 2017
 
 ### Features
 
- * The adapter now support running .net core projects. See [this post](http://www.alteridem.net/2017/05/04/test-net-core-nunit-vs2017/) for details.  Note: Only supported by the nuget adapter, not the vsix. 
- * The adapter now uses version 3.7 of the engine to run tests ([360](https://github.com/nunit/nunit3-vs-adapter/issues/360))
- * Attachments can be added to tests ([358](https://github.com/nunit/nunit3-vs-adapter/issues/358))
- * Prepared for new  upcoming Test Explorer functionality, as documented in this [RFC](https://github.com/Microsoft/vstest-docs/blob/master/RFCs/0010-Source-Information-For-Discovered-Tests.md)  ([351](https://github.com/nunit/nunit3-vs-adapter/issues/351))
-
+* The adapter now support running .net core projects. See [this post](http://www.alteridem.net/2017/05/04/test-net-core-nunit-vs2017/) for details.  Note: Only supported by the nuget adapter, not the vsix.
+* The adapter now uses version 3.7 of the engine to run tests ([360](https://github.com/nunit/nunit3-vs-adapter/issues/360))
+* Attachments can be added to tests ([358](https://github.com/nunit/nunit3-vs-adapter/issues/358))
+* Prepared for new  upcoming Test Explorer functionality, as documented in this [RFC](https://github.com/Microsoft/vstest-docs/blob/master/RFCs/0010-Source-Information-For-Discovered-Tests.md)  ([351](https://github.com/nunit/nunit3-vs-adapter/issues/351))
 
 ### Resolved Issues
 
