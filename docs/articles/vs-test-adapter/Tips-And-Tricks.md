@@ -2,10 +2,13 @@
 uid: tipsandtricks
 ---
 
+# Tips and Tricks
+
 ## NUnit 3.x
 
 ### VS Test .Runsettings configuration
-Certain NUnit Test Adapter settings are configurable using a .runsettings file. 
+
+Certain NUnit Test Adapter settings are configurable using a .runsettings file.
 The following options are available:
 
 |Key|Type|Options| Default|
@@ -31,50 +34,57 @@ The following options are available:
 |[UseNUnitIdforTestCaseId](#usenunitidfortestcaseid) |bool|Uses NUnit test id as VSTest Testcase Id, instead of FUllyQualifiedName|false|
 |[ConsoleOut](#consoleout)|int|Sends standard console output to the output window|1|
 |[StopOnError](#stoponerror)|bool|Stops on first error|false|
-|[SkipNonTestAssemblies ](#skipnontestassemblies)|bool|Adapter supports NonTestAssemblyAttribute|false|
+|[SkipNonTestAssemblies](#skipnontestassemblies)|bool|Adapter supports NonTestAssemblyAttribute|false|
 |[MapWarningTo](#mapwarningto)|enum|Map Assert.Warn to either Passed, Failed or Skipped|Skipped|
 |[DisplayName](#displayname)|enum|Set what a DisplayName is, options: Name, FullName or FullNameSep|Name|
 |[FullnameSeparator](#fullnameseparator)|string|FullNameSep separator|':'|
 
 ### Visual Studio templates for runsettings
-You can install [item templates for runsettings](https://marketplace.visualstudio.com/items?itemName=OsirisTerje.Runsettings-19151) in Visual Studio (applies to version 2017, 2019 and upwards) which includes the NUnit settings mentioned here.  Note that there are available seperate installs for earlier Visual Studio versions, links to these can be found in the above. 
 
+You can install [item templates for runsettings](https://marketplace.visualstudio.com/items?itemName=OsirisTerje.Runsettings-19151) in Visual Studio (applies to version 2017, 2019 and upwards) which includes the NUnit settings mentioned here.  Note that there are available seperate installs for earlier Visual Studio versions, links to these can be found in the above.
 
 ### Example implementation
-See https://github.com/nunit/nunit3-vs-adapter/blob/8a9b8a38b7f808a4a78598542ddaf557950c6790/demo/demo.runsettings
+
+See <https://github.com/nunit/nunit3-vs-adapter/blob/8a9b8a38b7f808a4a78598542ddaf557950c6790/demo/demo.runsettings>
 
 ### NUnit .runsettings implementation
 
-https://github.com/nunit/nunit3-vs-adapter/blob/master/src/NUnitTestAdapter/AdapterSettings.cs#L143
+<https://github.com/nunit/nunit3-vs-adapter/blob/master/src/NUnitTestAdapter/AdapterSettings.cs#L143>
 
 ---
 
 ### Details
 
 #### WorkDirectory
+
 Our WorkDirectory is the place where output files are intended to be saved for the run, whether created by NUnit or by the user, who can access the work directory using TestContext. It's different from TestDirectory, which is the directory containing the test assembly. For a run with multiple assemblies, there could be multiple TestDirectories, but only one WorkDirectory.
-User sets work directory to tell NUnit where to put stuff like the XML or any text output. User may also access it in the code and save other things there. Think of it as the directory for saving stuff. 
+User sets work directory to tell NUnit where to put stuff like the XML or any text output. User may also access it in the code and save other things there. Think of it as the directory for saving stuff.
 
 #### TestOutputXml
+
 If this is specified, the adapter will generate NUnit Test Result Xml data in the folder specified here.  If not specified, no such output will be generated.  
 The folder can be
 
 1) An absolute path
 2) A relative path, which is then relative to either WorkDirectory, or if this is not specified, relative to the current directory, as defined by .net runtime.
 
-*(From version 3.12)*
+(From version 3.12)
 
 #### InternalTraceLevel
+
 This setting is a diagnostic setting forwarded to NUnit, and not used by the adapter itself.  For further information see the [NUnit Tracelevel documentation](xref:internaltracespec)
 
 #### NumberOfTestWorkers
+
 This  setting is sent to NUnit to determine how  [parallelization](xref:parallelizableattribute) should be performed.  
 Note in particular that NUnit can either run directly or for parallel runs use queue of threads.  Set to 0, it will run directly, set to 1 it will use a queue with a single thread.  
 
 #### ShadowCopyFiles
+
 This setting is sent to NUnit to enable/disable shadow-copying.
 
 #### Verbosity
+
 This controls the outputs from the adapter to the Visual Studio Output/Tests window.
 A higher number includes the information from the lower numbers.
 It has the following actual levels:
@@ -89,37 +99,42 @@ It has the following actual levels:
 
 5: Outputs all debug statements in the adapter
 
-
-
 #### UseVsKeepEngineRunning
-This setting is used by the adapter to signal to the VSTest.Execution engine to keep running after the tests have finished running.  This can speed up execution of subsequent test runs, as the execution engine already is loaded, but running the risks of either holding onto test assemblies and having some tests not properly cleaned out.   The settings is the same as using the Visual Studio  Test/Test Settings/Keep Test Execution Engine running. 
+
+This setting is used by the adapter to signal to the VSTest.Execution engine to keep running after the tests have finished running.  This can speed up execution of subsequent test runs, as the execution engine already is loaded, but running the risks of either holding onto test assemblies and having some tests not properly cleaned out.   The settings is the same as using the Visual Studio  Test/Test Settings/Keep Test Execution Engine running.
 
 #### DumpXmlTestDiscovery and DumpXmlTestResults
+
 These settings are used to dump the output from NUnit, as it is received by the adapter, before any processing in the adapter is done, to disk.  It is part of the diagnostics tools for the adapter.
 You can find the files under your current outputfolder, in a subfolder named Dump.
 (Note: This is not the same as the TestResults folder, this data is not testresults, but diagnostics dumps)
 
 #### PreFilter
+
 A prefilter will improve performance when testing a selection of tests from the Test Explorer.  It is default off, because there are issues in certain cases, see below. If you **don't** have any of the cases below, you can turn PreFilter on.
-* Your code contains a SetupFixture  [#649](https://github.com/nunit/nunit3-vs-adapter/issues/649)
+
+* Your code contains a SetupFixture [#649](https://github.com/nunit/nunit3-vs-adapter/issues/649)
 * Your code uses a TestCaseSource and uses SetName to set the display name instead of SetArgDisplayNames [#650](https://github.com/nunit/nunit3-vs-adapter/issues/650)
 * You are using a version of NUnit lower than 3.11  [#648](https://github.com/nunit/nunit3-vs-adapter/issues/648)
 
 If you just need to add this, you can add a runsettings file (any filename, extension .runsettings) containing:
-```
+
+```xml
 <RunSettings>
    <NUnit>
        <PreFilter>true</PreFilter>
    </NUnit>
 </RunSettings>
 ```
-*(From version 3.15.1)*
 
+(From version 3.15.1)
 
 #### ShowInternalProperties
+
 The [NUnit internal properties](https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs) have been "over-populating" in the Test Explorer.  These are default filtered out, although you may still see these when you have [Source Based Discovery (SBD)](https://docs.microsoft.com/en-us/visualstudio/test/test-explorer-faq?view=vs-2017) turned on (which is the default in VS).  Once you have run test execution, they will be gone. We expect this part of the issue (SBD) to be fixed in VS.  If you still want to see them, set this property to true.
 
 #### Where
+
 A NUnit Test Selection Language filter can be added to the runsettings file.  The details are described in **[this blogpost](http://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/)**
 
 Using the runsettings should be like:
@@ -131,7 +146,8 @@ Using the runsettings should be like:
     </NUnit>
 </RunSettings>
 ```
-*(From version 3.16.0)*
+
+(From version 3.16.0)
 
 #### UseParentFQNForParametrizedTests
 
@@ -139,7 +155,7 @@ Setting this may give more stable results when you have complex data driven/para
 
 Note that this often has to be set together with [UseNUnitIdforTestCaseId](#usenunitidfortestcaseid)
 
-*(From version 3.16.1)*
+(From version 3.16.1)
 
 #### UseNUnitIdforTestCaseId
 
@@ -149,7 +165,7 @@ By setting this property true, it shifts to using the NUnit id as the basis for 
 
 However, it has been seen to also have adverse effects, so use with caution.
 
-*(From version 3.16.1)*
+(From version 3.16.1)
 
 #### ConsoleOut
 
@@ -159,7 +175,7 @@ Disable this by setting it to 0, which is also the default for version earlier t
 
 See [Issue 343](https://github.com/nunit/nunit3-vs-adapter/issues/343) for more information and discussion
 
-*(From version 3.17.0)*
+(From version 3.17.0)
 
 #### StopOnError
 
@@ -167,36 +183,36 @@ When enabled (set to true), the tests will stop after the first test failed.  Us
 
 See [Issue 675](https://github.com/nunit/nunit3-vs-adapter/issues/675) for more information and discussion
 
-*(From version 3.17.0)*
+(From version 3.17.0)
 
 #### MapWarningTo
 
-Assert Warnings will default map to `Skipped`, but you can set this to any other state, using MapWarningTo.  The options are: 
-`Passed`, `Failed` or `Skipped`. 
+Assert Warnings will default map to `Skipped`, but you can set this to any other state, using MapWarningTo.  The options are:
+`Passed`, `Failed` or `Skipped`.
 
-*(From version 3.17.0)*
+(From version 3.17.0)
 
 #### SkipNonTestAssemblies
 
 If the attribute `NonTestAssembly` is added in an assembly, it will be skipped from further testing.  If [RTD](https://devblogs.microsoft.com/dotnet/real-time-test-discovery/) is enabled in Visual Studio, the tests will be displayed, but running will skip them.  
 See explanation for the [NonTestAssembly Attribute](https://github.com/nunit/docs/wiki/NonTestAssembly-Attribute), and [Issue explanation here](https://github.com/nunit/nunit3-vs-adapter/issues/758).
 
-*(From version 3.17.0)*
+(From version 3.17.0)
 
 #### DisplayName
 
-The default for Test Explorer Displayname is to use the Name of the test, which normally is the method name.  Using DisplayName you can change between `Name`, `FullName` or `FullNameSep`.  The last one will then use the FullNameSeparator,which defaults to '`:`'. 
+The default for Test Explorer Displayname is to use the Name of the test, which normally is the method name.  Using DisplayName you can change between `Name`, `FullName` or `FullNameSep`.  The last one will then use the FullNameSeparator,which defaults to '`:`'.
 See [Issue 640](https://github.com/nunit/nunit3-vs-adapter/issues/640) for explanations of use and [sample code](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue640) here.  
 
-*(From version 3.17.0)*
+(From version 3.17.0)
 
 #### FullNameSeparator
 
-The separator character used when DisplayName is FullNameSep.  It is default '`:`', but can be changed to anything. 
+The separator character used when DisplayName is FullNameSep.  It is default '`:`', but can be changed to anything.
 
-*(From version 3.17.0)*
+(From version 3.17.0)
 
-------
+---
 
 ### Some further information on directories (From [comment on issue 575](https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421) by [Charlie](https://github.com/CharliePoole) )
 
@@ -221,7 +237,7 @@ Certain settings in the registry affect how the adapter runs. All these settings
 
 #### ShadowCopy
 
-By default NUnit no longer uses shadowcopy. If this causes an issue for you shadowcopy can be enabled by setting the DWORD value UseShadowCopy to 1.   
+By default NUnit no longer uses shadowcopy. If this causes an issue for you shadowcopy can be enabled by setting the DWORD value UseShadowCopy to 1.
   
 #### KeepEngineRunning
 
@@ -232,7 +248,3 @@ In some cases it can be useful to have the engine running, e.g. during debugging
 #### Verbosity
 
 Normally the adapter reports exceptions using a short format, consisting of the message only. You can change it to report a verbose format that includes the stack trace, by setting a the DWORD value Verbosity to 1.
-
-
-
-
