@@ -4,18 +4,14 @@
 
 This is the 2nd beta for 3.17, published on [Nuget](https://nuget.org).
 
-
 ### Features and Enhancements
 
 * [758](https://github.com/nunit/nunit3-vs-adapter/issues/758) Feature Request: Adapter to support NonTestAssemblyAttribute
-
 * [740](https://github.com/nunit/nunit3-vs-adapter/issues/740) Allow Warnings to be mapped to any outcome
-
-
-
 * [640](https://github.com/nunit/nunit3-vs-adapter/issues/640) Allow use of FullName as the DisplayName for Converted Tests
 
 ### Resolved issues/bugs
+
 * [750](https://github.com/nunit/nunit3-vs-adapter/issues/750) ShadowCopyFiles doesn't work on .NET Framework. Thanks to [DavidSimner](https://github.com/DavidSimner) for [PR 751](https://github.com/nunit/nunit3-vs-adapter/pull/751)
 * [745](https://github.com/nunit/nunit3-vs-adapter/issues/745) NUnit engine IDriverFactory extensions don't load using the adapter.  Thanks to [aolszowka](https://github.com/aolszowka) for [PR 749](https://github.com/nunit/nunit3-vs-adapter/pull/749)
 
@@ -23,8 +19,6 @@ This is the 2nd beta for 3.17, published on [Nuget](https://nuget.org).
 
 * [746](https://github.com/nunit/nunit3-vs-adapter/issues/746) EditorConfig for *.props Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 747](https://github.com/nunit/nunit3-vs-adapter/pull/747)
 * [753](https://github.com/nunit/nunit3-vs-adapter/issues/753) EditorConfig for *.csproj Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 754](https://github.com/nunit/nunit3-vs-adapter/pull/754)
-
-
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.1 - April 19, 2020
 

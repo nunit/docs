@@ -2,7 +2,7 @@
 
 ## NUnit Test Adapter for Visual Studio - Version 2.3.0 - June 8, 2020
 
-## NUnit Test Adapter for Visual Studio - Version 2.3.0-beta01 - May 7, 2020
+### NUnit Test Adapter for Visual Studio - Version 2.3.0-beta01 - May 7, 2020
 
 Updates the NUnit framework to 2.7.1
 
