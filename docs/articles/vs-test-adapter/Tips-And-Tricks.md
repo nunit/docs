@@ -2,10 +2,6 @@
 uid: tipsandtricks
 ---
 
-> [!NOTE]
-> As of the 3.0 final release, the registry settings are no longer recognized. Instead, use settings in the `.runsettings` file. 
-
-
 ## NUnit 3.x
 
 ### VS Test .Runsettings configuration
@@ -14,7 +10,7 @@ The following options are available:
 
 |Key|Type|Options| Default|
 |---|----|-------|--------------|
-|[InternalTraceLevel](#internaltracelevel)| string |  Off, Error, Warning, Info, Verbose,  Debug| Nothing => Off|
+|[InternalTraceLevel](#internaltracelevel)| enum |  Off, Error, Warning, Info, Verbose,  Debug| Nothing => Off|
 |[NumberOfTestWorkers](#numberoftestworkers)| int | nr of workers | -1|
 |[ShadowCopyFiles](#shadowcopyfiles)| bool |True, False | False|
 |[Verbosity](#verbosity)| int | -1, 0-5 . -1 means quiet mode | 0|
@@ -35,7 +31,10 @@ The following options are available:
 |[UseNUnitIdforTestCaseId](#usenunitidfortestcaseid) |bool|Uses NUnit test id as VSTest Testcase Id, instead of FUllyQualifiedName|false|
 |[ConsoleOut](#consoleout)|int|Sends standard console output to the output window|1|
 |[StopOnError](#stoponerror)|bool|Stops on first error|false|
-
+|[SkipNonTestAssemblies ](#skipnontestassemblies)|bool|Adapter supports NonTestAssemblyAttribute|false|
+|[MapWarningTo](#mapwarningto)|enum|Map Assert.Warn to either Passed, Failed or Skipped|Skipped|
+|[DisplayName](#displayname)|enum|Set what a DisplayName is, options: Name, FullName or FullNameSep|Name|
+|[FullnameSeparator](#fullnameseparator)|string|FullNameSep separator|':'|
 
 ### Visual Studio templates for runsettings
 You can install [item templates for runsettings](https://marketplace.visualstudio.com/items?itemName=OsirisTerje.Runsettings-19151) in Visual Studio (applies to version 2017, 2019 and upwards) which includes the NUnit settings mentioned here.  Note that there are available seperate installs for earlier Visual Studio versions, links to these can be found in the above. 
@@ -48,6 +47,7 @@ See https://github.com/nunit/nunit3-vs-adapter/blob/8a9b8a38b7f808a4a78598542dda
 
 https://github.com/nunit/nunit3-vs-adapter/blob/master/src/NUnitTestAdapter/AdapterSettings.cs#L143
 
+---
 
 ### Details
 
@@ -169,16 +169,51 @@ See [Issue 675](https://github.com/nunit/nunit3-vs-adapter/issues/675) for more 
 
 *(From version 3.17.0)*
 
-#### Some further information on directories (From [comment on issue 575](https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421) by [Charlie](https://github.com/CharliePoole) )
+#### MapWarningTo
+
+Assert Warnings will default map to `Skipped`, but you can set this to any other state, using MapWarningTo.  The options are: 
+`Passed`, `Failed` or `Skipped`. 
+
+*(From version 3.17.0)*
+
+#### SkipNonTestAssemblies
+
+If the attribute `NonTestAssembly` is added in an assembly, it will be skipped from further testing.  If [RTD](https://devblogs.microsoft.com/dotnet/real-time-test-discovery/) is enabled in Visual Studio, the tests will be displayed, but running will skip them.  
+See explanation for the [NonTestAssembly Attribute](https://github.com/nunit/docs/wiki/NonTestAssembly-Attribute), and [Issue explanation here](https://github.com/nunit/nunit3-vs-adapter/issues/758).
+
+*(From version 3.17.0)*
+
+#### DisplayName
+
+The default for Test Explorer Displayname is to use the Name of the test, which normally is the method name.  Using DisplayName you can change between `Name`, `FullName` or `FullNameSep`.  The last one will then use the FullNameSeparator,which defaults to '`:`'. 
+See [Issue 640](https://github.com/nunit/nunit3-vs-adapter/issues/640) for explanations of use and [sample code](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue640) here.  
+
+*(From version 3.17.0)*
+
+#### FullNameSeparator
+
+The separator character used when DisplayName is FullNameSep.  It is default '`:`', but can be changed to anything. 
+
+*(From version 3.17.0)*
+
+------
+
+### Some further information on directories (From [comment on issue 575](https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421) by [Charlie](https://github.com/CharliePoole) )
 
 NUnit also supports TestContext.TestDirectory, which is the directory where the current test assembly is located. Note that if you have several test assemblies in different directories, the value will be different when each one of them accesses it. Note also that there is no way you can set the TestDirectory because it's always where the assembly is located.
 
 The BasePath is a .NET thing. It's the base directory where assemblies are searched for. You can also have subdirectories listed in the PrivateBinPath. NUnit take scare of all this automatically now, so the old console options are no longer supported. For finding things you want to read at runtime, the TestDirectory and the BasePath will usually be the same thing.
 
+### Registry Settings
 
+> [!NOTE]
+> As of the 3.0 final release, the registry settings are no longer recognized. Instead, use settings in the `.runsettings` file.
+
+---
 
 ## NUnit 2.x
 
+NUnit 2.X does not support runsettings.
 
 ### Registry Settings
 
