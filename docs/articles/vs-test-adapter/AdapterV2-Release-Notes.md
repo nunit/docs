@@ -1,5 +1,7 @@
 # Adapter V2 Release Notes
 
+## NUnit Test Adapter for Visual Studio - Version 2.3.0 - June 8, 2020
+
 ## NUnit Test Adapter for Visual Studio - Version 2.3.0-beta01 - May 7, 2020
 
 Updates the NUnit framework to 2.7.1
@@ -9,7 +11,7 @@ Updates the NUnit framework to 2.7.1
 
 Thanks to [BobSilent](https://github.com/BobSilent) for [#188](https://github.com/nunit/nunit-vs-adapter/pull/188) solving [#184](https://github.com/nunit/nunit-vs-adapter/issues/184) and [#186](https://github.com/nunit/nunit-vs-adapter/issues/186).
 
-### Bugs
+#### Bugs
 
 [189](https://github.com/nunit/nunit-vs-adapter/issues/189) NUnit adapter is failing when PropertyAttribute is used with NULL value
 
