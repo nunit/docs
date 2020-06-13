@@ -52,10 +52,10 @@ For example, a very naive implementation of a reference equality constraint migh
 like this:
 
 ```csharp
-        public override ConstraintResult ApplyTo<TActual>(TActual actual)
-        {
-            return new ConstraintResult(this, actual, ReferenceEquals(actual, Arguments[0]));
-        }
+public override ConstraintResult ApplyTo<TActual>(TActual actual)
+{
+    return new ConstraintResult(this, actual, ReferenceEquals(actual, Arguments[0]));
+}
 ```
 
 The key here is there needs to be some evaluation of the constraint logic, and the return value
@@ -185,39 +185,39 @@ for each custom constraint).
    or methods that construct your custom constructor. If you like, you can even call it
    `Is` and extend NUnit's `Is`, provided you place it in your own namespace and avoid any conflicts. This allows you to write things like:
 
-   ```csharp
-   Assert.That(actual, Is.Custom(x, y));
-   ```
+```csharp
+Assert.That(actual, Is.Custom(x, y));
+```
 
    with this sample implementation:
 
-   ```csharp
-    public class Is : NUnit.Framework.Is
+```csharp
+public class Is : NUnit.Framework.Is
+{
+    public static CustomConstraint Custom(object expected)
     {
-        public static CustomConstraint Custom(object expected)
-        {
-            return new CustomConstraint(expected);
-        }
+        return new CustomConstraint(expected);
     }
-    ```
+}
+```
 
 2. Provide an extension method for NUnit's `ConstraintExpression`, allowing
    you to write things like:
 
-   ```csharp
-   Assert.That(actual, Is.Not.Custom(x, y));
-   ```
+```csharp
+Assert.That(actual, Is.Not.Custom(x, y));
+```
 
     with this sample implementation:
 
-    ```csharp
-    public static class CustomConstraintExtensions
+```csharp
+public static class CustomConstraintExtensions
+{
+    public static CustomConstraint Custom(this ConstraintExpression expression, object expected)
     {
-        public static CustomConstraint Custom(this ConstraintExpression expression, object expected)
-        {
-            var constraint = new CustomConstraint(expected);
-            expression.Append(constraint);
-            return constraint;
-        }
+        var constraint = new CustomConstraint(expected);
+        expression.Append(constraint);
+        return constraint;
     }
-    ```
+}
+```

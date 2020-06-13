@@ -43,11 +43,11 @@ An `Extension` is a single object of the required type, which is registered with
 
 ###### Example:
 ```csharp
-    [Extension(Path = "/NUnit/Engine/DriverService")]
-    public class NUnit2DriverFactory : IDriverFactory
-    {
-        ...
-    }
+[Extension(Path = "/NUnit/Engine/DriverService")]
+public class NUnit2DriverFactory : IDriverFactory
+{
+    ...
+}
 ```
 
 The example above shows an extension Type being used with the `ExtensionPoint` defined in the previous example. An instance of NUnit2DriverFactory will be supplied to the DriverService when needed. The Path property must match the Path for the intended `ExtensionPoint`.
@@ -56,11 +56,11 @@ The Path is actually optional so long as NUnit is able to deduce the correct Ext
 In fact, that's the case in this example, which can be rewritten more simply as...
 
 ```csharp
-    [Extension]
-    public class NUnit2DriverFactory : IDriverFactory
-    {
-        ...
-    }
+[Extension]
+public class NUnit2DriverFactory : IDriverFactory
+{
+    ...
+}
 ```
 
 The Path may be omitted provided that no other extension point is able to accept an object of the same class as the extension.
@@ -85,20 +85,20 @@ Addins would be identified by the `AddinAttribute` and implement the IAddin inte
 
 ###### Example:
 ```csharp
-    [Addin]
-    public class MyAddin : IAddin
+[Addin]
+public class MyAddin : IAddin
+{
+    public bool Install(IExtensionHost host)
     {
-        public bool Install(IExtensionHost host)
-        {
-            var ep = host.GetExtensionPoint("/NUnit/Engine/DriverFactory");
-            ep.Install(new NUnit2DriverFactory());
-        }
+        var ep = host.GetExtensionPoint("/NUnit/Engine/DriverFactory");
+        ep.Install(new NUnit2DriverFactory());
     }
+}
 
-    public class NUnit2DriverFactory : IDriverFactory
-    {
-        ...
-    }
+public class NUnit2DriverFactory : IDriverFactory
+{
+    ...
+}
 ```
 
 The above example does the same thing as the previous example in a more complicated way. Obviously, you would use this approach only in more complex situations. Note that the factory class does not have an `ExtensionAttribute` as this would lead to its being installed twice.
