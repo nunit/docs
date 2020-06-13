@@ -1,14 +1,15 @@
 name: NUnit Documentation Build Process
 
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
 jobs:
     build_docfx:
-      on:
-        push:
-          branches:
-            - master
-        pull_request:
-          branches:
-            - master
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v2
