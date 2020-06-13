@@ -1,3 +1,6 @@
+# StringAssert
+
+
 The StringAssert class provides a number of methods that are useful
 when examining string values.
 
