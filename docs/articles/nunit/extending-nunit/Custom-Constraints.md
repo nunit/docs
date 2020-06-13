@@ -23,7 +23,7 @@ namespace NUnit.Framework.Constraints
     {
         protected Constraint(params object[] args) {}
         public abstract ConstraintResult ApplyTo<TActual>(TActual actual);
-        ...
+        /* ... */
         public virtual ConstraintResult ApplyTo<TActual>(ActualValueDelegate<TActual> del) {}
         public virtual ConstraintResult ApplyTo<TActual>(ref TActual actual) {}
         protected virtual object GetTestObject<TActual>(ActualValueDelegate<TActual> del) {}
