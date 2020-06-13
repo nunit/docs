@@ -1,3 +1,6 @@
+# Assert.AreSame
+
+
 **Assert.AreSame** tests that the two arguments reference the same object.
 
 ```csharp
