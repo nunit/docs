@@ -6,19 +6,19 @@
 #### Constructor
 
 ```csharp
-    NullConstraint()
+NullConstraint()
 ```
 
 #### Syntax
 
 ```csharp
-    Is.Null
+Is.Null
 ```
 
 #### Examples of Use
 
 ```csharp
-   Assert.That(anObject, Is.Null);
-   Assert.That(anObject, Is.Not.Null);
+Assert.That(anObject, Is.Null);
+Assert.That(anObject, Is.Not.Null);
 ```
 
