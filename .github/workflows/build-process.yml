@@ -1,0 +1,20 @@
+name: NUnit Documentation Build Process
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+    build_docfx:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+        name: Check out the code
+      - uses: nikeee/docfx-action@master
+        name: Build Documentation
+        with:
+          args: docs/docfx.json
