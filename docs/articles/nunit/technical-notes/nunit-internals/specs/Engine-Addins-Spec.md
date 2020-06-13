@@ -46,7 +46,7 @@ An `Extension` is a single object of the required type, which is registered with
 [Extension(Path = "/NUnit/Engine/DriverService")]
 public class NUnit2DriverFactory : IDriverFactory
 {
-    ...
+    /* ... */
 }
 ```
 
@@ -59,7 +59,7 @@ In fact, that's the case in this example, which can be rewritten more simply as.
 [Extension]
 public class NUnit2DriverFactory : IDriverFactory
 {
-    ...
+    /* ... */
 }
 ```
 
@@ -97,7 +97,7 @@ public class MyAddin : IAddin
 
 public class NUnit2DriverFactory : IDriverFactory
 {
-    ...
+    /* ... */
 }
 ```
 

@@ -12,7 +12,7 @@ The `ExtensionPoint` for framework drivers uses the Path "NUnit.Engine.DriverSer
 [Extension]
 public class MyOwnFrameworkDriverFactory : IDriverFactory
 {
-    ...
+    /* ... */
 }
 ```
 

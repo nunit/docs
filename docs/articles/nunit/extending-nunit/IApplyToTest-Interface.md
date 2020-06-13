@@ -20,7 +20,8 @@ The most common example of this is for attributes that change the RunState of a 
 ```csharp
 // In the attribute setting NotRunnable
 test.RunState = RunState.NotRunnable;
-...
+
+/* ... */
 
 // In the attribute setting Ignore
 if (test.RunState != RunState.NotRunnable)
