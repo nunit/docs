@@ -7,26 +7,26 @@ same constraint in several places can lead to unexpected results.
 Consider the following code as an example:
 
 ```csharp
-    Constraint myConstraint = Is.Not.Null;
-    Assert.That("not a null", myConstraint); // Passes, of course
-    Assert.That("not a null", myConstraint); // Fails! What's that about?
+Constraint myConstraint = Is.Not.Null;
+Assert.That("not a null", myConstraint); // Passes, of course
+Assert.That("not a null", myConstraint); // Fails! What's that about?
 ```
 
 We'll save the technical explanation for later and show the
 solution first:
 
 ```csharp
-    ReusableConstraint myConstraint = Is.Not.Null;
-    Assert.That("not a null", myConstraint); // Passes
-    Assert.That("not a null", myConstraint); // Passes
+ReusableConstraint myConstraint = Is.Not.Null;
+Assert.That("not a null", myConstraint); // Passes
+Assert.That("not a null", myConstraint); // Passes
 ```
 
 Or alternatively..
 
 ```csharp
-    var myConstraint = new ReusableConstraint(Is.Not.Null);
-    Assert.That("not a null", myConstraint); // Passes
-    Assert.That("not a null", myConstraint); // Passes
+var myConstraint = new ReusableConstraint(Is.Not.Null);
+Assert.That("not a null", myConstraint); // Passes
+Assert.That("not a null", myConstraint); // Passes
 ```
 
 ### Technical Explanation
@@ -52,7 +52,7 @@ So, for reusability, what we want to save is the result
 of resolving the constraint, in this case
 
 ```csharp
-    NotConstraint => NullConstraint
+NotConstraint => NullConstraint
 ```
 
 That's what **ReusableConstraint** does for us. It resolves
@@ -69,20 +69,20 @@ avoid using it in the following cases...
 
  1. With a simple constraint involving no operators, like...
 
-    ```csharp
-        Constraint myConstraint = Is.Null;
-        Constraint myConstraint = Is.EqualTo(42);
-    ```
+```csharp
+Constraint myConstraint = Is.Null;
+Constraint myConstraint = Is.EqualTo(42);
+```
 
  2. With any constraint you construct using new, without
     using the "dotted" constraint syntax...
 
-    ```csharp
-        Constraint myConstraint = new NotConstraint(new NullConstraint());
-        Constraint myConstraint = new AndConstraint(
-            new GreaterThanConstraint(0),
-            new LessThanConstraint(100));
-    ```
+```csharp
+Constraint myConstraint = new NotConstraint(new NullConstraint());
+Constraint myConstraint = new AndConstraint(
+    new GreaterThanConstraint(0),
+    new LessThanConstraint(100));
+```
 
 However, there is no significant penalty to using **ReusableConstraint**.
 It makes your intent much clearer and the exceptions listed are accidents of

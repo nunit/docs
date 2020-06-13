@@ -17,11 +17,11 @@ Every extension is implemented by a class with specific characteristics:
 The code for a typical extension might look like this.
 
 ```csharp
-    [Extension]
-    public class MyExtension : ISomeInterface // Depending on the extension point
-    {
-        // Your code here
-    }
+[Extension]
+public class MyExtension : ISomeInterface // Depending on the extension point
+{
+    // Your code here
+}
 ```
 
 The attribute has four named properties, all optional:
@@ -44,12 +44,12 @@ Using only the `ExtensionAttribute`, NUnit would have to create instances of eve
 The `ExtensionPropertyAttribute` avoids the problem. NUnit's own extension for loading NUnit projects is a good example:
 
 ```csharp
-    [Extension]
-    [ExtensionProperty("FileExtension", ".nunit")]
-    public class NUnitProjectLoader : IProjectLoader
-    {
-        ...
-    }
+[Extension]
+[ExtensionProperty("FileExtension", ".nunit")]
+public class NUnitProjectLoader : IProjectLoader
+{
+    ...
+}
 ```
 
 By use of the `ExtensionPropertyAttribute` NUnit is able to postpone loading the extension until the user actually uses a file of type `.nunit`. If the extension is never needed, then it won't be loaded at all. For information about what properties are used by each extension point, see the individual pages for each type of extension.

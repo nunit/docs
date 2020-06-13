@@ -55,53 +55,53 @@ The TestParameters object supports the following methods:
 Writes text to the current test result.
 
 ```csharp
-    Write(bool value)
-    Write(char value)
-    Write(char[] value)
-    Write(double value)
-    Write(Int32 value)
-    Write(Int64 value)
-    Write(decimal value)
-    Write(object value)
-    Write(Single value)
-    Write(string value)
-    Write(UInt32 value)
-    Write(UInt64 value)
-    Write(string format, object arg1)
-    Write(string format, object arg1, object arg2)
-    Write(string format, object arg1, object arg2, object arg3)
-    Write(string format, params object[] args)
+Write(bool value)
+Write(char value)
+Write(char[] value)
+Write(double value)
+Write(Int32 value)
+Write(Int64 value)
+Write(decimal value)
+Write(object value)
+Write(Single value)
+Write(string value)
+Write(UInt32 value)
+Write(UInt64 value)
+Write(string format, object arg1)
+Write(string format, object arg1, object arg2)
+Write(string format, object arg1, object arg2, object arg3)
+Write(string format, params object[] args)
 ```
 #### WriteLine
 
 Writes text to the current test result, followed by a newline.
 
 ```csharp
-    WriteLine()
-    WriteLine(bool value)
-    WriteLine(char value)
-    WriteLine(char[] value)
-    WriteLine(double value)
-    WriteLine(Int32 value)
-    WriteLine(Int64 value)
-    WriteLine(decimal value)
-    WriteLine(object value)
-    WriteLine(Single value)
-    WriteLine(string value)
-    WriteLine(UInt32 value)
-    WriteLine(UInt64 value)
-    WriteLine(string format, object arg1)
-    WriteLine(string format, object arg1, object arg2)
-    WriteLine(string format, object arg1, object arg2, object arg3)
-    WriteLine(string format, params object[] args)
+  WriteLine()
+  WriteLine(bool value)
+  WriteLine(char value)
+  WriteLine(char[] value)
+  WriteLine(double value)
+  WriteLine(Int32 value)
+  WriteLine(Int64 value)
+  WriteLine(decimal value)
+  WriteLine(object value)
+  WriteLine(Single value)
+  WriteLine(string value)
+  WriteLine(UInt32 value)
+  WriteLine(UInt64 value)
+  WriteLine(string format, object arg1)
+  WriteLine(string format, object arg1, object arg2)
+  WriteLine(string format, object arg1, object arg2, object arg3)
+  WriteLine(string format, params object[] args)
 ```
 #### AddFormatter (3.2+)
 
 Adds a formatter for values based on some criterion, such as the Type of the value. The provided formatter will be used when an expected or actual value needs to be displayed as part of a message from a constraint.
 
 ```csharp
-    AddFormatter(ValueFormatter formatter);
-    AddFormatter(ValueFormatterFactory formatterFactory);
+AddFormatter(ValueFormatter formatter);
+AddFormatter(ValueFormatterFactory formatterFactory);
 ```
 
 Both `ValueFormatter` and `ValueFormatterFactory` are delegates. `ValueFormatter` takes a single object as an argument and returns its string representation. The `AddFormatter` overload that takes a ValueFormatter is intended for use in most cases that arise.
@@ -111,7 +111,7 @@ Both `ValueFormatter` and `ValueFormatterFactory` are delegates. `ValueFormatter
 Attaches a file, with optional description, to the current test.
 
 ```csharp
-    AddTestAttachment(string filePath, string description = null);
+AddTestAttachment(string filePath, string description = null);
 ```
 
 The file will be attached to the test result in the xml report. Test runners, such as the NUnit 3 VS Adapter, may also present the file to the user.
