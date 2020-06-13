@@ -14,8 +14,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v2
-            name: Check out the code
+          name: Check out the code
         - uses: nikeee/docfx-action@master
-            name: Build Documentation
-            with:
+          name: Build Documentation
+          with:
             args: docs/docfx.json
