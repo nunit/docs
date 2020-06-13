@@ -75,10 +75,10 @@ Again, `Description` is the only named property for this attribute.
 
 The following extension types are supported by the engine:
 
-* [[Project Loaders]]
-* [[Result Writers]]
-* [[Framework Drivers]]
-* [[Event Listeners]] (NUnit 3.4 and later only)
+* [Project Loaders](Project-Loaders.md)
+* [Result Writers](Result-Writers.md)
+* [Framework Drivers](Framework-Drivers.md)
+* [Event Listeners](Event-Listeners.md) (NUnit Engine 3.4 and later only)
 
 ## Extensions
 
@@ -96,13 +96,13 @@ Assuming the extension point definition used above, any of the following would i
 [Extension(Path = "/NUnit/Engine/TypeExtensions/IDriverFactory")]
 public class DriverFactory1 : IDriverFactory
 {
-    ...
+    /* ... */
 }
 
 [Extension]
 public class DriverFactory2 : IDriverFactory
 {
-    ...
+    /* ... */
 }
 ```
 
@@ -123,7 +123,7 @@ If we only knew what file extensions were used by the particular format, we coul
     [ExtensionProperty("FileExtension", ".nunit")]
     public class NUnitProjectLoader : IProjectLoader
     {
-        ...
+        /* ... */
     }
 ```
 
