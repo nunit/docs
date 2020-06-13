@@ -1,3 +1,6 @@
+# ListMapper
+
+
 Unlike Constraint classes, `ListMapper` is used to modify the actual
 value argument to `Assert.That()`. It transforms the actual value, which
 must be a collection, creating a new collection to be tested against the
