@@ -1,0 +1,21 @@
+name: NUnit Documentation Build Process
+
+jobs:
+    build_docfx:
+        on:
+            # Trigger the workflow on push or pull request,
+            # but only for the master branch
+            push:
+              branches:
+                - master
+            pull_request:
+              branches:
+                - master
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+            name: Check out the code
+        - uses: nikeee/docfx-action@master
+            name: Build Documentation
+            with:
+            args: docs/docfx.json
