@@ -192,13 +192,13 @@ default NUnit logic for array, collection or dictionary equality.
 ```csharp
 class ListOfIntComparer : IEqualityComparer<List<int>>
 {
-	...
+	/* ... */
 }
 
 var list1 = new List<int>();
 var list2 = new List<int>();
 var myComparer = new ListOfIntComparer();
-...
+/* ... */
 Assert.That(list1, Is.EqualTo(list2).Using(myComparer));
 ```
 
