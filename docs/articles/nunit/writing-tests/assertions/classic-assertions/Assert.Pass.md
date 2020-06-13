@@ -1,3 +1,6 @@
+# Assert.Pass
+
+
 The **Assert.Pass** method allows you to immediately end the test, recording
 it as successful. Since it causes an exception to be thrown, it is more
 efficient to simply allow the test to return. However, Assert.Pass allows

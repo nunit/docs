@@ -1,3 +1,6 @@
+# ExactCount Constraint
+
+
 **ExactCountConstraint** has two functions. 
 
 In its simplest use, it simply verifies the number of items in an array, collection or `IEnumerable`, providing a way to count items that is independent of any `Length` or `Count` property.

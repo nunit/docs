@@ -2,6 +2,9 @@
 uid: internaltracespec
 ---
 
+# Internal Trace Spec
+
+
 ### DRAFT
 NUnit traps text output directed to the Console, Trace or a logging subsystem. This makes it difficult to use text output when debugging the framework itself, particularly when working on the classes that redirect output. For that reason, NUnit incorporates a simple internal tracing mechanism for use by developers and for debugging problems in the field.
 

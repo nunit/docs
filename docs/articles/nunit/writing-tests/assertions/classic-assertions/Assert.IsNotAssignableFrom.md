@@ -1,3 +1,6 @@
+# Assert.IsNotAssignableFrom
+
+
 **Assert.IsNotAssignableFrom** succeeds if the object provided may not be assigned a value of the expected type.
 
 ```csharp			

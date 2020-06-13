@@ -2,6 +2,9 @@
 uid: setupteardownchanges
 ---
 
+# SetUp And TearDown Changes
+
+
 This page describes significant changes in SetUp and TearDown in NUnit 3.0
 
 Existing NUnit 2.6.4 attributes used for SetUp and TearDown were

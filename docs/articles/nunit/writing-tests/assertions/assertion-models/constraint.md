@@ -2,6 +2,9 @@
 uid: constraintmodel
 ---
 
+# Constraint Model
+
+
 The constraint-based Assert model uses a single method of the Assert class
 for all assertions. The logic necessary to carry out each assertion is
 embedded in the constraint object passed as the second parameter to that

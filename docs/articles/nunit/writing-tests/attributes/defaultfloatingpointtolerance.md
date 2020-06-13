@@ -1,3 +1,6 @@
+# DefaultFloatingPointTolerance
+
+
 The **DefaultFloatingPointToleranceAttribute** is used to indicate that
 comparisons of values of types `float` and `double` - within the test method, 
 class, or assembly marked with the attribute - should use the tolerance 

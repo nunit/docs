@@ -1,3 +1,6 @@
+# Empty Constraint
+
+
 **EmptyConstraint** tests that an object is an empty string, directory or collection.
 
 #### Constructor

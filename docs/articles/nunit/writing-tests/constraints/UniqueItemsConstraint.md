@@ -1,3 +1,6 @@
+# UniqueItems Constraint
+
+
 **UniqueItemsConstraint** tests that an array, collection or other IEnumerable is composed
 of unique items with no duplicates.
 

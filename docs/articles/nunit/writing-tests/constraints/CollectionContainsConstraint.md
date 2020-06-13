@@ -2,6 +2,9 @@
 uid: collectioncontainsconstraint
 ---
 
+# CollectionContains Constraint
+
+
 **CollectionContainsConstraint** tests that an `IEnumerable` contains an object. If the actual value passed does not implement `IEnumerable`, an exception is thrown.
 
 #### Constructor

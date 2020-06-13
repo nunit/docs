@@ -1,3 +1,6 @@
+# Not Constraint
+
+
 **NotConstraint** reverses the effect of another constraint. If the base constraint fails, NotConstraint succeeds. If the base constraint succeeds, NotConstraint fails.
 
 #### Constructor

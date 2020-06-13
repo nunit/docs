@@ -1,3 +1,6 @@
+# Assembly Isolation
+
+
 NUnit isolates test assemblies from its own code and from one another
 by use of separate Processes and AppDomains.
    

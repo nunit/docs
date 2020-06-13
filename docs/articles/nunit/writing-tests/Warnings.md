@@ -1,3 +1,6 @@
+# Warnings
+
+
 Sometimes - especially in integration testing - it's desirable to give a warning message but continue execution. Beginning with release 3.6, NUnit supports this with the `Warn` class and the `Assert.Warn` method.
 
 ### Syntax

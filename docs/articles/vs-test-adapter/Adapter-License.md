@@ -1,3 +1,6 @@
+# Adapter License
+
+
 #### License - NUnit and NUnit3 Test Adapters for Visual Studio
 
 ##### Copyright © 2015-2016 Charlie Poole

@@ -2,6 +2,9 @@
 uid: addinreplacementintheframework
 ---
 
+# Addin Replacement In The Framework
+
+
 NUnit 2.6 supports six types of addins, all of which are being removed from NUnit 3.0:
 * SuiteBuilders
 * TestCaseBuilders
