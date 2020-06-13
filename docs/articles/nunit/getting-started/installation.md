@@ -39,7 +39,7 @@ To run your tests, simply run your executable test assembly. No other runner is 
 
 ### Downloading the Zip File
 
-Download the latest binary zip of the NUnit Framework from our [Download page](http://nunit.org/download/). Unzip the file into any convenient directory.
+Download the latest binary zip of the NUnit Framework from our [Download page](https://nunit.org/download/). Unzip the file into any convenient directory.
 
 You can also download the latest binary zip or an MSI installer of the NUnit Console from [GitHub](https://github.com/nunit/nunit-console/releases). Unzip the file or install the MSI and then if you would like be able to run nunit3-console from the command line, put the bin directory, containing nunit3-console.exe on your path.
 

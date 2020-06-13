@@ -92,8 +92,8 @@ Test both the vsix and NuGet packages using each version of Visual Studio you ha
 2. **Visual Studio SDK**  
    You need this to work with the vsix.
 
-[semantic versioning]:http://semver.org/
+[semantic versioning]:https://semver.org/
 [Visual Studio Gallery]:https://visualstudiogallery.msdn.microsoft.com/0da0f6bd-9bb6-4ae3-87a8-537788622f2d
-[NuGet for the adapter]:http://www.nuget.org/packages/NUnitTestAdapter/
+[NuGet for the adapter]:https://www.nuget.org/packages/NUnitTestAdapter/
 [NuGet for the adapter with framework]:http://www.nuget.org/packages/NUnitTestAdapter.WithFramework/
 [nunit.org repository]:http://github.com/nunit/nunit.org

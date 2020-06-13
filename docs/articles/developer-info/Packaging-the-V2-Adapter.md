@@ -94,8 +94,8 @@ The file is named **vsTestAdapterReleaseNotes.html**, and is found under Docs/2.
 
 Also check that the files **vsTestAdapterLicense.html** and **vsTestAdapterReleaseNotes.html** is up to date.
 
-[semantic versioning]:http://semver.org/
+[semantic versioning]:https://semver.org/
 [Visual Studio Gallery]:http://visualstudiogallery.msdn.microsoft.com/6ab922d0-21c0-4f06-ab5f-4ecd1fe7175d
-[NuGet for the adapter]:http://www.nuget.org/packages/NUnitTestAdapter/
-[NuGet for the adapter with framework]:http://www.nuget.org/packages/NUnitTestAdapter.WithFramework/
-[nunit.org repository]:http://github.com/nunit/nunit.org
+[NuGet for the adapter]:https://www.nuget.org/packages/NUnitTestAdapter/
+[NuGet for the adapter with framework]:https://www.nuget.org/packages/NUnitTestAdapter.WithFramework/
+[nunit.org repository]:https://github.com/nunit/nunit.org
