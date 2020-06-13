@@ -27,7 +27,7 @@ function AddHeaderToSourceFile($fullPath) {
             (Get-Content $fullPath) |
                     Foreach-Object {
                         if(!$alreadyInserted){
-                            "# $newH1"
+                            "# $newH1`n`n"
                             $alreadyInserted = $true
                         }
                         $_ # send the current line to output
@@ -43,7 +43,7 @@ function AddHeaderToSourceFile($fullPath) {
                         {
                             $count++
                             if($count -ge 2 -and !$alreadyInserted){
-                                "# $newH1"
+                                "`n# $newH1`n"
                                 $alreadyInserted = $true
                             }
                         }
