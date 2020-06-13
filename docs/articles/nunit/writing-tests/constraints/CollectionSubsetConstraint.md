@@ -1,3 +1,6 @@
+# CollectionSubset Constraint
+
+
 **CollectionSubsetConstraint** tests that one `IEnumerable` is a subset of another. If the actual value passed does not implement `IEnumerable`, an exception is thrown.
 
 #### Constructor
