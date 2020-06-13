@@ -170,15 +170,15 @@ the enumerator as follows:
    This can eliminate a bit of extra typing by the programmer, 
    as in this example:
 
-   ```csharp
-   static int[] EvenNumbers = new int[] { 2, 4, 6, 8 };
+```csharp
+static int[] EvenNumbers = new int[] { 2, 4, 6, 8 };
 
-   [Test, TestCaseSource("EvenNumbers")]
-   public void TestMethod(int num)
-   {
-       Assert.IsTrue(num % 2 == 0);
-   }
-   ```
+[Test, TestCaseSource("EvenNumbers")]
+public void TestMethod(int num)
+{
+    Assert.IsTrue(num % 2 == 0);
+}
+```
 
 3. If it is an `object[]`, its members are used to provide
    the arguments for the method. This is the approach taken in

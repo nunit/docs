@@ -12,7 +12,7 @@ The following code, which might be placed in AssemblyInfo.cs, specifies that the
 assembly does not contain any tests.
 
 ```csharp
-  [assembly: NonTestAssembly]
+[assembly: NonTestAssembly]
 ```
 
 
