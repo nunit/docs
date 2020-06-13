@@ -1,10 +1,10 @@
 # Issue Tracking
 
-We use the GitHub issue tracker to keep track of our ongoing work. We supplement GitHub's native issue handling by using [ZenHub](http://www.zenhub.com), which provides a number of additional features.
+We use the GitHub issue tracker to keep track of our ongoing work. We supplement GitHub's native issue handling by using [ZenHub](https://www.zenhub.com/), which provides a number of additional features.
 
 ## Workflow
 
-We use a [ZenHub](http://www.zenhub.com) Board with a standard set of pipelines to track the flow of work in each repo. Our standard set of pipeline columns are slightly different from the ZenHub default:
+We use a [ZenHub](https://www.zenhub.com/) Board with a standard set of pipelines to track the flow of work in each repo. Our standard set of pipeline columns are slightly different from the ZenHub default:
 
 * **New Issues** All issues start as new. We like to review them as quickly as possible. Some issues can be immediately closed while others need to be categorized for further work. We usually assign at least an _is_ and a _priority_ label (see below) to every issue and then move it to either the **Discussion** or the **Backlog** column.
 
@@ -88,7 +88,7 @@ Labels starting with **closed:** indicate the status of the bug at closing and s
 
 ## Epics
 
-Where appropriate, we make use of the [ZenHub](http://www.zenhub.com) **Epic** feature to create issues that include a number of sub-issues. For example, when we split the original NUnit repository into separate framework and engine repositories, we created an epic that included a number of separate issues that had to be completed in order to accomplish the split smoothly.
+Where appropriate, we make use of the [ZenHub](https://www.zenhub.com/) **Epic** feature to create issues that include a number of sub-issues. For example, when we split the original NUnit repository into separate framework and engine repositories, we created an epic that included a number of separate issues that had to be completed in order to accomplish the split smoothly.
 
 ## Milestones
 

@@ -135,7 +135,7 @@ The [NUnit internal properties](https://github.com/nunit/nunit/blob/master/src/N
 
 #### Where
 
-A NUnit Test Selection Language filter can be added to the runsettings file.  The details are described in **[this blogpost](http://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/)**
+A NUnit Test Selection Language filter can be added to the runsettings file.  The details are described in **[this blogpost](https://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/)**
 
 Using the runsettings should be like:
 

@@ -187,4 +187,4 @@ Send notifications to the mailing list and twitter.
 
 The milestone representing this release should be closed at this time.
 
-[semantic versioning]:http://semver.org/
+[semantic versioning]:https://semver.org/

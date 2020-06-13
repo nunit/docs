@@ -65,7 +65,7 @@ This release has three major changes.
 
 2. The filter syntax issues we've had with special names and characters have been mostly solved, thanks to excellent work by [John M.Wright](https://github.com/johnmwright).  The filter syntax is now closer to a correct FQN (Full Qualified Name), but this might cause some issues with your own filter in some rare cases.  The fix done resolves a lot of issues, all of them listed below.  For a detailed explanation of what has been done, see the [Pull Request #668](https://github.com/nunit/nunit3-vs-adapter/pull/668).
 
-3. You can now use the NUnit filter syntax, either from command line or through settings in the runsettings file. This was due to an idea by [Michael Letterle](https://github.com/mletterle) and a subsequent implementation [Pull Request #669](https://github.com/nunit/nunit3-vs-adapter/pull/669).  Michael also wrote [a great blogpost](http://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/) to explain how this works, and how he arrived at the solution.  For more information see the [NUnit Test Selection Language](xref:TestSelectionLanguage).
+3. You can now use the NUnit filter syntax, either from command line or through settings in the runsettings file. This was due to an idea by [Michael Letterle](https://github.com/mletterle) and a subsequent implementation [Pull Request #669](https://github.com/nunit/nunit3-vs-adapter/pull/669).  Michael also wrote [a great blogpost](https://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/) to explain how this works, and how he arrived at the solution.  For more information see the [NUnit Test Selection Language](xref:TestSelectionLanguage).
 
 ### Resolved issues
 

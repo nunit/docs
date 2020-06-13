@@ -28,7 +28,7 @@ There are already a couple of implementations implementing a fluent syntax or ex
 
   * Extension Methods for NUnit: this is substantially an aliasing mechanism which, without touching the constraints themselves, provides a fluent way to express them
   * [SharpTestsEx](http://sharptestsex.codeplex.com): this is an improvement of [NUnitEx](http://code.google.com/p/nunitex/) and provides an extension-method based constraint syntax in addition to a starting point for an expression-based mechanism of assertions.
-  * [ExpressionToCode](http://code.google.com/p/expressiontocode/): this is an expression-based assertion library.  It is a reimplementation of [Power Assert .NET](http://powerassert.codeplex.com/), which is itself a port of [Groovy's Power Assert](http://dontmindthelanguage.wordpress.com/2009/12/11/groovy-1-7-power-assert/).
+  * [ExpressionToCode](http://code.google.com/p/expressiontocode/): this is an expression-based assertion library.  It is a reimplementation of [Power Assert .NET](http://powerassert.codeplex.com/), which is itself a port of [Groovy's Power Assert](https://dontmindthelanguage.wordpress.com/2009/12/11/groovy-1-7-power-assert/).
 
 ### Extensible Fluent Constraint Proposal
 Ideally we would like to be able to use a constraint syntax similar to the current fluent syntax that is extensible.  This requires using extension methods instead of static classes, as the following example demonstrates:
