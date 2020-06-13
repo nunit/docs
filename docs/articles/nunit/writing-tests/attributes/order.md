@@ -14,14 +14,14 @@ The following tests will be run in the order:
 public class MyFixture
 {
     [Test, Order(1)]
-    public void TestA() { ... }
+    public void TestA() { /* ... */ }
 
 
     [Test, Order(2)]
-    public void TestB() { ... }
+    public void TestB() { /* ... */ }
 
     [Test]
-    public void TestC() { ... }
+    public void TestC() { /* ... */ }
 }
 ```
 

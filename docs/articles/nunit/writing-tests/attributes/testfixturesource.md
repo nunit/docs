@@ -19,7 +19,7 @@ public class MyTestClass
 {
     public MyTestClass(string word, int num) { ... }
 
-    ...
+    /* ... */
 
     static object [] FixtureArgs = {
         new object[] { "Question", 1 },
@@ -79,9 +79,9 @@ to provide test fixtures. It has the following characteristics:
 [TestFixtureSource(typeof(FixtureArgs))]
 public class MyTestClass
 {
-    public MyTestClass(string word, int num) { ... }
+    public MyTestClass(string word, int num) { /* ... */ }
 
-    ...
+    /* ... */
 }
 
 class FixtureArgs: IEnumerable

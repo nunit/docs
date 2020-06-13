@@ -11,7 +11,7 @@ specified time to complete, it is reported as a failure.
 [Test, MaxTime(2000)]
 public void TimedTest()
 {
-    ...
+    /* ... */
 }
 ```
 

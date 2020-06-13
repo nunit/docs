@@ -75,13 +75,13 @@ attribute on the base class were not ignored.
 [TestFixture]
 public class AbstractFixtureBase
 {
-    ...
+    /* ... */
 }
 
 [TestFixture(typeof(string))]
 public class DerivedFixture<T> : AbstractFixtureBase
 {
-    ...
+    /* ... */
 }
 ```
 

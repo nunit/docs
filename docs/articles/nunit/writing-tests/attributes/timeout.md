@@ -21,7 +21,7 @@ case it indicates the default timeout for any subordinate test cases. When using
 [Test, Timeout(2000)]
 public void PotentiallyLongRunningTest()
 {
-    ...
+    /* ... */
 }
 ```
 

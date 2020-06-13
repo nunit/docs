@@ -36,23 +36,23 @@ Teardown methods (again, both types) are called on derived classes first, then o
 public class BaseClass
 {
    [SetUp]
-   public void BaseSetUp() { ... } // Exception thrown!
+   public void BaseSetUp() { /* ... */ } // Exception thrown!
 
    [TearDown]
-   public void BaseTearDown() { ... }
+   public void BaseTearDown() { /* ... */ }
 }
 
 [TestFixture]
 public class DerivedClass : BaseClass
 {
    [SetUp]
-   public void DerivedSetUp() { ... }
+   public void DerivedSetUp() { /* ... */ }
 
    [TearDown]
-   public void DerivedTearDown() { ... }
+   public void DerivedTearDown() { /* ... */ }
 
    [Test]
-   public void TestMethod() { ... }
+   public void TestMethod() { /* ... */ }
 }
 ```
 Execution will proceed as follows:
