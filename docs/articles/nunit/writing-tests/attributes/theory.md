@@ -2,6 +2,9 @@
 uid: Theory-Attribute
 ---
 
+# Theory
+
+
 A Theory is a special type of test, used to verify a general
 statement about the system under development. Normal tests are
 _example-based_. That is, the developer supplies one or
