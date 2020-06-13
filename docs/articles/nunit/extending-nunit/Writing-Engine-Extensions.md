@@ -48,7 +48,7 @@ The `ExtensionPropertyAttribute` avoids the problem. NUnit's own extension for l
 [ExtensionProperty("FileExtension", ".nunit")]
 public class NUnitProjectLoader : IProjectLoader
 {
-    ...
+    /* ... */
 }
 ```
 

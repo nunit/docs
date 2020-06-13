@@ -55,7 +55,7 @@ public class InternalTrace
         Info,
         Debug
     }
-    ...
+    /* ... */
 }
 ```
 

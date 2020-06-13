@@ -226,7 +226,7 @@ using NUnit.Engine.Internal.Execution; // OK, but inside the namespace is prefer
 namespace NUnit.Engine.Internal
 {
     using Execution; // Preferred location
-    ...
+    /* ... */
 }
 ```
 

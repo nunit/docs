@@ -11,7 +11,7 @@ uid: ResultWriters
 [ExtensionProperty("Format", "custom")]
 public class CustomResultWriterFactory : IResultWriter
 {
-    ...
+    /* ... */
 }
 ```
 

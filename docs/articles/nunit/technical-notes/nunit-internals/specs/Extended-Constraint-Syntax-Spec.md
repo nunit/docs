@@ -48,7 +48,7 @@ Assert.That(1).Is.GreaterThan(0)
 This allows for extensions since any user can define a new extension method for the class of the ''Is'' property.  Say ''Is'' were to return a value of type ''IIsConstraint'', then I could just write
 
 ```csharp
-public static void MuchGreaterThan(this IIsConstraint iis) {  ...  }
+public static void MuchGreaterThan(this IIsConstraint iis) {  /* ... */  }
 ```
 
 Taking syntax shown on the [SharpTestsEx homepage](http://sharptestex.codeplex.com/) as an example, some assertions with the new NUnit syntax could be written as following:

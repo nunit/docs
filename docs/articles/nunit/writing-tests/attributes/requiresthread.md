@@ -15,7 +15,7 @@ desired apartment for the thread may be specified in the constructor.
 // all the tests in the assembly
 [assembly:RequiresThread]
 
-...
+/* ... */
 
 // TestFixture requiring a separate thread
 [TestFixture, RequiresThread]

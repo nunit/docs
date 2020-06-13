@@ -22,7 +22,7 @@ test method itself.
 [Test]
 public void MyTest([Values(1, 2, 3)] int x, [Values("A", "B")] string s)
 {
-    ...
+    /* ... */
 }
 ```
 

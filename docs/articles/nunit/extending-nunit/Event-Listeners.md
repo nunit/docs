@@ -12,7 +12,7 @@ The definition of an Event Listener extension will look something like this:
 [Extension(EngineVersion="3.4")]
 public class MyEventListener : ITestEventListener
 {
-    ...
+    /* ... */
 }
 ```
 

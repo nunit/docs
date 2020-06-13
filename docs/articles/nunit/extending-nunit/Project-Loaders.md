@@ -17,7 +17,7 @@ The extension point for project loaders accepts extensions that implement the `N
 [ExtensionProperty("FileExtension", ".yyy")]
 public class SomeProjectLoader : IProjectLoader
 {
-    ...
+    /* ... */
 }
 ```
 
