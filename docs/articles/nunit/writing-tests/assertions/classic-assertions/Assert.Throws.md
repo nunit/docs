@@ -1,3 +1,6 @@
+# Assert.Throws
+
+
 The **Assert.Throws** method is pretty much in a class by itself. Rather than
 comparing values, it attempts to invoke a code snippet, represented as
 a delegate, in order to verify that it throws a particular exception.
