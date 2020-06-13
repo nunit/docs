@@ -19,7 +19,8 @@ function AddHeaderToSourceFile($fullPath) {
     
     if (!$hasH1){
         $newH1 = $fileName.Humanize()
-        "New H1 would be $newH1"
+        "New H1 will be $newH1"
+        
     }
     
 }
