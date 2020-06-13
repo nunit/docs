@@ -1,3 +1,6 @@
+# NoItem Constraint
+
+
 **NoItemConstraint** applies a constraint to each item in a collection, succeeding only if all of them fail. An exception is thrown if the actual value passed does not implement `IEnumerable`.
 
 #### Constructor
