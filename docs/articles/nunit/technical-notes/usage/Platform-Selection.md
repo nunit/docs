@@ -1,3 +1,6 @@
+# Platform Selection
+
+
 If your tests are compiled x86 or x64, NUnit will run each assembly
 by default in a process targeted at the appropriate platform as well as
 the targeted runtime. If you run multiple assemblies in the same process,

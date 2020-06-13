@@ -1,3 +1,6 @@
+# Adapter Source Stepping
+
+
 As of version 3.10, the NUnit3TestAdapter NuGet package and VSIX contain source-indexed PDBs for the adapter. Debuggers can step into the source code, set breakpoints, watch variables, etc. It’s easy to drop into NUnit adapter code any time you want to understand what’s going on.
 
 If you’re getting ready to report a bug in the adapter, figuring out how to create a minimal repro is much easier since you aren’t dealing with a black box!

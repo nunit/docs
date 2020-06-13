@@ -2,6 +2,9 @@
 uid: vstestadapterinstallation
 ---
 
+# Adapter Installation
+
+
 There are two ways of installing the adapter within Visual Studio. See below for info on how to choose.
 
  * Use the Extension Manager
