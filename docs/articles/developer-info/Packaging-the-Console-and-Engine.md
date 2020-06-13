@@ -68,10 +68,10 @@ Notices at the top of each source code file are only updated when copyrightable 
 
 The package version is updated in the `build.cake` file. The following lines appear near the beginning of the file. Update the versions and modifiers if necessary. Normally, they will already have been set correctly.
 
-      ```csharp
-      var version="3.4.1";
-      var modifier=""
-      ```
+```csharp
+var version="3.4.1";
+var modifier=""
+```
 
 The version variables are three-part version numbers that follow the basic principles of [semantic versioning]. Since we publish a number of nuget packages, we use the nuget implementation of semantic versioning.
 

@@ -1,3 +1,6 @@
+# Timeout
+
+
 > From version 3.12 this is also available in the .NET Standard 2.0 builds of the framework.
 
 Normally, NUnit simply runs tests and waits for them to terminate - the test may is allowed to run indefinitely. For certain kinds of tests, however, it may be desired to specify a timeout value.

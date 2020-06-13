@@ -1,3 +1,6 @@
+# Category
+
+
 The Category attribute provides an alternative to suites for dealing with groups
 of tests. Either individual test cases or fixtures may be identified as
 belonging to a particular category. Both the gui and console test runners allow

@@ -1,3 +1,6 @@
+# DirectoryAssert
+
+
 The DirectoryAssert class provides methods for comparing two directories
 or verifying the existence of a directory. Directories may be provided
 as DirectoryInfos or as strings giving the path to each directory.

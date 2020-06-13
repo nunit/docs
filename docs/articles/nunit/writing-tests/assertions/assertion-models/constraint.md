@@ -2,6 +2,9 @@
 uid: constraintmodel
 ---
 
+# Constraint Model
+
+
 The constraint-based Assert model uses a single method of the Assert class
 for all assertions. The logic necessary to carry out each assertion is
 embedded in the constraint object passed as the second parameter to that
@@ -10,14 +13,14 @@ method.
 Here's a very simple assert using the constraint model:
 
 ```csharp
-      Assert.That(myString, Is.EqualTo("Hello"));
+Assert.That(myString, Is.EqualTo("Hello"));
 ```
 
 The second argument in this assertion uses one of NUnit's **syntax helpers**
 to create an **EqualConstraint**. The same assertion could also be made in this form:
 
 ```csharp
-      Assert.That(myString, new EqualConstraint("Hello"));
+Assert.That(myString, new EqualConstraint("Hello"));
 ```
 
 Using this model, all assertions are made using one of the forms of the

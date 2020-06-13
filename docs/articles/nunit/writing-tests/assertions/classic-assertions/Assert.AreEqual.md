@@ -1,3 +1,6 @@
+# Assert.AreEqual
+
+
 **Assert.AreEqual** tests whether the two arguments are equal. 
 
 ```csharp

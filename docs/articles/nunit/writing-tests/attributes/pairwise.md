@@ -2,6 +2,9 @@
 uid: pairwiseattribute
 ---
 
+# Pairwise
+
+
 The **PairwiseAttribute** is used on a test to specify that NUnit should
 generate test cases in such a way that all possible pairs of
 values are used. This is a well-known approach for combatting

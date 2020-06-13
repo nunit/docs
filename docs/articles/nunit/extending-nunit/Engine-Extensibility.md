@@ -25,29 +25,29 @@ This is the most common way we identify `ExtensionPoints` in NUnit. The `TypeExt
 For example, here is the code used to define the extension point for driver factories - classes that know how to create an appropriate driver for a test assembly.
 
 ```csharp
+/// <summary>
+/// Interface implemented by a Type that knows how to create a driver for a test assembly.
+/// </summary>
+[TypeExtensionPoint(
+    Description = "Supplies a driver to run tests that use a specific test framework.")]
+public interface IDriverFactory
+{
     /// <summary>
-    /// Interface implemented by a Type that knows how to create a driver for a test assembly.
+    /// Gets a flag indicating whether a given assembly name and version
+    /// represent a test framework supported by this factory.
     /// </summary>
-    [TypeExtensionPoint(
-        Description = "Supplies a driver to run tests that use a specific test framework.")]
-    public interface IDriverFactory
-    {
-        /// <summary>
-        /// Gets a flag indicating whether a given assembly name and version
-        /// represent a test framework supported by this factory.
-        /// </summary>
-        bool IsSupportedTestFramework(string assemblyName, Version version);
+    bool IsSupportedTestFramework(string assemblyName, Version version);
 
-        /// <summary>
-        /// Gets a driver for a given test assembly and a framework
-        /// which the assembly is already known to reference.
-        /// </summary>
-        /// <param name="domain">The domain in which the assembly will be loaded</param>
-        /// <param name="assemblyName">The Name of the test framework reference</param>
-        /// <param name="version">The version of the test framework reference</param>
-        /// <returns></returns>
-        IFrameworkDriver GetDriver(AppDomain domain, string assemblyName, Version version);
-    }
+    /// <summary>
+    /// Gets a driver for a given test assembly and a framework
+    /// which the assembly is already known to reference.
+    /// </summary>
+    /// <param name="domain">The domain in which the assembly will be loaded</param>
+    /// <param name="assemblyName">The Name of the test framework reference</param>
+    /// <param name="version">The version of the test framework reference</param>
+    /// <returns></returns>
+    IFrameworkDriver GetDriver(AppDomain domain, string assemblyName, Version version);
+}
 ```
 
 In this case, we used the default constructor. An alternate constructor allows specifying the `Path` but is usually not needed. In this case, NUnit will assign a default `Path` of "/NUnit/Engine/TypeExtensions/IDriverFactory". Extensions that implement `IDriverFactory` will be automatically associated with this extension point.
@@ -93,17 +93,17 @@ The `ExtensionAttribute` has only a default constructor, as well as two named pr
 Assuming the extension point definition used above, any of the following would identify the classes as driver factories.
 
 ```csharp
-    [Extension(Path = "/NUnit/Engine/TypeExtensions/IDriverFactory")]
-    public class DriverFactory1 : IDriverFactory
-    {
-        /* ... */
-    }
+[Extension(Path = "/NUnit/Engine/TypeExtensions/IDriverFactory")]
+public class DriverFactory1 : IDriverFactory
+{
+    /* ... */
+}
 
-    [Extension]
-    public class DriverFactory2 : IDriverFactory
-    {
-        /* ... */
-    }
+[Extension]
+public class DriverFactory2 : IDriverFactory
+{
+    /* ... */
+}
 ```
 
 Generally, the `Path` will be omitted and the default value used. It may be needed in some cases, where classes implement multiple interfaces or inherit other classes that do so. Usually, this is not necessary if you follow the Single Responsibility principle.

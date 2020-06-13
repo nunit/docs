@@ -1,3 +1,6 @@
+# CollectionEquivalent Constraint
+
+
 **CollectionEquivalentConstraint** tests that two `IEnumerables` are equivalent - that they contain
 the same items, in any order. If the actual value passed does not implement `IEnumerable` an exception is thrown.
 

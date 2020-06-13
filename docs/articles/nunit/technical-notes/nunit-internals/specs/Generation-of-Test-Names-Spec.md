@@ -1,3 +1,6 @@
+# Generation Of Test Names Spec
+
+
 Test Names are generated in the framework and used in the other layers. There are four key issues around naming of tests.
 
 1. NUnit test names often "look like" method names but in principal they are arbitrary strings. Since we allow the user to change the name in many cases - using the TestCase attribute for example - they can be arbitrary in practice as well. This issue is essentially the underlying cause of the remaining three issues.

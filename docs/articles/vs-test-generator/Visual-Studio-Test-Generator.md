@@ -1,3 +1,6 @@
+# Visual Studio Test Generator
+
+
 This is an extension for Visual Studio 2015 and 2017 that extends
 the test functionality to allow you to create unit tests and IntelliTests.
 This extension extends the built in test generator functionality allowing

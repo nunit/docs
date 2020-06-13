@@ -2,6 +2,9 @@
 uid: testfixtureattribute
 ---
 
+# TestFixture
+
+
 This is the attribute that marks a class that contains tests and, optionally, 
 setup or teardown methods.
 	
@@ -195,81 +198,81 @@ and which are normal constructor parameters.
    any remaining arguments are used to construct the instance. In the
    following example, this leads to some obvious duplication...
 
-   ```csharp
-   [TestFixture(typeof(double), typeof(int), 100.0, 42)]
-   [TestFixture(typeof(int) typeof(double), 42, 100.0)]
-   public class SpecifyBothSetsOfArgs<T1, T2>
-   {
-       T1 t1;
-       T2 t2;
+```csharp
+[TestFixture(typeof(double), typeof(int), 100.0, 42)]
+[TestFixture(typeof(int) typeof(double), 42, 100.0)]
+public class SpecifyBothSetsOfArgs<T1, T2>
+{
+    T1 t1;
+    T2 t2;
 
-       public SpecifyBothSetsOfArgs(T1 t1, T2 t2)
-       {
-           this.t1 = t1;
-           this.t2 = t2;
-       }
+    public SpecifyBothSetsOfArgs(T1 t1, T2 t2)
+    {
+        this.t1 = t1;
+        this.t2 = t2;
+    }
 
-       [TestCase(5, 7)]
-       public void TestMyArgTypes(T1 t1, T2 t2)
-       {
-           Assert.That(t1, Is.TypeOf<T1>());
-           Assert.That(t2, Is.TypeOf<T2>());
-       }
-   }
-   ```
+    [TestCase(5, 7)]
+    public void TestMyArgTypes(T1 t1, T2 t2)
+    {
+        Assert.That(t1, Is.TypeOf<T1>());
+        Assert.That(t2, Is.TypeOf<T2>());
+    }
+}
+```
 
 2. Specify normal parameters as arguments to **TestFixtureAttribute**
    and use the named parameter **TypeArgs=** to specify the type
    arguments. Again, for this example, the type info is duplicated, but
    it is at least more cleanly separated from the normal arguments...
 
-   ```csharp
-   [TestFixture(100.0, 42, TypeArgs=new Type[] { typeof(double), typeof(int) })]
-   [TestFixture(42, 100.0, TypeArgs=new Type[] { typeof(int), typeof(double) })]
-   public class SpecifyTypeArgsSeparately<T1, T2>
-   {
-       T1 t1;
-       T2 t2;
+```csharp
+[TestFixture(100.0, 42, TypeArgs=new Type[] { typeof(double), typeof(int) })]
+[TestFixture(42, 100.0, TypeArgs=new Type[] { typeof(int), typeof(double) })]
+public class SpecifyTypeArgsSeparately<T1, T2>
+{
+    T1 t1;
+    T2 t2;
 
-       public SpecifyTypeArgsSeparately(T1 t1, T2 t2)
-       {
-           this.t1 = t1;
-           this.t2 = t2;
-       }
+    public SpecifyTypeArgsSeparately(T1 t1, T2 t2)
+    {
+        this.t1 = t1;
+        this.t2 = t2;
+    }
 
-       [TestCase(5, 7)]
-       public void TestMyArgTypes(T1 t1, T2 t2)
-       {
-           Assert.That(t1, Is.TypeOf<T1>());
-           Assert.That(t2, Is.TypeOf<T2>());
-       }
-   }
-   ```
+    [TestCase(5, 7)]
+    public void TestMyArgTypes(T1 t1, T2 t2)
+    {
+        Assert.That(t1, Is.TypeOf<T1>());
+        Assert.That(t2, Is.TypeOf<T2>());
+    }
+}
+```
 
 3. In some cases, when the constructor makes use of all the type parameters 
    NUnit may simply be able to deduce them from the arguments provided. 
    That's the case here and the following is the preferred way to
    write this example...
    
-   ```csharp
-   [TestFixture(100.0, 42)]
-   [TestFixture(42, 100.0)]
-   public class DeduceTypeArgsFromArgs<T1, T2>
-   {
-       T1 t1;
-       T2 t2;
+```csharp
+[TestFixture(100.0, 42)]
+[TestFixture(42, 100.0)]
+public class DeduceTypeArgsFromArgs<T1, T2>
+{
+    T1 t1;
+    T2 t2;
 
-       public DeduceTypeArgsFromArgs(T1 t1, T2 t2)
-       {
-           this.t1 = t1;
-           this.t2 = t2;
-       }
+    public DeduceTypeArgsFromArgs(T1 t1, T2 t2)
+    {
+        this.t1 = t1;
+        this.t2 = t2;
+    }
 
-       [TestCase(5, 7)]
-       public void TestMyArgTypes(T1 t1, T2 t2)
-       {
-           Assert.That(t1, Is.TypeOf<T1>());
-           Assert.That(t2, Is.TypeOf<T2>());
-       }
-   }
-   ```
+    [TestCase(5, 7)]
+    public void TestMyArgTypes(T1 t1, T2 t2)
+    {
+        Assert.That(t1, Is.TypeOf<T1>());
+        Assert.That(t2, Is.TypeOf<T2>());
+    }
+}
+```

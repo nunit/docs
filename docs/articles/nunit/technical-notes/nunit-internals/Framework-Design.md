@@ -1,3 +1,6 @@
+# Framework Design
+
+
 ### DRAFT
 NUnit 3.0 is intentionally changing certain design decisions made in earlier versions. We document those changes here so that developers may find them all in one place.
 

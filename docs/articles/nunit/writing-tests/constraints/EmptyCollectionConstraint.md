@@ -1,3 +1,6 @@
+# EmptyCollection Constraint
+
+
 The **EmptyCollectionConstraint** tests if a Collection or other `IEnumerable` is empty. An `ArgumentException` is thrown if the actual value is not an `IEnumerable` or is null. 
 
 #### Constructor

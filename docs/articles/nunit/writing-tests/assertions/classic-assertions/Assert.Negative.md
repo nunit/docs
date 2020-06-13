@@ -1,3 +1,6 @@
+# Assert.Negative
+
+
 Asserts that a number is negative.
 
 ```csharp

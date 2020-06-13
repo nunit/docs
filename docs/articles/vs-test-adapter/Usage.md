@@ -1,3 +1,6 @@
+# Usage
+
+
 In preparation for using the test adapter, make sure that the Unit Test Explorer is shown in your window. If you don't see it, use the menu ( Test | Windows | Test Explorer ) to show it and position the window where you would like it within Visual Studio.
 
 ![](~/images/nunitTestAdapter.png)

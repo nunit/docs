@@ -1,3 +1,6 @@
+# Assert.IsEmpty
+
+
 **Assert.IsEmpty** may be used to test either a string or a collection or IEnumerable.
 When used with a string, it succeeds if the string is the empty string.
 When used with a collection, it succeeds if the collection is empty.

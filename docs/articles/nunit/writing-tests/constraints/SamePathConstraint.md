@@ -1,3 +1,6 @@
+# SamePath Constraint
+
+
 `SamePathConstraint` tests that two paths are equivalent.
 
 #### Constructor

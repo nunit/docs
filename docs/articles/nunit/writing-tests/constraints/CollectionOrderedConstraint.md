@@ -1,3 +1,6 @@
+# CollectionOrdered Constraint
+
+
 **CollectionOrderedConstraint** tests that an `IEnumerable` is ordered. If the actual value passed does not implement `IEnumerable`, an exception is thrown.
 
 The constraint supports both simple and property-based ordering (Ordered.By).

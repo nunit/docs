@@ -1,3 +1,6 @@
+# FileAssert
+
+
 The FileAssert class provides methods for comparing or verifying the existence of files,
 which may be provided as Streams, as FileInfos or as strings 
 giving the path to each file.

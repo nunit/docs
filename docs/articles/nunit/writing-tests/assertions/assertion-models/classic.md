@@ -2,13 +2,16 @@
 uid: classicmodel
 ---
 
+# Classic Model
+
+
 The classic Assert model uses a separate method to express each 
 individual assertion of which it is capable.
    
 Here's a simple assert using the classic model:
 
 ```csharp
-      StringAssert.AreEqualIgnoringCase("Hello", myString);
+StringAssert.AreEqualIgnoringCase("Hello", myString);
 ```
    
 The Assert class provides the most common assertions in NUnit:

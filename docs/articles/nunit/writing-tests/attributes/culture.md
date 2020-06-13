@@ -1,3 +1,6 @@
+# Culture
+
+
 The Culture attribute is used to specify cultures for which a test or fixture should be run. It does not affect the culture setting, but merely uses it to determine whether to run the test. If you wish to change the culture when running a test, use the SetCulture attribute instead.
 	
 If the specified culture requirements for a test are not met it is skipped. In the gui, the tree node for the test remains gray and the status bar color is not affected.

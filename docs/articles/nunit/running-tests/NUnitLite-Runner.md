@@ -15,12 +15,12 @@ To run tests under NUnitLite, proceed as follows:
 
 3. The Main() for your console application should look something like this...
 
-   ```csharp
-    public static int Main(string[] args)
-    {
-      return new AutoRun().Execute(args);
-    }
-   ```
+```csharp
+public static int Main(string[] args)
+{
+  return new AutoRun().Execute(args);
+}
+```
 
 4. Execute your test application in order to run the tests.
 
