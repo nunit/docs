@@ -26,7 +26,7 @@ Any tests using the new style CSPROJ format, either .NET Core or .NET 4.x, need 
 
 Also, note that **Code Coverage** and **Live Unit Testing** does not work with .NET Core yet. They will be supported in a future version of Visual Studio, likely post 15.3.
 
-For a more complete walkthrough, please see [Testing .NET Core with NUnit in Visual Studio 2017](http://www.alteridem.net/2017/05/04/test-net-core-nunit-vs2017/)
+For a more complete walk-through, please see [Testing .NET Core with NUnit in Visual Studio 2017](http://www.alteridem.net/2017/05/04/test-net-core-nunit-vs2017/)
 
 ## Install the NUnit project template
 
@@ -50,7 +50,7 @@ This limitation is the same for all test adapters including xUnit and MSTest2.
 - Are you using version 3.8.0 or newer of the NuGet package?
 - Do your tests target .NET Core or the full .NET Framework? (see above)
 - Have you added a Package Reference to `Microsoft.NET.Test.Sdk`?
-- Have you restarted Visual Studio? It is still a bit tempermental.
+- Have you restarted Visual Studio? It is still a bit temperamental.
 
 #### My tests multi-target .NET Core and .NET Framework, why can't I run both in Visual Studio
 
