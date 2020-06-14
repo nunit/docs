@@ -74,7 +74,7 @@ Labels starting with **closed:** indicate the status of the bug at closing and s
 
 * **closed:done** The work called for is done, i.e. the bug is fixed or the feature/enhancement is implemented.
 * **closed:duplicate** The issue is a duplicate of one that we are working. A comment should indicate the issue number.
-* **closed:notabug`** The issue (generally a bug) is not valid or the feature already exists. There should be an explanatory comment.
+* **closed:notabug** The issue (generally a bug) is not valid or the feature already exists. There should be an explanatory comment.
 * **closed:norepro** While the issue (generally a bug) may exist on the user's system, we have tried and are unable to reproduce it. If somebody later figures out a repro, the issue can be reopened.
 * **closed:wontfix** The issue is possibly valid but we don't intend to implement it. It may be out of scope for the project or inconsistent with the values and priorities of the project. There should be an explanatory comment.
 
