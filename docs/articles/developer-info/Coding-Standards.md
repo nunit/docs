@@ -6,7 +6,7 @@ Notice that these standards are all stylistic. Do not write standards that tell 
 
 ## Making Changes
 
-If you do want to make changes, please don't just edit the wiki. Initiate a discussion of what you want to change on the developer list first. If you add an entire new section, you can edit first and then present it to the list for discussion. However, if you are intending to standardize more things than we usually standardize, it's wise to discuss it first to avoid wasting time!
+If you do want to make changes, please initiate a discussion of what you want to change on the developer list first. If you are intending to standardize more things than we usually standardize, it's wise to discuss it first to avoid wasting time!
 
 ## General - Please Read This
 
