@@ -684,7 +684,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Bug Fixes
 
-* #1188000, adapter dont work with solutions with only .net 2.0/3.5 project
+* #1188000, adapter don't work with solutions with only .net 2.0/3.5 project
 
 ----
 
