@@ -1,3 +1,7 @@
+---
+uid: teampractices
+---
+
 # Team Practices
 
 ## How We Work As a Team
