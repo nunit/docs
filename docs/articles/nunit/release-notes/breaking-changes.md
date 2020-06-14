@@ -102,20 +102,20 @@ The console runner is now called `nunit3-console`. The following breaking change
 
 |      Option       |     Function                            |     Notes                |
 |-------------------|-----------------------------------------|--------------------------|
-| --fixture=STR     | Test fixture or namespace to be loaded  | No longer supported. Use --test instead. |
-| --run=STR         | List of tests to run                    | No longer supported. Replaced by --test. |
-| --runlist=PATH    | File containing list of tests to run    | No longer supported. Replaced by --testlist. |
-| --include=LIST    | List of categories to include           | No longer supported. Use --where instead. |
-| --exclude=LIST    | List of categories to exclude           | No longer supported. Use --where instead. |
-| --process=PROCESS | ProcessModel for test assemblies        | Default value is now Separate for a single assembly, Multiple for more than one. Multiple assemblies run in parallel by default. |
-| --domain=DOMAIN   | DomainUsage for test assemblies         | Default value is now Separate for a single assembly, Multiple for more than one. |
-| --apartment=APT   | Apartment in which to run tests         | No longer supported. Use ApartmentAttribute. |
-| --xml=PATH        | Output result xml to path               | No longer supported. Use --result=SPEC instead.    |
-| --noxml           | Disable xml result output               | No longer supported. Use --noresult instead.    |
-| --xmlconsole      | Display XML to the console              | No longer supported.     |
-| --basepath        | Set ApplicationBase for execution       | No longer supported.     |
-| --privatebinpath  | Specify probing path for execution      | No longer supported.     |
-| --cleanup         | Remove left-over cache files            | No longer supported.     |
-| --noshadow        | Disable shadow copy                     | No longer supported. The console runner now disables shadow copy by default. use **--shadowcopy** on the command-line to turn it on. |
-| --nothread        | Disable use of a separate thread for tests  | No longer supported. |
-| --nodots          | Do not display dots as a progress indicator | No longer supported. |
+| `--fixture=STR`     | Test fixture or namespace to be loaded  | No longer supported. Use --test instead. |
+| `--run=STR`         | List of tests to run                    | No longer supported. Replaced by --test. |
+| `--runlist=PATH`    | File containing list of tests to run    | No longer supported. Replaced by --testlist. |
+| `--include=LIST`    | List of categories to include           | No longer supported. Use --where instead. |
+| `--exclude=LIST`    | List of categories to exclude           | No longer supported. Use --where instead. |
+| `--process=PROCESS` | ProcessModel for test assemblies        | Default value is now Separate for a single assembly, Multiple for more than one. Multiple assemblies run in parallel by default. |
+| `--domain=DOMAIN`   | DomainUsage for test assemblies         | Default value is now Separate for a single assembly, Multiple for more than one. |
+| `--apartment=APT`   | Apartment in which to run tests         | No longer supported. Use ApartmentAttribute. |
+| `--xml=PATH`        | Output result xml to path               | No longer supported. Use `--result=SPEC` instead.    |
+| `--noxml`           | Disable xml result output               | No longer supported. Use `--noresult` instead.    |
+| `--xmlconsole`      | Display XML to the console              | No longer supported.     |
+| `--basepath`        | Set ApplicationBase for execution       | No longer supported.     |
+| `--privatebinpath`  | Specify probing path for execution      | No longer supported.     |
+| `--cleanup`         | Remove left-over cache files            | No longer supported.     |
+| `--noshadow`       | Disable shadow copy                     | No longer supported. The console runner now disables shadow copy by default. use `--shadowcopy` on the command-line to turn it on. |
+| `--nothread`        | Disable use of a separate thread for tests  | No longer supported. |
+| `--nodots`          | Do not display dots as a progress indicator | No longer supported. |

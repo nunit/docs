@@ -58,7 +58,7 @@ and enabling Timeout on tests.
 * [3128](https://github.com/nunit/nunit/issues/3128) Correct documentation on ParallelScope
 * [3137](https://github.com/nunit/nunit/issues/3137) Fix doc-comments in NUnitTestAssemblyRunner
 * [3138](https://github.com/nunit/nunit/issues/3138) Assert.Ignore breaks when a Task is returned w/o using async/await
-* [3139](https://github.com/nunit/nunit/issues/3139)  Add Azure pipelines badge to frontpage
+* [3139](https://github.com/nunit/nunit/issues/3139)  Add Azure pipelines badge to front page
 * [3144](https://github.com/nunit/nunit/issues/3144) Retry attribute should not derive from PropertyAttribute
 * [3145](https://github.com/nunit/nunit/issues/3145) Capture additional exception details in the test output
 * [3156](https://github.com/nunit/nunit/issues/3156) UnexpectedExceptionTests should tolerate Mono on Azure DevOps Ubuntu
@@ -74,7 +74,7 @@ and enabling Timeout on tests.
 * [3231](https://github.com/nunit/nunit/issues/3231) Breaking change in filter functionality between framework 2.7 and 3.11
 * [3209](https://github.com/nunit/nunit/issues/3209) Test fail when posting to SynchronizationContext.Current
 * [3211](https://github.com/nunit/nunit/issues/3211) Fix logging
-* [3218](https://github.com/nunit/nunit/issues/3218) Remove todos from the code base
+* [3218](https://github.com/nunit/nunit/issues/3218) Remove to-dos from the code base
 * [3222](https://github.com/nunit/nunit/issues/3222) Our build script tests hang when run with Mono on Windows
 * [3233](https://github.com/nunit/nunit/issues/3233) AndConstraint should write additional information from failed constraint
 
@@ -99,11 +99,11 @@ and enabling Timeout on tests.
 * [2450](https://github.com/nunit/nunit/issues/2450) NullReferenceException in ExceptionHelper.BuildMessage on Mono
 * [2536](https://github.com/nunit/nunit/issues/2536) SetArgDisplayNames for TestCaseData and TestFixtureData
 * [2611](https://github.com/nunit/nunit/issues/2611) Enable .NET Standard 1.6 tests on non-Windows
-* [2693](https://github.com/nunit/nunit/issues/2693) Ensure that resharper settings are consistent with the editorconfig configuration
+* [2693](https://github.com/nunit/nunit/issues/2693) Ensure that ReSharper settings are consistent with the editorconfig configuration
 * [2757](https://github.com/nunit/nunit/issues/2757) Broken `char` comparison in v3.7 and higher
 * [2759](https://github.com/nunit/nunit/issues/2759) Test fails with "No arguments were provided" error when no values returned from IParameterDataSource
 * [2761](https://github.com/nunit/nunit/issues/2761) Infinite loop in nunit 3.9
-* [2781](https://github.com/nunit/nunit/issues/2781) Fixed precompiler typo
+* [2781](https://github.com/nunit/nunit/issues/2781) Fixed pre-compiler typo
 * [2786](https://github.com/nunit/nunit/issues/2786) Timeout value not resetting on Retry of failed test
 * [2790](https://github.com/nunit/nunit/issues/2790) Removing ITypeInfo abstraction
 * [2798](https://github.com/nunit/nunit/issues/2798) [Request] Show actual count value when test fail on Has.Exactly(x).Items
@@ -115,7 +115,7 @@ and enabling Timeout on tests.
 * [2831](https://github.com/nunit/nunit/issues/2831) Regular "BusyExecIdle after 200 milliseconds delay" CI failures
 * [2833](https://github.com/nunit/nunit/issues/2833)  Use longer BusyExecIdle to avoid CI failures
 * [2836](https://github.com/nunit/nunit/issues/2836) NUnit.Framework.Does cannot be extended
-* [2837](https://github.com/nunit/nunit/issues/2837) DictionaryContainsKeyConstraint behaviour is inconstant with Dictionary.ContainsKey when the dictionary uses a custom Comparer
+* [2837](https://github.com/nunit/nunit/issues/2837) DictionaryContainsKeyConstraint behavior is inconstant with Dictionary.ContainsKey when the dictionary uses a custom Comparer
 * [2842](https://github.com/nunit/nunit/issues/2842) Supporting inheritance of Assert and related classes
 * [2854](https://github.com/nunit/nunit/issues/2854) Has.All.../Has.None... - show non-matching items in error message
 * [2863](https://github.com/nunit/nunit/issues/2863) Make tests robust without depending on the order of attributes
@@ -182,7 +182,7 @@ supported targets on Windows, Linux and Mac using the Cake command line build.
 * [2405](https://github.com/nunit/nunit/issues/2405) Improve PropertyConstraint error output
 * [2421](https://github.com/nunit/nunit/issues/2421) Publishing symbols with releases
 * [2494](https://github.com/nunit/nunit/issues/2494) CollectionAssert.AllItemsAreUnique() very slow
-* [2515](https://github.com/nunit/nunit/issues/2515) Retarget Solution to use the New CSPROJ Format
+* [2515](https://github.com/nunit/nunit/issues/2515) Re-target Solution to use the New CSPROJ Format
 * [2518](https://github.com/nunit/nunit/issues/2518) Bug in CollectionAssert.AreEqual for ValueTuples.
 * [2530](https://github.com/nunit/nunit/issues/2530) Running tests on main thread. Revisiting #2483
 * [2542](https://github.com/nunit/nunit/issues/2542) NUnit does not support parallelism on .NET Core 2.0
@@ -203,7 +203,7 @@ supported targets on Windows, Linux and Mac using the Cake command line build.
 * [2632](https://github.com/nunit/nunit/issues/2632) Parallel tests are loading 100% CPU when nested SetUpFixture exists
 * [2639](https://github.com/nunit/nunit/issues/2639) ValuesAttribute causes ExpectedResult to have no effect
 * [2647](https://github.com/nunit/nunit/issues/2647) Add Current Attempt indicator in TestContext for use with RetryAttribute
-* [2654](https://github.com/nunit/nunit/issues/2654) Address feedback from @oznetmaster
+* [2654](https://github.com/nunit/nunit/issues/2654) Address feedback from `@oznetmaster`
 * [2656](https://github.com/nunit/nunit/issues/2656) NuGet package links to outdated license
 * [2659](https://github.com/nunit/nunit/issues/2659) Naming Errors
 * [2662](https://github.com/nunit/nunit/issues/2662) NullReferenceException after parallel tests have finished executing

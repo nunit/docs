@@ -538,7 +538,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 692 PlatformAttribute_OperatingSystemBitNess fails when running in 32-bit process
 * 693 Generic `Test<T>` Method cannot determine type arguments for fixture when passed as `IEnumerable<T>`
 * 698 Require TestCaseSource and ValueSource named members to be static
-* 703 TeamCity non-equal flowid for 'testStarted' and 'testFinished' messages
+* 703 TeamCity non-equal `flowid` for 'testStarted' and 'testFinished' messages
 * 712 Extensions to RandomAttribute
 * 715 Provide a data source attribute at TestFixture Level
 * 718 RangeConstraint gives error with from and two args of differing types
@@ -680,8 +680,8 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 ### Console
 
 * New options supported:
-  * --testlist provides a list of tests to run in a file
-  * --stoponerror indicates that the run should terminate when any test fails.
+  * `--testlist` provides a list of tests to run in a file
+  * `--stoponerror` indicates that the run should terminate when any test fails.
 
 ### Issues Resolved
 
@@ -697,7 +697,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 427  [TestFixture(Ignore=true)] should not be allowed.
 * 437  Errors in tests under Linux due to hard-coded paths.
 * 441  NUnit-Console should support --testlist option
-* 442  Add --stoponerror option back to nunit-console.
+* 442  Add `--stoponerror` option back to nunit-console.
 * 456  Fix memory leak in RuntimeFramework.
 * 459  Remove the Mixed Platforms build configuration.
 * 468  Change default domain usage to multiple.

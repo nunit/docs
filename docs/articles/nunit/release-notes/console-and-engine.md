@@ -65,12 +65,12 @@ The `--params` command line option which took multiple test parameters separated
 a semicolon is now deprecated in favor of the new `--testparam` command line option.
 One of the most common uses for test parameters was to pass connection strings into
 tests but this required workarounds to handle the semicolons. Now you must pass in
-each test paramater separately using a `--testparam` or `--tp` option for each.
+each test parameter separately using a `--testparam` or `--tp` option for each.
 
 ### Issues Resolved
 
 * [8](https://github.com/nunit/nunit-console/issues/8) TempResourceFile.Dispose causes run to hang
-* [23](https://github.com/nunit/nunit-console/issues/23) In nunit3-console you cannot pass parameters containing ';' because they always get splitted
+* [23](https://github.com/nunit/nunit-console/issues/23) In nunit3-console you cannot pass parameters containing ';' because they always get split
 * [178](https://github.com/nunit/nunit-console/issues/178) Add date and time to console output
 * [282](https://github.com/nunit/nunit-console/issues/282) "Execution terminated after first error" does not fail the console runner
 * [388](https://github.com/nunit/nunit-console/issues/388) Merge .NET Standard Engine back into the main solution
@@ -100,7 +100,7 @@ each test paramater separately using a `--testparam` or `--tp` option for each.
 * [533](https://github.com/nunit/nunit-console/issues/533) Duplicate ids when loading a project
 * [544](https://github.com/nunit/nunit-console/issues/544) Deprecate nunit.netstandard.engine NuGet package
 * [546](https://github.com/nunit/nunit-console/issues/546) Cannot run a project file using --process:Separate
-* [547](https://github.com/nunit/nunit-console/issues/547) --labels=Before ignores --nocolor
+* [547](https://github.com/nunit/nunit-console/issues/547) --labels=Before ignores `--nocolor`
 * [556](https://github.com/nunit/nunit-console/issues/556) Appveyor CI failing due to nuget restore
 * [557](https://github.com/nunit/nunit-console/issues/557) Disable CliFallbackFolder as a nuget source
 * [562](https://github.com/nunit/nunit-console/issues/562) Fix typo in comment
@@ -110,13 +110,13 @@ each test paramater separately using a `--testparam` or `--tp` option for each.
 * [567](https://github.com/nunit/nunit-console/issues/567) Unnecessary call to IProjectService
 * [571](https://github.com/nunit/nunit-console/issues/571) Space characters in the work directory path are not properly handled
 * [583](https://github.com/nunit/nunit-console/issues/583) NUnit Console NuGet Package Doesn't Load Extensions
-* [587](https://github.com/nunit/nunit-console/issues/587) Disable new MSBuild GenerateSupportedRuntime functionality, which breaks framework targetting
+* [587](https://github.com/nunit/nunit-console/issues/587) Disable new MSBuild GenerateSupportedRuntime functionality, which breaks framework targeting
 
 ## NUnit Console 3.9 - September 5, 2018
 
 This release should stop the dreaded SocketException problem on shutdown. The
 console also no longer returns -5 when AppDomains fail to unload at the end of a
-test run. These fixes should make CI runs much more stable and predictible.
+test run. These fixes should make CI runs much more stable and predictable.
 
 For developers working on the NUnit Console and Engine project, Visual Studio
 2017 update 5 or newer is now required to compile on the command line. This does
@@ -135,9 +135,9 @@ and running your tests in any IDE and on any .NET Framework back to .NET 2.0.
 * [370](https://github.com/nunit/nunit-console/issues/370) Nunit.Console 3.8 - Socket Exception
 * [371](https://github.com/nunit/nunit-console/issues/371) Remove -5 exit code on app domain unload failures
 * [394](https://github.com/nunit/nunit-console/issues/394) Multi-targeted Engine Extensions
-* [399](https://github.com/nunit/nunit-console/issues/399) Fix minor doccoment issues
+* [399](https://github.com/nunit/nunit-console/issues/399) Fix minor document issues
 * [411](https://github.com/nunit/nunit-console/issues/411) Make output received when providing user friendly messages unloading the domain more user friendly
-* [412](https://github.com/nunit/nunit-console/issues/412) Extensions not dectected for version 3.9.0-dev-03997
+* [412](https://github.com/nunit/nunit-console/issues/412) Extensions not detected for version 3.9.0-dev-03997
 * [436](https://github.com/nunit/nunit-console/issues/436) NUnitEngineException : Unable to acquire remote process agent
 * [446](https://github.com/nunit/nunit-console/issues/446) Output CI version info to console
 * [448](https://github.com/nunit/nunit-console/issues/448) Update vs-project-loader extension to 3.8.0
@@ -206,7 +206,7 @@ aggregate NuGet packages also include updated versions of several extensions.
 * [194](https://github.com/nunit/nunit-console/issues/194) Better logging or error handling in SettingsStore.SaveSettings
 * [196](https://github.com/nunit/nunit-console/issues/196) Allow comments in @FILE files
 * [200](https://github.com/nunit/nunit-console/issues/200) Remove obsolete warnings from build script
-* [206](https://github.com/nunit/nunit-console/issues/206) Remove reference to removed noxml option
+* [206](https://github.com/nunit/nunit-console/issues/206) Remove reference to removed `noxml` option
 * [207](https://github.com/nunit/nunit-console/issues/207)  Create Chocolatey package(s) for the console
 * [208](https://github.com/nunit/nunit-console/issues/208) Explore flags test update
 * [213](https://github.com/nunit/nunit-console/issues/213) Master build failing after merging .NET Standard Engine
@@ -235,7 +235,7 @@ aggregate NuGet packages also include updated versions of several extensions.
 
 ### Console Runner
 
-* Added command line option --skipnontestassemblies to skip assemblies that do
+* Added command line option `--skipnontestassemblies` to skip assemblies that do
    not contain tests without raising an error and to skip assemblies that contain
    the NUnit.Framework.NonTestAssemblyAttribute.
 * Messages from the new Multiple Assert blocks will be displayed individually
@@ -257,7 +257,7 @@ aggregate NuGet packages also include updated versions of several extensions.
 * [62](https://github.com/nunit/nunit-console/issues/62) NUnit3 Fails on DLL with no Tests, Unlike NUnit2
 * [100](https://github.com/nunit/nunit-console/issues/100) Class NUnit.Engine.Services.ResultWriters.Tests.SchemaValidator is never used
 * [101](https://github.com/nunit/nunit-console/issues/101) Method NUnit.Options.OptionSet.Unprocessed always returns "false"
-* [104](https://github.com/nunit/nunit-console/issues/104) Type of variable enumerated in 'foreach' is not guaranteed to be castable
+* [104](https://github.com/nunit/nunit-console/issues/104) Type of variable enumerated in 'foreach' is not guaranteed to be cast-able
 * [110](https://github.com/nunit/nunit-console/issues/110) Writability check could give a friendlier message.
 * [113](https://github.com/nunit/nunit-console/issues/113) Add task descriptions to Build.cake
 * [127](https://github.com/nunit/nunit-console/issues/127) Modify console runner to display multiple assert information
@@ -266,7 +266,7 @@ aggregate NuGet packages also include updated versions of several extensions.
 * [136](https://github.com/nunit/nunit-console/issues/136) Handle early termination of multiple assert block
 * [138](https://github.com/nunit/nunit-console/issues/138) Report Warnings in console runner
 * [145](https://github.com/nunit/nunit-console/issues/145) MasterTestRunner.RunAsync no longer provides start-run and test-run events
-* [151](https://github.com/nunit/nunit-console/issues/151) Unexpected behaviour from --framework flag
+* [151](https://github.com/nunit/nunit-console/issues/151) Unexpected behavior from --framework flag
 * [153](https://github.com/nunit/nunit-console/issues/153) Remove some settings used by the engine
 * [156](https://github.com/nunit/nunit-console/issues/156) Use high-quality icon for nuspecs
 * [157](https://github.com/nunit/nunit-console/issues/157) Fix Detection of invalid framework when --inprocess
