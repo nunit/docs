@@ -177,7 +177,7 @@ Hotfix release
 
 * #1155617 Grouping by class name in VS 2012 doesn't work
 * #1165359 Exception after building Coded UI test
-* #1116747 vstest.executionengine.x86.exe does not terminate
+* #1116747 `vstest.executionengine.x86.exe` does not terminate
 * #1093178 Eliminate unnecessary files from VSIX
 
 ---

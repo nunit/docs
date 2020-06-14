@@ -27,7 +27,7 @@ The following options are available:
 |[TestOutputXml](#testoutputxml)|string|specify directory|Test Result Xml output folder|
 |[DumpXmlTestDiscovery](#dumpxmltestdiscovery-and-dumpxmltestresults)|bool|Enable dumping of NUnit discovery response xml|false|
 |[DumpXmlTestResults](#dumpxmltestdiscovery-and-dumpxmltestresults)|bool|Enable dumping of NUnit execution response xml|false|
-|[PreFilter](#prefilter)|bool|Enable prefiltering to increase performance for Visual Studio testing|false|
+|[PreFilter](#prefilter)|bool|Enable pre-filtering to increase performance for Visual Studio testing|false|
 |[ShowInternalProperties](#showinternalproperties)| bool | Turn on showing internal NUnit properties in Test Explorer| false|
 |[Where](#where)|string| NUnit Filter expression|
 |[UseParentFQNForParametrizedTests](#useparentfqnforparametrizedtests)|bool|Enable parent as FQN for parametrized tests|false|
@@ -201,7 +201,7 @@ See explanation for the [NonTestAssembly Attribute](https://github.com/nunit/doc
 
 #### DisplayName
 
-The default for Test Explorer Displayname is to use the Name of the test, which normally is the method name.  Using DisplayName you can change between `Name`, `FullName` or `FullNameSep`.  The last one will then use the FullNameSeparator,which defaults to '`:`'.
+The default for Test Explorer `DisplayName` is to use the Name of the test, which normally is the method name.  Using DisplayName you can change between `Name`, `FullName` or `FullNameSep`.  The last one will then use the FullNameSeparator,which defaults to '`:`'.
 See [Issue 640](https://github.com/nunit/nunit3-vs-adapter/issues/640) for explanations of use and [sample code](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue640) here.  
 
 (From version 3.17.0)
