@@ -159,7 +159,7 @@ Note that this often has to be set together with [UseNUnitIdforTestCaseId](#usen
 
 #### UseNUnitIdforTestCaseId
 
-The default setting is false, causes the VSTest Testcase ID to be based on the NUnit fullname property, which is nearly equal to a FullyQualifiedName.  The fullname is alse set into the Testcase FullyQualifiedName property.
+The default setting is false, causes the VSTest Testcase ID to be based on the NUnit fullname property, which is nearly equal to a FullyQualifiedName.  The fullname is also set into the Testcase FullyQualifiedName property.
 
 By setting this property true, it shifts to using the NUnit id as the basis for the testcase id.  This may in certain cases give more stable results, and are more correct.  
 
