@@ -106,7 +106,7 @@ This setting is used by the adapter to signal to the VSTest.Execution engine to 
 #### DumpXmlTestDiscovery and DumpXmlTestResults
 
 These settings are used to dump the output from NUnit, as it is received by the adapter, before any processing in the adapter is done, to disk.  It is part of the diagnostics tools for the adapter.
-You can find the files under your current outputfolder, in a subfolder named Dump.
+You can find the files under your current output folder, in a sub-folder named Dump.
 (Note: This is not the same as the TestResults folder, this data is not testresults, but diagnostics dumps)
 
 #### PreFilter

@@ -39,7 +39,7 @@ Hotfix release
 ### Bug Fixes
 
 * #142 NUnit Test Adapter 2.1 doesn't work with projects that target .NET Framework 3.5 / CLR 2.0
-* #144 Adapter requires test project pdb's to be generated for tests to be executed
+* #144 Adapter requires test project PDBs to be generated for tests to be executed
 
 ---
 
@@ -196,7 +196,7 @@ Hotfix release
 * 1074891 Can't test multiple assemblies referencing different NUnit versions
 * 1075893 Test execution fails if solution contains native C++ project
 * 1076012 No source information found for async test methods
-* 1087629 TestFixture Category not being recognised as traits in VS2012 update 1
+* 1087629 TestFixture Category not being recognized as traits in VS2012 update 1
 * 1091020 Adapter doesn't support TFS Build traits/test case filtering
 
 ---
