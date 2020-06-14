@@ -22,7 +22,7 @@ public static ITestEngine CreateInstance(Version minVersion, bool unused = false
 
 We search for the engine in a standard set of locations, starting with the current ApplicationBase. 
 
-1. The Application base and probing privatepath.
+1. The Application base and probing `privatepath`.
 2. A copy installed as a NuGet package - intended for use only when developing runners that make use of the engine.
 
 ### Key Interfaces
