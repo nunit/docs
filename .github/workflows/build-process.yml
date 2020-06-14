@@ -18,8 +18,8 @@ jobs:
         name: Run spell check
         with:
           node-version: '12'
-      - run: npm install -g cSpell
-      - run: cSpell --config ./cSpell.json "docs/**/*.md"
+      - run: npm install -g cspell
+      - run: cspell --config ./cSpell.json "docs/**/*.md"
       - uses: nikeee/docfx-action@master
         name: Build with Docfx
         with:
