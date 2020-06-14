@@ -6,7 +6,7 @@
 
 Updates the NUnit framework to 2.7.1
 
-* [#186](https://github.com/nunit/nunit-vs-adapter/issues/186) How to change used nunit 2 version of test adapter to e.g. v2.7.1 ?  
+* [#186](https://github.com/nunit/nunit-vs-adapter/issues/186) How to change used NUnit 2 version of test adapter to e.g. v2.7.1 ?  
 * [#184](https://github.com/nunit/nunit-vs-adapter/issues/184) Update NUnit library to 2.7.1
 
 Thanks to [BobSilent](https://github.com/BobSilent) for [#188](https://github.com/nunit/nunit-vs-adapter/pull/188) solving [#184](https://github.com/nunit/nunit-vs-adapter/issues/184) and [#186](https://github.com/nunit/nunit-vs-adapter/issues/186).

@@ -170,7 +170,7 @@ Packages are archived on nunit.org in the downloads directory. Create a new sub-
 
 ### Github
 
-1. Log onto Github and go to the main nunit repository at <https://github.com/nunit/nunit>.
+1. Log onto Github and go to the main NUnit repository at <https://github.com/nunit/nunit>.
 
 2. Select Releases and then click on the "Draft a new release" button.
 
