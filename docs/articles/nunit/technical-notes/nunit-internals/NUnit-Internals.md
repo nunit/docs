@@ -6,7 +6,7 @@
  * [NUnit APIs](NUnit-APIs.md)
    * [Test Engine API](Test-Engine-API.md)
    * [Engine Driver API](Engine Driver-API.md)
-   * [Framework API](Framework-API.md)
+   * [Framework API](Framework-Api.md)
  * [Framework Design](Framework-Design.md)
  * [Active Attributes](Active-Attributes.md)
  * Internal Trace

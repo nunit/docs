@@ -66,8 +66,8 @@ class OneTimeTearDown methods after those in the derived classes.
 
 
 #### See also...
- * [SetUp Attribute](SetUp.md)
- * [TearDown Attribute](TearDown.md)
- * [OneTimeSetUp Attribute](OneTimeSetUp.md)
- * [TestFixture Attribute](TestFixture.md)
- * [SetUpFixture Attribute](SetUpFixture.md)
+ * [SetUp Attribute](setup.md)
+ * [TearDown Attribute](teardown.md)
+ * [OneTimeSetUp Attribute](onetimesetup.md)
+ * [TestFixture Attribute](testfixture.md)
+ * [SetUpFixture Attribute](setupfixture.md)

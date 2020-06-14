@@ -64,8 +64,8 @@ public void MyBoolTest([Values]bool value)
 ```
 
 #### See also...
- * [Range Attribute](Range.md)
- * [Random Attribute](Random.md)
- * [Sequential Attribute](Sequential.md)
- * [Combinatorial Attribute](Combinatorial.md)
- * [Pairwise Attribute](Pairwise.md)
+ * [Range Attribute](range.md)
+ * [Random Attribute](random.md)
+ * [Sequential Attribute](sequential.md)
+ * [Combinatorial Attribute](combinatorial.md)
+ * [Pairwise Attribute](pairwise.md)

@@ -37,5 +37,5 @@ MyTest(3, null)
 ```
 
 #### See also...
- * [Combinatorial Attribute](Combinatorial.md)
- * [Pairwise Attribute](Pairwise.md)
+ * [Combinatorial Attribute](combinatorial.md)
+ * [Pairwise Attribute](pairwise.md)

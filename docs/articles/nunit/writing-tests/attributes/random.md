@@ -58,8 +58,8 @@ public void MyTest(
 ```
 
 #### See also...
- * [Values Attribute](Values.md)
- * [Range Attribute](Range.md)
- * [Sequential Attribute](Sequential.md)
- * [Combinatorial Attribute](Combinatorial.md)
- * [Pairwise Attribute](Pairwise.md)
+ * [Values Attribute](values.md)
+ * [Range Attribute](range.md)
+ * [Sequential Attribute](sequential.md)
+ * [Combinatorial Attribute](combinatorial.md)
+ * [Pairwise Attribute](pairwise.md)

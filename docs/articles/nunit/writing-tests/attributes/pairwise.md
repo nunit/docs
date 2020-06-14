@@ -50,5 +50,5 @@ use the same generic type (e.g.: T) this may not be possible and the
 attribute may generate invalid test cases.
 
 #### See also...
- * [Sequential Attribute](Sequential.md)
- * [Combinatorial Attribute](Combinatorial.md)
+ * [Sequential Attribute](sequential.md)
+ * [Combinatorial Attribute](combinatorial.md)

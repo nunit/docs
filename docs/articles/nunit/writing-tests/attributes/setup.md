@@ -61,8 +61,8 @@ class SetUp methods before those in the derived classes.
 
 #### See also...
 
- * [TearDown Attribute](TearDown.md)
- * [OneTimeSetUp Attribute](OneTimeSetUp.md)
- * [OneTimeTearDown Attribute](OneTimeTearDown.md)
- * [TestFixture Attribute](TestFixture.md)
+ * [TearDown Attribute](teardown.md)
+ * [OneTimeSetUp Attribute](onetimesetup.md)
+ * [OneTimeTearDown Attribute](onetimeteardown.md)
+ * [testfixture attribute](testfixture.md)
 	

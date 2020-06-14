@@ -60,8 +60,8 @@ The older attributes are no longer supported in SetUpFixtures in NUnit 3.0 and l
 
 #### See also...
 
- * [SetUp Attribute](SetUp.md)
- * [TearDown Attribute](TearDown.md)
- * [OneTimeSetUp Attribute](OneTimeSetUp.md)
- * [OneTimeTearDown Attribute](OneTimeTearDown.md)
+ * [SetUp Attribute](setup.md)
+ * [TearDown Attribute](teardown.md)
+ * [OneTimeSetUp Attribute](onetimesetup.md)
+ * [OneTimeTearDown Attribute](onetimeteardown.md)
 
