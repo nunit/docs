@@ -73,10 +73,19 @@
     "Idfor",
     "buildable",
     "editorconfig",
-    "hotfixes"
+    "hotfixes",
+    "VSIXes",
+    "Testgenerator",
+    "HKCU",
+    "testcasecount",
+    "inputfiles",
+    "inprocess",
+    "testlist",
+    "CODEPAGE"
     ],
     "ignoreRegExpList": [
         "\\((.*)\\)", // Markdown links
-        "uid: (.*)" // uid lines
+        "uid: (.*)", // uid lines,
+        "```[a-z]*\n[\\s\\S]*?\n```" // Markdown code blocks. h/t https://coderwall.com/p/r6b4xg/regex-to-match-github-s-markdown-code-blocks
     ]
 }
