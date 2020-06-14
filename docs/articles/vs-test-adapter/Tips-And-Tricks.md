@@ -31,7 +31,7 @@ The following options are available:
 |[ShowInternalProperties](#showinternalproperties)| bool | Turn on showing internal NUnit properties in Test Explorer| false|
 |[Where](#where)|string| NUnit Filter expression|
 |[UseParentFQNForParametrizedTests](#useparentfqnforparametrizedtests)|bool|Enable parent as FQN for parametrized tests|false|
-|[UseNUnitIdforTestCaseId](#usenunitidfortestcaseid) |bool|Uses NUnit test id as VSTest Testcase Id, instead of FUllyQualifiedName|false|
+|[UseNUnitIdforTestCaseId](#usenunitidfortestcaseid) |bool|Uses NUnit test id as VSTest Testcase Id, instead of FullyQualifiedName|false|
 |[ConsoleOut](#consoleout)|int|Sends standard console output to the output window|1|
 |[StopOnError](#stoponerror)|bool|Stops on first error|false|
 |[SkipNonTestAssemblies](#skipnontestassemblies)|bool|Adapter supports NonTestAssemblyAttribute|false|
