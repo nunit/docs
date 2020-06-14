@@ -61,7 +61,7 @@ Labels starting with **pri:** indicate the priority of an issue. Pick just one, 
 
 ### PRs and issues that need attention
 
-The goal with these is to keep team members from having to do tedious rescanning to figure out the state of each long-lived PR or issue as well as increasing awareness.
+The goal with these is to keep team members from having to do tedious re-scanning to figure out the state of each long-lived PR or issue as well as increasing awareness.
 
 * **awaiting:contributor**: Blocked until the contributor responds to the team's request for changes.
 * **awaiting:team**: Blocked until a team member responds to a question or problem.
