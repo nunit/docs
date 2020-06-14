@@ -24,7 +24,7 @@ This table lists all the attributes supported by NUnit.
 | [NonTestAssembly Attribute](attributes/nontestassembly.md)     | Specifies that the assembly references the NUnit framework, but that it does not contain tests. |
 | [OneTimeSetUp Attribute](attributes/onetimesetup.md)        | Identifies methods to be called once prior to any child tests. |
 | [OneTimeTearDown Attribute](attributes/onetimeteardown.md)     | Identifies methods to be called once after all child tests. |
-| [Order Attribute](attributes/order.md)               | Specifies the order in which decorated test should be run within the contining fixture or suite. |
+| [Order Attribute](attributes/order.md)               | Specifies the order in which decorated test should be run within the containing fixture or suite. |
 | [Pairwise Attribute](attributes/pairwise.md)            | Generate test cases for all possible pairs of the values provided. |
 | [Parallelizable Attribute](attributes/parallelizable.md)      | Indicates whether test and/or its descendants can be run in parallel. |
 | [Platform Attribute](attributes/platform.md)            | Specifies platforms for which a test or fixture should be run. |

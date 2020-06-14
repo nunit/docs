@@ -32,7 +32,7 @@ public class ToleranceTest
     [Test]
     public void ComparisonUsingSpecificTolerance()
     {
-        // Fails as 1 is not equal to 2 using the speficied tolerance 0.
+        // Fails as 1 is not equal to 2 using the specified tolerance 0.
         Assert.That(1f, Is.EqualTo(2).Within(0));
     }
 
