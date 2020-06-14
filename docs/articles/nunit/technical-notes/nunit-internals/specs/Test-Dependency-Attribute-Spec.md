@@ -28,7 +28,7 @@ This attribute would apply to Test's within a single TestFixture, or to TextFixt
 
 Each dependency-specification is described in more detail below (in all cases, `<test-list>` should be replaced with a `<testfixture-list>` if the attribute is being applied to a TestFixture):
 
-```
+```none
 <test-list> is a string containing a comma separated list of Test's to
     include in the dependency.
 <testfixture-list> is a string containing a comma separated list of
