@@ -6,7 +6,7 @@ uid: engineextensibility
 
 The NUnit Test Engine uses a plugin architecture to allow new functionality to be added by third parties. We originally planned to use `Mono.Addins` for this purpose and did so in the first betas. Because `Mono.Addins` no longer supports .NET 2.0, we were using a modified version that we created ourselves and which we would have to maintain in the future. Since `Mono.Addins` has many more features than we expect to use we decided to return to a custom plugin architecture.
 
-The NUnit 3.0 Engine Extensibility model is essentially based on the NUnit V2 addin design with a number of improvements, primarily inspired by `Mono.Addins`. On this page, we describe that model as a guide for folks working on NUnit or otherwise needing to understand it. See [[Writing Engine Extensions]] for user-focused information about how to create an extension.
+The NUnit 3.0 Engine Extensibility model is essentially based on the NUnit V2 addin design with a number of improvements, primarily inspired by `Mono.Addins`. On this page, we describe that model as a guide for folks working on NUnit or otherwise needing to understand it. See [Writing Engine Extensions](xref:WritingEngineExtensions) for user-focused information about how to create an extension.
 
 ## Extension Points
 
@@ -114,7 +114,7 @@ Using only the `ExtensionAttribute`, NUnit would have to create instances of eve
 
 The `ExtensionPropertyAttribute` avoids this problem by allowing the extension to specify information about what it is able to do. NUnit scans the attributes using `Mono.Cecil` without actually loading the assembly, so that resources are not taken up by unused assemblies.
 
-To illustrate this, we will use the example of the engine's project loader `ExtensionPoint`. You can read about this extension point in detail at [[Project-Loaders]] but the essential thing for this example is that the extension point is passed a file path and must determine whether that file is in a format that it can interpret and load. We do that by loading the extension and calling its `CanLoadFrom(string path)` method.
+To illustrate this, we will use the example of the engine's project loader `ExtensionPoint`. You can read about this extension point in detail at [Project-Loaders](xref:ProjectLoaders) but the essential thing for this example is that the extension point is passed a file path and must determine whether that file is in a format that it can interpret and load. We do that by loading the extension and calling its `CanLoadFrom(string path)` method.
 
 If we only knew what file extensions were used by the particular format, we could avoid loading the extension unnecessarily. That's where `ExtensionPropertyAttribute` comes in. The following is an example taken from NUnit's own extension for loading NUnit projects.
 
