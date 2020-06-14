@@ -13,7 +13,7 @@ The required root element for any NUnit 3.0 test result file.
     * **id** The unique ID of this test.
     * **testcasecount** The number of test cases contained in this test run.
     * **result** The basic result of the test. May be Passed, Failed, Inconclusive or Skipped.
-    * **total** The total number of test cases executed in the run. This may be less than the testcasecont due to filtering of tests.
+    * **total** The total number of test cases executed in the run. This may be less than the testcasecount due to filtering of tests.
     * **passed** The number of test cases that passed.
     * **failed** The number of test cases that failed.
     * **inconclusive** The number of test cases that were inconclusive.
