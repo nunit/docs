@@ -25,7 +25,7 @@ following is an example of a hypothetical test project file:
 This project contains two configurations, each of which contains two assemblies. The Debug
 configuration is currently active. By default, the assemblies will be loaded using the directory
 containing this file as the ApplicationBase. The PrivateBinPath will be set automatically to
-`LibraryCore\bin\Debug;LibraryUI\bin\Debug` or to the corresonding release path.
+`LibraryCore\bin\Debug;LibraryUI\bin\Debug` or to the corresponding release path.
 XML attributes are used to specify non-default values for the ApplicationBase, Configuration
 File and PrivateBinPath.
 

@@ -83,9 +83,9 @@ Several options that specify processing of XML output take
 an output specification as a value. A SPEC may take one of
 the following forms:
 
-* --OPTION:filename
-* --OPTION:filename;format=formatname
-* --OPTION:filename;transform=xsltfile
+* `--OPTION:filename`
+* `--OPTION:filename;format=formatname`
+* `--OPTION:filename;transform=xsltfile`
 
 The --result option may use any of the following formats:
 

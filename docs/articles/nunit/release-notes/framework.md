@@ -125,9 +125,9 @@ and enabling Timeout on tests.
 * [2885](https://github.com/nunit/nunit/issues/2885) Copy/paste error in Assert.That documentation
 * [2887](https://github.com/nunit/nunit/issues/2887) NETStandard 1.3 support dropped in NUnit 3.10  
 * [2896](https://github.com/nunit/nunit/issues/2896) Some tests are silently skipped on netstandard1.x since #2796
-* [2898](https://github.com/nunit/nunit/issues/2898) AssemblyPath contains invalid charaters
+* [2898](https://github.com/nunit/nunit/issues/2898) AssemblyPath contains invalid characters
 * [2901](https://github.com/nunit/nunit/issues/2901) Values attribute support for nullable bool and enum types
-* [2923](https://github.com/nunit/nunit/issues/2923) Update outdated CategoryAttribute xmldoc
+* [2923](https://github.com/nunit/nunit/issues/2923) Update outdated CategoryAttribute xml doc
 * [2928](https://github.com/nunit/nunit/issues/2928) Improve error message on EmptyConstraint
 * [2929](https://github.com/nunit/nunit/issues/2929) Added NUnit XML schemas
 * [2940](https://github.com/nunit/nunit/issues/2940) Increase StackTracesAreFiltered amount to 5
@@ -216,7 +216,7 @@ supported targets on Windows, Linux and Mac using the Cake command line build.
 * [2695](https://github.com/nunit/nunit/issues/2695) MultipleAssertException doesn't provide proper details on failures
 * [2698](https://github.com/nunit/nunit/issues/2698) Syntax suggestions errors as warnings
 * [2704](https://github.com/nunit/nunit/issues/2704) Add Constraint to test whether actual item is contained in expected collection
-* [2711](https://github.com/nunit/nunit/issues/2711) NUnitLite: Add support for --nocolor option
+* [2711](https://github.com/nunit/nunit/issues/2711) NUnitLite: Add support for `--nocolor` option
 * [2714](https://github.com/nunit/nunit/issues/2714) AnyOfConstraint enumerates multiple times
 * [2725](https://github.com/nunit/nunit/issues/2725) Enable 'strict' compilation flag
 * [2726](https://github.com/nunit/nunit/issues/2726) Replace the ConcurrentQueue and SpinWait compatibility classes
@@ -236,7 +236,7 @@ This release addresses numerous parallelization issues that were introduced in 3
 * [1346](https://github.com/nunit/nunit/issues/1346) NullReferenceException when [TestFixtureSource] refers to data in a generic class.
 * [1473](https://github.com/nunit/nunit/issues/1473) Allow Is.Ordered to Compare Null Values
 * [1899](https://github.com/nunit/nunit/issues/1899) Constraint Throws.Exception does not catch exception with async lambdas
-* [1905](https://github.com/nunit/nunit/issues/1905) SetupFixture without namespace will make assembly-level Parallelable attribute useless
+* [1905](https://github.com/nunit/nunit/issues/1905) SetupFixture without namespace will make assembly-level Parallelizable attribute useless
 * [2091](https://github.com/nunit/nunit/issues/2091) When a native exception of corrupted state is thrown, nunit test thread crashes and the nunit-console process hangs
 * [2102](https://github.com/nunit/nunit/issues/2102) NUnitLite incorrectly reports Win 10 OS name
 * [2271](https://github.com/nunit/nunit/issues/2271) When CollectionAssert.AreEqual do compare each element, it will ignore the IEquatable of the element too
@@ -268,7 +268,7 @@ This release addresses numerous parallelization issues that were introduced in 3
 * [2465](https://github.com/nunit/nunit/issues/2465) Possible wrong properties are returned by reflection in ReflectionExtensions.cs
 * [2467](https://github.com/nunit/nunit/issues/2467) Test execution hangs when using [SetUpFixture] with NUnit 3.8.x
 * [2469](https://github.com/nunit/nunit/issues/2469) Allow RangeAttribute to be specified multiple times for the same argument
-* [2471](https://github.com/nunit/nunit/issues/2471) Parametrized testcases not running in parallel
+* [2471](https://github.com/nunit/nunit/issues/2471) Parametrized test cases not running in parallel
 * [2475](https://github.com/nunit/nunit/issues/2475) Framework incorrectly identifies Win 10 in xml results
 * [2478](https://github.com/nunit/nunit/issues/2478) Attributes on SetUpFixture are not applied
 * [2486](https://github.com/nunit/nunit/issues/2486) Message when asserting null with Is.EquivalentTo could be more helpful
@@ -319,7 +319,7 @@ that test fixtures will be run.
 * [2195](https://github.com/nunit/nunit/issues/2195) Contains.Substring with custom StringComparison
 * [2196](https://github.com/nunit/nunit/issues/2196) Expose ParallelizableAttribute (and other attribute) constructor arguments as properties
 * [2201](https://github.com/nunit/nunit/issues/2201) Invalid platform name passed to PlatformAttribute should mark test NotRunnable
-* [2208](https://github.com/nunit/nunit/issues/2208) StackFIlter trims leading spaces from each line
+* [2208](https://github.com/nunit/nunit/issues/2208) StackFilter trims leading spaces from each line
 * [2213](https://github.com/nunit/nunit/issues/2213) SetCultureAttribute: CultureInfo ctor should use default culture settings
 * [2217](https://github.com/nunit/nunit/issues/2217) Console runner performance varies wildly depending on environmental characteristics
 * [2219](https://github.com/nunit/nunit/issues/2219) Remove Obsolete Attributes
@@ -332,7 +332,7 @@ that test fixtures will be run.
 * [2254](https://github.com/nunit/nunit/issues/2254) EqualTo on ValueTuple with Nullable unexpected
 * [2261](https://github.com/nunit/nunit/issues/2261) When an assembly is marked with ParallelScope.None and there are Parallelizable tests Nunit hangs
 * [2269](https://github.com/nunit/nunit/issues/2269) Parallelizable and NonParallelizable attributes on setup and teardown silently ignored
-* [2276](https://github.com/nunit/nunit/issues/2276) Intermittent test failures in Travic CI: TestContextTests
+* [2276](https://github.com/nunit/nunit/issues/2276) Intermittent test failures in Travis CI: TestContextTests
 * [2281](https://github.com/nunit/nunit/issues/2281) Add type constraint for Throws and any method requiring Exception
 * [2288](https://github.com/nunit/nunit/issues/2288) Killing thread cancels test run
 * [2292](https://github.com/nunit/nunit/issues/2292) Is.Ordered.By() with a field throws NullReferenceException
@@ -341,7 +341,7 @@ that test fixtures will be run.
 * [2304](https://github.com/nunit/nunit/issues/2304) Revert accidental doc removal
 * [2305](https://github.com/nunit/nunit/issues/2305) Correct misprint ".con" -> ".com"
 * [2312](https://github.com/nunit/nunit/issues/2312) Prevent crash on invalid --result parsing in NUnitLite
-* [2313](https://github.com/nunit/nunit/issues/2313) Incorrect xmldoc on RetryAttribute
+* [2313](https://github.com/nunit/nunit/issues/2313) Incorrect xml doc on RetryAttribute
 * [2332](https://github.com/nunit/nunit/issues/2332) Update build script to use NUnitConsoleRunner v3.7.0
 * [2335](https://github.com/nunit/nunit/issues/2335) Execute OneTimeTearDown as early as possible when running fixtures in parallel
 * [2342](https://github.com/nunit/nunit/issues/2342) Remove deprecated Is.String* Constraints
@@ -400,7 +400,7 @@ is using the AssertionHelper class, we recommend that you migrate your asserts.
 * [1963](https://github.com/nunit/nunit/issues/1963) Investigate removing SpecialValue
 * [1965](https://github.com/nunit/nunit/issues/1965) TestContext does not flow in async method
 * [1971](https://github.com/nunit/nunit/issues/1971) Switch CHANGES.txt to Markdown
-* [1973](https://github.com/nunit/nunit/issues/1973) Implemented TestExecutionContext to use AsyncLocal<> for NETSTANDARD1_6
+* [1973](https://github.com/nunit/nunit/issues/1973) Implemented TestExecutionContext to use AsyncLocal<> for `NETSTANDARD1_6`
 * [1975](https://github.com/nunit/nunit/issues/1975) TestFixtureSource doesn't work with a class that has no namespace
 * [1983](https://github.com/nunit/nunit/issues/1983) Add missing ConstraintExpression.Contain overload
 * [1990](https://github.com/nunit/nunit/issues/1990) Add namespace filter
@@ -442,7 +442,7 @@ is using the AssertionHelper class, we recommend that you migrate your asserts.
 * [2158](https://github.com/nunit/nunit/issues/2158) Update SetupFixtureAttribute XML Docs
 * [2159](https://github.com/nunit/nunit/issues/2159) Prevent crash in .NET standard with log file path
 * [2165](https://github.com/nunit/nunit/issues/2165) Trying to install NUnit 3.6.1 on .NET Framework asks for download of 20 more packages
-* [2169](https://github.com/nunit/nunit/issues/2169) Incorrect xmldocs for SetUpAttribute
+* [2169](https://github.com/nunit/nunit/issues/2169) Incorrect xml docs for SetUpAttribute
 * [2170](https://github.com/nunit/nunit/issues/2170) Cake build fails if only Visual Studio 2017 installed
 * [2173](https://github.com/nunit/nunit/issues/2173) Remove PreTestAttribute and PostTestAttribute
 * [2186](https://github.com/nunit/nunit/issues/2186) Replace special characters as part of converting branch names to package versions

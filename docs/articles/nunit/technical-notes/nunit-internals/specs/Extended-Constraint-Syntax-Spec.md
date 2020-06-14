@@ -18,7 +18,7 @@ This improves NUnit by making extensibility easier.
 
   * A user expresses assertions in C# or VB without needing to learn NUnit-specific constraints
   * Any boolean expression convertible to an expression tree can form a constraint
-  * Failed assertions include detailed error messages such as subexpression values - i.e. unlike Debug.Assert.
+  * Failed assertions include detailed error messages such as sub-expression values - i.e. unlike Debug.Assert.
 
 This improves NUnit by making it easier to learn and less necessary to extend.
 

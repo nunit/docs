@@ -23,7 +23,7 @@ There are a number of possible alternatives for specifying when a test is to be 
 
 ##### 1. Named Properties
 
-As illustrated in the first two examples, this approach allows us to clearly separate the namespaces for each selection domain. Comma-separated values are intended to be alternatives, so the second example would include the test under either Win7 or Win8. Separate properties (domains) would be anded together.
+As illustrated in the first two examples, this approach allows us to clearly separate the namespaces for each selection domain. Comma-separated values are intended to be alternatives, so the second example would include the test under either Win7 or Win8. Separate properties (domains) would be "and-ed" together.
 
 ##### 2. Prefixes
 
