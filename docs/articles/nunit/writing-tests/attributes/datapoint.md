@@ -27,10 +27,10 @@ is suppressed.
    
 #### Example
 
-For an example of use, see [Theory Attribute](Theory.md)
+For an example of use, see [Theory Attribute](theory.md)
    
 #### See also...
 
- * [Theory Attribute](Theory.md)
+ * [Theory Attribute](theory.md)
  * [Parameterized Tests](xref:ParameterizedTests)
    
