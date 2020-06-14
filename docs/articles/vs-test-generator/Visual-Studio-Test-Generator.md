@@ -1,3 +1,7 @@
+---
+uid: vstestgenerator
+---
+
 # Visual Studio Test Generator
 
 

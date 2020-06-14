@@ -1,3 +1,7 @@
+---
+uid: nunitanalyzers
+---
+
 # Analyzers #
 
 | Id       | Title       | Enabled by Default |
