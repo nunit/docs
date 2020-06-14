@@ -195,7 +195,7 @@ Assert Warnings will default map to `Skipped`, but you can set this to any other
 #### SkipNonTestAssemblies
 
 If the attribute `NonTestAssembly` is added in an assembly, it will be skipped from further testing.  If [RTD](https://devblogs.microsoft.com/dotnet/real-time-test-discovery/) is enabled in Visual Studio, the tests will be displayed, but running will skip them.  
-See explanation for the [NonTestAssembly Attribute](https://github.com/nunit/docs/wiki/NonTestAssembly-Attribute), and [Issue explanation here](https://github.com/nunit/nunit3-vs-adapter/issues/758).
+See explanation for the [NonTestAssembly Attribute](xref:nontestassembly), and [Issue explanation here](https://github.com/nunit/nunit3-vs-adapter/issues/758).
 
 (From version 3.17.0)
 

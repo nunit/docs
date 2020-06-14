@@ -959,7 +959,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 62   Matches(Constraint) does not work as expected
 * 63   Async support should handle Task return type without state machine
 * 64   AsyncStateMachineAttribute should only be checked by name
-* 65   Update NUnit Wiki to show the new location of samples
+* 65   Update NUnit site to show the new location of samples
 * 66   Parallel Test Execution within test assemblies
 * 67   Allow Expected Result on simple tests
 * 70   EquivalentTo isn't compatible with IgnoreCase for dictionaries

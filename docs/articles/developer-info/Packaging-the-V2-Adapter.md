@@ -49,7 +49,7 @@ The resulting files can be found in the "package" folder:
 
 3. Upload the two NuGet packages to nuget.org. You use your own account for this but you must have been pre-authorized in order for it to work. If you are not authorized, ask a committer with access to do it for you.
 
-4. Update the documentation pages in this wiki as needed. In order to do this quickly after publishing the packages, you may want to clone the wiki repository and prepare the update in advance.
+4. Update the documentation pages in this web site as needed. In order to do this quickly after publishing the packages, you may want to clone the `nunit/docs` repository and prepare a pull request in advance.
 
 5. Update the website as needed. The website is maintained in the [nunit.org repository] to which all committers have access. You should create a branch like 'release-n.n' and make the necessary changes there. There are three vsAdapterXxxxx files that will probably require updating. Add an announcement to the home page and remove any announcement for an older version of the adapter.Create a pull request to merge your changes into the master branch. For rapid publication, you should create the PR and have it reviewed in advance, performing the merge after the packages are published.
 
@@ -58,7 +58,7 @@ The resulting files can be found in the "package" folder:
 #### Notes
 
 * Publishing the release requires access to various online accounts, which are mentioned above. For obvious reasons, the passwords are not provided. Contact Charlie or Terje if you need this access.
-* The website and wiki contain duplicate information at this time. In future, the duplication will be eliminated.
+* The website and docs site contain duplicate information at this time. In future, the duplication will be eliminated.
 * When a change is merged into the nunit.org master branch, one of the project leaders uploads it manually to the web site. This will be automated in the future.
 
 ## Prerequisites
