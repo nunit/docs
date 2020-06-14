@@ -28,16 +28,16 @@ Using this model, all assertions are made using one of the forms of the
    
 ```csharp
 Assert.That(bool condition);
-Assert.That(bool condition, string message, params object[] parms);
+Assert.That(bool condition, string message, params object[] params);
 Assert.That(bool condition, Func<string> getExceptionMessage);
 
 Assert.That(Func<bool> condition);
-Assert.That(Func<bool> condition, string message, params object[] parms);
+Assert.That(Func<bool> condition, string message, params object[] params);
 Assert.That(Func<bool> condition, Func<string> getExceptionMessage);
 
 Assert.That<TActual>(ActualValueDelegate<TActual> del, IResolveConstraint constraint)
 Assert.That<TActual>(ActualValueDelegate<TActual> del, IResolveConstraint constraint,
-    string message, object[] parms)
+    string message, object[] params)
 Assert.That<TActual>(ActualValueDelegate<TActual> del, IResolveConstraint expr,
     Func<string> getExceptionMessage)
 
