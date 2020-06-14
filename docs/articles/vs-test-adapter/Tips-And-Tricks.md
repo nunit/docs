@@ -27,11 +27,11 @@ The following options are available:
 |[TestOutputXml](#testoutputxml)|string|specify directory|Test Result Xml output folder|
 |[DumpXmlTestDiscovery](#dumpxmltestdiscovery-and-dumpxmltestresults)|bool|Enable dumping of NUnit discovery response xml|false|
 |[DumpXmlTestResults](#dumpxmltestdiscovery-and-dumpxmltestresults)|bool|Enable dumping of NUnit execution response xml|false|
-|[PreFilter](#prefilter)|bool|Enable prefiltering to increase performance for Visual Studio testing|false|
+|[PreFilter](#prefilter)|bool|Enable pre-filtering to increase performance for Visual Studio testing|false|
 |[ShowInternalProperties](#showinternalproperties)| bool | Turn on showing internal NUnit properties in Test Explorer| false|
 |[Where](#where)|string| NUnit Filter expression|
 |[UseParentFQNForParametrizedTests](#useparentfqnforparametrizedtests)|bool|Enable parent as FQN for parametrized tests|false|
-|[UseNUnitIdforTestCaseId](#usenunitidfortestcaseid) |bool|Uses NUnit test id as VSTest Testcase Id, instead of FUllyQualifiedName|false|
+|[UseNUnitIdforTestCaseId](#usenunitidfortestcaseid) |bool|Uses NUnit test id as VSTest Testcase Id, instead of FullyQualifiedName|false|
 |[ConsoleOut](#consoleout)|int|Sends standard console output to the output window|1|
 |[StopOnError](#stoponerror)|bool|Stops on first error|false|
 |[SkipNonTestAssemblies](#skipnontestassemblies)|bool|Adapter supports NonTestAssemblyAttribute|false|
@@ -41,7 +41,7 @@ The following options are available:
 
 ### Visual Studio templates for runsettings
 
-You can install [item templates for runsettings](https://marketplace.visualstudio.com/items?itemName=OsirisTerje.Runsettings-19151) in Visual Studio (applies to version 2017, 2019 and upwards) which includes the NUnit settings mentioned here.  Note that there are available seperate installs for earlier Visual Studio versions, links to these can be found in the above.
+You can install [item templates for runsettings](https://marketplace.visualstudio.com/items?itemName=OsirisTerje.Runsettings-19151) in Visual Studio (applies to version 2017, 2019 and upwards) which includes the NUnit settings mentioned here.  Note that there are available separate installs for earlier Visual Studio versions, links to these can be found in the above.
 
 ### Example implementation
 
@@ -106,7 +106,7 @@ This setting is used by the adapter to signal to the VSTest.Execution engine to 
 #### DumpXmlTestDiscovery and DumpXmlTestResults
 
 These settings are used to dump the output from NUnit, as it is received by the adapter, before any processing in the adapter is done, to disk.  It is part of the diagnostics tools for the adapter.
-You can find the files under your current outputfolder, in a subfolder named Dump.
+You can find the files under your current output folder, in a sub-folder named Dump.
 (Note: This is not the same as the TestResults folder, this data is not testresults, but diagnostics dumps)
 
 #### PreFilter
@@ -135,7 +135,7 @@ The [NUnit internal properties](https://github.com/nunit/nunit/blob/master/src/N
 
 #### Where
 
-A NUnit Test Selection Language filter can be added to the runsettings file.  The details are described in **[this blogpost](https://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/)**
+A NUnit Test Selection Language filter can be added to the runsettings file.  The details are described in **[this blog post](https://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/)**
 
 Using the runsettings should be like:
 
@@ -159,7 +159,7 @@ Note that this often has to be set together with [UseNUnitIdforTestCaseId](#usen
 
 #### UseNUnitIdforTestCaseId
 
-The default setting is false, causes the VSTest Testcase ID to be based on the NUnit fullname property, which is nearly equal to a FullyQualifiedName.  The fullname is alse set into the Testcase FullyQualifiedName property.
+The default setting is false, causes the VSTest Testcase ID to be based on the NUnit fullname property, which is nearly equal to a FullyQualifiedName.  The fullname is also set into the Testcase FullyQualifiedName property.
 
 By setting this property true, it shifts to using the NUnit id as the basis for the testcase id.  This may in certain cases give more stable results, and are more correct.  
 
@@ -201,7 +201,7 @@ See explanation for the [NonTestAssembly Attribute](https://github.com/nunit/doc
 
 #### DisplayName
 
-The default for Test Explorer Displayname is to use the Name of the test, which normally is the method name.  Using DisplayName you can change between `Name`, `FullName` or `FullNameSep`.  The last one will then use the FullNameSeparator,which defaults to '`:`'.
+The default for Test Explorer `DisplayName` is to use the Name of the test, which normally is the method name.  Using DisplayName you can change between `Name`, `FullName` or `FullNameSep`.  The last one will then use the FullNameSeparator,which defaults to '`:`'.
 See [Issue 640](https://github.com/nunit/nunit3-vs-adapter/issues/640) for explanations of use and [sample code](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue640) here.  
 
 (From version 3.17.0)

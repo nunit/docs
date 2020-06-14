@@ -49,7 +49,7 @@ to provide test cases. It has the following characteristics:
    with the signature of the method on which the attribute appears.
    See the **Test Case Construction** section below for details.
 
-Sometimes we would like to parameterise the source, e.g. if we use the same source for multiple tests, to this end it is possible to pass parameters to the source, if the source is a method. The parameters are specified as an array of parameters that are passed to the source method.
+Sometimes we would like to parameterize the source, e.g. if we use the same source for multiple tests, to this end it is possible to pass parameters to the source, if the source is a method. The parameters are specified as an array of parameters that are passed to the source method.
 
 ```csharp
 public class MyTestClass

@@ -6,11 +6,11 @@
 ```csharp
 Assert.AreEqual(double expected, double actual, double tolerance);
 Assert.AreEqual(double expected, double actual, double tolerance,
-                string message, params object[] parms);
+                string message, params object[] params);
 
 Assert.AreEqual(object expected, object actual);
 Assert.AreEqual(object expected, object actual,
-                string message, params object[] parms);
+                string message, params object[] params);
 ```
 
 #### Comparing Numerics of Different Types

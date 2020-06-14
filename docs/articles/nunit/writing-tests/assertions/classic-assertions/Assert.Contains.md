@@ -7,7 +7,7 @@ collection.
 ```csharp
 Assert.Contains(object anObject, ICollection collection);
 Assert.Contains(object anObject, ICollection collection,
-                string message, params object[] parms);
+                string message, params object[] params);
 ```
 
 #### See also...

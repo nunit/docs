@@ -94,7 +94,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 * There is a new --params command line option that allows you to pass parameters to your tests
    which can be retrieved using TestContext.Parameters
-* Another new command line option --loaduserprofile causes the User Profile to be loaded into the
+* Another new command line option `--loaduserprofile` causes the User Profile to be loaded into the
    NUnit Agent process.
 
 #### Issues Resolved
@@ -143,7 +143,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 1555 EndsWith calls in Constraint constructor can cause major perf issues
 * 1560 Engine writes setting file unnecessarily
 * 1573 Move NUnit.Portable.Agent to new Repo
-* 1579 NUnit v3 dangerously overrides COMPLUS_Version environment variable
+* 1579 NUnit v3 dangerously overrides `COMPLUS_Version` environment variable
 * 1582 Mono 4.4.0 Causes Test Failures
 * 1593 NUnit Console Runner 3.2.1 and Mono 4.4 throws RemotingException
 * 1597 Move Portable agent to its own repository
@@ -172,8 +172,8 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 ### Issues Resolved
 
 * 1413 Switch console to use a local engine
-* 1410 Make OutFile and ErrFile streamwriters synchronized
-* 1406 TextCapture is not threadsafe but is used to intercept calls that are expected to be threadsafe
+* 1410 Make OutFile and ErrFile stream writers synchronized
+* 1406 TextCapture is not thread-safe but is used to intercept calls that are expected to be thread-safe
 * 1405 ITestRunner.StopRun throws exception of type 'System.MissingMethodException'
 * 1399 Fixed NullReference issue introduced by the fix for #681
 * 1390 --testlist with file with blank first line causes IndexOutOfRangeException
@@ -220,7 +220,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 300 Create an NUnit Visual Studio Template
 * 464 Async delegate assertions
 * 532 Batch runner for SilverLight tests
-* 533 Separate NUnitLite runner and autorunner
+* 533 Separate NUnitLite runner and auto-runner
 * 681 NUnit agent cannot resolve test dependency assemblies when mixed mode initialization runs in the default AppDomain
 * 793 Replace CoreEngine by use of Extensions
 * 907 Console report tests are too fragile
@@ -247,7 +247,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 1195 name attribute in test-suite and test-results element of output xml is different to nunit 2.6.4 using nunit2-format
 * 1196 Custom value formatter for v3 via MsgUtils
 * 1210 Available runtimes issues
-* 1230 Add ability for testcasedatasource to have parameters passed to methods
+* 1230 Add ability for `testcasedatasource` to have parameters passed to methods
 * 1233 Add TestAssemblyRunner tests to both portable and SilverLight builds
 * 1234 Have default NUnitLite Runner Program.cs return exit code
 * 1236 Make AppVeyor NuGet feed more useable
@@ -402,7 +402,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 ### Console Runner
 
 * The console now displays all settings used by the engine to run tests as well as the filter used to select tests.
-* The console runner accepts a new option --maxagents. If multiple assemblies are run in separate processes, this value may be used to limit the number that are executed simultaneously in parallel.
+* The console runner accepts a new option `--maxagents`. If multiple assemblies are run in separate processes, this value may be used to limit the number that are executed simultaneously in parallel.
 * The console runner no longer accepts the --include and --exclude options. Instead, the new --where option provides a more general way to express which tests will be executed, such as --where "cat==Fast && Priority==High". See the docs for details of the syntax.
 * The new --debug option causes NUnit to break in the debugger immediately before tests are run. This simplifies debugging, especially when the test is run in a separate process.
 
@@ -538,7 +538,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 692 PlatformAttribute_OperatingSystemBitNess fails when running in 32-bit process
 * 693 Generic `Test<T>` Method cannot determine type arguments for fixture when passed as `IEnumerable<T>`
 * 698 Require TestCaseSource and ValueSource named members to be static
-* 703 TeamCity non-equal flowid for 'testStarted' and 'testFinished' messages
+* 703 TeamCity non-equal `flowid` for 'testStarted' and 'testFinished' messages
 * 712 Extensions to RandomAttribute
 * 715 Provide a data source attribute at TestFixture Level
 * 718 RangeConstraint gives error with from and two args of differing types
@@ -653,7 +653,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 528 V2 FrameworkDriver does not make use of passed in TestFilter
 * 530 Color display for SilverLight runner
 * 531 Display text output from tests in SilverLight runner
-* 534 Add classname and methodname to test result xml
+* 534 Add `classname` and `methodname` to test result xml
 * 541 Console help doesn't indicate defaults
 
 ## NUnit 3.0.0 Alpha 5 (3.0.5509) - January 30, 2015
@@ -680,8 +680,8 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 ### Console
 
 * New options supported:
-  * --testlist provides a list of tests to run in a file
-  * --stoponerror indicates that the run should terminate when any test fails.
+  * `--testlist` provides a list of tests to run in a file
+  * `--stoponerror` indicates that the run should terminate when any test fails.
 
 ### Issues Resolved
 
@@ -697,7 +697,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 427  [TestFixture(Ignore=true)] should not be allowed.
 * 437  Errors in tests under Linux due to hard-coded paths.
 * 441  NUnit-Console should support --testlist option
-* 442  Add --stoponerror option back to nunit-console.
+* 442  Add `--stoponerror` option back to nunit-console.
 * 456  Fix memory leak in RuntimeFramework.
 * 459  Remove the Mixed Platforms build configuration.
 * 468  Change default domain usage to multiple.
@@ -800,7 +800,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 261  Add portable NUnitLite build
 * 284  NUnitLite Unification
 * 293  CF does not have a CurrentDirectory
-* 306  Assure NUnit can write resultfile
+* 306  Assure NUnit can write result file
 * 308  Early disposal of runners
 * 309  NUnit-Console should support incremental output under TeamCity
 * 325  Add RegexConstraint to compact framework build
@@ -954,7 +954,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 29   Specifying a tolerance with "Within" doesn't work for DateTimeOffset data types
 * 31   Report start and end time of test execution
 * 36   Make RequiresThread, RequiresSTA, RequiresMTA inheritable
-* 45   Need of Enddate together with Ignore
+* 45   Need of `Enddate` together with Ignore
 * 55   Incorrect XML comments for CollectionAssert.IsSubsetOf
 * 62   Matches(Constraint) does not work as expected
 * 63   Async support should handle Task return type without state machine
@@ -1011,7 +1011,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 719184 Platform dependency in src/ClientUtilities/util/Services/DomainManager.cs:40
 * 719187 Using Path.GetTempPath() causes conflicts in shared temporary folders
 * 735851 Add detection of 3.0, 3.5 and 4.0 frameworks to PlatformAttribute
-* 736062 Deadlock when EventListener performs a Trace call + EventPump synchronisation
+* 736062 Deadlock when EventListener performs a Trace call + EventPump synchronization
 * 756843 Failing assertion does not show non-linear tolerance mode
 * 766749 net-2.0\nunit-console-x86.exe.config should have a `<startup />` element and also enable loadFromRemoteSources
 * 770471 Assert.IsEmpty does not support IEnumerable

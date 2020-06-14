@@ -7,10 +7,10 @@ NUnitLite.
 
 ```csharp
 Assert.True(bool condition);
-Assert.True(bool condition, string message, params object[] parms);
+Assert.True(bool condition, string message, params object[] params);
 
 Assert.IsTrue(bool condition);
-Assert.IsTrue(bool condition, string message, params object[] parms);
+Assert.IsTrue(bool condition, string message, params object[] params);
 ```
 
 You may also use **Assert.That** with a boolean argument to achieve the

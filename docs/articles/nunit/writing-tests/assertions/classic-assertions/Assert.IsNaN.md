@@ -5,7 +5,7 @@
 
 ```csharp
 Assert.IsNaN(double aDouble);
-Assert.IsNaN(double aDouble, string message, params object[] parms);
+Assert.IsNaN(double aDouble, string message, params object[] params);
 ```
 
 #### See also...

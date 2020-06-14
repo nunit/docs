@@ -6,10 +6,10 @@
 ```csharp
 Assert.IsInstanceOf(Type expected, object actual);
 Assert.IsInstanceOf(Type expected, object actual,
-                    string message, params object[] parms);
+                    string message, params object[] params);
 Assert.IsInstanceOf<T>(object actual);
 Assert.IsInstanceOf<T>(object actual,
-                       string message, params object[] parms);
+                       string message, params object[] params);
 ```
 
 #### See also...

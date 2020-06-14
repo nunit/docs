@@ -12,7 +12,7 @@ In this documentation, we refer to four different types of Framework extension:
 
 [Custom Asserts](Custom-Asserts.md) are, for the most part, no longer needed as a result the constraint-based assertion model. However, it is still possible to create them and custom asserts created for NUnit V2 are still usable.
 
-## Links to blogposts
+## Links to Blog Posts
 
 ### On Custom constraints
 

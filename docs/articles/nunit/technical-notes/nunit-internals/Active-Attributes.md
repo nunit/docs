@@ -73,7 +73,7 @@ In some cases, there is a design choice to be made between use of a separate att
 
 However, the introduction of parameterized tests has necessitated adding properties to the TestCaseAttribute and other attributes, representing functionality that was provided by a separate attribute on non-parameterized tests. For example, a test is ignored using the IgnoreAttribute while a TestCase is ignored by setting the Ignore property of TestCaseAttribute to true.
 
-For NUnit 3.0, we will try to provide some consistency of use for cases like this. This may result in "undeprecating" certain existing properties and creating new ones.
+For NUnit 3.0, we will try to provide some consistency of use for cases like this. This may result in "un-deprecating" certain existing properties and creating new ones.
 
 #### Attribute Targets
 

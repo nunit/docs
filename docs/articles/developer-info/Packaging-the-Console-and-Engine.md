@@ -133,7 +133,7 @@ The degree to which each package needs testing may vary depending on what has be
 
 ## Archiving the Release
 
-Packages are archived on nunit.org in the downloads directory. Create a new subfolder under downloads/nunit/v3 for the release. Upload all the package files into that directory.
+Packages are archived on nunit.org in the downloads directory. Create a new sub-folder under downloads/nunit/v3 for the release. Upload all the package files into that directory.
 
 ## Publishing the Release
 

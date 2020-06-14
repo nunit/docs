@@ -9,35 +9,35 @@ read in the "natural" English-language or mathematical order. Thus
 ```csharp
 Assert.LessOrEqual(int arg1, int arg2);
 Assert.LessOrEqual(int arg1, int arg2,
-                   string message, params object[] parms);
+                   string message, params object[] params);
 
 Assert.LessOrEqual(uint arg1, uint arg2);
 Assert.LessOrEqual(uint arg1, uint arg2,
-                   string message, params object[] parms);
+                   string message, params object[] params);
 
 Assert.LessOrEqual(long arg1, long arg2);
 Assert.LessOrEqual(long arg1, long arg2,
-                   string message, params object[] parms);
+                   string message, params object[] params);
 
 Assert.LessOrEqual(ulong arg1, ulong arg2);
 Assert.LessOrEqual(ulong arg1, ulong arg2,
-                   string message, params object[] parms);
+                   string message, params object[] params);
 
 Assert.LessOrEqual(decimal arg1, decimal arg2);
 Assert.LessOrEqual(decimal arg1, decimal arg2,
-                   string message, params object[] parms);
+                   string message, params object[] params);
 
 Assert.LessOrEqual(double arg1, double arg2);
 Assert.LessOrEqual(double arg1, double arg2,
-                   string message, params object[] parms);
+                   string message, params object[] params);
 
 Assert.LessOrEqual(float arg1, float arg2);
 Assert.LessOrEqual(float arg1, float arg2,
-                   string message, params object[] parms);
+                   string message, params object[] params);
 
 Assert.LessOrEqual(IComparable arg1, IComparable arg2);
 Assert.LessOrEqual(IComparable arg1, IComparable arg2,
-                   string message, params object[] parms);
+                   string message, params object[] params);
 ```
 
 #### See also...

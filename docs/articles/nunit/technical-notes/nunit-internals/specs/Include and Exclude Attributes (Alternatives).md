@@ -31,7 +31,7 @@ Exclude has priority. If any attribute excludes a test, it remains excluded, eve
 * With the new attribute-based framework extensibility model in NUnit 3.0, this is probably the easiest approach of all to extend.
 
 ##### Cons
-* The current Platform attribute actually works across three different domains: the OS, the runtime and the bitness of the process. It's very difficult to define criteria like Windows 7 or 8 running .NET 4.5 using a single attribute. `[Platform("Windows7,Windows8,Net-4.5)]` will include Win 7 or 8 with any runtime and .NET 4.5 with any OS. The best we can do is `[Platform("Windows7,Windows8",Exclude="Net-2.0,Net-3.0,Net-3.5")]`.
+* The current Platform attribute actually works across three different domains: the OS, the runtime and the bit-ness of the process. It's very difficult to define criteria like Windows 7 or 8 running .NET 4.5 using a single attribute. `[Platform("Windows7,Windows8,Net-4.5)]` will include Win 7 or 8 with any runtime and .NET 4.5 with any OS. The best we can do is `[Platform("Windows7,Windows8",Exclude="Net-2.0,Net-3.0,Net-3.5")]`.
 * Boolean expressions involving the accepted values would permit the above more cleanly. For example, we might write `Platform("(Windows7 | Windows8) & !Net-4.5)")`. Such logic would have to be implemented for each attribute, most likely in the base class. However, any such logic would only apply within the single attribute: it would not be possible to include both OS and Culture (for example) in the same expression.
 
 ##### Extensibility

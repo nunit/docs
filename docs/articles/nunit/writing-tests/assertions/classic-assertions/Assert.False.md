@@ -7,10 +7,10 @@ NUnitLite.
 
 ```csharp
 Assert.False(bool condition);
-Assert.False(bool condition, string message, params object[] parms);
+Assert.False(bool condition, string message, params object[] params);
 
 Assert.IsFalse(bool condition);
-Assert.IsFalse(bool condition, string message, params object[] parms);
+Assert.IsFalse(bool condition, string message, params object[] params);
 ```
 
 #### See also...

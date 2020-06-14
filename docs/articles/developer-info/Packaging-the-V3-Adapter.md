@@ -31,13 +31,13 @@ The version numbers follow the basic principles of [semantic versioning].
 
 The version numbers have to be edited in the following files, and should match:
 
-* **AssemblyInfo.cs**,  found in the NUnitTestAdapter project
-   -- change both file and assembly version number
-* **source.extensions.vsixmanifest**, found under the NUnitTestAdapterInstall project
-   -- change Version tag
-* **appveyor.yml**, found under the Solution Items folder. -- change the version number, but only use the three first digits.
-* **build.cake**, found under the Solution Items folder. -- change the version number, but only use the three first digits.
-* **license.rtf**, found under the NUnit3TestAdapterInstall project.  If the copyright year has changed, update accordingly.
+| File | Change |
+| ---- | ------ |
+| `AssemblyInfo.cs`, found in the NUnitTestAdapter project | change both file and assembly version number |
+| `source.extensions.vsixmanifest`, found under the NUnitTestAdapterInstall project | change Version tag |
+| `appveyor.yml`, found under the Solution Items folder. | change the version number, but only use the three first digits.|
+| `build.cake`, found under the Solution Items folder. | change the version number, but only use the three first digits.|
+| `license.rtf`, found under the NUnit3TestAdapterInstall project. | If the copyright year has changed, update accordingly.|
 
 ## Build
 

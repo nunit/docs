@@ -1,7 +1,7 @@
 # Assertion Helper
 
 
-> AssertionHelper has been deprecated as of NUnit Framework 3.7. The syntax is now maintained and being enhanced as an independant library, [NUnit.StaticExpect](https://github.com/fluffynuts/NUnit.StaticExpect).
+> AssertionHelper has been deprecated as of NUnit Framework 3.7. The syntax is now maintained and being enhanced as an independent library, [NUnit.StaticExpect](https://github.com/fluffynuts/NUnit.StaticExpect).
 
 
 Some users prefer a shorter form of assertion than is given by Assert.That.
@@ -10,15 +10,15 @@ Expect() method may be used instead...
 
 ```csharp
 Expect(bool condition);
-Expect(bool condition, string message, params object[] parms);
+Expect(bool condition, string message, params object[] params);
 
 Expect(ActualValueDelegate del, IResolveConstraint constraint)
 Expect(ActualValueDelegate del, IResolveConstraint constraint,
-       string message, params object[] parms)
+       string message, params object[] params)
 
 Expect<TActual>(TActual actual, IResolveConstraint constraint)
 Expect<TActual>(TActual actual, IResolveConstraint constraint,
-                string message, params object[] parms)
+                string message, params object[] params)
 
 Expect(TestDelegate del, IResolveConstraint constraint);
 ```

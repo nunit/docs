@@ -74,7 +74,8 @@ End Namespace
 ```
 
 ##### C++
-```C++
+
+```cpp
 using namespace System;
 using namespace NUnit::Framework;
 
@@ -129,7 +130,8 @@ End Namespace
 ```
 
 ##### C++
-```c++
+
+```cpp
 # using <NUnit.Framework.dll>
 using namespace System;
 using namespace NUnit::Framework;

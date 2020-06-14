@@ -6,10 +6,10 @@
 ```csharp
 Assert.IsAssignableFrom(Type expected, object actual);
 Assert.IsAssignableFrom(Type expected, object actual,
-                        string message, params object[] parms);
+                        string message, params object[] params);
 Assert.IsAssignableFrom<T>(object actual);
 Assert.IsAssignableFrom<T>(object actual,
-                           string message, params object[] parms);
+                           string message, params object[] params);
 ```
 
 #### See also...

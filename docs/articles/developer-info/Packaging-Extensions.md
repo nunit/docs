@@ -90,7 +90,7 @@ Next install the extension into a project with the `NUnit.ConsoleRunner` package
 
 ## Archiving the Release
 
-Packages are archived on nunit.org in the downloads directory. Create a new subfolder under `downloads/extensions/v3/EXTENSION_NAME` for the release. Upload all the package files into that directory.
+Packages are archived on nunit.org in the downloads directory. Create a new sub-folder under `downloads/extensions/v3/EXTENSION_NAME` for the release. Upload all the package files into that directory.
 
 ## Publishing the Release
 

@@ -65,7 +65,7 @@ This release has three major changes.
 
 2. The filter syntax issues we've had with special names and characters have been mostly solved, thanks to excellent work by [John M.Wright](https://github.com/johnmwright).  The filter syntax is now closer to a correct FQN (Full Qualified Name), but this might cause some issues with your own filter in some rare cases.  The fix done resolves a lot of issues, all of them listed below.  For a detailed explanation of what has been done, see the [Pull Request #668](https://github.com/nunit/nunit3-vs-adapter/pull/668).
 
-3. You can now use the NUnit filter syntax, either from command line or through settings in the runsettings file. This was due to an idea by [Michael Letterle](https://github.com/mletterle) and a subsequent implementation [Pull Request #669](https://github.com/nunit/nunit3-vs-adapter/pull/669).  Michael also wrote [a great blogpost](https://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/) to explain how this works, and how he arrived at the solution.  For more information see the [NUnit Test Selection Language](xref:TestSelectionLanguage).
+3. You can now use the NUnit filter syntax, either from command line or through settings in the runsettings file. This was due to an idea by [Michael Letterle](https://github.com/mletterle) and a subsequent implementation [Pull Request #669](https://github.com/nunit/nunit3-vs-adapter/pull/669).  Michael also wrote [a great blog post](https://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/) to explain how this works, and how he arrived at the solution.  For more information see the [NUnit Test Selection Language](xref:TestSelectionLanguage).
 
 ### Resolved issues
 
@@ -101,7 +101,7 @@ The major difference is that this release makes PreFiltering which was introduce
 
 ### Resolved Issues
 
-* [651](https://github.com/nunit/nunit3-vs-adapter/issues/651)  Add featureflag to enable/disable pre-filtering.  This one contains the links to the issues below:
+* [651](https://github.com/nunit/nunit3-vs-adapter/issues/651)  Add feature flag to enable/disable pre-filtering.  This one contains the links to the issues below:
 
 * [648](https://github.com/nunit/nunit3-vs-adapter/issues/648) NUnit3TestAdapter 3.15.0 fails to run test: "NUnit failed to load" (when using NUnit framework  less than version 3.11)
 * [649](https://github.com/nunit/nunit3-vs-adapter/issues/649) NUnit3TestAdapter 3.15 OneTimeSetUp not working anymore  (When a SetupFixture is being used)
@@ -111,7 +111,7 @@ The major difference is that this release makes PreFiltering which was introduce
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.15 - August 23, 2019
 
-This release is a major performance improvement release.  When used from Visual Studio, and used with a selection of tests, it will significantly speed up the discovery of those.  Note that discovery is also a part of the execution, so you will also see the performance improvement for execution.  It will be mostly noticable when you have a large set of tests.  
+This release is a major performance improvement release.  When used from Visual Studio, and used with a selection of tests, it will significantly speed up the discovery of those.  Note that discovery is also a part of the execution, so you will also see the performance improvement for execution.  It will be mostly noticeable when you have a large set of tests.  
 
 ### Features and Enhancements
 
@@ -130,7 +130,7 @@ This release is a major performance improvement release.  When used from Visual 
 
 * [609](https://github.com/nunit/nunit3-vs-adapter/issues/609) Request to change working directory from Windows/System32 to another directory
 and
-  [303](https://github.com/nunit/nunit3-vs-adapter/issues/303) Directory.GetCurrentDirectory is C:\WINDOWS\system32 for NUnit3TestAdapter.  If your currentdirectory points to either Windows directory or the Program Files folders, it will be redirected to your temp folder.
+  [303](https://github.com/nunit/nunit3-vs-adapter/issues/303) Directory.GetCurrentDirectory is C:\WINDOWS\system32 for NUnit3TestAdapter.  If your current directory points to either Windows directory or the Program Files folders, it will be redirected to your temp folder.
 * [621](https://github.com/nunit/nunit3-vs-adapter/issues/621) TestContext.Progress output.  It will only go to the console, not the test output.
 * [222](https://github.com/nunit/nunit3-vs-adapter/issues/222) NUnit3TestAdapter errors when running xUnit tests.  Thanks to [nvborisenko](https://github.com/nvborisenko) for the [Pull Request](https://github.com/nunit/nunit3-vs-adapter/pull/624)
 
@@ -164,7 +164,7 @@ If you still want to see the properties, you can enable that again setting a run
 ### Resolved Issues
 
 * [302](https://github.com/nunit/nunit3-vs-adapter/issues/302) BadImageFormatException building solution with unmanaged projects) Extra fix for this, see [PR 592](https://github.com/nunit/nunit3-vs-adapter/pull/592) Issue302 native execution in execution. Thanks to [Oski Kervinen](https://github.com/OskiKervinen-MF) for fixing this.  
-* [596](https://github.com/nunit/nunit3-vs-adapter/issues/596)  TestOutputXml should handle relative paths relative to the Workfolder
+* [596](https://github.com/nunit/nunit3-vs-adapter/issues/596)  TestOutputXml should handle relative paths relative to the `Workfolder`
 * [600](https://github.com/nunit/nunit3-vs-adapter/issues/600)  TestOutputXml setting ignored on netcore2.1, works on net461
 
 ### Other fixes
@@ -309,10 +309,10 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 ### Resolved Issues
 
 * [298](https://github.com/nunit/nunit3-vs-adapter/issues/298) $RANDOM_SEED$ is appearing in non-test project build output
-* [259](https://github.com/nunit/nunit3-vs-adapter/issues/259) An exception occurred while invoking executor 'executor://nunit3testexecutor/'
+* [259](https://github.com/nunit/nunit3-vs-adapter/issues/259) An exception occurred while invoking executor `'executor://nunit3testexecutor/'`
 * [314](https://github.com/nunit/nunit3-vs-adapter/issues/314) Any TestFixture deriving from a base-class which defines unit-tests will fail when the base-class is from another class-library
 * [231](https://github.com/nunit/nunit3-vs-adapter/issues/231) Improved message on failed loading. See also [PR 309](https://github.com/nunit/nunit3-vs-adapter/pull/309)
-* [338](https://github.com/nunit/nunit3-vs-adapter/issues/338) Unhandled Exception when running through vstest.console.exe /listtests
+* [338](https://github.com/nunit/nunit3-vs-adapter/issues/338) Unhandled Exception when running through `vstest.console.exe /listtests`
 
 ----
 
@@ -332,7 +332,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 268 Make the Icon Larger
 * 272 URL for "More information" should point to correct landing page
 * 273 Report Warnings in VS adapter
-* 276 Adapter requires test project pbd's to be generated for tests to be executed
+* 276 Adapter requires test project PDBs to be generated for tests to be executed
 * 288 Test parameters containing semicolons are truncated
 
 ----
@@ -684,7 +684,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 ### Bug Fixes
 
-* #1188000, adapter dont work with solutions with only .net 2.0/3.5 project
+* #1188000, adapter don't work with solutions with only .net 2.0/3.5 project
 
 ----
 
@@ -704,7 +704,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 * #1155617 Grouping by class name in VS 2012 doesn't work
 * #1165359 Exception after building Coded UI test
-* #1116747 vstest.executionengine.x86.exe does not terminate
+* #1116747 `vstest.executionengine.x86.exe` does not terminate
 * #1093178 Eliminate unnecessary files from VSIX
 
 ----
@@ -723,7 +723,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * 1074891 Can't test multiple assemblies referencing different NUnit versions
 * 1075893 Test execution fails if solution contains native C++ project
 * 1076012 No source information found for async test methods
-* 1087629 TestFixture Category not being recognised as traits in VS2012 update 1
+* 1087629 TestFixture Category not being recognized as traits in VS2012 update 1
 * 1091020 Adapter doesn't support TFS Build traits/test case filtering
 
 ----
