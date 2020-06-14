@@ -58,7 +58,7 @@ The resulting files can be found in the "package" folder:
 #### Notes
 
 * Publishing the release requires access to various online accounts, which are mentioned above. For obvious reasons, the passwords are not provided. Contact Charlie or Terje if you need this access.
-* The website and wiki contain duplicate information at this time. In future, the duplication will be eliminated.
+* The website and docs site contain duplicate information at this time. In future, the duplication will be eliminated.
 * When a change is merged into the nunit.org master branch, one of the project leaders uploads it manually to the web site. This will be automated in the future.
 
 ## Prerequisites

@@ -77,7 +77,7 @@ Test both the vsix and NuGet packages using each version of Visual Studio you ha
 
 3. Upload the NuGet package to nuget.org. You use your own account for this but you must have been pre-authorized in order for it to work. If you are not authorized, ask a committer with access to do it for you.
 
-4. Update the documentation pages in the wiki as needed. Be sure to update the Release Notes page. In order to perform the update quickly after publishing the packages, you may want to clone the wiki repository and prepare the update in advance.
+4. Update the documentation pages in the site as needed. Be sure to update the Release Notes page. In order to perform the update quickly after publishing the packages, you may want to clone the `nunit/docs` repository and prepare the pull request in advance.
 
 5. Publicize the release, first announcing it on the nunit-developer and nunit-discuss lists and then more widely as appropriate. [We should develop a list of places.]
 
