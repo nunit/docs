@@ -16,6 +16,5 @@ jobs:
         name: Check out the code
       - uses: nikeee/docfx-action@master
         name: Build Documentation
-        working-directory: ./docs
         with:
-          args: docfx.json
+          args: docs/docfx.json
