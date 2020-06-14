@@ -14,7 +14,13 @@ jobs:
       steps:
       - uses: actions/checkout@v2
         name: Check out the code
+      - uses: actions/setup-node@v1
+        name: Run spell check
+        with:
+          node-version: '12'
+      - run: npm install -g cSpell
+      - run: cSpell --config ./cSpell.json "docs/**/*.md"
       - uses: nikeee/docfx-action@master
-        name: Build Documentation
+        name: Build with Docfx
         with:
           args: docs/docfx.json --warningsAsErrors true
