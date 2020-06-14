@@ -332,7 +332,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 268 Make the Icon Larger
 * 272 URL for "More information" should point to correct landing page
 * 273 Report Warnings in VS adapter
-* 276 Adapter requires test project pbd's to be generated for tests to be executed
+* 276 Adapter requires test project PDBs to be generated for tests to be executed
 * 288 Test parameters containing semicolons are truncated
 
 ----
