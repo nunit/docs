@@ -7,7 +7,7 @@ does not throw an exception. See [Assert.DoesNotThrowAsync](Assert.DoesNotThrowA
 ```csharp
 void Assert.DoesNotThrow(TestDelegate code);
 void Assert.DoesNotThrow(TestDelegate code,
-                         string message, params object[] parms);
+                         string message, params object[] params);
 ```
 
 #### See also...

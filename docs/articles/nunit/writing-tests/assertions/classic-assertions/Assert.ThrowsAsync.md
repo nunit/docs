@@ -7,15 +7,15 @@ for asynchronous code. See [Assert.Throws](Assert.Throws.md) for more informatio
 ```csharp
 Exception Assert.ThrowsAsync(Type expectedExceptionType, AsyncTestDelegate code);
 Exception Assert.ThrowsAsync(Type expectedExceptionType, AsyncTestDelegate code,
-                             string message, params object[] parms);
+                             string message, params object[] params);
 
 Exception Assert.ThrowsAsync(IResolveConstraint constraint, AsyncTestDelegate code);
 Exception Assert.ThrowsAsync(IResolveConstraint constraint, AsyncTestDelegate code,
-                             string message, params object[] parms);
+                             string message, params object[] params);
 
 TActual Assert.ThrowsAsync<TActual>(AsyncTestDelegate code);
 TActual Assert.ThrowsAsync<TActual>(AsyncTestDelegate code,
-                                    string message, params object[] parms);
+                                    string message, params object[] params);
 ```
 
 In the above code **AsyncTestDelegate** is a delegate of the form

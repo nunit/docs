@@ -18,15 +18,15 @@ If the code under test is async, you must use [Assert.ThrowsAsync](Assert.Throws
 ```csharp
 Exception Assert.Throws(Type expectedExceptionType, TestDelegate code);
 Exception Assert.Throws(Type expectedExceptionType, TestDelegate code,
-                        string message, params object[] parms);
+                        string message, params object[] params);
 
 Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code);
 Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code,
-                        string message, params object[] parms);
+                        string message, params object[] params);
 
 Assert.Throws<T>(TestDelegate code);
 Assert.Throws<T>(TestDelegate code,
-                 string message, params object[] parms);
+                 string message, params object[] params);
 ```
 
 In the above code **TestDelegate** is a delegate of the form

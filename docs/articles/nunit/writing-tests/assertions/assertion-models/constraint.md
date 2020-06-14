@@ -43,7 +43,7 @@ Assert.That<TActual>(ActualValueDelegate<TActual> del, IResolveConstraint expr,
 
 Assert.That<TActual>(TActual actual, IResolveConstraint constraint)
 Assert.That<TActual>(TActual actual, IResolveConstraint constraint, string message,
-    params object[] parms)
+    params object[] params)
 Assert.That<TActual>(TActual actual, IResolveConstraint expression,
     Func<string> getExceptionMessage)
 

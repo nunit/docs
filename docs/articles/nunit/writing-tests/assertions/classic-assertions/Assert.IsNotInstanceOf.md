@@ -6,10 +6,10 @@
 ```csharp
 Assert.IsNotInstanceOf(Type expected, object actual);
 Assert.IsNotInstanceOf(Type expected, object actual,
-                       string message, params object[] parms);
+                       string message, params object[] params);
 Assert.IsNotInstanceOf<T>(object actual);
 Assert.IsNotInstanceOf<T>(object actual,
-                          string message, params object[] parms);
+                          string message, params object[] params);
 ```
 
 #### See also...

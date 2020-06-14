@@ -10,15 +10,15 @@ Expect() method may be used instead...
 
 ```csharp
 Expect(bool condition);
-Expect(bool condition, string message, params object[] parms);
+Expect(bool condition, string message, params object[] params);
 
 Expect(ActualValueDelegate del, IResolveConstraint constraint)
 Expect(ActualValueDelegate del, IResolveConstraint constraint,
-       string message, params object[] parms)
+       string message, params object[] params)
 
 Expect<TActual>(TActual actual, IResolveConstraint constraint)
 Expect<TActual>(TActual actual, IResolveConstraint constraint,
-                string message, params object[] parms)
+                string message, params object[] params)
 
 Expect(TestDelegate del, IResolveConstraint constraint);
 ```

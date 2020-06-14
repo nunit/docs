@@ -7,10 +7,10 @@ NUnitLite.
 
 ```csharp
 Assert.NotNull(object anObject);
-Assert.NotNull(object anObject, string message, params object[] parms);
+Assert.NotNull(object anObject, string message, params object[] params);
 
 Assert.IsNotNull(object anObject);
-Assert.IsNotNull(object anObject, string message, params object[] parms);
+Assert.IsNotNull(object anObject, string message, params object[] params);
 ```
 
 #### See also...

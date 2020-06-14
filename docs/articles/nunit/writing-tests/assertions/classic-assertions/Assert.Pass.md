@@ -11,7 +11,7 @@ result of immediately terminating test execution.
 
 ```csharp
 Assert.Pass();
-Assert.Pass(string message, params object[] parms);
+Assert.Pass(string message, params object[] params);
 ```
 
 #### See also...
