@@ -24,7 +24,7 @@ To bring developers' attention to a situation in which their code may not be ope
 
 ```csharp
 [Test]
-public void Nunit2009SampleTest()
+public void NUnit2009SampleTest()
 {
     var x = 1;
     Assert.That(x, Is.EqualTo(x));
@@ -41,7 +41,7 @@ Ensure the `expected` and `actual` values come from different places.
 
 ```csharp
 [Test]
-public void Nunit2009SampleTest()
+public void NUnit2009SampleTest()
 {
     var x = 1;
     Assert.That(x, Is.EqualTo(1));

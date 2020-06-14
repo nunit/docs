@@ -330,7 +330,7 @@ that test fixtures will be run.
 * [2251](https://github.com/nunit/nunit/issues/2251) Randomizer.NextGuid()
 * [2253](https://github.com/nunit/nunit/issues/2253) Parallelizable(ParallelScope.Fixtures) doesn't work on a TestFixture
 * [2254](https://github.com/nunit/nunit/issues/2254) EqualTo on ValueTuple with Nullable unexpected
-* [2261](https://github.com/nunit/nunit/issues/2261) When an assembly is marked with ParallelScope.None and there are Parallelizable tests Nunit hangs
+* [2261](https://github.com/nunit/nunit/issues/2261) When an assembly is marked with ParallelScope.None and there are Parallelizable tests NUnit hangs
 * [2269](https://github.com/nunit/nunit/issues/2269) Parallelizable and NonParallelizable attributes on setup and teardown silently ignored
 * [2276](https://github.com/nunit/nunit/issues/2276) Intermittent test failures in Travis CI: TestContextTests
 * [2281](https://github.com/nunit/nunit/issues/2281) Add type constraint for Throws and any method requiring Exception

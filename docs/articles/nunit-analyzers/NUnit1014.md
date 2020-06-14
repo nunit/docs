@@ -24,7 +24,7 @@ To prevent tests that will fail at runtime due to improper construction.
 
 ```csharp
 [TestCase(1, ExpectedResult = true)]
-public async Task Nunit1014SampleTest(int numberValue)
+public async Task NUnit1014SampleTest(int numberValue)
 {
     return;
 }
@@ -40,7 +40,7 @@ Remove the `ExpectedResult` syntax:
 
 ```csharp
 [TestCase(1)]
-public async Task Nunit1014SampleTest(int numberValue)
+public async Task NUnit1014SampleTest(int numberValue)
 {
     Assert.Pass();
 }
@@ -50,7 +50,7 @@ Or, update the return task type to be what you're looking for, e.g. `Task<bool>`
 
 ```csharp
 [TestCase(1, ExpectedResult = true)]
-public async Task<bool> Nunit1014SampleTest(int numberValue)
+public async Task<bool> NUnit1014SampleTest(int numberValue)
 {
     return Task.FromResult(true);
 }

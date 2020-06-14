@@ -21,7 +21,7 @@ Thanks to [BobSilent](https://github.com/BobSilent) for [#188](https://github.co
 
 ### Features
 
-* [#180](https://github.com/nunit/nunit-vs-adapter/issues/180) Nunit 2 test adapter does not support Visual Studio 2019
+* [#180](https://github.com/nunit/nunit-vs-adapter/issues/180) NUnit 2 test adapter does not support Visual Studio 2019
 * [#175](https://github.com/nunit/nunit-vs-adapter/issues/175) NuGet Package : Add `repository` metadata. Thanks to [MaximRouiller](https://github.com/MaximRouiller) for the PR
 * [#174](https://github.com/nunit/nunit-vs-adapter/issues/174)  NUnitTestAdapter 2.1.1 not working with Visual Studio 2017 15.8.0  
 
