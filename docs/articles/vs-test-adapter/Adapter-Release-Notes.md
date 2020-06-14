@@ -254,7 +254,7 @@ Exception thrown while loading tests if In-Proc VSTest DataCollector is used (Th
 
 ### Features
 
-* [461](https://github.com/nunit/nunit3-vs-adapter/issues/461)  Publish symbols with the adapter for debugging into the adapter and nunit
+* [461](https://github.com/nunit/nunit3-vs-adapter/issues/461)  Publish symbols with the adapter for debugging into the adapter and NUnit
 
 ### Resolved Issues
 

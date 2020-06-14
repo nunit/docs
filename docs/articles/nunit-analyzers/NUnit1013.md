@@ -24,7 +24,7 @@ To prevent tests that will fail at runtime due to improper construction.
 
 ```csharp
 [TestCase(1)]
-public async Task<string> Nunit1013SampleTest(int numberValue)
+public async Task<string> NUnit1013SampleTest(int numberValue)
 {
 
     return await ConvertNumber(numberValue);
@@ -46,7 +46,7 @@ Utilize the `ExpectedResult` syntax:
 
 ```csharp
 [TestCase(1, ExpectedResult = "1")]
-public async Task<string> Nunit1013SampleTest(int numberValue)
+public async Task<string> NUnit1013SampleTest(int numberValue)
 {
     return await ConvertNumber(numberValue);
 }
@@ -61,7 +61,7 @@ Or, use an assertion and a generic `Task` rather than `Task<string>`:
 
 ```csharp
 [TestCase(1)]
-public async Task Nunit1013SampleTest(int numberValue)
+public async Task NUnit1013SampleTest(int numberValue)
 {
     var result = await ConvertNumber(numberValue);
     Assert.That(result, Is.EqualTo("1"));

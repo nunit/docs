@@ -24,7 +24,7 @@ To bring developers' attention to a scenario in which their code is actually hav
 
 ```csharp
 [Test]
-public void Nunit2008SampleTest()
+public void NUnit2008SampleTest()
 {
     var date = DateTime.Now;
     Assert.That(date, Is.Not.EqualTo(date.AddDays(1)).IgnoreCase);
@@ -41,7 +41,7 @@ Remove the errant call to `IgnoreCase`:
 
 ```csharp
 [Test]
-public void Nunit2008SampleTest()
+public void NUnit2008SampleTest()
 {
     var date = DateTime.Now;
     Assert.That(date, Is.Not.EqualTo(date.AddDays(1)));
@@ -52,7 +52,7 @@ Or update the code to compare based on the primitives that are supported by `Ign
 
 ```csharp
 [Test]
-public void Nunit2008SampleTest()
+public void NUnit2008SampleTest()
 {
     var date = DateTime.Now;
     Assert.That(date.ToString(), Is.Not.EqualTo(date.AddDays(1).ToString()).IgnoreCase);

@@ -6,7 +6,7 @@
 
 Updates the NUnit framework to 2.7.1
 
-* [#186](https://github.com/nunit/nunit-vs-adapter/issues/186) How to change used nunit 2 version of test adapter to e.g. v2.7.1 ?  
+* [#186](https://github.com/nunit/nunit-vs-adapter/issues/186) How to change used NUnit 2 version of test adapter to e.g. v2.7.1 ?  
 * [#184](https://github.com/nunit/nunit-vs-adapter/issues/184) Update NUnit library to 2.7.1
 
 Thanks to [BobSilent](https://github.com/BobSilent) for [#188](https://github.com/nunit/nunit-vs-adapter/pull/188) solving [#184](https://github.com/nunit/nunit-vs-adapter/issues/184) and [#186](https://github.com/nunit/nunit-vs-adapter/issues/186).
@@ -21,7 +21,7 @@ Thanks to [BobSilent](https://github.com/BobSilent) for [#188](https://github.co
 
 ### Features
 
-* [#180](https://github.com/nunit/nunit-vs-adapter/issues/180) Nunit 2 test adapter does not support Visual Studio 2019
+* [#180](https://github.com/nunit/nunit-vs-adapter/issues/180) NUnit 2 test adapter does not support Visual Studio 2019
 * [#175](https://github.com/nunit/nunit-vs-adapter/issues/175) NuGet Package : Add `repository` metadata. Thanks to [MaximRouiller](https://github.com/MaximRouiller) for the PR
 * [#174](https://github.com/nunit/nunit-vs-adapter/issues/174)  NUnitTestAdapter 2.1.1 not working with Visual Studio 2017 15.8.0  
 

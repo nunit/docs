@@ -5,7 +5,7 @@ uid: pre35releasenotes
 # Pre 3.5 Release Notes
 
 > [!NOTE]
-> Combined Release Notes for the nunit framework, console and engine, up to version 3.5. For later releases, see:
+> Combined Release Notes for the NUnit framework, console and engine, up to version 3.5. For later releases, see:
 >
 > * [Framework Release Notes](framework.md)
 > * [Console Release Notes](console-and-engine.md)
