@@ -24,3 +24,6 @@ jobs:
         name: Build with Docfx
         with:
           args: docs/docfx.json --warningsAsErrors true
+      - name: Push to gh-pages branch (master only)
+        if: ${{ github.ref == 'refs/heads/master'}}
+        run: echo "I will publish!"
