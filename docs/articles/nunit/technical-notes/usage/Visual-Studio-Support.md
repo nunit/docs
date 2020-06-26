@@ -1,7 +1,7 @@
 # Visual Studio Support
 
-
-## DRAFT - Out of Date
+> [!WARNING]
+> This is a draft. The contents may be out of date.
 
 NUnit supports the Visual Studio project and solution format, which are also 
 used by a number of other IDEs.

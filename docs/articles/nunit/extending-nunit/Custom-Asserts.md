@@ -1,7 +1,7 @@
 # Custom Asserts
 
 > [!WARNING]
-> This is a draft. The contents are out of date.
+> This is a draft. The contents may be out of date.
 
 Experienced developers using NUnit generally end up with a library of custom
 setup, teardown, test and support methods. Custom Asserts provide one way to
