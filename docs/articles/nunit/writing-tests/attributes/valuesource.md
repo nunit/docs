@@ -15,7 +15,7 @@ ValueSourceAttribute(string sourceName);
 ```
 
 If **sourceType** is specified, it represents the class that provides
-the data. It must have a default constructor.
+the data.
 
 If **sourceType** is not specified, the class containing the test
 method is used.
