@@ -1,7 +1,7 @@
 # Include And Exclude Attributes Spec
 
-
-### DRAFT - Not Yet Implemented
+> [!WARNING]
+> This is a draft. The contents may be out of date.
 
 This spec describes proposed new attributes to replace and extend the existing CultureAttribute and PlatformAttribute. We considered several alternative approaches to doing this and selected the approach described here. See [Include and Exclude Attributes (Alternatives)](xref:IncludeExcludeAttributesAlternatives) for the original discussion of choices.
 
