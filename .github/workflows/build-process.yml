@@ -25,6 +25,30 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: true
           DISABLE_ERRORS: true
+          VALIDATE_MD: true # Only validate markdown
+          VALIDATE_YAML: false
+          VALIDATE_JSON: false
+          VALIDATE_XML: false
+          VALIDATE_BASH: false
+          VALIDATE_PERL: false
+          VALIDATE_PHP: false
+          VALIDATE_PYTHON: false
+          VALIDATE_RUBY: false
+          VALIDATE_COFFEE: false
+          VALIDATE_ANSIBLE: false
+          VALIDATE_JAVASCRIPT_ES: false
+          VALIDATE_JAVASCRIPT_STANDARD: false
+          VALIDATE_TYPESCRIPT_ES: false
+          VALIDATE_TYPESCRIPT_STANDARD: false
+          VALIDATE_DOCKER: false
+          VALIDATE_GO: false
+          VALIDATE_POWERSHELL: false
+          VALIDATE_TERRAFORM: false
+          VALIDATE_CSS: false
+          VALIDATE_ENV: false
+          VALIDATE_CLOJURE: false
+          VALIDATE_KOTLIN: false
+          VALIDATE_OPENAPI: false
       - uses: nikeee/docfx-action@master
         name: Build with Docfx
         with:
