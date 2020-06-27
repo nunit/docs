@@ -1,19 +1,14 @@
 # SetUp and TearDown
 
+## Attribute Usage
 
-#### Attribute Usage
+* [SetUpAttribute](../attributes/setup.md) is now used exclusively for per-test setup.
+* [TearDownAttribute](../attributes/teardown.md) is now used exclusively for per-test teardown.
+* [OneTimeSetUpAttribute](../attributes/onetimesetup.md) is used for one-time setup per test-run. If you run _n_ tests, this event will only occur once.
+* [OneTimeTearDownAttribute](../attributes/onetimeteardown.md) is used for one-time teardown per test-run. If you run _n_ tests, this event will only occur once
+* [SetUpFixtureAttribute](../attributes/setupfixture.md) continues to be used as at before, but with changed method attributes.
 
-  * [SetUpAttribute](../attributes/setup.md) is now used exclusively for per-test setup.
-
-  * [TearDownAttribute](../attributes/teardown.md) is now used exclusively for per-test teardown. 
-
-  * [OneTimeSetUpAttribute](../attributes/onetimesetup.md) is used for one-time setup per test-run. If you run _n_ tests, this event will only occur once.
-
-  * [OneTimeTearDownAttribute](../attributes/onetimeteardown.md) is used for one-time teardown per test-run. If you run _n_ tests, this event will only occur once
-
-  * [SetUpFixtureAttribute](../attributes/setupfixture.md) continues to be used as at before, but with changed method attributes.
-
-#### Attribute Usage by Fixture Type
+### Attribute Usage by Fixture Type
 
 |                     | TestFixture  | SetUpFixture |
 |---------------------|--------------|--------------|
@@ -24,7 +19,7 @@
 | SetUp               |  Supported   | Not Allowed  |
 | TearDown            |  Supported   | Not Allowed  |
 
-#### How Setup and TearDown Methods Are Called
+## How Setup and TearDown Methods Are Called
 
 Multiple SetUp, OneTimeSetUp, TearDown and OneTimeTearDown methods may exist within a class.
 
@@ -55,7 +50,9 @@ public class DerivedClass : BaseClass
    public void TestMethod() { ... }
 }
 ```
+
 Execution will proceed as follows:
+
 * BaseSetUp
 * BaseTearDown
 

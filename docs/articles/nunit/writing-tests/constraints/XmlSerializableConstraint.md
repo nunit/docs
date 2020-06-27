@@ -1,25 +1,25 @@
 # XmlSerializable Constraint
 
+`XmlSerializableConstraint` tests whether an object is serializable in XML format.
 
-**XmlSerializableConstraint** tests whether an object is serializable in XML format.
-
-#### Constructor
+## Constructor
 
 ```csharp
 XmlSerializableConstraint()
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.XmlSerializable
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Assert.That(someObject, Is.XmlSerializable));
 ```
 
-#### See also...
- * [BinarySerializableConstraint](BinarySerializableConstraint.md)
+## See also
+
+* [BinarySerializableConstraint](BinarySerializableConstraint.md)
