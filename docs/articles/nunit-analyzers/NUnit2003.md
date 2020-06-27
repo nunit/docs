@@ -48,6 +48,7 @@ public void Test()
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit2003 // Consider using Assert.That(expr, Is.True) instead of Assert.IsTrue(expr).
 Code violating the rule here

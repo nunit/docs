@@ -68,6 +68,7 @@ public void SampleTest(int numberValue)
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit1001 // The individual arguments provided by a TestCaseAttribute must match the type of the matching parameter of the method.
 Code violating the rule here

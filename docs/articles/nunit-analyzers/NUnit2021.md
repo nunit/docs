@@ -40,6 +40,7 @@ Fix your assertion (i.e. fix actual or expected value, or choose another constra
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit2021 // Incompatible types for EqualTo constraint.
 Code violating the rule here

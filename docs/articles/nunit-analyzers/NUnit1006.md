@@ -64,6 +64,7 @@ public string NUnit1006SampleTest(int inputValue)
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit1006 // ExpectedResult must not be specified when the method returns void.
 Code violating the rule here

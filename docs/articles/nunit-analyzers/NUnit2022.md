@@ -42,6 +42,7 @@ Fix your property name, or use another constraint.
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit2022 // Missing property required for constraint.
 Code violating the rule here

@@ -64,6 +64,7 @@ public void NUnit1007SampleTest(int inputValue)
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit1007 // Method has non-void return type, but no result is expected in ExpectedResult.
 Code violating the rule here

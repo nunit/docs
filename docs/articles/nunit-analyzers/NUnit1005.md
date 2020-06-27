@@ -64,6 +64,7 @@ public bool NUnit1005SampleTest(int inputValue)
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit1005 // The type of ExpectedResult must match the return type.
 Code violating the rule here

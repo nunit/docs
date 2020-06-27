@@ -69,6 +69,7 @@ public void NUnit1009SampleTest(int numberValue)
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit1009 // No ParallelScope.Children on a non-parameterized test method.
 Code violating the rule here

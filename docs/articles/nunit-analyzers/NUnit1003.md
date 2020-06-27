@@ -66,6 +66,7 @@ public void NUnit1003SampleTest(string parameter1)
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit1003 // Too few arguments provided by TestCaseAttribute.
 Code violating the rule here

@@ -66,6 +66,7 @@ public static object[] MyTestSource()
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit1002 // TestCaseSource should use nameof operator to specify target.
 Code violating the rule here

@@ -67,6 +67,7 @@ public void NUnit1012SampleTest()
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit1012 // Async test method must have non-void return type.
 Code violating the rule here

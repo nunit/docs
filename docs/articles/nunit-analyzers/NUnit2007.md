@@ -62,6 +62,7 @@ public void NUnit2007SampleTest()
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit2007 // Actual value should not be constant.
 Code violating the rule here

@@ -79,6 +79,7 @@ public static object[] MyTestSource()
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit1011 // TestCaseSource argument does not specify an existing member.
 Code violating the rule here
