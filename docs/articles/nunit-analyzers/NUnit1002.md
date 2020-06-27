@@ -82,7 +82,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
     "NUnit1002:TestCaseSource should use nameof operator to specify target.",
     Justification = "Reason...")]
 ```

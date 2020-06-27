@@ -80,7 +80,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
     "NUnit1014:Async test method must have Task<T> return type when a result is expected",
     Justification = "Reason...")]
 ```

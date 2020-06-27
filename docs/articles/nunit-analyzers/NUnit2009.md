@@ -72,7 +72,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
     "NUnit2009:Same value provided as actual and expected argument.",
     Justification = "Reason...")]
 ```

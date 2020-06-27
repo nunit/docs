@@ -16,8 +16,8 @@ Using EqualConstraint will lead to better assertion messages in case of failure.
 
 ## Motivation
 
-Using `Is.EqualTo` (or `Is.Not.EqualTo`) constraint will lead to better assertion messages in case of failure, 
-so this analyzer marks all usages of `==` operator and `Equals` method where it is possible to replace 
+Using `Is.EqualTo` (or `Is.Not.EqualTo`) constraint will lead to better assertion messages in case of failure,
+so this analyzer marks all usages of `==` operator and `Equals` method where it is possible to replace
 with `Is.EqualTo` constraint.
 
 ```csharp

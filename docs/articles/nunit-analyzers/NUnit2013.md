@@ -16,8 +16,8 @@ Using constraints instead of boolean methods will lead to better assertion messa
 
 ## Motivation
 
-Using `Does.EndWith` (or `Does.Not.EndWith`) constraint will lead to better assertion messages in case of failure, 
-so this analyzer marks all usages of string `EndsWith` method where it is possible to replace 
+Using `Does.EndWith` (or `Does.Not.EndWith`) constraint will lead to better assertion messages in case of failure,
+so this analyzer marks all usages of string `EndsWith` method where it is possible to replace
 with `Does.EndWith` constraint.
 
 ```csharp

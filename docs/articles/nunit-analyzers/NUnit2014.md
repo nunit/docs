@@ -16,8 +16,8 @@ Using SomeItemsConstraint will lead to better assertion messages in case of fail
 
 ## Motivation
 
-Using `Does.Contain` (or `Does.Not.Contain`) constraint will lead to better assertion messages in case of failure, 
-so this analyzer marks all usages of string `Contains` method where it is possible to replace 
+Using `Does.Contain` (or `Does.Not.Contain`) constraint will lead to better assertion messages in case of failure,
+so this analyzer marks all usages of string `Contains` method where it is possible to replace
 with `Does.Contain` constraint.
 
 ```csharp

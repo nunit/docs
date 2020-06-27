@@ -70,7 +70,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
     "NUnit1008:Specifying ParallelScope.Self on assembly level has no effect.",
     Justification = "Reason...")]
 ```

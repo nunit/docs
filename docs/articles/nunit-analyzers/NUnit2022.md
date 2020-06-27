@@ -16,7 +16,7 @@ Provided 'actual' argument should have required property for constraint.
 
 ## Motivation
 
-Using property constraints (e.g. `Has.Count.EqualTo(1)`, `Has.Property("Prop").EqualTo(expected)`, etc) 
+Using property constraints (e.g. `Has.Count.EqualTo(1)`, `Has.Property("Prop").EqualTo(expected)`, etc)
 makes sense only when provided actual argument has those properties defined.
 
 ```csharp

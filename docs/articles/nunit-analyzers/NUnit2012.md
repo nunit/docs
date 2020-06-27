@@ -16,8 +16,8 @@ Using constraints instead of boolean methods will lead to better assertion messa
 
 ## Motivation
 
-Using `Does.StartWith` (or `Does.Not.StartWith`) constraint will lead to better assertion messages in case of failure, 
-so this analyzer marks all usages of string `StartsWith` method where it is possible to replace 
+Using `Does.StartWith` (or `Does.Not.StartWith`) constraint will lead to better assertion messages in case of failure,
+so this analyzer marks all usages of string `StartsWith` method where it is possible to replace
 with `Does.StartWith` constraint.
 
 ```csharp

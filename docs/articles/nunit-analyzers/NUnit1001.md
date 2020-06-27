@@ -84,7 +84,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
     "NUnit1001:The individual arguments provided by a TestCaseAttribute must match the type of the matching parameter of the method.",
     Justification = "Reason...")]
 ```
