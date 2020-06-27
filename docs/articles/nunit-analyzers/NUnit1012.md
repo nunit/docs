@@ -10,7 +10,6 @@
 | Category | Structure
 | Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
 
-
 ## Description
 
 Async test method must have non-void return type.

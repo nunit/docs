@@ -10,7 +10,6 @@
 | Category | Structure
 | Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
 
-
 ## Description
 
 TestCaseSource should use nameof operator to specify target.

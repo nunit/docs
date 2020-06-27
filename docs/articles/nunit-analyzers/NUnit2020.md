@@ -10,7 +10,6 @@
 | Category | Assertion
 | Code     | [SameAsIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/SameAsIncompatibleTypes/SameAsIncompatibleTypesAnalyzer.cs)
 
-
 ## Description
 
 Provided actual and expected arguments cannot have same type, therefore SameAs assertion will always fail.

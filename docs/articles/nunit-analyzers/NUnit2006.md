@@ -10,7 +10,6 @@
 | Category | Assertion
 | Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
 
-
 ## Description
 
 Consider using the constraint model, `Assert.That(expr2, Is.Not.EqualTo(expr1))`, instead of the classic model, `Assert.AreNotEqual(expr1, expr2)`.

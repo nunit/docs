@@ -10,7 +10,6 @@
 | Category | Assertion
 | Code     | [ConstActualValueUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ConstActualValueUsage/ConstActualValueUsageAnalyzer.cs)
 
-
 ## Description
 
 Actual value should not be constant. This indicates that the actual and expected values have switched places.

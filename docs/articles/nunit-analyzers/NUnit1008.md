@@ -10,7 +10,6 @@
 | Category | Structure
 | Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
 
-
 ## Description
 
 Specifying ParallelScope.Self on assembly level has no effect.

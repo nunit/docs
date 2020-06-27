@@ -10,7 +10,6 @@
 | Category | Assertion
 | Code     | [NullConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/NullConstraintUsage/NullConstraintUsageAnalyzer.cs)
 
-
 ## Description
 
 NullConstraint is allowed only for reference types or nullable value types.

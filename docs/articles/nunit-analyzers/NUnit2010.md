@@ -10,7 +10,6 @@
 | Category | Assertion
 | Code     | [EqualConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ConstraintUsage/EqualConstraintUsageAnalyzer.cs)
 
-
 ## Description
 
 Using EqualConstraint will lead to better assertion messages in case of failure.

@@ -10,7 +10,6 @@
 | Category | Structure
 | Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
 
-
 ## Description
 
 Method has non-void return type, but no result is expected in ExpectedResult.

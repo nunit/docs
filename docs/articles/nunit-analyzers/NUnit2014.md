@@ -10,7 +10,6 @@
 | Category | Assertion
 | Code     | [SomeItemsConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ConstraintUsage/SomeItemsConstraintUsageAnalyzer.cs)
 
-
 ## Description
 
 Using SomeItemsConstraint will lead to better assertion messages in case of failure.

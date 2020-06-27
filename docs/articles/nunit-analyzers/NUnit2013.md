@@ -10,7 +10,6 @@
 | Category | Assertion
 | Code     | [StringConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs)
 
-
 ## Description
 
 Using constraints instead of boolean methods will lead to better assertion messages in case of failure.

@@ -10,7 +10,6 @@
 | Category | Structure
 | Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
 
-
 ## Description
 
 One may not specify ParallelScope.Fixtures on a test method.

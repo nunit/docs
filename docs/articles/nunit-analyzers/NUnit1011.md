@@ -10,7 +10,6 @@
 | Category | Structure
 | Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
 
-
 ## Description
 
 TestCaseSource argument does not specify an existing member. This will lead to an error at run-time.

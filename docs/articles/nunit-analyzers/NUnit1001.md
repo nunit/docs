@@ -10,7 +10,6 @@
 | Category | Structure
 | Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs)
 
-
 ## Description
 
 The individual arguments provided by a TestCaseAttribute must match the type of the matching parameter of the method.

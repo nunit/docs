@@ -10,7 +10,6 @@
 | Category | Structure
 | Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs)
 
-
 ## Description
 
 The number of arguments provided by a TestCaseAttribute must match the number of parameters of the method.

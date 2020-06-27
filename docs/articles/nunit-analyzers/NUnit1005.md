@@ -10,7 +10,6 @@
 | Category | Structure
 | Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
 
-
 ## Description
 
 The type of ExpectedResult must match the return type. This will lead to an error at run-time.

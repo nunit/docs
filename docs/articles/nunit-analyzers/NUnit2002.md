@@ -10,7 +10,6 @@
 | Category | Assertion
 | Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
 
-
 ## Description
 
 Consider using the constraint model, `Assert.That(expr, Is.False)`, instead of the classic model, `Assert.IsFalse(expr)`.

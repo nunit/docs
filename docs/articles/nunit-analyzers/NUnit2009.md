@@ -10,7 +10,6 @@
 | Category | Structure
 | Code     | [SameActualExpectedValueAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/SameActualExpectedValue/SameActualExpectedValueAnalyzer.cs)
 
-
 ## Description
 
 The same value has been provided as both actual and expected argument. This indicates a coding error.
