@@ -1,4 +1,5 @@
 # NUnit2001
+
 ## Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).
 
 | Topic    | Value
@@ -8,7 +9,6 @@
 | Enabled  | True
 | Category | Assertion
 | Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
-
 
 ## Description
 
@@ -48,6 +48,7 @@ public void Test()
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit2001 // Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).
 Code violating the rule here
@@ -55,6 +56,7 @@ Code violating the rule here
 ```
 
 Or put this at the top of the file to disable all instances.
+
 ```csharp
 #pragma warning disable NUnit2001 // Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).
 ```
@@ -62,7 +64,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
     "NUnit2001:Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).",
     Justification = "Reason...")]
 ```

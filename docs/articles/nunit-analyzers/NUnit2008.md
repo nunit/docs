@@ -1,4 +1,5 @@
 # NUnit2008
+
 ## Incorrect IgnoreCase usage.
 
 | Topic    | Value
@@ -8,7 +9,6 @@
 | Enabled  | True
 | Category | Assertion
 | Code     | [IgnoreCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/IgnoreCaseUsage/IgnoreCaseUsageAnalyzer.cs)
-
 
 ## Description
 
@@ -67,6 +67,7 @@ public void NUnit2008SampleTest()
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit2008 // Incorrect IgnoreCase usage.
 Code violating the rule here
@@ -74,6 +75,7 @@ Code violating the rule here
 ```
 
 Or put this at the top of the file to disable all instances.
+
 ```csharp
 #pragma warning disable NUnit2008 // Incorrect IgnoreCase usage.
 ```
@@ -81,7 +83,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
     "NUnit2008:Incorrect IgnoreCase usage.",
     Justification = "Reason...")]
 ```

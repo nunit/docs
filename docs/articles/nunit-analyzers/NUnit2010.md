@@ -1,4 +1,5 @@
 # NUnit2010
+
 ## Use EqualConstraint.
 
 | Topic    | Value
@@ -9,15 +10,14 @@
 | Category | Assertion
 | Code     | [EqualConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ConstraintUsage/EqualConstraintUsageAnalyzer.cs)
 
-
 ## Description
 
 Using EqualConstraint will lead to better assertion messages in case of failure.
 
 ## Motivation
 
-Using `Is.EqualTo` (or `Is.Not.EqualTo`) constraint will lead to better assertion messages in case of failure, 
-so this analyzer marks all usages of `==` operator and `Equals` method where it is possible to replace 
+Using `Is.EqualTo` (or `Is.Not.EqualTo`) constraint will lead to better assertion messages in case of failure,
+so this analyzer marks all usages of `==` operator and `Equals` method where it is possible to replace
 with `Is.EqualTo` constraint.
 
 ```csharp
@@ -27,6 +27,7 @@ public void Test()
     Assert.True(actual == expected);
 }
 ```
+
 ## How to fix violations
 
 The analyzer comes with a code fix that will replace `Assert.True(actual == expected)` with
@@ -48,6 +49,7 @@ public void Test()
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit2010 // Use EqualConstraint.
 Code violating the rule here
@@ -55,6 +57,7 @@ Code violating the rule here
 ```
 
 Or put this at the top of the file to disable all instances.
+
 ```csharp
 #pragma warning disable NUnit2010 // Use EqualConstraint.
 ```
@@ -62,7 +65,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
     "NUnit2010:Use EqualConstraint.",
     Justification = "Reason...")]
 ```

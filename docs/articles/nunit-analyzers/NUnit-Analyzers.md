@@ -19,7 +19,7 @@ uid: nunitanalyzers
 | [NUnit1011](NUnit1011.md) | TestCaseSource argument does not specify an existing member. | :white_check_mark: |
 | [NUnit1012](NUnit1012.md) | Async test method must have non-void return type. | :white_check_mark: |
 | [NUnit1013](NUnit1013.md) | Async test method must have non-generic Task return type when no result is expected. | :white_check_mark: |
-| [NUnit1014](NUnit1014.md) | Async test method must have Task<T> return type when a result is expected | :white_check_mark: |
+| [NUnit1014](NUnit1014.md) | Async test method must have `Task<T>` return type when a result is expected | :white_check_mark: |
 | [NUnit2001](NUnit2001.md) | Consider using Assert.That(expr, Is.False) instead of Assert.False(expr). | :white_check_mark: |
 | [NUnit2002](NUnit2002.md) | Consider using Assert.That(expr, Is.False) instead of Assert.IsFalse(expr). | :white_check_mark: |
 | [NUnit2003](NUnit2003.md) | Consider using Assert.That(expr, Is.True) instead of Assert.IsTrue(expr). | :white_check_mark: |

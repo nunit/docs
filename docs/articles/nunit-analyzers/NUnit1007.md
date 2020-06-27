@@ -1,4 +1,5 @@
 # NUnit1007
+
 ## Method has non-void return type, but no result is expected in ExpectedResult.
 
 | Topic    | Value
@@ -8,7 +9,6 @@
 | Enabled  | True
 | Category | Structure
 | Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
-
 
 ## Description
 
@@ -64,6 +64,7 @@ public void NUnit1007SampleTest(int inputValue)
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit1007 // Method has non-void return type, but no result is expected in ExpectedResult.
 Code violating the rule here
@@ -71,6 +72,7 @@ Code violating the rule here
 ```
 
 Or put this at the top of the file to disable all instances.
+
 ```csharp
 #pragma warning disable NUnit1007 // Method has non-void return type, but no result is expected in ExpectedResult.
 ```
@@ -78,7 +80,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
     "NUnit1007:Method has non-void return type, but no result is expected in ExpectedResult.",
     Justification = "Reason...")]
 ```

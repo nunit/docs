@@ -1,4 +1,5 @@
 # NUnit1011
+
 ## TestCaseSource argument does not specify an existing member.
 
 | Topic    | Value
@@ -8,7 +9,6 @@
 | Enabled  | True
 | Category | Structure
 | Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
-
 
 ## Description
 
@@ -79,6 +79,7 @@ public static object[] MyTestSource()
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
 ### Via #pragma directive.
+
 ```csharp
 #pragma warning disable NUnit1011 // TestCaseSource argument does not specify an existing member.
 Code violating the rule here
@@ -86,6 +87,7 @@ Code violating the rule here
 ```
 
 Or put this at the top of the file to disable all instances.
+
 ```csharp
 #pragma warning disable NUnit1011 // TestCaseSource argument does not specify an existing member.
 ```
@@ -93,7 +95,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
     "NUnit1011:TestCaseSource argument does not specify an existing member.",
     Justification = "Reason...")]
 ```
