@@ -1,11 +1,10 @@
 # Description
 
-
 The Description attribute is used to apply descriptive text to a Test,
-TestFixture or Assembly. The text appears in the XML output file and is 
+TestFixture or Assembly. The text appears in the XML output file and is
 shown in the Test Properties dialog.
 
-#### Example:
+## Example
 
 ```csharp
 [assembly: Description("Assembly description here")]
@@ -18,7 +17,7 @@ namespace NUnit.Tests
   [TestFixture, Description("Fixture description here")]
   public class SomeTests
   {
-    [Test, Description("Test description here")] 
+    [Test, Description("Test description here")]
     public void OneTest()
     { /* ... */ }
   }

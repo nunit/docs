@@ -4,40 +4,35 @@ uid: setupteardownchanges
 
 # SetUp And TearDown Changes
 
-
 This page describes significant changes in SetUp and TearDown in NUnit 3.0
 
 Existing NUnit 2.6.4 attributes used for SetUp and TearDown were
 
-  * SetUpAttribute
-  * TearDownAttribute
-  * TestFixtureSetUpAttribute
-  * TestFixtureTearDownAttribute
-  * SetUpFixtureAttribute
+* SetUpAttribute
+* TearDownAttribute
+* TestFixtureSetUpAttribute
+* TestFixtureTearDownAttribute
+* SetUpFixtureAttribute
 
-Taken together, these attributes provided per-test setup and teardown at the fixture level and one-time setup and teardown at the fixture, namespace and assembly levels. 
+Taken together, these attributes provided per-test setup and teardown at the fixture level and one-time setup and teardown at the fixture, namespace and assembly levels.
 
 These features were somewhat confusing:
 
-  * SetUpFixture seems not very well understood by users in general. 
-  * TestFixtureSetUp and TestFixtureTearDown could do with better names.
-  * SetUp and TearDown designate per-test setup/teardown within a test fixture, one-time setup/teardown within a setup fixture
+* SetUpFixture seems not very well understood by users in general.
+* TestFixtureSetUp and TestFixtureTearDown could do with better names.
+* SetUp and TearDown designate per-test setup/teardown within a test fixture, one-time setup/teardown within a setup fixture
 
-For NUnit 3.0 we standardized the use of attributes for setup and teardown and renamed some of them to make their function clearer. 
+For NUnit 3.0 we standardized the use of attributes for setup and teardown and renamed some of them to make their function clearer.
 
-#### Attribute Usage
+## Attribute Usage
 
-  * [SetUpAttribute](xref:setup-attribute) is now used exclusively for per-test setup.
+* [SetUpAttribute](xref:setup-attribute) is now used exclusively for per-test setup.
+* [TearDownAttribute](xref:teardown-attribute) is now used exclusively for per-test teardown.
+* [OneTimeSetUpAttribute](xref:onetimesetup-attribute) is used for one-time setup per test-run. If you run _n_ tests, this event will only occur once.
+* [OneTimeTearDownAttribute](xref:onetimeteardown-attribute) is used for one-time teardown per test-run. If you run _n_ tests, this event will only occur once
+* [SetUpFixtureAttribute](xref:setupfixture-attribute) continues to be used as at before, but with changed method attributes.
 
-  * [TearDownAttribute](xref:teardown-attribute) is now used exclusively for per-test teardown. 
-
-  * [OneTimeSetUpAttribute](xref:onetimesetup-attribute) is used for one-time setup per test-run. If you run _n_ tests, this event will only occur once.
-
-  * [OneTimeTearDownAttribute](xref:onetimeteardown-attribute) is used for one-time teardown per test-run. If you run _n_ tests, this event will only occur once
-
-  * [SetUpFixtureAttribute](xref:setupfixture-attribute) continues to be used as at before, but with changed method attributes.
-
-#### Attribute Usage by Fixture Type
+### Attribute Usage by Fixture Type
 
 |                     | TestFixture  | SetUpFixture |
 |---------------------|--------------|--------------|
@@ -48,13 +43,13 @@ For NUnit 3.0 we standardized the use of attributes for setup and teardown and r
 | SetUp               |  Supported   | Not Allowed  |
 | TearDown            |  Supported   | Not Allowed  |
 
-#### Backward Compatibility
+## Backward Compatibility
 
 **TestFixtureSetUpAttribute** and **TestFixtureTearDownAttribute** continue to be supported as synonyms for **OneTimeSetUpAttribute** and **OneTimeTearDownAttribute** in test fixtures, but are deprecated.
 
 Since **SetUpAttribute** and **TearDownAttribute** are used in two different ways, it's not possible to simply deprecate their usage in SetUpFixture. They have been disallowed in that context, which is a [breaking change](xref:BreakingChanges).
 
-#### How Setup and TearDown Methods Are Called
+## How Setup and TearDown Methods Are Called
 
 Multiple SetUp, OneTimeSetUp, TearDown and OneTimeTearDown methods may exist within a class. The rules for how the setup methods are called will be the same in NUnit 3.0 as in NUnit 2.6. However, there is a change in the calling of the teardown methods.
 
@@ -87,17 +82,20 @@ public class DerivedClass : BaseClass
    public void TestMethod() { /* ... */ }
 }
 ```
+
 Assume that an exception is thrown in BaseSetUp. In NUnit 2.6, methods would be executed as follows:
+
 * BaseSetUp
 * DerivedTearDown
 * BaseTearDown
 
 In NUnit 3.0, execution will proceed as follows:
+
 * BaseSetUp
 * BaseTearDown
 
 This is potentially a [breaking change](xref:BreakingChanges) for some users.
 
-#### Unresolved Issues
+## Unresolved Issues
 
-  * We need to define how setup and teardown methods are ordered with respect to the newly introduced [Action Attributes](xref:ActionAttributes) and how they interact.
+* We need to define how setup and teardown methods are ordered with respect to the newly introduced [Action Attributes](xref:ActionAttributes) and how they interact.

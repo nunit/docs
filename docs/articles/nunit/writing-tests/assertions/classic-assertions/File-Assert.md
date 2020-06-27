@@ -1,8 +1,7 @@
 # FileAssert
 
-
 The FileAssert class provides methods for comparing or verifying the existence of files,
-which may be provided as Streams, as FileInfos or as strings 
+which may be provided as Streams, as FileInfos or as strings
 giving the path to each file.
 
 ```csharp
@@ -47,5 +46,6 @@ FileAssert.DoesNotExist(
     string actual, string message, params object[] args);
 ```
 
-#### See also...
- * [File and Directory Constraints](xref:constraints#file-and-directory-constraints)
+## See Also
+
+* [File and Directory Constraints](xref:constraints#file-and-directory-constraints)

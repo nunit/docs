@@ -1,6 +1,5 @@
 # Assert.Throws
 
-
 The **Assert.Throws** method is pretty much in a class by itself. Rather than
 comparing values, it attempts to invoke a code snippet, represented as
 a delegate, in order to verify that it throws a particular exception.
@@ -49,7 +48,7 @@ public class AssertThrowsTests
 
     // Using an anonymous delegate
     Assert.Throws<ArgumentException>(
-	  delegate { throw new ArgumentException(); });
+    delegate { throw new ArgumentException(); });
 
     // Using a Lambda expression
     Assert.Throws<ArgumentException>(
@@ -77,7 +76,7 @@ public class UsingReturnValue
       delegate { throw new MyException("message", 42); });
 
     Assert.That(ex.Message, Is.EqualTo("message"));
-    Assert.That(ex.MyParam, Is.EqualTo(42)); 
+    Assert.That(ex.MyParam, Is.EqualTo(42));
   }
 }
 ```
@@ -102,7 +101,7 @@ public class UsingConstraint
 
 Use the form that matches your style of coding.
 
-### Exact Versus Derived Types
+## Exact Versus Derived Types
 
 When used with a Type argument, **Assert.Throws** requires
 that exact type to be thrown. If you want to test for any
@@ -127,8 +126,9 @@ Assert.Catch<ApplicationException>(code);
 Assert.Catch(code);
 ```
 
-#### See also...
- * [Assert.Catch](Assert.Catch.md)
- * [Assert.CatchAsync](Assert.CatchAsync.md)
- * [Assert.ThrowsAsync](Assert.ThrowsAsync.md)
- * [ThrowsConstraint](xref:ThrowsConstraint)
+## See Also
+
+* [Assert.Catch](Assert.Catch.md)
+* [Assert.CatchAsync](Assert.CatchAsync.md)
+* [Assert.ThrowsAsync](Assert.ThrowsAsync.md)
+* [ThrowsConstraint](xref:ThrowsConstraint)

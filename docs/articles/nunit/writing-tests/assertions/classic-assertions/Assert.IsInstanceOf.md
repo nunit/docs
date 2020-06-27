@@ -1,6 +1,5 @@
 # Assert.IsInstanceOf
 
-
 **Assert.IsInstanceOf** succeeds if the object provided as an actual value is an instance of the expected type.
 
 ```csharp
@@ -12,6 +11,6 @@ Assert.IsInstanceOf<T>(object actual,
                        string message, params object[] params);
 ```
 
-#### See also...
- * [Type Constraints](xref:constraints#type-constraints)
+## See Also
 
+* [Type Constraints](xref:constraints#type-constraints)

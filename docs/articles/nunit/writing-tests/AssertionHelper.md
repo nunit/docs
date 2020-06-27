@@ -1,8 +1,6 @@
 # Assertion Helper
 
-
 > AssertionHelper has been deprecated as of NUnit Framework 3.7. The syntax is now maintained and being enhanced as an independent library, [NUnit.StaticExpect](https://github.com/fluffynuts/NUnit.StaticExpect).
-
 
 Some users prefer a shorter form of assertion than is given by Assert.That.
 If you derive your test fixture class from **AssertionHelper**, the

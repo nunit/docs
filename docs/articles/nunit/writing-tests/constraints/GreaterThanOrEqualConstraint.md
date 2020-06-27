@@ -1,22 +1,21 @@
 # GreaterThanOrEqual Constraint
 
+`GreaterThanOrEqualConstraint` tests that one value is greater than or equal to another.
 
-**GreaterThanOrEqualConstraint** tests that one value is greater than or equal to another.
-
-#### Constructor
+## Constructor
 
 ```csharp
 GreaterThanOrEqualConstraint(object expected)
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.GreaterThanOrEqualTo(object expected)
 Is.AtLeast(object expected)
 ```
 
-#### Modifiers
+## Modifiers
 
 ```csharp
 ...Using(IComparer comparer)
@@ -24,14 +23,12 @@ Is.AtLeast(object expected)
 ...Using<T>(Comparison<T> comparer)
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Assert.That(7, Is.GreaterThanOrEqualTo(3));
 Assert.That(7, Is.AtLeast(3));
 Assert.That(7, Is.GreaterThanOrEqualTo(7));
 Assert.That(7, Is.AtLeast(7));
-Assert.That(myOwnObject, 
-    Is.GreaterThanOrEqualTo(theExpected).Using(myComparer));
+Assert.That(myOwnObject, Is.GreaterThanOrEqualTo(theExpected).Using(myComparer));
 ```
-

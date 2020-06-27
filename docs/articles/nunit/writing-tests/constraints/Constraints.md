@@ -11,7 +11,7 @@ This page lists all the constraints available in NUnit.
 
 ## Alphabetical List of Constraints
 
-Constraint Name                      | 
+Constraint Name                      |
 -------------------------------------|
 [AllItemsConstraint](AllItemsConstraint.md)               |
 [AndConstraint](AndConstraint.md)                    |
@@ -71,7 +71,7 @@ Constraint Name                      |
 
 ### Collection Constraints
   
-Constraint Name                      | 
+Constraint Name                      |
 -------------------------------------|
 [AllItemsConstraint](AllItemsConstraint.md)               |
 [AnyOfConstraint](AnyOfConstraint.md)                  |
@@ -99,6 +99,7 @@ Constraint Name                      |
 [RangeConstraint](RangeConstraint.md)                  |
 
 ### Compound Constraints
+
 Constraint Name                      |
 -------------------------------------|
 [AndConstraint](AndConstraint.md)                    |
@@ -107,7 +108,7 @@ Constraint Name                      |
 
 ### Condition Constraints
 
-Constraint Name                      | 
+Constraint Name                      |
 -------------------------------------|
 [EmptyConstraint](EmptyConstraint.md)                  |
 [FalseConstraint](FalseConstraint.md)                  |

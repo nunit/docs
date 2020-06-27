@@ -4,7 +4,6 @@ uid: xamarinrunners
 
 # NUnit Xamarin Runners
 
-
 The NUnit Xamarin Runners provide NUnit 3 test runners for Xamarin and mobile devices. See [Testing Xamarin projects using NUnit 3](http://www.alteridem.net/2015/12/21/testing-xamarin-projects-using-nunit-3/) for more general information.
 
 ## Options
@@ -20,9 +19,9 @@ nunit.Options = new TestOptions
             };
 ```
 
-The following options are available: 
+The following options are available:
 
-|   Option            | Version added | Type                            | Usage| 
+|   Option            | Version added | Type                            | Usage|
 |---------------------|---------------|---------------------------------|------|
 | AutoRun             | 3.0           | Boolean                         | If True, the tests will run automatically when the app starts, otherwise you must run them manually.   |
 | TerminateAfterExecution | 3.6.1     | Boolean                         | If True, app will exit cleanly after test execution.   |
@@ -31,6 +30,7 @@ The following options are available:
 | ResultFilePath      | 3.6.1         | String                          | Specify file path to save xml result file.      |
 
 ### TcpWriterInfo
+
 `TcpWriterInfo` takes three parameters: hostname, port, and an optional timeout in seconds (default 10).
 
 ```csharp

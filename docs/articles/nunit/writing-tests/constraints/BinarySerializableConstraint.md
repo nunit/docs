@@ -1,26 +1,25 @@
 # BinarySerializable Constraint
 
-
 `BinarySerializableConstraint` tests whether an object is serializable in binary format.
 
-#### Constructor
+## Constructor
 
 ```csharp
 BinarySerializableConstraint()
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.BinarySerializable
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Assert.That(someObject, Is.BinarySerializable));
 ```
 
-#### See also...
- * [XmlSerializableConstraint](XmlSerializableConstraint.md)
+## See also
 
+* [XmlSerializableConstraint](XmlSerializableConstraint.md)

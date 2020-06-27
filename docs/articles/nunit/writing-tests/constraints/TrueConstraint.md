@@ -1,23 +1,21 @@
 # True Constraint
 
+`TrueConstraint` tests that a value is true.
 
-**TrueConstraint** tests that a value is true.
-
-#### Constructor
+## Constructor
 
 ```csharp
 TrueConstraint()
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.True
 ```
 
-#### Example of Use
+## Example of Use
 
 ```csharp
 Assert.That(condition, Is.True);
 ```
-

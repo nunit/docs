@@ -1,6 +1,5 @@
 # CollectionAssert
 
-
 The CollectionAssert class provides a number of methods that are useful when examining collections and their contents or for comparing two collections. These methods may be used with any object implementing `IEnumerable`.
 
 The **AreEqual** overloads succeed if the corresponding elements of the two
@@ -70,5 +69,6 @@ CollectionAssert.IsOrdered(IEnumerable collection,
     IComparer comparer, string message, params object[] args);
 ```
 
-#### See also...
- * [Collection Constraints](xref:constraints#collection-constraints)
+## See Also
+
+* [Collection Constraints](xref:constraints#collection-constraints)

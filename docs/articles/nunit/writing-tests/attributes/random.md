@@ -4,7 +4,6 @@ uid: randomattribute
 
 # Random
 
-
 The **RandomAttribute** is used to specify a set of random values to be provided
 for an individual numeric parameter of a parameterized test method. Since
 NUnit combines the data provided for each parameter into a set of
@@ -41,8 +40,8 @@ In general, the forms that specify a minimum and maximum should be used on argum
 * You may use a double range on arguments of type decimal.
 
 Note that there is no constructor taking decimal values for min and max. This is because .NET does not support use of decimal in an attribute constructor.
-   
-#### Example
+
+## Example
 
 The following test will be executed fifteen times, three times
 for each value of x, each combined with 5 random doubles from -1.0 to +1.0.
@@ -57,9 +56,10 @@ public void MyTest(
 }
 ```
 
-#### See also...
- * [Values Attribute](values.md)
- * [Range Attribute](range.md)
- * [Sequential Attribute](sequential.md)
- * [Combinatorial Attribute](combinatorial.md)
- * [Pairwise Attribute](pairwise.md)
+## See Also
+
+* [Values Attribute](values.md)
+* [Range Attribute](range.md)
+* [Sequential Attribute](sequential.md)
+* [Combinatorial Attribute](combinatorial.md)
+* [Pairwise Attribute](pairwise.md)

@@ -1,24 +1,21 @@
 # AttributeExists Constraint
 
+`AttributeExistsConstraint` tests for the existence of an attribute on a Type.
 
-**AttributeExistsConstraint** tests for the existence of an attribute on a Type.
-
-#### Constructor
+## Constructor
 
 ```csharp
 AttributeExistsConstraint(Type type)
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Has.Attribute(typeof(TestFixtureAttribute))
 Has.Attribute<TestFixtureAttribute>()
 ```
 
-
-#### Examples of Use
-
+## Examples of Use
 
 ```csharp
 Assert.That(someObject, Has.Attribute(typeof(TestFixtureAttribute)));

@@ -1,7 +1,6 @@
 # Reusable Constraint
 
-
-Normally constraints just work. However, attempting to reuse the 
+Normally constraints just work. However, attempting to reuse the
 same constraint in several places can lead to unexpected results.
 
 Consider the following code as an example:
@@ -29,11 +28,11 @@ Assert.That("not a null", myConstraint); // Passes
 Assert.That("not a null", myConstraint); // Passes
 ```
 
-### Technical Explanation
+## Technical Explanation
 
 In the original example, the value assigned to myConstraint is
 known as an **unresolved** constraint. In fact, it's an
-unresolved NullConstraint, because that was the last constraint 
+unresolved NullConstraint, because that was the last constraint
 encountered in the expression. It's associated with a **Not**
 operator that has not yet been applied.
 
@@ -59,7 +58,7 @@ That's what **ReusableConstraint** does for us. It resolves
 the full expression and saves the result. Then it passes all
 operations on to that saved result.
 
-### When to Use It
+## When to Use It
 
 Use this constraint any time you want to reuse a constraint
 expression and you'll be safe.
@@ -67,14 +66,14 @@ expression and you'll be safe.
 If you like to take chances, you'll find that you can
 avoid using it in the following cases...
 
- 1. With a simple constraint involving no operators, like...
+* With a simple constraint involving no operators, like...
 
 ```csharp
 Constraint myConstraint = Is.Null;
 Constraint myConstraint = Is.EqualTo(42);
 ```
 
- 2. With any constraint you construct using new, without
+* With any constraint you construct using new, without
     using the "dotted" constraint syntax...
 
 ```csharp
@@ -87,4 +86,3 @@ Constraint myConstraint = new AndConstraint(
 However, there is no significant penalty to using **ReusableConstraint**.
 It makes your intent much clearer and the exceptions listed are accidents of
 the internal implementation and could disappear in future releases.
-

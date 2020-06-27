@@ -1,15 +1,14 @@
 # RequiresThread
 
-
-The **RequiresThreadAttribute** is used to indicate that a test method, 
-class or assembly should be run on a separate thread. Optionally, the 
+The **RequiresThreadAttribute** is used to indicate that a test method,
+class or assembly should be run on a separate thread. Optionally, the
 desired apartment for the thread may be specified in the constructor.
 
 > [!NOTE]
 > This attribute, used with or without an ApartmentState argument will **always** result in creation of a new thread. To create a thread **only** if the current ApartmentState is not appropriate, use the **ApartmentAttribute**.
 
-#### Examples
-   
+## Examples
+
 ```csharp
 // A thread will be created and used to run
 // all the tests in the assembly
@@ -42,6 +41,6 @@ public class AnotherFixture
 }
 ```
 
-#### See also...
+## See Also
 
- * [Apartment Attribute](apartment.md)
+* [Apartment Attribute](apartment.md)

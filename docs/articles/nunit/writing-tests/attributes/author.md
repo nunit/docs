@@ -4,7 +4,6 @@ uid: author-attribute
 
 # Author
 
-
 The **Author** Attribute adds information about the author of the tests. It can be applied to test fixtures and to tests.
 
 The constructor takes the name of the test author and optionally the author's email address. Author can also be specified on

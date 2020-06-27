@@ -1,24 +1,21 @@
 # False Constraint
 
+`FalseConstraint` tests that a value is false.
 
-**FalseConstraint** tests that a value is false.
-
-#### Constructor
+## Constructor
 
 ```csharp
 FalseConstraint()
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.False
 ```
 
-#### Example of Use
+## Example of Use
 
 ```csharp
 Assert.That(condition, Is.False);
 ```
-
-

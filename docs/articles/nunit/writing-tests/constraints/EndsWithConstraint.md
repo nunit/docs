@@ -1,28 +1,27 @@
 # EndsWith Constraint
 
+`EndsWithConstraint` tests for an ending string.
 
-**EndsWithConstraint** tests for an ending string.
-
-#### Constructor
+## Constructor
 
 ```csharp
 EndsWithConstraint(string expected)
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Does.EndWith(string expected)
 EndsWith(string expected)
 ```
 
-#### Modifiers
+## Modifiers
 
 ```csharp
 ...IgnoreCase
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 string phrase = "Make your tests fail before passing!"
@@ -31,7 +30,6 @@ Assert.That(phrase, Does.EndWith("!"));
 Assert.That(phrase, Does.EndWith("PASSING!").IgnoreCase);
 ```
 
-#### Notes
-1. **EndsWith** may appear only in the body of a constraint 
-   expression or when the inherited syntax is used.
+## Notes
 
+1. **EndsWith** may appear only in the body of a constraint expression or when the inherited syntax is used.

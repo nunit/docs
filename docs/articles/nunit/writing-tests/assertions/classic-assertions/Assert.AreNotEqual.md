@@ -1,6 +1,5 @@
 # Assert.AreNotEqual
 
-
 **Assert.AreNotEqual** tests whether the two arguments are unequal.
 
 ```csharp
@@ -11,6 +10,7 @@ Assert.AreNotEqual(object expected, object actual,
 
 See [Assert.AreEqual](Assert.AreEqual.md) for details of how NUnit performs equality comparisons.
 
-#### See also...
- * [Assert.AreEqual](Assert.AreEqual.md)
- * [Equal Constraint](xref:EqualConstraint)
+## See Also
+
+* [Assert.AreEqual](Assert.AreEqual.md)
+* [Equal Constraint](xref:EqualConstraint)

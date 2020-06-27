@@ -1,5 +1,4 @@
 # TestFixtureSetUp
 
-
-The TestFixtureSetUp attribute has been deprecated, use [OneTimeSetUp Attribute](onetimesetup.md) instead.
-
+> [!IMPORTANT]
+> The TestFixtureSetUp attribute has been deprecated. Use [OneTimeSetUp Attribute](onetimesetup.md) instead.

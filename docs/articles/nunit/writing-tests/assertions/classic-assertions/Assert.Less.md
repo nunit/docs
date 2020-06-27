@@ -1,6 +1,5 @@
 # Assert.Less
 
-
 **Assert.Less** tests whether one object is less than another.
 Contrary to the normal order of Asserts, these methods are designed to be
 read in the "natural" English-language or mathematical order. Thus
@@ -35,8 +34,10 @@ Assert.Less(IComparable arg1, IComparable arg2);
 Assert.Less(IComparable arg1, IComparable arg2,
             string message, params object[] params);
 ```
-#### See also...
- * [Assert.Greater](Assert.Greater.md)
- * [Assert.GreaterOrEqual](Assert.GreaterOrEqual.md)
- * [Assert.LessOrEqual](Assert.LessOrEqual.md)
- * [Comparison Constraints](xref:constraints#comparison-constraints)
+
+## See Also
+
+* [Assert.Greater](Assert.Greater.md)
+* [Assert.GreaterOrEqual](Assert.GreaterOrEqual.md)
+* [Assert.LessOrEqual](Assert.LessOrEqual.md)
+* [Comparison Constraints](xref:constraints#comparison-constraints)

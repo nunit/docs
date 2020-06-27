@@ -4,13 +4,12 @@ uid: vstestadapterinstallation
 
 # Adapter Installation
 
-
 There are two ways of installing the adapter within Visual Studio. See below for info on how to choose.
 
- * Use the Extension Manager
- * Add it as a NuGet package to your solution. (Requires VS 2012 Update 1 or later)
+* Use the Extension Manager
+* Add it as a NuGet package to your solution. (Requires VS 2012 Update 1 or later)
 
-##### Installing With the Extension Manager
+## Installing With the Extension Manager
 
 To install the NUnit Test Adapter using the Extension Manager, follow these steps:
 
@@ -21,7 +20,7 @@ To install the NUnit Test Adapter using the Extension Manager, follow these step
 
 Use the Extension Manager to ensure that the NUnit 3.0 Test Adapter is enabled.
 
-##### Installing the NuGet Package
+## Installing the NuGet Package
 
 To add it is a NuGet package, you must have an active solution, then follow these steps:
 
@@ -31,7 +30,7 @@ To add it is a NuGet package, you must have an active solution, then follow thes
 4. Click 'Install'
 5. In the "Select Projects" dialog, you need to select at least one project to add the adapter to, see notes below.
 
-##### How to choose between Extension and NuGet package
+## How to choose between Extension and NuGet package
 
 The Extension will apply to Visual Studio itself, and will work for all projects you use. All users of your solution need to install the Extension. If you use TFS Build you must also install the extension to the build system there.
 

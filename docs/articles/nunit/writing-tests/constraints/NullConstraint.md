@@ -1,24 +1,22 @@
 # Null Constraint
 
+`NullConstraint` tests that a value is null.
 
-**NullConstraint** tests that a value is null.
-
-#### Constructor
+## Constructor
 
 ```csharp
 NullConstraint()
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.Null
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Assert.That(anObject, Is.Null);
 Assert.That(anObject, Is.Not.Null);
 ```
-

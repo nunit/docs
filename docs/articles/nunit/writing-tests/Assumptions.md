@@ -1,11 +1,10 @@
 # Assumptions
 
-
 Assumptions are intended to express the state a test must be in to provide a meaningful result. They are functionally similar to assertions, however a unmet assumption will produce an Inconclusive test result, as opposed to a Failure.
 
 Assumptions make use of the `Assume` static class.
 
-### Syntax
+## Syntax
 
 ```csharp
 Assume.That(myString, Is.EqualTo("Hello"));

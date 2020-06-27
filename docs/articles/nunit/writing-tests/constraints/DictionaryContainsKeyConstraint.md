@@ -1,16 +1,15 @@
 # DictionaryContainsKey Constraint
 
-
-**DictionaryContainsKeyConstraint** is used to test whether a dictionary
+`DictionaryContainsKeyConstraint` is used to test whether a dictionary
 contains an expected object as a key.
 
-#### Constructor
+## Constructor
 
 ```csharp
 DictionaryContainsKeyConstraint(object)
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Contains.Key(object)
@@ -18,7 +17,7 @@ Does.ContainKey(object)
 Does.Not.ContainKey(object)
 ```
 
-#### Modifiers
+## Modifiers
 
 ```csharp
 ...Using(IComparer comparer)
@@ -30,7 +29,7 @@ Does.Not.ContainKey(object)
 ...Using<TCollectionType, TMemberType>(Func<TCollectionType, TMemberType, bool> comparison)
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 IDictionary<int, int> idict = new IDictionary<int, string> { { 1, 4 }, { 2, 5 } };
@@ -41,5 +40,6 @@ Assert.That(idict, Does.Not.ContainKey(3));
 Assert.That(mydict, Contains.Key(myOwnObject).Using(myComparer));
 ```
 
-**See also:**
- * [DictionaryContainsValueConstraint](DictionaryContainsValueConstraint.md)
+## See also
+
+* [DictionaryContainsValueConstraint](DictionaryContainsValueConstraint.md)

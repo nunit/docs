@@ -4,7 +4,6 @@ uid: onetimesetup-attribute
 
 # OneTimeSetUp
 
-
 This attribute is to identify methods that are called once prior to executing any of the tests
 in a fixture. It may appear on methods of a TestFixture or a SetUpFixture.
 
@@ -16,7 +15,7 @@ of an inheritance hierarchy, as explained below.
 If a OneTimeSetUp method fails or throws an exception, none of the tests
 in the fixture are executed and a failure or error is reported.
 
-#### Example:
+## Example
 
 ```csharp
 namespace NUnit.Tests
@@ -52,7 +51,7 @@ You may define a OneTimeSetUp method
 in the base class and another in the derived class. NUnit will call base
 class OneTimeSetUp methods before those in the derived classes.
 
-#### Notes:
+## Notes
 
  1. Although it is possible to define multiple OneTimeSetUp methods
     in the same class, you should rarely do so. Unlike methods defined in
@@ -63,7 +62,8 @@ class OneTimeSetUp methods before those in the derived classes.
 
  3. OneTimeSetUp methods run in the context of the TestFixture or SetUpFixture, which is separate from the context of    any individual test cases. It's important to keep this in mind when using [TestContext](xref:TestContext) methods and properties within the method.
 
-#### See also...
- * [SetUp Attribute](setup.md)
- * [TearDown Attribute](teardown.md)
- * [OneTimeTearDown Attribute](onetimeteardown.md)
+## See Also
+
+* [SetUp Attribute](setup.md)
+* [TearDown Attribute](teardown.md)
+* [OneTimeTearDown Attribute](onetimeteardown.md)

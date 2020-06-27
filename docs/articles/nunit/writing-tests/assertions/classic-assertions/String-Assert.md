@@ -1,6 +1,5 @@
 # StringAssert
 
-
 The StringAssert class provides a number of methods that are useful
 when examining string values.
 
@@ -46,5 +45,6 @@ StringAssert.DoesNotMatch(string regexPattern, string actual,
                           string message, params object[] args);
 ```
 
-#### See also...
+## See Also
+
 * [String Constraints](xref:constraints#string-constraints)

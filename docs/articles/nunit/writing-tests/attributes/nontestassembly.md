@@ -4,13 +4,12 @@ uid: nontestassembly
 
 # NonTestAssembly
 
-
 This is an _assembly-level_ attribute, which may be used to specify that even though
 the assembly refers to NUnit it does not contain any tests. This attribute can be
 used in connection with the command line option `--skipnontestassemblies` of the
 console to skip assemblies without failing.
 
-#### Example
+## Example
 
 The following code, which might be placed in AssemblyInfo.cs, specifies that the
 assembly does not contain any tests.
@@ -19,6 +18,6 @@ assembly does not contain any tests.
 [assembly: NonTestAssembly]
 ```
 
+## See Also
 
-#### See also...
- * `--skipnontestassemblies` in [Console-Command-Line](xref:ConsoleCommandLine)
+* `--skipnontestassemblies` in [Console-Command-Line](xref:ConsoleCommandLine)

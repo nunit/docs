@@ -1,6 +1,5 @@
 # Assert.Greater
 
-
 **Assert.Greater** tests whether one object is greater than another.
 Contrary to the normal order of Asserts, these methods are designed to be
 read in the "natural" English-language or mathematical order. Thus
@@ -40,8 +39,9 @@ Assert.Greater(IComparable arg1, IComparable arg2,
                string message, params object[] params);
 ```
 
-#### See also...
- * [Assert.GreaterOrEqual](Assert.GreaterOrEqual.md)
- * [Assert.Less](Assert.Less.md)
- * [Assert.LessOrEqual](Assert.LessOrEqual.md)
- * [Comparison Constraints](xref:constraints#comparison-constraints)
+## See Also
+
+* [Assert.GreaterOrEqual](Assert.GreaterOrEqual.md)
+* [Assert.Less](Assert.Less.md)
+* [Assert.LessOrEqual](Assert.LessOrEqual.md)
+* [Comparison Constraints](xref:constraints#comparison-constraints)

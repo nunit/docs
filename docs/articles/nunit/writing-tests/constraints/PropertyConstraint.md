@@ -1,22 +1,21 @@
 # Property Constraint
 
-
 `PropertyConstraint` tests for the existence of a named property on an object and then
 applies a constraint test to the property value.
 
-#### Constructor
+## Constructor
 
 ```csharp
 PropertyConstraint(string name, IConstraint baseConstraint)
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Has.Property(string name)... // followed by further constraint syntax
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Assert.That(someObject, Has.Property("Version").EqualTo("2.0"));
@@ -33,5 +32,6 @@ Has.Message...
 Has.InnerException...
 ```
 
-#### See also...
- * [PropertyExistsConstraint](PropertyExistsConstraint.md)
+## See also
+
+* [PropertyExistsConstraint](PropertyExistsConstraint.md)

@@ -1,6 +1,5 @@
 # Assert.ThrowsAsync
 
-
 The **Assert.ThrowsAsync** is the async equivalent to [Assert.Throws](Assert.Throws.md)
 for asynchronous code. See [Assert.Throws](Assert.Throws.md) for more information.
 
@@ -56,13 +55,14 @@ public class UsingReturnValue
     MyException ex = Assert.ThrowsAsync<MyException>(async () => await MethodThatThrows());
 
     Assert.That(ex.Message, Is.EqualTo("message"));
-    Assert.That(ex.MyParam, Is.EqualTo(42)); 
+    Assert.That(ex.MyParam, Is.EqualTo(42));
   }
 }
 ```
 
-#### See also...
- * [Assert.Catch](Assert.Catch.md)
- * [Assert.CatchAsync](Assert.CatchAsync.md)
- * [Assert.Throws](Assert.Throws.md)
- * [ThrowsConstraint](xref:ThrowsConstraint)
+## See Also
+
+* [Assert.Catch](Assert.Catch.md)
+* [Assert.CatchAsync](Assert.CatchAsync.md)
+* [Assert.Throws](Assert.Throws.md)
+* [ThrowsConstraint](xref:ThrowsConstraint)

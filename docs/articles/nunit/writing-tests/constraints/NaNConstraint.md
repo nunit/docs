@@ -1,24 +1,22 @@
 # NaN Constraint
 
+`NaNConstraint` tests that a value is floating-point NaN.
 
-**NaNConstraint** tests that a value is floating-point NaN.
-
-#### Constructor
+## Constructor
 
 ```csharp
 NaNConstraint()
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.NaN
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Assert.That(aDouble, Is.NaN);
 Assert.That(aDouble, Is.Not.NaN);
 ```
-
