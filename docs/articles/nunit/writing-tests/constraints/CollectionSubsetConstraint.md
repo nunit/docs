@@ -1,24 +1,22 @@
 # CollectionSubset Constraint
 
+`CollectionSubsetConstraint` tests that one `IEnumerable` is a subset of another. If the actual value passed does not implement `IEnumerable`, an exception is thrown.
 
-**CollectionSubsetConstraint** tests that one `IEnumerable` is a subset of another. If the actual value passed does not implement `IEnumerable`, an exception is thrown.
-
-#### Constructor
+## Constructor
 
 ```csharp
 CollectionSubsetConstraint(IEnumerable)
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.SubsetOf(IEnumerable)
 ```
 
-#### Example of Use
+## Example of Use
 
 ```csharp
 int[] iarray = new int[] { 1, 3 };
 Assert.That(iarray, Is.SubsetOf(new int[] { 1, 2, 3 }));
 ```
-
