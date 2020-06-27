@@ -1,22 +1,21 @@
 # CollectionEquivalent Constraint
 
-
-**CollectionEquivalentConstraint** tests that two `IEnumerables` are equivalent - that they contain
+`CollectionEquivalentConstraint` tests that two `IEnumerables` are equivalent - that they contain
 the same items, in any order. If the actual value passed does not implement `IEnumerable` an exception is thrown.
 
-#### Constructor
+## Constructor
 
 ```csharp
 CollectionEquivalentConstraint(IEnumerable other)
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.EquivalentTo(IEnumerable other)
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 int[] iarray = new int[] { 1, 2, 3 };
@@ -25,7 +24,6 @@ Assert.That(new string[] { "c", "a", "b" }, Is.EquivalentTo(sarray));
 Assert.That(new int[] { 1, 2, 2 }, Is.Not.EquivalentTo(iarray));
 ```
 
-#### Notes
+## Notes
 
 1. To compare items in order, use Is.EqualTo().
-
