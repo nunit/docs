@@ -46,5 +46,5 @@ StringAssert.DoesNotMatch(string regexPattern, string actual,
                           string message, params object[] args);
 ```
 
-#### See also...
+## See Also
 * [String Constraints](xref:constraints#string-constraints)

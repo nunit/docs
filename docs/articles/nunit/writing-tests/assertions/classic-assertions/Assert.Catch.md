@@ -18,7 +18,7 @@ T Assert.Catch<T>(TestDelegate code,
                   string message, params object[] params);
 ```
 
-#### See also...>
+## See Also>
  * [Assert.CatchAsync](Assert.CatchAsync.md)
  * [Assert.Throws](Assert.Throws.md)
  * [Assert.ThrowsAsync](Assert.ThrowsAsync.md)

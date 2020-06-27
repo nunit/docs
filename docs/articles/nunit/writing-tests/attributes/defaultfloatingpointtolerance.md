@@ -46,7 +46,7 @@ public class ToleranceTest
 }
 ```
 
-#### See also...
+## See Also
 
  * [Assert.AreEqual](../assertions/classic-assertions/Assert.AreEqual.md)
  * [EqualConstraint](../constraints/EqualConstraint.md)

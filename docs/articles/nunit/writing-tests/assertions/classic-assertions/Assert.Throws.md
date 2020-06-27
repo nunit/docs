@@ -127,7 +127,7 @@ Assert.Catch<ApplicationException>(code);
 Assert.Catch(code);
 ```
 
-#### See also...
+## See Also
  * [Assert.Catch](Assert.Catch.md)
  * [Assert.CatchAsync](Assert.CatchAsync.md)
  * [Assert.ThrowsAsync](Assert.ThrowsAsync.md)

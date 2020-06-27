@@ -10,5 +10,5 @@ Assert.Contains(object anObject, ICollection collection,
                 string message, params object[] params);
 ```
 
-#### See also...
+## See Also
  * [CollectionContainsConstraint](xref:collectioncontainsconstraint)

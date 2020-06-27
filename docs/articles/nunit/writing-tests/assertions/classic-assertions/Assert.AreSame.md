@@ -9,5 +9,5 @@ Assert.AreSame(object expected, object actual,
                string message, params object[] params);
 ```
 
-#### See also...
+## See Also
  * [SameAs Constraint](xref:SameAsConstraint)

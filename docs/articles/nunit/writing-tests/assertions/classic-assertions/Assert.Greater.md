@@ -40,7 +40,7 @@ Assert.Greater(IComparable arg1, IComparable arg2,
                string message, params object[] params);
 ```
 
-#### See also...
+## See Also
  * [Assert.GreaterOrEqual](Assert.GreaterOrEqual.md)
  * [Assert.Less](Assert.Less.md)
  * [Assert.LessOrEqual](Assert.LessOrEqual.md)

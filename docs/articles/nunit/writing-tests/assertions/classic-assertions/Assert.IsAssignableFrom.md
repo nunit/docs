@@ -12,5 +12,5 @@ Assert.IsAssignableFrom<T>(object actual,
                            string message, params object[] params);
 ```
 
-#### See also...
+## See Also
  * [Type Constraints](xref:constraints#type-constraints)

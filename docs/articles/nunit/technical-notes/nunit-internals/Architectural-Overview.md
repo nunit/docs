@@ -74,5 +74,5 @@ The NUnitLite framework will be supported running on devices and reporting resul
 
 Various popular mock frameworks will be supported. NUnit's own self-tests now use the NSubstitute framework, which is packaged with NUnit, but users may make use of whatever mocking framework they prefer.
 
-#### See also...
+## See Also
 > You can also view the [Original Architectural Overview Document](xref:NUnit3Architecture2009) created for NUnit 3.0 in 2009.

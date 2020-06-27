@@ -70,5 +70,5 @@ CollectionAssert.IsOrdered(IEnumerable collection,
     IComparer comparer, string message, params object[] args);
 ```
 
-#### See also...
+## See Also
  * [Collection Constraints](xref:constraints#collection-constraints)
