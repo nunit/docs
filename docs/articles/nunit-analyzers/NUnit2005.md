@@ -56,6 +56,7 @@ Code violating the rule here
 ```
 
 Or put this at the top of the file to disable all instances.
+
 ```csharp
 #pragma warning disable NUnit2005 // Consider using Assert.That(expr2, Is.EqualTo(expr1)) instead of Assert.AreEqual(expr1, expr2).
 ```

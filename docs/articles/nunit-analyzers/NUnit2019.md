@@ -58,6 +58,7 @@ Code violating the rule here
 ```
 
 Or put this at the top of the file to disable all instances.
+
 ```csharp
 #pragma warning disable NUnit2019 // Consider using Assert.That(expr, Is.Not.Null) instead of Assert.IsNotNull(expr).
 ```

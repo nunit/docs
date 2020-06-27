@@ -72,6 +72,7 @@ Code violating the rule here
 ```
 
 Or put this at the top of the file to disable all instances.
+
 ```csharp
 #pragma warning disable NUnit1006 // ExpectedResult must not be specified when the method returns void.
 ```
