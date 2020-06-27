@@ -1,6 +1,5 @@
 # Getting Started In Visual Studio
 
-
 The easiest way to get started is to install the [NUnit Templates extension for Visual Studio](https://visualstudiogallery.msdn.microsoft.com/6cd55f79-4936-49e7-b81d-c40fcd81abc7). It will add project templates for the various Xamarin platforms.
 
 For more general information, see [Testing Xamarin Projects using NUnit 3](http://www.alteridem.net/2015/12/21/testing-xamarin-projects-using-nunit-3/).
@@ -9,28 +8,25 @@ For more general information, see [Testing Xamarin Projects using NUnit 3](http:
 
 In your solution;
 
-1. Add new test projects to your solution. These project types are included in the [NUnit Templates Extension](https://visualstudiogallery.msdn.microsoft.com/6cd55f79-4936-49e7-b81d-c40fcd81abc7)
-  - NUnit 3 Test Project (Android)
-  - NUnit 3 Test Project (iOS)
-  - NUnit 3 Test Project (Universal Windows)
+1. Add new test projects to your solution. These project types are included in the [NUnit Templates Extension](https://visualstudiogallery.msdn.microsoft.com/6cd55f79-4936-49e7-b81d-c40fcd81abc7): `NUnit 3 Test Project (Android)`. `NUnit 3 Test Project (iOS)`, `NUnit 3 Test Project (Universal Windows)`
 2. Write your unit tests in this project, in a portable project, or in a shared project, referencing the project with the tests.
 3. Build and run the tests on your device or emulator
 
 If you tests are in a separate portable project, note that:
- - You need to add that assembly to the `NUnit.Runner.App` in the startup code
+
+* You need to add that assembly to the `NUnit.Runner.App` in the startup code
 
 ```csharp
 nunit.AddTestAssembly(typeof(MyTests).Assembly);
 ```
 
- - Your portable project must reference the same NUnit Framework version as your nunit.xamarin version, e.g. if using nunit.xamarin 3.01, reference nunit.framework 3.01.
-
+* Your portable project must reference the same NUnit Framework version as your nunit.xamarin version, e.g. if using nunit.xamarin 3.01, reference nunit.framework 3.01.
 
 The startup code for each platform is as follows;
 
 ### Android
 
-**MainActivity.cs**
+#### MainActivity.cs
 
 ```csharp
 [Activity(Label = "NUnit 3", MainLauncher = true, Theme = "@android:style/Theme.Holo.Light", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -58,9 +54,10 @@ public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicat
     }
 }
 ```
+
 ### iOS
 
-**AppDelegate.cs**
+#### AppDelegate.cs
 
 ```csharp
 [Register("AppDelegate")]
@@ -96,10 +93,9 @@ public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsAppli
 }
 ```
 
-
 ### Windows 10 Universal
 
-**MainPage.xaml**
+#### MainPage.xaml
 
 ```XML
 <forms:WindowsPage
@@ -118,7 +114,7 @@ public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsAppli
 </forms:WindowsPage>
 ```
 
-**MainPage.xaml.cs**
+#### MainPage.xaml.cs
 
 ```csharp
 public sealed partial class MainPage : WindowsPage
@@ -146,7 +142,7 @@ public sealed partial class MainPage : WindowsPage
 }
 ```
 
-**App.xaml.cs**
+#### App.xaml.cs
 
 ```csharp
 protected override void OnLaunched(LaunchActivatedEventArgs e)
