@@ -1,6 +1,5 @@
 # Assert.AreSame
 
-
 **Assert.AreSame** tests that the two arguments reference the same object.
 
 ```csharp
@@ -10,4 +9,5 @@ Assert.AreSame(object expected, object actual,
 ```
 
 ## See Also
- * [SameAs Constraint](xref:SameAsConstraint)
+
+* [SameAs Constraint](xref:SameAsConstraint)
