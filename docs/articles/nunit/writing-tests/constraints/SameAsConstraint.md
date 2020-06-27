@@ -4,27 +4,23 @@ uid: SameAsConstraint
 
 # SameAs Constraint
 
-
-A SameAsConstraint is used to test whether the object passed
+A `SameAsConstraint` is used to test whether the object passed
 as an actual value has the same identity as the object supplied
 in its constructor.
 
-#### Constructor
-
+## Constructor
 
 ```csharp
 SameAsConstraint(object expected)
 ```
 
-
-#### Syntax
+## Syntax
 
 ```csharp
 Is.SameAs(object expected)
 ```
 
-
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Exception ex1 = new Exception();
