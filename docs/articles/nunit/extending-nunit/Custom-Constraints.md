@@ -181,7 +181,7 @@ To fully utilize your custom constraint the same way built-in constraints are us
 need to implement two additional classes (which can cover all your constraints, not
 for each custom constraint).
 
-1. Provide a static class patterned after NUnit's `Is` class, with properties
+* Provide a static class patterned after NUnit's `Is` class, with properties
    or methods that construct your custom constructor. If you like, you can even call it
    `Is` and extend NUnit's `Is`, provided you place it in your own namespace and avoid any conflicts. This allows you to write things like:
 
@@ -201,14 +201,14 @@ public class Is : NUnit.Framework.Is
 }
 ```
 
-2. Provide an extension method for NUnit's `ConstraintExpression`, allowing
+* Provide an extension method for NUnit's `ConstraintExpression`, allowing
    you to write things like:
 
 ```csharp
 Assert.That(actual, Is.Not.Custom(x, y));
 ```
 
-    with this sample implementation:
+with this sample implementation:
 
 ```csharp
 public static class CustomConstraintExtensions
