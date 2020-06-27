@@ -1,21 +1,20 @@
 # AnyOf Constraint
 
+`AnyOfConstraint` is used to determine whether a value is equal to any of the expected values.
 
-**AnyOfConstraint** is used to determine whether a value is equal to any of the expected values.
-
-#### Constructor
+## Constructor
 
 ```csharp
 AnyOfConstraint(object[] expected)
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.AnyOf(object[] expected)
 ```
 
-#### Modifiers
+## Modifiers
 
 ```csharp
 ...Using(IComparer comparer)
@@ -26,11 +25,11 @@ Is.AnyOf(object[] expected)
 ...Using<T>(IEqualityComparer<T> comparer)
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 int[] iarray = new int[] { 0, -1, 42, 100 }
 
 Assert.That(42, Is.AnyOf(iarray));
 Assert.That(myOwnObject, Is.AnyOf(myArray).Using(myComparer));
-``` 
+```
