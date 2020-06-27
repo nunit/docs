@@ -4,7 +4,6 @@ uid: rangeattribute
 
 # Range
 
-
 The **RangeAttribute** is used to specify a range of values to be provided
 for an individual parameter of a parameterized test method. Since
 NUnit combines the data provided for each parameter into a set of
@@ -26,7 +25,7 @@ public RangeAttribute(float from, float to, float step);
 public RangeAttribute(double from, double to, double step);
 ```
 
-#### Example
+## Example
 
 The following test will be executed nine times.
 
@@ -55,8 +54,9 @@ MyTest(3, 0.6)
 ```
 
 ## See Also
- * [Values Attribute](values.md)
- * [Random Attribute](random.md)
- * [Sequential Attribute](sequential.md)
- * [Combinatorial Attribute](combinatorial.md)
- * [Pairwise Attribute](pairwise.md)
+
+* [Values Attribute](values.md)
+* [Random Attribute](random.md)
+* [Sequential Attribute](sequential.md)
+* [Combinatorial Attribute](combinatorial.md)
+* [Pairwise Attribute](pairwise.md)

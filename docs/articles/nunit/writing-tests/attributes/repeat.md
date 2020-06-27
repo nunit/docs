@@ -8,7 +8,5 @@ not run and a failure is reported.
 
 1. If RepeatAttribute is used on a parameterized method, each individual
    test case created for that method is repeated.
-
 2. It is not currently possible to use RepeatAttribute on a TestFixture
    or any higher level suite. Only test cases may be repeated.
-   
