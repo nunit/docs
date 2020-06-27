@@ -1,9 +1,8 @@
 # Usage
 
-
 In preparation for using the test adapter, make sure that the Unit Test Explorer is shown in your window. If you don't see it, use the menu ( Test | Windows | Test Explorer ) to show it and position the window where you would like it within Visual Studio.
 
-![](~/images/nunitTestAdapter.png)
+![The unit test explorer window within Visual Studio](~/images/nunitTestAdapter.png)
 
 When you initially open a solution, no tests will be displayed. After compiling the assemblies in the solution, Visual Studio will interact with the NUnit Test Adapter to discover tests and a list of them will be shown in the Test Explorer.
 
