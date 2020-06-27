@@ -27,6 +27,7 @@ public void Test()
     Assert.True(actual == expected);
 }
 ```
+
 ## How to fix violations
 
 The analyzer comes with a code fix that will replace `Assert.True(actual == expected)` with
