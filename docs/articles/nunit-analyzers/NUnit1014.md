@@ -1,6 +1,6 @@
 # NUnit1014
 
-## Async test method must have Task<T> return type when a result is expected
+## Async test method must have `Task<T>` return type when a result is expected
 
 | Topic    | Value
 | :--      | :--
@@ -12,7 +12,7 @@
 
 ## Description
 
-Async test method must have Task<T> return type when a result is expected
+Async test method must have `Task<T>` return type when a result is expected
 
 ## Motivation
 
@@ -66,22 +66,22 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via #pragma directive.
 
 ```csharp
-#pragma warning disable NUnit1014 // Async test method must have Task<T> return type when a result is expected
+#pragma warning disable NUnit1014 // Async test method must have `Task<T>` return type when a result is expected
 Code violating the rule here
-#pragma warning restore NUnit1014 // Async test method must have Task<T> return type when a result is expected
+#pragma warning restore NUnit1014 // Async test method must have `Task<T>` return type when a result is expected
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1014 // Async test method must have Task<T> return type when a result is expected
+#pragma warning disable NUnit1014 // Async test method must have `Task<T>` return type when a result is expected
 ```
 
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1014:Async test method must have Task<T> return type when a result is expected",
+    "NUnit1014:Async test method must have `Task<T>` return type when a result is expected",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->
