@@ -64,7 +64,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
     "NUnit2001:Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).",
     Justification = "Reason...")]
 ```

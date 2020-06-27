@@ -58,7 +58,7 @@ Or put this at the top of the file to disable all instances.
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion", 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
     "NUnit2022:Missing property required for constraint.",
     Justification = "Reason...")]
 ```
