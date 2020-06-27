@@ -1,6 +1,5 @@
 # Assert.Pass
 
-
 The **Assert.Pass** method allows you to immediately end the test, recording
 it as successful. Since it causes an exception to be thrown, it is more
 efficient to simply allow the test to return. However, Assert.Pass allows
@@ -15,6 +14,7 @@ Assert.Pass(string message, params object[] params);
 ```
 
 ## See Also
- * [Assert.Fail](Assert.Fail.md)
- * [Assert.Ignore](Assert.Ignore.md)
- * [Assert.Inconclusive](Assert.Inconclusive.md)
+
+* [Assert.Fail](Assert.Fail.md)
+* [Assert.Ignore](Assert.Ignore.md)
+* [Assert.Inconclusive](Assert.Inconclusive.md)
