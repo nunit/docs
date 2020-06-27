@@ -4,7 +4,6 @@ uid: nunitagent
 
 # NUnit Agent
 
-
 The nunit-agent.exe program is used by other runners when the tests are being
 run in a separate process. It is not intended for direct execution by users.
 
@@ -18,10 +17,9 @@ the version of the runtime that is being used - the old process will
 be terminated and a new one created. In that case, it's necessary
 to re-attach to the new process.
 
-#### Debugging
+## Debugging
 
 When debugging tests that are run in a separate process, it is
 not possible to do so by simply running the console or gui runner
 under the debugger. Rather, it is necessary to attach the debugger
 to the nunit-agent process after the tests have been loaded.
-

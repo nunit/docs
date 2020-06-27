@@ -1,6 +1,5 @@
 # Counting Tests
 
-
 Counting tests sounds simple but there are a few issues. This page documents how the framework counts tests in various categories.
 
 1. In general, when counting tests, we are talking about test cases. In the case of non-parameterized test methods, that's the same as the number of methods. Where there are parameters, we count the number of individual cases.

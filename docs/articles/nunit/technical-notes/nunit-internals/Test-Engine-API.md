@@ -1,11 +1,10 @@
 # Test Engine API
 
-
 The NUnit Test Engine API is our published API for discovering, exploring and executing tests programmatically. Third-party test runners should use the Engine API as the supported method to execute NUnit tests.
 
-### Overview
+## Overview
 
-The Engine API is included in the `nunit.engine.api` assembly, which must be referenced by any runners wanting to use it. This assembly is being released as version 3.0, to coincide with the versioning of other NUnit components. 
+The Engine API is included in the `nunit.engine.api` assembly, which must be referenced by any runners wanting to use it. This assembly is being released as version 3.0, to coincide with the versioning of other NUnit components.
 
 The actual engine is contained in the `nunit.engine` assembly. This assembly is **not** referenced by the runners. Instead, the API is used to locate and load an appropriate version of the engine, returning an instance of the `ITestEngine` interface to the  runner.
 
@@ -20,7 +19,7 @@ public static ITestEngine CreateInstance(Version minVersion, bool unused = false
 
 (The `unused` bool parameter previously allowed users to indicate if wished to restrict usage of global NUnit Engine installations. The latter functionality is no longer available.)
 
-We search for the engine in a standard set of locations, starting with the current ApplicationBase. 
+We search for the engine in a standard set of locations, starting with the current ApplicationBase.
 
 1. The Application base and probing `privatepath`.
 2. A copy installed as a NuGet package - intended for use only when developing runners that make use of the engine.
@@ -31,7 +30,7 @@ The runner deals with the engine through a set of interfaces. These are quite ge
 
 #### ITestEngine
 
-This is the primary interface to the engine. 
+This is the primary interface to the engine.
 
 ```csharp
 namespace NUnit.Engine
@@ -39,7 +38,7 @@ namespace NUnit.Engine
     /// <summary>
     /// ITestEngine represents an instance of the test engine.
     /// Clients wanting to discover, explore or run tests start
-    /// require an instance of the engine, which is generally 
+    /// require an instance of the engine, which is generally
     /// acquired from the TestEngineActivator class.
     /// </summary>
     public interface ITestEngine : IDisposable
@@ -66,12 +65,12 @@ namespace NUnit.Engine
 
         /// <summary>
         /// Initialize the engine. This includes initializing mono addins,
-        /// setting the trace level and creating the standard set of services 
+        /// setting the trace level and creating the standard set of services
         /// used in the Engine.
-        /// 
-        /// This interface is not normally called by user code. Programs linking 
+        ///
+        /// This interface is not normally called by user code. Programs linking
         /// only to the nunit.engine.api assembly are given a
-        /// pre-initialized instance of TestEngine. Programs 
+        /// pre-initialized instance of TestEngine. Programs
         /// that link directly to nunit.engine usually do so
         /// in order to perform custom initialization.
         /// </summary>
@@ -102,7 +101,7 @@ The final and probably most frequently used method on the interface is `GetRunne
 
 #### ITestRunner
 
-This interface allows loading test assemblies, exploring the tests contained in them and running the tests. 
+This interface allows loading test assemblies, exploring the tests contained in them and running the tests.
 
 ```csharp
 namespace NUnit.Engine
@@ -216,7 +215,7 @@ namespace NUnit.Engine
     /// <summary>
     /// IServiceLocator allows clients to locate any NUnit services
     /// for which the interface is referenced. In normal use, this
-    /// limits it to those services using interfaces defined in the 
+    /// limits it to those services using interfaces defined in the
     /// nunit.engine.api assembly.
     /// </summary>
     public interface IServiceLocator
@@ -242,7 +241,7 @@ The following services are available publicly.
 | RecentFilesService | [IRecentFiles](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/IRecentFiles.cs)  | Provides information about recently opened files  |
 | ResultService      | [IResultService](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/IResultService.cs)  | Produces test result output in various formats  |
 | SettingsService    | [ISettings](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/ISettings.cs) | Provides access to user settings |
-| TestFilterService  | [ITestFilterService](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/ITestFilterService.cs) | Creates properly formed test filters for use by runners | 
+| TestFilterService  | [ITestFilterService](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/ITestFilterService.cs) | Creates properly formed test filters for use by runners |
 | LoggingService     | [ILogging](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/ILogging.cs) | Provides centralized internal trace logging for both the engine and runners (Not Yet Implemented) |
 
 The following services are used internally by the engine but are not currently exposed publicly. They potentially could be in the future:

@@ -35,7 +35,7 @@ Packages are archived on nunit.org in the downloads directory. Add the MSI and Z
 
 ## Publishing the Release
 
-1. Log onto Github and go to the main nunit-console repository at https://github.com/nunit/nunit-console.
+1. Log onto Github and go to the main nunit-console repository at <https://github.com/nunit/nunit-console>.
 2. Go to the releases tab and edit the existing Console release
 3. Add the MSI and ZIP files to the release
 4. Update the website if required
