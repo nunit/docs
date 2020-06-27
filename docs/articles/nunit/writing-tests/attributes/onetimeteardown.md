@@ -4,7 +4,6 @@ uid: onetimeteardown-attribute
 
 # OneTimeTearDown
 
-
 This attribute is to identify methods that are called once after executing all the tests
 in a fixture. It may appear on methods of a TestFixture or a SetUpFixture.
 
@@ -17,7 +16,7 @@ So long as any OneTimeSetUp method runs without error, the OneTimeTearDown metho
 guaranteed to run. It will not run if a OneTimeSetUp method fails or throws an
 exception.
 
-#### Example:
+## Example
 
 ```csharp
 namespace NUnit.Tests
@@ -43,7 +42,7 @@ namespace NUnit.Tests
 }
 ```
 
-### Inheritance
+## Inheritance
 
 The OneTimeTearDown attribute is inherited from any base class. Therefore, if a base
 class has defined a OneTimeTearDown method, that method will be called
@@ -64,10 +63,10 @@ class OneTimeTearDown methods after those in the derived classes.
 
  3. OneTimeTearDown methods run in the context of the TestFixture or SetUpFixture, which is separate from the context of any individual test cases. It's important to keep this in mind when using [TestContext](xref:TestContext) methods and properties within the method.
 
-
 ## See Also
- * [SetUp Attribute](setup.md)
- * [TearDown Attribute](teardown.md)
- * [OneTimeSetUp Attribute](onetimesetup.md)
- * [TestFixture Attribute](testfixture.md)
- * [SetUpFixture Attribute](setupfixture.md)
+
+* [SetUp Attribute](setup.md)
+* [TearDown Attribute](teardown.md)
+* [OneTimeSetUp Attribute](onetimesetup.md)
+* [TestFixture Attribute](testfixture.md)
+* [SetUpFixture Attribute](setupfixture.md)
