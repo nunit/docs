@@ -15,7 +15,7 @@ public void TimedTest()
 }
 ```
 
-#### Notes:
+## Notes
 
 1. Any assertion failures take precedence over the elapsed time check.
 

@@ -27,7 +27,7 @@ public void ComplexNumberTest()
 
 Functionally, this results in NUnit storing any failures encountered in the block and reporting all of them together upon exit from the block. If both asserts failed, then both would be reported. The test itself would terminate at the end of the block if any failures were encountered, but would continue otherwise.
 
-#### Notes:
+## Notes
 
 1. The multiple assert block may contain any arbitrary code, not just asserts.
 

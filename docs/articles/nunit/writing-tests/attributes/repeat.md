@@ -4,7 +4,7 @@
 executed multiple times. If any repetition fails, the remaining ones are
 not run and a failure is reported.
 
-#### Notes:
+## Notes
 
 1. If RepeatAttribute is used on a parameterized method, each individual
    test case created for that method is repeated.

@@ -111,7 +111,7 @@ They may be expressed in upper, lower or mixed case.
  * Mono-3.5 (5)
  * Mono-4.0
 
-#### Notes:
+## Notes
 
 1. Includes Net-2.0
 2. Includes Net-2.0 and Net-3.0

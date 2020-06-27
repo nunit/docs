@@ -22,7 +22,7 @@ This is a **[Flags]** enumeration used to specify which tests may run in paralle
 **ParallelScope.Fixtures** | fixtures may be run in parallel with one another        | Assembly, Classes
 **ParallelScope.All**      | the test and its descendants may be run in <br>parallel with others at the same level | Classes, Methods
 
-##### Notes: 
+### Notes 
  1. Some values are invalid on certain elements, although they will compile. NUnit will report any tests so marked as invalid and will produce an error message.
  2. The **ParallelScope** enum has additional values, which are used internally but are not visible to users through Intellisense.
  3. The **ParallelizableAttribute** may be specified on multiple levels of the tests. Settings at a higher level may affect lower level tests, unless those lower-level tests override the inherited settings.

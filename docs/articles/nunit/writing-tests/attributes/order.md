@@ -25,7 +25,7 @@ public class MyFixture
 }
 ```
 
-#### Notes:
+## Notes
 
 1. As stated, ordering is local to the test that contains the ordered tests. For test cases (methods) ordering applies within the containing fixture. For fixtures it applies within the containing namespace. There is no facility in NUnit to order tests globally.
 
