@@ -1,6 +1,5 @@
 # Assert.NotZero
 
-
 **Assert.NotZero** tests that a value is not zero.
 
 ```csharp

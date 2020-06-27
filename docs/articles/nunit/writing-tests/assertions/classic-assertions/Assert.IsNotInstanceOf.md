@@ -1,6 +1,5 @@
 # Assert.IsNotInstanceOf
 
-
 **Assert.IsNotInstanceOf** succeeds if the object provided as an actual value is not an instance of the expected type.
 
 ```csharp
@@ -13,4 +12,5 @@ Assert.IsNotInstanceOf<T>(object actual,
 ```
 
 ## See Also
- * [Type Constraints](xref:constraints#type-constraints)
+
+* [Type Constraints](xref:constraints#type-constraints)
