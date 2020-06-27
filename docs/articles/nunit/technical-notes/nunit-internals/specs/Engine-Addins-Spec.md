@@ -1,12 +1,12 @@
 # Engine Addins Spec
 
-
 > [!NOTE]
 > This page is a specification that was used as a starting point for creating the feature in NUnit. It needs to be reviewed and revised in order to accurately reflect what was actually built. If you take it with a grain of salt, it may still be helpful to you as documentation. This notice will be removed when the page is brought up to date.
 
 This spec covers a proposed new approach to Engine addins, replacing the use of Mono.Addins.
 
 ## Background
+
 We originally planned to use Mono.Addins for the engine and have done so in the first betas. However, Mono.Addins no longer supports .NET 2.0. We are using a modified version that we created and which we will have to maintain in the future. Mono.Addins has many more features than we expect to use and has a rather large memory and disk footprint.
 
 In sum, Mono.Addins is not really carrying its weight for our usage. We will try to replace it with a simple plugin architecture of our own design, using some pieces of our old NUnit 2.x addin feature as well as other features inspired by Mono.Addins.
@@ -23,13 +23,14 @@ Three addin types are currently supported:
 
 ### Extension Points
 
-In both Mono and NUnit (2.x) addins, extensibility centers around `ExtensionPoints`. An `ExtensionPoint` is a place in the application where add-ins can register themselves in order to provide added functionality. extension nodes to provide extra functionality. NUnit 3.0 will continue to use this concept. 
+In both Mono and NUnit (2.x) addins, extensibility centers around `ExtensionPoints`. An `ExtensionPoint` is a place in the application where add-ins can register themselves in order to provide added functionality. extension nodes to provide extra functionality. NUnit 3.0 will continue to use this concept.
 
 In our initial implementation, all extension points must be known in advance and are contained in the engine. At a future point, we will probably want to add a way to dynamically create new extension points so that addins can themselves host extensions.
 
 `ExtensionPoints` in the engine will be identified by use of `ExtensionPointAttribute` at the assembly level. Each attribute identifies one extension point, specifying an identifying string (the Path) and the required Type of any extension objects to be registered with it.
 
-###### Example:
+#### Example
+
 ```csharp
 [assembly: ExtensionPoint(Path="/NUnit/Engine/DriverService"
                           Type="NUnit.Engine.Extensibility.IDriverFactory")]
@@ -41,7 +42,8 @@ In this example, the Path identifying the extension point is "/NUnit/Engine/Driv
 
 An `Extension` is a single object of the required type, which is registered with an `ExtensionPoint`. Extensions are identified by the `ExtensionAttribute` which is applied to the class. Extensions identified in this way must have a default constructor. See the `Addins` section below for dealing with more complex situations.
 
-###### Example:
+#### Example
+
 ```csharp
 [Extension(Path = "/NUnit/Engine/DriverService")]
 public class NUnit2DriverFactory : IDriverFactory
@@ -83,7 +85,8 @@ An `Addin` is a Type that provides `Extensions`. As indicated in the previous se
 
 Addins would be identified by the `AddinAttribute` and implement the IAddin interface. They actively participate in the installation of extensions and may be used to create objects that require parameters, to install multiple extensions or to select among different extensions.
 
-###### Example:
+#### Example
+
 ```csharp
 [Addin]
 public class MyAddin : IAddin
@@ -103,9 +106,9 @@ public class NUnit2DriverFactory : IDriverFactory
 
 The above example does the same thing as the previous example in a more complicated way. Obviously, you would use this approach only in more complex situations. Note that the factory class does not have an `ExtensionAttribute` as this would lead to its being installed twice.
 
-**Notes:** 
-1. This design feature is not required initially and will be omitted from the implementation until we actually require it. 
+#### Notes
 
+1. This design feature is not required initially and will be omitted from the implementation until we actually require it.
 2. The interfaces used in this section are notionally based on NUnit 2.6.4.
 
 ### Addins on Addins
