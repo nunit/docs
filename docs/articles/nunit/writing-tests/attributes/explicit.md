@@ -1,8 +1,7 @@
 # Explicit
 
-
-The Explicit attribute causes a test or test fixture to be skipped unless it is 
-explicitly selected for running. The test or fixture will be run if it is 
+The Explicit attribute causes a test or test fixture to be skipped unless it is
+explicitly selected for running. The test or fixture will be run if it is
 selected by name or if it is included by use of a filter. A **not**
 filter, which excludes certain tests, is not treated as an explicit selection
 and never causes an explicit test to be run. All other filters are considered
@@ -11,7 +10,7 @@ to explicitly select the tests that they match. See examples below.
 An optional string argument may be used to give the reason for marking
 the test Explicit.
 
-If a test or fixture with the Explicit attribute is encountered in the course of 
+If a test or fixture with the Explicit attribute is encountered in the course of
 running tests, it is skipped unless it has been specifically selected by one
 of the above means. The test does not affect the overall result of the test run.
 Explicit tests are displayed in the gui as skipped.
@@ -19,12 +18,12 @@ Explicit tests are displayed in the gui as skipped.
 > [!WARNING]
 > While the C# syntax allows you to place an Explicit attribute on a SetUpFixture class, the attribute is ignored by NUnit and has no effect in current releases.
 
-#### Examples of Use
+## Examples of Use
 
 Using the console command-line to select tests, the following options will include any
 explicit tests that fall under the selection.
 
-```
+```none
     --test=My.Namespace.Fixture.Method
     --test=My.Namespace.Fixture
     --test=My.Namespace
@@ -37,13 +36,15 @@ explicit tests that fall under the selection.
 
 However, the following options will __not__ include explicit tests
 
-```
+```none
     --where test!=My.Namespace.Fixture
     --where cat!=X
 ```
 
-#### Test Fixture Syntax
-##### C#
+## Test Fixture Syntax
+
+### `C#`
+
 ```csharp
 namespace NUnit.Tests
 {
@@ -58,7 +59,7 @@ namespace NUnit.Tests
 }
 ```
 
-##### Visual Basic
+### Visual Basic
 
 ```VB
 Imports System
@@ -73,7 +74,7 @@ Namespace NUnit.Tests
 End Namespace
 ```
 
-##### C++
+### C++
 
 ```cpp
 using namespace System;
@@ -96,9 +97,10 @@ namespace NUnitTests {
 }
 ```
 
-#### Test Syntax
+## Test Syntax
 
-##### C#
+### `C#`
+
 ```csharp
 namespace NUnit.Tests
 {
@@ -114,7 +116,8 @@ namespace NUnit.Tests
 }
 ```
 
-##### Visual Basic
+### Visual Basic
+
 ```vb
 Imports System
 Imports NUnit.Framework
@@ -129,7 +132,7 @@ Namespace NUnit.Tests
 End Namespace
 ```
 
-##### C++
+### C++
 
 ```cpp
 # using <NUnit.Framework.dll>

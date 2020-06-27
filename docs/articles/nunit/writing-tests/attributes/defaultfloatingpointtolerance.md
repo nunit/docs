@@ -1,14 +1,13 @@
 # DefaultFloatingPointTolerance
 
-
 The **DefaultFloatingPointToleranceAttribute** is used to indicate that
-comparisons of values of types `float` and `double` - within the test method, 
-class, or assembly marked with the attribute - should use the tolerance 
-specified in the constructor unless a specific tolerance is given for the 
+comparisons of values of types `float` and `double` - within the test method,
+class, or assembly marked with the attribute - should use the tolerance
+specified in the constructor unless a specific tolerance is given for the
 comparison.
 
-#### Examples
-   
+## Examples
+
 ```csharp
 [TestFixture]
 [DefaultFloatingPointTolerance(1)]
@@ -48,5 +47,5 @@ public class ToleranceTest
 
 ## See Also
 
- * [Assert.AreEqual](../assertions/classic-assertions/Assert.AreEqual.md)
- * [EqualConstraint](../constraints/EqualConstraint.md)
+* [Assert.AreEqual](../assertions/classic-assertions/Assert.AreEqual.md)
+* [EqualConstraint](../constraints/EqualConstraint.md)

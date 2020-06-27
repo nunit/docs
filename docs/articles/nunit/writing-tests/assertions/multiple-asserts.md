@@ -4,10 +4,9 @@ uid: MultipleAsserts
 
 # Multiple Asserts
 
-
 Usually, once an assertion fails, we want the test to terminate. But sometimes, it's desirable to continue and accumulate any additional failures so they may all be fixed at once. This is particularly useful for testing things like object initialization and UI appearance as well as certain kinds of integration testing.
 
-### Syntax
+## Syntax
 
 Multiple asserts are implemented using the `Assert.Multiple` method. Here is an example of its use:
 
@@ -51,9 +50,9 @@ Functionally, this results in NUnit storing any failures encountered in the bloc
 
 Multiple assertion failures per test are stored in the representation of the test result using new XML elements, which are not recognized by older runners. The following runners are known to support display of the new elements:
 
- * NUnit Console Runner 3.6
- * NUnit 3 Visual Studio Adapter 3.7
- * NUnit Gui Runner (under development)
+* NUnit Console Runner 3.6
+* NUnit 3 Visual Studio Adapter 3.7
+* NUnit Gui Runner (under development)
 
 #### Compatibility
 

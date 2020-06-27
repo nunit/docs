@@ -1,9 +1,8 @@
 # Attributes
 
-
 NUnit uses custom attributes to identify tests. All NUnit attributes are contained in the NUnit.Framework namespace. Each source file that contains tests must include a using statement for that namespace and the project must reference the framework assembly, `nunit.framework.dll`.
 
-This table lists all the attributes supported by NUnit. 
+This table lists all the attributes supported by NUnit.
 
 |   Attribute                       |    Usage    |
 |-----------------------------------|-------------|

@@ -1,6 +1,5 @@
 # Category
 
-
 The Category attribute provides an alternative to suites for dealing with groups
 of tests. Either individual test cases or fixtures may be identified as
 belonging to a particular category. Both the gui and console test runners allow
@@ -14,8 +13,8 @@ provides a visual indication of which categories are selected at any time.
 
 > [!WARNING]
 > While the C# syntax allows you to place a Category attribute on a SetUpFixture class, the attribute is ignored by NUnit and has no effect in current releases.
-	
-#### Test Fixture Syntax
+
+## Test Fixture Syntax
 
 ```csharp
 namespace NUnit.Tests
@@ -32,8 +31,7 @@ namespace NUnit.Tests
 }
 ```
 
-
-#### Test Syntax
+## Test Syntax
 
 ```csharp
 namespace NUnit.Tests
@@ -54,7 +52,7 @@ namespace NUnit.Tests
 ### Custom Category Attributes
 
 Custom attributes that derive from **CategoryAttribute** will be recognized
-by NUnit. The default protected constructor of CategoryAttribute 
+by NUnit. The default protected constructor of CategoryAttribute
 sets the category name to the name of your class.
 
 Here's an example that creates a category of Critical tests. It works
@@ -63,11 +61,11 @@ system might make use of the attribute to provide special reports.
 
 ```csharp
 [AttributeUsage(AttributeTargets.Method, AllowMultiple=false)]
-public class CriticalAttribute : CategoryAttribute 
+public class CriticalAttribute : CategoryAttribute
 { }
+```
 
-```
-```
+```csharp
 [Test, Critical]
 public void MyTest()
 { /*...*/ }
