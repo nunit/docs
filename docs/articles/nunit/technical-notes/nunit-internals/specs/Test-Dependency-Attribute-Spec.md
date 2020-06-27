@@ -13,7 +13,7 @@ We would define a new attributes, Dependencies:
 
 where `<dependency-specification>` is:
 
-```
+```none
 Before="TestA, TestB"
 After="TestC, TestD"
 AfterAnySuccess="TestE, TestF"
@@ -37,7 +37,7 @@ Each dependency-specification is described in more detail below (in all cases, `
 
 
 Before=<test-list>
-    The designated Test or TestFixture will be run to completion (successfully or not) 
+    The designated Test or TestFixture will be run to completion (successfully or not)
     before any of the tests specified in the list are run.
 
 After=<test-list>
@@ -52,7 +52,7 @@ AfterAllSuccess=<test-list>
 AfterAllFailure=<test-list>
     The Test or TestFixture will be run after the failure of all of the tests specified
     in the list.  If any of the tests specified in the list succeed, the designated Test
-    or TestFixture will not be run. 
+    or TestFixture will not be run.
 
 AfterAnySuccess=<test-list>
     The Test or TestFixture will be run after the successful completion of any of the tests
@@ -62,8 +62,8 @@ AfterAnySuccess=<test-list>
 AfterAnyFailure=<test-list>
     The Test or TestFixture will be run after the failure of any of the tests specified in
     the list.  If all of the tests specified in the list succeed, the designated Test or
-    TestFixture will not be run. 
-   
+    TestFixture will not be run.
+
 BeforeAll
     The Test or TestFixture will be run before all other tests or test fixtures are run.
     This dependency can be overridden by a specific Before dependency referencing this
@@ -87,8 +87,7 @@ Any loops or contradictory references in the dependencies will be discovered, an
 
 If multiple tests or test fixtures are in the same relative position in the dependency tree, the order in which they will be run will be the default order.  For example, if multiple tests have a BeforeAll dependency, they will run in the default order, but before all other tests not having that dependency specified.
 
-
 Items to consider:
 
-*    Is the name in a `<test-list>` the name in the code, or the generated name for the test?  I would prefer to use the static name that is in the code, but there may be a case for using the generated name.
-*    Should there be a simple dependency language to be used to specify the dependency rather then the static properties? e.g. `before("TestA") && afterFails ("TestB") || afterSuccess ("TestC")`
+* Is the name in a `<test-list>` the name in the code, or the generated name for the test?  I would prefer to use the static name that is in the code, but there may be a case for using the generated name.
+* Should there be a simple dependency language to be used to specify the dependency rather then the static properties? e.g. `before("TestA") && afterFails ("TestB") || afterSuccess ("TestC")`
