@@ -1,29 +1,28 @@
 # FileOrDirectoryExists Constraint
 
+`FileOrDirectoryExistsConstraint` tests that a File or Directory exists.
 
-**FileOrDirectoryExistsConstraint** tests that a File or Directory exists.
-
-#### Constructor
+## Constructor
 
 ```csharp
 FileOrDirectoryExistsConstraint()
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Does.Exist
 Does.Not.Exist
 ```
 
-#### Modifiers
+## Modifiers
 
 ```csharp
 IgnoreDirectories
 IgnoreFiles
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Assert.That(fileStr, Does.Exist);

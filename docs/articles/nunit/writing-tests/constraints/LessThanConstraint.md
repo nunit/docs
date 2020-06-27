@@ -1,22 +1,21 @@
 # LessThan Constraint
 
+`LessThanConstraint` tests that one value is less than another.
 
-**LessThanConstraint** tests that one value is less than another.
-
-#### Constructor
+## Constructor
 
 ```csharp
 LessThanConstraint(object expected)
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.LessThan(object expected)
 Is.Negative // Equivalent to Is.LessThan(0)
 ```
 
-#### Modifiers
+## Modifiers
 
 ```csharp
 ...Using(IComparer comparer)
@@ -24,12 +23,10 @@ Is.Negative // Equivalent to Is.LessThan(0)
 ...Using<T>(Comparison<T> comparer)
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Assert.That(3, Is.LessThan(7));
-Assert.That(myOwnObject, 
-    Is.LessThan(theExpected).Using(myComparer));
+Assert.That(myOwnObject, Is.LessThan(theExpected).Using(myComparer));
 Assert.That(-5, Is.Negative);
 ```
-
