@@ -1,6 +1,5 @@
 # Usage Notes
 
-
 * [Runtime Selection](Runtime-Selection.md)
 * [Platform Selection](Platform-Selection.md)
 * [Assembly Isolation](Assembly-Isolation.md)
