@@ -1,6 +1,5 @@
 # Assert.Fail
 
-
 The **Assert.Fail** method provides you with the ability to generate a failure based
 on tests that are not encapsulated by the other methods. It is also useful in
 developing your own project-specific assertions.
@@ -27,6 +26,7 @@ public void AssertStringContains(string expected, string actual, string message)
 ```
 
 ## See Also
- * [Assert.Pass](Assert.Pass.md)
- * [Assert.Ignore](Assert.Ignore.md)
- * [Assert.Inconclusive](Assert.Inconclusive.md)
+
+* [Assert.Pass](Assert.Pass.md)
+* [Assert.Ignore](Assert.Ignore.md)
+* [Assert.Inconclusive](Assert.Inconclusive.md)

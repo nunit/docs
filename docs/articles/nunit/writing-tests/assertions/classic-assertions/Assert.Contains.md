@@ -1,6 +1,5 @@
 # Assert.Contains
 
-
 **Assert.Contains** is used to test whether an object is contained in a
 collection.
 
@@ -11,4 +10,5 @@ Assert.Contains(object anObject, ICollection collection,
 ```
 
 ## See Also
- * [CollectionContainsConstraint](xref:collectioncontainsconstraint)
+
+* [CollectionContainsConstraint](xref:collectioncontainsconstraint)
