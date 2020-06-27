@@ -1,4 +1,5 @@
 # NUnit1007
+
 ## Method has non-void return type, but no result is expected in ExpectedResult.
 
 | Topic    | Value

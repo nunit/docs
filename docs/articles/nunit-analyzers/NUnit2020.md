@@ -1,4 +1,5 @@
 # NUnit2020
+
 ## Incompatible types for SameAs constraint.
 
 | Topic    | Value

@@ -1,4 +1,5 @@
 # NUnit1013
+
 ## Async test method must have non-generic Task return type when no result is expected.
 
 | Topic    | Value

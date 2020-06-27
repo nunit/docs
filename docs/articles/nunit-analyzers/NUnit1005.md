@@ -1,4 +1,5 @@
 # NUnit1005
+
 ## The type of ExpectedResult must match the return type.
 
 | Topic    | Value

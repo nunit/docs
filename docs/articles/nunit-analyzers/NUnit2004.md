@@ -1,4 +1,5 @@
 # NUnit2004
+
 ## Consider using Assert.That(expr, Is.True) instead of Assert.True(expr).
 
 | Topic    | Value

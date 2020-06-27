@@ -1,4 +1,5 @@
 # NUnit1008
+
 ## Specifying ParallelScope.Self on assembly level has no effect.
 
 | Topic    | Value

@@ -1,4 +1,5 @@
 # NUnit1012
+
 ## Async test method must have non-void return type.
 
 | Topic    | Value

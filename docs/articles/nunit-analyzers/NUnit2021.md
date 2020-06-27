@@ -1,4 +1,5 @@
 # NUnit2021
+
 ## Incompatible types for EqualTo constraint.
 
 | Topic    | Value

@@ -1,4 +1,5 @@
 # NUnit2016
+
 ## Consider using Assert.That(expr, Is.Null) instead of Assert.Null(expr).
 
 | Topic    | Value

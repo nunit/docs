@@ -1,4 +1,5 @@
 # NUnit2023
+
 ## Invalid NullConstraint usage.
 
 | Topic    | Value

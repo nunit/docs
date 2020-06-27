@@ -1,4 +1,5 @@
 # NUnit2022
+
 ## Missing property required for constraint.
 
 | Topic    | Value

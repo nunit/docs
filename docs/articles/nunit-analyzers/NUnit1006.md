@@ -1,4 +1,5 @@
 # NUnit1006
+
 ## ExpectedResult must not be specified when the method returns void.
 
 | Topic    | Value

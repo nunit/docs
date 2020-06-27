@@ -1,4 +1,5 @@
 # NUnit2006
+
 ## Consider using Assert.That(expr2, Is.Not.EqualTo(expr1)) instead of Assert.AreNotEqual(expr1, expr2).
 
 | Topic    | Value
