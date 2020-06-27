@@ -1,22 +1,21 @@
 # AssignableTo Constraint
 
+`AssignableToConstraint` tests that one type is assignable to another
 
-**AssignableToConstraint** tests that one type is assignable to another
-
-#### Constructor
+## Constructor
 
 ```csharp
 AssignableToConstraint(Type)
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.AssignableTo(Type)
 Is.AssignableTo<T>()
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Assert.That("Hello", Is.AssignableTo(typeof(object)));
