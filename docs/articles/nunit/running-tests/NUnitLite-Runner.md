@@ -9,11 +9,11 @@ is now only one framework, **nunit.framework.dll**. The built-in runner, which w
 
 To run tests under NUnitLite, proceed as follows:
 
-1. Create a console application to use as your test assembly. If you have already placed tests in a dll, you can change the project so that it produces a console application and reload it.
+* Create a console application to use as your test assembly. If you have already placed tests in a dll, you can change the project so that it produces a console application and reload it.
 
-2. Make sure your test assembly references both **nunit.framework** and **nunitlite**.
+* Make sure your test assembly references both **nunit.framework** and **nunitlite**.
 
-3. The Main() for your console application should look something like this...
+* The Main() for your console application should look something like this...
 
 ```csharp
 public static int Main(string[] args)
@@ -22,7 +22,7 @@ public static int Main(string[] args)
 }
 ```
 
-4. Execute your test application in order to run the tests.
+* Execute your test application in order to run the tests.
 
 If you install the NUnitLite runner via the NuGet package, steps 2 is handled
 automatically. Both assemblies are installed and referenced for you.
