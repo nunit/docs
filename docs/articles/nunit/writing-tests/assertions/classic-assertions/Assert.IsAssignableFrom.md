@@ -1,6 +1,5 @@
 # Assert.IsAssignableFrom
 
-
 **Assert.IsAssignableFrom** succeeds if the object provided may be assigned a value of the expected type.
 
 ```csharp
@@ -13,4 +12,5 @@ Assert.IsAssignableFrom<T>(object actual,
 ```
 
 ## See Also
- * [Type Constraints](xref:constraints#type-constraints)
+
+* [Type Constraints](xref:constraints#type-constraints)
