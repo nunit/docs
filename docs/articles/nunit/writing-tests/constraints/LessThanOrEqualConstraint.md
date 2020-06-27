@@ -1,22 +1,21 @@
 # LessThanOrEqual Constraint
 
+`LessThanOrEqualConstraint` tests that one value is less than or equal to another.
 
-**LessThanOrEqualConstraint** tests that one value is less than or equal to another.
-
-#### Constructor
+## Constructor
 
 ```csharp
 LessThanOrEqualConstraint(object expected)
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.LessThanOrEqualTo(object expected)
 Is.AtMost(object expected)
 ```
 
-#### Modifiers
+## Modifiers
 
 ```csharp
 ...Using(IComparer comparer)
@@ -24,14 +23,12 @@ Is.AtMost(object expected)
 ...Using<T>(Comparison<T> comparer)
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Assert.That(3, Is.LessThanOrEqualTo(7));
 Assert.That(3, Is.AtMost(7));
 Assert.That(3, Is.LessThanOrEqualTo(3));
 Assert.That(3, Is.AtMost(3));
-Assert.That(myOwnObject, 
-    Is.LessThanOrEqualTo(theExpected).Using(myComparer));
+Assert.That(myOwnObject, Is.LessThanOrEqualTo(theExpected).Using(myComparer));
 ```
-

@@ -1,21 +1,20 @@
 # Not Constraint
 
+`NotConstraint` reverses the effect of another constraint. If the base constraint fails, NotConstraint succeeds. If the base constraint succeeds, NotConstraint fails.
 
-**NotConstraint** reverses the effect of another constraint. If the base constraint fails, NotConstraint succeeds. If the base constraint succeeds, NotConstraint fails.
-
-#### Constructor
+## Constructor
 
 ```csharp
 NotConstraint()
 ```
 
-#### Syntax
+## Syntax
 
 ```csharp
 Is.Not...
 ```
 
-#### Examples of Use
+## Examples of Use
 
 ```csharp
 Assert.That(collection, Is.Not.Unique);
