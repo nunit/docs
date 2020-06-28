@@ -9,55 +9,75 @@ on:
       - master
 
 jobs:
-    build_docfx:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v2
-        name: Check out the code
-      - uses: actions/setup-node@v1
-        name: Run spell check
-        with:
-          node-version: '12'
-      - run: npm install -g cspell
-      - run: cspell --config ./cSpell.json "docs/**/*.md"
-      - name: Lint Code Base
-        uses: docker://github/super-linter:v2.2.0
-        env:
-          VALIDATE_ALL_CODEBASE: true
-          DISABLE_ERRORS: false
-          VALIDATE_MD: true # Only validate markdown
-          VALIDATE_YAML: false
-          VALIDATE_JSON: false
-          VALIDATE_XML: false
-          VALIDATE_BASH: false
-          VALIDATE_PERL: false
-          VALIDATE_PHP: false
-          VALIDATE_PYTHON: false
-          VALIDATE_RUBY: false
-          VALIDATE_COFFEE: false
-          VALIDATE_ANSIBLE: false
-          VALIDATE_JAVASCRIPT_ES: false
-          VALIDATE_JAVASCRIPT_STANDARD: false
-          VALIDATE_TYPESCRIPT_ES: false
-          VALIDATE_TYPESCRIPT_STANDARD: false
-          VALIDATE_DOCKER: false
-          VALIDATE_GO: false
-          VALIDATE_POWERSHELL: false
-          VALIDATE_TERRAFORM: false
-          VALIDATE_CSS: false
-          VALIDATE_ENV: false
-          VALIDATE_CLOJURE: false
-          VALIDATE_KOTLIN: false
-          VALIDATE_OPENAPI: false
-      - uses: nikeee/docfx-action@master
-        name: Build with Docfx
-        with:
-          args: docs/docfx.json --warningsAsErrors true
-      - name: Push to gh-pages branch (master only)
-        if: ${{ github.ref == 'refs/heads/master'}}
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          commit_message: ${{ github.event.head_commit.message }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/_site
-          publish_branch: gh-pages
+  linting:
+    name: "Markdown linting"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      name: Check out the code
+    - name: Lint Code Base
+      uses: docker://github/super-linter:v2.2.0
+      env:
+        VALIDATE_ALL_CODEBASE: true
+        DISABLE_ERRORS: false
+        VALIDATE_MD: true # Only validate markdown
+        VALIDATE_YAML: false
+        VALIDATE_JSON: false
+        VALIDATE_XML: false
+        VALIDATE_BASH: false
+        VALIDATE_PERL: false
+        VALIDATE_PHP: false
+        VALIDATE_PYTHON: false
+        VALIDATE_RUBY: false
+        VALIDATE_COFFEE: false
+        VALIDATE_ANSIBLE: false
+        VALIDATE_JAVASCRIPT_ES: false
+        VALIDATE_JAVASCRIPT_STANDARD: false
+        VALIDATE_TYPESCRIPT_ES: false
+        VALIDATE_TYPESCRIPT_STANDARD: false
+        VALIDATE_DOCKER: false
+        VALIDATE_GO: false
+        VALIDATE_POWERSHELL: false
+        VALIDATE_TERRAFORM: false
+        VALIDATE_CSS: false
+        VALIDATE_ENV: false
+        VALIDATE_CLOJURE: false
+        VALIDATE_KOTLIN: false
+        VALIDATE_OPENAPI: false
+  spellcheck: 
+    name: "Spell check"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      name: Check out the code
+    - uses: actions/setup-node@v1
+      name: Setup node
+      with:
+        node-version: '12'
+    - run: npm install -g cspell
+      name: Install cSpell
+    - run: cspell --config ./cSpell.json "docs/**/*.md"
+      name: run cSpell
+  build_docfx:
+    name: "Build the site with docfx"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      name: Check out the code
+    - uses: nikeee/docfx-action@master
+      name: Build with Docfx
+      with:
+        args: docs/docfx.json --warningsAsErrors true
+  publish:
+    needs: [linting, spellcheck, build_docfx]
+    name: Publish the site to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+    - name: Push to gh-pages branch (master only)
+      if: ${{ github.ref == 'refs/heads/master'}}
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        commit_message: ${{ github.event.head_commit.message }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/_site
+        publish_branch: gh-pages
