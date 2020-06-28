@@ -2,6 +2,8 @@
 
 This repository serves the content that is found at <http://docs.nunit.org>.
 
+![NUnit Documentation Build Process](https://github.com/nunit/docs/workflows/NUnit%20Documentation%20Build%20Process/badge.svg)
+
 ## How to Build these docs locally
 
 * Prerequisite: Install [docfx](https://dotnet.github.io/docfx/) (using [Chocolatey](https://chocolatey.org/)? The command is `choco install docfx -y`)
