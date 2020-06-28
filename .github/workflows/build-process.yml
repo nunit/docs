@@ -60,6 +60,7 @@ jobs:
       name: run cSpell
   build_docfx:
     name: "Build the site with docfx"
+    needs: [linting, spellcheck]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -68,11 +69,6 @@ jobs:
       name: Build with Docfx
       with:
         args: docs/docfx.json --warningsAsErrors true
-  publish:
-    needs: [linting, spellcheck, build_docfx]
-    name: Publish the site to GitHub Pages
-    runs-on: ubuntu-latest
-    steps:
     - name: Push to gh-pages branch (master only)
       if: ${{ github.ref == 'refs/heads/master'}}
       uses: peaceiris/actions-gh-pages@v3
