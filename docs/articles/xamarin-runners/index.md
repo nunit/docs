@@ -14,9 +14,9 @@ Runner options are set inside a `TestOptions` object. For example:
 var nunit = new NUnit.Runner.App();
 
 nunit.Options = new TestOptions
-            {
-                AutoRun = true
-            };
+{
+    AutoRun = true
+};
 ```
 
 The following options are available:
