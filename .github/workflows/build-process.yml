@@ -58,8 +58,8 @@ jobs:
       name: Install cSpell
     - run: cspell --config ./cSpell.json "docs/**/*.md"
       name: run cSpell
-  build_docfx:
-    name: "Build the site with docfx"
+  build_and_publish:
+    name: "Build the site with docfx and publish"
     needs: [linting, spellcheck]
     runs-on: ubuntu-latest
     steps:
@@ -69,11 +69,11 @@ jobs:
       name: Build with Docfx
       with:
         args: docs/docfx.json --warningsAsErrors true
-#    - name: Push to gh-pages branch (master only)
-#      if: ${{ github.ref == 'refs/heads/master'}}
-#      uses: peaceiris/actions-gh-pages@v3
-#      with:
-#        commit_message: ${{ github.event.head_commit.message }}
-#        github_token: ${{ secrets.GITHUB_TOKEN }}
-#        publish_dir: ./docs/_site
-#        publish_branch: gh-pages
+    - name: Push to gh-pages branch (master only)
+      if: ${{ github.ref == 'refs/heads/master'}}
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        commit_message: ${{ github.event.head_commit.message }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/_site
+        publish_branch: gh-pages
