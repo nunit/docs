@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CollectionOrdered Constraint | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="CollectionOrdered Constraint | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="collectionordered-constraint">CollectionOrdered Constraint</h1>
+
+<p><code>CollectionOrderedConstraint</code> tests that an <code>IEnumerable</code> is ordered. If the actual value passed does not implement <code>IEnumerable</code>, an exception is thrown.</p>
+<p>The constraint supports both simple and property-based ordering (Ordered.By).</p>
+<h2 id="simple-ordering">Simple Ordering</h2>
+<p>Simple ordering is based on the values of the items themselves. It is implied when the <code>By</code> modifier is not used.</p>
+<pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };
+Assert.That(iarray, Is.Ordered);
+
+string[] sarray = new string[] { &quot;c&quot;, &quot;b&quot;, &quot;a&quot; };
+Assert.That(sarray, Is.Ordered.Descending);
+</code></pre>
+<p>The following modifiers are supported:</p>
+<pre><code class="lang-csharp">...Ascending
+...Descending
+...Using(IComparer comparer)
+...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+</code></pre>
+<p>By default, the order is expected to be ascending.</p>
+<h2 id="property-based-ordering">Property-Based Ordering</h2>
+<p>Property-based ordering uses one or more properties that are common to every item in the enumeration. It is used when one or more instances of the <code>By</code> modifier appears in the ordering expression.</p>
+<pre><code class="lang-csharp">string[] sarray = new string[] (&quot;a&quot;, &quot;aa&quot;, &quot;aaa&quot;);
+Assert.That(sarray, Is.Ordered.By(&quot;Length&quot;));
+
+string[] sarray2 = new string[] (&quot;aaa&quot;, &quot;aa&quot;, &quot;a&quot;);
+Assert.That(sarray2, Is.Ordered.Descending.By(&quot;Length&quot;));
+</code></pre>
+<p>The following Modifiers are supported:</p>
+<pre><code class="lang-csharp">...Then
+...Ascending
+...Descending
+...By(string propertyName)
+...Using(IComparer comparer)
+...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+</code></pre>
+<h2 id="ordering-on-multiple-properties">Ordering on Multiple Properties</h2>
+<p>An ordering expression may use multiple <code>By</code> modifiers, each referring to a different property. The following examples assume a collection of items with properties named A and B.</p>
+<pre><code class="lang-csharp">Assert.That(collection, Is.Ordered.By(&quot;A&quot;).Then.By(&quot;B&quot;));
+Assert.That(collection, Is.Ordered.By(&quot;A&quot;).Then.By(&quot;B&quot;).Descending);
+Assert.That(collection, Is.Ordered.Ascending.By(&quot;A&quot;).Then.Descending.By(&quot;B&quot;));
+Assert.That(collection, Is.Ordered.Ascending.By(&quot;A&quot;).By(&quot;B&quot;).Descending);
+Assert.That(collection, Is.Ordered.Ascending.By(&quot;A&quot;).Descending.By(&quot;B&quot;)); // Illegal!
+</code></pre>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>The <code>Then</code> modifier divides the expression into ordering steps. Each step may optionally contain one <code>Ascending</code> or <code>Descending</code> modifier and one <code>Using</code> modifier.</li>
+<li>If <code>Then</code> is not used, each new <code>By</code> modifier marks the beginning of a step. The last example statement is illegal because the first group contains both Ascending and Descending. Use of <code>Then</code> is recommended for clarity.</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/constraints/CollectionOrderedConstraint.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Custom Constraints | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Custom Constraints | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="customconstraints">
+<h1 id="custom-constraints">Custom Constraints</h1>
+
+<div class="NOTE">
+<h5>Note</h5>
+<p>Page Under Development</p>
+</div>
+<p>You can implement your own custom constraints by creating a class that inherits from the <code>Constraint</code> abstract class, which supports performing a test on an actual value and generating appropriate messages.</p>
+<h2 id="constraint-abstract-class"><code>Constraint</code> Abstract Class</h2>
+<p>Implementations must override the one abstract method <code>ApplyTo&lt;TActual&gt;</code> which
+evaluates the previously stored expected value (if any) against the method's parameter, the actual value. There are also several virtual methods that may be overridden to change some default behaviors.</p>
+<p>The relevant portions of the <code>Constraint</code> class are represented below.</p>
+<pre><code class="lang-csharp">namespace NUnit.Framework.Constraints
+{
+    public abstract class Constraint
+    {
+        protected Constraint(params object[] args) {}
+        public abstract ConstraintResult ApplyTo&lt;TActual&gt;(TActual actual);
+        /* ... */
+        public virtual ConstraintResult ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del) {}
+        public virtual ConstraintResult ApplyTo&lt;TActual&gt;(ref TActual actual) {}
+        protected virtual object GetTestObject&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del) {}
+        public virtual string Description { get; protected set; }
+        protected virtual string GetStringRepresentation() {}
+    }
+}
+</code></pre>
+<h2 id="constraint-constructor"><code>Constraint</code> Constructor</h2>
+<p>The <code>Constraint</code> constructor accepts zero or more arguments and saves them to be used
+in the printed description later. Constraints like <code>NullConstraint</code> or <code>UniqueItemsConstraint</code>
+take no arguments and simply state some condition about the actual value supplied. Constraints
+with a single argument usually treat it as the expected value resulting from some operation.
+Multiple arguments can be provided where the semantics of the constraint call for it.</p>
+<h2 id="applyto-implementation"><code>ApplyTo</code> Implementation</h2>
+<p>The <code>ApplyTo&lt;TActual&gt;(TActual actual)</code> method must be overridden and provides for the
+core implementation of the custom constraint. Whatever logic defines pass or fail
+of the constraint and actual/expected values goes into the <code>ApplyTo&lt;TActual&gt;(TActual actual)</code>
+method.</p>
+<p>For example, a very naive implementation of a reference equality constraint might look
+like this:</p>
+<pre><code class="lang-csharp">public override ConstraintResult ApplyTo&lt;TActual&gt;(TActual actual)
+{
+    return new ConstraintResult(this, actual, ReferenceEquals(actual, Arguments[0]));
+}
+</code></pre>
+<p>The key here is there needs to be some evaluation of the constraint logic, and the return value
+must be a <code>ConstraintResult</code> or subclass thereof. Custom subclasses of <code>ConstraintResult</code> may
+be used to further customize the message provided upon failure, as described below.</p>
+<h2 id="applyto-overloads"><code>ApplyTo</code> Overloads</h2>
+<p>Constraints may be called with a delegate to return the actual value instead of the actual
+value itself. This serves to delay evaluation of the value. The default implementation
+of <code>ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code> waits for the delegate to
+complete if it's an async operation, other immediately calls the delegate if synchronous, and then calls the abstract <code>ApplyTo&lt;TActual&gt;(TActual actual)</code> method with the value.</p>
+<p>Another overload also exists, <code>ApplyTo&lt;TActual&gt;(ref TActual actual)</code>. The default implementation
+dereferences the value and then calls the abstract <code>ApplyTo&lt;TActual&gt;(TActual actual)</code> method with the value. This public virtual method is available by use from calling code but currently is not used from any framework calls within NUnit itself.</p>
+<h2 id="gettestobject-optional-override"><code>GetTestObject</code> Optional Override</h2>
+<p>The default implementation of <code>ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code> does not
+simply execute the delegate but actually calls out to another virtual method, <code>GetTestObject&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code>. This method can be overridden to keep the default behavior of <code>ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code> while still customizing how the actual value delegate is invoked.</p>
+<h2 id="description-property"><code>Description</code> Property</h2>
+<p>This virtual property is used to provide a description of the constraint for messages. Simple
+constant values can be set in the custom constraint's constructor. If more complex logic is
+needed, override the property and provide a custom implementation of <code>get</code>.</p>
+<p>Here are a few simple examples from built-in constraints.</p>
+<pre><code class="lang-csharp">public class FalseConstraint : Constraint
+{
+    public FalseConstraint()
+    {
+        this.Description = &quot;False&quot;;
+    }
+}
+
+public class NullConstraint : Constraint
+{
+    public NullConstraint()
+    {
+        this.Description = &quot;null&quot;;
+    }
+}
+</code></pre>
+<p>Here are a few complex examples from built-in constraints.</p>
+<pre><code class="lang-csharp">public class AndConstraint : BinaryConstraint
+{
+    public override string Description
+    {
+        get { return Left.Description + &quot; and &quot; + Right.Description; }
+    }
+}
+
+public abstract class PrefixConstraint : Constraint
+{
+    public override string Description
+    {
+        get
+        {
+            return string.Format(
+                baseConstraint is EqualConstraint ? &quot;{0} equal to {1}&quot; : &quot;{0} {1}&quot;,
+                descriptionPrefix,
+                baseConstraint.Description);
+        }
+    }
+}
+</code></pre>
+<h2 id="getstringrepresentation-method"><code>GetStringRepresentation</code> Method</h2>
+<p>NUnit calls the <code>GetStringRepresentation</code> method to return a string representation of the
+constraint, including the expected value(s). The default implementation returns the lowercase
+display name of the constraint followed by all expected values, separated by a space.</p>
+<p>For example, a custom constraint <code>ReferenceEqualsConstraint</code> with an instance of a custom
+<code>MyObject</code> class as expected value would result in a default string representation of <code>&lt;referenceequals MyObject&gt;</code>.</p>
+<p>You can override the initial display name only by setting <code>DisplayName</code> in your constructor.
+This public property cannot be overridden, but the <code>Constraint</code> base class sets it in the base constructor to be the name of the class, minus the &quot;Constraint&quot; suffix and minus any generic suffixes.</p>
+<h2 id="custom-constraint-usage-syntax">Custom Constraint Usage Syntax</h2>
+<p>Having written a custom constraint class, you can use it directly through its constructor:</p>
+<pre><code class="lang-csharp">Assert.That(myObject, new CustomConstraint());
+</code></pre>
+<p>You may also use it in expressions through NUnit's <code>Matches</code> syntax element:</p>
+<pre><code class="lang-csharp">Assert.That(myObject, Is.Not.Null.And.Matches(new CustomConstraint());
+</code></pre>
+<p>The direct construction approach is not very convenient or easy to read.
+For its built-in constraints, NUnit includes classes that implement a special constraint syntax, allowing you to write things like...</p>
+<pre><code class="lang-csharp">Assert.That(actual, Is.All.InRange(1, 100));
+</code></pre>
+<p>Custom constraints can support this syntax by providing a static helper class and
+extension method on <code>ConstraintExpression</code>, such as this.</p>
+<pre><code class="lang-csharp">public static class CustomConstraintExtensions
+{
+    public static ContentsEqualConstraint ContentsEqual(this ConstraintExpression expression, object expected)
+    {
+        var constraint = new ContentsEqualConstraint(expected);
+        expression.Append(constraint);
+        return constraint;
+    }
+}
+</code></pre>
+<p>To fully utilize your custom constraint the same way built-in constraints are used, you'll
+need to implement two additional classes (which can cover all your constraints, not
+for each custom constraint).</p>
+<ul>
+<li>Provide a static class patterned after NUnit's <code>Is</code> class, with properties
+or methods that construct your custom constructor. If you like, you can even call it
+<code>Is</code> and extend NUnit's <code>Is</code>, provided you place it in your own namespace and avoid any conflicts. This allows you to write things like:</li>
+</ul>
+<pre><code class="lang-csharp">Assert.That(actual, Is.Custom(x, y));
+</code></pre>
+<p>with this sample implementation:</p>
+<pre><code class="lang-csharp">public class Is : NUnit.Framework.Is
+{
+    public static CustomConstraint Custom(object expected)
+    {
+        return new CustomConstraint(expected);
+    }
+}
+</code></pre>
+<ul>
+<li>Provide an extension method for NUnit's <code>ConstraintExpression</code>, allowing
+you to write things like:</li>
+</ul>
+<pre><code class="lang-csharp">Assert.That(actual, Is.Not.Custom(x, y));
+</code></pre>
+<p>with this sample implementation:</p>
+<pre><code class="lang-csharp">public static class CustomConstraintExtensions
+{
+    public static CustomConstraint Custom(this ConstraintExpression expression, object expected)
+    {
+        var constraint = new CustomConstraint(expected);
+        expression.Append(constraint);
+        return constraint;
+    }
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/extending-nunit/Custom-Constraints.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

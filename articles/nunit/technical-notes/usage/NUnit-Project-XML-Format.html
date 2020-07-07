@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>NUnit Project XML Format | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="NUnit Project XML Format | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="nunitprojectxmlformat">
+<h1 id="nunit-project-xml-format">NUnit Project XML Format</h1>
+
+<h2 id="nunitproject"><code>&lt;NUnitProject&gt;</code></h2>
+<p>The required root element for any NUnit project file.</p>
+<ul>
+<li><strong>Containing Element:</strong> None</li>
+<li><strong>Contained Elements:</strong> <a href="#settings"><code>&lt;Settings&gt;</code></a>, <a href="#config"><code>&lt;Config&gt;</code></a></li>
+<li><strong>Attributes:</strong>   None</li>
+</ul>
+<h2 id="settings"><code>&lt;Settings&gt;</code></h2>
+<p>Contains global settings that apply to all configurations in the project. May be empty or absent.</p>
+<ul>
+<li><strong>Containing Element:</strong> <a href="#nunitproject"><code>&lt;NUnitProject&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes:</strong>
+<ul>
+<li><code>activeconfig</code> The name of the config to use if none is specified by the user. Using <code>nunit-console</code>, you may override this through the <code>--config</code> command-line option.</li>
+<li><code>appbase</code> The application base to use in loading and running tests. Defaults to the location of the .nunit project file. If the path is relative, as it normally is, it is taken as relative to the location of the project file.</li>
+<li><code>processModel</code> Specifies how NUnit should create processes for executing test assemblies. Possible values are: Default, Single (no separate processes are created), Separate (tests are run in a single, separate process) and Multiple (each assembly is run in its own separate process). The default value is Multiple, provided there are multiple assemblies, otherwise Separate.</li>
+<li><code>domainUsage</code> Specifies how NUnit should create AppDomains within each process for running tests. Possible values are: Default, None (no domain is created), Single (a single domain is created) and Multiple (a separate domain is created for each assembly). The default is Multiple if multiple assemblies are run in the same process, Single if only one assembly is run in a process.</li>
+</ul>
+</li>
+</ul>
+<h2 id="config"><code>&lt;Config&gt;</code></h2>
+<p>Describes a specific configuration of the project. This may map to traditional compiler configs like <code>Debug</code> or <code>Release</code> or may be used to specify any arbitrary collection of assemblies to be tested together. At least one configuration should be specified or the project will not be usable.</p>
+<ul>
+<li><strong>Containing Element:</strong> <a href="#nunitproject"><code>&lt;NUnitProject&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#assembly"><code>&lt;assembly&gt;</code></a></li>
+<li><strong>Attributes:</strong>
+<ul>
+<li><code>name</code> The name of this configuration. (Required)</li>
+<li><code>appbase</code> The application base to use in loading and running tests under this config. Defaults to the appbase specified in the <code>&lt;Settings&gt;</code> element. The path should normally be relative to that global application base or to the location of project file if there is no global appbase.</li>
+<li><code>binpath</code> The probing path used to search for assemblies, consisting of a number of directory paths separated by semicolons. The directory paths should be relative to the application base and must be under it. Specifying this attribute automatically sets the <code>binpathtype</code> to 'manual'.</li>
+<li><code>binpathtype</code> Indicates how the probing path is determined. Possible values are: Auto (the probing path is determined from the location of the test assemblies), Manual (the path is specified by the binpath attribute) and None (no probing path is used). It is an error to specify a value other than Manual if the <code>binpath</code> attribute is also used.</li>
+<li><code>configfile</code> Specifies the path to a config file to be used when running tests under this configuration. The path is relative to the application base.</li>
+<li><code>processModel</code> Specifies how NUnit should create processes for executing test assemblies under this configuration. Possible values are: Default, Single (no separate processes are created), Separate (tests are run in a single, separate process) and Multiple (each assembly is run in its own separate process). The default is the value specified globally or Multiple if nothing has been specified.</li>
+<li><code>domainUsage</code> Specifies how NUnit should create AppDomains within each process for running tests under this configuration. Possible values are: Default, None (no domain is created), Single (a single domain is created) and Multiple (a separate domain is created for each assembly). The default is the value specified globally, if provided, otherwise Multiple if multiple assemblies are run in the same process, Single if only one assembly is run in a process.</li>
+<li><code>runtimeFramework</code> Specifies a runtime framework to be used in running tests. Abbreviations are the same as those accepted by the nunit-console command-line. If none is specified, tests are run under the target runtime specified when the assembly was compiled.</li>
+</ul>
+</li>
+</ul>
+<h2 id="assembly"><code>&lt;assembly&gt;</code></h2>
+<p>Specifies a single assembly containing tests.</p>
+<ul>
+<li><strong>Containing Element:</strong> <a href="#config"><code>&lt;Config&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes:</strong>
+<ul>
+<li><strong>path</strong> The path to the test assembly, relative to the application base for its configuration.</li>
+</ul>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/usage/NUnit-Project-XML-Format.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

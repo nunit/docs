@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Addin Replacement In The Framework | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Addin Replacement In The Framework | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="addinreplacementintheframework">
+<h1 id="addin-replacement-in-the-framework">Addin Replacement In The Framework</h1>
+
+<p>NUnit 2.6 supports six types of addins, all of which are being removed from NUnit 3.0:</p>
+<ul>
+<li>SuiteBuilders</li>
+<li>TestCaseBuilders</li>
+<li>TestDecorators</li>
+<li>TestCaseProviders</li>
+<li>DataPointProviders</li>
+<li>EventListeners</li>
+</ul>
+<h2 id="general-approach">General Approach</h2>
+<p>The addin design for NUnit 2.6 was intended to extend to the console and gui runners in addition to the framework. However, this was never implemented and all six of the existing addin types apply to the framework only.</p>
+<p>In NUnit 3.0, the functions provided by these addins are being taken over by the use of custom attributes. NUnit 3.0 attributes are generally active. That is, they contain code to perform the function they call for rather than simply serving as markers to be interpreted by the runner.</p>
+<h2 id="advantages">Advantages</h2>
+<p>In general, all the same capabilities will be present in NUnit 3.0 and will be much more easily accessible to those who create extensions. Currently, creating an extension is complex and error prone. Use of active attributes generally involves one of two approaches:</p>
+<ol>
+<li><p>Derive the new attribute class from an existing NUnit base that provides the needed facilities. For example, a new data-providing attribute might derive from <code>DataAttribute</code>.</p>
+</li>
+<li><p>Derive directly from <code>NUnitAttribute</code>, the base of the NUnit attribute hierarchy, and implement one or more interfaces that perform the desired function.</p>
+</li>
+</ol>
+<h2 id="limitations">Limitations</h2>
+<p>All existing addins will need to be re-implemented as custom attributes. They will not work in NUnit 3.0.</p>
+<p>Addins not based on custom attributes are no longer possible. In NUnit 2.6, for example, it was possible to write an addin that defined tests based on the name of a method, e.g.: methods beginning with &quot;Test&quot;. This sort of extension will no longer be possible in the NUnit 3.0 framework. However, this does not seem to be a big problem, since virtually all addins that we know about have been based on attributes.</p>
+<h2 id="implementation">Implementation</h2>
+<p>Because parts of NUnit are implemented as <em>internal addins</em>, it's not possible to simply remove all addin support at once. Many things would stop working if we did this. Therefore, we will refactor code for each of the internal types to conform to the new design, only removing the overall addin framework when this is complete.</p>
+<p>The remaining sections of this spec deal with how each of the addin types is being replaced. The order of the sections reflects the order in which we are implementing the changes. The implementation status of each of the types is shown in parentheses.</p>
+<blockquote>
+<p>This spec refers to a number of interfaces that form part of the NUnit framework. Until a technical note
+covering these interfaces is published, please rely on the source code for documentation.
+Some of the sections that follow have not had all their design work completed, so the degree of detail
+varies among them. More information will be added as work progresses.</p>
+</blockquote>
+<h3 id="testdecorators">TestDecorators</h3>
+<blockquote>
+<p>Status: REMOVED</p>
+</blockquote>
+<p>TestDecorators in NUnit 2.6 could do one of three things:</p>
+<ol>
+<li>Modify the properties of the test or the execution context</li>
+<li>Drop the test by returning null.</li>
+<li>Replace the test, possibly wrapping the old test within the new one.</li>
+</ol>
+<p>In NUnit 3.0, each of these is implemented differently.</p>
+<p>To modify the properties of the test, create an attribute that implements <code>IApplyToTest</code>.</p>
+<p>To modify the execution context, implement <code>IApplyToContext</code>. This is a new capability.</p>
+<p>It is no longer possible - but not necessary either - to replace the test. In NUnit 3.0, the test object does not execute itself. Instead, a series of commands is created, which carry out the necessary operations to run the test. An attribute that implements <code>ICommandDecorator</code> is able to contribute to add additional commands to be executed when running the test.</p>
+<p>It is no longer possible to simply eliminate the test. Once created, a test will always appear in the UI, for example. However, by use of a command decorator, it is possible to prevent the test from executing.</p>
+<h3 id="datapointproviders">DataPointProviders</h3>
+<blockquote>
+<p>Status: Removed</p>
+</blockquote>
+<p>NUnit 2.6 has two built-in providers of data for individual parameters of test methods:</p>
+<ul>
+<li><code>ParameterDataProvider</code> gets data from attributes that appear directly on the parameter.</li>
+<li><code>DatapointProvider</code> gets data from <code>DataPoint</code> and <code>DataPointSource</code> attributes, which appear on the data source rather than on the parameter.</li>
+</ul>
+<p>In the current 3.0 code, <code>ParameterDataProvider</code> actually delegates its work to the attributes, which must implement <code>IParameterDataSource</code>. In NUnit 3.0, users will be able to create additional attributes implementing this interface and they will be used as data sources.</p>
+<p>On the other hand, <code>DataPointProvider</code> contains the code for accessing the data specified by the <code>DataPoint</code> and <code>DataPointSource</code> attributes, which are simply used as markers. This is because the attributes do not have a reference to the member on which they are placed. It would be necessary to introduce a method to provide them with this reference in order to do the processing within the attribute and this would appear to introduce otherwise unneeded code with no particular benefit. Consequently, for the initial implementation of NUnit 3.0, it will not be possible to create custom attributes that work in similar fashion to <code>DataPoint</code> or <code>DataPointSource</code>. If the need arises, some interface may be introduced.</p>
+<p>Since <code>DataPointProvider</code>s are only called from within <code>TestCaseProvider</code>s, implementation of these changes may need to be interleaved with changes related to <code>TestCaseProvider</code>s. See the next section for details.</p>
+<h3 id="testcaseproviders">TestCaseProviders</h3>
+<blockquote>
+<p>Status: REMOVED</p>
+</blockquote>
+<p>NUnit 2.6 currently has two built-in TestCaseProviders:</p>
+<ul>
+<li><code>DataAttributeTestCaseProvider</code> gets test case data from any DataAttribute, such as <code>TestCaseAttribute</code>.</li>
+<li><code>CombinatorialTestCaseProvider</code> creates test cases by combining parameter data from a <code>DataPointProvider</code>.</li>
+</ul>
+<p>Currently, <code>DataAttributeTestCaseProvider</code> delegates all the work to the <code>DataAttribute</code>. This is the desired approach. Users implementing a new custom data attribute may inherit from <code>DataAttribute</code> or implement an interface.</p>
+<p><code>CombinatorialTestCaseProvider</code> works differently. It instantiates one of three available <code>CombiningStrategy</code> types, based on attributes appearing on the method. The <code>CombiningStrategy</code> is used to generate test cases from the available parameter data.</p>
+<p>For NUnit 3.0, the work of combining parameter data into cases will be moved into the <code>CombiningStrategy</code> attributes. An interface will be defined and users will be able to create new combining strategies by defining a custom attribute that implements the interface.</p>
+<h3 id="eventlisteners">EventListeners</h3>
+<blockquote>
+<p>Status: REMOVED</p>
+</blockquote>
+<p>EventListeners implement the <code>ITestListener</code> interface and are notified when important events in the life of a test occur. Almost all the functions of an <code>EventListener</code> can already be emulated in NUnit 2.6 by use of an <code>ActionAttribute</code>. <code>ActionAttribute</code>s are not yet implemented in NUnit 3.0.</p>
+<p>Consequently, the first step in removing EventListeners is to implement <code>ActionAttribute</code>s. Some changes may be made in the process and a separate spec will be written to describe them.</p>
+<p>The only function of EventListeners that cannot be duplicated by ActionAttributes at this time is the capture of text output from the test. A new approach will be designed for this purpose.</p>
+<h3 id="testcasebuilders">TestCaseBuilders</h3>
+<blockquote>
+<p>Status: REMOVED</p>
+</blockquote>
+<p>NUnit 2.6 has one built-in TestCaseBuilder, <code>NUnitTestCaseBuilder</code>, which implements <code>ITestCaseBuilder2</code>. All TestCaseBuilders must implement either <code>ITestCaseBuilder</code> or <code>ITestCaseBuilder2</code>.</p>
+<p>In NUnit 3.0, the interface and its implementation will be moved into the attributes that designate a test. For example, <code>TestAttribute</code> will actually build a test case. This may be done using <code>ITestCaseBuilder2</code> or a new interface may be designed. Users wishing to create a new kind of test case will need to define a new attribute, which implements the interface.</p>
+<p>A few issues need to be resolved:</p>
+<ol>
+<li>Some attributes, such as <code>TestCaseAttribute</code> or <code>TestCaseSourceAttribute</code> serve dual functions: they both mark a test case and provide data for the test case. Some combination of the code for generating test cases with that for creating tests is likely to be required.</li>
+<li>For backward compatibility, an extra <code>TestAttribute</code> accompanying one or more <code>TestCaseAttribute</code>s should not generate an additional <code>TestCase</code>.</li>
+</ol>
+<h3 id="suitebuilders">SuiteBuilders</h3>
+<blockquote>
+<p>Status: REMOVED</p>
+</blockquote>
+<p>NUnit 2.6 has one built-in SuiteBuilder, which implements the required <code>ISuiteBuilder</code> interface.</p>
+<p>Similarly to what is being done for test cases, the building of a test fixture will be moved into the <code>TestFixture</code> attribute. The supporting interface may need to be redefined. Users may create new types of test fixtures by defining a new attribute, which implements the interface.</p>
+<p>Similar issues as with TestCaseBuilder must be resolved, in addition to a few others:</p>
+<ol>
+<li><code>TestFixtureAttribute</code> both marks a test case and provides arguments used to construct the fixture.</li>
+<li><em>Extra</em> <code>TestFixtureAttribute</code>s in the hierarchy must be ignored.</li>
+<li>We want to add similar data-generation capabilities to <code>TestFixture</code> as exist for methods using <code>TestCaseSource</code>.</li>
+<li>We want to allow &quot;TheoryFixtures&quot;, which combine multiple related Theories into a single fixture.</li>
+<li>We want to support an <code>AbstractTestFixtureAttribute</code>, which marks a class as the base of a fixture hierarchy but not a fixture itself.</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/usage/Addin-Replacement-in-the-Framework.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

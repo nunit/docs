@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Attribute Hierarchy | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Attribute Hierarchy | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="attribute-hierarchy">Attribute Hierarchy</h1>
+
+<div class="WARNING">
+<h5>Warning</h5>
+<p>This is a draft. The contents may be out of date.</p>
+</div>
+<p>This technical note describes the inheritance hierarchy used for attributes in NUnit. It applies to the built-in attributes and may also be used as a guide for where to place custom attributes in the hierarchy. However, use of these attributes as base classes is entirely optional for custom attributes, as all functionality is accessed through the implemented interfaces.</p>
+<p>Essentially, we use attribute inheritance to define the &quot;what&quot; of an attribute... that is, what it primarily <strong>is</strong> and what it primarily is used for. The actual functionality of an attribute is defined by the use of interfaces.</p>
+<h2 id="abstract-attribute-classes">Abstract Attribute Classes</h2>
+<p>The base of the hierarchy is formed by a number of abstract classes. They generally incorporate no code.</p>
+<h3 id="nunitattribute">NUnitAttribute</h3>
+<p>All NUnit attributes inherit directly or indirectly from <code>NUnitAttribute</code>. Its only purpose is to allow easy selection of all NUnit attributes on a member. If a custom attribute does not fit under any of the other attribute classes, you may derive it directly from <code>NUnitAttribute</code>.</p>
+<h3 id="testfixturebuilderattribute">TestFixtureBuilderAttribute</h3>
+<p><code>TestFixtureBuilderAttribute</code> is the base class for any attribute that knows how to build a test fixture of some kind from a provided class. In this context, a test fixture means any test that is based on a user class.</p>
+<p>NUnit includes the following attributes derived from <code>TestFixtureBuilderAttribute</code>:</p>
+<ul>
+<li><code>TestFixtureAttribute</code></li>
+<li><code>SetUpFixtureAttribute</code>.</li>
+</ul>
+<p>Derived classes that build fixtures should implement the <code>IFixtureBuilder</code> interface. <code>TestFixtureBuilderAttribute</code> does not implement this interface itself since future versions of NUnit may introduce additional interfaces that build fixtures. Therefore, the choice of interface is left to the derived class.</p>
+<h3 id="testcasebuilderattribute">TestCaseBuilderAttribute</h3>
+<p><code>TestCaseBuilderAttribute</code> is the base class for any attribute that knows how to build a test case from a given method. Test cases may be simple (without arguments) or parameterized (taking arguments) and are always based on a <code>MethodInfo</code>.</p>
+<p>NUnit includes the following attributes derived from <code>TestCaseBuilderAttribute</code>:</p>
+<ul>
+<li><code>CombiningStrategyAttribute</code>
+<ul>
+<li><code>CombinatorialAttribute</code></li>
+<li><code>PairwiseAttribute</code></li>
+<li><code>SequentialAttribute</code></li>
+</ul>
+</li>
+<li><code>TestAttribute</code></li>
+<li><code>TestCaseAttribute</code></li>
+<li><code>TestCaseSourceAttribute</code></li>
+<li><code>TheoryAttribute</code></li>
+</ul>
+<p>As with <code>TestFixtureBuilderAttribute</code>, the choice of a specific interface to implement is left to the derived class. Custom classes that build test cases should implement one of the interfaces designed for the purpose: <code>ISimpleTestCaseBuilder</code> or <code>ITestCaseBuilder</code>. Further interfaces may be defined in the future. In addition, any builder that is intended to cause a non-attributed class to be used as an NUnit TestFixture should implement <code>IImplyFixture</code>.</p>
+<h3 id="includeexcludeattribute">IncludeExcludeAttribute</h3>
+<p><code>IncludeExcludeAttribute</code> is the base class for any attributes used to decide whether to include a test in the current run or exclude it based on the string properties <code>Include</code>, <code>Exclude</code> and <code>Reason</code>. The abstract base simply makes these properties available to the derived class, which is responsible for taking action on them.</p>
+<p>NUnit currently defines two attributes that derive from <code>IncludeExcludeAttribute</code>:</p>
+<ul>
+<li><code>CultureAttribute</code></li>
+<li><code>PlatformAttribute</code></li>
+</ul>
+<p>These two attributes implement <code>IApplyToTest</code> and set the <code>RunState</code> of the test based on interpreting the arguments and the current environment. Custom classes derived from <code>IncludeExcludeAttribute</code> should do the same thing.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/nunit-internals/Attribute-Hierarchy.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

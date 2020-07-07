@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Platform | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Platform | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="platform">Platform</h1>
+
+<p>The Platform attribute is used to specify platforms for which a test or fixture
+should be run. Platforms are specified using case-insensitive string values
+and may be either included or excluded from the run by use of the Include or
+Exclude properties respectively. Platforms to be included may alternatively
+be specified as an argument to the PlatformAttribute constructor. In either
+case, multiple comma-separated values may be specified.</p>
+<p>If a test or fixture with the Platform attribute does not satisfy the specified
+platform requirements it is skipped. The test does not affect the outcome of
+the run at all: it is not considered as ignored and is not even counted in
+the total number of tests. <em>[Ed.: Check this.]</em> In the gui, the tree node for the test remains
+gray and the status bar color is not affected.</p>
+<h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
+<pre><code class="lang-csharp">namespace NUnit.Tests
+{
+  using System;
+  using NUnit.Framework;
+
+  [TestFixture]
+  [Platform(&quot;NET-2.0&quot;)]
+  public class DotNetTwoTests
+  {
+    // ...
+  }
+}
+</code></pre>
+<h2 id="test-syntax">Test Syntax</h2>
+<pre><code class="lang-csharp">namespace NUnit.Tests
+{
+  using System;
+  using NUnit.Framework;
+
+  [TestFixture]
+  public class SuccessTests
+  {
+    [Test]
+    [Platform(Exclude=&quot;Win98,WinME&quot;)]
+    public void SomeTest()
+    { /* ... */ }
+}
+</code></pre>
+<h2 id="platform-specifiers">Platform Specifiers</h2>
+<p>The following values are recognized as platform specifiers.
+They may be expressed in upper, lower or mixed case.</p>
+<h3 id="operating-system">Operating System</h3>
+<ul>
+<li>Win</li>
+<li>Win32</li>
+<li>Win32S</li>
+<li>Win32Windows</li>
+<li>Win32NT</li>
+<li>WinCE</li>
+<li>Win95</li>
+<li>Win98</li>
+<li>WinMe</li>
+<li>NT3</li>
+<li>NT4</li>
+<li>NT5</li>
+<li>NT6</li>
+<li>Win2K</li>
+<li>WinXP</li>
+<li>Win2003Server</li>
+<li>Vista</li>
+<li>Win2008Server</li>
+<li>Win2008ServerR2</li>
+<li>Windows7</li>
+<li>Win2012Server</li>
+<li>Windows8</li>
+<li>Unix</li>
+<li>Linux</li>
+<li>MacOsX</li>
+<li>XBox</li>
+</ul>
+<h3 id="architecture">Architecture</h3>
+<ul>
+<li>32-Bit</li>
+<li>32-Bit-Process</li>
+<li>32-Bit-OS (.NET 4.0 and higher only)</li>
+<li>64-Bit</li>
+<li>64-Bit-Process</li>
+<li>64-Bit-OS (.NET 4.0 and higher only)</li>
+</ul>
+<h3 id="runtime">Runtime</h3>
+<ul>
+<li>Net</li>
+<li>Net-1.0</li>
+<li>Net-1.1</li>
+<li>Net-2.0</li>
+<li>Net-3.0 (1)</li>
+<li>Net-3.5 (2)</li>
+<li>Net-4.0</li>
+<li>Net-4.5 (3)</li>
+<li>NetCF</li>
+<li>SSCLI</li>
+<li>Rotor</li>
+<li>Mono</li>
+<li>Mono-1.0</li>
+<li>Mono-2.0</li>
+<li>Mono-3.0 (4)</li>
+<li>Mono-3.5 (5)</li>
+<li>Mono-4.0</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>Includes Net-2.0</li>
+<li>Includes Net-2.0 and Net-3.0</li>
+<li>Includes Net-4.0</li>
+<li>Includes Mono-2.0</li>
+<li>Includes Mono-2.0 and Mono-3.0</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/platform.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SetUp and TearDown | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="SetUp and TearDown | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="setup-and-teardown">SetUp and TearDown</h1>
+
+<h2 id="attribute-usage">Attribute Usage</h2>
+<ul>
+<li><a href="../attributes/setup.html">SetUpAttribute</a> is now used exclusively for per-test setup.</li>
+<li><a href="../attributes/teardown.html">TearDownAttribute</a> is now used exclusively for per-test teardown.</li>
+<li><a href="../attributes/onetimesetup.html">OneTimeSetUpAttribute</a> is used for one-time setup per test-run. If you run <em>n</em> tests, this event will only occur once.</li>
+<li><a href="../attributes/onetimeteardown.html">OneTimeTearDownAttribute</a> is used for one-time teardown per test-run. If you run <em>n</em> tests, this event will only occur once</li>
+<li><a href="../attributes/setupfixture.html">SetUpFixtureAttribute</a> continues to be used as at before, but with changed method attributes.</li>
+</ul>
+<h3 id="attribute-usage-by-fixture-type">Attribute Usage by Fixture Type</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>TestFixture</th>
+<th>SetUpFixture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OneTimeSetUp</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>OneTimeTearDown</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>TestFixtureSetUp</td>
+<td>Deprecated</td>
+<td>Not Allowed</td>
+</tr>
+<tr>
+<td>TestFixtureTearDown</td>
+<td>Deprecated</td>
+<td>Not Allowed</td>
+</tr>
+<tr>
+<td>SetUp</td>
+<td>Supported</td>
+<td>Not Allowed</td>
+</tr>
+<tr>
+<td>TearDown</td>
+<td>Supported</td>
+<td>Not Allowed</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-setup-and-teardown-methods-are-called">How Setup and TearDown Methods Are Called</h2>
+<p>Multiple SetUp, OneTimeSetUp, TearDown and OneTimeTearDown methods may exist within a class.</p>
+<p>Setup methods (both types) are called on base classes first, then on derived classes. If any setup method throws an exception, no further setups are called.</p>
+<p>Teardown methods (again, both types) are called on derived classes first, then on the base class. The teardown methods at any level in the inheritance hierarchy will be called only if a setup method <strong>at the same level</strong> was called. The following example is illustrates the difference.</p>
+<pre><code class="lang-csharp">public class BaseClass
+{
+   [SetUp]
+   public void BaseSetUp() { /* ... */ } // Exception thrown!
+
+   [TearDown]
+   public void BaseTearDown() { /* ... */ }
+}
+
+[TestFixture]
+public class DerivedClass : BaseClass
+{
+   [SetUp]
+   public void DerivedSetUp() { /* ... */ }
+
+   [TearDown]
+   public void DerivedTearDown() { /* ... */ }
+
+   [Test]
+   public void TestMethod() { ... }
+}
+</code></pre>
+<p>Execution will proceed as follows:</p>
+<ul>
+<li>BaseSetUp</li>
+<li>BaseTearDown</li>
+</ul>
+<p>rather than</p>
+<ul>
+<li>BaseSetUp</li>
+<li>DerivedTearDown</li>
+<li>BaseTearDown</li>
+</ul>
+<p>See also: <a href="SetUp-and-TearDown-Changes.html">SetUp and TearDown Changes</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/setup-teardown/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

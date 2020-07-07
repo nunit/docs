@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NUnit.org</title>
+  <meta name="description" content="NUnit is the most popular unit test framework for .NET.">
+
+  <link rel="stylesheet" href="/css/main.css"">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="alternate" type="application/rss+xml" title="NUnit.org" href="/rss.xml"">
+  <link rel="alternate" type="application/atom+xml" title="NUnit.org" href="/atom.xml" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <div class="navbar-brand grow">
+                <img src="/img/nunit.svg" />
+            </div>
+        </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="/news/"><i class="fa fa-commenting-o"></i> News</a></li>
+            <li><a href="/download/"><i class="fa fa-download"></i> Download</a></li>
+            <li><a href="/documentation/"><i class="fa fa-book"></i> Documentation</a></li>
+            <li><a href="/contact/"><i class="fa fa-envelope-o"></i> Contact</a></li>
+            <li><a href="https://twitter.com/nunit" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://gitter.im/nunit/nunit" target="_blank"><i class="fa fa-comments-o"></i> Gitter</a></li>
+            <li><a href="https://github.com/nunit" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
+        </ul>
+    </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+  <div class="container">
+    <div class="content help">
+      <div class="notice">Legacy Documentation. View <a href="https://docs.nunit.org">NUnit 3 Documentation</a></div>
+      <div id="help_content">
+
+<script language="JavaScript" src="codeFuncs.js" ></script> <!-- Do it this way for IE -->
+
+<h3>TestCaseAttribute (NUnit 2.5)</h3>
+
+<p><b>TestCaseAttribute</b> serves the dual purpose of marking a method with
+   parameters as a test method and providing inline data to be used when
+   invoking that method. Here is an example of a test being run three
+   times, with three different sets of data:
+
+<div class="code"><pre class="prettyprint">[TestCase(12,3,4)]
+[TestCase(12,2,6)]
+[TestCase(12,4,3)]
+public void DivideTest(int n, int d, int q)
+{
+  Assert.AreEqual( q, n / d );
+}
+</pre>
+</div>
+
+<p><b>Note:</b> Because arguments to .NET attributes are limited in terms of the
+Types that may be used, NUnit will make some attempt to convert the supplied
+values using <b>Convert.ChangeType()</b> before supplying it to the test.
+
+<p><b>TestCaseAttribute</b> may appear one or more times on a test method,
+which may also carry other attributes providing test data, such as the
+<a href="testCaseSource.html">TestCaseSourceAttribute</a>.
+The method may optionally be marked with the
+<a href="test.html">TestAttribute</a> as well.
+
+<p>By using the named parameter <b>Result</b> this test set may be simplified
+further:
+
+<div class="code"><pre class="prettyprint">[TestCase(12,3, Result=4)]
+[TestCase(12,2, Result=6)]
+[TestCase(12,4, Result=3)]
+public int DivideTest(int n, int d)
+{
+  return( n / d );
+}
+</pre>
+</div>
+
+<p>In the above example, NUnit checks that the return
+value of the method is equal to the expected result provided on the attribut
+
+<p><b>TestCaseAttribute</b> supports a number of additional
+named parameters, which may be used as follows:
+
+<dl>
+<dt><b>Description</b>
+<dd>Sets the description property of the test
+<dt><b>ExpectedException</b>
+<dd>Specifies a the Type of an exception that should be thrown by this invocation
+<dt><b>ExpectedExceptionName</b>
+<dd>Specifies a the FullName of an exception that should be thrown by this invocation
+<dt><b>ExpectedMessage</b>
+<dd>Specifies the message text of the expected exception
+<dt><b>Explicit</b>
+<dd>Set to true in order to make the individual test case Explicit. Use <b>Reason</b> to explain why.
+<dt><b>Ignore</b>
+<dd>Set to true in order to ignore the individual test case. Use <b>Reason</b> to explain why.
+<dt><b>IgnoreReason</b>
+<dd>Causes this test case to be ignored and specifies the reason. Equivalent to <b>Ignore</b> combined with <b>Reason</b>. This attribute will be removed in a later release.
+<dt><b>MatchType</b>
+<dd>A <b>MessageMatch</b> enum value indicating how to test the expected message (See <a href="exception.html">ExpectedExceptionAttribute</a>)
+<dt><b>Reason</b>
+<dd>Specifies the reason for not running this test case. Use in conjunction with <b>Ignore</b> or <b>Explicit</b>.
+<dt><b>Result</b>
+<dd>The expected result to be returned from the method, which must have
+a compatible return type.
+<dt><b>TestName</b>
+<dd>Provides a name for the test. If not specified, a name is generated based on
+the method name and the arguments provided.
+</dl>
+
+<h3>Order of Execution</h3>
+
+<p>In NUnit 2.5, individual test cases are sorted alphabetically and executed in
+   that order. Beginning with NUnit 2.5.1, the individual cases are not sorted, but are
+   executed in the order in which NUnit discovers them. This order does <b>not</b>
+   follow the lexical order of the attributes and will often vary between different
+   compilers or different versions of the CLR.
+
+<p>As a result, when <b>TestCaseAttribute</b> appears multiple times on a method
+   or when other data-providing attributes are used in combination with
+   <b>TestCaseAttribute</b>, the order of the test cases is undefined.
+
+</div>
+
+<!-- Submenu -->
+<div id="subnav">
+<ul>
+<li><a href="docHome.html">NUnit 2.6</a></li>
+<ul>
+<li><a href="getStarted.html">Getting&nbsp;Started</a></li>
+<li><a href="writingTests.html">Writing&nbsp;Tests</a></li>
+<ul>
+<li><a href="assertions.html">Assertions</a></li>
+<li><a href="attributes.html">Attributes</a></li>
+<ul>
+<li><a href="actionAttributes.html">Action&nbsp;Attributes</a></li>
+<li><a href="category.html">Category</a></li>
+<li><a href="combinatorial.html">Combinatorial</a></li>
+<li><a href="culture.html">Culture</a></li>
+<li><a href="datapoint.html">Datapoint(s)</a></li>
+<li><a href="description.html">Description</a></li>
+<li><a href="exception.html">Exception</a></li>
+<li><a href="explicit.html">Explicit</a></li>
+<li><a href="ignore.html">Ignore</a></li>
+<li><a href="maxtime.html">Maxtime</a></li>
+<li><a href="pairwise.html">Pairwise</a></li>
+<li><a href="platform.html">Platform</a></li>
+<li><a href="property.html">Property</a></li>
+<li><a href="random.html">Random</a></li>
+<li><a href="range.html">Range</a></li>
+<li><a href="repeat.html">Repeat</a></li>
+<li><a href="requiredAddin.html">RequiredAddin</a></li>
+<li><a href="requiresMTA.html">Requires&nbsp;MTA</a></li>
+<li><a href="requiresSTA.html">Requires&nbsp;STA</a></li>
+<li><a href="requiresThread.html">Requires&nbsp;Thread</a></li>
+<li><a href="sequential.html">Sequential</a></li>
+<li><a href="setCulture.html">SetCulture</a></li>
+<li><a href="setUICulture.html">SetUICulture</a></li>
+<li><a href="setup.html">Setup</a></li>
+<li><a href="setupFixture.html">SetupFixture</a></li>
+<li><a href="suite.html">Suite</a></li>
+<li><a href="teardown.html">Teardown</a></li>
+<li><a href="test.html">Test</a></li>
+<li id="current"><a href="testCase.html">TestCase</a></li>
+<li><a href="testCaseSource.html">TestCaseSource</a></li>
+<li><a href="testFixture.html">TestFixture</a></li>
+<li><a href="fixtureSetup.html">TestFixtureSetUp</a></li>
+<li><a href="fixtureTeardown.html">TestFixtureTearDown</a></li>
+<li><a href="theory.html">Theory</a></li>
+<li><a href="timeout.html">Timeout</a></li>
+<li><a href="values.html">Values</a></li>
+<li><a href="valueSource.html">ValueSource</a></li>
+</ul>
+<li><a href="constraintModel.html">Constraints</a></li>
+<li><a href="testContext.html">Test&nbsp;Context</a></li>
+</ul>
+<li><a href="runningTests.html">Running&nbsp;Tests</a></li>
+<li><a href="extensibility.html">Extensibility</a></li>
+<li><a href="releaseNotes.html">Release&nbsp;Notes</a></li>
+<li><a href="samples.html">Samples</a></li>
+<li><a href="license.html">License</a></li>
+</ul>
+</ul>
+</div>
+<!-- End of Submenu -->
+
+
+
+    </div>
+  </div>
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/codeFuncs.js"></script>
+
+    <footer class="footer">
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-sm-8">
+        NUnit 2 Documentation Copyright &copy; 2014, Charlie Poole. All rights reserved.
+      </div>
+      <div class="col-sm-4 text-right">
+        Supported by the
+        <a href="https://dotnetfoundation.org/">.NET Foundation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/bootstrap.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-7904234-12', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

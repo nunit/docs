@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>XML Formats | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="XML Formats | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="xmlformats">
+<h1 id="xml-formats">XML Formats</h1>
+
+<div class="WARNING">
+<h5>Warning</h5>
+<p>This is a draft. The contents may be out of date.</p>
+</div>
+<p>Use of XML in NUnit 2.x is somewhat limited and is only used in external files. NUnit 3.0 uses XML in several of its interfaces for communicating between its three architectural layers.</p>
+<p>The samples given here represent the current state of the application and are subject to change. Watch this page for new information as development continues.</p>
+<h2 id="nunit-projects">NUnit Projects</h2>
+<p>An NUnit project is stored as a file with the extension .nunit and describes one or more test assemblies to be executed, together with certain parameters used in running them. No schema is used for this file.</p>
+<ul>
+<li><a href="https://nunit.org/files/nunit_project_25.txt">Sample NUnit Project</a></li>
+</ul>
+<p>Currently, the format is the same as for NUnit 2.x but it is likely to change as the project proceeds. Note that NUnitLite does not use or recognize NUnit projects, but only assemblies.</p>
+<p>For details of the file contents, see <a class="xref" href="NUnit-Project-XML-Format.html">NUnit Project XML Format</a></p>
+<h2 id="nunit-settings">NUnit Settings</h2>
+<p>The NUnitSettings30.xml file holds default settings for NUnit 3.0. No schema is used for this file. The format is the same as for 2.x but new settings may be added and the names of certain keys are likely to change.</p>
+<ul>
+<li><a href="https://nunit.org/files/sample_nunitsettings_file.txt">Sample NUnit Settings File</a></li>
+</ul>
+<h2 id="test-results">Test Results</h2>
+<p>The results of an test run are saved in a file with the default name of TestResult.xml. The schema of this file is being modified substantially for NUnit 3.0.</p>
+<ul>
+<li><a href="https://nunit.org/files/testresult_30.txt">Sample</a></li>
+<li>Schema not yet available</li>
+</ul>
+<p>For details of the file layout see <a href="Test-Result-XML-Format.html">Test Result XML Format</a>.</p>
+<h2 id="v2-test-results">V2 Test Results</h2>
+<p>Optionally, NUnit 3.0 is able to save results in the NUnit 2.x format for use with CI servers that do not yet understand the new format.</p>
+<ul>
+<li><a href="https://nunit.org/files/testresult_25.txt">Sample</a></li>
+<li><a href="https://nunit.org/files/testresult_schema_25.txt">Schema</a></li>
+</ul>
+<h2 id="test-representation">Test Representation</h2>
+<p>When using the -explore option, a list of tests without results is returned. The format used is simply a subset of the test result format, without the result information.</p>
+<p>See <a href="Test-Result-XML-Format.html">Test Result XML Format</a> for details.</p>
+<h2 id="test-filters">Test Filters</h2>
+<p>Information about which tests to run is provided to the framework using a test filter, represented as an XML fragment. See <a href="Test-Filters.html">Test Filters</a> for details.</p>
+<h2 id="test-packages">Test Packages</h2>
+<h2 id="progress-reports">Progress Reports</h2>
+<p>As a test run progresses, individual test run results are sent as xml fragments from the result file under construction. A runner can, in fact, construct a copy of the result file incrementally using these fragments if desired.</p>
+<h2 id="visualstate">VisualState</h2>
+<p>The Gui runner uses a file with the suffix .VisualState.xml to save the current visual state of a project so that it may be restored upon re-opening. This file is private to the Gui but is included here for completeness. The current format is identical to that used in NUnit 2.x.</p>
+<ul>
+<li><a href="https://nunit.org/files/sample_visual_state_25.txt">Sample Visual State File</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/usage/XML-Formats.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Coding Standards | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Coding Standards | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="coding-standards">Coding Standards</h1>
+
+<p>In order to keep the code consistent, we follow certain conventions. Many of the choices we have made are somewhat arbitrary and could easily have gone another way. At this point, most of these conventions are already well-established, so please don't re-open a discussion about them unless you have new issues to present.</p>
+<p>Notice that these standards are all stylistic. Do not write standards that tell people how to program. For example, we don't need a standard that tells us to always dispose of disposable objects because that's part of the normal &quot;standard&quot; for C# programming. In other words, these standards are about relatively trivial things that we have all agreed to do the same way.</p>
+<h2 id="making-changes">Making Changes</h2>
+<p>If you do want to make changes, please initiate a discussion of what you want to change on the developer list first. If you are intending to standardize more things than we usually standardize, it's wise to discuss it first to avoid wasting time!</p>
+<h2 id="general---please-read-this">General - Please Read This</h2>
+<p>Follow these guidelines unless you have an extremely good reason not to. Add a comment explaining why you are not following them so others will know your reasoning.</p>
+<p>Don't make arbitrary changes in existing code merely to conform them to these guidelines. Normally, you should only change the parts of a file that you have to edit in order to fix a bug or implement new functionality. In particular, don't use automatic formatting to change an entire file at once as this makes it difficult to identify the underlying code changes when we do a code review.</p>
+<p>In cases where we make broad changes in layout or naming, they should be committed separately from any bug fixes or feature changes in order to keep the review process as simple as possible. That said, we don't do this very often, since we have real work to do!</p>
+<p>Visual Studio can be set up to match the coding standards by importing the <a href="https://github.com/nunit/docs/blob/master/nunit.vssettings">nunit.vssettings</a> file from this repository. This file will only change the C# indentation and formatting settings. It will not modify any other Visual Studio settings. It can be imported into Visual Studio 2010 and later by going to Tools | Import and Export Settings...</p>
+<h2 id="copyright">Copyright</h2>
+<p>NUnit is licensed under the MIT / X11 license. Each file is prefixed by the <a href="NUnit-Copyright-Notice.html">NUnit Copyright Notice</a> enclosed in appropriate comment characters for the language of the file.</p>
+<h3 id="notes">Notes</h3>
+<ol>
+<li><p>Charlie Poole is the copyright holder for the NUnit code on behalf of the NUnit community, at least until some other arrangement is made. Do not place your name on the copyright line if you wish to contribute code.</p>
+</li>
+<li><p>The year given is the year of the file's creation. Subsequently, as copyrightable (non-trivial) changes are made, additional years or ranges of years may be added. For example, some file might include the statement <code>Copyright (c) 2007-2015 Charlie Poole</code>.</p>
+</li>
+<li><p>Do not update the copyright years when no changes or only trivial changes are made to a file.</p>
+</li>
+</ol>
+<h3 id="language-level">Language Level</h3>
+<p>Each NUnit project sets its own C# language level. We generally aim to keep the code buildable by folks who don't necessarily have the latest compilers, so this is sometimes not the very latest level. Currently, the maximum level for most NUnit projects is C# 6.</p>
+<p>Note that targeting a particular level of C# does not mean that all features are available. Features are limited based on the framework targeted as well. For example, the engine currently targets .NET 2.0, which means that <code>System.Linq</code> extensions cannot be used in the code.</p>
+<h3 id="layout">Layout</h3>
+<h4 id="namespace-class-structure-interface-enumeration-and-method-definitions">Namespace, Class, Structure, Interface, Enumeration and Method Definitions</h4>
+<p>Place the opening and closing braces on a line by themselves and at the same level of indentation as their parent.</p>
+<pre><code class="lang-csharp">public class MyClass : BaseClass, SomeInterface
+{
+    public void SomeMethod(int num, string name)
+    {
+        // code of the method
+    }
+}
+</code></pre>
+<p>An exception may be made if a method body or class definition is empty</p>
+<pre><code class="lang-csharp">public virtual void SomeMethod(int num, string name) { }
+</code></pre>
+<pre><code class="lang-csharp">public class GadgetList : List&lt;Gadget&gt; { }
+</code></pre>
+<h4 id="property-definitions">Property Definitions</h4>
+<p>Prefer automatic backing variables wherever possible</p>
+<pre><code class="lang-csharp">public string SomeProperty { get; private set; }
+</code></pre>
+<p>If a getter or setter has only one statement, a single line should normally be used</p>
+<pre><code class="lang-csharp">public string SomeProperty
+{
+    get { return _innerList.SomeProperty; }
+}
+</code></pre>
+<p>If there is more than one statement, use the same layout as for method definitions</p>
+<pre><code class="lang-csharp">public string SomeProperty
+{
+    get
+    {
+        if (_innerList == null)
+            InitializeInnerList();
+
+        return _innerList.SomeProperty;
+    }
+}
+</code></pre>
+<h4 id="spaces">Spaces</h4>
+<p>Method declarations and method calls should not have spaces between the method name and the parenthesis, nor within the parenthesis. Put a space after a comma between parameters.</p>
+<pre><code class="lang-csharp">public void SomeMethod(int x, int y)
+{
+    Console.WriteLine(&quot;{0}+{1}={2}&quot;, x, y, x + y);
+}
+</code></pre>
+<p>Control flow statements should have a space between the keyword and the parenthesis, but not within the parenthesis.</p>
+<pre><code class="lang-csharp">for (int i = 1; i &lt; 10; i++)
+{
+    // Do Something
+}
+</code></pre>
+<p>There should be no spaces in expression parenthesis, type casts, generics or array brackets, but there should be a space before and after binary operators.</p>
+<pre><code class="lang-csharp">int x = a * (b + c);
+var list = new List&lt;int&gt;();
+list.Add(x);
+var y = (double)list[0];
+</code></pre>
+<h4 id="indentation">Indentation</h4>
+<p>Use four consecutive spaces per level of indent. Don't use tabs - except where the IDE can be set to convert tabs to four spaces. In Visual Studio, set the tab size to 4, the indent size to 4 and make sure Insert spaces is selected.</p>
+<p>Indent content of code blocks.</p>
+<p>In switch statements, indent both the case labels and the case blocks. Indent case blocks even if not using braces.</p>
+<pre><code class="lang-csharp">switch (name)
+{
+    case &quot;John&quot;:
+        break;
+}
+</code></pre>
+<h3 id="newlines">Newlines</h3>
+<p>Methods and Properties should be separated by one blank line. Private member variables should have no blank lines.</p>
+<p>Blocks of related code should have not have any blank lines. Blank lines can be used to visually group sections of code, but there should never be multiple blank lines.</p>
+<p>If brackets are not used on a control flow statement with a single line, a blank line should follow.</p>
+<pre><code class="lang-csharp">public static double GetAttribute(XmlNode result, string name, double defaultValue)
+{
+    var attr = result.Attributes[name];
+
+    double attributeValue;
+    if (attr == null || !double.TryParse(attr.Value, NumberStyles.Any, CultureInfo.InvariantCulture, out attributeValue))
+        return defaultValue;
+
+    return attributeValue;
+}
+</code></pre>
+<h3 id="naming">Naming</h3>
+<p>The following table shows our naming standard for various types of names. All names should be clear enough that somebody unfamiliar with the code can learn about the code by reading them, rather than having to understand the code in order to figure out the names. We don't use any form of &quot;Hungarian&quot; notation.</p>
+<p>For items that may vary by project, the project’s root .editorconfig and solution DotSettings may provide the defaults and diagnostics expected for PRs in that project.</p>
+<table>
+<thead>
+<tr>
+<th>Named Item</th>
+<th>Naming Standard</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Namespaces</td>
+<td>PascalCasing</td>
+<td></td>
+</tr>
+<tr>
+<td>Types</td>
+<td>PascalCasing</td>
+<td>For framework types with a special C# name, we use the C# name. So... int rather than System.Int32.</td>
+</tr>
+<tr>
+<td>Methods</td>
+<td>PascalCasing</td>
+<td></td>
+</tr>
+<tr>
+<td>Properties</td>
+<td>PascalCasing</td>
+<td></td>
+</tr>
+<tr>
+<td>Events</td>
+<td>PascalCasing</td>
+<td></td>
+</tr>
+<tr>
+<td>Public and Protected Fields</td>
+<td>PascalCasing(with allowance for API compatibility)</td>
+<td>Includes constant fields.Public and protected variable fields should be avoided.</td>
+</tr>
+<tr>
+<td>Private and Internal Fields</td>
+<td>(may vary by project)</td>
+<td>Includes constant fields.Do not use this with fields designated by a leading underscore. Keep each file to the same standard, renaming when changes are made.Use <code>readonly</code> wherever appropriate for private fields.</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>camelCasing</td>
+<td></td>
+</tr>
+<tr>
+<td>Local Variables</td>
+<td>camelCasing</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="comments">Comments</h3>
+<p>Use doc comments on all publicly accessible members. Keep the audience in mind. For example, comments on publicly used framework methods or attributes should be written for easy understanding by users, while comments on internal methods should target folks who work on NUnit.</p>
+<p>Don't comment what is obvious.</p>
+<p>Do comment unusual algorithms and the reasoning behind some choices made.</p>
+<p>Use TODO comments when needed, but make sure to go back periodically and do whatever it is!</p>
+<h3 id="file-organization">File Organization</h3>
+<p>Normally, have one public type per source file. An exception is made for a simple enumeration, which is used in the interface of the public type and seems to &quot;belong&quot; to it. Example: TestResult and ResultState</p>
+<p>Name the source file after the public type it represents.</p>
+<p>The Directory hierarchy and Namespace hierarchy should match. For example, if the root namespace for a project is <code>NUnit.Framework</code>, files in the Constraints subdirectory should be in the <code>NUnit.Framework.Constraints</code> namespace.</p>
+<p>Wherever possible, classes should be laid out in the following order,</p>
+<ol>
+<li>Private member variables</li>
+<li>Constructors</li>
+<li>Dispose</li>
+<li>Public Properties</li>
+<li>Protected Properties</li>
+<li>Private Properties</li>
+<li>Public Methods</li>
+<li>Protected Methods</li>
+<li>Private Methods</li>
+</ol>
+<p>Using statements should be sorted as follows:</p>
+<ul>
+<li>All System namespaces</li>
+<li>All Other namespaces, including NUnit's</li>
+</ul>
+<p>It is permissible, but not required, to place using statements inside the namespace block, in shortened form, for namespaces that are descendants of the namespace itself. Note that the compiler will permit other uses of shortened namespaces within the namespace block, but we prefer to limit ourselves to descendants. Non-descendant namespaces should be listed in full form in the main using block.</p>
+<pre><code class="lang-csharp">using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using NUnit.Engine.Interfaces;
+using NUnit.Engine.Internal.Execution; // OK, but inside the namespace is preferred
+
+namespace NUnit.Engine.Internal
+{
+    using Execution; // Preferred location
+    /* ... */
+}
+</code></pre>
+<h3 id="use-of-regions">Use of Regions</h3>
+<p>[Needs to be filled in]</p>
+<h3 id="use-of-the-var-keyword">Use of the var keyword</h3>
+<p>The <code>var</code> keyword should be used where the type is obvious to someone reading the code, for example when creating a new object. Use the full type whenever the type is not obvious, for example when initializing a variable with the return value of a method.</p>
+<pre><code class="lang-csharp">var i = 12;
+var list = new List&lt;int&gt;();
+Foo foo = GetFoo();
+``
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/developer-info/Coding-Standards.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

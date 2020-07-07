@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Getting Started In Visual Studio | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Getting Started In Visual Studio | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="getting-started-in-visual-studio">Getting Started In Visual Studio</h1>
+
+<p>The easiest way to get started is to install the <a href="https://visualstudiogallery.msdn.microsoft.com/6cd55f79-4936-49e7-b81d-c40fcd81abc7">NUnit Templates extension for Visual Studio</a>. It will add project templates for the various Xamarin platforms.</p>
+<p>For more general information, see <a href="http://www.alteridem.net/2015/12/21/testing-xamarin-projects-using-nunit-3/">Testing Xamarin Projects using NUnit 3</a>.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>In your solution;</p>
+<ol>
+<li>Add new test projects to your solution. These project types are included in the <a href="https://visualstudiogallery.msdn.microsoft.com/6cd55f79-4936-49e7-b81d-c40fcd81abc7">NUnit Templates Extension</a>: <code>NUnit 3 Test Project (Android)</code>. <code>NUnit 3 Test Project (iOS)</code>, <code>NUnit 3 Test Project (Universal Windows)</code></li>
+<li>Write your unit tests in this project, in a portable project, or in a shared project, referencing the project with the tests.</li>
+<li>Build and run the tests on your device or emulator</li>
+</ol>
+<p>If you tests are in a separate portable project, note that:</p>
+<ul>
+<li>You need to add that assembly to the <code>NUnit.Runner.App</code> in the startup code</li>
+</ul>
+<pre><code class="lang-csharp">nunit.AddTestAssembly(typeof(MyTests).Assembly);
+</code></pre>
+<ul>
+<li>Your portable project must reference the same NUnit Framework version as your nunit.xamarin version, e.g. if using nunit.xamarin 3.01, reference nunit.framework 3.01.</li>
+</ul>
+<p>The startup code for each platform is as follows;</p>
+<h3 id="android">Android</h3>
+<h4 id="mainactivitycs">MainActivity.cs</h4>
+<pre><code class="lang-csharp">[Activity(Label = &quot;NUnit 3&quot;, MainLauncher = true, Theme = &quot;@android:style/Theme.Holo.Light&quot;, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+{
+    protected override void OnCreate(Bundle savedInstanceState)
+    {
+        base.OnCreate(savedInstanceState);
+
+        global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+        // This will load all tests within the current project
+        var nunit = new NUnit.Runner.App();
+
+        // If you want to add tests in another assembly
+        //nunit.AddTestAssembly(typeof(MyTests).Assembly);
+
+        // Do you want to automatically run tests when the app starts?
+        nunit.Options = new TestOptions
+            {
+                AutoRun = true
+            };
+
+        LoadApplication(nunit);
+    }
+}
+</code></pre>
+<h3 id="ios">iOS</h3>
+<h4 id="appdelegatecs">AppDelegate.cs</h4>
+<pre><code class="lang-csharp">[Register(&quot;AppDelegate&quot;)]
+public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+{
+    //
+    // This method is invoked when the application has loaded and is ready to run. In this
+    // method you should instantiate the window, load the UI into it and then make the window
+    // visible.
+    //
+    // You have 17 seconds to return from this method, or iOS will terminate your application.
+    //
+    public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+    {
+        global::Xamarin.Forms.Forms.Init();
+
+        // This will load all tests within the current project
+        var nunit = new NUnit.Runner.App();
+
+        // If you want to add tests in another assembly
+        //nunit.AddTestAssembly(typeof(MyTests).Assembly);
+
+        // Do you want to automatically run tests when the app starts?
+        nunit.Options = new TestOptions
+            {
+                AutoRun = true
+            };
+
+        LoadApplication(nunit);
+
+        return base.FinishedLaunching(app, options);
+    }
+}
+</code></pre>
+<h3 id="windows-10-universal">Windows 10 Universal</h3>
+<h4 id="mainpagexaml">MainPage.xaml</h4>
+<pre><code class="lang-XML">&lt;forms:WindowsPage
+    x:Class=&quot;NUnit.Runner.Tests.MainPage&quot;
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+    xmlns:local=&quot;using:NUnit.Runner.Tests&quot;
+    xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+    xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+    xmlns:forms=&quot;using:Xamarin.Forms.Platform.WinRT&quot;
+    mc:Ignorable=&quot;d&quot;&gt;
+
+    &lt;Grid Background=&quot;{ThemeResource ApplicationPageBackgroundThemeBrush}&quot;&gt;
+
+    &lt;/Grid&gt;
+&lt;/forms:WindowsPage&gt;
+</code></pre>
+<h4 id="mainpagexamlcs">MainPage.xaml.cs</h4>
+<pre><code class="lang-csharp">public sealed partial class MainPage : WindowsPage
+{
+    public MainPage()
+    {
+        InitializeComponent();
+
+        // Windows Universal will not load all tests within the current project,
+        // you must do it explicitly below
+        var nunit = new NUnit.Runner.App();
+
+        // If you want to add tests in another assembly, add a reference and
+        // duplicate the following line with a type from the referenced assembly
+        nunit.AddTestAssembly(typeof(MainPage).GetTypeInfo().Assembly);
+
+        // Do you want to automatically run tests when the app starts?
+        nunit.Options = new TestOptions
+            {
+                AutoRun = true
+            };
+
+        LoadApplication(nunit);
+    }
+}
+</code></pre>
+<h4 id="appxamlcs">App.xaml.cs</h4>
+<pre><code class="lang-csharp">protected override void OnLaunched(LaunchActivatedEventArgs e)
+{
+    // &lt;SNIP&gt;
+
+    Frame rootFrame = Window.Current.Content as Frame;
+
+    // Do not repeat app initialization when the Window already has content,
+    // just ensure that the window is active
+    if (rootFrame == null)
+    {
+        // Create a Frame to act as the navigation context and navigate to the first page
+        rootFrame = new Frame();
+
+        rootFrame.NavigationFailed += OnNavigationFailed;
+
+        // ==&gt; ADD THIS LINE &lt;==
+        Xamarin.Forms.Forms.Init(e);
+
+        if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+        {
+            // TODO: Load state from previously suspended application
+        }
+
+        // Place the frame in the current Window
+        Window.Current.Content = rootFrame;
+    }
+
+    // &lt;SNIP&gt;
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/xamarin-runners/Getting-Started-in-Visual-Studio.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

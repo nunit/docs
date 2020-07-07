@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TestFixture | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="TestFixture | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="testfixtureattribute">
+<h1 id="testfixture">TestFixture</h1>
+
+<p>This is the attribute that marks a class that contains tests and, optionally, setup or teardown methods.</p>
+<p>Most restrictions on a class that is used as a test fixture have now been
+eliminated. A test fixture class:</p>
+<ul>
+<li>May be public, protected, private or internal.</li>
+<li>May be a static class.</li>
+<li>May be generic, so long as any type parameters are provided or can be inferred from the actual arguments.</li>
+<li>May not be abstract - although the attribute may be applied to an abstract class intended to serve as a base class for test fixtures.</li>
+<li>If no arguments are provided with the TestFixtureAttribute, the class must have a default constructor.</li>
+<li>If arguments are provided, they must match one of the constructors.</li>
+</ul>
+<p>If any of these restrictions are violated, the class is not runnable
+as a test and will display as an error.</p>
+<p>It is advisable that the constructor not have any side effects,
+since NUnit may construct the object multiple times in the course of a session.</p>
+<p>Beginning with NUnit 2.5, the <strong>TestFixture</strong> attribute is optional
+for non-parameterized, non-generic fixtures. So long as the class contains
+at least one method marked with the <strong>Test</strong>, <strong>TestCase</strong> or
+<strong>TestCaseSource</strong> attribute, it will be treated as a test fixture.</p>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp">namespace NUnit.Tests
+{
+  using System;
+  using NUnit.Framework;
+
+  [TestFixture]
+  public class SuccessTests
+  {
+    // ...
+  }
+}
+</code></pre>
+<h2 id="inheritance">Inheritance</h2>
+<p>The <strong>TestFixtureAttribute</strong> may be applied to a base class and is
+inherited by any derived classes. This includes any abstract base class,
+so the well-known Abstract Fixture pattern may be implemented if desired.</p>
+<p>In order to facilitate use of generic and/or parameterized classes,
+where the derived class may require a different number of arguments (or
+type arguments) from the base class, superfluous <strong>TestFixture</strong>
+attributes are ignored, using the following rules:</p>
+<ol>
+<li>If all TestFixture attributes provide constructor or type arguments,
+then all of them are used.</li>
+<li>If some of the attributes provide arguments and others do not, then
+only those with arguments are used and those without arguments are ignored.</li>
+<li>If none of the attributes provide arguments, one of them is selected
+for use by NUnit. It is not possible to predict which will be used, so
+this situation should generally be avoided.</li>
+</ol>
+<p>This permits code like the following, which would cause an error if the
+attribute on the base class were not ignored.</p>
+<pre><code class="lang-csharp">[TestFixture]
+public class AbstractFixtureBase
+{
+    /* ... */
+}
+
+[TestFixture(typeof(string))]
+public class DerivedFixture&lt;T&gt; : AbstractFixtureBase
+{
+    /* ... */
+}
+</code></pre>
+<h2 id="parameterized-test-fixtures">Parameterized Test Fixtures</h2>
+<p>Test fixtures may take constructor arguments.
+Argument values are specified as arguments to the <strong>TestFixture</strong>
+attribute. NUnit will construct a separate instance of the fixture
+for each set of arguments.</p>
+<p>Individual fixture instances in a set of parameterized fixtures may be ignored.
+Set the <strong>Ignore</strong> named parameter of the reason for ignoring the instance.</p>
+<p>Individual fixture instances may be given categories as well. Set the <strong>Category</strong>
+named parameter of the attribute to the name of the category or to a comma-separated
+list of categories.</p>
+<h3 id="example-1">Example</h3>
+<p>The following test fixture would be instantiated by NUnit three times,
+passing in each set of arguments to the appropriate constructor. Note
+that there are three different constructors, matching the data types
+provided as arguments.</p>
+<pre><code class="lang-csharp">[TestFixture(&quot;hello&quot;, &quot;hello&quot;, &quot;goodbye&quot;)]
+[TestFixture(&quot;zip&quot;, &quot;zip&quot;)]
+[TestFixture(42, 42, 99)]
+public class ParameterizedTestFixture
+{
+    private string eq1;
+    private string eq2;
+    private string neq;
+
+    public ParameterizedTestFixture(string eq1, string eq2, string neq)
+    {
+        this.eq1 = eq1;
+        this.eq2 = eq2;
+        this.neq = neq;
+    }
+
+    public ParameterizedTestFixture(string eq1, string eq2)
+        : this(eq1, eq2, null) { }
+
+    public ParameterizedTestFixture(int eq1, int eq2, int neq)
+    {
+        this.eq1 = eq1.ToString();
+        this.eq2 = eq2.ToString();
+        this.neq = neq.ToString();
+    }
+
+    [Test]
+    public void TestEquality()
+    {
+        Assert.AreEqual(eq1, eq2);
+        if (eq1 != null &amp;&amp; eq2 != null)
+            Assert.AreEqual(eq1.GetHashCode(), eq2.GetHashCode());
+    }
+
+    [Test]
+    public void TestInequality()
+    {
+        Assert.AreNotEqual(eq1, neq);
+        if (eq1 != null &amp;&amp; neq != null)
+            Assert.AreNotEqual(eq1.GetHashCode(), neq.GetHashCode());
+    }
+}
+</code></pre>
+<h2 id="generic-test-fixtures">Generic Test Fixtures</h2>
+<p>You may also use a generic class as a test fixture.
+In order for NUnit to instantiate the fixture, you must either specify the
+types to be used as arguments to <strong>TestFixtureAttribute</strong> or use the
+named parameter <strong>TypeArgs=</strong> to specify them. NUnit will construct a
+separate instance of the fixture for each <strong>TestFixtureAttribute</strong>
+you provide.</p>
+<h3 id="example-2">Example</h3>
+<p>The following test fixture would be instantiated by NUnit twice,
+once using an <code>ArrayList</code> and once using a <code>List&lt;int&gt;</code>.</p>
+<pre><code class="lang-csharp">[TestFixture(typeof(ArrayList))]
+[TestFixture(typeof(List&lt;int&gt;))]
+public class IList_Tests&lt;TList&gt; where TList : IList, new()
+{
+  private IList list;
+
+  [SetUp]
+  public void CreateList()
+  {
+    this.list = new TList();
+  }
+
+  [Test]
+  public void CanAddToList()
+  {
+    list.Add(1); list.Add(2); list.Add(3);
+    Assert.AreEqual(3, list.Count);
+  }
+}
+</code></pre>
+<h3 id="generic-test-fixtures-with-parameters">Generic Test Fixtures with Parameters</h3>
+<p>If a Generic fixture, uses constructor arguments, there are three
+approaches to telling NUnit which arguments are type parameters
+and which are normal constructor parameters.</p>
+<ul>
+<li>Specify both sets of parameters as arguments to the <strong>TestFixtureAttribute</strong>.
+Leading <strong>System.Type</strong> arguments are used as type parameters, while
+any remaining arguments are used to construct the instance. In the
+following example, this leads to some obvious duplication...</li>
+</ul>
+<pre><code class="lang-csharp">[TestFixture(typeof(double), typeof(int), 100.0, 42)]
+[TestFixture(typeof(int) typeof(double), 42, 100.0)]
+public class SpecifyBothSetsOfArgs&lt;T1, T2&gt;
+{
+    T1 t1;
+    T2 t2;
+
+    public SpecifyBothSetsOfArgs(T1 t1, T2 t2)
+    {
+        this.t1 = t1;
+        this.t2 = t2;
+    }
+
+    [TestCase(5, 7)]
+    public void TestMyArgTypes(T1 t1, T2 t2)
+    {
+        Assert.That(t1, Is.TypeOf&lt;T1&gt;());
+        Assert.That(t2, Is.TypeOf&lt;T2&gt;());
+    }
+}
+</code></pre>
+<ul>
+<li>Specify normal parameters as arguments to <strong>TestFixtureAttribute</strong>
+and use the named parameter <strong>TypeArgs=</strong> to specify the type
+arguments. Again, for this example, the type info is duplicated, but
+it is at least more cleanly separated from the normal arguments...</li>
+</ul>
+<pre><code class="lang-csharp">[TestFixture(100.0, 42, TypeArgs=new Type[] { typeof(double), typeof(int) })]
+[TestFixture(42, 100.0, TypeArgs=new Type[] { typeof(int), typeof(double) })]
+public class SpecifyTypeArgsSeparately&lt;T1, T2&gt;
+{
+    T1 t1;
+    T2 t2;
+
+    public SpecifyTypeArgsSeparately(T1 t1, T2 t2)
+    {
+        this.t1 = t1;
+        this.t2 = t2;
+    }
+
+    [TestCase(5, 7)]
+    public void TestMyArgTypes(T1 t1, T2 t2)
+    {
+        Assert.That(t1, Is.TypeOf&lt;T1&gt;());
+        Assert.That(t2, Is.TypeOf&lt;T2&gt;());
+    }
+}
+</code></pre>
+<ul>
+<li>In some cases, when the constructor makes use of all the type parameters
+NUnit may simply be able to deduce them from the arguments provided.
+That's the case here and the following is the preferred way to
+write this example...</li>
+</ul>
+<pre><code class="lang-csharp">[TestFixture(100.0, 42)]
+[TestFixture(42, 100.0)]
+public class DeduceTypeArgsFromArgs&lt;T1, T2&gt;
+{
+    T1 t1;
+    T2 t2;
+
+    public DeduceTypeArgsFromArgs(T1 t1, T2 t2)
+    {
+        this.t1 = t1;
+        this.t2 = t2;
+    }
+
+    [TestCase(5, 7)]
+    public void TestMyArgTypes(T1 t1, T2 t2)
+    {
+        Assert.That(t1, Is.TypeOf&lt;T1&gt;());
+        Assert.That(t2, Is.TypeOf&lt;T2&gt;());
+    }
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/testfixture.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

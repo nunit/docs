@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Framework API | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Framework API | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="framework-api">Framework API</h1>
+
+<p>The NUnit 3 Framework API consists of a number of related classes with well-known names contained in the framework. The NUnit 3 Framework Driver, which is part of the engine, performs actions by creating these classes. All required actions are performed in the constructor. The driver only needs to know the names of the classes and the arguments each one accepts.</p>
+<p>This document describes the interface between the driver and framework and the rules that must be followed to provide continued backward compatibility as new versions of the framework are created. Note that it <strong>only</strong> applies to the NUnit 3 framework.</p>
+<p>The following is a simplified example of how a calling program might use the framework to load and run tests in a particular <code>AppDomain</code>. This sort of code is expected to reside only in a driver. User-created runners should use the Engine API rather than dealing with the framework at this low level. See below for explanations of each call.</p>
+<pre><code class="lang-csharp">var myHandler = new MyHandlerClass(); // implements ICallbackEventHandler
+
+// Create the controller
+var args = new object[] { &quot;my.test.assembly.dll&quot;, new Hashtable()};
+var controller = domain.CreateInstanceAndUnwrap(
+    &quot;nunit.framework&quot;, &quot;NUnit.Framework.Api.FrameworkController&quot;,
+    false, 0, null, args, null, null, null);
+
+// Load the assembly
+args = new object[] { controller, myHandler };
+domain.CreateInstanceAndUnwrap(
+    &quot;nunit.framework&quot;, &quot;NUnit.Framework.Api.FrameworkController+LoadTestsAction&quot;,
+    false, 0, null, args, null, null, null);
+
+// myHandler.GetCallbackResult() should return an Xml string with the result
+// of the Load, which was passed to it by the framework.
+// We're not checking this here, as we normally would do.
+
+// Run the tests
+args = new object[] { controller, &quot;&lt;filter/&gt;&quot;, myHandler };
+domain.CreateInstanceAndUnwrap(
+    &quot;nunit.framework&quot;, &quot;NUnit.Framework.Api.FrameworkController+RunTestsAction&quot;,
+    false, 0, null, args, null, null, null);
+
+// myHandler.GetCallbackResult() should return an Xml string with the results
+// of running the test, which was passed to it by the framework.
+</code></pre>
+<h2 id="api-classes">API Classes</h2>
+<p>The following classes provide the API:</p>
+<ul>
+<li>FrameworkPackageSettings</li>
+<li>FrameworkController</li>
+<li>FrameworkControllerAction
+<ul>
+<li>LoadTestsAction</li>
+<li>CountTestsAction</li>
+<li>ExploreTestsAction</li>
+<li>RunTestsAction</li>
+</ul>
+</li>
+</ul>
+<h3 id="frameworkpackagesettings">FrameworkPackageSettings</h3>
+<p>This static class defines constants for the names of all settings recognized by the framework. We use <code>FrameworkPackageSettings</code> rather than constants spread throughout the code in order to keep things consistent. A copy of this class is maintained in both the console runner and the framework and the settings are passed through to the framework by the engine.</p>
+<p>As new versions of the framework are released, settings in this file are not changed, although new settings may be added. See the code itself for a list of the settings in use.</p>
+<h3 id="frameworkcontroller">FrameworkController</h3>
+<p>The driver creates a <code>FrameworkController</code> instance using reflection for each test assembly that must be loaded for browsing or execution. The constructor is defined as follows:</p>
+<pre><code class="lang-csharp">public FrameworkController(string assemblyPath, string idPrefix, IDictionary settings)
+</code></pre>
+<p>where</p>
+<ul>
+<li><code>assemblyPath</code> is the full path to the test assembly.</li>
+<li><code>idPrefix</code> is a prefix used for all test ids created under this controller. This is how the engine is able to provide unique ids for each test identified, even though multiple assemblies, frameworks and controllers may be involved.</li>
+<li><code>settings</code> is an IDictionary containing the settings to be used in loading and running this assembly. A non-generic dictionary is used to allow for implementation of the framework on platforms that don't support Generics.</li>
+</ul>
+<p>This constructor always succeeds, provided that the arguments are of the correct types. Any operational errors will occur when specific actions like Load or Run are taken.</p>
+<h3 id="frameworkcontrolleraction">FrameworkControllerAction</h3>
+<p>As the driver needs to perform some action, it creates a temporary instance of a class derived from <code>FrameworkControllerAction</code>. The constructors for all actions have the following points in common:</p>
+<ul>
+<li>They take an instance of <code>FrameworkController</code> as their first argument. This must be the instance originally created by the driver for the particular assembly. This instance provides a common point of communication among various actions taken against the assembly.</li>
+<li>Another argument, the last one, is an object that implements <code>System.Web.UI.ICallbackEventHandler</code>. The handler receives the result of each action and - in the case of executing tests - progress notifications.</li>
+<li>Due to the nature of the <code>ICallbackEventHandler</code> interface, the results returned are always strings. The specific content of each result depends on the particular action.</li>
+<li>Exceptions are only thrown in the case of completely unanticipated errors, generally meaning an error in the calling program or a bug in the framework. We don't consider things like missing or bad files or exceptions thrown in user code as unanticipated.</li>
+</ul>
+<p>Some actions take the string representation of a test filter as an argument. The NUnit Engine and Framework have shared knowledge of the format of a filter. For an empty filter (no filtering) use <code>&quot;&lt;filter/&gt;&quot;</code>. A null or empty string is also accepted for an empty filter as of NUnit 3.7.1, but <code>&quot;&lt;filter/&gt;&quot;</code> should be used for backwards compatibility.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>ICallbackEventHandler</code> is actually passed as an object and cast to the interface by the framework. This is intended to allow future use of other interfaces for progress.</p>
+</div>
+<h3 id="loadtestsaction">LoadTestsAction</h3>
+<p><code>LoadTestsAction</code> must be used before any other action can be called. Its constructor is as follows:</p>
+<pre><code class="lang-csharp">public LoadTestsAction(FrameworkController controller, object handler);
+</code></pre>
+<p>where</p>
+<ul>
+<li><code>controller</code> is the FrameworkController instance that was created for managing the test assembly.</li>
+<li><code>handler</code> is an object implementing <code>ICallbackEventHandler</code>, to receive the result of the load.</li>
+</ul>
+<p>The result returned from <code>handler.GetCallbackResult()</code> is the XML representation of the loaded test assembly. No child tests are included in the XML, since this method will be called by programs with no need for such a level of detail. Programs requiring the full tree of tests, such as Gui runners, should follow up by using the <code>ExploreTestsAction</code>.</p>
+<p>If the assembly can not be found or loaded, the same result is returned, but with a <code>RunState</code> of <code>NotRunnable</code>.</p>
+<h3 id="exploretestsaction">ExploreTestsAction</h3>
+<p><code>ExploreTestsAction</code> is used to get the full tree of tests, as for display in a Gui. Its constructor is as follows:</p>
+<pre><code class="lang-csharp">public ExploreTestsAction(FrameworkController controller, string filter, object handler);
+</code></pre>
+<p>where</p>
+<ul>
+<li><strong>controller</strong> is the FrameworkController instance that was created for managing the test assembly.</li>
+<li><strong>filter</strong> is the string representation of a filter in XML format to be used when exploring tests.</li>
+<li><strong>handler</strong> is an object implementing ICallbackEventHandler, to receive the result of the call.</li>
+</ul>
+<p>The result returned from <code>handler.GetCallbackResult()</code> is the XML representation of the test assembly, containing all tests that passed the filter, arranged as a tree with child tests contained within their parents.</p>
+<p>If the assembly was not found or unable to be loaded, a non-runnable assembly with no child tests is returned.</p>
+<p>If this action is invoked without first invoking <code>LoadTestsAction</code>, an <code>InvalidOperationException</code> is thrown.</p>
+<h3 id="counttestsaction">CountTestsAction</h3>
+<p>CountTestsAction is used to get the number of test cases that will be executed under a specified filter, for use in a progress display. Its constructor is as follows.</p>
+<pre><code class="lang-csharp">public CountTestsAction(FrameworkController controller, string filter, object handler);
+</code></pre>
+<p>where</p>
+<ul>
+<li><code>controller</code> is the <code>FrameworkController</code> instance that was created for managing the test assembly.</li>
+<li><code>filter</code> is the string representation of a filter in XML format to be used when counting tests.</li>
+<li><code>handler</code> is an object implementing <code>ICallbackEventHandler</code>, to receive the result of the call.</li>
+</ul>
+<p>The result returned from <code>handler.GetCallbackResult()</code> is the string representation of the integer number of test cases that match the filter.</p>
+<p>If the assembly was not found or unable to be loaded, &quot;0&quot; is returned.</p>
+<p>If this action is invoked without first invoking <code>LoadTestsAction</code>, an <code>InvalidOperationException</code> is thrown.</p>
+<h3 id="runtestsaction">RunTestsAction</h3>
+<p><code>RunTestsAction</code> is used to execute the loaded tests. Its constructor is as follows:</p>
+<pre><code class="lang-csharp">public RunTestsAction(FrameworkController controller, string filter, object handler);
+</code></pre>
+<p>where</p>
+<ul>
+<li><code>controller</code> is the <code>FrameworkController</code> instance that was created for managing the test assembly.</li>
+<li><code>filter</code> is the string representation of a filter in XML format to be used when counting tests.</li>
+<li><code>handler</code> is an object implementing <code>ICallbackEventHandler</code>, to receive the result of the call.</li>
+</ul>
+<p>The result returned from <code>handler.GetCallbackResult</code> is the XML representation of the test result, including all child results.</p>
+<p>If the assembly was not found or could not be loaded, a non-runnable result with no child tests is returned.</p>
+<p>If this action is invoked without first invoking <code>LoadTestsAction</code>, an <code>InvalidOperationException</code> is thrown.</p>
+<h3 id="runasyncaction">RunAsyncAction</h3>
+<p><code>RunAsyncAction</code> is used to initiate an asynchronous test run, returning immediately. Its constructor is as follows:</p>
+<pre><code class="lang-csharp">public RunAsyncAction(FrameworkController controller, string filter, object handler);
+</code></pre>
+<p>where</p>
+<ul>
+<li><code>controller</code> is the <code>FrameworkController</code> instance that was created for managing the test assembly.</li>
+<li><code>filter</code> is the string representation of a filter in XML format to be used when counting tests.</li>
+<li><code>handler</code> is an object implementing <code>ICallbackEventHandler</code>, to receive the result of the call.</li>
+</ul>
+<p>No actual result is returned immediately from the call. The <code>handler</code> progress notices must be tracked in order to know what is going on with the tests and eventually the final result may be retrieved.</p>
+<p>If the assembly was not found or could not be loaded, a non-runnable result with no child tests is returned.</p>
+<p>If this action is invoked without first invoking <code>LoadTestsAction</code>, an <code>InvalidOperationException</code> is thrown.</p>
+<h3 id="stoprunaction">StopRunAction</h3>
+<p><code>StopRunAction</code> is used to stop an ongoing test run. Its constructor is as follows:</p>
+<pre><code class="lang-csharp">public StopRunAction(FrameworkController controller, bool force, object handler);
+</code></pre>
+<p>where</p>
+<ul>
+<li><code>controller</code> is the <code>FrameworkController</code> instance that was created for managing the test assembly.</li>
+<li><code>force</code> indicates whether or not the stop should be forced, as opposed to a cooperative stop.</li>
+<li><code>handler</code> is an object implementing <code>ICallbackEventHandler</code>, to receive the result of the call.</li>
+</ul>
+<p>No result is returned from the call. If no run is in progress, the call is ignored.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/nunit-internals/Framework-Api.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

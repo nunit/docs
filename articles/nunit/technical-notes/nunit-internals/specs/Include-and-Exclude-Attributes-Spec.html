@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Include And Exclude Attributes Spec | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Include And Exclude Attributes Spec | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../../index.html">
+                <img id="logo" class="svg" src="../../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="include-and-exclude-attributes-spec">Include And Exclude Attributes Spec</h1>
+
+<div class="WARNING">
+<h5>Warning</h5>
+<p>This is a draft. The contents may be out of date.</p>
+</div>
+<p>This spec describes proposed new attributes to replace and extend the existing CultureAttribute and PlatformAttribute. We considered several alternative approaches to doing this and selected the approach described here. See <a class="xref" href="Include%20and%20Exclude%20Attributes%20%28Alternatives%29.html">Include and Exclude Attributes (Alternatives)</a> for the original discussion of choices.</p>
+<h2 id="attributes">Attributes</h2>
+<p>We would define two new attributes, <strong>IncludeAttribute</strong> and <strong>ExcludeAttribute</strong>:</p>
+<pre><code class="lang-csharp">[Include(Culture=&quot;fr-FR&quot;)]
+[Include(Platform=&quot;Win7,Win8&quot;)]
+[Exclude(&quot;Runtime:Net-4.5&quot;)]
+[Exclude(&quot;Linux&quot;)]
+[Include(&quot;Runtime &gt;= 4.0 and Platform == &quot;Linux&quot;&quot;)]
+</code></pre>
+<h2 id="syntax-options">Syntax Options</h2>
+<p>There are a number of possible alternatives for specifying when a test is to be included or excluded. Each of them is illustrated in the examples above, from which we need to select a subset.</p>
+<h3 id="1-named-properties">1. Named Properties</h3>
+<p>As illustrated in the first two examples, this approach allows us to clearly separate the namespaces for each selection domain. Comma-separated values are intended to be alternatives, so the second example would include the test under either Win7 or Win8. Separate properties (domains) would be &quot;and-ed&quot; together.</p>
+<h3 id="2-prefixes">2. Prefixes</h3>
+<p>By prefixing each value with the domain name, we can create a unified namespace. The third example above uses this approach, making it clear that Net-4.5 represents a runtime and nothing else. As in #1, comma-separated values are alternatives. There is no other way to create logical combinations.</p>
+<h3 id="3-implied-domain">3. Implied Domain</h3>
+<p>To the extent that the accepted values are exclusive, it's possible to deduce the domain from the value. The fourth example above takes advantage of this. Note that this approach can be combined with #2 as a kind of shorthand.</p>
+<h3 id="4-logical-expression">4. Logical Expression</h3>
+<p>We can define a DSL that allows us to specify arbitrary expressions for including or excluding tests. The last example above does this. If the expression language included <strong>not</strong>, then we could do away with the ExcludeAttribute.</p>
+<h2 id="comparison-of-options">Comparison of Options</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The following are Charlie's ratings. Feel free to disagree!</p>
+</div>
+<h3 id="ease-of-implementation-easy-to-hard">Ease of implementation (easy to hard)</h3>
+<p>1 &gt; 2 &gt; 3 &gt; 4</p>
+<h3 id="expressiveness-least-to-greatest">Expressiveness (least to greatest)</h3>
+<p>3 &gt; 2 &gt; 1 &gt; 4</p>
+<h3 id="learning-curve-shallow-to-steep">Learning Curve (shallow to steep)</h3>
+<p>1 &gt; 3 &gt; 2 &gt; 4</p>
+<h3 id="extensibility-to-new-domains-easy-to-hard">Extensibility to new domains (easy to hard)</h3>
+<p>1 &gt; (2, 3, 4)</p>
+<h3 id="extensibility-with-new-values-easy-to-hard">Extensibility with new values (easy to hard)</h3>
+<p>3 &gt; (2, 4) &gt; 1</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/nunit-internals/specs/Include-and-Exclude-Attributes-Spec.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../styles/main.js"></script>
+  </body>
+</html>

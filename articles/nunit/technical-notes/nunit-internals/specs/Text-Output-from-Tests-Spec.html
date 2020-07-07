@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Text Output From Tests Spec | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Text Output From Tests Spec | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../../index.html">
+                <img id="logo" class="svg" src="../../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="text-output-from-tests-spec">Text Output From Tests Spec</h1>
+
+<div class="NOTE">
+<h5>Note</h5>
+<p>This page is a specification that was used as a starting point for creating the feature in NUnit. It needs to be reviewed and revised in order to accurately reflect what was actually built. If you take it with a grain of salt, it may still be helpful to you as documentation. This notice will be removed when the page is brought up to date.</p>
+</div>
+<h2 id="background">Background</h2>
+<p>In the past, NUnit was able to capture text output (Console, Trace and Log) and associate it with the correct test. This was possible because only one test could run at a time, therefore any output received between the start and end of a particular test could be identified with that test.</p>
+<p>In an environment where multiple tests may be running at the same time, this is no longer possible. Let's say that NUnit has received the following messages, in order:</p>
+<ul>
+<li>Start Test A</li>
+<li>Start Test B</li>
+<li>Some text output</li>
+<li>End Test A</li>
+<li>End Test B</li>
+</ul>
+<p>In this situation, the text output might be from Test A or from Test B. NUnit cannot associate the output with a particular test, although it is possible that the user might be able to interpret the result based on the actual content of the text output.</p>
+<h2 id="approach">Approach</h2>
+<p>Since it does run tests in parallel, NUnit 3.0 needs a new approach to handling text output:</p>
+<ul>
+<li>The <code>TestResult</code> class will have a new string property, <code>Output</code>, holding text output associated with the individual test.</li>
+<li>Console standard output will be captured and added to the test result.</li>
+<li>A separate facility will be added to the NUnit <code>TestContext</code> to allow tests to write directly to the test result.
+<ul>
+<li><strong>TestContext.Out</strong> gets a <code>TextWriter</code> that may be used to write output to the TestResult.</li>
+<li><strong>TestContext.Write(...)</strong> is a static method that writes output to the TestResult. Multiple overloads will be provided.</li>
+<li><strong>TestContext.WriteLine(...)</strong> is a static method that writes output to the TestResult. Multiple overloads will be provided.</li>
+</ul>
+</li>
+<li>Trace and Log output will no longer be handled by NUnit at all.</li>
+<li>Console error output will not be captured, but will display directly to the Console when using any of the console runners.</li>
+</ul>
+<h2 id="impact-of-changes">Impact of Changes</h2>
+<p>Standard output sent to the console will not display until the test completes. It will be clearly associated with the test if test labels are in use. If error output is redirected to a file either through the operating system or by using a command-line option then it will be written to the file. When running in the Gui, it will be available for display when the test is selected.</p>
+<p>Error output sent to the console will display immediately, provided a console is available. When running under the Gui or in another environment without a console attached, it will simply not appear. If error output is redirected to a file either through the operating system or by using a command-line option then it will be written to the file.</p>
+<p>Trace output will be processed in the normal way by .NET, depending on the configuration. NUnit will handle this output in any way or even be aware of it. This is how Trace is normally intended to work with a program.</p>
+<p>All log output will be processed by log4net (or any other logging facility) based on the configuration. NUnit will not handle it at all.</p>
+<p>NUnit-Console will display this output as each test completes. Since the completion of a test is a single event, all output will be associated with the correct test. However, since the output is not available until the test completes, it will not be useful for indicating progress of long-running tests.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/nunit-internals/specs/Text-Output-from-Tests-Spec.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../styles/main.js"></script>
+  </body>
+</html>

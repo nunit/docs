@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Analyzers | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Analyzers | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="nunitanalyzers">
+<h1 id="analyzers">Analyzers</h1>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Id</th>
+<th style="text-align: left;">Title</th>
+<th style="text-align: center;">Enabled by Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="NUnit1001.html">NUnit1001</a></td>
+<td style="text-align: left;">The individual arguments provided by a TestCaseAttribute must match the type of the matching parameter of the method.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1002.html">NUnit1002</a></td>
+<td style="text-align: left;">TestCaseSource should use nameof operator to specify target.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1003.html">NUnit1003</a></td>
+<td style="text-align: left;">Too few arguments provided by TestCaseAttribute.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1004.html">NUnit1004</a></td>
+<td style="text-align: left;">Too many arguments provided by TestCaseAttribute.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1005.html">NUnit1005</a></td>
+<td style="text-align: left;">The type of ExpectedResult must match the return type.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1006.html">NUnit1006</a></td>
+<td style="text-align: left;">ExpectedResult must not be specified when the method returns void.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1007.html">NUnit1007</a></td>
+<td style="text-align: left;">Method has non-void return type, but no result is expected in ExpectedResult.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1008.html">NUnit1008</a></td>
+<td style="text-align: left;">Specifying ParallelScope.Self on assembly level has no effect.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1009.html">NUnit1009</a></td>
+<td style="text-align: left;">No ParallelScope.Children on a non-parameterized test method.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1010.html">NUnit1010</a></td>
+<td style="text-align: left;">No ParallelScope.Fixtures on a test method.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1011.html">NUnit1011</a></td>
+<td style="text-align: left;">TestCaseSource argument does not specify an existing member.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1012.html">NUnit1012</a></td>
+<td style="text-align: left;">Async test method must have non-void return type.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1013.html">NUnit1013</a></td>
+<td style="text-align: left;">Async test method must have non-generic Task return type when no result is expected.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1014.html">NUnit1014</a></td>
+<td style="text-align: left;">Async test method must have <code>Task&lt;T&gt;</code> return type when a result is expected</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2001.html">NUnit2001</a></td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2002.html">NUnit2002</a></td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.False) instead of Assert.IsFalse(expr).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2003.html">NUnit2003</a></td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.True) instead of Assert.IsTrue(expr).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2004.html">NUnit2004</a></td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.True) instead of Assert.True(expr).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2005.html">NUnit2005</a></td>
+<td style="text-align: left;">Consider using Assert.That(expr2, Is.EqualTo(expr1)) instead of Assert.AreEqual(expr1, expr2).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2006.html">NUnit2006</a></td>
+<td style="text-align: left;">Consider using Assert.That(expr2, Is.Not.EqualTo(expr1)) instead of Assert.AreNotEqual(expr1, expr2).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2007.html">NUnit2007</a></td>
+<td style="text-align: left;">Actual value should not be constant.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2008.html">NUnit2008</a></td>
+<td style="text-align: left;">Incorrect IgnoreCase usage.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2009.html">NUnit2009</a></td>
+<td style="text-align: left;">Same value provided as actual and expected argument.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2010.html">NUnit2010</a></td>
+<td style="text-align: left;">Use EqualConstraint.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2011.html">NUnit2011</a></td>
+<td style="text-align: left;">Use ContainsConstraint.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2012.html">NUnit2012</a></td>
+<td style="text-align: left;">Use StartsWithConstraint.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2013.html">NUnit2013</a></td>
+<td style="text-align: left;">Use EndsWithConstraint.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2014.html">NUnit2014</a></td>
+<td style="text-align: left;">Use SomeItemsConstraint.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2015.html">NUnit2015</a></td>
+<td style="text-align: left;">Consider using Assert.That(expr2, Is.SameAs(expr1)) instead of Assert.AreSame(expr1, expr2).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2016.html">NUnit2016</a></td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.Null) instead of Assert.Null(expr).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2017.html">NUnit2017</a></td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.Null) instead of Assert.IsNull(expr).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2018.html">NUnit2018</a></td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2019.html">NUnit2019</a></td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.Not.Null) instead of Assert.IsNotNull(expr).</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2020.html">NUnit2020</a></td>
+<td style="text-align: left;">Incompatible types for SameAs constraint.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2021.html">NUnit2021</a></td>
+<td style="text-align: left;">Incompatible types for EqualTo constraint.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2022.html">NUnit2022</a></td>
+<td style="text-align: left;">Missing property required for constraint.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2023.html">NUnit2023</a></td>
+<td style="text-align: left;">Invalid NullConstraint usage.</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit-Analyzers.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

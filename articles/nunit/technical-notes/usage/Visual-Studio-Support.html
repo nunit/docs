@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Visual Studio Support | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Visual Studio Support | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="visual-studio-support">Visual Studio Support</h1>
+
+<div class="WARNING">
+<h5>Warning</h5>
+<p>This is a draft. The contents may be out of date.</p>
+</div>
+<p>NUnit supports the Visual Studio project and solution format, which are also
+used by a number of other IDEs.</p>
+<h2 id="running-from-within-visual-studio">Running From Within Visual Studio</h2>
+<p>The most convenient way to do this is to set up a custom tool entry specifying the path to
+NUnit as the command. For a VS2003 C# project, you can use $(TargetPath) for the arguments and
+$(TargetDir) for the initial directory.</p>
+<p>With Visual Studio VS2005 this becomes a bit harder, because that release changed the
+meaning of the 'Target' macros so they now point to the intermediate 'obj' directories rather
+than the final output in one of the 'bin' directories. Here are some alternatives that
+work in both versions:</p>
+<ul>
+<li><strong>$(ProjectDir)$(ProjectFileName)</strong> to open the VS Project rather than the assembly.
+If you use this approach, be sure to rename your config file accordingly and put it in the same directory as the VS project file.</li>
+<li><strong>$(ProjectDir)bin/Debug/$(TargetName)$(TargetExt)</strong> to run the assembly directly.
+Note that this requires hard-coding part of the path, including the configuration.</li>
+</ul>
+<p>If you would like to debug your tests, use the Visual Studio
+Debug | Processes… menu item to attach to NUnit after starting it and set breakpoints in
+your test code as desired before running the tests.</p>
+<h2 id="opening-visual-studio-projects">Opening Visual Studio Projects</h2>
+<p>When Visual Studio support is enabled, the File Open dialog displays the following supported
+Visual Studio project types: C#, VB.Net, J# and C++. The project file is read and the
+configurations and output assembly locations are identified. Since the project files do not contain
+information about the most recently opened configuration, the output assembly for the first
+configuration found (usually Debug) is loaded in the GUI. The tree shows the project as the top-level
+node with the assembly shown as its descendant.</p>
+<p>When tests are run for a Visual studio project, they run just as if the output assembly had been
+loaded with one exception. The default location for the config file is the directory containing the
+project file and its default name is the same as the project file with an extension of .config.
+For example, the following command would load the tests in the nunit.tests assembly using the
+configuration file nunit.tests.dll.config located in the same directory as the dll.</p>
+<pre><code class="lang-cmd">nunit.exe nunit.tests.dll
+</code></pre>
+<p>On the other hand, the following command would load the tests using the configuration file
+nunit.tests.config located in the same directory as the csproj file.</p>
+<pre><code class="lang-cmd">nunit.exe nunit.tests.csproj
+</code></pre>
+<p>The same consideration applies to running tests using the console runner.</p>
+<h2 id="opening-visual-studio-solutions">Opening Visual Studio Solutions</h2>
+<p>When Visual Studio support is enabled, solution files may be opened as well. All the output
+assemblies from contained projects of the types supported will be loaded in the tree. In the case
+where all contained projects are located in the subdirectories beneath the solution, it will be
+possible to load and run tests using this method directly.</p>
+<p>When a solution contains projects located elsewhere in the file system, it may not be possible to
+run the tests - although the solution will generally load without problem. In this case, the Project
+Editor should be use to modify and save the NUnit test project so that there is all referenced
+assemblies are located in or beneath the application base directory.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/usage/Visual-Studio-Support.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

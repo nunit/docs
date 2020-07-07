@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Test Filters | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Test Filters | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="test-filters">Test Filters</h1>
+
+<p>Test Filters represent a selection of tests to be displayed, run or loaded. When a filter needs to be passed to the framework, it is passed as a string containing an XML fragment. This page describes the elements present in the XML for a filter.</p>
+<h2 id="filter"><code>&lt;filter&gt;</code></h2>
+<p>This is the required top-level element for any filter. If it contains no other elements, it represents an empty filter. If it contains just one element, that element is used as the filter for all tests. If it contains multiple elements, it works like an <code>&lt;and&gt;</code> element.</p>
+<p>Child elements allowed: <code>&lt;and&gt;</code>, <code>&lt;or&gt;</code>, <code>&lt;not&gt;</code>, <code>&lt;id&gt;</code>, <code>&lt;test&gt;</code>, <code>&lt;cat&gt;</code>, <code>&lt;class&gt;</code>, <code>&lt;method&gt;</code>, <code>&lt;namespace&gt;</code>, <code>&lt;prop&gt;</code>, <code>&lt;name&gt;</code>.</p>
+<h2 id="and"><code>&lt;and&gt;</code></h2>
+<p>Represents an AndFilter. All contained filter elements must pass in order for this filter to pass.</p>
+<p>Child elements allowed: <code>&lt;and&gt;</code>, <code>&lt;or&gt;</code>, <code>&lt;not&gt;</code>, <code>&lt;id&gt;</code>, <code>&lt;test&gt;</code>, <code>&lt;cat&gt;</code>, <code>&lt;class&gt;</code>, <code>&lt;method&gt;</code>, <code>&lt;namespace&gt;</code>, <code>&lt;prop&gt;</code>, <code>&lt;name&gt;</code>.</p>
+<h2 id="or"><code>&lt;or&gt;</code></h2>
+<p>Represents an OrFilter. At least one contained filter element must pass in order for this filter to pass.</p>
+<p>Child elements allowed: <code>&lt;and&gt;</code>, <code>&lt;or&gt;</code>, <code>&lt;not&gt;</code>, <code>&lt;id&gt;</code>, <code>&lt;test&gt;</code>, <code>&lt;cat&gt;</code>, <code>&lt;class&gt;</code>, <code>&lt;method&gt;</code>, <code>&lt;namespace&gt;</code>, <code>&lt;prop&gt;</code>, <code>&lt;name&gt;</code>.</p>
+<h2 id="not"><code>&lt;not&gt;</code></h2>
+<p>Represents a NotFilter. The single contained filter element must fail in order for this filter to pass.</p>
+<p>Child elements allowed: <code>&lt;and&gt;</code>, <code>&lt;or&gt;</code>, <code>&lt;not&gt;</code>, <code>&lt;id&gt;</code>, <code>&lt;test&gt;</code>, <code>&lt;cat&gt;</code>, <code>&lt;class&gt;</code>, <code>&lt;method&gt;</code>, <code>&lt;namespace&gt;</code>, <code>&lt;prop&gt;</code>, <code>&lt;name&gt;</code>.</p>
+<h2 id="id"><code>&lt;id&gt;</code></h2>
+<p>Represents an IdFilter. The text of the element contains a single test id or multiple ids separated by commas. Since test ids are an internal construct, this filter is not useful externally. However, it is used by the NUnit Gui to efficiently select tests from the list of those loaded.</p>
+<p>Child elements allowed: None.</p>
+<h2 id="test"><code>&lt;test&gt;</code></h2>
+<p>Represents a selection by test name. The full name of the test is used as its inner text.
+If the filter should use a regular expression for matching then the element should contain an attribute named <code>re</code> with the value <code>&quot;1&quot;</code>.</p>
+<p>Child elements allowed: None.</p>
+<h2 id="cat"><code>&lt;cat&gt;</code></h2>
+<p>Represents a CategoryFilter. The text of the element contains a single category.
+If the filter should use a regular expression for matching then the element should contain an attribute named <code>re</code> with the value <code>&quot;1&quot;</code>.</p>
+<p>Child elements allowed: None.</p>
+<h2 id="class"><code>&lt;class&gt;</code></h2>
+<p>Represents a selection by class name. The fully qualified name of the class is used as its inner text.
+If the filter should use a regular expression for matching then the element should contain an attribute named <code>re</code> with the value <code>&quot;1&quot;</code>.</p>
+<p>Child elements allowed: None.</p>
+<h2 id="method"><code>&lt;method&gt;</code></h2>
+<p>Represents a selection by method name. The name of the method is used as its inner text.
+If the filter should use a regular expression for matching then the element should contain an attribute named <code>re</code> with the value <code>&quot;1&quot;</code>.</p>
+<p>Child elements allowed: None.</p>
+<h2 id="namespace"><code>&lt;namespace&gt;</code></h2>
+<p>Represents a selection by namespace. The fully qualified name of the namespace is used as its inner text.
+If the filter should use a regular expression for matching then the element should contain an attribute named <code>re</code> with the value <code>&quot;1&quot;</code>.</p>
+<p>Child elements allowed: None.</p>
+<h2 id="prop"><code>&lt;prop&gt;</code></h2>
+<p>Represents a PropertyFilter. The element has an attribute <code>name</code> which specifies the name of the property.
+The text of the element contains the value of the property.
+If the filter should use a regular expression for matching then the element should contain an attribute named <code>re</code> with the value <code>&quot;1&quot;</code>.</p>
+<p>Child elements allowed: None.</p>
+<h2 id="name"><code>&lt;name&gt;</code></h2>
+<p>Represents a selection by test name. The test name assigned by NUnit is used as its inner text.
+If the filter should use a regular expression for matching then the element should contain an attribute named <code>re</code> with the value <code>&quot;1&quot;</code>.</p>
+<p>Child elements allowed: None.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/usage/Test-Filters.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

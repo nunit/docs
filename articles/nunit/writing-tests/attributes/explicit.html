@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Explicit | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Explicit | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="explicit">Explicit</h1>
+
+<p>The Explicit attribute causes a test or test fixture to be skipped unless it is
+explicitly selected for running. The test or fixture will be run if it is
+selected by name or if it is included by use of a filter. A <strong>not</strong>
+filter, which excludes certain tests, is not treated as an explicit selection
+and never causes an explicit test to be run. All other filters are considered
+to explicitly select the tests that they match. See examples below.</p>
+<p>An optional string argument may be used to give the reason for marking
+the test Explicit.</p>
+<p>If a test or fixture with the Explicit attribute is encountered in the course of
+running tests, it is skipped unless it has been specifically selected by one
+of the above means. The test does not affect the overall result of the test run.
+Explicit tests are displayed in the gui as skipped.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>While the C# syntax allows you to place an Explicit attribute on a SetUpFixture class, the attribute is ignored by NUnit and has no effect in current releases.</p>
+</div>
+<h2 id="examples-of-use">Examples of Use</h2>
+<p>Using the console command-line to select tests, the following options will include any
+explicit tests that fall under the selection.</p>
+<pre><code class="lang-none">    --test=My.Namespace.Fixture.Method
+    --test=My.Namespace.Fixture
+    --test=My.Namespace
+    --where test==My.Namespace.Fixture.Method
+    --where test==My.Namespace.Fixture
+    --where test==My.Namespace
+    --where cat==X
+    --where &quot;cat==X || cat==Y&quot;
+</code></pre>
+<p>However, the following options will <strong>not</strong> include explicit tests</p>
+<pre><code class="lang-none">    --where test!=My.Namespace.Fixture
+    --where cat!=X
+</code></pre>
+<h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
+<h3 id="c"><code>C#</code></h3>
+<pre><code class="lang-csharp">namespace NUnit.Tests
+{
+  using System;
+  using NUnit.Framework;
+
+  [TestFixture, Explicit]
+  public class ExplicitTests
+  {
+    // ...
+  }
+}
+</code></pre>
+<h3 id="visual-basic">Visual Basic</h3>
+<pre><code class="lang-VB">Imports System
+Imports NUnit.Framework
+
+Namespace NUnit.Tests
+
+  &lt;TestFixture(), Explicit()&gt;
+  Public Class ExplicitTests
+    ' ...
+  End Class
+End Namespace
+</code></pre>
+<h3 id="c-1">C++</h3>
+<pre><code class="lang-cpp">using namespace System;
+using namespace NUnit::Framework;
+
+namespace NUnitTests
+{
+  [TestFixture]
+  [Explicit]
+  public __gc class ExplicitTests
+  {
+    // ...
+  };
+}
+
+# include &quot;cppsample.h&quot;
+
+namespace NUnitTests {
+  // ...
+}
+</code></pre>
+<h2 id="test-syntax">Test Syntax</h2>
+<h3 id="c-2"><code>C#</code></h3>
+<pre><code class="lang-csharp">namespace NUnit.Tests
+{
+  using System;
+  using NUnit.Framework;
+
+  [TestFixture]
+  public class SuccessTests
+  {
+    [Test, Explicit]
+    public void ExplicitTest()
+    { /* ... */ }
+}
+</code></pre>
+<h3 id="visual-basic-1">Visual Basic</h3>
+<pre><code class="lang-vb">Imports System
+Imports NUnit.Framework
+
+Namespace NUnit.Tests
+
+  &lt;TestFixture()&gt; Public Class SuccessTests
+    &lt;Test(), Explicit()&gt; Public Sub ExplicitTest()
+      ' ...
+    End Sub
+  End Class
+End Namespace
+</code></pre>
+<h3 id="c-3">C++</h3>
+<pre><code class="lang-cpp"># using &lt;NUnit.Framework.dll&gt;
+using namespace System;
+using namespace NUnit::Framework;
+
+namespace NUnitTests
+{
+  [TestFixture]
+  public __gc class SuccessTests
+  {
+    [Test][Explicit] void ExplicitTest();
+  };
+}
+
+# include &quot;cppsample.h&quot;
+
+namespace NUnitTests {
+  // ...
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/explicit.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

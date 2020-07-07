@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Apartment | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Apartment | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="apartment-attribute">
+<h1 id="apartment">Apartment</h1>
+
+<p>The <code>ApartmentAttribute</code> is used on a test method, class or assembly
+to specify that the tests should be run in a particular <a href="https://docs.microsoft.com/en-us/windows/desktop/com/processes--threads--and-apartments">apartment</a>, either
+the STA or the MTA.</p>
+<p>When running tests in parallel, the test is simply scheduled to execute
+from a queue that uses the apartment specified. When the parallel feature
+is not in use, it causes creation of a new thread if the parent test is
+not already running in the correct apartment.</p>
+<p>When this attribute is not specified, tests run in the MTA.</p>
+<p>This attribute replaces the RequiresMTA and RequiresSTA attributes, which
+are now considered obsolete.</p>
+<h2 id="assembly-level-examples">Assembly Level Examples</h2>
+<pre><code class="lang-csharp">
+// All the tests in this assembly will use the MTA by default. Since
+// this is the general default, the attribute is not actually needed.
+[assembly:Apartment(ApartmentState.MTA)]
+
+...
+
+// All the tests in this assembly will use the STA by default
+[assembly:Apartment(ApartmentState.STA)]
+
+</code></pre>
+<h2 id="test-fixture-examples">Test Fixture Examples</h2>
+<pre><code class="lang-csharp">
+// TestFixture requiring use of the MTA. The attribute is not
+// needed unless the STA was specified at a higher level.
+[TestFixture, Apartment(ApartmentState.MTA)]
+public class FixtureRequiringMTA
+{
+  // All tests in the fixture will run in the MTA.
+}
+
+// TestFixture requiring use of the STA.
+[TestFixture, Apartment(ApartmentState.STA)]
+public class FixtureRequiringSTA
+{
+  // All tests in the fixture will run in the STA.
+}
+
+</code></pre>
+<h2 id="test-method-examples">Test Method Examples</h2>
+<pre><code class="lang-csharp">[TestFixture]
+public class AnotherFixture
+{
+  [Test, Apartment(ApartmentState.MTA)]
+  public void TestRequiringMTA()
+  {
+    // This test will run in the MTA.
+  }
+  
+  [Test, Apartment(ApartmentState.STA)]
+  public void TestRequiringSTA()
+  {
+    // This test will run in the STA.
+  }
+}
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="requiresthread.html">RequiresThread Attribute</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/apartment.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

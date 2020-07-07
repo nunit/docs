@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>IApplyToContext Interface | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="IApplyToContext Interface | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="iapplytocontext-interface">IApplyToContext Interface</h1>
+
+<p>NUnit tests run within a context, known as the <code>TestExecutionContext</code>. The context for a test case is nested within the context for its containing suite and so on, up to the assembly level. Attributes that implement <code>IApplyToContext</code> are called immediately after the context is created and before the test is run in order to make changes to the context. Once the test execution has completed, the context is discarded so that - effectively - any changes are reverted to their original values.</p>
+<p>The <code>IApplyToContext</code> interface is defined as follows:</p>
+<pre><code class="lang-csharp">public interface IApplyToContext
+{
+    void ApplyToContext(TestExecutionContext context);
+}
+</code></pre>
+<p>An example of the use of the context may be helpful. One item in the <code>TestExecutionContext</code> is the default timeout value for test cases. When any test is marked with <code>[Timeout(nnn)]</code> the context value is replaced by the supplied argument. The new timeout applies for any test case it appears on and any test case that is contained in a suite that it appears on. When the test or suite completes, the new value is discarded and the value contained in the original context is once against used.</p>
+<p>Custom attributes that implement <code>IApplyToContext</code> should modify the TestExecutionContext in accordance with the arguments supplied to them. They are not called after the test is run and have no cleanup to perform.</p>
+<p>The NUnit attributes that implement <code>IApplyToContext</code> are as follows:</p>
+<ul>
+<li><code>DefaultFloatingPointToleranceAttribute</code></li>
+<li><code>ParallelizableAttribute</code></li>
+<li><code>SetCultureAttribute</code></li>
+<li><code>SetUICultureAttribute</code></li>
+<li><code>SingleThreadedAttribute</code></li>
+<li><code>TimeoutAttribute</code></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/extending-nunit/IApplyToContext-Interface.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

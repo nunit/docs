@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Engine Driver API | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Engine Driver API | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="engine-driver-api">Engine Driver API</h1>
+
+<p>The TestEngine uses drivers to interface with frameworks. This isolates framework-specific code from the more general code used to load and run tests. Each test framework that is used with the engine needs a driver to support it. While a driver could theoretically support multiple frameworks, we expect the normal case to be a one-to-one mapping of drivers to frameworks.</p>
+<p>Because they are quite different internally, NUnit itself treats its own 2.x and 3.x framework versions as separate frameworks, with each using a different driver. The NUnit 3 driver is the only one built into the engine. All other drivers must be written and installed as extensions.</p>
+<p>Designing an API for drivers involved compromise. The API had to be simple enough to be easily implemented by those wanting to use NUnit with a particular framework. On the other hand, if it was too simple, some advanced capabilities of a given framework might not be easily accessible.</p>
+<h2 id="implementation-details">Implementation Details</h2>
+<p>The driver API is encapsulated in the <code>IDriverFactory</code> and <code>IFrameworkDriver</code> interfaces, which must be implemented by all framework driver extensions to the engine.</p>
+<h3 id="idriverfactory">IDriverFactory</h3>
+<p>The IDriverFactory interface is called by the engine to determine if a particular extension is able to create a driver for a particular framework assembly. The engine passes the AssemblyName of each assembly referenced by the test assembly to the factory to see if it is a supported framework. If it finds one, then it uses that driver. If not, it goes on to check the next driver extension.</p>
+<pre><code class="lang-csharp">namespace NUnit.Engine.Extensibility
+{
+    /// &lt;summary&gt;
+    /// Interface implemented by a Type that knows how to create a driver for a test assembly.
+    /// &lt;/summary&gt;
+    [TypeExtensionPoint(Description = &quot;Supplies a driver to run tests that use a specific test framework.&quot;)]
+    public interface IDriverFactory
+    {
+        /// &lt;summary&gt;
+        /// Gets a flag indicating whether a given AssemblyName
+        /// represents a test framework supported by this factory.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;reference&quot;&gt;An AssemblyName referring to the possible test framework.&lt;/param&gt;
+        bool IsSupportedTestFramework(AssemblyName reference);
+
+        /// &lt;summary&gt;
+        /// Gets a driver for a given test assembly and a framework
+        /// which the assembly is already known to reference.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;domain&quot;&gt;The domain in which the assembly will be loaded&lt;/param&gt;
+        /// &lt;param name=&quot;reference&quot;&gt;An AssemblyName referring to the test framework.&lt;/param&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        IFrameworkDriver GetDriver(AppDomain domain, AssemblyName reference);
+    }
+}
+</code></pre>
+<h3 id="iframeworkdriver">IFrameworkDriver</h3>
+<p>The <code>IFrameworkDriver</code> interface is returned from <code>IDriverFactory</code> and is the key interface for actually loading, exploring and running the tests in the test assembly. In theory, a single driver factory could return different drivers in different situations, but we expect a one-to-one mapping of factories to drivers to be most commonly used.</p>
+<pre><code class="lang-csharp">namespace NUnit.Engine.Extensibility
+{
+    /// &lt;summary&gt;
+    /// The IFrameworkDriver interface is implemented by a class that
+    /// is able to use an external framework to explore or run tests
+    /// under the engine.
+    /// &lt;/summary&gt;
+    public interface IFrameworkDriver
+    {
+        /// &lt;summary&gt;
+        /// Gets and sets the unique identifier for this driver,
+        /// used to ensure that test ids are unique across drivers.
+        /// &lt;/summary&gt;
+        string ID { get; set; }
+
+        /// &lt;summary&gt;
+        /// Loads the tests in an assembly.
+        /// &lt;/summary&gt;
+        /// &lt;returns&gt;An Xml string representing the loaded test&lt;/returns&gt;
+        string Load(string testAssemblyPath, IDictionary&lt;string, object&gt; settings);
+
+        /// &lt;summary&gt;
+        /// Count the test cases that would be executed.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;filter&quot;&gt;An XML string representing the TestFilter to use in counting the tests&lt;/param&gt;
+        /// &lt;returns&gt;The number of test cases counted&lt;/returns&gt;
+        int CountTestCases(string filter);
+
+        /// &lt;summary&gt;
+        /// Executes the tests in an assembly.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;listener&quot;&gt;An ITestEventHandler that receives progress notices&lt;/param&gt;
+        /// &lt;param name=&quot;filter&quot;&gt;A XML string representing the filter that controls which tests are executed&lt;/param&gt;
+        /// &lt;returns&gt;An Xml string representing the result&lt;/returns&gt;
+        string Run(ITestEventListener listener, string filter);
+
+        /// &lt;summary&gt;
+        /// Returns information about the tests in an assembly.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;filter&quot;&gt;An XML string representing the filter that controls which tests are included&lt;/param&gt;
+        /// &lt;returns&gt;An Xml string representing the tests&lt;/returns&gt;
+        string Explore(string filter);
+
+        /// &lt;summary&gt;
+        /// Cancel the ongoing test run. If no test is running, the call is ignored.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;force&quot;&gt;If true, cancel any ongoing test threads, otherwise wait for them to complete.&lt;/param&gt;
+        void StopRun(bool force);
+    }
+}
+</code></pre>
+<p>As designed, the <code>IFrameworkDriver</code> interface maps most directly to the requirements of the NUnit 3 framework. Drivers for other frameworks need to function as an adapter to run tests and return understandable results to the engine.</p>
+<p>The filter argument passed to several of the interface methods is an XML string representing the filter. See <a href="../usage/Test-Filters.html">Test Filters</a> for a description of the format, which is directly understood by the NUnit 3 framework, but which must be converted by the driver to something that is understood by other frameworks.</p>
+<h3 id="itesteventlistener">ITestEventListener</h3>
+<p>The <code>ITestEventListener</code> interface is implemented by the Engine and used by each driver to report significant events during the execution of tests.</p>
+<pre><code class="lang-csharp">namespace NUnit.Engine
+{
+    /// &lt;summary&gt;
+    /// The ITestEventListener interface is used to receive notices of significant
+    /// events while a test is running. Its single method accepts an Xml string,
+    /// which may represent any event generated by the test framework, the driver
+    /// or any of the runners internal to the engine. Use of Xml means that
+    /// any driver and framework may add additional events and the engine will
+    /// simply pass them on through this interface.
+    /// &lt;/summary&gt;
+    [TypeExtensionPoint(Description = &quot;Allows an extension to process progress reports and other events from the test.&quot;)]
+    public interface ITestEventListener
+    {
+        /// &lt;summary&gt;
+        /// Handle a progress report or other event.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;report&quot;&gt;An XML progress report.&lt;/param&gt;
+        void OnTestEvent(string report);
+    }
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/nunit-internals/Engine-Driver-Api.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TestContext | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="TestContext | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="TestContext">
+<h1 id="testcontext">TestContext</h1>
+
+<p>Each NUnit test runs in an execution context, which includes information about the environment as well as the test itself. The <code>TestContext</code> class allows tests to access certain information about the execution context.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>It's important to remember that &quot;test&quot; in NUnit may refer to an individual test cases or a suite such as a <code>TestFixture</code>. Within a test method, <code>SetUp</code> method or <code>TearDown</code> method, the context is that of the individual test case. Within a <code>OneTimeSetUp</code> or <code>OneTimeTearDown</code> method, the context refers to the fixture as a whole. This can lead to confusion, since most runners display information about fixtures differently from test cases. In fact, some runners may not display information about fixtures at all!</p>
+</div>
+<h2 id="static-properties">Static Properties</h2>
+<h3 id="currentcontext">CurrentContext</h3>
+<p>Gets the context of the currently executing test. This context
+is created separately for each test before it begins execution.
+See below for properties of the current context.</p>
+<h3 id="out">Out</h3>
+<p>Gets a TextWriter used for sending output to the current test result.</p>
+<h3 id="error">Error</h3>
+<p>Gets a TextWriter used for sending error output intended for immediate display.</p>
+<h3 id="progress">Progress</h3>
+<p>Gets a TextWriter used for  sending normal (non-error) output intended for immediate display.</p>
+<h3 id="testparameters">TestParameters</h3>
+<p>Test parameters may be supplied to a run in various ways, depending on the runner used. For example, the console runner provides a command-line argument and v3.4 of the NUnit 3 VS Adapter will supports specifying them in a .runsettings file. The static TestParameters property returns an object representing those passed-in parameters.</p>
+<p>The TestParameters object supports the following properties:</p>
+<ul>
+<li><code>Count</code> - The number of parameters.</li>
+<li><code>Names</code> - A collection of the names of the supplied parameters.</li>
+<li><code>this[string name]</code> - The value of a parameter. In Vb, use <code>Item</code>.</li>
+</ul>
+<p>The TestParameters object supports the following methods:</p>
+<ul>
+<li><code>Exists(string name)</code> - Returns true if a parameter of that name exists.</li>
+<li><code>Get(string name)</code>- Returns the same value as the indexer.</li>
+<li><code>Get&lt;T&gt;(string name, T defaultValue)</code> - Returns the value of the parameter converted from a string to type T or the specified default if the parameter doesn't exist. Throws an exception if conversion fails.</li>
+</ul>
+<p><strong>Note</strong> that all parameter values are strings. You may convert them to other Types using the generic <code>Get</code> method listed above or using your own code. An exception may be thrown if the supplied value cannot be converted correctly.</p>
+<h2 id="static-methods">Static Methods</h2>
+<h3 id="write">Write</h3>
+<p>Writes text to the current test result.</p>
+<pre><code class="lang-csharp">Write(bool value)
+Write(char value)
+Write(char[] value)
+Write(double value)
+Write(Int32 value)
+Write(Int64 value)
+Write(decimal value)
+Write(object value)
+Write(Single value)
+Write(string value)
+Write(UInt32 value)
+Write(UInt64 value)
+Write(string format, object arg1)
+Write(string format, object arg1, object arg2)
+Write(string format, object arg1, object arg2, object arg3)
+Write(string format, params object[] args)
+</code></pre>
+<h3 id="writeline">WriteLine</h3>
+<p>Writes text to the current test result, followed by a newline.</p>
+<pre><code class="lang-csharp">  WriteLine()
+  WriteLine(bool value)
+  WriteLine(char value)
+  WriteLine(char[] value)
+  WriteLine(double value)
+  WriteLine(Int32 value)
+  WriteLine(Int64 value)
+  WriteLine(decimal value)
+  WriteLine(object value)
+  WriteLine(Single value)
+  WriteLine(string value)
+  WriteLine(UInt32 value)
+  WriteLine(UInt64 value)
+  WriteLine(string format, object arg1)
+  WriteLine(string format, object arg1, object arg2)
+  WriteLine(string format, object arg1, object arg2, object arg3)
+  WriteLine(string format, params object[] args)
+</code></pre>
+<h3 id="addformatter-32">AddFormatter (3.2+)</h3>
+<p>Adds a formatter for values based on some criterion, such as the Type of the value. The provided formatter will be used when an expected or actual value needs to be displayed as part of a message from a constraint.</p>
+<pre><code class="lang-csharp">AddFormatter(ValueFormatter formatter);
+AddFormatter(ValueFormatterFactory formatterFactory);
+</code></pre>
+<p>Both <code>ValueFormatter</code> and <code>ValueFormatterFactory</code> are delegates. <code>ValueFormatter</code> takes a single object as an argument and returns its string representation. The <code>AddFormatter</code> overload that takes a ValueFormatter is intended for use in most cases that arise.</p>
+<h3 id="addtestattachment-37">AddTestAttachment (3.7+)</h3>
+<p>Attaches a file, with optional description, to the current test.</p>
+<pre><code class="lang-csharp">AddTestAttachment(string filePath, string description = null);
+</code></pre>
+<p>The file will be attached to the test result in the xml report. Test runners, such as the NUnit 3 VS Adapter, may also present the file to the user.</p>
+<p>Notes:</p>
+<ol>
+<li>The file must exist at the time of attachment.</li>
+<li>File paths will be resolved as fully rooted paths, relative to <code>TestContext.CurrentContext.WorkDirectory</code>, which can be set by the user.</li>
+</ol>
+<h2 id="properties-of-the-currentcontext">Properties of the CurrentContext</h2>
+<h3 id="test">Test</h3>
+<p>Gets a representation of the current test, with the following properties:</p>
+<ul>
+<li><strong>ID</strong> - The unique Id of the test</li>
+<li><strong>Name</strong> - The name of the test, whether set by the user or generated automatically</li>
+<li><strong>FullName</strong> - The fully qualified name of the test</li>
+<li><strong>MethodName</strong> - The name of the method representing the test, if any</li>
+<li><strong>Properties</strong> - An <code>IPropertyBag</code> of the test properties</li>
+</ul>
+<h3 id="result">Result</h3>
+<p>Gets a representation of the test result, with the following properties:</p>
+<ul>
+<li><strong>Outcome</strong> - A <code>ResultState</code> representing the outcome of the test. <code>ResultState</code> has the following properties:
+<ul>
+<li><strong>Status</strong> - A <code>TestStatus</code> with four possible values:
+<ul>
+<li>Inconclusive</li>
+<li>Skipped</li>
+<li>Passed</li>
+<li>Failed</li>
+</ul>
+</li>
+<li><strong>Label</strong> - An optional string value, which can provide sub-categories for each Status. See below for a list of common outcomes supported internally by NUnit.</li>
+<li><strong>Site</strong> - A <code>FailureSite</code> value, indicating the stage of execution in which the test generated its result. Possible values are
+<ul>
+<li>Test</li>
+<li>SetUp</li>
+<li>TearDown</li>
+<li>Parent</li>
+<li>Child</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Although the outcome of the test may be accessed during setup or test execution, it only has a useful value in the teardown stage.</p>
+<h3 id="common-outcomes">Common Outcomes</h3>
+<p>The following is a list of outcomes currently produced by NUnit. Others may be added in the future.</p>
+<ul>
+<li>Success: the test passed. (Status=Passed)</li>
+<li>Inconclusive: the test was inconclusive. (Status=Inconclusive)</li>
+<li>Failure: a test assertion failed. (Status=Failed, Label=empty)</li>
+<li>Error: an unexpected exception occurred. (Status=Failed, Label=Error)</li>
+<li>NotRunnable: the test was invalid and could not be run. (Status=Failed, Label=Invalid)</li>
+<li>Cancelled: the user cancelled while this test was running. (Status=Failed, Label=Cancelled)</li>
+<li>Ignored: the test was ignored. (Status=Skipped, Label=Ignored)</li>
+<li>Explicit: the test was not run because it is marked Explicit. (Status=Skipped, Label=Explicit)</li>
+<li>Skipped: the test was skipped for some other reason. (Status=Skipped, Label=empty)</li>
+</ul>
+<h3 id="testdirectory">TestDirectory</h3>
+<p>Gets the full path of the directory containing the current test assembly.</p>
+<h3 id="workdirectory">WorkDirectory</h3>
+<p>Gets the full path of the directory to be used for output from this test run. The XML result file and any redirected output files are located under this directory. This is normally the directory that was current when execution of
+NUnit began but may be changed by use of the <strong>--work</strong> option of nunit-console.</p>
+<h3 id="random">Random</h3>
+<p>Returns a <code>Randomizer</code> object, which may be used in the test code to generate random values. These values are repeatable on reruns of the tests so long as (a) the test assembly is not changed and (b) the same seed is used. The initial random seed used in any test run may be found in the XML result file and may be provided to a subsequent run on the command line.</p>
+<p>See <a href="Randomizer-Methods.html">Randomizer Methods</a> for details about each available random data type.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/TestContext.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Randomizer Methods | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Randomizer Methods | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="RandomizerMethods">
+<h1 id="randomizer-methods">Randomizer Methods</h1>
+
+<p>The <strong>Randomizer</strong> object exposed by <code>TestContext.CurrentContext.Random</code> extends <code>System.Random</code> to provide random data for a wide range of numeric types as well as enums and strings. Each test context has access to its own <strong>Randomizer</strong> which is used to generate random values for the <code>RandomAttribute</code> as well as for use by the user calling its methods.</p>
+<p>The benefit of using <strong>Randomizer</strong> rather than <code>System.Random</code> directly is twofold:</p>
+<ol>
+<li>A wide range of types are provided in a uniform manner.</li>
+<li>Randomizer produces repeatable values for the test run so long as no tests are changed and the same seed is used to initialize the run. A future extension is planned, which would provide repeatability at the individual method level, even if other methods are changed.</li>
+</ol>
+<h2 id="int-systemint32">Int (System.Int32)</h2>
+<h3 id="next"><code>Next()</code></h3>
+<p>Returns the next random non-negative int. (Inherited from <code>System.Random</code>)</p>
+<h3 id="nextint-max"><code>Next(int max)</code></h3>
+<p>Returns the next random non-negative int less than max, which must be positive. (Inherited from <code>System.Random</code>)</p>
+<h3 id="nextint-min-int-max"><code>Next(int min, int max)</code></h3>
+<p>Returns the next random int in the range min to max, excluding max. (Inherited from <code>System.Random</code>)</p>
+<h2 id="uint-systemuint32">UInt (System.UInt32)</h2>
+<h3 id="nextuint"><code>NextUInt()</code></h3>
+<p>Returns the next random uint.</p>
+<h3 id="nextuintuint-max"><code>NextUInt(uint max)</code></h3>
+<p>Returns the next random uint less than max.</p>
+<h3 id="nextuintuint-min-uint-max"><code>NextUInt(uint min, uint max)</code></h3>
+<p>Returns the next random uint in the range min to max, excluding max.</p>
+<h2 id="long-systemint64">Long (System.Int64)</h2>
+<h3 id="nextlong"><code>NextLong()</code></h3>
+<p>Returns the next random non-negative long.</p>
+<h3 id="nextlonglong-max"><code>NextLong(long max)</code></h3>
+<p>Returns the next random non-negative long less than max, which must be positive.</p>
+<h3 id="nextlonglong-min-long-max"><code>NextLong(long min, long max)</code></h3>
+<p>Returns the next random long in the range min to max, excluding max.</p>
+<h2 id="ulong-systemuint64">ULong (System.UInt64)</h2>
+<h3 id="nextulong"><code>NextULong()</code></h3>
+<p>Returns the next random ulong.</p>
+<h3 id="nextulongulong-max"><code>NextULong(ulong max)</code></h3>
+<p>Returns the next random ulong less than max.</p>
+<h3 id="nextulongulong-min-ulong-max"><code>NextULong(ulong min, ulong max)</code></h3>
+<p>Returns the next random ulong in the range min to max, excluding max.</p>
+<h2 id="short-systemint16">Short (System.Int16)</h2>
+<h3 id="nextshort"><code>NextShort()</code></h3>
+<p>Returns the next random non-negative short.</p>
+<h3 id="nextshortshort-max"><code>NextShort(short max)</code></h3>
+<p>Returns the next random non-negative short less than max, which must be positive.</p>
+<h3 id="nextshortshort-min-short-max"><code>NextShort(short min, short max)</code></h3>
+<p>Returns the next random short in the range min to max, excluding max.</p>
+<h2 id="ushort-systemuint16">UShort (System.UInt16)</h2>
+<h3 id="nextushort"><code>NextUShort()</code></h3>
+<p>Returns the next random ushort.</p>
+<h3 id="nextushortushort-max"><code>NextUShort(ushort max)</code></h3>
+<p>Returns the next random ushort less than max.</p>
+<h3 id="nextushortushort-min-ushort-max"><code>NextUShort(ushort min, ushort max)</code></h3>
+<p>Returns the next random ushort in the range min to max, excluding max.</p>
+<h2 id="sbyte-systemsbyte">SByte (System.SByte)</h2>
+<h3 id="nextsbyte"><code>NextSByte()</code></h3>
+<p>Returns the next random non-negative sbyte.</p>
+<h3 id="nextsbytesbyte-max"><code>NextSByte(sbyte max)</code></h3>
+<p>Returns the next random non-negative sbyte less than max, which must be positive.</p>
+<h3 id="nextsbytesbyte-min-sbyte-max"><code>NextSByte(sbyte min, sbyte max)</code></h3>
+<p>Returns the next random sbyte in the range min to max, excluding max.</p>
+<h2 id="byte-systembyte">Byte (System.Byte)</h2>
+<h3 id="nextbyte"><code>NextByte()</code></h3>
+<p>Returns the next random byte.</p>
+<h3 id="nextbytebyte-max"><code>NextByte(byte max)</code></h3>
+<p>Returns the next random byte less than max.</p>
+<h3 id="nextbytebyte-min-byte-max"><code>NextByte(byte min, byte max)</code></h3>
+<p>Returns the next random byte in the range min to max, excluding max.</p>
+<h2 id="double-systemdouble">Double (System.Double)</h2>
+<h3 id="nextdouble"><code>NextDouble()</code></h3>
+<p>Returns the next double in the range 0.0 to 1.0, exclusive. (Inherited from <code>System.Random</code>.)</p>
+<h3 id="nextdoubledouble-max"><code>NextDouble(double max)</code></h3>
+<p>Returns the next non-negative double less than max.</p>
+<h3 id="nextdoubledouble-min-double-max"><code>NextDouble(double min, double max)</code></h3>
+<p>Returns the next double in the range min to max, excluding max.</p>
+<h2 id="float-systemfloat">Float (System.Float)</h2>
+<h3 id="nextfloat"><code>NextFloat()</code></h3>
+<p>Returns the next float in the range 0.0f to 1.0f, exclusive.</p>
+<h3 id="nextfloatfloat-max"><code>NextFloat(float max)</code></h3>
+<p>Returns the next non-negative float less than max.</p>
+<h3 id="nextfloatfloat-min-float-max"><code>NextFloat(float min, float max)</code></h3>
+<p>Returns the next float in the range min to max, excluding max.</p>
+<h2 id="decimal-systemdecimal">Decimal (System.Decimal)</h2>
+<h3 id="nextdecimal"><code>NextDecimal()</code></h3>
+<p>Returns the next non-negative random decimal.</p>
+<h3 id="nextdecimaldecimal-max"><code>NextDecimal(decimal max)</code></h3>
+<p>Returns the next non-negative decimal less than max.</p>
+<h3 id="nextdecimaldecimal-min-decimal-max"><code>NextDecimal(decimal min, decimal max)</code></h3>
+<p>Returns the next decimal in the range min to max, excluding max.</p>
+<h4 id="notes-on-decimal-implementation">Notes on Decimal Implementation</h4>
+<ol>
+<li>In the current implementation, the scale is always set to zero. That is, the values are all integral, with no decimal places. This may be enhanced in a future release by allowing the user to specify the scale.</li>
+<li>In the third form, an exception is currently thrown if the range is greater than <code>decimal.MaxValue</code>. This can only occur if min is negative and max is positive.</li>
+</ol>
+<h2 id="bool-systemboolean">Bool (System.Boolean)</h2>
+<h3 id="nextbool"><code>NextBool()</code></h3>
+<p>Returns a random bool with equal probability of <code>true</code> or <code>false</code>.</p>
+<h3 id="nextbooldouble-probability"><code>NextBool(double probability)</code></h3>
+<p>Returns a random bool with the specified probability of being <code>true</code>. Probability argument must be in the range 0.0 to 1.0, inclusive.</p>
+<h2 id="enum-systemenum">Enum (System.Enum)</h2>
+<h3 id="nextenumt"><code>NextEnum&lt;T&gt;()</code></h3>
+<p>Returns a random enum value of type T. All the values of the enum are returned with equal probability. Note that this may not be useful in all cases for enums with the <code>FlagsAttribute</code> specified.</p>
+<h3 id="nextenumtype-type"><code>NextEnum(Type type)</code></h3>
+<p>Returns a random enum value of the type specified as an object, which the caller will normally cast to the specified type.</p>
+<h2 id="string-systemstring">String (System.String)</h2>
+<h3 id="getstring"><code>GetString()</code></h3>
+<p>Returns a random string of default length, composed using a default set of characters. In the current implementation, the default length is hard-coded as 25 and the default characters are &quot;abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789_&quot;.</p>
+<h3 id="getstringint-length"><code>GetString(int length)</code></h3>
+<p>Returns a random string of the specified length.</p>
+<h3 id="getstringint-outputlength-string-allowedchars"><code>GetString(int outputLength, string allowedChars)</code></h3>
+<p>Returns a random string of the specified length using the characters in the string given as the second argument.</p>
+<h2 id="guid-systemguid">Guid (System.Guid)</h2>
+<h3 id="nextguid-available-in-version-38"><code>NextGuid()</code> (available in version 3.8)</h3>
+<p>Generates a version 4 Guid conforming the <a href="https://tools.ietf.org/html/rfc4122#section-4.4">RFC 4122</a>. Version 4 Guids are made of random data.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/Randomizer-Methods.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

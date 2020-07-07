@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Classic Model | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Classic Model | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../../index.html">
+                <img id="logo" class="svg" src="../../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="classicmodel">
+<h1 id="classic-model">Classic Model</h1>
+
+<p>The classic Assert model uses a separate method to express each individual assertion of which it is capable.</p>
+<p>Here's a simple assert using the classic model:</p>
+<pre><code class="lang-csharp">StringAssert.AreEqualIgnoringCase(&quot;Hello&quot;, myString);
+</code></pre>
+<p>The Assert class provides the most common assertions in NUnit:</p>
+<ul>
+<li><a href="../classic-assertions/Assert.True.html">Assert.True</a></li>
+<li><a href="../classic-assertions/Assert.False.html">Assert.False</a></li>
+<li><a href="../classic-assertions/Assert.Null.html">Assert.Null</a></li>
+<li><a href="../classic-assertions/Assert.NotNull.html">Assert.NotNull</a></li>
+<li><a href="../classic-assertions/Assert.Zero.html">Assert.Zero</a></li>
+<li><a href="../classic-assertions/Assert.NotZero.html">Assert.NotZero</a></li>
+<li><a href="../classic-assertions/Assert.IsNaN.html">Assert.IsNaN</a></li>
+<li><a href="../classic-assertions/Assert.IsEmpty.html">Assert.IsEmpty</a></li>
+<li><a href="../classic-assertions/Assert.IsNotEmpty.html">Assert.IsNotEmpty</a></li>
+<li><a href="../classic-assertions/Assert.AreEqual.html">Assert.AreEqual</a></li>
+<li><a href="../classic-assertions/Assert.AreNotEqual.html">Assert.AreNotEqual</a></li>
+<li><a href="../classic-assertions/Assert.AreSame.html">Assert.AreSame</a></li>
+<li><a href="../classic-assertions/Assert.AreNotSame.html">Assert.AreNotSame</a></li>
+<li><a href="../classic-assertions/Assert.Contains.html">Assert.Contains</a></li>
+<li><a href="../classic-assertions/Assert.Greater.html">Assert.Greater</a></li>
+<li><a href="../classic-assertions/Assert.GreaterOrEqual.html">Assert.GreaterOrEqual</a></li>
+<li><a href="../classic-assertions/Assert.Less.html">Assert.Less</a></li>
+<li><a href="../classic-assertions/Assert.LessOrEqual.html">Assert.LessOrEqual</a></li>
+<li><a href="../classic-assertions/Assert.Positive.html">Assert.Positive</a></li>
+<li><a href="../classic-assertions/Assert.Negative.html">Assert.Negative</a></li>
+<li><a href="../classic-assertions/Assert.IsInstanceOf.html">Assert.IsInstanceOf</a></li>
+<li><a href="../classic-assertions/Assert.IsNotInstanceOf.html">Assert.IsNotInstanceOf</a></li>
+<li><a href="../classic-assertions/Assert.IsAssignableFrom.html">Assert.IsAssignableFrom</a></li>
+<li><a href="../classic-assertions/Assert.IsNotAssignableFrom.html">Assert.IsNotAssignableFrom</a></li>
+<li><a href="../classic-assertions/Assert.Throws.html">Assert.Throws</a></li>
+<li><a href="../classic-assertions/Assert.ThrowsAsync.html">Assert.ThrowsAsync</a></li>
+<li><a href="../classic-assertions/Assert.DoesNotThrow.html">Assert.DoesNotThrow</a></li>
+<li><a href="../classic-assertions/Assert.DoesNotThrowAsync.html">Assert.DoesNotThrowAsync</a></li>
+<li><a href="../classic-assertions/Assert.Catch.html">Assert.Catch</a></li>
+<li><a href="../classic-assertions/Assert.CatchAsync.html">Assert.CatchAsync</a></li>
+<li><a href="../classic-assertions/Assert.Pass.html">Assert.Pass</a></li>
+<li><a href="../classic-assertions/Assert.Fail.html">Assert.Fail</a></li>
+<li><a href="../classic-assertions/Assert.Ignore.html">Assert.Ignore</a></li>
+<li><a href="../classic-assertions/Assert.Inconclusive.html">Assert.Inconclusive</a></li>
+</ul>
+<p>Additional assertions are provided by the following classes:</p>
+<ul>
+<li><a href="../classic-assertions/String-Assert.html">String Assert</a></li>
+<li><a href="../classic-assertions/Collection-Assert.html">Collection Assert</a></li>
+<li><a href="../classic-assertions/File-Assert.html">File Assert</a></li>
+<li><a href="../classic-assertions/Directory-Assert.html">Directory Assert</a></li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="constraint.html">Constraint Model</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/assertions/assertion-models/classic.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../styles/main.js"></script>
+  </body>
+</html>

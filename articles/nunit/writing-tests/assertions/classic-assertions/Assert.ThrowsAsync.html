@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Assert.ThrowsAsync | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Assert.ThrowsAsync | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../../index.html">
+                <img id="logo" class="svg" src="../../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="assertthrowsasync">Assert.ThrowsAsync</h1>
+
+<p>The <strong>Assert.ThrowsAsync</strong> is the async equivalent to <a href="Assert.Throws.html">Assert.Throws</a>
+for asynchronous code. See <a href="Assert.Throws.html">Assert.Throws</a> for more information.</p>
+<pre><code class="lang-csharp">Exception Assert.ThrowsAsync(Type expectedExceptionType, AsyncTestDelegate code);
+Exception Assert.ThrowsAsync(Type expectedExceptionType, AsyncTestDelegate code,
+                             string message, params object[] params);
+
+Exception Assert.ThrowsAsync(IResolveConstraint constraint, AsyncTestDelegate code);
+Exception Assert.ThrowsAsync(IResolveConstraint constraint, AsyncTestDelegate code,
+                             string message, params object[] params);
+
+TActual Assert.ThrowsAsync&lt;TActual&gt;(AsyncTestDelegate code);
+TActual Assert.ThrowsAsync&lt;TActual&gt;(AsyncTestDelegate code,
+                                    string message, params object[] params);
+</code></pre>
+<p>In the above code <strong>AsyncTestDelegate</strong> is a delegate of the form
+<strong>Task AsyncTestDelegate()</strong>, which is used to execute the code
+in question. This will likely be a lambda expression.</p>
+<p>The following example shows the most common way of writing tests.</p>
+<pre><code class="lang-csharp">[TestFixture]
+public class AssertThrowsTests
+{
+  [Test]
+  public void Tests()
+  {  
+    // Using a method as a delegate
+    Assert.ThrowsAsync&lt;ArgumentException&gt;(async () =&gt; await MethodThatThrows());
+  }
+  
+  async Task MethodThatThrows()
+  {
+    await Task.Delay(100);
+    throw new ArgumentException();
+  }
+}
+</code></pre>
+<p>This example shows use of the return value to perform
+additional verification of the exception. Note that you do not need to await the result.</p>
+<pre><code class="lang-csharp">[TestFixture]
+public class UsingReturnValue
+{
+  [Test]
+  public async Task TestException()
+  {
+    MyException ex = Assert.ThrowsAsync&lt;MyException&gt;(async () =&gt; await MethodThatThrows());
+
+    Assert.That(ex.Message, Is.EqualTo(&quot;message&quot;));
+    Assert.That(ex.MyParam, Is.EqualTo(42));
+  }
+}
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="Assert.Catch.html">Assert.Catch</a></li>
+<li><a href="Assert.CatchAsync.html">Assert.CatchAsync</a></li>
+<li><a href="Assert.Throws.html">Assert.Throws</a></li>
+<li><a class="xref" href="../../constraints/ThrowsConstraint.html">ThrowsConstraint</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/assertions/classic-assertions/Assert.ThrowsAsync.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../styles/main.js"></script>
+  </body>
+</html>

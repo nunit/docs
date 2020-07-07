@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Attributes | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Attributes | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="attributes">Attributes</h1>
+
+<p>NUnit uses custom attributes to identify tests. All NUnit attributes are contained in the NUnit.Framework namespace. Each source file that contains tests must include a using statement for that namespace and the project must reference the framework assembly, <code>nunit.framework.dll</code>.</p>
+<p>This table lists all the attributes supported by NUnit.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="attributes/apartment.html">Apartment Attribute</a></td>
+<td>Indicates that the test should run in a particular apartment.</td>
+</tr>
+<tr>
+<td><a href="attributes/author.html">Author Attribute</a></td>
+<td>Provides the name of the test author.</td>
+</tr>
+<tr>
+<td><a href="attributes/category.html">Category Attribute</a></td>
+<td>Specifies one or more categories for the test.</td>
+</tr>
+<tr>
+<td><a href="attributes/combinatorial.html">Combinatorial Attribute</a></td>
+<td>Generates test cases for all possible combinations of the values provided.</td>
+</tr>
+<tr>
+<td><a href="attributes/culture.html">Culture Attribute</a></td>
+<td>Specifies cultures for which a test or fixture should be run.</td>
+</tr>
+<tr>
+<td><a href="attributes/datapoint.html">Datapoint Attribute</a></td>
+<td>Provides data for <a class="xref" href="attributes/theory.html">Theories</a>.</td>
+</tr>
+<tr>
+<td><a href="attributes/datapointsource.html">DatapointSource Attribute</a></td>
+<td>Provides data for <a class="xref" href="attributes/theory.html">Theories</a>.</td>
+</tr>
+<tr>
+<td><a href="attributes/defaultfloatingpointtolerance.html">DefaultFloatingPointTolerance Attribute</a></td>
+<td>Indicates that the test should use the specified tolerance as default for float and double comparisons.</td>
+</tr>
+<tr>
+<td><a href="attributes/description.html">Description Attribute</a></td>
+<td>Applies descriptive text to a Test, TestFixture or Assembly.</td>
+</tr>
+<tr>
+<td><a href="attributes/explicit.html">Explicit Attribute</a></td>
+<td>Indicates that a test should be skipped unless explicitly run.</td>
+</tr>
+<tr>
+<td><a href="attributes/ignore.html">Ignore Attribute</a></td>
+<td>Indicates that a test shouldn't be run for some reason.</td>
+</tr>
+<tr>
+<td><a href="attributes/levelofparallelism.html">LevelOfParallelism Attribute</a></td>
+<td>Specifies the level of parallelism at assembly level.</td>
+</tr>
+<tr>
+<td><a href="attributes/maxtime.html">MaxTime Attribute</a></td>
+<td>Specifies the maximum time in milliseconds for a test case to succeed.</td>
+</tr>
+<tr>
+<td><a href="attributes/nonparallelizable.html">NonParallelizable Attribute</a></td>
+<td>Specifies that the test and its descendants may not be run in parallel.</td>
+</tr>
+<tr>
+<td><a href="attributes/nontestassembly.html">NonTestAssembly Attribute</a></td>
+<td>Specifies that the assembly references the NUnit framework, but that it does not contain tests.</td>
+</tr>
+<tr>
+<td><a href="attributes/onetimesetup.html">OneTimeSetUp Attribute</a></td>
+<td>Identifies methods to be called once prior to any child tests.</td>
+</tr>
+<tr>
+<td><a href="attributes/onetimeteardown.html">OneTimeTearDown Attribute</a></td>
+<td>Identifies methods to be called once after all child tests.</td>
+</tr>
+<tr>
+<td><a href="attributes/order.html">Order Attribute</a></td>
+<td>Specifies the order in which decorated test should be run within the containing fixture or suite.</td>
+</tr>
+<tr>
+<td><a href="attributes/pairwise.html">Pairwise Attribute</a></td>
+<td>Generate test cases for all possible pairs of the values provided.</td>
+</tr>
+<tr>
+<td><a href="attributes/parallelizable.html">Parallelizable Attribute</a></td>
+<td>Indicates whether test and/or its descendants can be run in parallel.</td>
+</tr>
+<tr>
+<td><a href="attributes/platform.html">Platform Attribute</a></td>
+<td>Specifies platforms for which a test or fixture should be run.</td>
+</tr>
+<tr>
+<td><a href="attributes/property.html">Property Attribute</a></td>
+<td>Allows setting named properties on any test case or fixture.</td>
+</tr>
+<tr>
+<td><a href="attributes/random.html">Random Attribute</a></td>
+<td>Specifies generation of random values as arguments to a parameterized test.</td>
+</tr>
+<tr>
+<td><a href="attributes/range.html">Range Attribute</a></td>
+<td>Specifies a range of values as arguments to a parameterized test.</td>
+</tr>
+<tr>
+<td><a href="attributes/repeat.html">Repeat Attribute</a></td>
+<td>Specifies that the decorated method should be executed multiple times.</td>
+</tr>
+<tr>
+<td><a href="attributes/requiresthread.html">RequiresThread Attribute</a></td>
+<td>Indicates that a test method, class or assembly should be run on a separate thread.</td>
+</tr>
+<tr>
+<td><a href="attributes/retry.html">Retry Attribute</a></td>
+<td>Causes a test to be rerun if it fails, up to a maximum number of times.</td>
+</tr>
+<tr>
+<td><a href="attributes/sequential.html">Sequential Attribute</a></td>
+<td>Generates test cases using values in the order provided, without additional combinations.</td>
+</tr>
+<tr>
+<td><a href="attributes/setculture.html">SetCulture Attribute</a></td>
+<td>Sets the current Culture for the duration of a test.</td>
+</tr>
+<tr>
+<td><a href="attributes/setuiculture.html">SetUICulture Attribute</a></td>
+<td>Sets the current UI Culture for the duration of a test.</td>
+</tr>
+<tr>
+<td><a href="attributes/setup.html">SetUp Attribute</a></td>
+<td>Indicates a method of a TestFixture called just before each test method.</td>
+</tr>
+<tr>
+<td><a href="attributes/setupfixture.html">SetUpFixture Attribute</a></td>
+<td>Marks a class with one-time setup or teardown methods for all the test fixtures in a namespace.</td>
+</tr>
+<tr>
+<td><a href="attributes/singlethreaded.html">SingleThreaded Attribute</a></td>
+<td>Marks a fixture that requires all its tests to run on the same thread.</td>
+</tr>
+<tr>
+<td><a href="attributes/teardown.html">TearDown Attribute</a></td>
+<td>Indicates a method of a TestFixture called just after each test method.</td>
+</tr>
+<tr>
+<td><a href="attributes/test.html">Test Attribute</a></td>
+<td>Marks a method of a TestFixture that represents a test.</td>
+</tr>
+<tr>
+<td><a href="attributes/testcase.html">TestCase Attribute</a></td>
+<td>Marks a method with parameters as a test and provides inline arguments.</td>
+</tr>
+<tr>
+<td><a href="attributes/testcasesource.html">TestCaseSource Attribute</a></td>
+<td>Marks a method with parameters as a test and provides a source of arguments.</td>
+</tr>
+<tr>
+<td><a href="attributes/testfixture.html">TestFixture Attribute</a></td>
+<td>Marks a class as a test fixture and may provide inline constructor arguments.</td>
+</tr>
+<tr>
+<td><a href="attributes/testfixturesetup.html">TestFixtureSetup Attribute</a></td>
+<td>Deprecated synonym for <a href="attributes/onetimesetup.html">OneTimeSetUp Attribute</a>.</td>
+</tr>
+<tr>
+<td><a href="attributes/testfixturesource.html">TestFixtureSource Attribute</a></td>
+<td>Marks a class as a test fixture and provides a source for constructor arguments.</td>
+</tr>
+<tr>
+<td><a href="attributes/testfixtureteardown.html">TestFixtureTeardown Attribute</a></td>
+<td>Deprecated synonym for <a href="attributes/onetimeteardown.html">OneTimeTearDown Attribute</a>.</td>
+</tr>
+<tr>
+<td><a href="attributes/testof.html">TestOf Attribute</a></td>
+<td>Indicates the name or Type of the class being tested.</td>
+</tr>
+<tr>
+<td><a href="attributes/theory.html">Theory Attribute</a></td>
+<td>Marks a test method as a Theory, a special kind of test in NUnit.</td>
+</tr>
+<tr>
+<td><a href="attributes/timeout.html">Timeout Attribute</a></td>
+<td>Provides a timeout value in milliseconds for test cases.</td>
+</tr>
+<tr>
+<td><a href="attributes/values.html">Values Attribute</a></td>
+<td>Provides a set of inline values for a parameter of a test method.</td>
+</tr>
+<tr>
+<td><a href="attributes/valuesource.html">ValueSource Attribute</a></td>
+<td>Provides a source of values for a parameter of a test method.</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

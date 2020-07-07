@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Packaging the Installer | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Packaging the Installer | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="packaging-the-installer">Packaging the Installer</h1>
+
+<p>Before packaging the installer, you must first package and release the Console and Engine. See <a href="Packaging-the-Console-and-Engine.html">Packaging the Console and Engine</a></p>
+<h2 id="prepare-the-release">Prepare the Release</h2>
+<ol>
+<li>Get latest from master</li>
+<li>Update CHANGES.TXT. Set the date of the release, and list any packages which have been upgraded since the last release.</li>
+<li>Check the <code>version</code> and <code>displayVersion</code> in <code>build.cake</code>. They should have been updated at the last release.</li>
+<li>Package the release, <code>.\build.ps1</code> or <code>.\build.cmd</code></li>
+<li>Check the <code>distribution</code> directory for <code>NUnit.{VERSION}.msi</code> and <code>NUnit.{VERSION}.zip</code></li>
+</ol>
+<h2 id="test-the-release">Test the Release</h2>
+<h3 id="test-the-installer">Test the Installer</h3>
+<ol>
+<li>Install <code>NUnit.{VERSION}.msi</code></li>
+<li>Ensure it installs correctly</li>
+<li>Check that the extensions included in <code>build.cake</code> are installed</li>
+<li>Run unit tests using the install</li>
+<li>Ensure the extensions work by running NUnit 2 tests and by creating NUnit 2 test results</li>
+<li>Check the version in the <code>nunit3-console.exe</code> output headers when running tests.</li>
+</ol>
+<h3 id="test-the-zip-file">Test the ZIP File</h3>
+<ol>
+<li>Unzip <code>NUnit.{VERSION}.zip</code></li>
+<li>Check that the extensions included in <code>build.cake</code> are installed</li>
+<li>Run unit tests using the install</li>
+<li>Ensure the extensions work by running NUnit 2 tests and by creating NUnit 2 test results</li>
+<li>Check the version in the <code>nunit3-console.exe</code> output headers when running tests.</li>
+</ol>
+<h2 id="archiving-the-release">Archiving the Release</h2>
+<p>Packages are archived on nunit.org in the downloads directory. Add the MSI and ZIP to the existing downloads/nunit/v3 for the Console/Engine release.</p>
+<h2 id="publishing-the-release">Publishing the Release</h2>
+<ol>
+<li>Log onto Github and go to the main nunit-console repository at <a href="https://github.com/nunit/nunit-console">https://github.com/nunit/nunit-console</a>.</li>
+<li>Go to the releases tab and edit the existing Console release</li>
+<li>Add the MSI and ZIP files to the release</li>
+<li>Update the website if required</li>
+</ol>
+<h2 id="tag-the-release">Tag the Release</h2>
+<ol>
+<li>Still on <code>master</code>, tag the release with the version, <code>git tag v3.5</code></li>
+<li>Push the tags to GitHub, <code>git push --tags</code></li>
+</ol>
+<h2 id="increment-the-version">Increment the Version</h2>
+<ol>
+<li>Create a release branch <code>git checkout -b release-3.5</code></li>
+<li>Increment the <code>version</code> and <code>displayVersion</code> in <code>build.cake</code>.</li>
+<li>Check-in your changes and push to GitHub</li>
+<li>Create a Pull Request, have it reviewed, merged and delete the branch</li>
+<li>Close the milestone if one exists</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The release branch in this project is not like the release branches in other projects, we don't save it. If we need to go back and do hotfixes, we will branch off the tag that was created for the release. We do this because there are usually no changes required to this repository for a release except incrementing the version post release. Any larger changes to this repository should be done and tested prior to a release using the normal Pull Request workflow</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/developer-info/Packaging-the-Installer.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

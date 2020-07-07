@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ignore | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Ignore | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ignore">Ignore</h1>
+
+<p><strong>IgnoreAttribute</strong> is used to indicate that a test should not be executed for
+some reason. Note that with NUnit 3, the reason must be specified. Ignored
+tests are displayed by the runners as warnings in order to provide a reminder
+that the test needs to be corrected or otherwise changed and re-instated.</p>
+<p>Note that the <strong>IgnoreAttribute</strong> is attached to a method. If you have multiple test cases using the same method, adding  it will ignore all the cases. To ignore individual test cases see <a href="#ignoring-individual-test-cases">Ignoring Individual Test Cases</a> below.</p>
+<h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
+<pre><code class="lang-csharp">namespace NUnit.Tests
+{
+  using System;
+  using NUnit.Framework;
+
+  [TestFixture]
+  [Ignore(&quot;Ignore a fixture&quot;)]
+  public class SuccessTests
+  {
+    // ...
+  }
+}
+</code></pre>
+<h2 id="test-syntax">Test Syntax</h2>
+<pre><code class="lang-csharp">namespace NUnit.Tests
+{
+  using System;
+  using NUnit.Framework;
+
+  [TestFixture]
+  public class SuccessTests
+  {
+    [Test]
+    [Ignore(&quot;Ignore a test&quot;)]
+    public void IgnoredTest()
+    { /* ... */ }
+}
+</code></pre>
+<h2 id="ignore-until">Ignore Until</h2>
+<p>The <code>Until</code> named parameter allows you to ignore a test for a specific period of time,
+after which the test will run normally. The until date must be a string
+that can be parsed to a date.</p>
+<pre><code class="lang-csharp">[TestFixture]
+[Ignore(&quot;Waiting for Joe to fix his bugs&quot;, Until = &quot;2014-07-31 12:00:00Z&quot;]
+public class MyTests
+{
+ [Test]
+ public void Test1() { /* ... */ }
+}
+</code></pre>
+<p>In the above example, it's assumed that the test would fail if run. With the
+IgnoreAttribute, it will give a warning until the specified date. After that
+time, it will run normally and either pass or fail.</p>
+<h2 id="ignoring-individual-test-cases">Ignoring Individual Test Cases</h2>
+<p>The <strong>IgnoreAttribute</strong> causes all the test cases using the method on which it is placed to be ignored. Ignoring individual test cases is possible, depending on how they are specified.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>How to ignore a case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TestCase</strong></td>
+<td>Use the <strong>Ignore</strong> named parameter of the <strong>TestCaseAttribute.</strong></td>
+</tr>
+<tr>
+<td><strong>TestCaseSource</strong></td>
+<td>Use <strong>TestCaseData</strong> for the source and set the <strong>Ignore</strong> property.</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/ignore.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

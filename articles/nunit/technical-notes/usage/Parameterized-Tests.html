@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Parameterized Tests | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Parameterized Tests | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ParameterizedTests">
+<h1 id="parameterized-tests">Parameterized Tests</h1>
+
+<p>NUnit supports parameterized tests. Test methods
+may have parameters and various attributes are available
+to indicate what arguments should be supplied by NUnit.</p>
+<p>Multiple sets of arguments cause the creation of multiple
+tests. All arguments are created at the point of loading the
+tests, so the individual test cases are available for
+display and selection in the Gui, if desired.</p>
+<p>Some attributes allow you to specify arguments inline - directly on
+the attribute - while others use a separate method, property or field
+to hold the arguments. In addition, some attributes identify complete test cases,
+including all the necessary arguments, while others only provide data
+for a single argument. This gives rise to four groups of attributes,
+as shown in the following table.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Complete Test Cases</th>
+<th>Data for One Argument</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inline</strong></td>
+<td><a class="xref" href="../../writing-tests/attributes/testcase.html">TestCase Attribute</a></td>
+<td><a class="xref" href="../../writing-tests/attributes/testcase.html">Random Attribute</a>, <a class="xref" href="../../writing-tests/attributes/range.html">Range Attribute</a>, <a class="xref" href="../../writing-tests/attributes/values.html">Values Attribute</a></td>
+</tr>
+<tr>
+<td><strong>Separate</strong></td>
+<td><a class="xref" href="../../writing-tests/attributes/testcasesource.html">TestCaseSource Attribute</a></td>
+<td><a class="xref" href="../../writing-tests/attributes/valuesource.html">ValueSource Attribute</a></td>
+</tr>
+</tbody>
+</table>
+<p>In addition, when data is specified for individual arguments, special attributes
+may be added to the test method itself in order to tell NUnit how
+to go about combining the arguments. Currently, the following attributes
+are provided:</p>
+<ul>
+<li><a class="xref" href="../../writing-tests/attributes/combinatorial.html">Combinatorial Attribute</a> (default)</li>
+<li><a class="xref" href="../../writing-tests/attributes/pairwise.html">Pairwise Attribute</a></li>
+<li><a class="xref" href="../../writing-tests/attributes/sequential.html">Sequential Attribute</a></li>
+</ul>
+<h2 id="order-of-execution">Order of Execution</h2>
+<p>The individual test cases are executed in the order in which NUnit discovers them.
+This order does <strong>not</strong> necessarily follow the lexical order of the attributes
+and will often vary between different compilers or different versions of the CLR.</p>
+<p>The following specific rules for ordering apply:</p>
+<ul>
+<li>If all arguments are specified in a <strong>single TestCaseSource</strong> attribute, the ordering of the cases provided will be maintained.</li>
+<li>If each parameter has a single <strong>Values</strong>, <strong>ValueSource</strong> or <strong>Range</strong> attribute and the <strong>Sequential</strong> combining strategy is used - or there is only one argument - the ordering will be maintained.</li>
+<li>In all other cases, including using multiple <strong>TestCase</strong> attributes or a combination of different types of attributes, the ordering of the test cases is undefined.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/usage/Parameterized-Tests.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

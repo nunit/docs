@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Multiple Asserts | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Multiple Asserts | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="MultipleAsserts">
+<h1 id="multiple-asserts">Multiple Asserts</h1>
+
+<p>Usually, once an assertion fails, we want the test to terminate. But sometimes, it's desirable to continue and accumulate any additional failures so they may all be fixed at once. This is particularly useful for testing things like object initialization and UI appearance as well as certain kinds of integration testing.</p>
+<h2 id="syntax">Syntax</h2>
+<p>Multiple asserts are implemented using the <code>Assert.Multiple</code> method. Here is an example of its use:</p>
+<pre><code class="lang-csharp">[Test]
+public void ComplexNumberTest()
+{
+    ComplexNumber result = SomeCalculation();
+
+    Assert.Multiple(() =&gt;
+    {
+        Assert.AreEqual(5.2, result.RealPart, &quot;Real part&quot;);
+        Assert.AreEqual(3.9, result.ImaginaryPart, &quot;Imaginary part&quot;);
+    });
+}
+</code></pre>
+<p>Functionally, this results in NUnit storing any failures encountered in the block and reporting all of them together upon exit from the block. If both asserts failed, then both would be reported. The test itself would terminate at the end of the block if any failures were encountered, but would continue otherwise.</p>
+<h2 id="notes">Notes</h2>
+<ol>
+<li><p>The multiple assert block may contain any arbitrary code, not just asserts.</p>
+</li>
+<li><p>Multiple assert blocks may be nested. Failure is not reported until the  outermost block exits.</p>
+</li>
+<li><p>If the code in the block calls a method, that method may also contain multiple assert blocks.</p>
+</li>
+<li><p>The test will be terminated immediately if any exception is thrown that is not handled. An unexpected exception is often an indication that the test itself is in error, so it must be terminated. If the exception occurs after one or more assertion failures have been recorded, those failures will be reported along with the terminating exception itself.</p>
+</li>
+<li><p>Assert.Fail is handled just as any other assert failure. The message and stack trace are recorded but the test continues to execute until the end of the block.</p>
+</li>
+<li><p>An error is reported if any of the following are used inside a multiple assert block:</p>
+<ul>
+<li>Assert.Pass</li>
+<li>Assert.Ignore</li>
+<li>Assert.Inconclusive</li>
+<li>Assume.That</li>
+</ul>
+</li>
+<li><p>Use of Warnings (Assert.Warn, Warn.If, Warn.Unless) is permitted inside a multiple assert block. Warnings are reported normally along with any failures that occur inside the block.</p>
+</li>
+</ol>
+<h3 id="runner-support">Runner Support</h3>
+<p>Multiple assertion failures per test are stored in the representation of the test result using new XML elements, which are not recognized by older runners. The following runners are known to support display of the new elements:</p>
+<ul>
+<li>NUnit Console Runner 3.6</li>
+<li>NUnit 3 Visual Studio Adapter 3.7</li>
+<li>NUnit Gui Runner (under development)</li>
+</ul>
+<h4 id="compatibility">Compatibility</h4>
+<p>Older runners generally display a single failure message and stack trace for each test. For compatibility purposes, the framework creates a single message that lists all the failures. The stack trace in such a case will indicate the end of the assert multiple block.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/assertions/multiple-asserts.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

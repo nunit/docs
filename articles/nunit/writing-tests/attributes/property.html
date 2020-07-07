@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Property | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Property | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="PropertyAttribute">
+<h1 id="property">Property</h1>
+
+<p><strong>PropertyAttribute</strong> provides a generalized approach to setting named
+properties on any test case or fixture, using a name/value pair.
+In the example below, the fixture class MathTests is given a Location
+value of 723 while the test case AdditionTest is given a Severity
+of &quot;Critical&quot;</p>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp">namespace NUnit.Tests
+{
+  using System;
+  using NUnit.Framework;
+
+  [TestFixture, Property(&quot;Location&quot;, 723)]
+  public class MathTests
+  {
+    [Test, Property(&quot;Severity&quot;, &quot;Critical&quot;)]
+    public void AdditionTest()
+    { /* ... */ }
+  }
+}
+</code></pre>
+<h2 id="usage-note">Usage Note</h2>
+<p>The PropertyAttribute is not currently used for any purpose by NUnit itself, other
+than to display them in the XML output file and in the Test Properties
+dialog of the gui. You may also use properties with the <code>--where</code> option on the
+command-line in order to select tests to run. See <a class="xref" href="../../running-tests/Test-Selection-Language.html">Test Selection Language</a>. Note
+that his filtering will only work for properties where the values have type string.</p>
+<p>User tests may access properties through the <a class="xref" href="../TestContext.html">TestContext</a> or by reflection.</p>
+<h2 id="custom-property-attributes">Custom Property Attributes</h2>
+<p>Users can define custom attributes that derive from <strong>PropertyAttribute</strong>
+and have them recognized by NUnit. PropertyAttribute provides a protected constructor
+that takes the value of the property and sets the property name to the
+name of the derived class with the 'Attribute' suffix removed.</p>
+<p>Here's an example that creates a Severity property. It works
+just like any other property, but has a simpler syntax and is type-safe.
+A custom test reporting system might make use of the property to provide special reports.</p>
+<pre><code class="lang-csharp">public enum SeverityLevel
+{
+    Critical,
+    Major,
+    Normal,
+    Minor
+}
+
+[AttributeUsage(AttributeTargets.Method, AllowMultiple=false)]
+public class SeverityAttribute : PropertyAttribute
+{
+    public SeverityAttribute(SeverityLevel level)
+      : base(level);
+}
+
+...
+
+[Test, Severity(SeverityLevel.Critical)]
+public void MyTest()
+{ /*...*/ }
+</code></pre>
+<p>A PropertyAttribute may contain
+multiple name/value pairs. This capability is not exposed publicly
+but may be used by derived property classes.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/property.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

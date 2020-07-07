@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Engine Addins Spec | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Engine Addins Spec | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../../index.html">
+                <img id="logo" class="svg" src="../../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="engine-addins-spec">Engine Addins Spec</h1>
+
+<div class="NOTE">
+<h5>Note</h5>
+<p>This page is a specification that was used as a starting point for creating the feature in NUnit. It needs to be reviewed and revised in order to accurately reflect what was actually built. If you take it with a grain of salt, it may still be helpful to you as documentation. This notice will be removed when the page is brought up to date.</p>
+</div>
+<p>This spec covers a proposed new approach to Engine addins, replacing the use of Mono.Addins.</p>
+<h2 id="background">Background</h2>
+<p>We originally planned to use Mono.Addins for the engine and have done so in the first betas. However, Mono.Addins no longer supports .NET 2.0. We are using a modified version that we created and which we will have to maintain in the future. Mono.Addins has many more features than we expect to use and has a rather large memory and disk footprint.</p>
+<p>In sum, Mono.Addins is not really carrying its weight for our usage. We will try to replace it with a simple plugin architecture of our own design, using some pieces of our old NUnit 2.x addin feature as well as other features inspired by Mono.Addins.</p>
+<p>At a minimum, we need to support existing addins that are supported by Mono.Addins. Once we have that support, we can replace Mono.Addins. Further features could be added later.</p>
+<p>Three addin types are currently supported:</p>
+<ol>
+<li>Project Loaders - used to load NUnit and VS projects</li>
+<li>Result Writers - used to write out results in NUnit 2 format</li>
+<li>Driver Factories - used to create the driver for running NUnit 2 tests under NUnit 3</li>
+</ol>
+<h2 id="design">Design</h2>
+<h3 id="extension-points">Extension Points</h3>
+<p>In both Mono and NUnit (2.x) addins, extensibility centers around <code>ExtensionPoints</code>. An <code>ExtensionPoint</code> is a place in the application where add-ins can register themselves in order to provide added functionality. extension nodes to provide extra functionality. NUnit 3.0 will continue to use this concept.</p>
+<p>In our initial implementation, all extension points must be known in advance and are contained in the engine. At a future point, we will probably want to add a way to dynamically create new extension points so that addins can themselves host extensions.</p>
+<p><code>ExtensionPoints</code> in the engine will be identified by use of <code>ExtensionPointAttribute</code> at the assembly level. Each attribute identifies one extension point, specifying an identifying string (the Path) and the required Type of any extension objects to be registered with it.</p>
+<h4 id="example">Example</h4>
+<pre><code class="lang-csharp">[assembly: ExtensionPoint(Path=&quot;/NUnit/Engine/DriverService&quot;
+                          Type=&quot;NUnit.Engine.Extensibility.IDriverFactory&quot;)]
+</code></pre>
+<p>In this example, the Path identifying the extension point is &quot;/NUnit/Engine/DriverService.&quot; Any type to be plugged into this extension point must implement <code>IDriverFactory</code>. Note that even though each extension point is typically implemented by some class in the system, the identity of that class is an implementation detail, which is not revealed in the <code>ExtensionPoint</code>.</p>
+<h3 id="extensions">Extensions</h3>
+<p>An <code>Extension</code> is a single object of the required type, which is registered with an <code>ExtensionPoint</code>. Extensions are identified by the <code>ExtensionAttribute</code> which is applied to the class. Extensions identified in this way must have a default constructor. See the <code>Addins</code> section below for dealing with more complex situations.</p>
+<h4 id="example-1">Example</h4>
+<pre><code class="lang-csharp">[Extension(Path = &quot;/NUnit/Engine/DriverService&quot;)]
+public class NUnit2DriverFactory : IDriverFactory
+{
+    /* ... */
+}
+</code></pre>
+<p>The example above shows an extension Type being used with the <code>ExtensionPoint</code> defined in the previous example. An instance of NUnit2DriverFactory will be supplied to the DriverService when needed. The Path property must match the Path for the intended <code>ExtensionPoint</code>.</p>
+<p>The Path is actually optional so long as NUnit is able to deduce the correct ExtensionPoint based on the Type.
+In fact, that's the case in this example, which can be rewritten more simply as...</p>
+<pre><code class="lang-csharp">[Extension]
+public class NUnit2DriverFactory : IDriverFactory
+{
+    /* ... */
+}
+</code></pre>
+<p>The Path may be omitted provided that no other extension point is able to accept an object of the same class as the extension.</p>
+<h4 id="locating-addins">Locating Addins</h4>
+<p>Assemblies containing Addins and Extensions are stored in one or more locations indicated in files of type <code>.addins</code>. Each line of the file contains the path of an addin assembly or a directory containing assemblies. Wildcards may be used for assembly entries and relative paths are interpreted based on the location of the <code>.addins</code> file. The default <code>nunit.engine.addins</code> is located in the engine directory and lists addins we build with NUnit, which are contained in the addins directory.</p>
+<p>Any assemblies specified in a <code>.addins</code> file will be scanned fully, looking for addins and extensions. Any directories specified will be browsed, first looking for any <code>.addins</code> files. If one or more files are found, the content of the files will direct all further browsing. If no such file is found, then all <code>.dll</code> files in the directory will be scanned, just as if a <code>.addins</code> file contained &quot;*.dll.&quot;</p>
+<p>Assemblies are be examined using Cecil. Any assembly that cannot be opened is be ignored, with a log message generated. This be a normal occurrence in cases where the assembly targets a higher level runtime than that which is in use. Info is saved for actual instantiation of extensions on a just-in-time basis.</p>
+<p>We hope that the combination of specifically indicating which assemblies to scan and the use of Cecil to do the scanning will make this process quite efficient. If that turns out not to be the case, we can use an assembly-level attribute to identify assemblies containing extensions.</p>
+<h2 id="future-enhancements">Future Enhancements</h2>
+<h3 id="addins">Addins</h3>
+<p>An <code>Addin</code> is a Type that provides <code>Extensions</code>. As indicated in the previous section, simple extensions providing a single instance of the object through a default constructor do not require an Addin. For more complex situations, an Addin object could be allowed to create and register one or more extensions. This is the approach that we took in NUnit 2.x.</p>
+<p>Addins would be identified by the <code>AddinAttribute</code> and implement the IAddin interface. They actively participate in the installation of extensions and may be used to create objects that require parameters, to install multiple extensions or to select among different extensions.</p>
+<h4 id="example-2">Example</h4>
+<pre><code class="lang-csharp">[Addin]
+public class MyAddin : IAddin
+{
+    public bool Install(IExtensionHost host)
+    {
+        var ep = host.GetExtensionPoint(&quot;/NUnit/Engine/DriverFactory&quot;);
+        ep.Install(new NUnit2DriverFactory());
+    }
+}
+
+public class NUnit2DriverFactory : IDriverFactory
+{
+    /* ... */
+}
+</code></pre>
+<p>The above example does the same thing as the previous example in a more complicated way. Obviously, you would use this approach only in more complex situations. Note that the factory class does not have an <code>ExtensionAttribute</code> as this would lead to its being installed twice.</p>
+<h4 id="notes">Notes</h4>
+<ol>
+<li>This design feature is not required initially and will be omitted from the implementation until we actually require it.</li>
+<li>The interfaces used in this section are notionally based on NUnit 2.6.4.</li>
+</ol>
+<h3 id="addins-on-addins">Addins on Addins</h3>
+<p>Initially, we only need one level of addins to allow for everything we now do. It may be convenient at some point to support addins on top of other addins. For example, a given framework driver might be enhanced with some special feature through an addin.</p>
+<p>An <code>ExtensionPoint</code> in an extension assembly could be identified in the same way as an engine extension point is known, using the <code>ExtensionPointAttribute</code> at assembly level. However, this is not a feature we need for the 3.0 release, only one to keep in mind for the future.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/nunit-internals/specs/Engine-Addins-Spec.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../styles/main.js"></script>
+  </body>
+</html>

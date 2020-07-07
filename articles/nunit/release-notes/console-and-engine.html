@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Console and Engine | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Console and Engine | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="console-and-engine">Console and Engine</h1>
+
+<h2 id="nunit-console--engine-3111---february-15-2020">NUnit Console &amp; Engine 3.11.1 - February 15, 2020</h2>
+<p>This hotfix fixes a problem with NUnit Project file settings being ignored.</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/730">730</a> NUnit project file settings are ignored</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/732">732</a> Upgrade Cake Build to fix Linux CI</li>
+</ul>
+<h2 id="nunit-console-311---january-26-2020">NUnit Console 3.11 - January 26, 2020</h2>
+<p>This release fixes a range of minor bugs, and includes a significant amount of internal restructuring work. In future, this will enable improved .NET Standard support in the engine, and a .NET Core build of the console.</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/22">22</a> Engine modifies TestPackage</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/53">53</a> Add project element to top-level sub-project before merging</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/181">181</a> XSLT Transform not honoring --encoding value</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/336">336</a> Should legacyCorruptedStateExceptionsPolicy enabled=true in nunit3-console.exe.config?</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/386">386</a> nUnit project loader does not work when --inprocess is set</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/453">453</a> build-mono-docker.ps1 fails to run out the box</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/514">514</a> Add higher-level unit tests for structure of TestRunners</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/586">586</a> Create Separate Addin File for the Engine NuGet Package</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/588">588</a> licenseUrl in NuGet packages are deprecated</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/591">591</a> Release 3.10 merge</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/592">592</a> Add status badge from Azure pipelines</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/594">594</a> Fixed typos in release notes</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/595">595</a> Clean extension dir before running FetchExtensions task</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/603">603</a> Engine returns assembly-level test-suite event twice</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/605">605</a> Trailing \ in --work argument causes agent to crash</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/607">607</a> Unload + Load changes TestPackage IDs</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/611">611</a> Set DisableImplicitNuGetFallbackFolder and bump Ubuntu on Travis</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/612">612</a> Fix logging when including exception</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/617">617</a> Consider expanding projects before building ITestRunner structure</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/625">625</a> [Feature] Extend <code>start-run</code> data for ITestEventListener</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/628">628</a> [Question] Possible to set both labels=After and labels=Before</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/634">634</a> Remove unnecessary stream creation in XML Transform writer</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/635">635</a> Remove all #regions from codebase</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/636">636</a> Labels option: Rename On as OnOutputOnly, and deprecate On and All</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/637">637</a> Refactor RunnerSelectionTests</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/639">639</a> Engine initializes DriverService too early</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/667">667</a> Console Runner loads wrong .NET framework version when executing tests from multiple assemblies at once</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/669">669</a> nunit.console-runner-with-extensions.nuspec: Remove outdated release notes</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/671">671</a> Manually updated .NET Core SDK on Linux build</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/681">681</a> Display path and version of extension assemblies</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/683">683</a> Safely encapsulating the atomic agent database operations</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/684">684</a> Split engine into upper and lower parts</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/691">691</a> Sign NuGet Packages and msi</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/693">693</a> Update Engine tests to run on LTS .NET Core version</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/696">696</a> Minimal compilation/test of .NET Core Console</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/698">698</a> Update NUnit v2 driver extension in combined packages</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/703">703</a> Update Console options for .NET Core Console build</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/704">704</a> Agent in nupkg should not be referenced and causes warnings in consuming projects</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/706">706</a> build.cake maintenance</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/707">707</a> Set agent to reference core and not full engine</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/713">713</a> Engine will not recognize .NET Framework versions beyond 4.5</li>
+</ul>
+<h2 id="nunit-console-310---march-24-2019">NUnit Console 3.10 - March 24, 2019</h2>
+<p>This release merges the .NET Standard version of the engine back into the nunit.engine
+NuGet package and adds a .NET Standard 2.0 version of the engine that re-enables most
+services and extensions. This deprecates the <code>nunit.engine.netstandard</code> NuGet package.
+Any test runners using the old .NET Standard version of the engine should switch to
+this release.</p>
+<p>The <code>--params</code> command line option which took multiple test parameters separated by
+a semicolon is now deprecated in favor of the new <code>--testparam</code> command line option.
+One of the most common uses for test parameters was to pass connection strings into
+tests but this required workarounds to handle the semicolons. Now you must pass in
+each test parameter separately using a <code>--testparam</code> or <code>--tp</code> option for each.</p>
+<h3 id="issues-resolved">Issues Resolved</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/8">8</a> TempResourceFile.Dispose causes run to hang</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/23">23</a> In nunit3-console you cannot pass parameters containing ';' because they always get split</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/178">178</a> Add date and time to console output</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/282">282</a> &quot;Execution terminated after first error&quot; does not fail the console runner</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/388">388</a> Merge .NET Standard Engine back into the main solution</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/389">389</a> Update Mono.Cecil to latest</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/433">433</a> All messages from EventListenerTextWriter goes to console output independent on stream name</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/454">454</a> Misc improvements to ExtensionServiceTests</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/455">455</a> Remove CF, Silverlight and PORTABLE functionality</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/464">464</a> NUnit Console Reports Successful Exit Code When there is an Exception on Dispose</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/473">473</a> ArgumentException: DTD is prohibited in this XML document</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/476">476</a> .NET Standard engine to load extensions</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/479">479</a> Merge .NET Standard Engine code back into the main solution</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/483">483</a> Error in SetUpFixture does not result in non-zero exit code</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/485">485</a> Invalid integer arguments do not display properly in error message</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/493">493</a> Correct order of params to Guard.ArgumentValid()</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/498">498</a> Reset console colors after Ctrl-C</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/501">501</a> Create result directory if it does not exist</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/502">502</a> Remove unused method from build.cake</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/506">506</a> Dogfood NUnit.Analyzers via the nunit-console tests</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/508">508</a> Re-Enable OSX CI tests</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/515">515</a> Appveyor CI failing on master</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/518">518</a> Correct Refactoring Error</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/519">519</a> Break up multiple console error messages with colour</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/523">523</a> Reloading multiple files causes exception</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/524">524</a> .NET Standard 2.0 engine crashes when .NET Framework extensions are in Global NuGet Cache</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/525">525</a> Separate NuGet Restore for Appveyor build</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/531">531</a> Building a forked master branch results in publishing artifacts</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/533">533</a> Duplicate ids when loading a project</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/544">544</a> Deprecate nunit.netstandard.engine NuGet package</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/546">546</a> Cannot run a project file using --process:Separate</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/547">547</a> --labels=Before ignores <code>--nocolor</code></li>
+<li><a href="https://github.com/nunit/nunit-console/issues/556">556</a> Appveyor CI failing due to nuget restore</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/557">557</a> Disable CliFallbackFolder as a nuget source</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/562">562</a> Fix typo in comment</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/563">563</a> ProjectService is incorrectly initialized in agents</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/565">565</a> Eliminate -dbg suffix from version</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/566">566</a> SettingsService is not needed in agents</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/567">567</a> Unnecessary call to IProjectService</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/571">571</a> Space characters in the work directory path are not properly handled</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/583">583</a> NUnit Console NuGet Package Doesn't Load Extensions</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/587">587</a> Disable new MSBuild GenerateSupportedRuntime functionality, which breaks framework targeting</li>
+</ul>
+<h2 id="nunit-console-39---september-5-2018">NUnit Console 3.9 - September 5, 2018</h2>
+<p>This release should stop the dreaded SocketException problem on shutdown. The
+console also no longer returns -5 when AppDomains fail to unload at the end of a
+test run. These fixes should make CI runs much more stable and predictable.</p>
+<p>For developers working on the NUnit Console and Engine project, Visual Studio
+2017 update 5 or newer is now required to compile on the command line. This does
+not effect developers using NUnit or the NUnit Console, both of which support building
+and running your tests in any IDE and on any .NET Framework back to .NET 2.0.</p>
+<h3 id="issues-resolved-1">Issues Resolved</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/103">103</a> The switch statement does not cover all values of the 'RuntimeType' enum: NetCF.</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/218">218</a> Move Distribution back into the nunit-console project.</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/253">253</a> Master Chocolatey issue</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/255">255</a> SocketException thrown during console run</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/312">312</a> CI failure: SocketException</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/360">360</a> CommandLineOption --err does not write error input to ErrorFile</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/367">367</a> nunit3-console loads nunit.framework with partial name</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/370">370</a> Nunit.Console 3.8 - Socket Exception</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/371">371</a> Remove -5 exit code on app domain unload failures</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/394">394</a> Multi-targeted Engine Extensions</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/399">399</a> Fix minor document issues</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/411">411</a> Make output received when providing user friendly messages unloading the domain more user friendly</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/412">412</a> Extensions not detected for version 3.9.0-dev-03997</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/436">436</a> NUnitEngineException : Unable to acquire remote process agent</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/446">446</a> Output CI version info to console</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/448">448</a> Update vs-project-loader extension to 3.8.0</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/450">450</a> Update NUnit.Extension.VSProjectLoader to 3.8.0</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/456">456</a> NuGet Package : Add <code>repository</code> metadata.</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/461">461</a> Use MSBuild /restore</li>
+</ul>
+<h2 id="nunit-console-38---january-27-2018">NUnit Console 3.8 - January 27, 2018</h2>
+<p>This release includes several fixes when unloading AppDomains and better error reporting. The
+aggregate NuGet packages also include updated versions of several extensions.</p>
+<h3 id="issues-resolved-2">Issues Resolved</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/6">6</a> TypeLoadException in nunit3-console 3.0.1</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/93">93</a> Update Readme with information about the NuGet packages</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/111">111</a> Provide better info when AppDomain won't unload</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/116">116</a> NUnit 3.5.0 defaults to single agent process when using an nunit project file</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/191">191</a> Exception encountered unloading AppDomain</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/228">228</a> System.Reflection.TargetInvocationException with nunit3-console --debug on Mono</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/246">246</a> No way to specify app.config with console runner</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/256">256</a> Rewrite ConsoleRunnerTests.ThrowsNUnitEngineExceptionWhenTestResultsAreNotWriteable()</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/259">259</a> NUnit3 agent hangs after encountering an &quot;CannotUnloadAppDomainException&quot;</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/262">262</a> Transform file existence check should check current directory instead of WorkDirectory</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/267">267</a> Fix possible NRE</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/273">273</a> Insufficient error handling message in ProcessRunner -&gt; RunTests method</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/275">275</a> Integrate chocolatey packages with build script</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/284">284</a> NUnit3: An exception occured in the driver while loading tests...   bei NUnit.Engine.Runners.ProcessRunner.RunTests(ITestEventListener listener, TestFilter filter)</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/285">285</a> ColorConsoleWriter.WriteLabel causes NullReferenceException</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/289">289</a> Warnings not displayed</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/298">298</a> Invalid --framework option throws exception</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/300">300</a> Agents do not respect the Console WORK parameter when writing log file</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/304">304</a> Catch agent debugger launch exceptions, and improve agent crash handling</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/309">309</a> No driver found if framework assembly reference has uppercase characters</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/314">314</a> Update NUnit.Extension.VSProjectLoader to 3.7.0</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/318">318</a> Update NUnit.Extension.TeamCityEventListener to 1.0.3</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/320">320</a> Return error code -5 when AppDomain fails to unload</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/323">323</a> Assertion should not be ordered in AgentDatabaseTests</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/343">343</a> Superfluous unload error shown in console</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/349">349</a> Get all TestEngine tests running under NUnitAdapter apart from those .</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/350">350</a> Invalid assemblies no longer give an error message</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/355">355</a> NuGet package links to outdated license</li>
+</ul>
+<h2 id="nunit-console-37---july-13-2017">NUnit Console 3.7 - July 13, 2017</h2>
+<h3 id="engine">Engine</h3>
+<ul>
+<li>Creates a .NET Standard version of the engine for use in the Visual Studio Adapter</li>
+<li>Fixes several issues that caused the runner to exit with a SocketException</li>
+</ul>
+<h3 id="issues-resolved-3">Issues Resolved</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/10">10</a> Create a .NET Standard version of the Engine</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/11">11</a> insufficient info on driver reflection exception</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/12">12</a> Upgrade Cake build to latest version</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/24">24</a> Update --labels switch with option to show real-time pass/fail results in console runner</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/31">31</a> Nunit 3.4.1 NUnit.Engine.Runners</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/72">72</a> TestContext.Progress.Write writes new line</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/82">82</a> Remove unused repository paths from repositories.config</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/99">99</a> Remove unused --verbose and --full command line options</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/126">126</a> Resolve differences between NUnit Console and NUnitLite implementations of @filename</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/162">162</a> Add namespace keyword to Test Selection Language</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/171">171</a> Socket Exception when stopping Remote Agent</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/172">172</a> Limit Language level to C#6</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/193">193</a> Settings are stored with invariant culture but retrieved with CurrentCulture</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/194">194</a> Better logging or error handling in SettingsStore.SaveSettings</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/196">196</a> Allow comments in @FILE files</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/200">200</a> Remove obsolete warnings from build script</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/206">206</a> Remove reference to removed <code>noxml</code> option</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/207">207</a>  Create Chocolatey package(s) for the console</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/208">208</a> Explore flags test update</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/213">213</a> Master build failing after merging .NET Standard Engine</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/216">216</a> Compiling mock-assembly in Visual Studio 2017 fails</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/217">217</a> NUnit .NET Standard NuGet package missing some values</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/219">219</a> Runtime.Remoting.RemotingException in NUnit.Engine.Runners.ProcessRunner.Dispose</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/221">221</a> Added missing nuget package info</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/222">222</a> Improve missing agent error message</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/225">225</a> SocketException thrown by nunit3-console.exe --explore option</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/248">248</a> Agent TestEngine contains duplicate services</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/252">252</a> Console crashes when specifying both format and transform for result</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/254">254</a> Correct misprint &quot;.con&quot; -&gt; &quot;.com&quot;</li>
+</ul>
+<h2 id="nunit-console-361---march-6-2017">NUnit Console 3.6.1 - March 6, 2017</h2>
+<h3 id="engine-1">Engine</h3>
+<ul>
+<li>This hotfix release addresses a race condition in the Engine that caused
+tests to intermittently fail.</li>
+</ul>
+<h3 id="issues-resolved-4">Issues Resolved</h3>
+<ul>
+<li><a href="https://github.com/nunit/docs/issues/168">168</a> Intermittent errors while running tests after updating to 3.6</li>
+</ul>
+<h2 id="nunit-console-36---january-14-2017">NUnit Console 3.6 - January 14, 2017</h2>
+<h3 id="console-runner">Console Runner</h3>
+<ul>
+<li>Added command line option <code>--skipnontestassemblies</code> to skip assemblies that do
+not contain tests without raising an error and to skip assemblies that contain
+the NUnit.Framework.NonTestAssemblyAttribute.</li>
+<li>Messages from the new Multiple Assert blocks will be displayed individually</li>
+<li>Warnings from the new Warn.If, Warn.Unless and Assert.Warn are now displayed</li>
+</ul>
+<h3 id="engine-2">Engine</h3>
+<ul>
+<li>NUnit agents now monitor the running engine process and will terminate themselves
+if the parent runner process is killed or dies</li>
+</ul>
+<h3 id="issues-resolved-5">Issues Resolved</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/16">16</a> NUnit Engine Tests fail if not run from test directory</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/18">18</a> Invalid file type is shown in XML as type=&quot;Assembly&quot;</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/23">23</a> In nunit3-console you cannot pass parameters containing ';' because they always get split</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/37">37</a> NUnit 3 console should produce xml events for ITestEventListener which contain
+unique id in the scope of all test agents for NUnit 2 tests</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/58">58</a> System.Configuration.ConfigurationErrorsException thrown in multiple domain mode.</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/62">62</a> NUnit3 Fails on DLL with no Tests, Unlike NUnit2</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/100">100</a> Class NUnit.Engine.Services.ResultWriters.Tests.SchemaValidator is never used</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/101">101</a> Method NUnit.Options.OptionSet.Unprocessed always returns &quot;false&quot;</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/104">104</a> Type of variable enumerated in 'foreach' is not guaranteed to be cast-able</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/110">110</a> Writability check could give a friendlier message.</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/113">113</a> Add task descriptions to Build.cake</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/127">127</a> Modify console runner to display multiple assert information</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/128">128</a> Terminate agent if main process has terminated</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/133">133</a> NUnit downloadable packages zip file naming is confusing and non-intuitive</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/136">136</a> Handle early termination of multiple assert block</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/138">138</a> Report Warnings in console runner</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/145">145</a> MasterTestRunner.RunAsync no longer provides start-run and test-run events</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/151">151</a> Unexpected behavior from --framework flag</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/153">153</a> Remove some settings used by the engine</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/156">156</a> Use high-quality icon for nuspecs</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/157">157</a> Fix Detection of invalid framework when --inprocess</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/159">159</a> Update extension versions in the NuSpec Files</li>
+</ul>
+<h2 id="earlier-releases">Earlier Releases</h2>
+<ul>
+<li>Release Notes for <a class="xref" href="Pre-3.5-Release-Notes.html">NUnit 2.9.1 through 3.5</a>.</li>
+<li>Release Notes for <a href="http://www.nunit.org/?p=releaseNotes&amp;r=2.6.4">NUnit 2.6 through 2.6.4</a></li>
+<li>Release Notes for <a href="http://www.nunit.org/?p=releaseNotes&amp;r=2.5.10">NUnit 2.5 through 2.5.10</a></li>
+<li>Release Notes for <a href="http://www.nunit.org/?p=releaseNotes&amp;r=2.4.8">NUnit 2.4 through 2.4.8</a></li>
+<li>Release Notes for <a href="http://www.nunit.org/?p=releaseNotes&amp;r=2.2.10">NUnit 2.0 through 2.2.10</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/release-notes/console-and-engine.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

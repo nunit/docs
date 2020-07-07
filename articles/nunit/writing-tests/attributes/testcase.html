@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TestCase | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="TestCase | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="testcaseattribute">
+<h1 id="testcase">TestCase</h1>
+
+<p><code>TestCaseAttribute</code> serves the dual purpose of marking a method with
+parameters as a test method and providing inline data to be used when
+invoking that method. Here is an example of a test being run three
+times, with three different sets of data:</p>
+<pre><code class="lang-csharp">[TestCase(12, 3, 4)]
+[TestCase(12, 2, 6)]
+[TestCase(12, 4, 3)]
+public void DivideTest(int n, int d, int q)
+{
+    Assert.AreEqual(q, n / d);
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Because arguments to .NET attributes are limited in terms of the Types that may be used, NUnit will make some attempt to convert the supplied values using <code>Convert.ChangeType()</code> before supplying it to the test.</p>
+</div>
+<p><strong>TestCaseAttribute</strong> may appear one or more times on a test method,
+which may also carry other attributes providing test data.
+The method may optionally be marked with the <a href="test.html">Test Attribute</a> as well.</p>
+<p>By using the named parameter <code>ExpectedResult</code> this test set may be simplified
+further:</p>
+<pre><code class="lang-csharp">[TestCase(12, 3, ExpectedResult=4)]
+[TestCase(12, 2, ExpectedResult=6)]
+[TestCase(12, 4, ExpectedResult=3)]
+public int DivideTest(int n, int d)
+{
+    return n / d;
+}
+</code></pre>
+<p>In the above example, NUnit checks that the return
+value of the method is equal to the expected result provided on the attribute.</p>
+<p>TestCaseAttribute supports a number of additional named parameters:</p>
+<ul>
+<li><strong>Author</strong> sets the author of the test.</li>
+<li><strong>Category</strong> provides a comma-delimited list of categories for this test.</li>
+<li><strong>Description</strong> sets the description property of the test.</li>
+<li><strong>ExcludePlatform</strong> specifies a comma-delimited list of platforms on which the test should not run.</li>
+<li><strong>ExpectedResult</strong> sets the expected result to be returned from the method, which must have a compatible return type.</li>
+<li><strong>Explicit</strong> is set to true in order to make the individual test case Explicit. Use <strong>Reason</strong> to explain why.</li>
+<li><strong>Ignore</strong> causes the test case to be ignored and specifies the reason.</li>
+<li><strong>IgnoreReason</strong> causes this test case to be ignored and specifies the reason.</li>
+<li><strong>IncludePlatform</strong> specifies a comma-delimited list of platforms on which the test should run.</li>
+<li><strong>Reason</strong> specifies the reason for not running this test case. Use in conjunction with <strong>Explicit</strong>.</li>
+<li><strong>TestName</strong> provides a name for the test. If not specified, a name is generated based on the method name and the arguments provided. See <a class="xref" href="../../running-tests/Template-Based-Test-Naming.html">Template Based Test Naming</a>.</li>
+<li><strong>TestOf</strong> specifies the Type that this test is testing</li>
+</ul>
+<h2 id="order-of-execution">Order of Execution</h2>
+<p>Individual test cases are executed in the order in which NUnit discovers them.
+This order does <strong>not</strong> necessarily follow the lexical order of the attributes
+and will often vary between different compilers or different versions of the CLR.</p>
+<p>As a result, when <strong>TestCaseAttribute</strong> appears multiple times on a method
+or when other data-providing attributes are used in combination with
+<strong>TestCaseAttribute</strong>, the order of the test cases is undefined.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/testcase.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CollectionAssert | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="CollectionAssert | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../../index.html">
+                <img id="logo" class="svg" src="../../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="collectionassert">CollectionAssert</h1>
+
+<p>The CollectionAssert class provides a number of methods that are useful when examining collections and their contents or for comparing two collections. These methods may be used with any object implementing <code>IEnumerable</code>.</p>
+<p>The <strong>AreEqual</strong> overloads succeed if the corresponding elements of the two
+collections are equal. <strong>AreEquivalent</strong> tests whether the collection contents
+are equal, but without regard to order. In both cases, elements are compared using
+NUnit's default equality comparison.</p>
+<pre><code class="lang-csharp">CollectionAssert.AllItemsAreInstancesOfType(IEnumerable collection, Type expectedType);
+CollectionAssert.AllItemsAreInstancesOfType(
+    IEnumerable collection, Type expectedType, string message, params object[] args);
+
+CollectionAssert.AllItemsAreNotNull(IEnumerable collection);
+CollectionAssert.AllItemsAreNotNull(
+    IEnumerable collection, string message, params object[] args);
+
+CollectionAssert.AllItemsAreUnique(IEnumerable collection);
+CollectionAssert.AllItemsAreUnique(
+    IEnumerable collection, string message, params object[] args);
+
+CollectionAssert.AreEqual(IEnumerable expected, IEnumerable actual);
+CollectionAssert.AreEqual(
+    IEnumerable expected, IEnumerable actual, string message, params object[] args);
+
+CollectionAssert.AreEquivalent(IEnumerable expected, IEnumerable actual);
+CollectionAssert.AreEquivalent(
+    IEnumerable expected, IEnumerable actual, string message, params object[] args);
+
+CollectionAssert.AreNotEqual(IEnumerable expected, IEnumerable actual);
+CollectionAssert.AreNotEqual(
+    IEnumerable expected, IEnumerable actual, string message, params object[] args);
+
+CollectionAssert.AreNotEquivalent(IEnumerable expected, IEnumerable actual);
+CollectionAssert.AreNotEquivalent(
+    IEnumerable expected, IEnumerable actual, string message, params object[] args);
+
+CollectionAssert.Contains(IEnumerable expected, object actual);
+CollectionAssert.Contains(
+    IEnumerable expected, object actual, string message, params object[] args);
+
+CollectionAssert.DoesNotContain(IEnumerable expected, object actual);
+CollectionAssert.DoesNotContain(
+    IEnumerable expected, object actual, string message, params object[] args);
+
+CollectionAssert.IsSubsetOf(IEnumerable subset, IEnumerable superset);
+CollectionAssert.IsSubsetOf(
+    IEnumerable subset, IEnumerable superset, string message, params object[] args);
+
+CollectionAssert.IsNotSubsetOf(IEnumerable subset, IEnumerable superset);
+CollectionAssert.IsNotSubsetOf(
+    IEnumerable subset, IEnumerable superset, string message, params object[] args);
+
+CollectionAssert.IsEmpty(IEnumerable collection);
+CollectionAssert.IsEmpty(
+    IEnumerable collection, string message, params object[] args);
+
+CollectionAssert.IsNotEmpty(IEnumerable collection);
+CollectionAssert.IsNotEmpty(
+    IEnumerable collection, string message, params object[] args);
+
+CollectionAssert.IsOrdered(IEnumerable collection);
+CollectionAssert.IsOrdered(
+    IEnumerable collection, string message, params object[] args);
+
+CollectionAssert.IsOrdered(IEnumerable collection, IComparer comparer);
+CollectionAssert.IsOrdered(IEnumerable collection,
+    IComparer comparer, string message, params object[] args);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="../../constraints/Constraints.html#collection-constraints">Collection Constraints</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/assertions/classic-assertions/Collection-Assert.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../styles/main.js"></script>
+  </body>
+</html>

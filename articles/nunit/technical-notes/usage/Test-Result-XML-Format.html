@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Test Result XML Format | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Test Result XML Format | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="TestResultXMLFormat">
+<h1 id="test-result-xml-format">Test Result XML Format</h1>
+
+<h2 id="test-run"><code>&lt;test-run&gt;</code></h2>
+<p>The required root element for any NUnit 3.0 test result file.</p>
+<ul>
+<li><strong>Containing Elements:</strong> None</li>
+<li><strong>Contained Elements:</strong> <a href="#command-line"><code>&lt;command-line&gt;</code></a>, <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#test-suite"><code>&lt;test-suite&gt;</code></a></li>
+<li><strong>Attributes:</strong>
+<ul>
+<li><strong>id</strong> The unique ID of this test.</li>
+<li><strong>testcasecount</strong> The number of test cases contained in this test run.</li>
+<li><strong>result</strong> The basic result of the test. May be Passed, Failed, Inconclusive or Skipped.</li>
+<li><strong>total</strong> The total number of test cases executed in the run. This may be less than the testcasecount due to filtering of tests.</li>
+<li><strong>passed</strong> The number of test cases that passed.</li>
+<li><strong>failed</strong> The number of test cases that failed.</li>
+<li><strong>inconclusive</strong> The number of test cases that were inconclusive.</li>
+<li><strong>skipped</strong> The number of test cases that were skipped.</li>
+<li><strong>asserts</strong> The number of asserts executed in the test run.</li>
+<li><strong>engine-version</strong> The version of the NUnit test engine in use.</li>
+<li><strong>clr-version</strong> The runtime version under which the engine is running, taken from Environment.Version.</li>
+<li><strong>start-time</strong> The UTC time that the test run started.</li>
+<li><strong>end-time</strong> The UTC time that the test run ended.</li>
+<li><strong>duration</strong> The duration of the test run in seconds, expressed as a real number.</li>
+</ul>
+</li>
+</ul>
+<h2 id="command-line"><code>&lt;command-line&gt;</code></h2>
+<p>Holds a CDATA section containing the text of the command used to run the tests.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-run"><code>&lt;test-run&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes:</strong> None</li>
+</ul>
+<h2 id="filter"><code>&lt;filter&gt;</code></h2>
+<p>The XML representation of the filter used to execute tests.  This element is also used as a fragment in passing the filter to a runner and by the NUnit 3.0 framework and driver.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-run"><code>&lt;test-run&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>, <a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a></li>
+<li><strong>Attributes:</strong> None</li>
+</ul>
+<h2 id="or"><code>&lt;or&gt;</code></h2>
+<p>Represents a composite filter that contains other filters. At least one of the contained filters must pass in order for this filter to pass.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>, <a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a>, <a href="#prop"><code>&lt;prop&gt;</code></a></li>
+<li><strong>Attributes:</strong> None</li>
+</ul>
+<h2 id="and"><code>&lt;and&gt;</code></h2>
+<p>Represents a composite filter that contains other filters. All of the contained filters must pass in order for this filter to pass.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>, <a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a>, <a href="#prop"><code>&lt;prop&gt;</code></a></li>
+<li><strong>Attributes:</strong> None</li>
+</ul>
+<h2 id="not"><code>&lt;not&gt;</code></h2>
+<p>Represents a composite filter that contains wraps a single base filters. The base filter must fail in order for this filter to pass.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>, <a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a>, <a href="#prop"><code>&lt;prop&gt;</code></a></li>
+<li><strong>Attributes:</strong> None</li>
+</ul>
+<h2 id="id"><code>&lt;id&gt;</code></h2>
+<p>Represents a filter that examines the test id, which is generated by NUnit.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes:</strong> None</li>
+</ul>
+<h2 id="test"><code>&lt;test&gt;</code></h2>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes:</strong>
+<ul>
+<li><strong>re</strong> Set to '1' to indicate that a regular expression comparison is to be used.</li>
+</ul>
+</li>
+</ul>
+<h2 id="class"><code>&lt;class&gt;</code></h2>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes:</strong>
+<ul>
+<li><strong>re</strong> Set to '1' to indicate that a regular expression comparison is to be used.</li>
+</ul>
+</li>
+</ul>
+<h2 id="method"><code>&lt;method&gt;</code></h2>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes:</strong>
+<ul>
+<li><strong>re</strong> Set to '1' to indicate that a regular expression comparison is to be used.</li>
+</ul>
+</li>
+</ul>
+<h2 id="prop"><code>&lt;prop&gt;</code></h2>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes:</strong>
+<ul>
+<li><strong>name</strong> The name of the property to filter on.</li>
+<li><strong>re</strong> Set to '1' to indicate that a regular expression comparison is to be used.</li>
+</ul>
+</li>
+</ul>
+<h2 id="cat"><code>&lt;cat&gt;</code></h2>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes:</strong> None</li>
+</ul>
+<h2 id="test-suite"><code>&lt;test-suite&gt;</code></h2>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-run"><code>&lt;test-run&gt;</code></a>, <a href="#test-suite"><code>&lt;test-suite&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#environment"><code>&lt;environment&gt;</code></a>, <a href="#settings"><code>&lt;settings&gt;</code></a>, <a href="#properties"><code>&lt;properties&gt;</code></a>, <a href="#reason"><code>&lt;reason&gt;</code></a>, <a href="#failure"><code>&lt;failure&gt;</code></a>, <a href="#output"><code>&lt;output&gt;</code></a>, <a href="#attachments"><code>&lt;attachments&gt;</code></a>, <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, [<code>&lt;test-case&gt;</code>](#test-case* <strong>Attributes</strong>
+<ul>
+<li><strong>type</strong> The type of suite represented by this element. Currently supported types are Assembly, TestSuite, TestFixture,</li>
+<li><strong>id</strong> The unique id of this test. Coded as &quot;mmm-nnn&quot; where the part before the hyphen represents the assembly and the part after it represents a test in that assembly. Currently, mmm and nnn are ints, but that is merely an accident of the implementation and should not be relied on.</li>
+<li><strong>name</strong> The display name of the test as generated by NUnit.</li>
+<li><strong>fullname</strong> The full name of the test as generated by NUnit.</li>
+<li><strong>classname</strong> The full name of the class (fixture) representing this test. Only present if <code>type</code> is equal to &quot;TestFixture&quot;.</li>
+<li><strong>testcasecount</strong> The number of test cases contained, directly or indirectly, in this suite.</li>
+<li><strong>runstate</strong> An indicator of whether the suite is runnable. Value may be NotRunnable, Runnable, Explicit, Skipped or Ignored. NotRunnable means there is an error in how the test is expressed in code, for example, the signature may be wrong. Explicit, Skipped and Ignored are set by attributes on the test.</li>
+<li><strong>result</strong> The basic result of the test. May be Passed, Failed, Inconclusive or Skipped.</li>
+<li><strong>label</strong> Additional labeling information about the result. In principle, this may be any string value and is combined with the result to give a more precise reason for failure. Currently, NUnit may use the following labels in combination with the Failure result: Error, Cancelled or Invalid. It may use the following labels in combination with a Skipped result: Ignored or Explicit. Additional values may be added in future releases or supplied by extensions, so code that processes a result file should be prepared to deal with any label or none at all.</li>
+<li><strong>site</strong> Optional element indicating where a failure occurred. Values are Test, SetUp, TearDown, Parent or Child. Default is Test and the attribute does not normally appear in that case.</li>
+<li><strong>start-time</strong> The UTC time that the suite started.</li>
+<li><strong>end-time</strong> The UTC time that the suite ended.</li>
+<li><strong>duration</strong> The duration of the suite in seconds, expressed as a real number.</li>
+<li><strong>total</strong> The total number of test cases executed under this suite.</li>
+<li><strong>passed</strong> The number of test cases that passed.</li>
+<li><strong>failed</strong> The number of test cases that failed.</li>
+<li><strong>inconclusive</strong> The number of test cases that were inconclusive.</li>
+<li><strong>skipped</strong> The number of test cases that were skipped.</li>
+<li><strong>asserts</strong> The number of asserts executed by the suite, including any nested suites or test cases. Since asserts may be executed in OneTimeSetUp and in ActionAttributes, this number can be greater than the total of the asserts for the test cases.</li>
+</ul>
+</li>
+</ul>
+<h2 id="environment"><code>&lt;environment&gt;</code></h2>
+<p>Describes the environment in which the tests in a particular assembly are being run.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a> <em>(Assembly level only)</em></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes:</strong>
+<ul>
+<li><code>framework-version</code> The version of the nunit framework in use.</li>
+<li><code>clr-version</code> The runtime version under which the tests are running, taken from Environment.Version.</li>
+<li><code>os-version</code> A text string describing the operating system running the tests, taken from Environment.OsVersion.</li>
+<li><code>platform</code> The platform id, taken from Environment.OsVersion.Platform.</li>
+<li><code>cwd</code> The current working directory path, taken from Environment.CurrentDirectory.</li>
+<li><code>machine-name</code> The machine name, taken from Environment.MachineName.</li>
+<li><code>user</code> The user id, taken from Environment.UserName.</li>
+<li><code>user-domain</code> The user domain, taken from Environment.UserDomainName.</li>
+<li><code>culture</code> The current culture, taken from CultureInfo.CurrentCulture.</li>
+<li><code>uiculture</code> The current UI culture, taken from CultureInfo.CurrentUICulture.</li>
+<li><code>os-architecture</code> The architecture, taken from GetProcessorArchitecture().</li>
+</ul>
+</li>
+</ul>
+<h2 id="settings"><code>&lt;settings&gt;</code></h2>
+<p>Settings used by the engine for executing an assembly. These are taken from the supplied settings in the
+<code>TestPackage</code> supplemented by default settings created by the engine itself.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a> <em>(Assembly level only)</em></li>
+<li><strong>Contained Elements:</strong> <a href="#setting"><code>&lt;setting&gt;</code></a></li>
+<li><strong>Attributes:</strong> None</li>
+</ul>
+<h2 id="setting"><code>&lt;setting&gt;</code></h2>
+<p>A single setting</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#settings"><code>&lt;settings&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes:</strong>
+<ul>
+<li><strong>name</strong> The name of the setting.</li>
+<li><strong>value</strong> The value assigned to the setting.</li>
+</ul>
+</li>
+</ul>
+<h2 id="test-case"><code>&lt;test-case&gt;</code></h2>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#properties"><code>&lt;properties&gt;</code></a>, <a href="#reason"><code>&lt;reason&gt;</code></a>, <a href="#failure"><code>&lt;failure&gt;</code></a>, <a href="#output"><code>&lt;output&gt;</code></a>, <a href="#attachments"><code>&lt;attachments&gt;</code></a></li>
+<li><strong>Attributes</strong>
+<ul>
+<li><code>id</code> The unique id of this test. Coded as &quot;mmm-nnn&quot; where the part before the hyphen represents the assembly and the part after it represents a test in that assembly. Currently, mmm and nnn are ints, but that is merely an accident of the implementation and should not be relied on.</li>
+<li><code>name</code> The display name of the test as generated by NUnit or, in the case of some parameterized tests, specified by the user.</li>
+<li><code>fullname</code> The full name of the test as generated by NUnit.</li>
+<li><code>methodname</code> The name of the method representing the test case.</li>
+<li><code>classname</code> The full name of the class in which this test case appears.</li>
+<li><code>runstate</code> An indicator of whether the suite is runnable. Value may be NotRunnable, Runnable, Explicit, Skipped or Ignored. NotRunnable means there is an error in how the test is expressed in code, for example, the signature may be wrong. Explicit, Skipped and Ignored are set by attributes on the test.</li>
+<li><code>seed</code> The seed used to generate random arguments and other values for this test.</li>
+<li><code>result</code> The basic result of the test. May be Passed, Failed, Inconclusive or Skipped.</li>
+<li><code>label</code> Additional labeling information about the result. In principle, this may be any string value and is combined with the result to give a more precise reason for failure. Currently, NUnit may use the following labels in combination with the Failure result: Error, Cancelled or Invalid. It may use the following labels in combination with a Skipped result: Ignored or Explicit. Additional values may be added in future releases or supplied by extensions, so code that processes a result file should be prepared to deal with any label or none at all.</li>
+<li><code>site</code> Optional element indicating where a failure occurred. Values are Test, SetUp, TearDown, Parent or Child. Default is Test and the attribute does not normally appear in that case.</li>
+<li><code>start-time</code> The UTC time that the test started.</li>
+<li><code>end-time</code> The UTC time that the test ended.</li>
+<li><code>duration</code> The duration of the test in seconds, expressed as a real number.</li>
+<li><code>asserts</code> The number of asserts executed by the test.</li>
+</ul>
+</li>
+</ul>
+<h2 id="properties"><code>&lt;properties&gt;</code></h2>
+<p>Optional element containing any properties assigned to the test case or suite.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#property"><code>&lt;property&gt;</code></a></li>
+<li><strong>Attributes</strong> None</li>
+</ul>
+<h2 id="property"><code>&lt;property&gt;</code></h2>
+<p>A single property</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#properties"><code>&lt;properties&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes</strong>
+<ul>
+<li><strong>name</strong> The name of the property</li>
+<li><strong>value</strong> The value of the property</li>
+</ul>
+</li>
+</ul>
+<h2 id="reason"><code>&lt;reason&gt;</code></h2>
+<p>Optional element that may appear on tests or suites that were not executed. Contains a message giving the reason for skipping the test.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#message"><code>&lt;message&gt;</code></a></li>
+<li><strong>Attributes</strong> None</li>
+</ul>
+<h2 id="failure"><code>&lt;failure&gt;</code></h2>
+<p>Optional element that appears on all tests or suites with a result of 'Failed'. Optionally contains the error message and/or a stack trace.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#message"><code>&lt;message&gt;</code></a>, <a href="#stack-trace"><code>&lt;stack-trace&gt;</code></a></li>
+<li><strong>Attributes</strong> None</li>
+</ul>
+<h2 id="assertions"><code>&lt;assertions&gt;</code></h2>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#assertion"><code>&lt;assertion&gt;</code></a></li>
+<li><strong>Attributes</strong> None</li>
+</ul>
+<h2 id="assertion"><code>&lt;assertion&gt;</code></h2>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#assertions"><code>&lt;assertions&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#message"><code>&lt;message&gt;</code></a>, <a href="#stack-trace"><code>&lt;stack-trace&gt;</code></a></li>
+<li><strong>Attributes</strong>
+<ul>
+<li><strong>result</strong> The result of the assertion. May be Inconclusive, Passed, Warning, Failed or Error.</li>
+</ul>
+</li>
+</ul>
+<h2 id="message"><code>&lt;message&gt;</code></h2>
+<p>Optional element with a CDATA section containing a message relating to the test's result.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#failure"><code>&lt;failure&gt;</code></a>, <a href="#reason"><code>&lt;reason&gt;</code></a>, <a href="#assertion"><code>&lt;assertion&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes</strong> None</li>
+</ul>
+<h2 id="stack-trace"><code>&lt;stack-trace&gt;</code></h2>
+<p>Optional element with a CDATA section containing a stack-trace of the location where a test failed.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#failure"><code>&lt;failure&gt;</code></a>, <a href="#assertion"><code>&lt;assertion&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes</strong> None</li>
+</ul>
+<h2 id="output"><code>&lt;output&gt;</code></h2>
+<p>Optional element that appears on tests or suites that produce text output. The output may be intercepted from writes to the console or captured directly when the test writes to the TestContext. It is contained in a CDATA section.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes</strong> None</li>
+</ul>
+<h2 id="attachments"><code>&lt;attachments&gt;</code></h2>
+<p>Optional element that appears when files are attached to a test. Contains a list of <code>&lt;attachment&gt;</code> elements.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#attachment"><code>&lt;attachment&gt;</code></a></li>
+<li><strong>Attributes</strong> None</li>
+</ul>
+<h2 id="attachment"><code>&lt;attachment&gt;</code></h2>
+<p>Groups together the file path and description of a test attachment.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#attachments"><code>&lt;attachments&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#filepath"><code>&lt;filePath&gt;</code></a>, <a href="#description"><code>&lt;description&gt;</code></a></li>
+<li><strong>Attributes</strong> None</li>
+</ul>
+<h2 id="filepath"><code>&lt;filePath&gt;</code></h2>
+<p>Contains the file path for the attachment. Paths will be fully rooted.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#attachment"><code>&lt;attachment&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes</strong> None</li>
+</ul>
+<h2 id="description"><code>&lt;description&gt;</code></h2>
+<p>Optional element that contains the user's description of the attachment. It is contained in a CDATA section.</p>
+<ul>
+<li><strong>Containing Elements:</strong> <a href="#attachment"><code>&lt;attachment&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> None</li>
+<li><strong>Attributes</strong> None</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/usage/Test-Result-XML-Format.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

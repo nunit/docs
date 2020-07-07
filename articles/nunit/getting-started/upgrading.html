@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Upgrading | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Upgrading | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="upgrading">Upgrading</h1>
+
+<p>This document assumes you are upgrading to NUnit 3.0 from NUnit 2.6 or
+later. While it's possible to upgrade from an earlier version, you will
+need to take into account many additional changes in NUnit, which are not
+described here. If this is your situation, be sure to check the release
+notes for earlier versions of NUnit as well.</p>
+<h2 id="review-breaking-changes">Review Breaking Changes</h2>
+<p>The <a class="xref" href="breaking-changes.html">Breaking Changes</a> page
+lists missing and changed functionality in NUnit 3.0. You should review this
+page to see which items are likely to affect your own tests.</p>
+<h2 id="update-your-code">Update Your Code</h2>
+<p>In many cases, the items being removed have been deprecated for some time
+and an alternate approach may already be available in your current release
+of NUnit. If that is the case, it will probably save you time and effort if
+you modify the code in your current environment before switching to NUnit 3.0.</p>
+<p>For example, NUnit 3.0 no longer supports <strong>ExpectedExceptionAttribute</strong>.
+However, preferred alternatives <strong>Assert.Throws</strong> and the <strong>ThrowsConstraint</strong>
+have been available for several years. If you remove the attribute from your
+tests and use one of the alternatives instead, you can verify that they work
+in your present environment and they will continue to work after conversion.**</p>
+<h2 id="switch-to-nunit-30">Switch to NUnit 3.0</h2>
+<p>Remove references to your old version of NUnit and replace them with references
+to NUnit 3.0. In the case of NUnitLite executable tests, you will need to reference
+both the nunit.framework and NUnitLite assemblies. Compile your code. It's possible that you will find compiler errors due to breaking changes in NUnit 3.0, which you missed in the prior step. Make the necessary changes until it all works.</p>
+<h2 id="make-the-tests-pass">Make the Tests Pass</h2>
+<p>Hopefully, you aren't converting tests that were not passing when you started!
+If all goes well, they will continue to pass under NUnit 3.0. If not, investigate
+each case and make necessary changes. If something isn't working as advertised,
+please let us know.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/getting-started/upgrading.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

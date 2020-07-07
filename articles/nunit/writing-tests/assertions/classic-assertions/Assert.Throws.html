@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Assert.Throws | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Assert.Throws | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../../index.html">
+                <img id="logo" class="svg" src="../../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="assertthrows">Assert.Throws</h1>
+
+<p>The <strong>Assert.Throws</strong> method is pretty much in a class by itself. Rather than
+comparing values, it attempts to invoke a code snippet, represented as
+a delegate, in order to verify that it throws a particular exception.</p>
+<p>It's also in a class by itself in that it returns an Exception, rather
+than void, if the Assert is successful. See the example below for
+a few ways to use this.</p>
+<p><strong>Assert.Throws</strong> may be used with a constraint argument, which is applied
+to the actual exception thrown, or with the Type of exception expected.
+The Type format is available in both a non-generic and generic form.</p>
+<p>If the code under test is async, you must use <a href="Assert.ThrowsAsync.html">Assert.ThrowsAsync</a>.</p>
+<pre><code class="lang-csharp">Exception Assert.Throws(Type expectedExceptionType, TestDelegate code);
+Exception Assert.Throws(Type expectedExceptionType, TestDelegate code,
+                        string message, params object[] params);
+
+Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code);
+Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code,
+                        string message, params object[] params);
+
+Assert.Throws&lt;T&gt;(TestDelegate code);
+Assert.Throws&lt;T&gt;(TestDelegate code,
+                 string message, params object[] params);
+</code></pre>
+<p>In the above code <strong>TestDelegate</strong> is a delegate of the form
+<strong>void TestDelegate()</strong>, which is used to execute the code
+in question. This may be an anonymous delegate or, when compiling
+under C# 3.0 or greater, a lambda expression.</p>
+<p>The following example shows different ways of writing the
+same test.</p>
+<pre><code class="lang-csharp">[TestFixture]
+public class AssertThrowsTests
+{
+  [Test]
+  public void Tests()
+  {  
+    // Using a method as a delegate
+    Assert.Throws&lt;ArgumentException&gt;(MethodThatThrows);
+
+    // Using an anonymous delegate
+    Assert.Throws&lt;ArgumentException&gt;(
+    delegate { throw new ArgumentException(); });
+
+    // Using a Lambda expression
+    Assert.Throws&lt;ArgumentException&gt;(
+      () =&gt; { throw new ArgumentException(); });
+  }
+  
+  void MethodThatThrows()
+  {
+    throw new ArgumentException();
+  }
+}
+</code></pre>
+<p>This example shows use of the return value to perform
+additional verification of the exception.</p>
+<pre><code class="lang-csharp">[TestFixture]
+public class UsingReturnValue
+{
+  [Test]
+  public void TestException()
+  {
+    MyException ex = Assert.Throws&lt;MyException&gt;(
+      delegate { throw new MyException(&quot;message&quot;, 42); });
+
+    Assert.That(ex.Message, Is.EqualTo(&quot;message&quot;));
+    Assert.That(ex.MyParam, Is.EqualTo(42));
+  }
+}
+</code></pre>
+<p>This example does the same thing
+using the overload that includes a constraint.</p>
+<pre><code class="lang-csharp">[TestFixture]
+public class UsingConstraint
+{
+  [Test]
+  public void TestException()
+  {
+    Assert.Throws(Is.TypeOf&lt;MyException&gt;()
+                 .And.Message.EqualTo(&quot;message&quot;)
+                 .And.Property(&quot;MyParam&quot;).EqualTo(42),
+      delegate { throw new MyException(&quot;message&quot;, 42); });
+  }
+}
+</code></pre>
+<p>Use the form that matches your style of coding.</p>
+<h2 id="exact-versus-derived-types">Exact Versus Derived Types</h2>
+<p>When used with a Type argument, <strong>Assert.Throws</strong> requires
+that exact type to be thrown. If you want to test for any
+derived Type, use one of the forms that allows specifying
+a constraint. Alternatively, you may use <a href="Assert.Catch.html">Assert.Catch</a>,
+which differs from <strong>Assert.Throws</strong> in allowing derived
+types. See the following code for examples:</p>
+<pre><code class="lang-csharp">// Require an ApplicationException - derived types fail!
+Assert.Throws(typeof(ApplicationException), code);
+Assert.Throws&lt;ApplicationException&gt;()(code);
+
+// Allow both ApplicationException and any derived type
+Assert.Throws(Is.InstanceOf(typeof(ApplicationException), code);
+Assert.Throws(Is.InstanceOf&lt;ApplicationException&gt;;(), code);
+
+// Allow both ApplicationException and any derived type
+Assert.Catch&lt;ApplicationException&gt;(code);
+
+// Allow any kind of exception
+Assert.Catch(code);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="Assert.Catch.html">Assert.Catch</a></li>
+<li><a href="Assert.CatchAsync.html">Assert.CatchAsync</a></li>
+<li><a href="Assert.ThrowsAsync.html">Assert.ThrowsAsync</a></li>
+<li><a class="xref" href="../../constraints/ThrowsConstraint.html">ThrowsConstraint</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/assertions/classic-assertions/Assert.Throws.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../styles/main.js"></script>
+  </body>
+</html>

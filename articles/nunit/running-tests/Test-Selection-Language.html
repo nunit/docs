@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Test Selection Language | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Test Selection Language | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="TestSelectionLanguage">
+<h1 id="test-selection-language">Test Selection Language</h1>
+
+<p>The console command-line allows you to specify a filter, which will select which tests are executed. This is done using the --where option, followed by an expression in NUnit's Test Selection Language (TSL), a simple domain-specific language designed for this purpose.</p>
+<p>Some of the characters used in the expression, such as space, | or &amp;, may have a special meaning when entered on the command-line. In such a case, you should place the expression in quotation marks.</p>
+<pre><code class="lang-cmd">  nunit3-console mytest.dll --where &quot;cat == Urgent || Priority == High&quot;
+</code></pre>
+<p>Note that TSL is handled by the NUnit engine but requires framework support to actually select the tests. The NUnit 3.0 framework supports it fully. See below for support limitations in NUnit V2 tests.</p>
+<h2 id="simple-expressions">Simple Expressions</h2>
+<p>Simple Expressions are essentially comparisons, consisting of a key word or property name on the left-hand side, an operator and some constant value on the right-hand side. Here are some examples:</p>
+<pre><code class="lang-text">  cat == Data
+  test =~ /TestCaseAttributeTest/
+  method == SomeMethodName
+  cat != Slow
+  Priority == High
+  namespace == My.Name.Space
+</code></pre>
+<p>The following key words are recognized on the left-hand side of the comparison:</p>
+<ul>
+<li><code>test</code> - The fully qualified test name as assigned by NUnit, e.g. My.Name.Space.TestFixture.TestMethod(5)</li>
+<li><code>name</code> - The test name assigned by NUnit, e.g. TestMethod(5)</li>
+<li><code>class</code> - The fully qualified name of the class containing the test, e.g. My.Name.Space.TestFixture</li>
+<li><code>namespace</code> - The fully qualified name of the namespace containing the test(s), e.g. My.Name.Space</li>
+<li><code>method</code> - The name of the method, e.g. TestMethod</li>
+<li><code>cat</code> - A category assigned to the test, e.g. SmokeTests</li>
+</ul>
+<p>If the left-hand side of the comparison does not consist of a key word, it is treated as the name of a property on the test whose value is to be checked. See below for restrictions on use of properties.</p>
+<p>The following operators are supported</p>
+<ul>
+<li><code>==</code> to test for equality - a single equal sign (<code>=</code>) may be used as well and has the same meaning</li>
+<li><code>!=</code> to test for inequality</li>
+<li><code>=~</code> to match a regular expression</li>
+<li><code>!~</code> to not match a regular expression</li>
+</ul>
+<p>The right-hand side of the comparison may be a sequence of non-blank, non-special characters or a quoted string. Quoted strings may be surrounded by single quotes (<code>'</code>), double quotes (<code>&quot;</code>) or slashes (<code>/</code>) and may contain any character except the quote character used to delimit them. If it is necessary to include the quote character in the string, it may be escaped using a backslash () as may the backslash itself should you need to include one. The following expressions all do the same thing:</p>
+<pre><code class="lang-text">  test =~ /TestCaseAttributeTest/
+  test =~ &quot;TestCaseAttributeTest&quot;
+  test =~ 'TestCaseAttributeTest'
+  test =~ TestCaseAttributeTest
+  test=~TestCaseAttributeTest
+</code></pre>
+<p>For matching regular expressions, NUnit uses .NET's <code>Regex.IsMatch</code> method. For detailed information on the syntax of regular expressions in .NET, see <a href="https://msdn.microsoft.com/en-us/library/az24scfc%28v=vs.110%29.aspx">https://msdn.microsoft.com/en-us/library/az24scfc%28v=vs.110%29.aspx</a>.</p>
+<p>For specifying qualified names, the same format as used for reflection should be used. For example <code>My.Name.Space.TestFixture+NestedFixture</code> can be used to select a nested fixture. For detailed information see: <a href="https://msdn.microsoft.com/en-us/library/yfsftwz6(v=vs.110).aspx#Anchor_1">Specifying Special Characters</a></p>
+<h2 id="filtering-by-namespace">Filtering By Namespace</h2>
+<p>Using the <code>namespace</code> keyword with <code>==</code> will <em>not</em> match on sub-namespaces. For example by using the filter <code>namespace == My.Name.Space</code>, a test <code>My.Name.Space.MyFixture</code> will be selected but a test <code>My.Name.Space.SubNamespace.MyFixture</code> will not, since its namespace is not <strong>equal</strong> to the namespace provided.</p>
+<p>In order to inclusively select namespaces, a regular expression can be used. For example to match <em>all</em> namespaces under the root namespace <code>My.Name.Space</code>, the following filter can be used <code>namespace =~ ^My\.Name\.Space($|\.)</code></p>
+<h2 id="filtering-based-on-properties">Filtering Based on Properties</h2>
+<p>Although the syntax will accept any property name - including names that don't actually exist - filtering will only work on existing, string-valued properties.  The following properties are created by NUnit and have string values:</p>
+<ul>
+<li>Author</li>
+<li>Category</li>
+<li>Description</li>
+<li>SetCulture</li>
+<li>SetUICulture</li>
+<li>TestOf</li>
+<li>IgnoreUntilDate</li>
+</ul>
+<p>In general, these properties were not created with filtering in mind, but you can use them if it suits your needs. Using the Category property currently accomplishes the same thing as the cat keyword. You should be aware that the use of these properties by NUnit is considered an implementation detail and they may change in the future.</p>
+<p>We envision that most filtering by property will be based on user-defined properties, created for this purpose by inheriting from <a class="xref" href="../writing-tests/attributes/property.html">Property Attribute</a>. When defining a property, you should keep the limitation to string values in mind. For example, a PriorityAttribute taking values of &quot;High&quot;, &quot;Medium&quot; and &quot;Low&quot; could be used for filtering, while one that took the integers 1, 2 and 3 could not.</p>
+<h2 id="filtering-by-test-id">Filtering by Test Id</h2>
+<p>In addition to the left-hand-side items listed, NUnit supports filtering by the test id through the <code>id</code> keyword. The id may only be selected using the <code>==</code> operator and is intended only for use by programs that have explored the tests and cached the ids, not for general use by users. The reason for this restriction is that users have no way of predicting the id that will be assigned to a test. The id is not persistent across test runs and its format can differ between different framework drivers.</p>
+<h2 id="compound-expressions">Compound Expressions</h2>
+<p>Simple expressions may be combined using logical and, logical or, parentheses or negation operators.</p>
+<p>Logical and is expressed as <code>&amp;&amp;</code>, <code>&amp;</code> or <code>and</code>. Logical or is expressed as <code>||</code>, <code>|</code>, or <code>or</code>. The negation operator is <code>!</code> and may only appear before a left parenthesis. The letter variants, <code>and</code> and <code>or</code>, are provided for use on the command-line in systems that give <code>&amp;</code> and <code>|</code> a special meaning.</p>
+<p>The following are valid compound expressions:</p>
+<pre><code class="lang-text">  test == &quot;My.Namespace&quot; and cat == Urgent
+  test == &quot;My.Namespace&quot; and (cat == Urgent or Priority == High)
+  test == &quot;My.Namespace&quot; and (cat == Urgent or Priority == High)
+  method =~ /Source.*Test/ and class =~ &quot;My.Namespace.ClassName&quot;
+</code></pre>
+<h2 id="usage-on-the-command-line">Usage on the Command Line</h2>
+<p>Because TSL contains special characters and may contain blank spaces, you will usually want to put the expression in quotes on the command line. Consequently, any strings within the TSL expression will most likely need to use an alternate quote character. For example:</p>
+<pre><code class="lang-cmd">  nunit-console test.dll --where &quot;method =~ /Source.*Test/ &amp;&amp; class =~ 'My.Namespace.Classname'&quot;
+</code></pre>
+<h2 id="support-in-nunit-v2">Support in NUnit V2</h2>
+<p>The driver for NUnit V2 supports a subset of TSL. Because the V2 NUnit framework only allowed filtering on test names and categories, you may only use the <code>cat</code> and <code>test</code> keywords in comparisons. In addition, the regular expression operators <code>=~</code> and <code>!~</code> are not supported.</p>
+<p>If you use any of the unsupported keywords or operators with V2 tests, an error message is displayed and the tests are not run.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/running-tests/Test-Selection-Language.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

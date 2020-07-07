@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Packaging the V3 Adapter | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Packaging the V3 Adapter | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="packaging-the-v3-adapter">Packaging the V3 Adapter</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>There are two purposes for building the adapter, one is for creating the packages for a  release - which is what this page is about, the other is for creating whatever you need for debugging or testing purposes.  For the latter, see [How to build and debug the adapter]</p>
+<p>The procedure described here is for those people who need to release a new version of the adapter.</p>
+<h2 id="preparing-the-source-code">Preparing the source code</h2>
+<h3 id="update-to-the-latest-version-of-nunit">Update to the latest version of NUnit</h3>
+<p>This may not be necessary for all releases. However, if the NUnit version used by the adapter is being updated, it is important to do it correctly.</p>
+<ul>
+<li><p>The NUnit3TestAdapter, NUnit3TestAdapterInstall and NUnit3TestAdapterTests projects should all reference the same versions of the NUnit Engine package, normally the most recent.</p>
+</li>
+<li><p>The NUnit3TestAdapterTests and NUnitTestDemo projects should reference the same version of the NUnit framework package, also normally the most recent. Note that this is currently the same version as the engine package, but this may not continue to be the case if the frequency of release of the two packages differs.</p>
+</li>
+</ul>
+<h3 id="assembly-references">Assembly References</h3>
+<p>At this time, after upgrading the NUnit engine package, you have to manually adjust the references, removing several that are added automatically by the package and adding an Alias. We will try to eliminate this manual step in the future.</p>
+<p>For each of the <strong>NUnit3TestAdapter</strong>, <strong>NUnit3TestAdapterTests</strong> and <strong>NUnit3TestAdapterInstall</strong> projects, remove references to nunit-agent and nunit-agent-x86, leaving only the four Mono.Cecil references, nunit.engine and nunit.engine.api.</p>
+<p>For the <strong>NUnit3TestAdapter</strong> project, modify the properties for nunit-engine by entering &quot;ENG&quot; for Aliases.</p>
+<h3 id="versioning">Versioning</h3>
+<p>The version numbers follow the basic principles of <a href="https://semver.org/">semantic versioning</a>.
+(The fourth number is used for debug versions under development, and will always be 0 for release versions.)</p>
+<p>The version numbers have to be edited in the following files, and should match:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AssemblyInfo.cs</code>, found in the NUnitTestAdapter project</td>
+<td>change both file and assembly version number</td>
+</tr>
+<tr>
+<td><code>source.extensions.vsixmanifest</code>, found under the NUnitTestAdapterInstall project</td>
+<td>change Version tag</td>
+</tr>
+<tr>
+<td><code>appveyor.yml</code>, found under the Solution Items folder.</td>
+<td>change the version number, but only use the three first digits.</td>
+</tr>
+<tr>
+<td><code>build.cake</code>, found under the Solution Items folder.</td>
+<td>change the version number, but only use the three first digits.</td>
+</tr>
+<tr>
+<td><code>license.rtf</code>, found under the NUnit3TestAdapterInstall project.</td>
+<td>If the copyright year has changed, update accordingly.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="build">Build</h2>
+<p>Use the build command to build and test a release version.</p>
+<pre><code class="lang-cmd">build -t Test
+</code></pre>
+<h2 id="packaging">Packaging</h2>
+<p>Use the build command to create packages</p>
+<pre><code class="lang-cmd">build -t Package
+</code></pre>
+<p>Run this from the solution root folder</p>
+<p>The resulting files can be found in the &quot;package&quot; folder:</p>
+<ul>
+<li><p><strong>NUnit3TestAdapter-[VERSION].vsix</strong>  This is the extension for Visual Studio, which is uploaded to the <a href="https://visualstudiogallery.msdn.microsoft.com/0da0f6bd-9bb6-4ae3-87a8-537788622f2d">Visual Studio Gallery</a>.</p>
+</li>
+<li><p><strong>NUnit3TestAdapter-[VERSION].zip</strong>  This is a zipped package for use with TFS Server Builds when you don't use the NuGet package in your solution. See  [this blog] for more information.</p>
+</li>
+<li><p><strong>NUnit3TestAdapter.[VERSION].nupkg</strong> This is the NuGet package, which is uploaded to <a href="https://www.nuget.org/packages/NUnitTestAdapter/">NuGet for the adapter</a></p>
+</li>
+</ul>
+<h3 id="testing-the-packages">Testing the Packages</h3>
+<p>Test both the vsix and NuGet packages using each version of Visual Studio you have available, from 2012 through 2015.</p>
+<h3 id="publishing-the-release">Publishing the Release</h3>
+<ol>
+<li><p>Create a release on GitHub. Few people use this directly, but it is the benchmark release and provides an archive of all past releases, so we do this first. Github will automatically create zip and tar files containing the source. In addition, upload all three packages created above as a part of the release.</p>
+</li>
+<li><p>Upload the vsix package to the <a href="https://visualstudiogallery.msdn.microsoft.com/0da0f6bd-9bb6-4ae3-87a8-537788622f2d">Visual Studio Gallery</a> using the NUnitDeveloper account. If you don't have access to that account, ask one of the committers with access to do the upload for you.</p>
+</li>
+<li><p>Upload the NuGet package to nuget.org. You use your own account for this but you must have been pre-authorized in order for it to work. If you are not authorized, ask a committer with access to do it for you.</p>
+</li>
+<li><p>Update the documentation pages in the site as needed. Be sure to update the Release Notes page. In order to perform the update quickly after publishing the packages, you may want to clone the <code>nunit/docs</code> repository and prepare the pull request in advance.</p>
+</li>
+<li><p>Publicize the release, first announcing it on the nunit-developer and nunit-discuss lists and then more widely as appropriate. [We should develop a list of places.]</p>
+</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Publishing the release requires access to various online accounts, which are mentioned above. For obvious reasons, the passwords are not provided. Contact Charlie or Terje if you need this access.</p>
+</div>
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li><p><strong>Visual Studio</strong>
+Visual Studio 2017 is required in order to build the vsix. Visual Studio 2013 or 2015 may be used for other development.</p>
+</li>
+<li><p><strong>Visual Studio SDK</strong><br>
+You need this to work with the vsix.</p>
+</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/developer-info/Packaging-the-V3-Adapter.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

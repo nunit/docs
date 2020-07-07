@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Range | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Range | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="rangeattribute">
+<h1 id="range">Range</h1>
+
+<p>The <strong>RangeAttribute</strong> is used to specify a range of values to be provided
+for an individual parameter of a parameterized test method. Since
+NUnit combines the data provided for each parameter into a set of
+test cases, data must be provided for all parameters if it is
+provided for any of them.</p>
+<p>By default, NUnit creates test cases from all possible combinations
+of the datapoints provided on parameters - the combinatorial approach.
+This default may be modified by use of specific attributes on the
+test method itself.</p>
+<p>RangeAttribute supports the following constructors:</p>
+<pre><code class="lang-csharp">public RangeAttribute(int from, int to);
+public RangeAttribute(int from, int to, int step);
+public RangeAttribute(long from, long to, long step);
+public RangeAttribute(float from, float to, float step);
+public RangeAttribute(double from, double to, double step);
+</code></pre>
+<h2 id="example">Example</h2>
+<p>The following test will be executed nine times.</p>
+<pre><code class="lang-csharp">[Test]
+public void MyTest(
+    [Values(1, 2, 3)] int x,
+    [Range(0.2, 0.6, 0.2)] double d)
+{
+    /* ... */
+}
+</code></pre>
+<p>The MyTest method is called nine times, as follows:</p>
+<pre><code class="lang-csharp">MyTest(1, 0.2)
+MyTest(1, 0.4)
+MyTest(1, 0.6)
+MyTest(2, 0.2)
+MyTest(2, 0.4)
+MyTest(2, 0.6)
+MyTest(3, 0.2)
+MyTest(3, 0.4)
+MyTest(3, 0.6)
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="values.html">Values Attribute</a></li>
+<li><a href="random.html">Random Attribute</a></li>
+<li><a href="sequential.html">Sequential Attribute</a></li>
+<li><a href="combinatorial.html">Combinatorial Attribute</a></li>
+<li><a href="pairwise.html">Pairwise Attribute</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/range.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NUnit.org</title>
+  <meta name="description" content="NUnit is the most popular unit test framework for .NET.">
+
+  <link rel="stylesheet" href="/css/main.css"">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="alternate" type="application/rss+xml" title="NUnit.org" href="/rss.xml"">
+  <link rel="alternate" type="application/atom+xml" title="NUnit.org" href="/atom.xml" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <div class="navbar-brand grow">
+                <img src="/img/nunit.svg" />
+            </div>
+        </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="/news/"><i class="fa fa-commenting-o"></i> News</a></li>
+            <li><a href="/download/"><i class="fa fa-download"></i> Download</a></li>
+            <li><a href="/documentation/"><i class="fa fa-book"></i> Documentation</a></li>
+            <li><a href="/contact/"><i class="fa fa-envelope-o"></i> Contact</a></li>
+            <li><a href="https://twitter.com/nunit" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://gitter.im/nunit/nunit" target="_blank"><i class="fa fa-comments-o"></i> Gitter</a></li>
+            <li><a href="https://github.com/nunit" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
+        </ul>
+    </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+  <div class="container">
+    <div class="content help">
+      <div class="notice">Legacy Documentation. View <a href="https://docs.nunit.org">NUnit 3 Documentation</a></div>
+      <div id="help_content">
+
+<h2>Options Dialog</h2>
+
+<p>The Options Dialog is displayed using the Tools | Options menu item and allows the user to
+control some aspects of NUnit's operation. With NUnit 2.4.4, a tree-based dialog
+replaced the older tabbed format.</p>
+
+<hr><h3>Gui Options - General</h3><hr>
+
+<div class="screenshot-right">
+   <img src="/docs/img/generalOptions.jpg"></div>
+
+<h3>Gui Display</h3>
+
+<h4>Full Gui</h4>
+<p>Displays the complete gui - as in prior versions of NUnit. This includes the
+   errors and failures and other tabs and the progress bar.</p>
+
+<h4>Mini Gui</h4>
+<p>Switches the display to the mini-gui, which consists of the tree display
+   only.</p>
+<h3>Recent Files</h3>
+
+<p>The text box allows the user to choose the number of entries to display in the recent files list.
+If <b>Load most recent project at startup</b> is checked, the GUI will load the last file opened unless it
+is run with a specific filename or with the <code>/noload</code> parameter.</p>
+
+<hr style="clear: both"><h3>Gui Options - Tree Display</h3><hr>
+
+<div class="screenshot-right">
+   <img src="/docs/img/treeDisplayOptions.jpg"></div>
+
+<h3>Tree View</h3>
+
+<p>The list box allows selecting the degree of expansion of the tree when tests are loaded:</p>
+<blockquote>
+<p><b>Expand</b> - expands all tests</p>
+<p><b>Collapse</b> - collapses all tests</p>
+<p><b>Hide Tests</b> - expands all suites except for the fixtures themselves.</p>
+<p><b>Auto</b> - selects one of the above based on the space available for the tree display.</p>
+</blockquote>
+
+<p>If <b>Clear results when reloading</b> is checked, an automatic or manual reload will reinitialize all
+test nodes in the tree (grey display) - if it is not checked, result information for tests that do
+not seem to have changed will be retained.</p>
+
+<p>If <b>Save visual state of each project</b> is checked, NUnit saves the state of the tree
+and restores it when the project is next opened. The information saved includes which
+branches of the tree are expanded, the selected node, any checked nodes and any
+category selection.
+
+<p>If <b>Show Checkboxes</b> is checked, the tree includes checkboxes, which may
+   be used to select multiple tests for running.</p>
+
+<hr style="clear: both"><h3>Gui Options - Test Results</h3><hr>
+
+<div class="screenshot-right">
+   <img src="/docs/img/testResultOptions.jpg"></div>
+
+<h3>Errors Tab</h3>
+
+<p>Check <b>Display Errors and Failures Tab</b> to display the
+<b>Errors and Failures</b> tab, which shows information about failing tests.
+
+<p>Check <b>Enable Failure ToolTips</b> to display the tip window over the
+Errors and Failures display and the stack trace. Clear it if you prefer not
+to see the tip window.</p>
+
+<p>Check <b>Enable Word Wrap</b> to turn on word wrapping
+in the Errors and Failures display. While you can select this item and the
+preceding one at the same time, they do not interact well, so you will
+normally choose one or the other.</p>
+
+<h3>Not Run Tab</h3>
+
+<p>Check <b>Display Tests Not Run Tab</b> to display the
+<b>Tests Not Run</b> tab, which shows information about tests that were
+skipped or ignored.
+
+<hr style="clear: both"><h3>Gui Options - Text Output</h3><hr>
+
+<div class="screenshot-right">
+   <img src="/docs/img/textOutputOptions.jpg"></div>
+
+<h3>Select Tab</h3>
+
+<p>The <b>Select Tab</b> dropdown list is used to select one of the output tabs, for which
+settings are to be viewed or changed. It also contains entries that allow
+you to add a new tab or edit the list of tabs.
+
+<p>The <b>Restore Defaults</b> button is used to restore the default
+set of four tabs, in case you have modified the list of tabs.
+
+<p>The <b>Title</b> text box is used to modify the title displayed
+for the selected output tab.
+
+<p><b>Enabled</b> is checked by default. If you uncheck it,
+the selected tab will be removed from the tab control. This allows you to temporarily
+suppress output to a tab without actually removing its definition.
+
+<h3>Content</h3>
+
+<p>The four check boxes enable or disable a particular type of output
+on the selected output window. For each type, the display captures
+output produced while your test is running - either by the test
+itself or by the program you are testing.
+
+<h4>Standard Output</h4>
+<p>Captures all output written to Console.Error.
+
+<h4>Error Output</h4>
+<p>Captures all output written to Console.Error.
+
+<h4>Trace Output</h4>
+<p>Captures all output written to Trace or Debug.
+
+<h4>Log Output</h4>
+<p>Captures output written to a log4net log. NUnit captures
+all output at the Error level or above unless another level
+is specified for the DefaultLogThreshold setting in the
+configuration file for the test assembly or project.
+
+<h3>Test Labels</h3>
+
+<p>Check <b>Display TestCase Labels</b> to precede text in the output window
+with the name of the test that produced it.</p>
+
+<p>Check <b>Suppress label if no output is displayed</b> to eliminate display
+of labels for tests that produce no output in the window.
+
+
+<hr style="clear: both"><h3>Test Loader Options - General</h3><hr>
+
+<div class="screenshot-right">
+   <img src="/docs/img/testLoadOptions.jpg"></div>
+
+<h3>Test Structure</h3>
+
+<p>If <b>Automatic Namespace suites</b> is selected, tests will be
+   shown in a hierarchical listing based on namespaces. This is the
+   standard display as used in versions prior to NUnit 2.4.
+
+<p>If <b>Flat list of TestFixtures</b> is selected, tests will be
+   shown as a sequential list of fixtures.
+
+<h3>Multiple Assemblies</h3>
+
+<p>If <b>Load in separate AppDomains</b> is selected, each assembly
+   in a multiple-assembly test run will be loaded in a separate AppDomain.
+
+<p>If <b>Load in a single AppDomain</b> is selected, all assemblies in
+   a multiple-assembly test run will use the same AppDomain. This is
+   the standard behavior of NUnit prior to version 2.4.
+
+<p>If <b>Merge tests across assemblies</b> is checked, the display of tests
+   will not be divided across assemblies. If automatic namespace suites are
+   used, they will be merged across all assemblies. This option is only
+   available when tests are run in the same appdomain.
+
+<h3>Shadow Copy</h3>
+
+<p>NUnit normally uses .Net shadow-copying in order to allow you to edit
+and recompile assemblies while it is running. Uncheck this box to disable
+shadow-copy only if you have a particular problem that requires it.</p>
+
+<p><b>Note:</b> If you are tempted to disable shadow copy in order to access
+files in the same directory as your assembly, you should be aware that there
+are alternatives. Consider using the Assembly.Codebase property rather than
+Assembly.Location.
+
+<hr style="clear: both"><h3>Test Loader Options - Assembly Reload</h3><hr>
+
+<div class="screenshot-right">
+   <img src="/docs/img/assemblyReloadOptions.jpg"></div>
+
+<h3>Assembly Reload</h3>
+
+<p>If <b>Reload before each test run</b> is checked, a reload will occur whenever the run button is
+pressed whether the assemblies appear to have changed or not.</p>
+
+<p>If <b>Reload when test assembly changes</b> is checked, assemblies are watched for any change and
+an automatic reload is initiated. This item is disabled on Windows 98 or ME.</p>
+
+<p>If <b>Re-run last tests run</b> is checked, tests are re-run whenever a Reload
+   takes place.</p>
+
+<hr style="clear: both"><h3>IDE Support Options - Visual Studio</h3><hr>
+
+<div class="screenshot-right">
+   <img src="/docs/img/visualStudioOptions.jpg"></div>
+
+<h3>Visual Studio</h3>
+
+<p>If <b>Enable Visual Studio Support</b> is checked, the user will be able to open Visual Studio projects
+and solutions and add Visual Studio projects to existing test projects.</p>
+
+
+</div>
+
+<!-- Submenu -->
+<div id="subnav">
+<ul>
+<li><a href="docHome.html">NUnit 2.4.7</a></li>
+<ul>
+<li><a href="getStarted.html">Getting&nbsp;Started</a></li>
+<li><a href="assertions.html">Assertions</a></li>
+<li><a href="attributes.html">Attributes</a></li>
+<li><a href="nunit-console.html">Console&nbsp;Runner</a></li>
+<li><a href="nunit-gui.html">Gui&nbsp;Runner</a></li>
+<ul>
+<li><a href="guiCommandLine.html">Command-Line</a></li>
+<li><a href="mainMenu.html">Main&nbsp;Menu</a></li>
+<li><a href="contextMenu.html">Context&nbsp;Menu</a></li>
+<li id="current"><a href="optionsDialog.html">Options&nbsp;Dialog</a></li>
+<li><a href="addinsDialog.html">Addins&nbsp;Dialog</a></li>
+<li><a href="testProperties.html">Test&nbsp;Properties</a></li>
+<li><a href="configEditor.html">Configuration&nbsp;Editor</a></li>
+<li><a href="projectEditor.html">Project&nbsp;Editor</a></li>
+</ul>
+<li><a href="features.html">Other&nbsp;Features</a></li>
+<li><a href="releaseNotes.html">Release&nbsp;Notes</a></li>
+<li><a href="samples.html">Samples</a></li>
+<li><a href="license.html">License</a></li>
+</ul>
+</ul>
+</div>
+<!-- End of Submenu -->
+
+
+
+    </div>
+  </div>
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/codeFuncs.js"></script>
+
+    <footer class="footer">
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-sm-8">
+        NUnit 2 Documentation Copyright &copy; 2014, Charlie Poole. All rights reserved.
+      </div>
+      <div class="col-sm-4 text-right">
+        Supported by the
+        <a href="https://dotnetfoundation.org/">.NET Foundation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/bootstrap.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-7904234-12', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

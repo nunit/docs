@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Installation | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Installation | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="installation">Installation</h1>
+
+<p>To get a copy of the NUnit 3, you can use various installation approaches.</p>
+<ol>
+<li>Full NUnit install via NuGet.</li>
+<li>NUnitLite install via NuGet.</li>
+<li>Zip and/or MSI file download.</li>
+<li>Combined Approach</li>
+</ol>
+<h2 id="using-nuget-packages">Using NuGet Packages</h2>
+<p>In Visual Studio, from the Tools menu, select NuGet Package Manager | Manage NuGet packages for solution...
+Open the Browser tab, and Scroll or use search to locate the <strong>NUnit</strong> and <strong>NUnit.Console</strong> packages.</p>
+<h2 id="nunit-and-nunitconsole">NUnit and NUnit.Console</h2>
+<p>Install both packages. The <strong>NUnit</strong> package should be referenced by each of your test assemblies, but not by any others.</p>
+<p>Locate nunit3-console in the <strong>packages\NUnit.ConsoleRunner.3.X.X\tools</strong> (or your configured package directory of choice) directory under your solution. This is the location from which you must run nunit3-console when if you would like to run NUnit3 from console.
+We recommend you only use this approach when running under the control of a script on your build server.</p>
+<h2 id="nunit3testadapter">NUnit3TestAdapter</h2>
+<p>If you want to run NUnit tests automated on a clean machine without any installations (e.g. TFS build agent) - and you're using Visual Studio 2012 or later, use this package.</p>
+<p>It's based on <a class="xref" href="../../vs-test-adapter/Adapter-Installation.html">the Visual Studio Test Adapter</a> and provides a compiled NUnit3 Visual Studio Test Adapter.</p>
+<h3 id="using-nuget-nunitlite-package">Using NuGet NUnitLite Package</h3>
+<p>The NUnitLite approach provides a way to run NUnit tests without a full install of the NUnit runner and test engine assemblies. Only the framework and a small runner program are installed. Note that this is currently the only way to run tests under SilverLight 5.0 or the compact framework.</p>
+<p>In Visual Studio, from the Tools menu, select NuGet Package Manager | Manage NuGet packages for solution...</p>
+<p>Scroll or use search to locate the <strong>NUnitLite Version 3</strong> and install it. The package should be referenced by each of your test assemblies, but not by any others.</p>
+<p>As a result of your installation, a file named &quot;Program.cs&quot; will have been copied into each of your test projects. NUnitLite test projects are console applications and this file contains the Main() program for your tests. If you already have a Main() in some other class, you may delete the file. This file also contains comments describing how the main should call the NUnitLite runner.</p>
+<p>To run your tests, simply run your executable test assembly. No other runner is needed.</p>
+<h3 id="downloading-the-zip-file">Downloading the Zip File</h3>
+<p>Download the latest binary zip of the NUnit Framework from our <a href="https://nunit.org/download/">Download page</a>. Unzip the file into any convenient directory.</p>
+<p>You can also download the latest binary zip or an MSI installer of the NUnit Console from <a href="https://github.com/nunit/nunit-console/releases">GitHub</a>. Unzip the file or install the MSI and then if you would like be able to run nunit3-console from the command line, put the bin directory, containing nunit3-console.exe on your path.</p>
+<p>In your test assemblies, add a reference to nunit.framework.dll, using the copy in the subdirectory for the appropriate runtime version. For example, if you are targeting .NET 4.0, you should reference the framework assembly in the net-4.0 subdirectory.</p>
+<p>Run nunit3-console from the command line, giving it the path to your test assembly. To run NUnit's own framework tests from within the NUnit bin directory, enter:</p>
+<pre><code class="lang-cmd">     nunit3-console net-2.0/nunit.framework.tests.dll
+</code></pre>
+<h3 id="combined-approach">Combined Approach</h3>
+<p>This approach is useful if you would like to use a single copy of nunit3-console with individual copies of the framework in each project.</p>
+<p>Simply follow the zip file procedure to get a central copy of NUnit on your system. Then install the <strong>NUnit Version 3</strong> NuGet package in each of your test assemblies. For desktop use by developers, this approach may give you the best of both worlds.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/getting-started/installation.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

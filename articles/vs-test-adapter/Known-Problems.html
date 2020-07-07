@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Known Problems | NUnit Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Known Problems | NUnit Docs ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="known-problems">Known Problems</h1>
+
+<ol>
+<li><p>There is no test status in Visual Studio corresponding to NUnit's Inconclusive result, so tests with this result are reported as Not Run. Click on the individual test to see the result.</p>
+</li>
+<li><p>Theories are reported as individual cases, rather as a single unit.</p>
+</li>
+<li><p>In NUnit, tests have names, which are not necessarily unique. Visual Studio wants the names to be unique. So if two tests have the same name, VS displays a warning message in the output window. The message may be ignored. Two separate results will be shown under the single test in the explorer pane.</p>
+</li>
+<li><p>Startup performance is substantially improved but is still slower than using NUnit directly.</p>
+</li>
+<li><p>Applies to pre-VS2017:  A VSIX adapter of older version will be used regardless of version of NuGet adapter.</p>
+<p>Workaround: Make sure you have upgraded VSIX adapter to latest version, or uninstalled it if you have the NuGet adapter in a solution. The adapter will display its version number in the Output window under Tests.</p>
+<p>Avoid using the VSIX adapter for VS2017 and upwards.  It is being deprecated, but is still supported optionally in VS2019.</p>
+</li>
+<li><p>Visual Studio 2017 Live Unit Testing require NUnit3.  The NUnit2 adapter doesn't support Live Unit Testing.</p>
+</li>
+<li><p><code>Exception: Could not load file or assembly 'nunit.engine'</code> - Is caused by an incomplete copy of the adapter in the Visual Studio cache. Close Visual Studio and delete <code>C:\Users\username\AppData\Local\Temp\VisualStudioTestExplorerExtensions\NUnit3TestAdapter.{{version}}</code></p>
+</li>
+<li><p>From version 16.2 (Visual Studio 2019) the Explicit keyword is no longer explicitly supported by Visual Studio.  If you want to use it, it does exist as a Category also, so you can use it as a category filter.</p>
+</li>
+</ol>
+<h2 id="issues-with-other-tools">Issues with other tools</h2>
+<ul>
+<li><p>Versions of ReSharper earlier than the 8.2 version has an issue with the NuGet adapter, which will prevent NUnit tests from running. Make sure you have updated Reshaper to at least version 8.2.</p>
+</li>
+<li><p>ReSharper version 2018.1 are not able to work with adapter versions &gt;= 3.12.  This is fixed in 2018.3.  See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/638">Issue638</a> for details.</p>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/vs-test-adapter/Known-Problems.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018 The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
