@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NUnit.org</title>
+  <meta name="description" content="NUnit is the most popular unit test framework for .NET.">
+
+  <link rel="stylesheet" href="/css/main.css"">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="alternate" type="application/rss+xml" title="NUnit.org" href="/rss.xml"">
+  <link rel="alternate" type="application/atom+xml" title="NUnit.org" href="/atom.xml" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <div class="navbar-brand grow">
+                <img src="/img/nunit.svg" />
+            </div>
+        </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="/news/"><i class="fa fa-commenting-o"></i> News</a></li>
+            <li><a href="/download/"><i class="fa fa-download"></i> Download</a></li>
+            <li><a href="/documentation/"><i class="fa fa-book"></i> Documentation</a></li>
+            <li><a href="/contact/"><i class="fa fa-envelope-o"></i> Contact</a></li>
+            <li><a href="https://twitter.com/nunit" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://gitter.im/nunit/nunit" target="_blank"><i class="fa fa-comments-o"></i> Gitter</a></li>
+            <li><a href="https://github.com/nunit" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
+        </ul>
+    </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+  <div class="container">
+    <div class="content help">
+      <div class="notice">Legacy Documentation. View <a href="https://docs.nunit.org">NUnit 3 Documentation</a></div>
+      <div id="help_content">
+
+<h2>Project Editor</h2>
+
+<p>The Project Editor is displayed through the Project | Edit menu item and allows creating or
+modifying NUnit test projects. It should be noted that a Test Project is active whenever any tests
+have been loaded, even if no project was explicitly created or referenced. In the case of an
+assembly being loaded, an internal wrapper project is created. This allows the user to change
+settings and save the project directly without needing to perform any extra steps. The editor
+consists of a common area and two tabs, as seen in the image below.</p>
+
+<h3>Common Area</h3>
+
+<p>The common area of the Project Editor contains a label showing the full path
+   to the project file. There is an edit box, allowing the user to change
+   the project AppBase, which defaults to the directory of the project file.
+   There is also a dropdown combo box permitting selection of the configuration
+   to be edited and a button, which opens the
+   <a href="configEditor.html">Configuration Editor</a>.</p>
+
+<div class="screenshot-left">
+<img src="/docs/img/generalTab.jpg"></div>
+
+<h3>General Tab</h3>
+
+<p>The General tab allows setting a number of options pertaining to the selected configuration, all of
+which will be stored in the NUnit project file as attributes of the <config> xml node.</p>
+
+<h4>ApplicationBase</h4>
+<p>The ApplicationBase defaults to the directory containing the project file. Beginning
+with NUnit 2.2.3, it may be set to any location that is desired.</p>
+
+<h4>Configuration File Name</h4>
+<p>The configuration file defaults to the name of the test project with the extension changed
+from .nunit to .config. The user may substitute another name.</p>
+
+<h4>PrivateBinPath</h4>
+<p>By default, the PrivateBinPath is generated from the assembly locations specified on the
+Assemblies Tab. For those applications requiring a different level of control, it may be
+specified manually or using this editor or placed in the configuration file.</p>
+
+<h3>Assemblies Tab</h3>
+
+<p>The assemblies tab contains the list of assemblies that form part of this test project.</p>
+
+<p>Note: Although the dialog shows the location of assemblies as absolute paths, they are always
+persisted in the NUnit project file as paths relative to the application base. This allows moving
+projects as a whole to a different directory location.</p>
+
+<div class="screenshot-left">
+<img src="/docs/img/assembliesTab.jpg"></div>
+
+<h4>Add...</h4>
+<p>Opens a dialog allowing adding an assembly to this configuration. If Visual
+Stuio support is enabled, you may also select and add a VS project.</p>
+
+<h4>Remove</h4>
+<p>After confirmation, removes the selected assembly from this configuration.</p>
+
+<h4>Assembly Path</h4>
+<p>This text box displays the full path to the selected assembly. You may edit
+the contents to change the path to the assembly.
+
+</div>
+
+<!-- Submenu -->
+<div id="subnav">
+<ul>
+<li><a href="docHome.html">NUnit 2.4.8</a></li>
+<ul>
+<li><a href="getStarted.html">Getting&nbsp;Started</a></li>
+<li><a href="assertions.html">Assertions</a></li>
+<li><a href="attributes.html">Attributes</a></li>
+<li><a href="nunit-console.html">Console&nbsp;Runner</a></li>
+<li><a href="nunit-gui.html">Gui&nbsp;Runner</a></li>
+<ul>
+<li><a href="guiCommandLine.html">Command-Line</a></li>
+<li><a href="mainMenu.html">Main&nbsp;Menu</a></li>
+<li><a href="contextMenu.html">Context&nbsp;Menu</a></li>
+<li><a href="optionsDialog.html">Options&nbsp;Dialog</a></li>
+<li><a href="addinsDialog.html">Addins&nbsp;Dialog</a></li>
+<li><a href="testProperties.html">Test&nbsp;Properties</a></li>
+<li><a href="configEditor.html">Configuration&nbsp;Editor</a></li>
+<li id="current"><a href="projectEditor.html">Project&nbsp;Editor</a></li>
+</ul>
+<li><a href="features.html">Other&nbsp;Features</a></li>
+<li><a href="releaseNotes.html">Release&nbsp;Notes</a></li>
+<li><a href="samples.html">Samples</a></li>
+<li><a href="license.html">License</a></li>
+</ul>
+</ul>
+</div>
+<!-- End of Submenu -->
+
+
+
+    </div>
+  </div>
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/codeFuncs.js"></script>
+
+    <footer class="footer">
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-sm-8">
+        NUnit 2 Documentation Copyright &copy; 2014, Charlie Poole. All rights reserved.
+      </div>
+      <div class="col-sm-4 text-right">
+        Supported by the
+        <a href="https://dotnetfoundation.org/">.NET Foundation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/bootstrap.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-7904234-12', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

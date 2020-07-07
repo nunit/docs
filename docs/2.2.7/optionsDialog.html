@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NUnit.org</title>
+  <meta name="description" content="NUnit is the most popular unit test framework for .NET.">
+
+  <link rel="stylesheet" href="/css/main.css"">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="alternate" type="application/rss+xml" title="NUnit.org" href="/rss.xml"">
+  <link rel="alternate" type="application/atom+xml" title="NUnit.org" href="/atom.xml" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <div class="navbar-brand grow">
+                <img src="/img/nunit.svg" />
+            </div>
+        </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="/news/"><i class="fa fa-commenting-o"></i> News</a></li>
+            <li><a href="/download/"><i class="fa fa-download"></i> Download</a></li>
+            <li><a href="/documentation/"><i class="fa fa-book"></i> Documentation</a></li>
+            <li><a href="/contact/"><i class="fa fa-envelope-o"></i> Contact</a></li>
+            <li><a href="https://twitter.com/nunit" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://gitter.im/nunit/nunit" target="_blank"><i class="fa fa-comments-o"></i> Gitter</a></li>
+            <li><a href="https://github.com/nunit" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
+        </ul>
+    </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+  <div class="container">
+    <div class="content help">
+      <div class="notice">Legacy Documentation. View <a href="https://docs.nunit.org">NUnit 3 Documentation</a></div>
+      <div id="help_content">
+
+<h2>Options Dialog</h2>
+
+<p>The Options Dialog is displayed using the Tools | Options menu item and allows the user to
+control some aspects of NUnit's operation.</p>
+
+<div class="screenshot-right">
+   <img src="/docs/img/displayTab.jpg"></div>
+
+<h3>Display Tab</h3>
+
+<h4>Recent Files</h4>
+
+<p>The text box allows the user to choose the number of entries to display in the recent files list.
+If <b>Load most recent project at startup</b> is checked, the GUI will load the last file opened unless it
+is run with a specific filename or with the <code>/noload</code> parameter.</p>
+
+<h4>Tree View</h4>
+<p>The list box allows selecting the degree of expansion of the tree when tests are loaded:</p>
+<blockquote>
+<p><b>Expand</b> - expands all tests</p>
+<p><b>Collapse</b> - collapses all tests</p>
+<p><b>Hide Tests</b> - expands all suites except for the fixtures themselves.</p>
+<p><b>Auto</b> - selects one of the above based on the space available for the tree display.</p>
+</blockquote>
+
+<p>If <b>Clear results when reloading</b> is checked, an automatic or manual reload will reinitialize all
+test nodes in the tree (grey display) - if it is not checked, result information for tests that do
+not seem to have changed will be retained.</p>
+
+<h4>Test Output</h4>
+
+<p>Check <b>Label Test Cases in Console output</b> to precede text in the output window with the name of the test that produced it.</p>
+
+<p>Check <b>Display Failure ToolTips</b> to display the tip window over the
+Errors and Failures display and the stack trace. Clear it if you prefer not
+to see the tip window.</p>
+
+<h3>Tests Tab</h3>
+
+<div class="screenshot-right">
+   <img src="/docs/img/testsTab.jpg"></div>
+
+<h4>Assembly Reload</h4>
+
+<p>If <b>Reload before each test run</b> is checked, a reload will occur whenever the run button is
+pressed whether the assemblies appear to have changed or not.</p>
+
+<p>If <b>Reload when test assembly changes</b> is checked, assemblies are watched for any change and
+an automatic reload is initiated. This item is disabled on Windows 98 or ME.</p>
+
+<h3>Visual Studio</h3>
+
+<p>If <b>Enable Visual Studio Support</b> is checked, the user will be able to open Visual Studio projects
+and solutions and add Visual Studio projects to existing test projects.</p>
+
+</div>
+
+<!-- Submenu -->
+<div id="subnav">
+<ul>
+<li><a href="docHome.html">NUnit 2.2.7</a></li>
+<ul>
+<li><a href="getStarted.html">Getting&nbsp;Started</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="features.html">Features</a></li>
+<li><a href="nunit-console.html">NUnit-Console</a></li>
+<li><a href="nunit-gui.html">NUnit-Gui</a></li>
+<ul>
+<li><a href="guiCommandLine.html">Command-Line</a></li>
+<li><a href="mainMenu.html">Main&nbsp;Menu</a></li>
+<li><a href="contextMenu.html">Context&nbsp;Menu</a></li>
+<li id="current"><a href="optionsDialog.html">Options&nbsp;Dialog</a></li>
+<li><a href="testProperties.html">Test&nbsp;Properties</a></li>
+<li><a href="configEditor.html">Configuration&nbsp;Editor</a></li>
+<li><a href="projectEditor.html">Project&nbsp;Editor</a></li>
+</ul>
+<li><a href="releaseNotes.html">Release&nbsp;Notes</a></li>
+<li><a href="samples.html">Samples</a></li>
+<li><a href="license.html">License</a></li>
+</ul>
+</ul>
+</div>
+<!-- End of Submenu -->
+
+
+
+    </div>
+  </div>
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/codeFuncs.js"></script>
+
+    <footer class="footer">
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-sm-8">
+        NUnit 2 Documentation Copyright &copy; 2014, Charlie Poole. All rights reserved.
+      </div>
+      <div class="col-sm-4 text-right">
+        Supported by the
+        <a href="https://dotnetfoundation.org/">.NET Foundation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/bootstrap.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-7904234-12', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
