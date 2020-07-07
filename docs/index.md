@@ -1,6 +1,6 @@
 # NUnit Documentation Site
 
-This web site contains the documentation for all active NUnit projects as well as developer documentation for those working on NUnit or wishing to do so. Some sections are not yet complete.
+This web site contains the documentation for all active NUnit projects as well as developer documentation for those working on NUnit or wishing to do so.
 
 ## User Documentation
 
