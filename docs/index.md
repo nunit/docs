@@ -17,7 +17,7 @@ This web site contains the documentation for all active NUnit projects as well a
 
 ## Legacy (NUnit V2) Documentation
 
-Documentation for NUnit V2, whcih is no longer developed, remains available.
+Documentation for NUnit V2, which is no longer developed, remains available.
 
 <!--markdownlint-disable-->
 <div class="across">
