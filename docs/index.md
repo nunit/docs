@@ -15,14 +15,15 @@ This web site contains the documentation for all active NUnit projects as well a
 * [Team practices](xref:teampractices) describe how NUnit works and how our teams work.
 * [Specifications](xref:Specifications) are descriptions of features we plan to add.
 
-## Older Releases
+## Legacy (NUnit V2) Documentation
 
-Documentation for older releases remains available.
+Documentation for NUnit V2, whcih is no longer developed, remains available.
 
 <!--markdownlint-disable-->
 <div class="across">
 <!--markdownlint-enable -->
 
+* [NUnit 2.6.4](~/2.6.4/docHome.html)
 * [NUnit 2.6.3](~/2.6.3/docHome.html)
 * [NUnit 2.6.2](~/2.6.2/docHome.html)
 * [NUnit 2.6.1](~/2.6.1/docHome.html)
