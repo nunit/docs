@@ -19,7 +19,9 @@ This web site contains the documentation for all active NUnit projects as well a
 
 Documentation for older releases remains available.
 
-<div class="test">
+<!--markdownlint-disable-->
+<div class="across">
+<!--markdownlint-enable -->
 
 * [NUnit 2.6.3](~/2.6.3/docHome.html)
 * [NUnit 2.6.2](~/2.6.2/docHome.html)
@@ -56,3 +58,7 @@ Documentation for older releases remains available.
 * [NUnit 2.2.2](~/2.2.2/docHome.html)
 * [NUnit 2.2.1](~/2.2.1/docHome.html)
 * [NUnit 2.2](~/2.2/docHome.html)
+
+<!--markdownlint-disable -->
+</div>
+<!--markdownlint-enable -->
