@@ -23,6 +23,6 @@ For additional general information on how tests are loaded and run, see
 
 * [Runtime Selection](xref:runtimeselection)
 * [Assembly Isolation](xref:assemblyisolation)
-* [[Configuration Files]]
+* [Configuration Files](xref:configurationfiles)
 * [[Multiple Assemblies]]
 * [[Visual Studio Support]]

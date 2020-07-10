@@ -1,3 +1,7 @@
+---
+uid: configurationfiles
+---
+
 # Configuration Files
 
 Normally, a configuration file used to provide settings or to control the environment
