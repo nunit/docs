@@ -138,7 +138,7 @@
 </table>
 <h2 id="backward-compatibility">Backward Compatibility</h2>
 <p><strong>TestFixtureSetUpAttribute</strong> and <strong>TestFixtureTearDownAttribute</strong> continue to be supported as synonyms for <strong>OneTimeSetUpAttribute</strong> and <strong>OneTimeTearDownAttribute</strong> in test fixtures, but are deprecated.</p>
-<p>Since <strong>SetUpAttribute</strong> and <strong>TearDownAttribute</strong> are used in two different ways, it's not possible to simply deprecate their usage in SetUpFixture. They have been disallowed in that context, which is a <a class="xref" href="../../getting-started/breaking-changes.html">breaking change</a>.</p>
+<p>Since <strong>SetUpAttribute</strong> and <strong>TearDownAttribute</strong> are used in two different ways, it's not possible to simply deprecate their usage in SetUpFixture. They have been disallowed in that context, which is a <a class="xref" href="../../release-notes/breaking-changes.html">breaking change</a>.</p>
 <h2 id="how-setup-and-teardown-methods-are-called">How Setup and TearDown Methods Are Called</h2>
 <p>Multiple SetUp, OneTimeSetUp, TearDown and OneTimeTearDown methods may exist within a class. The rules for how the setup methods are called will be the same in NUnit 3.0 as in NUnit 2.6. However, there is a change in the calling of the teardown methods.</p>
 <p>Setup methods (both types) are called on base classes first, then on derived classes. If any setup method throws an exception, no further setups are called. This is the same as in NUnit 2.6.</p>
@@ -177,7 +177,7 @@ public class DerivedClass : BaseClass
 <li>BaseSetUp</li>
 <li>BaseTearDown</li>
 </ul>
-<p>This is potentially a <a class="xref" href="../../getting-started/breaking-changes.html">breaking change</a> for some users.</p>
+<p>This is potentially a <a class="xref" href="../../release-notes/breaking-changes.html">breaking change</a> for some users.</p>
 <h2 id="unresolved-issues">Unresolved Issues</h2>
 <ul>
 <li>We need to define how setup and teardown methods are ordered with respect to the newly introduced <a class="xref" href="../../extending-nunit/Action-Attributes.html">Action Attributes</a> and how they interact.</li>
