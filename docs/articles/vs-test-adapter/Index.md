@@ -17,4 +17,5 @@ Releases of Visual Studio prior to VS 2012 did not have the ability to directly 
 
 The adapter is delivered as a nuget package, to be installed into all test projects.  
 
-*Note there is also a VSIX extension version, which was used earlier for Visual Studio. The support for this has been deprecated, although it still works. The recommendation is to avoid this and use the nuget version.*
+> [!NOTE]
+> There is also a VSIX extension version, which was used earlier for Visual Studio. The support for this has been deprecated, although it still works. The recommendation is to avoid this and use the nuget version.
