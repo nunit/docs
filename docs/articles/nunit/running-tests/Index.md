@@ -21,7 +21,7 @@ Because the status of such projects may change from time to time, we don't discu
 
 For additional general information on how tests are loaded and run, see
 
-* [[Runtime Selection]]
+* [Runtime Selection](xref:runtimeselection)
 * [[Assembly Isolation]]
 * [[Configuration Files]]
 * [[Multiple Assemblies]]
