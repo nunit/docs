@@ -42,7 +42,7 @@ the following forms:
 * `--OPTION:filename;format=formatname`
 * `--OPTION:filename;transform=xsltfile`
 
-The --result option may use any of the following formats:
+The `--result` option may use any of the following formats:
 
 * `nunit3` - the native XML format for NUnit 3.0
 * `nunit2` - legacy XML format used by earlier releases of NUnit
