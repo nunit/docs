@@ -30,7 +30,7 @@ The NUnitLite runner is invoked by executing the test program. If desired, any o
 ## Description
 
 By default, this command runs the tests contained in the
-assemblies and projects specified. If the **--explore** option
+assemblies and projects specified. If the `--explore` option
 is used, no tests are executed but a description of the tests
 is saved in the specified or default format.
 
