@@ -22,7 +22,7 @@ Because the status of such projects may change from time to time, we don't discu
 For additional general information on how tests are loaded and run, see
 
 * [Runtime Selection](xref:runtimeselection)
-* [[Assembly Isolation]]
+* [Assembly Isolation](xref:assemblyisolation)
 * [[Configuration Files]]
 * [[Multiple Assemblies]]
 * [[Visual Studio Support]]
