@@ -4,7 +4,7 @@ The NUnit 3 Test Adapter allows you to run NUnit 3 tests inside Visual Studio. T
 
 It is not possible to run NUnit 2.x tests using this adapter. Use the original adapter for that purpose. If you need to work with projects using NUnit 2.x and other projects using NUnit 3, you may install both versions of the adapter.
 
-The current release is designed to work with Visual Studio 2012, 2013, 2015, 2017 and 2019. Some features are not available under VS2012 RTM.  It also works om command line using either vstest.console or dotnet test, and is also used by Jetbrains ReSharper for Visual Studio and Rider IDE, and their corresponding command line tool.
+The current release is designed to work with Visual Studio 2012, 2013, 2015, 2017 and 2019. Some features are not available under VS2012 RTM.  It also works om command line using either vstest.console or dotnet test, and is also used by JetBrains ReSharper for Visual Studio and Rider IDE, and their corresponding command line tool.
 
 The current release works with .net framework 3.5 and higher, and with .net core `2.*` and `3.*`.
 
