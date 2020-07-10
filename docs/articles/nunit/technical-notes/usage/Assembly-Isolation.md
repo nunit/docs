@@ -1,3 +1,7 @@
+---
+uid: assemblyisolation
+---
+
 # Assembly Isolation
 
 NUnit isolates test assemblies from its own code and from one another

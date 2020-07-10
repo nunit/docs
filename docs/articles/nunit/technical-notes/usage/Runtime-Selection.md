@@ -1,3 +1,7 @@
+---
+uid: runtimeselection
+---
+
 # Runtime Selection
 
 By default, NUnit runs tests under the runtime version for which the test

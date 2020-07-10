@@ -1,3 +1,7 @@
+---
+uid: visualstudiosupport
+---
+
 # Visual Studio Support
 
 > [!WARNING]
