@@ -5,17 +5,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Runtime Selection | NUnit Docs </title>
+    <title>Running Tests | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Runtime Selection | NUnit Docs ">
+    <meta name="title" content="Running Tests | NUnit Docs ">
     <meta name="generator" content="docfx 2.45.1.0">
     
-    <link rel="shortcut icon" href="../../../../favicon.ico">
-    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../../../styles/docfx.css">
-    <link rel="stylesheet" href="../../../../styles/main.css">
-    <meta property="docfx:navrel" content="../../../../toc.html">
-    <meta property="docfx:tocrel" content="../../../toc.html">
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
     
     
     
@@ -34,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../../../../index.html">
-                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -66,29 +66,28 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="runtimeselection">
-<h1 id="runtime-selection">Runtime Selection</h1>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="running-tests">Running Tests</h1>
 
-<p>By default, NUnit runs tests under the runtime version for which the test
-assembly was built, provided it is available on the test machine. If it is not available,
-NUnit runs the assembly under the best available runtime that will allow it to run. If
-no suitable runtime can be found, an error is reported.</p>
-<h2 id="overriding-the-defaults">Overriding the Defaults</h2>
-<p>The default runtime framework may be overridden using command line options.
-In all cases, NUnit will attempt to honor the options given, issuing an
-error message if the assembly cannot be loaded.
-See <a class="xref" href="../../running-tests/Console-Command-Line.html">Console Command Line</a> for more information.</p>
+<p>NUnit provides three different runners, which may be used to load and
+run your tests.</p>
 <ul>
-<li>The <strong>/framework</strong> option of console runner allows you to specify
-the framework type and version to be used for a test run. When this option
-is used, NUnit will attempt to run the tests under the framework specified
-even if the assembly targets a different runtime.</li>
-<li>The <strong>/process:Single</strong> command-line option indicates that tests should
-be run in the NUnit process itself. This forces usage of the runtime under which
-NUnit is already running.</li>
-<li>The <strong>process:Separate</strong> causes a single separate process to be used
-for all assemblies. In this case, NUnit will use the highest level runtime targeted
-by any of the assemblies, if it is available.</li>
+<li>The <a href="Console-Runner.html">Console Runner</a>, <code>nunit-console.exe</code>, is used for batch execution.</li>
+<li>The Gui Runner, <code>nunit.exe</code>, provides interactive loading and running of tests.</li>
+</ul>
+<h2 id="nunit-agent">NUnit Agent</h2>
+<p>When running tests in a separate process, the console and gui runners make use of the <a class="xref" href="../technical-notes/nunit-internals/NUnit-Agent.html">NUnit Agent</a> program, nunit-agent.exe. Although not directly run by users, nunit-agent does load and execute tests and users need to be aware of it, especially when debugging is involved.</p>
+<h2 id="third-party-runners">Third-Party Runners</h2>
+<p>Various third-party applications are available for loading and running NUnit tests. Some of these actually use NUnit to load the tests, while others provide their own emulation and may not work in the same way that NUnit does.</p>
+<p>Because the status of such projects may change from time to time, we don't discuss them individually here. For the latest information, consult the manufacturer of any third-party software or ask other users on our
+<a href="http://groups.google.com/group/nunit-discuss">discussion list</a>.</p>
+<h2 id="additional-information">Additional Information</h2>
+<p>For additional general information on how tests are loaded and run, see</p>
+<ul>
+<li><a class="xref" href="../technical-notes/usage/Runtime-Selection.html">Runtime Selection</a></li>
+<li><a class="xref" href="../technical-notes/usage/Assembly-Isolation.html">Assembly Isolation</a></li>
+<li><a class="xref" href="../technical-notes/usage/Configuration-Files.html">Configuration Files</a></li>
+<li><a class="xref" href="../technical-notes/usage/Visual-Studio-Support.html">Visual Studio Support</a></li>
 </ul>
 </article>
           </div>
@@ -98,7 +97,7 @@ by any of the assemblies, if it is available.</li>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/usage/Runtime-Selection.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/running-tests/Index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -124,8 +123,8 @@ by any of the assemblies, if it is available.</li>
       </footer>
     </div>
     
-    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../../../styles/main.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
   </body>
 </html>
