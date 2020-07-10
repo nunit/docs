@@ -1,3 +1,7 @@
+---
+uid: BreakingChanges
+---
+
 # Breaking Changes
 
 ## NUnit 3.10
