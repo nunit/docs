@@ -7,7 +7,7 @@ A major bugfix is that the console output now is properly appearing.  There are 
 
 [StopOnError](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#stoponerror) can be very useful to reduce time of long test runs that are failing.
 
-The ability to set custom paths for the test code can be useful with data driven tests, where you want to point to the data file (and line number therein) instead of the default C# test code. 
+The ability to set custom paths for the test code can be useful with data driven tests, where you want to point to the data file (and line number therein) instead of the default C# test code.
 
 See [here for all details](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html) on the settings.
 
