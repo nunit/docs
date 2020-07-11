@@ -34,6 +34,7 @@ See [here for all details](https://docs.nunit.org/articles/vs-test-adapter/Tips-
 * [753](https://github.com/nunit/nunit3-vs-adapter/issues/753) EditorConfig for *.csproj Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 754](https://github.com/nunit/nunit3-vs-adapter/pull/754)
 
 ----
+
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.2 - June 8, 2020
 
 This is the 2nd beta for 3.17, published on [Nuget](https://nuget.org).
