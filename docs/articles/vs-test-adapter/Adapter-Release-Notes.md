@@ -7,9 +7,9 @@ A major bugfix is that the console output now is properly coming out.  There are
 
 [StopOnError](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#stoponerror) can be very useful to reduce time of long test runs that are failing.
 
-The ability to set custom paths for the test code can be useful with data driven tests, where you want to point to the data file (and line number therein) instead of usually trivial test case. 
+The ability to set custom paths for the test code can be useful with data driven tests, where you want to point to the data file (and line number therein) instead of usually trivial test case.
 
-See [here for all details](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html) on the settings.  
+See [here for all details](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html) on the settings.
 
 ### Features and Enhancements
 
@@ -18,7 +18,6 @@ See [here for all details](https://docs.nunit.org/articles/vs-test-adapter/Tips-
 * [723](https://github.com/nunit/nunit3-vs-adapter/issues/723) and [735](https://github.com/nunit/nunit3-vs-adapter/issues/735)  CodeFilePath like in nunit2 and TestCaseData: Missing Feature "Jump to File"
 * [740](https://github.com/nunit/nunit3-vs-adapter/issues/740) Allow Warnings to be mapped to any outcome
 * [758](https://github.com/nunit/nunit3-vs-adapter/issues/758) Feature Request: Adapter to support NonTestAssemblyAttribute
-
 
 ### Resolved issues/bugs
 
@@ -33,8 +32,6 @@ See [here for all details](https://docs.nunit.org/articles/vs-test-adapter/Tips-
 
 * [746](https://github.com/nunit/nunit3-vs-adapter/issues/746) EditorConfig for *.props Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 747](https://github.com/nunit/nunit3-vs-adapter/pull/747)
 * [753](https://github.com/nunit/nunit3-vs-adapter/issues/753) EditorConfig for *.csproj Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 754](https://github.com/nunit/nunit3-vs-adapter/pull/754)
-
-
 
 ----
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.2 - June 8, 2020
