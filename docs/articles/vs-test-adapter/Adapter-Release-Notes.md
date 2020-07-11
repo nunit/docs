@@ -2,7 +2,7 @@
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0 - July 11, 2020
 
-This release has a series of enhancements and bugfixes.  There has been two 3.17 beta releases (beta.1 and beta.2) earlier published on nuget.org.
+This release has a series of enhancements and bugfixes.  There have been two 3.17 beta releases (beta.1 and beta.2) published earlier on nuget.org.
 A major bugfix is that the console output now is properly coming out.  There are also a series of fixes for corner cases.  
 
 [StopOnError](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#stoponerror) can be very useful to reduce time of long test runs that are failing.
