@@ -69,33 +69,63 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="adapter-release-notes">Adapter Release Notes</h1>
 
-<h2 id="nunit3-test-adapter-for-visual-studio---version-3170-beta2---june-8-2020">NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.2 - June 8, 2020</h2>
-<p>This is the 2nd beta for 3.17, published on <a href="https://nuget.org">Nuget</a>.</p>
+<h2 id="nunit3-test-adapter-for-visual-studio---version-3170---july-11-2020">NUnit3 Test Adapter for Visual Studio - Version 3.17.0 - July 11, 2020</h2>
+<p>This release has a series of enhancements and bugfixes.  There have been two 3.17 beta releases (beta.1 and beta.2) published earlier on nuget.org.
+A major bugfix is that the console output now is properly appearing.  There are also a series of fixes for corner cases.</p>
+<p><a href="https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#stoponerror">StopOnError</a> can be very useful to reduce time of long test runs that are failing.</p>
+<p>The ability to set custom paths for the test code can be useful with data driven tests, where you want to point to the data file (and line number therein) instead of the default C# test code.</p>
+<p>See <a href="https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html">here for all details</a> on the settings.</p>
 <h3 id="features-and-enhancements">Features and Enhancements</h3>
 <ul>
-<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/758">758</a> Feature Request: Adapter to support NonTestAssemblyAttribute</li>
-<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/740">740</a> Allow Warnings to be mapped to any outcome</li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/640">640</a> Allow use of FullName as the DisplayName for Converted Tests</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/675">675</a> Ability to set StopOnError via .runsettings</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/723">723</a> and <a href="https://github.com/nunit/nunit3-vs-adapter/issues/735">735</a>  CodeFilePath like in nunit2 and TestCaseData: Missing Feature &quot;Jump to File&quot;</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/740">740</a> Allow Warnings to be mapped to any outcome</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/758">758</a> Feature Request: Adapter to support NonTestAssemblyAttribute</li>
 </ul>
 <h3 id="resolved-issuesbugs">Resolved issues/bugs</h3>
 <ul>
-<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/750">750</a> ShadowCopyFiles doesn't work on .NET Framework. Thanks to <a href="https://github.com/DavidSimner">DavidSimner</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/751">PR 751</a></li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/301">301</a> Issue Revisited: Console Output</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/343">343</a> Console.WriteLine() does not write to console when running<code>dotnet test</code></li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/697">697</a> Test adapter props files should not add assemblies to Content ItemGroup</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/737">737</a> An assembly specified in the application dependencies manifest was not found</li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/745">745</a> NUnit engine IDriverFactory extensions don't load using the adapter.  Thanks to <a href="https://github.com/aolszowka">aolszowka</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/749">PR 749</a></li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/750">750</a> ShadowCopyFiles doesn't work on .NET Framework. Thanks to <a href="https://github.com/DavidSimner">DavidSimner</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/751">PR 751</a></li>
 </ul>
 <h3 id="internal-development-stuff">Internal development stuff</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/746">746</a> EditorConfig for *.props Types. Thanks to <a href="https://github.com/aolszowka">aolszowka</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/747">PR 747</a></li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/753">753</a> EditorConfig for *.csproj Types. Thanks to <a href="https://github.com/aolszowka">aolszowka</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/754">PR 754</a></li>
 </ul>
+<hr>
+<h2 id="nunit3-test-adapter-for-visual-studio---version-3170-beta2---june-8-2020">NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.2 - June 8, 2020</h2>
+<p>This is the 2nd beta for 3.17, published on <a href="https://nuget.org">Nuget</a>.</p>
+<h3 id="features-and-enhancements-1">Features and Enhancements</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/758">758</a> Feature Request: Adapter to support NonTestAssemblyAttribute</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/740">740</a> Allow Warnings to be mapped to any outcome</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/640">640</a> Allow use of FullName as the DisplayName for Converted Tests</li>
+</ul>
+<h3 id="resolved-issuesbugs-1">Resolved issues/bugs</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/750">750</a> ShadowCopyFiles doesn't work on .NET Framework. Thanks to <a href="https://github.com/DavidSimner">DavidSimner</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/751">PR 751</a></li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/745">745</a> NUnit engine IDriverFactory extensions don't load using the adapter.  Thanks to <a href="https://github.com/aolszowka">aolszowka</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/749">PR 749</a></li>
+</ul>
+<h3 id="internal-development-stuff-1">Internal development stuff</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/746">746</a> EditorConfig for *.props Types. Thanks to <a href="https://github.com/aolszowka">aolszowka</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/747">PR 747</a></li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/753">753</a> EditorConfig for *.csproj Types. Thanks to <a href="https://github.com/aolszowka">aolszowka</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/754">PR 754</a></li>
+</ul>
+<hr>
 <h2 id="nunit3-test-adapter-for-visual-studio---version-3170-beta1---april-19-2020">NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.1 - April 19, 2020</h2>
 <p>This is the first beta release published on <a href="https://nuget.org">Nuget</a>.</p>
 <p>It contains new features and some bugfixes.</p>
-<h3 id="features-and-enhancements-1">Features and Enhancements</h3>
+<h3 id="features-and-enhancements-2">Features and Enhancements</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/675">675</a> Ability to set StopOnError via .runsettings</li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/723">723</a> and <a href="https://github.com/nunit/nunit3-vs-adapter/issues/735">735</a>  CodeFilePath like in nunit2 and TestCaseData: Missing Feature &quot;Jump to File&quot;</li>
 </ul>
-<h3 id="resolved-issuesbugs-1">Resolved issues/bugs</h3>
+<h3 id="resolved-issuesbugs-2">Resolved issues/bugs</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/301">301</a> Issue Revisited: Console Output</li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/343">343</a> Console.WriteLine() does not write to console when running<code>dotnet test</code></li>
@@ -169,7 +199,7 @@ The major difference is that this release makes PreFiltering which was introduce
 <hr>
 <h2 id="nunit3-test-adapter-for-visual-studio---version-315---august-23-2019">NUnit3 Test Adapter for Visual Studio - Version 3.15 - August 23, 2019</h2>
 <p>This release is a major performance improvement release.  When used from Visual Studio, and used with a selection of tests, it will significantly speed up the discovery of those.  Note that discovery is also a part of the execution, so you will also see the performance improvement for execution.  It will be mostly noticeable when you have a large set of tests.</p>
-<h3 id="features-and-enhancements-2">Features and Enhancements</h3>
+<h3 id="features-and-enhancements-3">Features and Enhancements</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/529">529</a>  Use framework prefilter for massive perf improvement when running fraction of tests.  Thanks to <a href="https://github.com/MatthewBeardmore">MatthewBeardmore</a> for the <a href="https://github.com/nunit/nunit3-vs-adapter/pull/553">Pull request</a> and patience</li>
 </ul>
@@ -180,7 +210,7 @@ The major difference is that this release makes PreFiltering which was introduce
 </ul>
 <hr>
 <h2 id="nunit3-test-adapter-for-visual-studio---version-314---august-8-2019">NUnit3 Test Adapter for Visual Studio - Version 3.14 - August 8, 2019</h2>
-<h3 id="features-and-enhancements-3">Features and Enhancements</h3>
+<h3 id="features-and-enhancements-4">Features and Enhancements</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/609">609</a> Request to change working directory from Windows/System32 to another directory
 and
