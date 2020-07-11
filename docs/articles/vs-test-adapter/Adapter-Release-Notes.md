@@ -1,5 +1,40 @@
 # Adapter Release Notes
 
+## NUnit3 Test Adapter for Visual Studio - Version 3.17.0 - July 11, 2020
+
+This release has a series of enhancements and bugfixes.  There have been two 3.17 beta releases (beta.1 and beta.2) published earlier on nuget.org.
+A major bugfix is that the console output now is properly appearing.  There are also a series of fixes for corner cases.  
+
+[StopOnError](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#stoponerror) can be very useful to reduce time of long test runs that are failing.
+
+The ability to set custom paths for the test code can be useful with data driven tests, where you want to point to the data file (and line number therein) instead of the default C# test code.
+
+See [here for all details](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html) on the settings.
+
+### Features and Enhancements
+
+* [640](https://github.com/nunit/nunit3-vs-adapter/issues/640) Allow use of FullName as the DisplayName for Converted Tests
+* [675](https://github.com/nunit/nunit3-vs-adapter/issues/675) Ability to set StopOnError via .runsettings
+* [723](https://github.com/nunit/nunit3-vs-adapter/issues/723) and [735](https://github.com/nunit/nunit3-vs-adapter/issues/735)  CodeFilePath like in nunit2 and TestCaseData: Missing Feature "Jump to File"
+* [740](https://github.com/nunit/nunit3-vs-adapter/issues/740) Allow Warnings to be mapped to any outcome
+* [758](https://github.com/nunit/nunit3-vs-adapter/issues/758) Feature Request: Adapter to support NonTestAssemblyAttribute
+
+### Resolved issues/bugs
+
+* [301](https://github.com/nunit/nunit3-vs-adapter/issues/301) Issue Revisited: Console Output
+* [343](https://github.com/nunit/nunit3-vs-adapter/issues/343) Console.WriteLine() does not write to console when running`dotnet test`
+* [697](https://github.com/nunit/nunit3-vs-adapter/issues/697) Test adapter props files should not add assemblies to Content ItemGroup
+* [737](https://github.com/nunit/nunit3-vs-adapter/issues/737) An assembly specified in the application dependencies manifest was not found
+* [745](https://github.com/nunit/nunit3-vs-adapter/issues/745) NUnit engine IDriverFactory extensions don't load using the adapter.  Thanks to [aolszowka](https://github.com/aolszowka) for [PR 749](https://github.com/nunit/nunit3-vs-adapter/pull/749)
+* [750](https://github.com/nunit/nunit3-vs-adapter/issues/750) ShadowCopyFiles doesn't work on .NET Framework. Thanks to [DavidSimner](https://github.com/DavidSimner) for [PR 751](https://github.com/nunit/nunit3-vs-adapter/pull/751)
+
+### Internal development stuff
+
+* [746](https://github.com/nunit/nunit3-vs-adapter/issues/746) EditorConfig for *.props Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 747](https://github.com/nunit/nunit3-vs-adapter/pull/747)
+* [753](https://github.com/nunit/nunit3-vs-adapter/issues/753) EditorConfig for *.csproj Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 754](https://github.com/nunit/nunit3-vs-adapter/pull/754)
+
+----
+
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.2 - June 8, 2020
 
 This is the 2nd beta for 3.17, published on [Nuget](https://nuget.org).
@@ -19,6 +54,8 @@ This is the 2nd beta for 3.17, published on [Nuget](https://nuget.org).
 
 * [746](https://github.com/nunit/nunit3-vs-adapter/issues/746) EditorConfig for *.props Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 747](https://github.com/nunit/nunit3-vs-adapter/pull/747)
 * [753](https://github.com/nunit/nunit3-vs-adapter/issues/753) EditorConfig for *.csproj Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 754](https://github.com/nunit/nunit3-vs-adapter/pull/754)
+
+----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.1 - April 19, 2020
 
