@@ -4,6 +4,8 @@ uid: intro
 
 # NUnit Documentation
 
+# Heading that fails markdown validation
+
 This documentation covers NUnit 3.0 and higher.
 
 Where applicable, we have marked sections with the version in which a feature first appeared.
