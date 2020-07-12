@@ -65,7 +65,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       name: Check out the code
-    - uses: nikeee/docfx-action@master
+    - uses: nunit/docfx-action@master
       name: Build with Docfx
       with:
         args: docs/docfx.json --warningsAsErrors true
