@@ -218,7 +218,7 @@ The separator character used when DisplayName is FullNameSep.  It is default '`:
 
 The 4.0 version of the NUnit3TestAdapter has a rewritten discovery mechanism and also other redesigns/refactoring done.  This setting let you switch back to the old form of discovery, using the setting `Legacy`.  The default value is `Current`.  
 
-The `Current` setting enables the Explicit feature back.  It also performs better (approx 30% faster for large test sets).  It might affect certain special cases, so therefore you can switch back. 
+The `Current` setting enables the Explicit feature back.  It also performs better (approx 30% faster for large test sets).  It might affect certain special cases, so therefore you can switch back.
 
 (From version 4.0.0)
 
