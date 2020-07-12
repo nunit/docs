@@ -39,7 +39,7 @@ The following options are available:
 |[DisplayName](#displayname)|enum|Set what a DisplayName is, options: Name, FullName or FullNameSep|Name|
 |[FullnameSeparator](#fullnameseparator)|string|FullNameSep separator|':'|
 |[DiscoveryMethod](#discoverymethod)|enum|How execution discovery is done, options are `Legacy` or `Current`|Current|
-|[AssemblySelectLimit](#assemblySelectLimit)|int|Number of tests accepted before filters are turned off|2000|
+|[AssemblySelectLimit](#assemblyselectlimit)|int|Number of tests accepted before filters are turned off|2000|
 
 ### Visual Studio templates for runsettings
 
