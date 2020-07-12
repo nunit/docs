@@ -4,9 +4,9 @@
 
 This is an early pre-release version.  
 
-The code has been rewritten/refactored in order to get some of the more complex issues fixed.  It does pass all the automatic tests we have, but there are still more tests we would like to tkae it through, before we release a beta.  
+The code has been rewritten/refactored in order to get some of the more complex issues fixed.  It does pass all the automatic tests we have, but there are still more tests we would like to take it through, before we release a beta.  
 
-We would really appreciate it if you give this alpa a spin. and [report](https://github.com/nunit/nunit3-vs-adapter/issues) whatever you find back to us.
+We would really appreciate it if you give this alpha a spin. and [report](https://github.com/nunit/nunit3-vs-adapter/issues) whatever you find back to us.
 
 The major fixes now are Explicit runs are fully back, both in Visual Studio and on command line with dotnet test and vstest.console.
 
