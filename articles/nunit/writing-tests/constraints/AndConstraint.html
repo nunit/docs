@@ -8,7 +8,7 @@
     <title>And Constraint | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="And Constraint | NUnit Docs ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.56.1.0">
     
     <link rel="shortcut icon" href="../../../../favicon.ico">
     <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../../../toc.html">
     <meta property="docfx:tocrel" content="../../../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -56,6 +56,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -80,7 +90,7 @@
 <pre><code class="lang-csharp">Assert.That(2.3, Is.GreaterThan(2.0).And.LessThan(3.0));
 </code></pre>
 <h2 id="evaluation-order-and-precedence">Evaluation Order and Precedence</h2>
-<p>Note that the constraint evaluates the sub-constraints left to right, meaning that <code>Assert.That(i, Is.Not.Null.And.GreaterThan(9));</code> where <code>i</code> is a nullable <code>int</code> will work for <code>10</code>, but fail for <code>null</code> with the message <code>Expected: not null and greater than 9. But was: null</code>. <code>Assert.That(i, Is.GreaterThan(9).And.Not.Null);</code> will also succeed for <code>10</code>, but throw an exception for <code>null</code>, as <code>null</code> cannot be compared to <code>9</code>.</p>
+<p>Note that the constraint evaluates the sub-constraints left to right, meaning that <code>Assert.That(i, Is.Not.Null.And.GreaterThan(9));</code> where <code>i</code> is a nullable <code>int</code> will work for <code>10</code>, but fail for <code>null</code> with the message <code>Expected: not null and greater than 9. But was:  null</code>. <code>Assert.That(i, Is.GreaterThan(9).And.Not.Null);</code> will also succeed for <code>10</code>, but throw an exception for <code>null</code>, as <code>null</code> cannot be compared to <code>9</code>.</p>
 <p>The <strong>OrConstraint</strong> has precedence over the <strong>AndConstraint</strong>.</p>
 <h2 id="see-also">See also</h2>
 <ul>
