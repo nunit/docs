@@ -69,6 +69,21 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="adapter-release-notes">Adapter Release Notes</h1>
 
+<h2 id="nunit3-test-adapter-for-visual-studio---version-400-alpha1---july-12-2020">NUnit3 Test Adapter for Visual Studio - Version 4.0.0-alpha.1 - July 12, 2020</h2>
+<p>This is an early pre-release version.</p>
+<p>The code has been rewritten/refactored in order to get some of the more complex issues fixed.  It does pass all the automatic tests we have, but there are still more tests we would like to take it through, before we release a beta.</p>
+<p>We would really appreciate it if you give this alpha a spin. and <a href="https://github.com/nunit/nunit3-vs-adapter/issues">report</a> whatever you find back to us.</p>
+<p>The major fixes now are Explicit runs are fully back, both in Visual Studio and on command line with dotnet test and vstest.console.</p>
+<p>Further there has been a significant performance improvement for large test sets, and in particular when you run with categories or other filters.</p>
+<p>For those interested in details, some of this has been achieved by converting the VSTest type of filters to NUnit native filters  (Thanks to <a href="https://github.com/CharliePoole">Charlie Poole</a> for his excellent contribution here.).</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/497">497</a>  Dotnet test with category filter is slow with a lot of tests</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/545">545</a>  Setting <code>TestCaseSource</code> to <code>Explicit</code> makes other tests in fixture explicit</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/612">612</a>  It is not possible to run an explicit test from Test Explorer</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/658">658</a>  Explicit tests are automatically run in Visual Studio 2019</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/767">767</a>  Replace use of VSTest filters with NUnit filters</li>
+</ul>
+<hr>
 <h2 id="nunit3-test-adapter-for-visual-studio---version-3170---july-11-2020">NUnit3 Test Adapter for Visual Studio - Version 3.17.0 - July 11, 2020</h2>
 <p>This release has a series of enhancements and bugfixes.  There have been two 3.17 beta releases (beta.1 and beta.2) published earlier on nuget.org.
 A major bugfix is that the console output now is properly appearing.  There are also a series of fixes for corner cases.</p>

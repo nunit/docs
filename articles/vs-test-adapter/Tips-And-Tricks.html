@@ -233,6 +233,18 @@ The following options are available:</p>
 <td>FullNameSep separator</td>
 <td>':'</td>
 </tr>
+<tr>
+<td><a href="#discoverymethod">DiscoveryMethod</a></td>
+<td>enum</td>
+<td>How execution discovery is done, options are <code>Legacy</code> or <code>Current</code></td>
+<td>Current</td>
+</tr>
+<tr>
+<td><a href="#assemblyselectlimit">AssemblySelectLimit</a></td>
+<td>int</td>
+<td>Number of tests accepted before filters are turned off</td>
+<td>2000</td>
+</tr>
 </tbody>
 </table>
 <h3 id="visual-studio-templates-for-runsettings">Visual Studio templates for runsettings</h3>
@@ -336,6 +348,15 @@ See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/640">Issue 640</a
 <h4 id="fullnameseparator">FullNameSeparator</h4>
 <p>The separator character used when DisplayName is FullNameSep.  It is default '<code>:</code>', but can be changed to anything.</p>
 <p>(From version 3.17.0)</p>
+<h4 id="discoverymethod">DiscoveryMethod</h4>
+<p>The 4.0 version of the NUnit3TestAdapter has a rewritten discovery mechanism and also other redesigns/refactoring done.  This setting let you switch back to the old form of discovery, using the setting <code>Legacy</code>.  The default value is <code>Current</code>.</p>
+<p>The <code>Current</code> setting enables the Explicit feature back.  It also performs better (approx 30% faster for large test sets).  It might affect certain special cases, so therefore you can switch back.</p>
+<p>(From version 4.0.0)</p>
+<h4 id="assemblyselectlimit">AssemblySelectLimit</h4>
+<p>If you run from the IDE (Visual Studio) the adapter will receive a list of tests to process.  This is heavy when the number of tests are large. If the number of tests exceeds this limit, the list will be skipped and all tests in the assembly will be run (except those tests that are Explicit or Ignored).</p>
+<p>This might have an adverse effect if you select a category and you have more than 2000 tests, the category setting will be ignored. In that case, just increase this limit to higher than your number of tests.</p>
+<p>You might also receive a list from the command line, and in that case it will also be skipped the same way.  Here the category will be honoured since the category filter will be converted to a NUnit filter.</p>
+<p>(From version 4.0.0)</p>
 <hr>
 <h3 id="some-further-information-on-directories-from-comment-on-issue-575-by-charlie-">Some further information on directories (From <a href="https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421">comment on issue 575</a> by <a href="https://github.com/CharliePoole">Charlie</a> )</h3>
 <p>NUnit also supports TestContext.TestDirectory, which is the directory where the current test assembly is located. Note that if you have several test assemblies in different directories, the value will be different when each one of them accesses it. Note also that there is no way you can set the TestDirectory because it's always where the assembly is located.</p>
