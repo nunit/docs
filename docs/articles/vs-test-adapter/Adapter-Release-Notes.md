@@ -14,7 +14,6 @@ Further there has been a significant performance improvement for large test sets
 
 For those interested in details, some of this has been achieved by converting the VSTest type of filters to NUnit native filters  (Thanks to [Charlie Poole](https://github.com/CharliePoole) for his excellent contribution here.).
 
-
 * [497](https://github.com/nunit/nunit3-vs-adapter/issues/497)  Dotnet test with category filter is slow with a lot of tests
 * [545](https://github.com/nunit/nunit3-vs-adapter/issues/545)  Setting `TestCaseSource` to `Explicit` makes other tests in fixture explicit
 * [612](https://github.com/nunit/nunit3-vs-adapter/issues/612)  It is not possible to run an explicit test from Test Explorer
