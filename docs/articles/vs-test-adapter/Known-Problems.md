@@ -1,6 +1,6 @@
 # Known Problems
 
-1. Using both the VSIX adapter and nuget adapters at the same time can lead to discovery issues, ref [Issue769](https://github.com/nunit/nunit3-vs-adapter/issues/769).  The resolution is to uninstall the VSIX adapter, and only use the nuget adapters.  The VSIX adapters are being deprecated in later VS versions.
+1. Using both the VSIX adapter and nuget adapters at the same time can lead to discovery issues; see [nunit3-vs-adapter/issues #769](https://github.com/nunit/nunit3-vs-adapter/issues/769).  The resolution is to uninstall the VSIX adapter, and only use the nuget adapters.  The VSIX adapters are being deprecated in later VS versions.
 
 2. Support for Explicit keyword
 
