@@ -20,7 +20,7 @@
 
 Workaround: Make sure you have upgraded VSIX adapter to latest version, or uninstalled it if you have the NuGet adapter in a solution. The adapter will display its version number in the Output window under Tests.
 
-   Avoid using the VSIX adapter for VS2017 and upwards.  It is being deprecated, but is still supported optionally in VS2019.
+Avoid using the VSIX adapter for VS2017 and upwards.  It is being deprecated, but is still supported optionally in VS2019.
 
 8. Visual Studio 2017 Live Unit Testing require NUnit3.  The NUnit2 adapter doesn't support Live Unit Testing.
 
