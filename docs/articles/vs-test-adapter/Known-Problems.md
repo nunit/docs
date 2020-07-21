@@ -16,7 +16,7 @@
 
 6. Startup performance is substantially improved but is still slower than using NUnit directly.
 
-7. Applies to pre-VS2017:  A VSIX adapter of older version will be used regardless of version of NuGet adapter.
+7. Applies to pre-VS2017: When using a VSIX adapter and the NuGet adapter, the VSIX adapter will be used regardless of the NuGet adapter version.
 
    Workaround: Make sure you have upgraded VSIX adapter to latest version, or uninstalled it if you have the NuGet adapter in a solution. The adapter will display its version number in the Output window under Tests.
 
