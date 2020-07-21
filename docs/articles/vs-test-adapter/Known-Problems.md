@@ -18,7 +18,7 @@
 
 7. Applies to pre-VS2017: When using a VSIX adapter and the NuGet adapter, the VSIX adapter will be used regardless of the NuGet adapter version.
 
-   Workaround: Make sure you have upgraded VSIX adapter to latest version, or uninstalled it if you have the NuGet adapter in a solution. The adapter will display its version number in the Output window under Tests.
+Workaround: Make sure you have upgraded VSIX adapter to latest version, or uninstalled it if you have the NuGet adapter in a solution. The adapter will display its version number in the Output window under Tests.
 
    Avoid using the VSIX adapter for VS2017 and upwards.  It is being deprecated, but is still supported optionally in VS2019.
 
