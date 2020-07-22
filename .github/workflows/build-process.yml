@@ -43,11 +43,13 @@ jobs:
       name: Build with Docfx
       with:
         args: docs/docfx.json --warningsAsErrors true
+    - name: zip site contents
+      run: zip -r _site.zip .docs/_site
     - name: Archive site artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: _site
-        path: docs/_site
+        name: siteArtifact
+        path: _site.zip
   publish:
     name: Publish (master branch only)
     needs: [build]
@@ -57,14 +59,16 @@ jobs:
     - name: Download site artifacts
       uses: actions/download-artifact@v2
       with:
-        name: _site
+        name: siteArtifact
+    - name: unzip site contents
+      run: unzip _site.zip
     - name: Push to gh-pages branch (master only)
       if: ${{ github.ref == 'refs/heads/master'}}
       uses: peaceiris/actions-gh-pages@v3
       with:
         commit_message: ${{ github.event.head_commit.message }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site
+        publish_dir: ./siteArtifact/site
         publish_branch: gh-pages
   html_proofer:
     name: HTML checks (FYI only)
@@ -74,8 +78,10 @@ jobs:
     - name: Download site artifacts
       uses: actions/download-artifact@v2
       with:
-        name: _site
+        name: siteArtifact
+    - name: unzip site contents
+      run: unzip _site.zip
     - name: Check HTML
       uses: chabad360/htmlproofer@master
       with:
-        directory: "./_site"
+        directory: "./siteArtifact/_site"
