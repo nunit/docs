@@ -44,6 +44,11 @@ jobs:
       name: Build with Docfx
       with:
         args: docs/docfx.json --warningsAsErrors true
+    - name: Archive site artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: _site
+        path: docs/_site   
     - name: Push to gh-pages branch (master only)
       if: ${{ github.ref == 'refs/heads/master'}}
       uses: peaceiris/actions-gh-pages@v3
@@ -56,7 +61,11 @@ jobs:
     needs: [build_and_publish]
     runs-on: ubuntu-latest
     steps:
+    - name: Download math result for job 2
+      uses: actions/download-artifact@v1
+      with:
+        name: _site
     - name: Check HTML
       uses: chabad360/htmlproofer@master
       with:
-        directory: "./docs/_site"
+        directory: "./_site"
