@@ -52,3 +52,11 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/_site
         publish_branch: gh-pages
+  check_links:
+    needs: [build_and_publish]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check HTML
+      uses: chabad360/htmlproofer@master
+      with:
+        directory: "./docs/_site"
