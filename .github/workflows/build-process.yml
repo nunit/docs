@@ -70,19 +70,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/_site
         publish_branch: gh-pages
-  html_proofer:
-    name: HTML checks (FYI only)
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download site artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: siteArtifact
-    - name: unzip site contents
-      run: unzip _site.zip
-    - name: Check HTML
-      uses: chabad360/htmlproofer@master
-      with:
-        directory: "./docs/_site/articles"
-        arguments: --log-level debug
