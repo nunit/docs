@@ -61,7 +61,7 @@ jobs:
     needs: [build_and_publish]
     runs-on: ubuntu-latest
     steps:
-    - name: Download math result for job 2
+    - name: Download site artifacts
       uses: actions/download-artifact@v1
       with:
         name: _site
