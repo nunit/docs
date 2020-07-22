@@ -52,7 +52,7 @@ jobs:
         path: _site.zip
   publish:
     name: Publish (master branch only)
-    needs: [build]
+    needs: [linting, spellcheck, build]
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master'}}
     steps:
