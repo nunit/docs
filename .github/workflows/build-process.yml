@@ -68,7 +68,7 @@ jobs:
       with:
         commit_message: ${{ github.event.head_commit.message }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./siteArtifact/site
+        publish_dir: ./docs/_site
         publish_branch: gh-pages
   html_proofer:
     name: HTML checks (FYI only)
@@ -84,4 +84,4 @@ jobs:
     - name: Check HTML
       uses: chabad360/htmlproofer@master
       with:
-        directory: "./siteArtifact/_site"
+        directory: "./docs/_site"
