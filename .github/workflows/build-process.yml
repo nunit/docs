@@ -33,9 +33,8 @@ jobs:
       name: Install cSpell
     - run: cspell --config ./cSpell.json "docs/**/*.md"
       name: run cSpell
-  build_and_publish:
-    name: "Build the site with docfx and publish"
-    needs: [linting, spellcheck]
+  build:
+    name: "Build the site with docfx"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -48,18 +47,27 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: _site
-        path: docs/_site   
+  publish:
+    name: Publish (master branch only)
+    needs: [build]
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master'}}
+    steps:
+    - name: Download site artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: _site
     - name: Push to gh-pages branch (master only)
       if: ${{ github.ref == 'refs/heads/master'}}
       uses: peaceiris/actions-gh-pages@v3
       with:
         commit_message: ${{ github.event.head_commit.message }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/_site
+        publish_dir: ./_site
         publish_branch: gh-pages
   html_proofer:
     name: HTML checks (FYI only)
-    needs: [build_and_publish]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
     - name: Download site artifacts
