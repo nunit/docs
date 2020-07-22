@@ -44,7 +44,7 @@ jobs:
       with:
         args: docs/docfx.json --warningsAsErrors true
     - name: zip site contents
-      run: zip -r _site.zip . -i .docs/_site
+      run: zip -r _site.zip docs/_site/
     - name: Archive site artifacts
       uses: actions/upload-artifact@v2
       with:
