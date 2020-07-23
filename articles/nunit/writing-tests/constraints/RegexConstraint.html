@@ -91,9 +91,10 @@ Matches(string pattern)
 <pre><code class="lang-csharp">...IgnoreCase
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">string phrase = &quot;Make your tests fail before passing!&quot;
+<pre><code class="lang-csharp">string phrase = &quot;Make your tests fail before passing!&quot;;
 
 Assert.That(phrase, Does.Match(&quot;Make.*tests.*pass&quot;));
+Assert.That(phrase, Does.Match(&quot;make.*tests.*PASS&quot;).IgnoreCase);
 Assert.That(phrase, Does.Not.Match(&quot;your.*passing.*tests&quot;));
 </code></pre>
 <h2 id="notes">Notes</h2>

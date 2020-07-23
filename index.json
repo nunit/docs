@@ -1107,7 +1107,7 @@
   "articles/nunit/writing-tests/constraints/RegexConstraint.html": {
     "href": "articles/nunit/writing-tests/constraints/RegexConstraint.html",
     "title": "RegexConstraint | NUnit Docs",
-    "keywords": "RegexConstraint RegexConstraint tests that a pattern is matched. Constructor RegexConstraint(string pattern) Syntax Does.Match(string pattern) Matches(string pattern) Modifiers ...IgnoreCase Examples of Use string phrase = \"Make your tests fail before passing!\" Assert.That(phrase, Does.Match(\"Make.*tests.*pass\")); Assert.That(phrase, Does.Not.Match(\"your.*passing.*tests\")); Notes Matches may appear only in the body of a constraint expression or when the inherited syntax is used."
+    "keywords": "RegexConstraint RegexConstraint tests that a pattern is matched. Constructor RegexConstraint(string pattern) Syntax Does.Match(string pattern) Matches(string pattern) Modifiers ...IgnoreCase Examples of Use string phrase = \"Make your tests fail before passing!\"; Assert.That(phrase, Does.Match(\"Make.*tests.*pass\")); Assert.That(phrase, Does.Match(\"make.*tests.*PASS\").IgnoreCase); Assert.That(phrase, Does.Not.Match(\"your.*passing.*tests\")); Notes Matches may appear only in the body of a constraint expression or when the inherited syntax is used."
   },
   "articles/nunit/writing-tests/constraints/ReusableConstraint.html": {
     "href": "articles/nunit/writing-tests/constraints/ReusableConstraint.html",
