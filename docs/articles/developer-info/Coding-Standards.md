@@ -242,4 +242,4 @@ The `var` keyword should be used where the type is obvious to someone reading th
 var i = 12;
 var list = new List<int>();
 Foo foo = GetFoo();
-``
+```
