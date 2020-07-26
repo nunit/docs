@@ -34,6 +34,10 @@ We try to avoid being strict about accepting PRs because we value contributions 
 * Similarly, don't worry about pre-squashing your changes for us. We'll use Github's functionality at the end of the PR to do that when accepting it.
 * Before asking for a review or declaring the PR to be ready, make sure the CI build passes. You'll receive updates on this as you go, so the status at any given time should hopefully be clear.
 
+## Is this confusing? Do you need help? Do you feel hesitant?
+
+That's a common feeling, especially if you're new to open source or making contributions. If you haven't heard a term like "pull request" before, don't worry -- we've got you covered. Let us know if you'd like to take a pass at making a change, and we'll help you along the way.
+
 ## How to build this Project
 
 See the documentation in the [README.md](README.md) file.
