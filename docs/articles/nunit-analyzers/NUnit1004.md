@@ -1,6 +1,6 @@
 # NUnit1004
 
-## Too many arguments provided by TestCaseAttribute.
+## The TestCaseAttribute provided too many arguments.
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs)
+| Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs)
 
 ## Description
 
@@ -67,22 +67,22 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via #pragma directive.
 
 ```csharp
-#pragma warning disable NUnit1004 // Too many arguments provided by TestCaseAttribute.
+#pragma warning disable NUnit1004 // The TestCaseAttribute provided too many arguments.
 Code violating the rule here
-#pragma warning restore NUnit1004 // Too many arguments provided by TestCaseAttribute.
+#pragma warning restore NUnit1004 // The TestCaseAttribute provided too many arguments.
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1004 // Too many arguments provided by TestCaseAttribute.
+#pragma warning disable NUnit1004 // The TestCaseAttribute provided too many arguments.
 ```
 
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1004:Too many arguments provided by TestCaseAttribute.",
+    "NUnit1004:The TestCaseAttribute provided too many arguments.",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

@@ -1,6 +1,6 @@
 # NUnit1010
 
-## No ParallelScope.Fixtures on a test method.
+## One may not specify ParallelScope.Fixtures on a test method.
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
+| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
 
 ## Description
 
@@ -84,22 +84,22 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via #pragma directive.
 
 ```csharp
-#pragma warning disable NUnit1010 // No ParallelScope.Fixtures on a test method.
+#pragma warning disable NUnit1010 // One may not specify ParallelScope.Fixtures on a test method.
 Code violating the rule here
-#pragma warning restore NUnit1010 // No ParallelScope.Fixtures on a test method.
+#pragma warning restore NUnit1010 // One may not specify ParallelScope.Fixtures on a test method.
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1010 // No ParallelScope.Fixtures on a test method.
+#pragma warning disable NUnit1010 // One may not specify ParallelScope.Fixtures on a test method.
 ```
 
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1010:No ParallelScope.Fixtures on a test method.",
+    "NUnit1010:One may not specify ParallelScope.Fixtures on a test method.",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

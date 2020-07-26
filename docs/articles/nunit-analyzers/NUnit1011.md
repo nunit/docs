@@ -1,6 +1,6 @@
 # NUnit1011
 
-## TestCaseSource argument does not specify an existing member.
+## The TestCaseSource argument does not specify an existing member.
 
 | Topic    | Value
 | :--      | :--
@@ -8,11 +8,11 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
 
 ## Description
 
-TestCaseSource argument does not specify an existing member. This will lead to an error at run-time.
+The TestCaseSource argument does not specify an existing member. This will lead to an error at run-time.
 
 ## Motivation
 
@@ -56,7 +56,7 @@ public static object[] MyTestSource()
 }
 ```
 
-Or even better, use `nameof` so that the compiler may assist with mis-matched names in the future:
+Or even better, use `nameof` so that the compiler may assist with mismatched names in the future:
 
 ```csharp
 [TestCaseSource(nameof(MyTestSource))]
@@ -81,22 +81,22 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via #pragma directive.
 
 ```csharp
-#pragma warning disable NUnit1011 // TestCaseSource argument does not specify an existing member.
+#pragma warning disable NUnit1011 // The TestCaseSource argument does not specify an existing member.
 Code violating the rule here
-#pragma warning restore NUnit1011 // TestCaseSource argument does not specify an existing member.
+#pragma warning restore NUnit1011 // The TestCaseSource argument does not specify an existing member.
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1011 // TestCaseSource argument does not specify an existing member.
+#pragma warning disable NUnit1011 // The TestCaseSource argument does not specify an existing member.
 ```
 
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1011:TestCaseSource argument does not specify an existing member.",
+    "NUnit1011:The TestCaseSource argument does not specify an existing member.",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->
