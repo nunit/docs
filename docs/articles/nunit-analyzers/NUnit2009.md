@@ -1,18 +1,18 @@
 # NUnit2009
 
-## Same value provided as actual and expected argument.
+## The same value has been provided as both the actual and the expected argument.
 
 | Topic    | Value
 | :--      | :--
 | Id       | NUnit2009
 | Severity | Warning
 | Enabled  | True
-| Category | Structure
-| Code     | [SameActualExpectedValueAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/SameActualExpectedValue/SameActualExpectedValueAnalyzer.cs)
+| Category | Assertion
+| Code     | [SameActualExpectedValueAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/SameActualExpectedValue/SameActualExpectedValueAnalyzer.cs)
 
 ## Description
 
-The same value has been provided as both actual and expected argument. This indicates a coding error.
+The same value has been provided as both the actual and the expected argument. This indicates a coding error.
 
 ## Motivation
 
@@ -58,22 +58,22 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via #pragma directive.
 
 ```csharp
-#pragma warning disable NUnit2009 // Same value provided as actual and expected argument.
+#pragma warning disable NUnit2009 // The same value has been provided as both the actual and the expected argument.
 Code violating the rule here
-#pragma warning restore NUnit2009 // Same value provided as actual and expected argument.
+#pragma warning restore NUnit2009 // The same value has been provided as both the actual and the expected argument.
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2009 // Same value provided as actual and expected argument.
+#pragma warning disable NUnit2009 // The same value has been provided as both the actual and the expected argument.
 ```
 
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit2009:Same value provided as actual and expected argument.",
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
+    "NUnit2009:The same value has been provided as both the actual and the expected argument.",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->
