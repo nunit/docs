@@ -106,12 +106,12 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/SameAsIncompatibleTypes/SameAsIncompatibleTypesAnalyzer.cs">SameAsIncompatibleTypesAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/SameAsIncompatibleTypes/SameAsIncompatibleTypesAnalyzer.cs">SameAsIncompatibleTypesAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>Provided actual and expected arguments cannot have same type, therefore SameAs assertion will always fail.</p>
+<p>The SameAs constraint always fails because the actual and expected values have mutually exclusive types.</p>
 <h2 id="motivation">Motivation</h2>
 <pre><code class="lang-csharp">class Foo { }
 class Bar { }

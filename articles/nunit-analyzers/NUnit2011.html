@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit2011">NUnit2011</h1>
 
-<h2 id="use-containsconstraint">Use ContainsConstraint.</h2>
+<h2 id="use-containsconstraint-for-better-assertion-messages-in-case-of-failure">Use ContainsConstraint for better assertion messages in case of failure.</h2>
 <table>
 <thead>
 <tr>
@@ -106,7 +106,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs">StringConstraintUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs">StringConstraintUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -140,16 +140,16 @@ public void Test()
 <h3 id="via-ruleset-file">Via ruleset file.</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive.</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2011 // Use ContainsConstraint.
+<pre><code class="lang-csharp">#pragma warning disable NUnit2011 // Use ContainsConstraint for better assertion messages in case of failure.
 Code violating the rule here
-#pragma warning restore NUnit2011 // Use ContainsConstraint.
+#pragma warning restore NUnit2011 // Use ContainsConstraint for better assertion messages in case of failure.
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2011 // Use ContainsConstraint.
+<pre><code class="lang-csharp">#pragma warning disable NUnit2011 // Use ContainsConstraint for better assertion messages in case of failure.
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code>.</h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2011:Use ContainsConstraint.&quot;,
+    &quot;NUnit2011:Use ContainsConstraint for better assertion messages in case of failure.&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->

@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit2007">NUnit2007</h1>
 
-<h2 id="actual-value-should-not-be-constant">Actual value should not be constant.</h2>
+<h2 id="the-actual-value-should-not-be-a-constant">The actual value should not be a constant.</h2>
 <table>
 <thead>
 <tr>
@@ -106,12 +106,12 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ConstActualValueUsage/ConstActualValueUsageAnalyzer.cs">ConstActualValueUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/ConstActualValueUsage/ConstActualValueUsageAnalyzer.cs">ConstActualValueUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>Actual value should not be constant. This indicates that the actual and expected values have switched places.</p>
+<p>The actual value should not be a constant. This indicates that the actual value and the expected value have switched places.</p>
 <h2 id="motivation">Motivation</h2>
 <p>Bring developers' attention to a scenario in which their test is most likely testing the wrong thing, or to cases where their actual and expected values may be accidentally swapped.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
@@ -143,16 +143,16 @@ public void NUnit2007SampleTest()
 <h3 id="via-ruleset-file">Via ruleset file.</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive.</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2007 // Actual value should not be constant.
+<pre><code class="lang-csharp">#pragma warning disable NUnit2007 // The actual value should not be a constant.
 Code violating the rule here
-#pragma warning restore NUnit2007 // Actual value should not be constant.
+#pragma warning restore NUnit2007 // The actual value should not be a constant.
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2007 // Actual value should not be constant.
+<pre><code class="lang-csharp">#pragma warning disable NUnit2007 // The actual value should not be a constant.
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code>.</h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2007:Actual value should not be constant.&quot;,
+    &quot;NUnit2007:The actual value should not be a constant.&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->

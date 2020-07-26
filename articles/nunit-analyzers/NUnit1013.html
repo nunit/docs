@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit1013">NUnit1013</h1>
 
-<h2 id="async-test-method-must-have-non-generic-task-return-type-when-no-result-is-expected">Async test method must have non-generic Task return type when no result is expected.</h2>
+<h2 id="the-async-test-method-must-have-a-non-generic-task-return-type-when-no-result-is-expected">The async test method must have a non-generic Task return type when no result is expected.</h2>
 <table>
 <thead>
 <tr>
@@ -106,12 +106,12 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs">TestMethodUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs">TestMethodUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>Async test method must have non-generic Task return type when no result is expected.</p>
+<p>The async test method must have a non-generic Task return type when no result is expected.</p>
 <h2 id="motivation">Motivation</h2>
 <p>To prevent tests that will fail at runtime due to improper construction.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
@@ -161,16 +161,16 @@ public Task&lt;string&gt; ConvertNumber(int numberValue)
 <h3 id="via-ruleset-file">Via ruleset file.</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive.</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1013 // Async test method must have non-generic Task return type when no result is expected.
+<pre><code class="lang-csharp">#pragma warning disable NUnit1013 // The async test method must have a non-generic Task return type when no result is expected.
 Code violating the rule here
-#pragma warning restore NUnit1013 // Async test method must have non-generic Task return type when no result is expected.
+#pragma warning restore NUnit1013 // The async test method must have a non-generic Task return type when no result is expected.
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1013 // Async test method must have non-generic Task return type when no result is expected.
+<pre><code class="lang-csharp">#pragma warning disable NUnit1013 // The async test method must have a non-generic Task return type when no result is expected.
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code>.</h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Structure&quot;,
-    &quot;NUnit1013:Async test method must have non-generic Task return type when no result is expected.&quot;,
+    &quot;NUnit1013:The async test method must have a non-generic Task return type when no result is expected.&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->

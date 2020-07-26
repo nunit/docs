@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit2006">NUnit2006</h1>
 
-<h2 id="consider-using-assertthatexpr2-isnotequaltoexpr1-instead-of-assertarenotequalexpr1-expr2">Consider using Assert.That(expr2, Is.Not.EqualTo(expr1)) instead of Assert.AreNotEqual(expr1, expr2).</h2>
+<h2 id="consider-using-assertthatactual-isnotequaltoexpected-instead-of-assertarenotequalexpected-actual">Consider using Assert.That(actual, Is.Not.EqualTo(expected)) instead of Assert.AreNotEqual(expected, actual).</h2>
 <table>
 <thead>
 <tr>
@@ -106,12 +106,12 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs">ClassicModelAssertUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs">ClassicModelAssertUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>Consider using the constraint model, <code>Assert.That(expr2, Is.Not.EqualTo(expr1))</code>, instead of the classic model, <code>Assert.AreNotEqual(expr1, expr2)</code>.</p>
+<p>Consider using the constraint model, <code>Assert.That(actual, Is.Not.EqualTo(expected))</code>, instead of the classic model, <code>Assert.AreNotEqual(expected, actual)</code>.</p>
 <h2 id="motivation">Motivation</h2>
 <p>The classic Assert model, <code>Assert.AreNotEqual(expected, actual)</code>, makes it easy to mix the <code>expected</code> and the <code>actual</code> parameter,
 so this analyzer marks usages of <code>Assert.AreNotEqual</code> from the classic Assert model.</p>
@@ -135,16 +135,16 @@ public void Test()
 <h3 id="via-ruleset-file">Via ruleset file.</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive.</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2006 // Consider using Assert.That(expr2, Is.Not.EqualTo(expr1)) instead of Assert.AreNotEqual(expr1, expr2).
+<pre><code class="lang-csharp">#pragma warning disable NUnit2006 // Consider using Assert.That(actual, Is.Not.EqualTo(expected)) instead of Assert.AreNotEqual(expected, actual).
 Code violating the rule here
-#pragma warning restore NUnit2006 // Consider using Assert.That(expr2, Is.Not.EqualTo(expr1)) instead of Assert.AreNotEqual(expr1, expr2).
+#pragma warning restore NUnit2006 // Consider using Assert.That(actual, Is.Not.EqualTo(expected)) instead of Assert.AreNotEqual(expected, actual).
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2006 // Consider using Assert.That(expr2, Is.Not.EqualTo(expr1)) instead of Assert.AreNotEqual(expr1, expr2).
+<pre><code class="lang-csharp">#pragma warning disable NUnit2006 // Consider using Assert.That(actual, Is.Not.EqualTo(expected)) instead of Assert.AreNotEqual(expected, actual).
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code>.</h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2006:Consider using Assert.That(expr2, Is.Not.EqualTo(expr1)) instead of Assert.AreNotEqual(expr1, expr2).&quot;,
+    &quot;NUnit2006:Consider using Assert.That(actual, Is.Not.EqualTo(expected)) instead of Assert.AreNotEqual(expected, actual).&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->
