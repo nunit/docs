@@ -1,4 +1,4 @@
-# NUNit Docs Vision
+# NUnit Docs Vision
 
 The NUnit docs site is a project within the NUnit organization.
 
