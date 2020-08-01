@@ -1,5 +1,62 @@
 # Adapter Release Notes
 
+## NUnit3 Test Adapter for Visual Studio - Version 4.0.0-alpha.1 - July 12, 2020
+
+This is an early pre-release version.  
+
+The code has been rewritten/refactored in order to get some of the more complex issues fixed.  It does pass all the automatic tests we have, but there are still more tests we would like to take it through, before we release a beta.  
+
+We would really appreciate it if you give this alpha a spin. and [report](https://github.com/nunit/nunit3-vs-adapter/issues) whatever you find back to us.
+
+The major fixes now are Explicit runs are fully back, both in Visual Studio and on command line with dotnet test and vstest.console.
+
+Further there has been a significant performance improvement for large test sets, and in particular when you run with categories or other filters.
+
+For those interested in details, some of this has been achieved by converting the VSTest type of filters to NUnit native filters  (Thanks to [Charlie Poole](https://github.com/CharliePoole) for his excellent contribution here.).
+
+* [497](https://github.com/nunit/nunit3-vs-adapter/issues/497)  Dotnet test with category filter is slow with a lot of tests
+* [545](https://github.com/nunit/nunit3-vs-adapter/issues/545)  Setting `TestCaseSource` to `Explicit` makes other tests in fixture explicit
+* [612](https://github.com/nunit/nunit3-vs-adapter/issues/612)  It is not possible to run an explicit test from Test Explorer
+* [658](https://github.com/nunit/nunit3-vs-adapter/issues/658)  Explicit tests are automatically run in Visual Studio 2019
+* [767](https://github.com/nunit/nunit3-vs-adapter/issues/767)  Replace use of VSTest filters with NUnit filters
+
+-----
+
+## NUnit3 Test Adapter for Visual Studio - Version 3.17.0 - July 11, 2020
+
+This release has a series of enhancements and bugfixes.  There have been two 3.17 beta releases (beta.1 and beta.2) published earlier on nuget.org.
+A major bugfix is that the console output now is properly appearing.  There are also a series of fixes for corner cases.  
+
+[StopOnError](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#stoponerror) can be very useful to reduce time of long test runs that are failing.
+
+The ability to set custom paths for the test code can be useful with data driven tests, where you want to point to the data file (and line number therein) instead of the default C# test code.
+
+See [here for all details](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html) on the settings.
+
+### Features and Enhancements
+
+* [640](https://github.com/nunit/nunit3-vs-adapter/issues/640) Allow use of FullName as the DisplayName for Converted Tests
+* [675](https://github.com/nunit/nunit3-vs-adapter/issues/675) Ability to set StopOnError via .runsettings
+* [723](https://github.com/nunit/nunit3-vs-adapter/issues/723) and [735](https://github.com/nunit/nunit3-vs-adapter/issues/735)  CodeFilePath like in nunit2 and TestCaseData: Missing Feature "Jump to File"
+* [740](https://github.com/nunit/nunit3-vs-adapter/issues/740) Allow Warnings to be mapped to any outcome
+* [758](https://github.com/nunit/nunit3-vs-adapter/issues/758) Feature Request: Adapter to support NonTestAssemblyAttribute
+
+### Resolved issues/bugs
+
+* [301](https://github.com/nunit/nunit3-vs-adapter/issues/301) Issue Revisited: Console Output
+* [343](https://github.com/nunit/nunit3-vs-adapter/issues/343) Console.WriteLine() does not write to console when running`dotnet test`
+* [697](https://github.com/nunit/nunit3-vs-adapter/issues/697) Test adapter props files should not add assemblies to Content ItemGroup
+* [737](https://github.com/nunit/nunit3-vs-adapter/issues/737) An assembly specified in the application dependencies manifest was not found
+* [745](https://github.com/nunit/nunit3-vs-adapter/issues/745) NUnit engine IDriverFactory extensions don't load using the adapter.  Thanks to [aolszowka](https://github.com/aolszowka) for [PR 749](https://github.com/nunit/nunit3-vs-adapter/pull/749)
+* [750](https://github.com/nunit/nunit3-vs-adapter/issues/750) ShadowCopyFiles doesn't work on .NET Framework. Thanks to [DavidSimner](https://github.com/DavidSimner) for [PR 751](https://github.com/nunit/nunit3-vs-adapter/pull/751)
+
+### Internal development stuff
+
+* [746](https://github.com/nunit/nunit3-vs-adapter/issues/746) EditorConfig for *.props Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 747](https://github.com/nunit/nunit3-vs-adapter/pull/747)
+* [753](https://github.com/nunit/nunit3-vs-adapter/issues/753) EditorConfig for *.csproj Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 754](https://github.com/nunit/nunit3-vs-adapter/pull/754)
+
+-----
+
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.2 - June 8, 2020
 
 This is the 2nd beta for 3.17, published on [Nuget](https://nuget.org).
@@ -20,6 +77,8 @@ This is the 2nd beta for 3.17, published on [Nuget](https://nuget.org).
 * [746](https://github.com/nunit/nunit3-vs-adapter/issues/746) EditorConfig for *.props Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 747](https://github.com/nunit/nunit3-vs-adapter/pull/747)
 * [753](https://github.com/nunit/nunit3-vs-adapter/issues/753) EditorConfig for *.csproj Types. Thanks to [aolszowka](https://github.com/aolszowka) for [PR 754](https://github.com/nunit/nunit3-vs-adapter/pull/754)
 
+-----
+
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.1 - April 19, 2020
 
 This is the first beta release published on [Nuget](https://nuget.org).
@@ -38,7 +97,7 @@ It contains new features and some bugfixes.
 * [697](https://github.com/nunit/nunit3-vs-adapter/issues/697) Test adapter props files should not add assemblies to Content ItemGroup
 * [737](https://github.com/nunit/nunit3-vs-adapter/issues/737) An assembly specified in the application dependencies manifest was not found
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.16.1 - January 16, 2020
 
@@ -55,7 +114,7 @@ Together with these, the following issues are changed:
 Note that this hotfix changes some of the new defaults introduced in 3.16.0.  
 These can be set back using the two new runsettings [UseParentFQNForParametrizedTests](xref:tipsandtricks#useparentfqnforparametrizedtests) and [UseNUnitIdforTestCaseId](xref:tipsandtricks#usenunitidfortestcaseid)
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.16.0 - January 3, 2020
 
@@ -92,7 +151,7 @@ This release has three major changes.
 
 * [679](https://github.com/nunit/nunit3-vs-adapter/issues/679) Build.cake does not work in a pure visual studio preview installation.  Fixed by [PR #680](https://github.com/nunit/nunit3-vs-adapter/pull/680) by [Ove Bastiansen](https://github.com/ovebastiansen)
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.15.1 - August 30, 2019
 
@@ -107,7 +166,7 @@ The major difference is that this release makes PreFiltering which was introduce
 * [649](https://github.com/nunit/nunit3-vs-adapter/issues/649) NUnit3TestAdapter 3.15 OneTimeSetUp not working anymore  (When a SetupFixture is being used)
 * [650](https://github.com/nunit/nunit3-vs-adapter/issues/650) NUnit3TestAdapter 3.15 not running tests with custom TestCaseSource (when using SetName instead of SetArgDisplayNames)
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.15 - August 23, 2019
 
@@ -122,7 +181,7 @@ This release is a major performance improvement release.  When used from Visual 
 * [645](https://github.com/nunit/nunit3-vs-adapter/issues/645) NUnit3TestAdapter 3.14.0 includes NUnit3.TestAdapter.dll versioned 3.13.  Version number of dll corrected to match package version 3.15
 * [580](https://github.com/nunit/nunit3-vs-adapter/issues/580) Fix licenseUrl in nuspec, will be deprecated
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.14 - August 8, 2019
 
@@ -143,7 +202,7 @@ and
 
 This version also includes the latest version 3.10 of the NUnit.Engine.dll
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.13 - February 20, 2019
 
@@ -171,7 +230,7 @@ If you still want to see the properties, you can enable that again setting a run
 
 * [599](https://github.com/nunit/nunit3-vs-adapter/issues/599)   Url in the repo header pointing to [nunit.org](https://nunit.org) changed to https, also some other similar changes other places.  Thanks to [Julian Verdurmen](https://github.com/304NotModified) for fixing these.
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.12 - December 19, 2018
 
@@ -180,7 +239,7 @@ If you still want to see the properties, you can enable that again setting a run
 * [215](https://github.com/nunit/nunit3-vs-adapter/issues/215) Generate NUnit xml file of test results, specified in .runsettings file for reporting
 * [573](https://github.com/nunit/nunit3-vs-adapter/issues/573) NUnit3TestDiscoverer Could not load file or assembly 'nunit.engine'
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.11.2 - November 22, 2018
 
@@ -198,7 +257,7 @@ This issue was fixed, with a workaround, in 3.11 but had unforeseen consequences
 
 This probably need to be fixed in VSTest itself.  
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.11.1 - November 21, 2018
 
@@ -209,7 +268,7 @@ This is a hotfix release to fix the duplicated traits issue.
 * [559](https://github.com/nunit/nunit3-vs-adapter/issues/559) Duplicating tags in Test Explorer when using NUnit3TestAdapter 3.11.0
 * [561](https://github.com/nunit/nunit3-vs-adapter/issues/561) Test task aborted when using TestCategory filters
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.11 - October 28, 2018
 
@@ -248,7 +307,7 @@ Exception thrown while loading tests if In-Proc VSTest DataCollector is used (Th
 
 * [518](https://github.com/nunit/nunit3-vs-adapter/issues/518)  NUnit VSIX test adapters deprecation notice added.  NUnit will still deliver a vsix for this version.
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.10 - March 5, 2018
 
@@ -275,7 +334,7 @@ Special thanks to :  [Joseph Musser](https://github.com/jnm2) for awesome work o
 
 and to [Loren Halvorsen](https://www.linkedin.com/in/lorenhalvorson/) for the workaround for VSTest [issue 261](https://github.com/nunit/nunit3-vs-adapter/issues/261#issuecomment-259970442).  
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.9 - October 29, 2017
 
@@ -295,7 +354,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * [386](https://github.com/nunit/nunit3-vs-adapter/issues/386) DateTime.Parse issue during test discovery with certain cultures  (Also fixed by  [PR 380](https://github.com/nunit/nunit3-vs-adapter/pull/380) )
 * [302](https://github.com/nunit/nunit3-vs-adapter/issues/302) BadImageFormatException building solution with unmanaged projects
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.8 - July 19, 2017
 
@@ -314,7 +373,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * [231](https://github.com/nunit/nunit3-vs-adapter/issues/231) Improved message on failed loading. See also [PR 309](https://github.com/nunit/nunit3-vs-adapter/pull/309)
 * [338](https://github.com/nunit/nunit3-vs-adapter/issues/338) Unhandled Exception when running through `vstest.console.exe /listtests`
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.7 - January 25, 2017
 
@@ -335,7 +394,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 276 Adapter requires test project PDBs to be generated for tests to be executed
 * 288 Test parameters containing semicolons are truncated
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.6.1 - December 5, 2016
 
@@ -346,7 +405,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 * 260 VSIX no longer visible in Visual Studio 2012
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.6 - November 15, 2016
 
@@ -359,7 +418,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 253 Warnings about $RANDOM_SEED$ during build
 * 262 Support for VS 15
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.5 - October 22, 2016
 
@@ -379,7 +438,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 239 Remove Error-level log messages from adapter where we don't want run to fail
 * 243 NuGet package and copy local
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.4.1 - August 5, 2016
 
@@ -393,7 +452,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 202 NUnit3 Test Adapter not running all tests in Visual Studio 2015
 * 205 Adapter fails to find Mono.Cecil when targeting .NET 3.5
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.4 - July 2, 2016
 
@@ -414,7 +473,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 190 NUnit30Settings.xml is used by other process leads to hidden tests
 * 192 Corrupt NUnit3Settings.xml causes crash
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.2 - June 3, 2016
 
@@ -431,7 +490,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 174 Clarify that NUnit v2 tests are not discovered by v3 adapter
 * 176 More Information link in vsix broken
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.0 - April 2, 2016
 
@@ -450,7 +509,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 120 The ability to set the LevelOfParallelism attribute through the VS adapter
 * 153 TFS Filter that matches no names runs all tests
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.0 CTP 9 - April 2, 2016
 
@@ -475,7 +534,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 117 Version 3.0.8.0 as NuGet package only. No tests detected in Visual Studio 2015
 * 118 Corrupted ignore.addins file in installation
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.0 CTP 8 - December 2, 2015
 
@@ -489,7 +548,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 86 Generic Test Fixtures are not getting triggered
 * 88 Upgrade adapter to use NUnit 3.0.1
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.0 CTP 7 - November 16, 2015
 
@@ -501,7 +560,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 * 75 Update adapter to use final release of NUnit 3.0
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.0 CTP 6 - November 10, 2015
 
@@ -517,7 +576,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 69 NUnit 3.0.0-rc-2 : System.Reflection.TargetInvocationException
 * 70 NUnit3TestExecutor.MakeTestFilter creates element not handled by NUnit.Framework.Internal.TestFilter
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.0 CTP 5 - November 9, 2015
 
@@ -533,7 +592,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 53 Replace core engine
 * 57 Confusing message when an NUnit V2 test is detected
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.0 CTP 4 - July 20, 2015
 
@@ -552,7 +611,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 * 33 Inconsistent display behavior in Test Explorer
 * 36 Option to set number of worker threads
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.0 CTP 3 - May 22, 2015
 
@@ -564,7 +623,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 * 29 Latest test adapter locking dlls
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.0 CTP 2 - May 16, 2015
 
@@ -582,7 +641,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * 19 Use core engine
 * 20 Upgrade NUnit to beta-2
 
-----
+-----
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.0 CTP 1 - April 6, 2015
 
@@ -590,7 +649,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 * Initial release of the test adapter using NUnit 3.0. Note that the adapter may **not** be used to run tests written against earlier versions of NUnit. The original adapter is still available for that purpose and both adapters may be installed if necessary.
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio - Version 2.0 - April 1, 2015
 
@@ -605,7 +664,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * #61 Confusing NUnit version message made clearer
 * #62 Adapter uses shadowcopy setting in discoverer but not in the executor
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (RTM) - Version 1.2 - September 17, 2014
 
@@ -623,7 +682,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * #39 VSTest unable to find NUnit tests since 1.1.0.0
 * #40 NUnit version 1.1.0.0 is broken with test class which ran under 1.0.0.0
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (RTM) - Version 1.1 - April 26, 2014
 
@@ -640,7 +699,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * #13 Category attribute not working with TFS test case filter
 * #21 Xamarin.iOS NUnit project causes adapter to throw
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (RTM) - Version 1.0 - September 12, 2013
 
@@ -652,7 +711,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 * #1208148 The test result output node is not shown for debug/trace statements
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (RC) - Version 0.97 - September 12, 2013
 
@@ -666,7 +725,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * #1210536 No Source Available for Async Tests
 * #1165188 Clicking "Run Selected Tests" doesn't show Trace.WriteLine() output
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (Beta 6) - Version 0.96 - June 28, 2013
 
@@ -678,7 +737,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 * #1189268 Profile a test will crash with exception
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (Beta 5) - Version 0.95.2 - June 7, 2013
 
@@ -686,7 +745,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 * #1188000, adapter don't work with solutions with only .net 2.0/3.5 project
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (Beta 5) - Version 0.95.1 Hotfix- May 28, 2013
 
@@ -707,7 +766,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * #1116747 `vstest.executionengine.x86.exe` does not terminate
 * #1093178 Eliminate unnecessary files from VSIX
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (Beta 4) - Version 0.94 - December 22, 2012
 
@@ -726,7 +785,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * 1087629 TestFixture Category not being recognized as traits in VS2012 update 1
 * 1091020 Adapter doesn't support TFS Build traits/test case filtering
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (Beta 3-2) - Version 0.93.2 - November 2, 2012
 
@@ -734,7 +793,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 * 1074544 Failures in Test Discovery not reporting sufficient information
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (Beta 3-1) - Version 0.93.1 - October 26, 2012
 
@@ -742,7 +801,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 
 * 1072150 NUnit adapter 0.93 won't run selected tests
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (Beta 3) - Version 0.93 - October 24, 2012
 
@@ -771,7 +830,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * 1066393 Unable to display source for test cases with an alternate name set
 * 1066518 Executed fast test appears in Not Run category in Test Explorer
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (Beta 2) - Version 0.92 - May 3, 2012
 
@@ -785,7 +844,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * 992837 Unable to Debug using VS Test Adapter
 * 994146 Can't run tests under .NET 2.0/3.5
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (Beta 1) - Version 0.91 - February 29, 2012
 
@@ -794,7 +853,7 @@ This release was issued to correct a problem with locking of assemblies in ctp-2
 * Built against Visual Studio 11 Beta 1
 * Uses NUnit 2.6
 
-----
+-----
 
 ## NUnit Test Adapter for Visual Studio (Alpha) - Version 0.90 - February 21, 2012
 

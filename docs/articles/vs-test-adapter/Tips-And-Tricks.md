@@ -38,6 +38,8 @@ The following options are available:
 |[MapWarningTo](#mapwarningto)|enum|Map Assert.Warn to either Passed, Failed or Skipped|Skipped|
 |[DisplayName](#displayname)|enum|Set what a DisplayName is, options: Name, FullName or FullNameSep|Name|
 |[FullnameSeparator](#fullnameseparator)|string|FullNameSep separator|':'|
+|[DiscoveryMethod](#discoverymethod)|enum|How execution discovery is done, options are `Legacy` or `Current`|Current|
+|[AssemblySelectLimit](#assemblyselectlimit)|int|Number of tests accepted before filters are turned off|2000|
 
 ### Visual Studio templates for runsettings
 
@@ -211,6 +213,24 @@ See [Issue 640](https://github.com/nunit/nunit3-vs-adapter/issues/640) for expla
 The separator character used when DisplayName is FullNameSep.  It is default '`:`', but can be changed to anything.
 
 (From version 3.17.0)
+
+#### DiscoveryMethod
+
+The 4.0 version of the NUnit3TestAdapter has a rewritten discovery mechanism and also other redesigns/refactoring done.  This setting let you switch back to the old form of discovery, using the setting `Legacy`.  The default value is `Current`.  
+
+The `Current` setting enables the Explicit feature back.  It also performs better (approx 30% faster for large test sets).  It might affect certain special cases, so therefore you can switch back.
+
+(From version 4.0.0)
+
+#### AssemblySelectLimit
+
+If you run from the IDE (Visual Studio) the adapter will receive a list of tests to process.  This is heavy when the number of tests are large. If the number of tests exceeds this limit, the list will be skipped and all tests in the assembly will be run (except those tests that are Explicit or Ignored).  
+
+This might have an adverse effect if you select a category and you have more than 2000 tests, the category setting will be ignored. In that case, just increase this limit to higher than your number of tests.
+
+You might also receive a list from the command line, and in that case it will also be skipped the same way.  Here the category will be honoured since the category filter will be converted to a NUnit filter.
+
+(From version 4.0.0)
 
 ---
 

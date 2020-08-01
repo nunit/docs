@@ -8,11 +8,11 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Assertion
-| Code     | [IgnoreCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/IgnoreCaseUsage/IgnoreCaseUsageAnalyzer.cs)
+| Code     | [IgnoreCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/IgnoreCaseUsage/IgnoreCaseUsageAnalyzer.cs)
 
 ## Description
 
-IgnoreCase modifier should only be used for string or char arguments. Using it on another type will not have any effect.
+The IgnoreCase modifier should only be used for string or char arguments. Using it on another type will not have any effect.
 
 ## Motivation
 

@@ -24,9 +24,10 @@ Matches(string pattern)
 ## Examples of Use
 
 ```csharp
-string phrase = "Make your tests fail before passing!"
+string phrase = "Make your tests fail before passing!";
 
 Assert.That(phrase, Does.Match("Make.*tests.*pass"));
+Assert.That(phrase, Does.Match("make.*tests.*PASS").IgnoreCase);
 Assert.That(phrase, Does.Not.Match("your.*passing.*tests"));
 ```
 

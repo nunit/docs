@@ -8,11 +8,11 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Assertion
-| Code     | [EqualToIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/EqualToIncompatibleTypes/EqualToIncompatibleTypesAnalyzer.cs)
+| Code     | [EqualToIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/EqualToIncompatibleTypes/EqualToIncompatibleTypesAnalyzer.cs)
 
 ## Description
 
-Provided actual and expected arguments cannot be equal, therefore assertion is invalid.
+The EqualTo constraint always fails as the actual and the expected value cannot be equal.
 
 ## Motivation
 

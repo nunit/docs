@@ -1,6 +1,6 @@
 # NUnit2011
 
-## Use ContainsConstraint.
+## Use ContainsConstraint for better assertion messages in case of failure.
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [StringConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs)
+| Code     | [StringConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs)
 
 ## Description
 
@@ -55,22 +55,22 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via #pragma directive.
 
 ```csharp
-#pragma warning disable NUnit2011 // Use ContainsConstraint.
+#pragma warning disable NUnit2011 // Use ContainsConstraint for better assertion messages in case of failure.
 Code violating the rule here
-#pragma warning restore NUnit2011 // Use ContainsConstraint.
+#pragma warning restore NUnit2011 // Use ContainsConstraint for better assertion messages in case of failure.
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2011 // Use ContainsConstraint.
+#pragma warning disable NUnit2011 // Use ContainsConstraint for better assertion messages in case of failure.
 ```
 
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2011:Use ContainsConstraint.",
+    "NUnit2011:Use ContainsConstraint for better assertion messages in case of failure.",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

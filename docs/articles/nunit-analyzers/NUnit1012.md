@@ -1,6 +1,6 @@
 # NUnit1012
 
-## Async test method must have non-void return type.
+## The async test method must have a non-void return type.
 
 | Topic    | Value
 | :--      | :--
@@ -8,11 +8,11 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.2.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
+| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
 
 ## Description
 
-Async test method must have non-void return type.
+The async test method must have a non-void return type.
 
 ## Motivation
 
@@ -69,22 +69,22 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via #pragma directive.
 
 ```csharp
-#pragma warning disable NUnit1012 // Async test method must have non-void return type.
+#pragma warning disable NUnit1012 // The async test method must have a non-void return type.
 Code violating the rule here
-#pragma warning restore NUnit1012 // Async test method must have non-void return type.
+#pragma warning restore NUnit1012 // The async test method must have a non-void return type.
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1012 // Async test method must have non-void return type.
+#pragma warning disable NUnit1012 // The async test method must have a non-void return type.
 ```
 
 ### Via attribute `[SuppressMessage]`.
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1012:Async test method must have non-void return type.",
+    "NUnit1012:The async test method must have a non-void return type.",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

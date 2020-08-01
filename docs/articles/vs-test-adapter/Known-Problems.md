@@ -1,24 +1,30 @@
 # Known Problems
 
-1. There is no test status in Visual Studio corresponding to NUnit's Inconclusive result, so tests with this result are reported as Not Run. Click on the individual test to see the result.
+1. Using both the VSIX adapter and nuget adapters at the same time can lead to discovery issues; see [nunit3-vs-adapter/issues #769](https://github.com/nunit/nunit3-vs-adapter/issues/769).  The resolution is to uninstall the VSIX adapter, and only use the nuget adapters.  The VSIX adapters are being deprecated in later VS versions.
 
-2. Theories are reported as individual cases, rather as a single unit.
+2. Support for Explicit keyword
 
-3. In NUnit, tests have names, which are not necessarily unique. Visual Studio wants the names to be unique. So if two tests have the same name, VS displays a warning message in the output window. The message may be ignored. Two separate results will be shown under the single test in the explorer pane.
+    1 Adapter versions in the 3.XX series:  From version 16.2 (Visual Studio 2019) the Explicit keyword is no longer explicitly supported by Visual Studio.  If you want to use it, it does exist as a Category also, so you can use it as a category filter.
 
-4. Startup performance is substantially improved but is still slower than using NUnit directly.
+    2 Adapter versions in the 4.XX series support the explicit keyword.
 
-5. Applies to pre-VS2017:  A VSIX adapter of older version will be used regardless of version of NuGet adapter.
+3. There is no test status in Visual Studio corresponding to NUnit's Inconclusive result, so tests with this result are reported as Not Run. Click on the individual test to see the result.
 
-   Workaround: Make sure you have upgraded VSIX adapter to latest version, or uninstalled it if you have the NuGet adapter in a solution. The adapter will display its version number in the Output window under Tests.
+4. Theories are reported as individual cases, rather as a single unit.
 
-   Avoid using the VSIX adapter for VS2017 and upwards.  It is being deprecated, but is still supported optionally in VS2019.
+5. In NUnit, tests have names, which are not necessarily unique. Visual Studio wants the names to be unique. So if two tests have the same name, VS displays a warning message in the output window. The message may be ignored. Two separate results will be shown under the single test in the explorer pane.
 
-6. Visual Studio 2017 Live Unit Testing require NUnit3.  The NUnit2 adapter doesn't support Live Unit Testing.
+6. Startup performance is substantially improved but is still slower than using NUnit directly.
 
-7. `Exception: Could not load file or assembly 'nunit.engine'` - Is caused by an incomplete copy of the adapter in the Visual Studio cache. Close Visual Studio and delete `C:\Users\username\AppData\Local\Temp\VisualStudioTestExplorerExtensions\NUnit3TestAdapter.{{version}}`
+7. Applies to pre-VS2017: When using a VSIX adapter and the NuGet adapter, the VSIX adapter will be used regardless of the NuGet adapter version.
 
-8. From version 16.2 (Visual Studio 2019) the Explicit keyword is no longer explicitly supported by Visual Studio.  If you want to use it, it does exist as a Category also, so you can use it as a category filter.
+    1. Workaround: Make sure you have upgraded VSIX adapter to latest version, or uninstalled it if you have the NuGet adapter in a solution. The adapter will display its version number in the Output window under Tests.
+
+    2. Avoid using the VSIX adapter for VS2017 and upwards.  It is being deprecated, but is still supported optionally in VS2019.
+
+8. Visual Studio 2017 Live Unit Testing require NUnit3.  The NUnit2 adapter doesn't support Live Unit Testing.
+
+9. `Exception: Could not load file or assembly 'nunit.engine'` - Is caused by an incomplete copy of the adapter in the Visual Studio cache. Close Visual Studio and delete `C:\Users\username\AppData\Local\Temp\VisualStudioTestExplorerExtensions\NUnit3TestAdapter.{{version}}`
 
 ## Issues with other tools
 
