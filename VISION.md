@@ -14,6 +14,7 @@ The docs project supports and collaborates with the other NUnit projects and the
 | Console and Engine | @ChrisMaddock |
 | VS Adapters and Test Generator | @OsirisTerje|
 | NUnit Analyzers | @mikkelbu |
+| Xamarin Runners | @rprouse |
 
 ## Values: how we aim to operate the docs project
 
