@@ -2,7 +2,7 @@
 
 The NUnit docs site is a project within the NUnit organization.
 
-Its vision is to make it easier for NUnit's community to better understand and connect with NUnit's projects. The docs, in order to be successful, must be more than a hosting place for the separate projects' information. They must be a uniform and holistic journey for users to navigate the ecosystem and be confident that they understand things.
+Its vision is to make it easier for NUnit's community to better understand and connect with NUnit's projects, and to make this documentation accessible to anyone who wishes to contribute back. The docs, in order to be successful, must be more than a hosting place for the separate projects' information. They must be a uniform and holistic journey for users to navigate the ecosystem and be confident that they understand things.
 
 ## Stakeholders / Collaborators
 
