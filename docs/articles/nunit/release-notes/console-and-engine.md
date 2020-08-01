@@ -28,7 +28,7 @@ Code contributions in this release were included from [Charlie Poole](https://gi
 * [777](https://github.com/nunit/nunit-console/issues/777) Remove unused code to locate engine from registry keys
 * [778](https://github.com/nunit/nunit-console/issues/778) Add .NET Core 3.1 build of engine to access APIs for loading .NET Core assemblies correctly
 * [779](https://github.com/nunit/nunit-console/issues/779) [CI] Revert to running .NET Standard Engine Tests via NUnitLite
-* [783](https://github.com/nunit/nunit-console/issues/783) Refactor XMLTransformResultWriterTests to avoid initialising entire engine
+* [783](https://github.com/nunit/nunit-console/issues/783) Refactor XMLTransformResultWriterTests to avoid initializing entire engine
 * [784](https://github.com/nunit/nunit-console/issues/784) Fix DirectTestRunner to not give all drivers the same ID.
 * [790](https://github.com/nunit/nunit-console/issues/790) Fix agent debug logging
 * [800](https://github.com/nunit/nunit-console/issues/800) TypeLoadException thrown when changes are made to the API assembly, with multiple versions of the engine available
