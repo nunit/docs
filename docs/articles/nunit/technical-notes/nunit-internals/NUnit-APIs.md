@@ -6,7 +6,7 @@ NUnit provides three levels of public APIs for discovering and running tests. Fr
 * **Engine Driver API** - implemented by framework drivers to allow the engine to communicate with a particular framework.
 * **Framework API** - used by the NUnit 3 framework driver to communicate with the framework.
 
-![Diagram of NUnit topology](https://docs.google.com/drawings/d/1eBVjjrWtiqgyIod_ld0rjtyLdeLYzXs_JMGHkhkZaJw/pub?w=361&h=434)
+![Diagram of NUnit topology](~/images/nunit-topology.png)
 
 ## Test Engine API
 

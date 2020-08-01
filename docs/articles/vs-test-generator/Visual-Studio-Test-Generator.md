@@ -27,8 +27,8 @@ see the [Microsoft documentation](https://msdn.microsoft.com/en-us/library/dn823
 
 #### Right-Click to Create Tests
 
-![Right-Click to Create Tests](https://i-msdn.sec.s-msft.com/dynimg/IC820614.png)
+![Right-Click to Create Tests](~/images/right-click-create-tests.png)
 
 #### Select NUnit from the Test Framework dropdown
 
-![Selecting NUnit](https://i-msdn.sec.s-msft.com/dynimg/IC820617.png)
+![Selecting NUnit](~/images/right-click-create-tests.png)
