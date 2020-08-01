@@ -6,7 +6,7 @@ This repository serves the content that is found at <http://docs.nunit.org>.
 
 ## What is the Docs site? How does it work?
 
-The docs site is a project within the NUnit organization. [Read the vision at VISION.md](VISION.md) to understand more about how this document fits into the overall organization and how it supports the other projects.
+The docs site is a project within the NUnit organization. [Read the vision at VISION.md](VISION.md) to understand more about how the documentation fits into the overall organization and how it supports the other projects.
 
 ## How to Build these docs locally
 
