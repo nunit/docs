@@ -1,5 +1,39 @@
 # Console and Engine
 
+## NUnit Console & Engine 3.12 Beta 1 - August 1, 2020
+
+This is the first beta release of the NUnit Console able to run .NET Core Tests. The .NET Core Console is a separate executable to the original version, and can be found in either the .zip file download, or the new [NUnit.Console-Runner.NetCore](https://www.nuget.org/packages/NUnit.Console-Runner.NetCore/) NuGet package. Our longer term aim is to create a single console which is able to run both .NET Core and .NET Framework tests. In addition to this, this release also contains a number of bug fixes, improvements when running on mono and significant refactoring work towards the goal of creating an engine able to run tests on a wider range of .NET platforms. 
+
+We're particularly interested in this beta release being tested by users of the .NET Core console and users running tests on Mono. Please feedback any issues to the [nunit-console repository](https://github.com/nunit/nunit-console/issues).
+
+Code contributions in this release were included from [Charlie Poole](https://github.com/CharliePoole), [Chris Maddock](https://github.com/ChrisMaddock), [Christian Bay](https://github.com/tdctaz), [Eberhard Beilharz](https://github.com/ermshiperete), [Joseph Musser](https://github.com/jnm2), [Manohar Singh](https://github.com/mano-si) and [Mikkel Nylander Bundgaard](https://github.com/mikkelbu). Thank you to all those who contributed both in code, and other ways!
+
+ * [391](https://github.com/nunit/nunit-console/issues/391) Provide useful error message when agent crashes with a stack overflow exception
+ * [475](https://github.com/nunit/nunit-console/issues/475) Create .NET Core Console Runner
+ * [662](https://github.com/nunit/nunit-console/issues/662) Mono: Stacktrace missing files and line numbers
+ * [710](https://github.com/nunit/nunit-console/issues/710) .NET Core engine only works when located in same directory as test assembly
+ * [733](https://github.com/nunit/nunit-console/issues/733) iconUrl is deprecated in NuGet packages
+ * [740](https://github.com/nunit/nunit-console/issues/740) Create separate agents for .NET 2.0-3.5 and .NET 4.x
+ * [747](https://github.com/nunit/nunit-console/issues/747) [CI] Change macOS image version
+ * [748](https://github.com/nunit/nunit-console/issues/748) Make Project config information available to runners
+ * [750](https://github.com/nunit/nunit-console/issues/750) .NET Core Console Packaging
+ * [751](https://github.com/nunit/nunit-console/issues/751) Minor updates to Contributing.MD
+ * [757](https://github.com/nunit/nunit-console/issues/757) Unable to test net 3.5 assembly if there's incompatible extension installed
+ * [758](https://github.com/nunit/nunit-console/issues/758) Carry CurrentDirectory over to agent Processes
+ * [761](https://github.com/nunit/nunit-console/issues/761) Revert accidental debug message change
+ * [762](https://github.com/nunit/nunit-console/issues/762) Simplify agent communication in preparation for new wire protocol
+ * [765](https://github.com/nunit/nunit-console/issues/765) Split RuntimeFramework package setting into two: Requested and Target
+ * [768](https://github.com/nunit/nunit-console/issues/768) Test run exits with an exit code of 0 if a multiple of 256 tests fail
+ * [775](https://github.com/nunit/nunit-console/issues/775) Extension loading broken on Linux when installed from nuget package
+ * [777](https://github.com/nunit/nunit-console/issues/777) Remove unused code to locate engine from registry keys
+ * [778](https://github.com/nunit/nunit-console/issues/778) Add .NET Core 3.1 build of engine to access APIs for loading .NET Core assemblies correctly
+ * [779](https://github.com/nunit/nunit-console/issues/779) [CI] Revert to running .NET Standard Engine Tests via NUnitLite
+ * [783](https://github.com/nunit/nunit-console/issues/783) Refactor XMLTransformResultWriterTests to avoid initialising entire engine
+ * [784](https://github.com/nunit/nunit-console/issues/784) Fix DirectTestRunner to not give all drivers the same ID.
+ * [790](https://github.com/nunit/nunit-console/issues/790) Fix agent debug logging
+ * [800](https://github.com/nunit/nunit-console/issues/800) TypeLoadException thrown when changes are made to the API assembly, with multiple versions of the engine available
+ * [801](https://github.com/nunit/nunit-console/issues/801) Begin incrementing EngineApiVersion with every release, as per Engine version
+
 ## NUnit Console & Engine 3.11.1 - February 15, 2020
 
 This hotfix fixes a problem with NUnit Project file settings being ignored.
