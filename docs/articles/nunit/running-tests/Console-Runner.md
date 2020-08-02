@@ -14,7 +14,7 @@ result of the test run.
 
 ## Console Exit Codes
 
-The console will exit with zero if all tests pass, a positive number if there are any test failures, and a negative number in the case of any errors in running the test suite. The current exit codes used are summarised below:
+The console will exit with zero if all tests pass, a positive number if there are any test failures, and a negative number in the case of any errors in running the test suite. The current exit codes used are summarized below:
 
 | Exit code | Meaning |
 |---|---|
@@ -25,4 +25,4 @@ The console will exit with zero if all tests pass, a positive number if there ar
 |  -3   | No longer used. Previously used when a requested test fixture could not be found. |
 |  -4   | An invalid test fixture was found within the test suite. |
 |  -5   | No longer used. Previously used when the App Domain within which the tests were run could not be unloaded cleanly. This situation is now logged as a warning instead of an error, and will result in the console exiting zero.  |
-| -100  | An unexpected error occured. This may indicate a bug within the test runner - please consider filing an issue on the [nunit-console repository](https://github.com/nunit/nunit-console/issues).  |
+| -100  | An unexpected error occurred. This may indicate a bug within the test runner - please consider filing an issue on the [nunit-console repository](https://github.com/nunit/nunit-console/issues).  |
