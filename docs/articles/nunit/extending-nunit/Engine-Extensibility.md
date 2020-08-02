@@ -154,6 +154,6 @@ Assemblies are examined using Cecil, without actually loading them. Info is save
 
 ### Installing Extensions
 
-In [the previous section](#loading-extensions), we note how to use the `.addins` file to utilize an existing extension.
+In [the previous section](#locating-extensions), we note how to use the `.addins` file to utilize an existing extension.
 
 To install an extension, ensure that the binaries will be in a known location, and then create or update a `.addins` file to point to that location so that the assemblies will be scanned and the extensions discovered by NUnit.
