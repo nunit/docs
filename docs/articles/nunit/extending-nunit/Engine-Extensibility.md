@@ -157,3 +157,5 @@ Assemblies are examined using Cecil, without actually loading them. Info is save
 In [the previous section](#locating-extensions), we note how to use the `.addins` file to utilize an existing extension.
 
 To install an extension, ensure that the binaries will be in a known location, and then create or update a `.addins` file to point to that location so that the assemblies will be scanned and the extensions discovered by NUnit.
+
+Note that in the case of the NUnit Console when installed by NuGet or Chocolatey, extensions installed from the same package manager are detected automatically. The default `.addins` file for these packages contains logic to locate these extensions, and no manual alterations to are required.
