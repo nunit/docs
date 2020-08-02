@@ -87,6 +87,50 @@ It automatically saves its results in XML format, allowing you to produce report
 <p>In this example, nunit3-console has just run selected tests in the mock-nunit-assembly.exe assembly that is part of the NUnit distribution. This assembly contains a number of tests, some
 of which are either ignored or marked explicit. The summary line shows the
 result of the test run.</p>
+<h2 id="console-exit-codes">Console Exit Codes</h2>
+<p>The console will exit with zero if all tests pass, a positive number if there are any test failures, and a negative number in the case of any errors in running the test suite. The current exit codes used are summarized below:</p>
+<table>
+<thead>
+<tr>
+<th>Exit code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>All tests passed. Note that some tests may still have produced warnings -- those will be listed in the console output.</td>
+</tr>
+<tr>
+<td>1-100</td>
+<td>Some tests have failed. The exit code will reflect the number of test failures (capped at 100).</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>Invalid argument found on command line.</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>One of the assemblies passed into the console was found to be invalid. This may include assemblies which contain no tests.</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>No longer used. Previously used when a requested test fixture could not be found.</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>An invalid test fixture was found within the test suite.</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>No longer used. Previously used when the App Domain within which the tests were run could not be unloaded cleanly. This situation is now logged as a warning instead of an error, and will result in the console exiting zero.</td>
+</tr>
+<tr>
+<td>-100</td>
+<td>An unexpected error occurred. This may indicate a bug within the test runner - please consider filing an issue on the <a href="https://github.com/nunit/nunit-console/issues">nunit-console repository</a>.</td>
+</tr>
+</tbody>
+</table>
 </article>
           </div>
           
