@@ -10,7 +10,7 @@ The docs project supports and collaborates with the other NUnit projects and the
 
 | Project | Lead |
 | ------- | ---- |
-| Framework | @rprouse and @jnm2 |
+| Framework | @rprouse |
 | Console and Engine | @ChrisMaddock |
 | VS Adapters and Test Generator | @OsirisTerje|
 | NUnit Analyzers | @mikkelbu |
