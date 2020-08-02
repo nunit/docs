@@ -22,6 +22,7 @@ The docs project supports and collaborates with the other NUnit projects and the
 * **We aim to make it easy to get involved.** Newcomers will be welcome, and the ability to contribute should be clear.
 * **We aim for progress over consensus.** We'll sometimes merge changes before everyone agrees, in order to keep things moving forward. That also means keeping an open mind about reverting things. Docs are more malleable than code; we'll try to use that to our advantage.
 * **We respect the project teams and their immense contributions.** The docs don't exist without other project leads and members or the core team. Their opinion matters and is always welcome.
+* **We aim to be a support mechanism for project teams as much as possible.** We will suggest potential documentation improvements, but we also aim to enable project teams to ping us in conversations that might merit documentation to be included, or to make a suggestion that we can attempt to run with. We want to enable better docs, which means enabling other project teams to lean on us for support wherever possible.
 * **We welcome suggestions and contributions.** Whenever possible, we will work to support contributions to the docs. And we consider the raising of issues and suggestions to be a form of contribution.
 * **We aim to broadcast our intentions, radiate information, and work in public.** It should be clear what's in the roadmap for the docs, and we will aim to broadcast the changes we'll make before we take them.
 
