@@ -51,6 +51,9 @@ You may define a OneTimeSetUp method
 in the base class and another in the derived class. NUnit will call base
 class OneTimeSetUp methods before those in the derived classes.
 
+> [!WARNING]
+> If a base class OneTimeSetUp method is overridden in the derived class, NUnit will not call the base class OneTimeSetUp method; NUnit does not anticipate usage that includes hiding the base method. Note that you may have a different name for each method; as long as both have the `[OneTimeSetUp]` attribute present, each will be called in the correct order.
+
 ## Notes
 
  1. Although it is possible to define multiple OneTimeSetUp methods
