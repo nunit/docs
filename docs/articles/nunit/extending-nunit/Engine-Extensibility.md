@@ -131,7 +131,7 @@ By use of the `ExtensionPropertyAttribute` the assembly containing this extensio
 
 Of course, this means that the extension author must know a great deal about how each extension point works. That's why we provide a page for each supported extension points with details of how to use it.
 
-### Locating Addins
+### Locating Extensions
 
 Assemblies containing Addins and Extensions are stored in one or more locations indicated in files of type `.addins`. Each line of the file contains the path of an addin assembly or a directory containing assemblies. Wildcards may be used for assembly entries and relative paths are interpreted based on the location of the `.addins` file. The default `nunit.engine.addins` is located in the engine directory and lists addins we build with NUnit, which are contained in the addins directory.
 
@@ -151,3 +151,12 @@ special/myassembly.dll  # include a specific dll in a special directory
 Any assemblies specified in a `.addins` file will be scanned fully, looking for addins and extensions. Any directories specified will be browsed, first looking for any `.addins` files. If one or more files are found, the content of the files will direct all further browsing. If no such file is found, then all `.dll` files in the directory will be scanned, just as if a `.addins` file contained "*.dll."
 
 Assemblies are examined using Cecil, without actually loading them. Info is saved for actual instantiation of extensions on a just-in-time basis.
+
+### Installing Extensions
+
+In [the previous section](#locating-extensions), we note how to use the `.addins` file to utilize an existing extension.
+
+To install an extension, ensure that the binaries will be in a known location, and then create or update a `.addins` file to point to that location so that the assemblies will be scanned and the extensions discovered by NUnit.
+
+> [!NOTE]
+> When using the NUnit Console Runner by installing it via NuGet or Chocolatey, extensions installed from the same package manager are detected automatically. The default `.addins` file for these packages contains logic to locate these extensions, and no manual alterations to are required.
