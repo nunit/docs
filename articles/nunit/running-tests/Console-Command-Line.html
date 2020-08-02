@@ -142,7 +142,7 @@ Without the V2 driver, only version 3.0 and higher tests may be run.</p>
 </tr>
 <tr>
 <td><code>--domain=DOMAIN</code></td>
-<td>DOMAIN isolation for test assemblies.  Values: None, Single, Multiple. If not specified, defaults to Single for a single assembly or Multiple for more than one.</td>
+<td>DOMAIN isolation for test assemblies.  Values: None, Single, Multiple. If not specified, defaults to Single for a single assembly or Multiple for more than one. <strong>NOTE:</strong> <code>None</code> is an extremely rarely used option intended for cases where you are testing features that can only run in a primary domain; when choosing this option, you are responsible for copying all needed files, including NUnit components, into a common directory.</td>
 </tr>
 <tr>
 <td><code>--framework=FRAMEWORK</code></td>
