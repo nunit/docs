@@ -166,7 +166,7 @@ public class DriverFactory2 : IDriverFactory
 </code></pre>
 <p>By use of the <code>ExtensionPropertyAttribute</code> the assembly containing this extension will never be loaded unless the user asks NUnit to run tests in a file of type <code>.nunit</code>. If this attribute were not present, then the engine would have to load the assembly, construct the object and call its <code>CanLoadFrom</code> method.</p>
 <p>Of course, this means that the extension author must know a great deal about how each extension point works. That's why we provide a page for each supported extension points with details of how to use it.</p>
-<h3 id="locating-addins">Locating Addins</h3>
+<h3 id="locating-extensions">Locating Extensions</h3>
 <p>Assemblies containing Addins and Extensions are stored in one or more locations indicated in files of type <code>.addins</code>. Each line of the file contains the path of an addin assembly or a directory containing assemblies. Wildcards may be used for assembly entries and relative paths are interpreted based on the location of the <code>.addins</code> file. The default <code>nunit.engine.addins</code> is located in the engine directory and lists addins we build with NUnit, which are contained in the addins directory.</p>
 <p>The following is an example of a possible <code>.addins</code> file, with comments indicating what each line does:</p>
 <pre><code class="lang-none"># This line is a comment and is ignored. The next (blank) line is ignored as well.
@@ -180,6 +180,13 @@ special/myassembly.dll  # include a specific dll in a special directory
 </code></pre>
 <p>Any assemblies specified in a <code>.addins</code> file will be scanned fully, looking for addins and extensions. Any directories specified will be browsed, first looking for any <code>.addins</code> files. If one or more files are found, the content of the files will direct all further browsing. If no such file is found, then all <code>.dll</code> files in the directory will be scanned, just as if a <code>.addins</code> file contained &quot;*.dll.&quot;</p>
 <p>Assemblies are examined using Cecil, without actually loading them. Info is saved for actual instantiation of extensions on a just-in-time basis.</p>
+<h3 id="installing-extensions">Installing Extensions</h3>
+<p>In <a href="#locating-extensions">the previous section</a>, we note how to use the <code>.addins</code> file to utilize an existing extension.</p>
+<p>To install an extension, ensure that the binaries will be in a known location, and then create or update a <code>.addins</code> file to point to that location so that the assemblies will be scanned and the extensions discovered by NUnit.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When using the NUnit Console Runner by installing it via NuGet or Chocolatey, extensions installed from the same package manager are detected automatically. The default <code>.addins</code> file for these packages contains logic to locate these extensions, and no manual alterations to are required.</p>
+</div>
 </article>
           </div>
           
