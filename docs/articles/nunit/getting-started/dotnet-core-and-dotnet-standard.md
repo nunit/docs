@@ -1,4 +1,4 @@
-# .NET Core and .NET Standards
+# .NET Core and .NET Standard
 
 More information and getting started tutorials are available for NUnit and .NET Core targeting [C#](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit), [F#](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-fsharp-with-nunit) and [Visual Basic](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-visual-basic-with-nunit) in the .NET Core documentation's [Unit Testing in .NET Core and .NET Standard](https://docs.microsoft.com/en-us/dotnet/core/testing/) page.
 
