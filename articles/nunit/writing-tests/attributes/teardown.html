@@ -115,6 +115,10 @@ after each test method in the derived class.</p>
 <p>You may define a TearDown method
 in the base class and another in the derived class. NUnit will call base
 class TearDown methods after those in the derived classes.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>If a base class TearDown method is overridden in the derived class, NUnit will not call the base class TearDown method; NUnit does not anticipate usage that includes hiding the base method. Note that you may have a different name for each method; as long as both have the <code>[TearDown]</code> attribute present, each will be called in the correct order.</p>
+</div>
 <h2 id="notes">Notes</h2>
 <ol>
 <li><p>Although it is possible to define multiple TearDown methods
