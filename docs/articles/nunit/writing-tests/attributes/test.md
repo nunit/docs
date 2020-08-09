@@ -12,8 +12,7 @@ test methods must return `Task` if no value is returned,
 or `Task<T>` if a value of type T is returned.
 
 If the programmer marks a test method that does not have the correct signature
-it will be considered as not runnable and be indicated as such by the console
-or gui runner. In the Gui, such tests are marked in red.
+it will be considered as not runnable.
   
 If the test method returns a value, you must pass in the `ExpectedResult`
 named parameter to the Test attribute. This expected return value will be
