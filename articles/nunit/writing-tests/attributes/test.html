@@ -88,8 +88,7 @@ to be generated. See <a class="xref" href="../../technical-notes/usage/Parameter
 test methods must return <code>Task</code> if no value is returned,
 or <code>Task&lt;T&gt;</code> if a value of type T is returned.</p>
 <p>If the programmer marks a test method that does not have the correct signature
-it will be considered as not runnable and be indicated as such by the console
-or gui runner. In the Gui, such tests are marked in red.</p>
+it will be considered as not runnable.</p>
 <p>If the test method returns a value, you must pass in the <code>ExpectedResult</code>
 named parameter to the Test attribute. This expected return value will be
 checked for equality with the return value of the test method.</p>
