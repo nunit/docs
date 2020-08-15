@@ -4,9 +4,9 @@ uid: WritingEngineExtensions
 
 # Writing Engine Extensions
 
-The NUnit Test Engine uses a plugin architecture that allows users and third parties to add new functionality to the engine. The extensibility model defines a number of Extension Points to which Extensions may be added. This page gives general information that applies to all types of extensions you may want to write. The individual pages for each type of extension give specific details. For a detailed description of the engine extensibility architecture, see [Engine Extensibility](xref:engineextensibility).
+ This page gives general information that applies to all types of extensions you may want to write. The individual pages for each type of extension give specific details. For a detailed description of the engine extensibility architecture, see [Engine Extensibility](xref:engineextensibility).
 
-## Extension Attribute
+## Extension structure
 
 Every extension is implemented by a class with specific characteristics:
 
@@ -14,17 +14,24 @@ Every extension is implemented by a class with specific characteristics:
 * Implements some interface that varies according to the particular extension.
 * Is marked with the `ExtensionAttribute` so that NUnit can recognize it as an extension.
 
-The code for a typical extension might look like this.
+As an example, the code for an `IProjectLoader` extension might look like this:
 
 ```csharp
 [Extension]
-public class MyExtension : ISomeInterface // Depending on the extension point
+public class MyExtension : IProjectLoader
 {
-    // Your code here
+    public MyExtenions()
+    {
+        /* ... */
+    }
+
+    /* ... */
 }
 ```
 
-The attribute has four named properties, all optional:
+## Extension Attribute
+
+The `ExtensionAttribute` has four named properties, all optional:
 
 * **Path** This is a string that uniquely identifies the extension point to which the extension applies. It is only rarely needed, since NUnit can usually deduce the type of extension based on what interface is implemented by the extension class.
 
@@ -39,9 +46,9 @@ The attribute has four named properties, all optional:
 
 ## ExtensionPropertyAttribute
 
-Using only the `ExtensionAttribute`, NUnit would have to create instances of every extension in order to ask questions like "What file extensions do you support." This would mean loading many potentially unneeded assemblies.
+The `ExtensionPropertyAttribute` is used to provide additional meta-data to the engine, without the need for the engine to load each extension. The useages of `ExtensionPropertyAttribute` differ per type of extension.
 
-The `ExtensionPropertyAttribute` avoids the problem. NUnit's own extension for loading NUnit projects is a good example:
+Below is an example of how the attribute would be used for an `IProjectLoader` extension:
 
 ```csharp
 [Extension]
@@ -56,19 +63,3 @@ By use of the `ExtensionPropertyAttribute` NUnit is able to postpone loading the
 
 > [!NOTE]
 > Extensions are usually created each in their own assembly for efficiency. It's possible to have several related extensions in the same assembly, but they will all be loaded into memory as soon as one is used.
-
-## Kinds of Extensions
-
-As of version 3.4, the NUnit Engine supports four types of extensions. The individual pages for each type give specific details on implementing each of them.
-
-* [Project Loaders](Project-Loaders.md)
-* [Result Writers](Result-Writers.md)
-* [Framework Drivers](Framework-Drivers.md)
-* [Event Listeners](Event-Listeners.md)
-
-## Installing Extensions
-
-Once an extension is written and compiled, it has to be placed somewhere such that NUnit will find it.
-
-> [!NOTE]
-> This section is under construction. For now see the [Engine Extensibility page](xref:engineextensibility)

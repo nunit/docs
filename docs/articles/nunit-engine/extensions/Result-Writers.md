@@ -4,7 +4,7 @@ uid: ResultWriters
 
 # Result Writers
 
-**Result Writers** take the result of a test run, in NUnit 3.0 XML format, and use it to create a result file in some other format. NUnit itself provides a two result writers, one to create output in NUnit V2 format and another to write test cases to the console. The definition of a result writer extension might look something like this:
+**Result Writers** take the result of a test run, in NUnit 3 XML format, and use it to create a result file in some other format. The NUnit Organization itself provides a two result writers, one to create output in NUnit V2 format and another to write test cases to the console. The definition of a result writer extension might look something like this:
 
 ```csharp
 [Extension]
@@ -15,13 +15,13 @@ public class CustomResultWriterFactory : IResultWriter
 }
 ```
 
-You must provide an `ExtensionPropertyAttribute` giving the name of the format you support. Users would access your format from the nunit-console command-line by using that name in a result specification, like
+An `ExtensionPropertyAttribute` must be provided giving the name of the format you support. Users would access the format from the NUnit Console command-line by using that name in a result specification, such as:
 
 ```cmd
    nunit-console test.dll --result=CustomResult.xml;format=custom
 ```
 
-The `IResultWriter` interface, which you must implement, is defined as follows:
+The `IResultWriter` interface which must be implemented, is defined as follows:
 
 ```csharp
 /// <summary>
@@ -35,7 +35,7 @@ public interface IResultWriter
     /// Checks if the output path is writable. If the output is not
     /// writable, this method should throw an exception.
     /// </summary>
-    /// <param name="outputPath"></param>
+    /// <param name="outputPath">Path to test</param>
     void CheckWritability(string outputPath);
 
     /// <summary>

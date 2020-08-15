@@ -3,7 +3,7 @@
 > [!WARNING]
 > This is a draft. The contents may be out of date.
 
-This specification describes changes in how test cases will be generated in NUNit 3.0
+This specification describes changes in how test cases will be generated in NUnit 3.0
 
 ## Rationale
 
