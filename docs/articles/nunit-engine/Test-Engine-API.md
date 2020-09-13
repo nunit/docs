@@ -178,7 +178,6 @@ The `Explore` methods returns an `XmlNode` containing the description of all tes
 
 The progress of a run is reported to the `ITestEventListener` passed to the run methods. Notifications received on this interface are strings in XML format, rather than XmlNodes, so that they may be passed directly across a Remoting interface.
 
-
 #### Engine Services
 
 The engine `Services` property exposes the `IServiceLocator` interface, which allows the runner to use public services of the engine.
