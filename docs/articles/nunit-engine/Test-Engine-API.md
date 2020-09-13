@@ -82,8 +82,8 @@ The normal sequence of calls for initially acquiring this interface is:
 
 ```csharp
 ITestEngine engine = TestEngineActivator.CreateInstance(...);
-engine.WorkDirectory = ...; // Defaults to the current directory
-engine.InternalTraceLevel = ...; // Defaults to Off
+engine.WorkDirectory = ...;         // Defaults to the current directory
+engine.InternalTraceLevel = ...;    // Defaults to off
 ```
 
 The engine provides a number of services, some internal and some public. Public services are those for which the interface is publicly defined in the nunit.engine.api assembly, listed later in this document.
@@ -229,6 +229,6 @@ The following services are used internally by the engine but are not currently e
 | RuntimeFrameworkSelector | Determines the runtime framework to be used in running a test |
 | TestAgency               | Creates and manages Processes used to run tests       |
 
-##### Extensibility Interfaces
+#### Extensibility Interfaces
 
-The API also contains various interfaces used by engine extensions. More information on these can be found on the (Engine Extensibility)[xref:engineextensibility] page.
+The API also contains various interfaces used by engine extensions. More information on these can be found in the [Engine Extensions](xref:engineextensionsindex) section.

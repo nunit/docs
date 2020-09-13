@@ -11,6 +11,6 @@ There are currently four extension points:
 * [Project Loaders](Project-Loaders.md)
 * [Result Writers](Result-Writers.md)
 * [Framework Drivers](Framework-Drivers.md)
-* [Event Listeners](Event-Listeners.md) (NUnit Engine 3.4 and later only)
+* [Event Listeners](Event-Listeners.md)
 
 Extensions are generally created in their own assemblies, with some shared characteristics described in [Writing Engine Extensions](xref:writingengineextensions). They then need to be installed to the engine, which is covered in [Installing Engine Extensions](xref:installingextensions).

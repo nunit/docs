@@ -1,3 +1,7 @@
+---
+uid: runningtests
+---
+
 # Running Tests
 
 NUnit provides three different runners, which may be used to load and
@@ -8,7 +12,7 @@ run your tests.
 
 ## NUnit Agent
 
-When running tests in a separate process, the console and gui runners make use of the [NUnit Agent](xref:nunitagent) program, nunit-agent.exe. Although not directly run by users, nunit-agent does load and execute tests and users need to be aware of it, especially when debugging is involved.
+When running tests in a separate process, the console and gui runners make use of the NUnit Agent program, nunit-agent.exe. Although not directly run by users, nunit-agent does load and execute tests and users need to be aware of it, especially when debugging is involved.
 
 ## Third-Party Runners
 

@@ -1,10 +1,10 @@
 ---
-uid: WritingEngineExtensions
+uid: writingengineextensions
 ---
 
 # Writing Engine Extensions
 
- This page gives general information that applies to all types of extensions you may want to write. The individual pages for each type of extension give specific details. For a detailed description of the engine extensibility architecture, see [Engine Extensibility](xref:engineextensibility).
+This page gives general information that applies to all types of extensions you may want to write. The individual pages for each type of extension give specific details. 
 
 ## Extension structure
 
@@ -41,8 +41,8 @@ The `ExtensionAttribute` has four named properties, all optional:
 
 * **EngineVersion** The minimum engine version supported by the extension. Although optional, you should use this property if your extension will not work with all versions of the engine. If you don't use it and your extension requires engine services that are not present, then it might throw an exception or cause other errors.
 
-> [!NOTE]
-> Only engine versions 3.4 or later check this property. The only way to avoid errors in the case of lower engine versions is to not install such extensions.
+    > [!NOTE]
+    > Only engine versions 3.4 or later check the `EngineVersion` property. The only way to avoid errors in the case of lower engine versions is to not install such extensions.
 
 ## ExtensionPropertyAttribute
 

@@ -14,14 +14,14 @@ The actual engine itself is contained within the `nunit.engine` assembly, and it
 
 ## Packages
 
-The NUnit Engine can be found in the (NUnit.Engine NuGet Package)[https://www.nuget.org/packages/NUnit.Engine/]. It is also included within the .zip file found in (nunit-console repository)[https://github.com/nunit/nunit-console/releases] releases.
+The NUnit Engine can be found in the [NUnit.Engine NuGet Package](https://www.nuget.org/packages/NUnit.Engine/). It is also included within the .zip file found in [nunit-console repository](https://github.com/nunit/nunit-console/releases]) releases.
 
 ## Using the API
 The `TestEngineActivator` class is first used to obtain an instance of the engine. Tests are specified inside a `TestPackage`, which can contain one or many different test assemblies. Settings related to how the tests should be run are attached to the test package.
 
 Once a test package has been created, the engine can generate an instance of an `ITestRunner`, which will be constructed to reflect the structure of your test package.
 
-Finally, `Run` can be called on the `ITestRunner`, to run tests in the specified package. This will return an `XmlNode` which contains the results of the test run, in the standard (NUnit Test Results)[xref:?] format.
+Finally, `Run` can be called on the `ITestRunner`, to run tests in the specified package. This will return an `XmlNode` which contains the results of the test run, in the standard [NUnit Test Results](xref:TestResultXMLFormat) format.
 
 The following example shows the simplest path of how to get a copy of the engine, create a runner and run tests using the interfaces:
 
@@ -38,3 +38,5 @@ ITestRunner runner = engine.GetRunner(package);
 // Run all the tests in the assembly
 XmlNode testResult = runner.Run(listener: null, TestFilter.Empty);
 ```
+
+For further details of what can be achieved with the Engine, see the [Test Engine API Page](xref:testengineapi).
