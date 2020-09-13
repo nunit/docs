@@ -4,7 +4,7 @@ uid: writingengineextensions
 
 # Writing Engine Extensions
 
-This page gives general information that applies to all types of extensions you may want to write. The individual pages for each type of extension give specific details. 
+This page gives general information that applies to all types of extensions you may want to write. The individual pages for each type of extension give specific details.
 
 ## Extension structure
 
@@ -46,7 +46,7 @@ The `ExtensionAttribute` has four named properties, all optional:
 
 ## ExtensionPropertyAttribute
 
-The `ExtensionPropertyAttribute` is used to provide additional meta-data to the engine, without the need for the engine to load each extension. The useages of `ExtensionPropertyAttribute` differ per type of extension.
+The `ExtensionPropertyAttribute` is used to provide additional meta-data to the engine, without the need for the engine to load each extension. The usages of `ExtensionPropertyAttribute` differ per type of extension.
 
 Below is an example of how the attribute would be used for an `IProjectLoader` extension:
 

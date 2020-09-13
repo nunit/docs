@@ -59,7 +59,7 @@ namespace NUnit.Engine
         InternalTraceLevel InternalTraceLevel { get; set; }
 
         /// <summary>
-        /// Initialize the engine. This includes setting the trace level and 
+        /// Initialize the engine. This includes setting the trace level and
         /// creating the standard set of services used in the Engine.
         ///
         /// This interface is not recommended to be called by user code. The TestEngineActivator

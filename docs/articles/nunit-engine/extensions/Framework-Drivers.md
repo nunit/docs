@@ -37,6 +37,7 @@ public interface IDriverFactory
     IFrameworkDriver GetDriver(AppDomain domain, string assemblyName, Version version);
 }
 ```
+
 ### IFrameworkDriver
 
 The `IFrameworkDriver` interface is returned from `IDriverFactory` and is the key interface for actually loading, exploring and running the tests in the test assembly. In theory, a single driver factory could return different drivers in different situations, but we expect a one-to-one mapping of factories to drivers to be most commonly used.

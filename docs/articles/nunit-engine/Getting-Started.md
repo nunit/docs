@@ -17,6 +17,7 @@ The actual engine itself is contained within the `nunit.engine` assembly, and it
 The NUnit Engine can be found in the [NUnit.Engine NuGet Package](https://www.nuget.org/packages/NUnit.Engine/). It is also included within the .zip file found in [nunit-console repository](https://github.com/nunit/nunit-console/releases]) releases.
 
 ## Using the API
+
 The `TestEngineActivator` class is first used to obtain an instance of the engine. Tests are specified inside a `TestPackage`, which can contain one or many different test assemblies. Settings related to how the tests should be run are attached to the test package.
 
 Once a test package has been created, the engine can generate an instance of an `ITestRunner`, which will be constructed to reflect the structure of your test package.
