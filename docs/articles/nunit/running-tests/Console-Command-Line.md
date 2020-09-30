@@ -36,7 +36,7 @@ Without the V2 driver, only version 3.0 and higher tests may be run.
 |`--test=FULLNAMES` | Comma-separated list of FULLNAMES of tests to run or explore. This option may be repeated. Note that this option is retained for backward compatibility. The --where option can now be used instead. |
 |`--testlist=FILE` | The name (or path) of a FILE containing a list of tests to run or explore, one per line. |
 |`--where=EXPRESSION` | An expression indicating which tests to run. It may specify test names, classes, methods, categories or properties comparing them to actual values with the operators ==, !=, =~ and !~. See [Test Selection Language](Test-Selection-Language.md) for a full description of the syntax. |
-|`--params|p=PARAMETER` | A test PARAMETER specified in the form NAME=VALUE for consumption by tests. Multiple parameters may be specified, separated by semicolons or by repeating the --params option multiple times. Case-sensitive. |
+|`--params:PARAMETER` | A test PARAMETER specified in the form NAME=VALUE for consumption by tests. Multiple parameters may be specified, separated by semicolons or by repeating the --params option multiple times. Case-sensitive. |
 |`--config=NAME` | NAME of a project configuration to load (e.g.: Debug). |
 |`--process=PROCESS` | PROCESS isolation for test assemblies. Values: Single, Separate, Multiple. If not specified, defaults to Separate for a single assembly or Multiple for more than one. By default, processes are run in parallel. |
 |`--inprocess` | This option is a synonym for --process=Single |
