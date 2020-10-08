@@ -9,6 +9,7 @@
 | Enabled  | True
 | Category | Structure
 | Code     | [NonTestMethodAccessibilityLevelAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/NonTestMethodAccessibilityLevel/NonTestMethodAccessibilityLevelAnalyzer.cs)
+
 ## Description
 
 A fixture should not contain any public non-test methods.
@@ -19,7 +20,7 @@ A fixture should be self-contained and not have methods callable by other classe
 
 ## How to fix violations
 
-If the methods are purely for this class, mark them as 'private'. If the methods are used by other classes move these 
+If the methods are purely for this class, mark them as 'private'. If the methods are used by other classes move these
 methods to a separate class used by the relevant test fixtures.
 
 <!-- start generated config severity -->

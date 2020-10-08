@@ -26,7 +26,7 @@ var bar = new Bar();
 Assert.That(foo, Is.GreaterThan(bar));
 ```
 
-There is no comparions defined between instances of types `Foo` and `Bar`, therefore such assertion will always fail.
+There is no comparisons defined between instances of types `Foo` and `Bar`, therefore such assertion will always fail.
 
 ## How to fix violations
 
