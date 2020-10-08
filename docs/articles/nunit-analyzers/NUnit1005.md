@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
+| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
 
 ## Description
 
@@ -59,11 +59,20 @@ public bool NUnit1005SampleTest(int inputValue)
 <!-- start generated config severity -->
 ## Configure severity
 
-### Via ruleset file.
+### Via ruleset file
 
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
-### Via #pragma directive.
+### Via .editorconfig file
+
+```ini
+# NUnit1005: The type of the value specified via ExpectedResult must match the return type of the method.
+dotnet_diagnostic.NUnit1005.severity = chosenSeverity
+```
+
+where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, or `error`.
+
+### Via #pragma directive
 
 ```csharp
 #pragma warning disable NUnit1005 // The type of the value specified via ExpectedResult must match the return type of the method.
@@ -77,7 +86,7 @@ Or put this at the top of the file to disable all instances.
 #pragma warning disable NUnit1005 // The type of the value specified via ExpectedResult must match the return type of the method.
 ```
 
-### Via attribute `[SuppressMessage]`.
+### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",

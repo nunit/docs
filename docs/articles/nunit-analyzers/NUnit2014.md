@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [SomeItemsConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/ConstraintUsage/SomeItemsConstraintUsageAnalyzer.cs)
+| Code     | [SomeItemsConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ConstraintUsage/SomeItemsConstraintUsageAnalyzer.cs)
 
 ## Description
 
@@ -48,11 +48,20 @@ public void Test()
 <!-- start generated config severity -->
 ## Configure severity
 
-### Via ruleset file.
+### Via ruleset file
 
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
-### Via #pragma directive.
+### Via .editorconfig file
+
+```ini
+# NUnit2014: Use SomeItemsConstraint for better assertion messages in case of failure.
+dotnet_diagnostic.NUnit2014.severity = chosenSeverity
+```
+
+where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, or `error`.
+
+### Via #pragma directive
 
 ```csharp
 #pragma warning disable NUnit2014 // Use SomeItemsConstraint for better assertion messages in case of failure.
@@ -66,7 +75,7 @@ Or put this at the top of the file to disable all instances.
 #pragma warning disable NUnit2014 // Use SomeItemsConstraint for better assertion messages in case of failure.
 ```
 
-### Via attribute `[SuppressMessage]`.
+### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
