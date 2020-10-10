@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
+| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
 
 ## Description
 
@@ -59,11 +59,20 @@ public void NUnit1007SampleTest(int inputValue)
 <!-- start generated config severity -->
 ## Configure severity
 
-### Via ruleset file.
+### Via ruleset file
 
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
-### Via #pragma directive.
+### Via .editorconfig file
+
+```ini
+# NUnit1007: The method has non-void return type, but no result is expected in ExpectedResult.
+dotnet_diagnostic.NUnit1007.severity = chosenSeverity
+```
+
+where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, or `error`.
+
+### Via #pragma directive
 
 ```csharp
 #pragma warning disable NUnit1007 // The method has non-void return type, but no result is expected in ExpectedResult.
@@ -77,7 +86,7 @@ Or put this at the top of the file to disable all instances.
 #pragma warning disable NUnit1007 // The method has non-void return type, but no result is expected in ExpectedResult.
 ```
 
-### Via attribute `[SuppressMessage]`.
+### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",

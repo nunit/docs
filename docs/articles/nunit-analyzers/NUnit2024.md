@@ -5,10 +5,10 @@
 | Topic    | Value
 | :--      | :--
 | Id       | NUnit2024
-| Severity | Warning
+| Severity | Error
 | Enabled  | True
 | Category | Assertion
-| Code     | [StringConstraintWrongActualTypeAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/StringConstraintWrongActualType/StringConstraintWrongActualTypeAnalyzer.cs)
+| Code     | [StringConstraintWrongActualTypeAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/StringConstraintWrongActualType/StringConstraintWrongActualTypeAnalyzer.cs)
 
 ## Description
 
@@ -25,11 +25,20 @@ Fix actual value or use appropriate constraint.
 <!-- start generated config severity -->
 ## Configure severity
 
-### Via ruleset file.
+### Via ruleset file
 
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
-### Via #pragma directive.
+### Via .editorconfig file
+
+```ini
+# NUnit2024: Wrong actual type used with String Constraint.
+dotnet_diagnostic.NUnit2024.severity = chosenSeverity
+```
+
+where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, or `error`.
+
+### Via #pragma directive
 
 ```csharp
 #pragma warning disable NUnit2024 // Wrong actual type used with String Constraint.
@@ -43,7 +52,7 @@ Or put this at the top of the file to disable all instances.
 #pragma warning disable NUnit2024 // Wrong actual type used with String Constraint.
 ```
 
-### Via attribute `[SuppressMessage]`.
+### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
