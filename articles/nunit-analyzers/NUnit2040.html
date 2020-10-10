@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>NUnit1025 | NUnit Docs </title>
+    <title>NUnit2040 | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="NUnit1025 | NUnit Docs ">
+    <meta name="title" content="NUnit2040 | NUnit Docs ">
     <meta name="generator" content="docfx 2.56.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -77,9 +77,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="nunit1025">NUnit1025</h1>
+<h1 id="nunit2040">NUnit2040</h1>
 
-<h2 id="the-valuesource-argument-does-not-specify-an-existing-member">The ValueSource argument does not specify an existing member.</h2>
+<h2 id="non-reference-types-for-sameas-constraint">Non-reference types for SameAs constraint.</h2>
 <table>
 <thead>
 <tr>
@@ -90,7 +90,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Id</td>
-<td style="text-align: left;">NUnit1025</td>
+<td style="text-align: left;">NUnit2040</td>
 </tr>
 <tr>
 <td style="text-align: left;">Severity</td>
@@ -102,78 +102,50 @@
 </tr>
 <tr>
 <td style="text-align: left;">Category</td>
-<td style="text-align: left;">Structure</td>
+<td style="text-align: left;">Assertion</td>
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs">ValueSourceUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/SameAsOnValueTypes/SameAsOnValueTypesAnalyzer.cs">SameAsOnValueTypesAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>The ValueSource argument does not specify an existing member. This will lead to an error at run-time.</p>
+<p>The SameAs constraint always fails on value types as the actual and the expected value cannot be the same reference.</p>
 <h2 id="motivation">Motivation</h2>
-<p>To prevent tests that will fail at runtime due to improper construction.</p>
+<pre><code class="lang-csharp">var expected = Guid.Empty;
+var actual = expected;
+
+Assert.That(actual, Is.SameAs(expected));
+</code></pre>
+<p>As <code>Guid</code> is a <code>struct</code>, actual will be a copy of expected but not have the same reference.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
-<h3 id="example-violation">Example Violation</h3>
-<pre><code class="lang-csharp">[Test]
-public void NUnit1011SampleTest([ValueSource(&quot;MyIncorrectTestSource&quot;)] string stringValue)
-{
-    Assert.That(stringValue.Length, Is.EqualTo(3));
-}
+<p>Replace <code>Is.SameAs</code> with <code>Is.EqualTo</code>.</p>
+<pre><code class="lang-csharp">var expected = Guid.Empty;
+var actual = expected;
 
-public static object[] MyTestSource()
-{
-    return new object[] {&quot;One&quot;, &quot;Two&quot;};
-}
-</code></pre>
-<h3 id="explanation">Explanation</h3>
-<p>In the example above, the test case source is named <code>MyIncorrectTestCaseSource</code>, but the test case source is actually named <code>MyTestSource</code>. Because the names don't match, this will be an error.</p>
-<h3 id="fix">Fix</h3>
-<p>Rename the <code>TestCaseSource</code> to match:</p>
-<pre><code class="lang-csharp">[Test]
-public void NUnit1011SampleTest([ValueSource(&quot;MyTestSource&quot;)] string stringValue)
-{
-    Assert.That(stringValue.Length, Is.EqualTo(3));
-}
-
-public static object[] MyTestSource()
-{
-    return new object[] {&quot;One&quot;, &quot;Two&quot;};
-}
-</code></pre>
-<p>Or even better, use <code>nameof</code> so that the compiler may assist with mismatched names in the future:</p>
-<pre><code class="lang-csharp">[Test]
-public void NUnit1011SampleTest([ValueSource(nameof(MyTestSource))] string stringValue)
-{
-    Assert.That(stringValue.Length, Is.EqualTo(3));
-}
-
-public static object[] MyTestSource()
-{
-    return new object[] {&quot;One&quot;, &quot;Two&quot;};
-}
+Assert.That(actual, Is.EqualTo(expected));
 </code></pre>
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit1025: The ValueSource argument does not specify an existing member.
-dotnet_diagnostic.NUnit1025.severity = chosenSeverity
+<pre><code class="lang-ini"># NUnit2040: Non-reference types for SameAs constraint.
+dotnet_diagnostic.NUnit2040.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1025 // The ValueSource argument does not specify an existing member.
+<pre><code class="lang-csharp">#pragma warning disable NUnit2040 // Non-reference types for SameAs constraint.
 Code violating the rule here
-#pragma warning restore NUnit1025 // The ValueSource argument does not specify an existing member.
+#pragma warning restore NUnit2040 // Non-reference types for SameAs constraint.
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1025 // The ValueSource argument does not specify an existing member.
+<pre><code class="lang-csharp">#pragma warning disable NUnit2040 // Non-reference types for SameAs constraint.
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
-<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Structure&quot;,
-    &quot;NUnit1025:The ValueSource argument does not specify an existing member.&quot;,
+<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
+    &quot;NUnit2040:Non-reference types for SameAs constraint.&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->
@@ -185,7 +157,7 @@ Code violating the rule here
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit1025.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit2040.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

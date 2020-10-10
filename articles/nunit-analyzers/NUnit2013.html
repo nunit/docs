@@ -106,7 +106,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs">StringConstraintUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs">StringConstraintUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -138,21 +138,26 @@ public void Test()
 &lt;!-- start generated config severity --&gt;
 ## Configure severity
 
-### Via ruleset file.
+### Via ruleset file
 
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
-### Via #pragma directive.
+### Via .editorconfig file
 
-```csharp
-#pragma warning disable NUnit2013 // Use EndsWithConstraint for better assertion messages in case of failure.
+```ini
+# NUnit2013: Use EndsWithConstraint for better assertion messages in case of failure.
+dotnet_diagnostic.NUnit2013.severity = chosenSeverity
+</code></pre>
+<p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
+<h3 id="via-pragma-directive">Via #pragma directive</h3>
+<pre><code class="lang-csharp">#pragma warning disable NUnit2013 // Use EndsWithConstraint for better assertion messages in case of failure.
 Code violating the rule here
 #pragma warning restore NUnit2013 // Use EndsWithConstraint for better assertion messages in case of failure.
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
 <pre><code class="lang-csharp">#pragma warning disable NUnit2013 // Use EndsWithConstraint for better assertion messages in case of failure.
 </code></pre>
-<h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code>.</h3>
+<h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
     &quot;NUnit2013:Use EndsWithConstraint for better assertion messages in case of failure.&quot;,
     Justification = &quot;Reason...&quot;)]

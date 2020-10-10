@@ -106,7 +106,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs">TestCaseUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs">TestCaseUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -142,9 +142,14 @@ public void NUnit1003SampleTest(string parameter1)
 </code></pre>
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
-<h3 id="via-ruleset-file">Via ruleset file.</h3>
+<h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
-<h3 id="via-pragma-directive">Via #pragma directive.</h3>
+<h3 id="via-editorconfig-file">Via .editorconfig file</h3>
+<pre><code class="lang-ini"># NUnit1004: The TestCaseAttribute provided too many arguments.
+dotnet_diagnostic.NUnit1004.severity = chosenSeverity
+</code></pre>
+<p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
+<h3 id="via-pragma-directive">Via #pragma directive</h3>
 <pre><code class="lang-csharp">#pragma warning disable NUnit1004 // The TestCaseAttribute provided too many arguments.
 Code violating the rule here
 #pragma warning restore NUnit1004 // The TestCaseAttribute provided too many arguments.
@@ -152,7 +157,7 @@ Code violating the rule here
 <p>Or put this at the top of the file to disable all instances.</p>
 <pre><code class="lang-csharp">#pragma warning disable NUnit1004 // The TestCaseAttribute provided too many arguments.
 </code></pre>
-<h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code>.</h3>
+<h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Structure&quot;,
     &quot;NUnit1004:The TestCaseAttribute provided too many arguments.&quot;,
     Justification = &quot;Reason...&quot;)]
