@@ -22,7 +22,7 @@ The following options are available:
 |PrivateBinPath | string| directory1;directory2;etc |?|
 |RandomSeed | int | seed integer| random|
 |DefaultTimeout |int|timeout in mS, 0 means infinite|0|
-|DefaultTestNamePattern |string|Pattern for display name|{m}{a}|
+|[DefaultTestNamePattern](#defaulttestnamepattern)|string|Pattern for display name|{m}{a}|
 |[WorkDirectory](#workdirectory)|string|specify directory|Test assembly location|
 |[TestOutputXml](#testoutputxml)|string|specify directory|Test Result Xml output folder|
 |[DumpXmlTestDiscovery](#dumpxmltestdiscovery-and-dumpxmltestresults)|bool|Enable dumping of NUnit discovery response xml|false|
@@ -56,6 +56,10 @@ See <https://github.com/nunit/nunit3-vs-adapter/blob/8a9b8a38b7f808a4a78598542dd
 ---
 
 ### Details
+
+#### DefaultTestNamePattern
+
+The default format used to provide test names, expressed as an NUnit [Template Based Test Name Pattern](https://docs.nunit.org/articles/nunit/running-tests/Template-Based-Test-Naming.html).
 
 #### WorkDirectory
 
