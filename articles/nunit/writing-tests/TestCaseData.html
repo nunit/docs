@@ -83,7 +83,7 @@
 <pre><code class="lang-csharp">[TestFixture]
 public class MyTests
 {
-    [TestCaseSource(typeof(MyDataClass), &quot;TestCases&quot;)]
+    [TestCaseSource(typeof(MyDataClass), nameof(MyDataClass.TestCases)]
     public int DivideTest(int n, int d)
     {
         return n / d;
