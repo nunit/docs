@@ -14,7 +14,7 @@ public class MyTests
  public void Test1() { /* ... */ }
 
  [Test]
- [TestOf("MySubClass")]
+ [TestOf(nameof(MySubClass))]
  public void Test2() { /* ... */ }
 }
 
@@ -30,4 +30,4 @@ public class MyOtherTests
 ```
 
 > [!NOTE]
-> you can currently only have one TestOf attribute per fixture or test.
+> You can currently only have one TestOf attribute per fixture or test.

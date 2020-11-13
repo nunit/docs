@@ -13,9 +13,9 @@ shows two forms of the same assert.
 string[] strings = new string[] { "a", "ab", "abc" };
 int[] lengths = new int[] { 1, 2, 3 };
 
-Assert.That(List.Map(strings).Property("Length"),
+Assert.That(List.Map(strings).Property(nameof(string.Length)),
        Is.EqualTo(lengths));
 
-Assert.That(new ListMapper(strings).Property("Length"),
+Assert.That(new ListMapper(strings).Property(nameof(string.Length)),
        Is.EqualTo(lengths));
 ```

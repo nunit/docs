@@ -16,11 +16,12 @@ tests with arguments.
 Consider a test of the divide operation, taking three arguments: the numerator, the denominator and the expected result. We can specify the test and its data using one of the forms of **TestCaseSourceAttribute**:
 
 ### Form 1 - [TestCaseSource(string sourceName)]
+##### Note: We use [nameof(DivideCases)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof) here to avoid introducing [magic strings](https://en.wikipedia.org/wiki/Magic_string) into our code, which offers better resilience when refactoring.
 
 ```csharp
 public class MyTestClass
 {
-    [TestCaseSource("DivideCases")]
+    [TestCaseSource(nameof(DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
         Assert.AreEqual(q, n / d);
@@ -78,7 +79,7 @@ public class MyTestClass
 ```csharp
 public class MyTestClass
 {
-    [TestCaseSource(typeof(AnotherClass), "DivideCases")]
+    [TestCaseSource(typeof(AnotherClass), nameof(AnotherClass.DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
         Assert.AreEqual(q, n / d);
@@ -162,7 +163,7 @@ the enumerator as follows:
 ```csharp
 static int[] EvenNumbers = new int[] { 2, 4, 6, 8 };
 
-[Test, TestCaseSource("EvenNumbers")]
+[Test, TestCaseSource(nameof(EvenNumbers))]
 public void TestMethod(int num)
 {
     Assert.IsTrue(num % 2 == 0);
