@@ -17,7 +17,8 @@ Consider a test of the divide operation, taking three arguments: the numerator, 
 
 ### Form 1 - [TestCaseSource(string sourceName)]
 
-#### Note: We use [nameof(DivideCases)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof) here to avoid introducing [magic strings](https://en.wikipedia.org/wiki/Magic_string) into our code, which offers better resilience when refactoring.
+> [!NOTE]
+> We use [the `nameof` operator](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/nameof) to avoid introducing [magic strings](https://wikipedia.org/wiki/Magic_string) into code, which offers better resilience when refactoring. While `nameof` is recommended, you could also use the string "DivideCases" to achieve the same outcome.
 
 ```csharp
 public class MyTestClass
