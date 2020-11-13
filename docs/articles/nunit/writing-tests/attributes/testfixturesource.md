@@ -13,7 +13,7 @@ Consider a test fixture class taking two parameters in its constructor, a string
 ### Form 1 - [TestFixtureSource(string sourceName)]
 
 ```csharp
-[TestFixtureSource("FixtureArgs")]
+[TestFixtureSource(nameof(FixtureArgs))]
 public class MyTestClass
 {
     public MyTestClass(string word, int num) { ... }
@@ -38,7 +38,7 @@ to provide arguments for constructing the `TestFixture`. It has the following ch
 ### Form 2 - [TestFixtureSource(Type sourceType, string sourceName)]
 
 ```csharp
-[TestFixtureSource(typeof(AnotherClass), "FixtureArgs")]
+[TestFixtureSource(typeof(AnotherClass), nameof(AnotherClass.FixtureArgs)]
 public class MyTestClass
 {
     public MyTestClass(string word, int num) { ... }

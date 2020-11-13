@@ -17,10 +17,13 @@ Consider a test of the divide operation, taking three arguments: the numerator, 
 
 ### Form 1 - [TestCaseSource(string sourceName)]
 
+> [!NOTE]
+> We use [the `nameof` operator](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/nameof) to avoid introducing [magic strings](https://wikipedia.org/wiki/Magic_string) into code, which offers better resilience when refactoring. While `nameof` is recommended, you could also use the string "DivideCases" to achieve the same outcome.
+
 ```csharp
 public class MyTestClass
 {
-    [TestCaseSource("DivideCases")]
+    [TestCaseSource(nameof(DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
         Assert.AreEqual(q, n / d);
@@ -78,7 +81,7 @@ public class MyTestClass
 ```csharp
 public class MyTestClass
 {
-    [TestCaseSource(typeof(AnotherClass), "DivideCases")]
+    [TestCaseSource(typeof(AnotherClass), nameof(AnotherClass.DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
         Assert.AreEqual(q, n / d);
@@ -162,7 +165,7 @@ the enumerator as follows:
 ```csharp
 static int[] EvenNumbers = new int[] { 2, 4, 6, 8 };
 
-[Test, TestCaseSource("EvenNumbers")]
+[Test, TestCaseSource(nameof(EvenNumbers))]
 public void TestMethod(int num)
 {
     Assert.IsTrue(num % 2 == 0);
