@@ -88,9 +88,13 @@ tests with arguments.</p>
 <h2 id="usage">Usage</h2>
 <p>Consider a test of the divide operation, taking three arguments: the numerator, the denominator and the expected result. We can specify the test and its data using one of the forms of <strong>TestCaseSourceAttribute</strong>:</p>
 <h3 id="form-1---testcasesourcestring-sourcename">Form 1 - [TestCaseSource(string sourceName)]</h3>
+<div class="NOTE">
+<h5>Note</h5>
+<p>We use <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/operators/nameof">the <code>nameof</code> operator</a> to avoid introducing <a href="https://wikipedia.org/wiki/Magic_string">magic strings</a> into code, which offers better resilience when refactoring. While <code>nameof</code> is recommended, you could also use the string &quot;DivideCases&quot; to achieve the same outcome.</p>
+</div>
 <pre><code class="lang-csharp">public class MyTestClass
 {
-    [TestCaseSource(&quot;DivideCases&quot;)]
+    [TestCaseSource(nameof(DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
         Assert.AreEqual(q, n / d);
@@ -142,7 +146,7 @@ See the <strong>Test Case Construction</strong> section below for details.</li>
 <h3 id="form-2---testcasesourcetype-sourcetype-string-sourcename">Form 2 - [TestCaseSource(Type sourceType, string sourceName)]</h3>
 <pre><code class="lang-csharp">public class MyTestClass
 {
-    [TestCaseSource(typeof(AnotherClass), &quot;DivideCases&quot;)]
+    [TestCaseSource(typeof(AnotherClass), nameof(AnotherClass.DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
         Assert.AreEqual(q, n / d);
@@ -215,7 +219,7 @@ as in this example:</li>
 </ul>
 <pre><code class="lang-csharp">static int[] EvenNumbers = new int[] { 2, 4, 6, 8 };
 
-[Test, TestCaseSource(&quot;EvenNumbers&quot;)]
+[Test, TestCaseSource(nameof(EvenNumbers))]
 public void TestMethod(int num)
 {
     Assert.IsTrue(num % 2 == 0);

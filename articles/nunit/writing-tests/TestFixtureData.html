@@ -82,7 +82,7 @@
 <p>The <code>TestFixtureData</code> class provides specific instance information for a parameterized fixture, although any object deriving from <code>TestFixtureParameters</code> may be used. Unlike NUnit 2, you cannot implement <code>IFixtureData</code>, you must derive from <code>TestFixtureParameters</code>.</p>
 <p>The following example varies the example shown under <a class="xref" href="attributes/testfixture.html">TestFixture Attribute</a> by using
 a <code>TestFixtureSourceAttribute</code> with a data source in a separately defined class.</p>
-<pre><code class="lang-csharp">[TestFixtureSource(typeof(MyFixtureData), &quot;Fixtureparams&quot;)]
+<pre><code class="lang-csharp">[TestFixtureSource(typeof(MyFixtureData), nameof(MyFixtureData.Fixtureparams))]
 public class ParameterizedTestFixture
 {
     private string eq1;

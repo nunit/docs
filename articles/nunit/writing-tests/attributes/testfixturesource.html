@@ -87,7 +87,7 @@ tests with arguments.</p>
 <h2 id="usage">Usage</h2>
 <p>Consider a test fixture class taking two parameters in its constructor, a string and an int. We can specify the test and its data using one of the forms of <strong>TestFixtureSourceAttribute</strong>:</p>
 <h3 id="form-1---testfixturesourcestring-sourcename">Form 1 - [TestFixtureSource(string sourceName)]</h3>
-<pre><code class="lang-csharp">[TestFixtureSource(&quot;FixtureArgs&quot;)]
+<pre><code class="lang-csharp">[TestFixtureSource(nameof(FixtureArgs))]
 public class MyTestClass
 {
     public MyTestClass(string word, int num) { ... }
@@ -109,7 +109,7 @@ to provide arguments for constructing the <code>TestFixture</code>. It has the f
 <li>The individual items returned by the enumerator must either be object arrays or derive from the <code>TestFixtureParameters</code> class. Arguments must be consistent with the fixture constructor.</li>
 </ul>
 <h3 id="form-2---testfixturesourcetype-sourcetype-string-sourcename">Form 2 - [TestFixtureSource(Type sourceType, string sourceName)]</h3>
-<pre><code class="lang-csharp">[TestFixtureSource(typeof(AnotherClass), &quot;FixtureArgs&quot;)]
+<pre><code class="lang-csharp">[TestFixtureSource(typeof(AnotherClass), nameof(AnotherClass.FixtureArgs)]
 public class MyTestClass
 {
     public MyTestClass(string word, int num) { ... }
