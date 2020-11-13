@@ -16,7 +16,8 @@ tests with arguments.
 Consider a test of the divide operation, taking three arguments: the numerator, the denominator and the expected result. We can specify the test and its data using one of the forms of **TestCaseSourceAttribute**:
 
 ### Form 1 - [TestCaseSource(string sourceName)]
-##### Note: We use [nameof(DivideCases)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof) here to avoid introducing [magic strings](https://en.wikipedia.org/wiki/Magic_string) into our code, which offers better resilience when refactoring.
+
+#### Note: We use [nameof(DivideCases)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof) here to avoid introducing [magic strings](https://en.wikipedia.org/wiki/Magic_string) into our code, which offers better resilience when refactoring.
 
 ```csharp
 public class MyTestClass
