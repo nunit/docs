@@ -79,4 +79,4 @@ Various popular mock frameworks will be supported. NUnit's own self-tests now us
 
 ## See Also
 
-You can also view the [Original Architectural Overview Document](xref:NUnit3Architecture2009) created for NUnit 3.0 in 2009.
+You can also view the [Original Architectural Overview Document](xref:nunit3architecture2009) created for NUnit 3.0 in 2009.

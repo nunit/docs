@@ -1,5 +1,5 @@
 ---
-uid: NUnit3Architecture2009
+uid: nunit3architecture2009
 ---
 
 # NUnit 3.0 Architecture (2009)
