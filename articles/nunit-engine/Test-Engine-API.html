@@ -10,14 +10,14 @@
     <meta name="title" content="Test Engine API | NUnit Docs ">
     <meta name="generator" content="docfx 2.56.1.0">
     
-    <link rel="shortcut icon" href="../../../../favicon.ico">
-    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../../../styles/docfx.css">
-    <link rel="stylesheet" href="../../../../styles/main.css">
-    <meta property="docfx:navrel" content="../../../../toc.html">
-    <meta property="docfx:tocrel" content="../../../toc.html">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     
-    <meta property="docfx:rel" content="../../../../">
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -34,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../../../../index.html">
-                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -76,24 +76,17 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="testengineapi">
 <h1 id="test-engine-api">Test Engine API</h1>
 
 <p>The NUnit Test Engine API is our published API for discovering, exploring and executing tests programmatically. Third-party test runners should use the Engine API as the supported method to execute NUnit tests.</p>
 <h2 id="overview">Overview</h2>
-<p>The Engine API is included in the <code>nunit.engine.api</code> assembly, which must be referenced by any runners wanting to use it. This assembly is being released as version 3.0, to coincide with the versioning of other NUnit components.</p>
-<p>The actual engine is contained in the <code>nunit.engine</code> assembly. This assembly is <strong>not</strong> referenced by the runners. Instead, the API is used to locate and load an appropriate version of the engine, returning an instance of the <code>ITestEngine</code> interface to the  runner.</p>
-<h3 id="getting-an-instance-of-the-engine">Getting an Instance of the Engine</h3>
 <p>The static class <a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/TestEngineActivator.cs">TestEngineActivator</a> is used to get an interface to the engine. Its <code>CreateInstance</code> member has two overloads, depending on whether a particular minimum version of the engine is required.</p>
 <pre><code class="lang-csharp">public static ITestEngine CreateInstance(bool unused = false);
 public static ITestEngine CreateInstance(Version minVersion, bool unused = false);
 </code></pre>
 <p>(The <code>unused</code> bool parameter previously allowed users to indicate if wished to restrict usage of global NUnit Engine installations. The latter functionality is no longer available.)</p>
-<p>We search for the engine in a standard set of locations, starting with the current ApplicationBase.</p>
-<ol>
-<li>The Application base and probing <code>privatepath</code>.</li>
-<li>A copy installed as a NuGet package - intended for use only when developing runners that make use of the engine.</li>
-</ol>
+<p>The TestEngineActivator searches for an engine to load in two places. First, the current App Domain Base Directory is searched, and then any path set as the App Domain's <code>RelativeSearchPath</code>.</p>
 <h3 id="key-interfaces">Key Interfaces</h3>
 <p>The runner deals with the engine through a set of interfaces. These are quite general because we hope to avoid many changes to this API.</p>
 <h4 id="itestengine">ITestEngine</h4>
@@ -129,15 +122,11 @@ public static ITestEngine CreateInstance(Version minVersion, bool unused = false
         InternalTraceLevel InternalTraceLevel { get; set; }
 
         /// &lt;summary&gt;
-        /// Initialize the engine. This includes initializing mono addins,
-        /// setting the trace level and creating the standard set of services
-        /// used in the Engine.
+        /// Initialize the engine. This includes setting the trace level and
+        /// creating the standard set of services used in the Engine.
         ///
-        /// This interface is not normally called by user code. Programs linking
-        /// only to the nunit.engine.api assembly are given a
-        /// pre-initialized instance of TestEngine. Programs
-        /// that link directly to nunit.engine usually do so
-        /// in order to perform custom initialization.
+        /// This interface is not recommended to be called by user code. The TestEngineActivator
+        /// will provide a pre-initialized engine, which should be used as provided.
         /// &lt;/summary&gt;
         void Initialize();
 
@@ -153,10 +142,10 @@ public static ITestEngine CreateInstance(Version minVersion, bool unused = false
 </code></pre>
 <p>The normal sequence of calls for initially acquiring this interface is:</p>
 <pre><code class="lang-csharp">ITestEngine engine = TestEngineActivator.CreateInstance(...);
-engine.WorkDirectory = ...; // Defaults to the current directory
-engine.InternalTraceLevel = ...; // Defaults to Off
+engine.WorkDirectory = ...;         // Defaults to the current directory
+engine.InternalTraceLevel = ...;    // Defaults to off
 </code></pre>
-<p>The engine provides a number of services, some internal and some public. Public services are those for which the interface is publicly defined in the nunit.engine.api assembly. Internal services are... well, internal to the engine. See below for a list of public services available to runners.</p>
+<p>The engine provides a number of services, some internal and some public. Public services are those for which the interface is publicly defined in the nunit.engine.api assembly, listed later in this document.</p>
 <p>The final and probably most frequently used method on the interface is <code>GetRunner</code>. It takes a <code>TestPackage</code> and returns an <code>ITestRunner</code> that is appropriate for the options specified.</p>
 <h4 id="itestrunner">ITestRunner</h4>
 <p>This interface allows loading test assemblies, exploring the tests contained in them and running the tests.</p>
@@ -222,7 +211,7 @@ engine.InternalTraceLevel = ...; // Defaults to Off
         ITestRun RunAsync(ITestEventListener listener, TestFilter filter);
 
         /// &lt;summary&gt;
-        /// Cancel the ongoing test run. If no  test is running, the call is ignored.
+        /// Cancel the ongoing test run. If no test is running, the call is ignored.
         /// &lt;/summary&gt;
         /// &lt;param name=&quot;force&quot;&gt;If true, cancel any ongoing test threads, otherwise wait for them to complete.&lt;/param&gt;
         void StopRun(bool force);
@@ -238,21 +227,7 @@ engine.InternalTraceLevel = ...; // Defaults to Off
 </code></pre>
 <p>For the most common use cases, it isn't necessary to call <code>Load</code>, <code>Unload</code> or <code>Reload</code>. Calling either <code>Explore</code>, <code>Run</code> or <code>RunAsync</code> will cause the tests to be loaded automatically.</p>
 <p>The <code>Explore</code> methods returns an <code>XmlNode</code> containing the description of all tests found. The <code>Run</code> method returns an <code>XmlNode</code> containing the results of every test. The XML format for results is the same as that for the exploration of tests, with additional nodes added to indicate the outcome of the test. <code>RunAsync</code> returns an <code>ITestRun</code> interface, which allows retrieving the XML result when it is complete.</p>
-<p>The progress of a run is reported to the <code>ITestEventListener</code> passed to one of the run methods. Notifications received on this interface are strings in XML format, rather than XmlNodes, so that they may be passed directly across a Remoting interface.</p>
-<p>The following example shows how to get a copy of the engine, create a runner and run tests using the interfaces.</p>
-<pre><code class="lang-csharp">// Get an interface to the engine
-ITestEngine engine = TestEngineActivator.CreateInstance();
-
-// Create a simple test package - one assembly, no special settings
-TestPackage package = new TestPackage(&quot;my.test.assembly.dll&quot;);
-
-// Get a runner for the test package
-ITestRunner runner = engine.GetRunner(package);
-
-// Run all the tests in the assembly
-XmlNode testResult = runner.Run(this, TestFilter.Empty);
-</code></pre>
-<p>The call to <code>Run</code> assumes that the calling class implements ITestEventListener. The returned result is an XmlNode representing the result of the test run.</p>
+<p>The progress of a run is reported to the <code>ITestEventListener</code> passed to the run methods. Notifications received on this interface are strings in XML format, rather than XmlNodes, so that they may be passed directly across a Remoting interface.</p>
 <h4 id="engine-services">Engine Services</h4>
 <p>The engine <code>Services</code> property exposes the <code>IServiceLocator</code> interface, which allows the runner to use public services of the engine.</p>
 <pre><code class="lang-csharp">namespace NUnit.Engine
@@ -354,52 +329,8 @@ XmlNode testResult = runner.Run(this, TestFilter.Empty);
 </tr>
 </tbody>
 </table>
-<h5 id="extensibility-interfaces">Extensibility Interfaces</h5>
-<p>The following interfaces are used by engine extensions:</p>
-<table>
-<thead>
-<tr>
-<th>Interface</th>
-<th>Extension Function</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/Extensibility/IProjectLoader.cs">IProjectLoader</a></td>
-<td>Load projects in a particular format</td>
-</tr>
-<tr>
-<td><a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/Extensibility/IProject.cs">IProject</a></td>
-<td>Project returned by IProjectLoader</td>
-</tr>
-<tr>
-<td><a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/Extensibility/IDriverFactory.cs">IDriverFactory</a></td>
-<td>Provide a driver to interface with a test framework</td>
-</tr>
-<tr>
-<td><a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/Extensibility/IFrameworkDriver.cs">IFrameworkDriver</a></td>
-<td>Driver returned by IDriverFactory</td>
-</tr>
-<tr>
-<td><a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/Extensibility/IResultWriter.cs">IResultWriter</a></td>
-<td>Result writer returned by IResultWriterFactory</td>
-</tr>
-</tbody>
-</table>
-<h3 id="objectives-of-the-api">Objectives of the API</h3>
-<p>The API was developed with a number of objectives in mind:</p>
-<ul>
-<li>To provide a public, published API for discovering and executing NUnit tests, suitable for use by the NUnit console and Gui runners as well as by third parties.</li>
-<li>To allow discovery and execution of NUnit tests independent of the particular build or version of the framework used and without the need to reference the framework itself.</li>
-<li>To allow future development of drivers for other frameworks and for those tests to be discovered and executed in the same way as NUnit tests.</li>
-<li>To provide specific features beyond the frameworks, including:
-<ul>
-<li>Determining how and where each test assembly is loaded and executed.</li>
-<li>Parsing project files of various types and using them to determine the location of test assemblies and the options to be used in executing them.</li>
-<li>Providing access to NUnit settings for a machine.</li>
-</ul>
-</li>
-</ul>
+<h4 id="extensibility-interfaces">Extensibility Interfaces</h4>
+<p>The API also contains various interfaces used by engine extensions. More information on these can be found in the <a class="xref" href="extensions/Index.html">Engine Extensions</a> section.</p>
 </article>
           </div>
           
@@ -408,7 +339,7 @@ XmlNode testResult = runner.Run(this, TestFilter.Empty);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/nunit-internals/Test-Engine-API.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-engine/Test-Engine-API.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -434,8 +365,8 @@ XmlNode testResult = runner.Run(this, TestFilter.Empty);
       </footer>
     </div>
     
-    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../../../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>

@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Running Tests | NUnit Docs </title>
+    <title>Result Writers | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Running Tests | NUnit Docs ">
+    <meta name="title" content="Result Writers | NUnit Docs ">
     <meta name="generator" content="docfx 2.56.1.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
@@ -76,29 +76,51 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="runningtests">
-<h1 id="running-tests">Running Tests</h1>
+            <article class="content wrap" id="_content" data-uid="ResultWriters">
+<h1 id="result-writers">Result Writers</h1>
 
-<p>NUnit provides three different runners, which may be used to load and
-run your tests.</p>
-<ul>
-<li>The <a href="Console-Runner.html">Console Runner</a>, <code>nunit-console.exe</code>, is used for batch execution.</li>
-<li>The Gui Runner, <code>nunit.exe</code>, provides interactive loading and running of tests.</li>
-</ul>
-<h2 id="nunit-agent">NUnit Agent</h2>
-<p>When running tests in a separate process, the console and gui runners make use of the NUnit Agent program, nunit-agent.exe. Although not directly run by users, nunit-agent does load and execute tests and users need to be aware of it, especially when debugging is involved.</p>
-<h2 id="third-party-runners">Third-Party Runners</h2>
-<p>Various third-party applications are available for loading and running NUnit tests. Some of these actually use NUnit to load the tests, while others provide their own emulation and may not work in the same way that NUnit does.</p>
-<p>Because the status of such projects may change from time to time, we don't discuss them individually here. For the latest information, consult the manufacturer of any third-party software or ask other users on our
-<a href="http://groups.google.com/group/nunit-discuss">discussion list</a>.</p>
-<h2 id="additional-information">Additional Information</h2>
-<p>For additional general information on how tests are loaded and run, see</p>
-<ul>
-<li><a class="xref" href="../technical-notes/usage/Runtime-Selection.html">Runtime Selection</a></li>
-<li><a class="xref" href="../technical-notes/usage/Assembly-Isolation.html">Assembly Isolation</a></li>
-<li><a class="xref" href="../technical-notes/usage/Configuration-Files.html">Configuration Files</a></li>
-<li><a class="xref" href="../technical-notes/usage/Visual-Studio-Support.html">Visual Studio Support</a></li>
-</ul>
+<p><strong>Result Writers</strong> take the result of a test run, in NUnit 3 XML format, and use it to create a result file in some other format. The NUnit Organization itself provides a two result writers, one to create output in NUnit V2 format and another to write test cases to the console. The definition of a result writer extension might look something like this:</p>
+<pre><code class="lang-csharp">[Extension]
+[ExtensionProperty(&quot;Format&quot;, &quot;custom&quot;)]
+public class CustomResultWriterFactory : IResultWriter
+{
+    /* ... */
+}
+</code></pre>
+<p>An <code>ExtensionPropertyAttribute</code> must be provided giving the name of the format you support. Users would access the format from the NUnit Console command-line by using that name in a result specification, such as:</p>
+<pre><code class="lang-cmd">   nunit-console test.dll --result=CustomResult.xml;format=custom
+</code></pre>
+<p>The <code>IResultWriter</code> interface which must be implemented, is defined as follows:</p>
+<pre><code class="lang-csharp">/// &lt;summary&gt;
+/// Common interface for objects that process and write out test results
+/// &lt;/summary&gt;
+[TypeExtensionPoint(
+    Description = &quot;Supplies a writer to write the result of a test to a file using a specific format.&quot;)]
+public interface IResultWriter
+{
+    /// &lt;summary&gt;
+    /// Checks if the output path is writable. If the output is not
+    /// writable, this method should throw an exception.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;outputPath&quot;&gt;Path to test&lt;/param&gt;
+    void CheckWritability(string outputPath);
+
+    /// &lt;summary&gt;
+    /// Writes result to the specified output path.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;resultNode&quot;&gt;XmlNode for the result&lt;/param&gt;
+    /// &lt;param name=&quot;outputPath&quot;&gt;Path to which it should be written&lt;/param&gt;
+    void WriteResultFile(XmlNode resultNode, string outputPath);
+
+    /// &lt;summary&gt;
+    /// Writes result to a TextWriter.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;resultNode&quot;&gt;XmlNode for the result&lt;/param&gt;
+    /// &lt;param name=&quot;writer&quot;&gt;TextWriter to which it should be written&lt;/param&gt;
+    void WriteResultFile(XmlNode resultNode, TextWriter writer);
+}
+</code></pre>
+<p>The engine calls the <code>CheckWritability</code> method at the start of the run, before executing any tests. The <code>WriteResultFile</code> method is called after the run is complete. The writer may check writability in any way desired, including writing an abbreviated output file, which it will later overwrite.</p>
 </article>
           </div>
           
@@ -107,7 +129,7 @@ run your tests.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/running-tests/Index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-engine/extensions/Result-Writers.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

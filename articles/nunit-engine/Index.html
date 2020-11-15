@@ -5,19 +5,19 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>NUnit Agent | NUnit Docs </title>
+    <title>NUnit Engine | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="NUnit Agent | NUnit Docs ">
+    <meta name="title" content="NUnit Engine | NUnit Docs ">
     <meta name="generator" content="docfx 2.56.1.0">
     
-    <link rel="shortcut icon" href="../../../../favicon.ico">
-    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../../../styles/docfx.css">
-    <link rel="stylesheet" href="../../../../styles/main.css">
-    <meta property="docfx:navrel" content="../../../../toc.html">
-    <meta property="docfx:tocrel" content="../../../toc.html">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     
-    <meta property="docfx:rel" content="../../../../">
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -34,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../../../../index.html">
-                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -76,24 +76,15 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="nunitagent">
-<h1 id="nunit-agent">NUnit Agent</h1>
+            <article class="content wrap" id="_content" data-uid="nunitengine">
+<h1 id="nunit-engine">NUnit Engine</h1>
 
-<p>The nunit-agent.exe program is used by other runners when the tests are being
-run in a separate process. It is not intended for direct execution by users.</p>
-<p>NUnit runs tests in a separate process by default.</p>
-<p>When running under the Gui, NUnit will continue to use the same
-process to reload tests so that it is not normally necessary to
-re-attach to a new process. However, if the settings are changed
-in a way that requires a different process - for example, by changing
-the version of the runtime that is being used - the old process will
-be terminated and a new one created. In that case, it's necessary
-to re-attach to the new process.</p>
-<h2 id="debugging">Debugging</h2>
-<p>When debugging tests that are run in a separate process, it is
-not possible to do so by simply running the console or gui runner
-under the debugger. Rather, it is necessary to attach the debugger
-to the nunit-agent process after the tests have been loaded.</p>
+<p>The NUnit Engine is the component used as the foundation of any test runner. It contains all the logic required to run tests built against both NUnit 3.X and other frameworks, and exposes an API allowing test runners to interact with the engine and run tests as required.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The NUnit Engine is a component targeted at advanced users of NUnit, who are building their own test runner, rather than using one of the many existing test runners in the ecosystem. If you are looking to simply run tests that you have written, see the <a class="xref" href="../nunit/running-tests/Index.html">running tests</a> section.</p>
+</div>
+<p>The engine exposes <a class="xref" href="Test-Engine-API.html">an API</a> designed to be used by test runners, which will be maintained in a backwards-compatible fashion wherever possible. The engine also hosts various extension points, to allow further customization.</p>
 </article>
           </div>
           
@@ -102,7 +93,7 @@ to the nunit-agent process after the tests have been loaded.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/technical-notes/nunit-internals/NUnit-Agent.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-engine/Index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -128,8 +119,8 @@ to the nunit-agent process after the tests have been loaded.</p>
       </footer>
     </div>
     
-    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../../../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>
