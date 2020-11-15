@@ -1,5 +1,5 @@
 ---
-uid: TestSelectionLanguage
+uid: testselectionlanguage
 ---
 
 # Test Selection Language
