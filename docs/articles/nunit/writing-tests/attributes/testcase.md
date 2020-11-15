@@ -54,7 +54,7 @@ TestCaseAttribute supports a number of additional named parameters:
 * **IgnoreReason** causes this test case to be ignored and specifies the reason.
 * **IncludePlatform** specifies a comma-delimited list of platforms on which the test should run.
 * **Reason** specifies the reason for not running this test case. Use in conjunction with **Explicit**.
-* **TestName** provides a name for the test. If not specified, a name is generated based on the method name and the arguments provided. See [Template Based Test Naming](xref:TemplateBasedTestNaming).
+* **TestName** provides a name for the test. If not specified, a name is generated based on the method name and the arguments provided. See [Template Based Test Naming](xref:templatebasedtestnaming).
 * **TestOf** specifies the Type that this test is testing
 
 ## Order of Execution

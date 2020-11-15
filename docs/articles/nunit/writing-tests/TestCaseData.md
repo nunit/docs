@@ -42,5 +42,5 @@ and methods, which may be appended to an instance in any order.
 * **Returns** specifies the expected result to be returned from the method, which must have a compatible return type.
 * **SetCategory(string)** applies a category to the test.
 * **SetDescription(string)** sets the description property of the test.
-* **SetName(string)** provides a name for the test. If not specified, a name is generated based on the method name and the arguments provided. See [Template Based Test Naming](xref:TemplateBasedTestNaming).
+* **SetName(string)** provides a name for the test. If not specified, a name is generated based on the method name and the arguments provided. See [Template Based Test Naming](xref:templatebasedtestnaming).
 * **SetProperty(string, string)**, **SetProperty(string, int)** and **SetProperty(string, double)** apply a named property and value to the test.

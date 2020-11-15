@@ -1,5 +1,5 @@
 ---
-uid: TemplateBasedTestNaming
+uid: templatebasedtestnaming
 ---
 
 # Template-Based Test Naming
