@@ -1,5 +1,5 @@
 ---
-uid: BreakingChanges
+uid: breakingchanges
 ---
 
 # Breaking Changes
