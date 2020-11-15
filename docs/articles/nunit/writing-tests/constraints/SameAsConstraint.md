@@ -1,5 +1,5 @@
 ---
-uid: SameAsConstraint
+uid: sameasconstraint
 ---
 
 # SameAs Constraint
