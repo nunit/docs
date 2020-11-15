@@ -1,5 +1,5 @@
 ---
-uid: ThrowsConstraint
+uid: throwsconstraint
 ---
 
 # Throws Constraint
