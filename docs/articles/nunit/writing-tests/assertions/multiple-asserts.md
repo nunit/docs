@@ -1,5 +1,5 @@
 ---
-uid: MultipleAsserts
+uid: multipleasserts
 ---
 
 # Multiple Asserts
