@@ -1,5 +1,5 @@
 ---
-uid: Theory-Attribute
+uid: theoryattribute
 ---
 
 # Theory

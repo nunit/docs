@@ -1,5 +1,5 @@
 ---
-uid: PropertyAttribute
+uid: propertyattribute
 ---
 
 # Property
