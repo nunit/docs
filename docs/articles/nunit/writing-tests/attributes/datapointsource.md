@@ -34,4 +34,4 @@ For an example of use, see [Theory Attribute](theory.md)
 ## See Also
 
 * [Theory Attribute](theory.md)
-* [Parameterized Tests](xref:ParameterizedTests)
+* [Parameterized Tests](xref:parameterizedtests)

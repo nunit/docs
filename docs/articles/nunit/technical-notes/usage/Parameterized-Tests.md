@@ -1,5 +1,5 @@
 ---
-uid: ParameterizedTests
+uid: parameterizedtests
 ---
 
 # Parameterized Tests

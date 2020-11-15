@@ -8,7 +8,7 @@ uid: testcasesourceattribute
 identify the source from which the required arguments will be provided.
 The attribute additionally identifies the method as a test method.
 The data is kept separate from the test itself and may be used by multiple
-test methods. See [Parameterized Tests](xref:ParameterizedTests) for a general introduction to
+test methods. See [Parameterized Tests](xref:parameterizedtests) for a general introduction to
 tests with arguments.
 
 ## Usage
