@@ -22,7 +22,7 @@ The `TestEngineActivator` class is first used to obtain an instance of the engin
 
 Once a test package has been created, the engine can generate an instance of an `ITestRunner`, which will be constructed to reflect the structure of your test package.
 
-Finally, `Run` can be called on the `ITestRunner`, to run tests in the specified package. This will return an `XmlNode` which contains the results of the test run, in the standard [NUnit Test Results](xref:TestResultXMLFormat) format.
+Finally, `Run` can be called on the `ITestRunner`, to run tests in the specified package. This will return an `XmlNode` which contains the results of the test run, in the standard [NUnit Test Results](xref:testresultxmlformat) format.
 
 The following example shows the simplest path of how to get a copy of the engine, create a runner and run tests using the interfaces:
 
