@@ -157,7 +157,7 @@ the enumerator as follows:
 
 * If it is an object derived from the `TestCaseDataParameters` class,
    its properties are used to provide the test case. NUnit provides
-   the [TestCaseData](xref:TestCaseData) type for this purpose.
+   the [TestCaseData](xref:testcasedata) type for this purpose.
 * If the test has a single argument and the returned value matches the type of
    that argument it is used directly. This can eliminate a bit of extra typing by the programmer,
    as in this example:
