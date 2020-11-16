@@ -1,5 +1,5 @@
 ---
-uid: ActionAttributes
+uid: actionattributes
 ---
 
 # Action Attributes

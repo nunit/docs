@@ -14,7 +14,7 @@ This web site contains the documentation for all active NUnit projects as well a
 ## Developer Documentation
 
 * [Team practices](xref:teampractices) describe how NUnit works and how our teams work.
-* [Specifications](xref:Specifications) are descriptions of features we plan to add.
+* [Specifications](xref:specifications) are descriptions of features we plan to add.
 
 ## Legacy (NUnit V2) Documentation
 

@@ -1,5 +1,5 @@
 ---
-uid: Theory-Attribute
+uid: theoryattribute
 ---
 
 # Theory
@@ -8,14 +8,14 @@ A Theory is a special type of test, used to verify a general
 statement about the system under development. Normal tests are
 _example-based_. That is, the developer supplies one or
 more examples of inputs and expected outputs either within the
-code of the test or - in the case of [Parameterized Tests](xref:ParameterizedTests) -
+code of the test or - in the case of [Parameterized Tests](xref:parameterizedtests) -
 as arguments to the test method. A theory, on the other hand,
 makes a general statement that all of its assertions will pass
 for all arguments satisfying certain assumptions.
 
 Theories are implemented in NUnit as non-generic
 methods within a **TestFixture**, which are annotated
-with the **TheoryAttribute**. Theory methods must always have arguments and therefore appears quite similar to [Parameterized Tests](xref:ParameterizedTests)
+with the **TheoryAttribute**. Theory methods must always have arguments and therefore appears quite similar to [Parameterized Tests](xref:parameterizedtests)
 at first glance. However, a Theory incorporates additional data sources for its arguments and allows special processing for assumptions
 about that data. The key difference, though, is that theories
 make general statements and are more than just a set of examples.
@@ -126,4 +126,4 @@ public class TheorySampleTestsGeneric<T>
 
 * [Datapoint Attribute](datapoint.md)
 * [DatapointSource Attribute](datapointsource.md)
-* [Parameterized Tests](xref:ParameterizedTests)
+* [Parameterized Tests](xref:parameterizedtests)

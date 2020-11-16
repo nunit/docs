@@ -8,7 +8,7 @@ notes for earlier versions of NUnit as well.
 
 ## Review Breaking Changes
 
-The [Breaking Changes](xref:BreakingChanges) page
+The [Breaking Changes](xref:breakingchanges) page
 lists missing and changed functionality in NUnit 3.0. You should review this
 page to see which items are likely to affect your own tests.
 

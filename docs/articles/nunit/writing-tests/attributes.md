@@ -11,8 +11,8 @@ This table lists all the attributes supported by NUnit.
 | [Category Attribute](attributes/category.md)            | Specifies one or more categories for the test. |
 | [Combinatorial Attribute](attributes/combinatorial.md)       | Generates test cases for all possible combinations of the values provided. |
 | [Culture Attribute](attributes/culture.md)             | Specifies cultures for which a test or fixture should be run. |
-| [Datapoint Attribute](attributes/datapoint.md)           | Provides data for [Theories](xref:Theory-Attribute). |
-| [DatapointSource Attribute](attributes/datapointsource.md)     | Provides data for [Theories](xref:Theory-Attribute). |
+| [Datapoint Attribute](attributes/datapoint.md)           | Provides data for [Theories](xref:theoryattribute). |
+| [DatapointSource Attribute](attributes/datapointsource.md)     | Provides data for [Theories](xref:theoryattribute). |
 | [DefaultFloatingPointTolerance Attribute](attributes/defaultfloatingpointtolerance.md) | Indicates that the test should use the specified tolerance as default for float and double comparisons. |
 | [Description Attribute](attributes/description.md)         | Applies descriptive text to a Test, TestFixture or Assembly. |
 | [Explicit Attribute](attributes/explicit.md)            | Indicates that a test should be skipped unless explicitly run. |

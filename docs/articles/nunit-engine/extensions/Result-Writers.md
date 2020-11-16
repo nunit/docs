@@ -1,5 +1,5 @@
 ---
-uid: ResultWriters
+uid: resultwriters
 ---
 
 # Result Writers

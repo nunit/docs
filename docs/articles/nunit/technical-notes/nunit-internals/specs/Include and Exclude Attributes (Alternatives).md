@@ -1,5 +1,5 @@
 ---
-uid: IncludeExcludeAttributesAlternatives
+uid: includeexcludeattributesalternatives
 ---
 
 # Include And Exclude Attributes Alternatives

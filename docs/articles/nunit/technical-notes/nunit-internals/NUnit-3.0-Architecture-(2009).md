@@ -1,5 +1,5 @@
 ---
-uid: NUnit3Architecture2009
+uid: nunit3architecture2009
 ---
 
 # NUnit 3.0 Architecture (2009)
@@ -104,4 +104,4 @@ Various popular mock frameworks will be supported. One framework will be selecte
 
 ### Further Details
 
-More detailed specifications are being developed for each of the layers. Consult the [Specifications](xref:Specifications) index for their current status.
+More detailed specifications are being developed for each of the layers. Consult the [Specifications](xref:specifications) index for their current status.

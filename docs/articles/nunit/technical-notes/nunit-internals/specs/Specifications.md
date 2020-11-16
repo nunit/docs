@@ -1,5 +1,5 @@
 ---
-uid: Specifications
+uid: specifications
 ---
 
 # Specifications

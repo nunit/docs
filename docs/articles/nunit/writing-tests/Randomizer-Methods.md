@@ -1,5 +1,5 @@
 ---
-uid: RandomizerMethods
+uid: randomizermethods
 ---
 
 # Randomizer Methods

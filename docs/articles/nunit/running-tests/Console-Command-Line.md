@@ -1,5 +1,5 @@
 ---
-uid: ConsoleCommandLine
+uid: consolecommandline
 ---
 
 # Console Command Line

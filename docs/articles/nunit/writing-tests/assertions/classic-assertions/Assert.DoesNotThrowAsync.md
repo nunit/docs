@@ -12,4 +12,4 @@ void Assert.DoesNotThrowAsync(AsyncTestDelegate code,
 ## See Also
 
 * [Assert.ThrowsAsync](Assert.ThrowsAsync.md)
-* [ThrowsConstraint](xref:ThrowsConstraint)
+* [ThrowsConstraint](xref:throwsconstraint)

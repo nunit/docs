@@ -1,5 +1,5 @@
 ---
-uid: TestResultXMLFormat
+uid: testresultxmlformat
 ---
 
 # Test Result XML Format

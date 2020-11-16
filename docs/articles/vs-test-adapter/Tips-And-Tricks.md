@@ -59,7 +59,7 @@ See <https://github.com/nunit/nunit3-vs-adapter/blob/8a9b8a38b7f808a4a78598542dd
 
 #### DefaultTestNamePattern
 
-The default format used to provide test names, expressed as an NUnit [Template Based Test Name Pattern](xref:TemplateBasedTestNaming).
+The default format used to provide test names, expressed as an NUnit [Template Based Test Name Pattern](xref:templatebasedtestnaming).
 
 #### WorkDirectory
 

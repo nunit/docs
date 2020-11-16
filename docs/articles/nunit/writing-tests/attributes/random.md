@@ -31,7 +31,7 @@ public Random(double min, double max, int count);
 public Random(float min, float max, int count);
 ```
 
-In the first form, without minimum and maximum values, the attribute automatically generates values of the appropriate numeric Type for the argument provided, using the `Randomizer` object associated with the current context. See [Randomizer Methods](xref:RandomizerMethods) for details.
+In the first form, without minimum and maximum values, the attribute automatically generates values of the appropriate numeric Type for the argument provided, using the `Randomizer` object associated with the current context. See [Randomizer Methods](xref:randomizermethods) for details.
 
 In general, the forms that specify a minimum and maximum should be used on arguments of the same type. However, the following exceptions are supported:
 

@@ -20,4 +20,4 @@ assembly does not contain any tests.
 
 ## See Also
 
-* `--skipnontestassemblies` in [Console-Command-Line](xref:ConsoleCommandLine)
+* `--skipnontestassemblies` in [Console-Command-Line](xref:consolecommandline)

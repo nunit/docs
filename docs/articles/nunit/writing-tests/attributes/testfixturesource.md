@@ -3,7 +3,7 @@
 `TestFixtureSourceAttribute` is used on a parameterized fixture to
 identify the source from which the required constructor arguments will be provided.
 The data is kept separate from the fixture itself and may be used by multiple
-fixtures. See [Parameterized Tests](xref:ParameterizedTests) for a general introduction to
+fixtures. See [Parameterized Tests](xref:parameterizedtests) for a general introduction to
 tests with arguments.
 
 ## Usage
@@ -103,7 +103,7 @@ The individual items returned by the enumerator must either be object arrays or 
 In constructing tests, NUnit uses each item returned by
 the enumerator as follows:
 
-* If it is an object deriving from `TestFixtureParameters`, its properties are used to provide the test case. NUnit provides the [TestFixtureData](xref:TestFixtureData) class for this purpose.
+* If it is an object deriving from `TestFixtureParameters`, its properties are used to provide the test case. NUnit provides the [TestFixtureData](xref:testfixturedata) class for this purpose.
 * If it is an `object[]`, its members are used to provide the arguments for the method. This is the approach taken in the examples above.
 
 ## Notes

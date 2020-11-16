@@ -8,7 +8,7 @@ uid: testcasesourceattribute
 identify the source from which the required arguments will be provided.
 The attribute additionally identifies the method as a test method.
 The data is kept separate from the test itself and may be used by multiple
-test methods. See [Parameterized Tests](xref:ParameterizedTests) for a general introduction to
+test methods. See [Parameterized Tests](xref:parameterizedtests) for a general introduction to
 tests with arguments.
 
 ## Usage
@@ -157,7 +157,7 @@ the enumerator as follows:
 
 * If it is an object derived from the `TestCaseDataParameters` class,
    its properties are used to provide the test case. NUnit provides
-   the [TestCaseData](xref:TestCaseData) type for this purpose.
+   the [TestCaseData](xref:testcasedata) type for this purpose.
 * If the test has a single argument and the returned value matches the type of
    that argument it is used directly. This can eliminate a bit of extra typing by the programmer,
    as in this example:
