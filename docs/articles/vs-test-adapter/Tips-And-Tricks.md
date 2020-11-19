@@ -239,11 +239,11 @@ You might also receive a list from the command line, and in that case it will al
 
 #### NewOutputXmlFileForEachRun
 
-Default behaviour is to produce one test output file which is being overwritten for each run  Setting this to `true`, the adapter produces a new test output file for each run, numbering them sequentially.  Default is `false`.
+Default behavior is to produce one test output file which is being overwritten for each run  Setting this to `true`, the adapter produces a new test output file for each run, numbering them sequentially.  Default is `false`.
 
 The background is the following scenario, as described by [netcorefactory](https://github.com/netcorefactory) in [Issue 800](https://github.com/nunit/nunit3-vs-adapter/issues/800):
 
-"*Running test in azure devops one can choose to rerun failed ( flaky ) tests. Mostly when running (selenium) e2e tests this becomes important. The .xml results file is currently overwritten each retry run. Other test coverage tooling dependend on this file receives only latest run results.
+"*Running test in azure devops one can choose to rerun failed ( flaky ) tests. Mostly when running (selenium) e2e tests this becomes important. The .xml results file is currently overwritten each retry run. Other test coverage tooling dependent on this file receives only latest run results.
 Better to allow the possibility to deliver a results file per run.*"
 
 (From version 4.0.0)
