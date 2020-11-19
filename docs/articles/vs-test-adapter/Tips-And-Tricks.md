@@ -4,7 +4,7 @@ uid: tipsandtricks
 
 # Tips and Tricks
 
-## NUnit 3.x
+## NUnit 3
 
 ### VS Test .Runsettings configuration
 
@@ -40,6 +40,7 @@ The following options are available:
 |[FullnameSeparator](#fullnameseparator)|string|FullNameSep separator|':'|
 |[DiscoveryMethod](#discoverymethod)|enum|How execution discovery is done, options are `Legacy` or `Current`|Current|
 |[AssemblySelectLimit](#assemblyselectlimit)|int|Number of tests accepted before filters are turned off|2000|
+|[NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)|bool|Creates a new file for each test run|false|
 
 ### Visual Studio templates for runsettings
 
@@ -233,6 +234,17 @@ If you run from the IDE (Visual Studio) the adapter will receive a list of tests
 This might have an adverse effect if you select a category and you have more than 2000 tests, the category setting will be ignored. In that case, just increase this limit to higher than your number of tests.
 
 You might also receive a list from the command line, and in that case it will also be skipped the same way.  Here the category will be honoured since the category filter will be converted to a NUnit filter.
+
+(From version 4.0.0)
+
+#### NewOutputXmlFileForEachRun
+
+Default behavior is to produce one test output file which is being overwritten for each run  Setting this to `true`, the adapter produces a new test output file for each run, numbering them sequentially.  Default is `false`.
+
+The background is the following scenario, as described by [netcorefactory](https://github.com/netcorefactory) in [Issue 800](https://github.com/nunit/nunit3-vs-adapter/issues/800):
+
+"*Running test in azure devops one can choose to rerun failed ( flaky ) tests. Mostly when running (selenium) e2e tests this becomes important. The .xml results file is currently overwritten each retry run. Other test coverage tooling dependent on this file receives only latest run results.
+Better to allow the possibility to deliver a results file per run.*"
 
 (From version 4.0.0)
 
