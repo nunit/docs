@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="tipsandtricks">
 <h1 id="tips-and-tricks">Tips and Tricks</h1>
 
-<h2 id="nunit-3x">NUnit 3.x</h2>
+<h2 id="nunit-3">NUnit 3</h2>
 <h3 id="vs-test-runsettings-configuration">VS Test .Runsettings configuration</h3>
 <p>Certain NUnit Test Adapter settings are configurable using a .runsettings file.
 The following options are available:</p>
@@ -255,6 +255,12 @@ The following options are available:</p>
 <td>Number of tests accepted before filters are turned off</td>
 <td>2000</td>
 </tr>
+<tr>
+<td><a href="#newoutputxmlfileforeachrun">NewOutputXmlFileForEachRun</a></td>
+<td>bool</td>
+<td>Creates a new file for each test run</td>
+<td>false</td>
+</tr>
 </tbody>
 </table>
 <h3 id="visual-studio-templates-for-runsettings">Visual Studio templates for runsettings</h3>
@@ -368,6 +374,12 @@ See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/640">Issue 640</a
 <p>If you run from the IDE (Visual Studio) the adapter will receive a list of tests to process.  This is heavy when the number of tests are large. If the number of tests exceeds this limit, the list will be skipped and all tests in the assembly will be run (except those tests that are Explicit or Ignored).</p>
 <p>This might have an adverse effect if you select a category and you have more than 2000 tests, the category setting will be ignored. In that case, just increase this limit to higher than your number of tests.</p>
 <p>You might also receive a list from the command line, and in that case it will also be skipped the same way.  Here the category will be honoured since the category filter will be converted to a NUnit filter.</p>
+<p>(From version 4.0.0)</p>
+<h4 id="newoutputxmlfileforeachrun">NewOutputXmlFileForEachRun</h4>
+<p>Default behavior is to produce one test output file which is being overwritten for each run  Setting this to <code>true</code>, the adapter produces a new test output file for each run, numbering them sequentially.  Default is <code>false</code>.</p>
+<p>The background is the following scenario, as described by <a href="https://github.com/netcorefactory">netcorefactory</a> in <a href="https://github.com/nunit/nunit3-vs-adapter/issues/800">Issue 800</a>:</p>
+<p>&quot;<em>Running test in azure devops one can choose to rerun failed ( flaky ) tests. Mostly when running (selenium) e2e tests this becomes important. The .xml results file is currently overwritten each retry run. Other test coverage tooling dependent on this file receives only latest run results.
+Better to allow the possibility to deliver a results file per run.</em>&quot;</p>
 <p>(From version 4.0.0)</p>
 <hr>
 <h3 id="some-further-information-on-directories-from-comment-on-issue-575-by-charlie-">Some further information on directories (From <a href="https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421">comment on issue 575</a> by <a href="https://github.com/CharliePoole">Charlie</a> )</h3>

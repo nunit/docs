@@ -79,6 +79,21 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="adapter-release-notes">Adapter Release Notes</h1>
 
+<h2 id="nunit3-test-adapter-for-visual-studio---version-400-beta1---nov-20-2020">NUnit3 Test Adapter for Visual Studio - Version 4.0.0-beta.1 - Nov 20, 2020</h2>
+<p>This beta is based on the earlier alpha version, and includes new fixes, some reported in the alpha. A great thank you to those who reported and checked out the fixes in the alpha!</p>
+<p>The alpha has more than 32000 downloads, with only a few issues reported, so we feel safe to move up to a beta.  The time for beta will be much shorter, so we might be able to release a final 4.0.0 version before end of 2020.</p>
+<p>We have also been able to shoehorn some new features into the release.</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/770">770</a>  &quot;Not a TestFixture, but TestSuite&quot; error when using un-namespaced SetupFixture.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/774">774</a> Tests not executed if Console.WriteLine() is used.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/780">780</a> NUnit3TestAdapter 3.17.0 empty output file regression?</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/781">781</a> An exception occurred while test discoverer 'NUnit3TestDiscoverer' was loading tests. Exception: Object reference not set to an instance of an object, with VS2015.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/785">785</a> Seemingly redundant dependency on Microsoft.DotNet.InternalAbstractions. Thanks to <a href="https://github.com/teo-tsirpanis">teo-tsirpanis</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/790">PR 790</a>.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/786">786</a> When using TRX logger, should warn about incompatible test adapter across .NET Framework and .NET Core and/or log where an adapter is located.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/788">788</a> Documentation: Broken links in user guide [vs-test-adapter/Resources.html].</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/797">797</a> Proprietary licensed files</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/800">800</a> Rerun in azure devops overwrites last test results xml. Thanks to <a href="https://github.com/netcorefactory">netcorefactory</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/799">PR 799</a>.</li>
+</ul>
 <h2 id="nunit3-test-adapter-for-visual-studio---version-400-alpha1---july-12-2020">NUnit3 Test Adapter for Visual Studio - Version 4.0.0-alpha.1 - July 12, 2020</h2>
 <p>This is an early pre-release version.</p>
 <p>The code has been rewritten/refactored in order to get some of the more complex issues fixed.  It does pass all the automatic tests we have, but there are still more tests we would like to take it through, before we release a beta.</p>
