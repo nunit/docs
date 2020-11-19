@@ -1,5 +1,24 @@
 # Adapter Release Notes
 
+## NUnit3 Test Adapter for Visual Studio - Version 4.0.0-beta.1 - Nov 20, 2020
+
+This beta is based on the earlier alpha version, and includes new fixes, some reported in the alpha. A great thank you to those who reported and checked out the fixes in the alpha! 
+
+The alpha has more than 32000 downloads, with only a few issues reported, so we feel safe to move up to a beta.  The time for beta will be much shorter, so we might be able to release a final 4.0.0 version before end of 2020.
+
+We have also been able to shoehorn some new features into the release.
+
+* [770](https://github.com/nunit/nunit3-vs-adapter/issues/770)  "Not a TestFixture, but TestSuite" error when using un-namespaced SetupFixture.
+* [774](https://github.com/nunit/nunit3-vs-adapter/issues/774) Tests not executed if Console.WriteLine() is used.
+* [780](https://github.com/nunit/nunit3-vs-adapter/issues/780) NUnit3TestAdapter 3.17.0 empty output file regression?
+* [781](https://github.com/nunit/nunit3-vs-adapter/issues/781) An exception occurred while test discoverer 'NUnit3TestDiscoverer' was loading tests. Exception: Object reference not set to an instance of an object, with VS2015.
+* [785](https://github.com/nunit/nunit3-vs-adapter/issues/785) Seemingly redundant dependency on Microsoft.DotNet.InternalAbstractions. Thanks to [teo-tsirpanis](https://github.com/teo-tsirpanis) for [PR 790](https://github.com/nunit/nunit3-vs-adapter/pull/790).
+* [786](https://github.com/nunit/nunit3-vs-adapter/issues/786) When using TRX logger, should warn about incompatible test adapter across .NET Framework and .NET Core and/or log where an adapter is located. 
+* [788](https://github.com/nunit/nunit3-vs-adapter/issues/788) Documentation: Broken links in user guide [vs-test-adapter/Resources.html]. 
+* [797](https://github.com/nunit/nunit3-vs-adapter/issues/797) Proprietary licensed files
+* [800](https://github.com/nunit/nunit3-vs-adapter/issues/800) Rerun in azure devops overwrites last test results xml. Thanks to [netcorefactory](https://github.com/netcorefactory) for [PR 799](https://github.com/nunit/nunit3-vs-adapter/pull/799).
+
+
 ## NUnit3 Test Adapter for Visual Studio - Version 4.0.0-alpha.1 - July 12, 2020
 
 This is an early pre-release version.  
