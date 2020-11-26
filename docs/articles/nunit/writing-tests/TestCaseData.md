@@ -10,7 +10,7 @@ The `TestCaseData` class provides extended test case information for a parameter
 [TestFixture]
 public class MyTests
 {
-    [TestCaseSource(typeof(MyDataClass), nameof(MyDataClass.TestCases)]
+    [TestCaseSource(typeof(MyDataClass), nameof(MyDataClass.TestCases))]
     public int DivideTest(int n, int d)
     {
         return n / d;
