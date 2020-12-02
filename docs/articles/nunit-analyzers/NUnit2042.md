@@ -16,7 +16,7 @@ The comparison constraint might fail as the actual and the expected value might 
 
 ## Motivation
 
-```
+```csharp
 public static void ShouldBeGreaterThan(this object actual, object expected, string? message = null)
 {
     Assert.That(actual, Is.GreaterThan(expected), message);
@@ -32,7 +32,7 @@ Change the type to `IComparable`. This way you will get compilation failures
 if called with types that do not implement IComparable.
 A similar solution can be created which works for types implementing the generic `IComparable<T>`.
 
-```
+```csharp
 public static void ShouldBeGreaterThan(this IComparable actual, IComparable expected, string? message = null)
 {
     Assert.That(actual, Is.GreaterThan(expected), message);
@@ -43,7 +43,6 @@ public static void ShouldBeGreaterThan<T>(this T actual, T expected, string? mes
 {
     Assert.That(actual, Is.GreaterThan(expected), message);
 }
-
 ```
 
 <!-- start generated config severity -->
