@@ -44,7 +44,7 @@ public class MyTestClass
 
 In the sample above, `DivideCases` is not a `static` field.
 
-However, sources specified by `TestCaseSource` [must be `static`](https://github.com/nunit/docs/wiki/TestCaseSource-Attribute).
+However, sources specified by `TestCaseSource` [must be `static`](xref:testcasesourceattribute).
 
 ### Fix
 

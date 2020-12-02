@@ -39,7 +39,7 @@ public class MyTestClass
 
 In the sample above, `Numbers` is not a `static` property.
 
-However, sources specified by `ValueSource` [must be `static`](https://github.com/nunit/docs/wiki/ValueSource-Attribute).
+However, sources specified by `ValueSource` [must be `static`](xref:valuesource).
 
 ### Fix
 

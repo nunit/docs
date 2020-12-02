@@ -30,7 +30,7 @@ In `AssemblyInfo.cs`:
 
 ### Explanation
 
-`ParallelScope.Self` [only applies to classes and methods](https://github.com/nunit/docs/wiki/Parallelizable-Attribute), not to assemblies.
+`ParallelScope.Self` [only applies to classes and methods](xref:parallelizableattribute), not to assemblies.
 
 ### Fix
 

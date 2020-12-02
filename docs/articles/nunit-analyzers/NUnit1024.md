@@ -39,7 +39,7 @@ public class AnalyzeWhenSourceDoesProvideIEnumerable
 In the sample above, the source specified by `ValueSource` - the field `testCases` - does not return an `IEnumerable` or a type that implements `IEnumerable`,
 instead it returns an `int`.
 
-However, sources specified by `ValueSource` [must return an `IEnumerable` or a type that implements `IEnumerable`.](https://github.com/nunit/docs/wiki/ValueSource-Attribute).
+However, sources specified by `ValueSource` [must return an `IEnumerable` or a type that implements `IEnumerable`.](xref:valuesource).
 
 ### Fix
 

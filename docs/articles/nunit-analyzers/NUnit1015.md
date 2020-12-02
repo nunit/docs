@@ -47,7 +47,7 @@ class DivideCases
 
 In the sample above, the class `DivideCases` does not implement `IEnumerable`.
 
-However, source types specified by `TestCaseSource` [must implement `IEnumerable`](https://github.com/nunit/docs/wiki/TestCaseSource-Attribute).
+However, source types specified by `TestCaseSource` [must implement `IEnumerable`](xref:testcasesourceattribute).
 
 ### Fix
 
