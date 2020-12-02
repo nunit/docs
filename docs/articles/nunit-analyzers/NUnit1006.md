@@ -1,6 +1,6 @@
 # NUnit1006
 
-## ExpectedResult must not be specified when the method returns void.
+## ExpectedResult must not be specified when the method returns void
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
+| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
 
 ## Description
 
@@ -66,7 +66,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit1006: ExpectedResult must not be specified when the method returns void.
+# NUnit1006: ExpectedResult must not be specified when the method returns void
 dotnet_diagnostic.NUnit1006.severity = chosenSeverity
 ```
 
@@ -75,22 +75,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit1006 // ExpectedResult must not be specified when the method returns void.
+#pragma warning disable NUnit1006 // ExpectedResult must not be specified when the method returns void
 Code violating the rule here
-#pragma warning restore NUnit1006 // ExpectedResult must not be specified when the method returns void.
+#pragma warning restore NUnit1006 // ExpectedResult must not be specified when the method returns void
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1006 // ExpectedResult must not be specified when the method returns void.
+#pragma warning disable NUnit1006 // ExpectedResult must not be specified when the method returns void
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1006:ExpectedResult must not be specified when the method returns void.",
+    "NUnit1006:ExpectedResult must not be specified when the method returns void",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

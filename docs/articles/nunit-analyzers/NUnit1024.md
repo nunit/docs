@@ -1,6 +1,6 @@
 # NUnit1024
 
-## The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable.
+## The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs)
+| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs)
 
 ## Description
 
@@ -39,7 +39,7 @@ public class AnalyzeWhenSourceDoesProvideIEnumerable
 In the sample above, the source specified by `ValueSource` - the field `testCases` - does not return an `IEnumerable` or a type that implements `IEnumerable`,
 instead it returns an `int`.
 
-However, sources specified by `ValueSource` [must return an `IEnumerable` or a type that implements `IEnumerable`.](xref:valuesource).
+However, sources specified by `ValueSource` [must return an `IEnumerable` or a type that implements `IEnumerable`.](https://github.com/nunit/docs/wiki/ValueSource-Attribute).
 
 ### Fix
 
@@ -67,7 +67,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit1024: The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable.
+# NUnit1024: The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable
 dotnet_diagnostic.NUnit1024.severity = chosenSeverity
 ```
 
@@ -76,22 +76,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit1024 // The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable.
+#pragma warning disable NUnit1024 // The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable
 Code violating the rule here
-#pragma warning restore NUnit1024 // The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable.
+#pragma warning restore NUnit1024 // The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1024 // The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable.
+#pragma warning disable NUnit1024 // The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1024:The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable.",
+    "NUnit1024:The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

@@ -1,6 +1,6 @@
 # NUnit2008
 
-## Incorrect IgnoreCase usage.
+## Incorrect IgnoreCase usage
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Assertion
-| Code     | [IgnoreCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/IgnoreCaseUsage/IgnoreCaseUsageAnalyzer.cs)
+| Code     | [IgnoreCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/IgnoreCaseUsage/IgnoreCaseUsageAnalyzer.cs)
 
 ## Description
 
@@ -69,7 +69,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit2008: Incorrect IgnoreCase usage.
+# NUnit2008: Incorrect IgnoreCase usage
 dotnet_diagnostic.NUnit2008.severity = chosenSeverity
 ```
 
@@ -78,22 +78,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit2008 // Incorrect IgnoreCase usage.
+#pragma warning disable NUnit2008 // Incorrect IgnoreCase usage
 Code violating the rule here
-#pragma warning restore NUnit2008 // Incorrect IgnoreCase usage.
+#pragma warning restore NUnit2008 // Incorrect IgnoreCase usage
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2008 // Incorrect IgnoreCase usage.
+#pragma warning disable NUnit2008 // Incorrect IgnoreCase usage
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2008:Incorrect IgnoreCase usage.",
+    "NUnit2008:Incorrect IgnoreCase usage",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

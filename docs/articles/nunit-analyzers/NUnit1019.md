@@ -1,6 +1,6 @@
 # NUnit1019
 
-## The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable.
+## The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
 
 ## Description
 
@@ -39,7 +39,7 @@ public class AnalyzeWhenSourceDoesProvideIEnumerable
 In the sample above, the source specified by `TestCaseSource` - the field `testCases` - does not return an `IEnumerable` or a type that implements `IEnumerable`,
 instead it returns an `int`.
 
-However, sources specified by `TestCaseSource` [must return an `IEnumerable` or a type that implements `IEnumerable`.](xref:testcasesourceattribute).
+However, sources specified by `TestCaseSource` [must return an `IEnumerable` or a type that implements `IEnumerable`.](https://github.com/nunit/docs/wiki/TestCaseSource-Attribute).
 
 ### Fix
 
@@ -67,7 +67,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit1019: The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable.
+# NUnit1019: The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable
 dotnet_diagnostic.NUnit1019.severity = chosenSeverity
 ```
 
@@ -76,22 +76,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit1019 // The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable.
+#pragma warning disable NUnit1019 // The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable
 Code violating the rule here
-#pragma warning restore NUnit1019 // The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable.
+#pragma warning restore NUnit1019 // The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1019 // The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable.
+#pragma warning disable NUnit1019 // The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1019:The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable.",
+    "NUnit1019:The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

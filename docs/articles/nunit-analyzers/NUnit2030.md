@@ -1,6 +1,6 @@
 # NUnit2030
 
-## Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected).
+## Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected)
 
 | Topic    | Value
 | :--      | :--
@@ -8,11 +8,11 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
+| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
 
 ## Description
 
-Consider using the constraint model, Assert.That(actual, Is.LessThanOrEqualTo(expected)), instead of the classic model, Assert.LessOrEqual(actual, expected).
+Consider using the constraint model, `Assert.That(actual, Is.LessThanOrEqualTo(expected))`, instead of the classic model, `Assert.LessOrEqual(actual, expected)`.
 
 ## Motivation
 
@@ -50,7 +50,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit2030: Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected).
+# NUnit2030: Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected)
 dotnet_diagnostic.NUnit2030.severity = chosenSeverity
 ```
 
@@ -59,22 +59,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit2030 // Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected).
+#pragma warning disable NUnit2030 // Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected)
 Code violating the rule here
-#pragma warning restore NUnit2030 // Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected).
+#pragma warning restore NUnit2030 // Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected)
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2030 // Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected).
+#pragma warning disable NUnit2030 // Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected)
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2030:Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected).",
+    "NUnit2030:Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected)",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

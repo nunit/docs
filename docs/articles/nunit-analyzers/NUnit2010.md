@@ -1,6 +1,6 @@
 # NUnit2010
 
-## Use EqualConstraint for better assertion messages in case of failure.
+## Use EqualConstraint for better assertion messages in case of failure
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [EqualConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ConstraintUsage/EqualConstraintUsageAnalyzer.cs)
+| Code     | [EqualConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ConstraintUsage/EqualConstraintUsageAnalyzer.cs)
 
 ## Description
 
@@ -51,7 +51,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit2010: Use EqualConstraint for better assertion messages in case of failure.
+# NUnit2010: Use EqualConstraint for better assertion messages in case of failure
 dotnet_diagnostic.NUnit2010.severity = chosenSeverity
 ```
 
@@ -60,22 +60,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit2010 // Use EqualConstraint for better assertion messages in case of failure.
+#pragma warning disable NUnit2010 // Use EqualConstraint for better assertion messages in case of failure
 Code violating the rule here
-#pragma warning restore NUnit2010 // Use EqualConstraint for better assertion messages in case of failure.
+#pragma warning restore NUnit2010 // Use EqualConstraint for better assertion messages in case of failure
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2010 // Use EqualConstraint for better assertion messages in case of failure.
+#pragma warning disable NUnit2010 // Use EqualConstraint for better assertion messages in case of failure
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2010:Use EqualConstraint for better assertion messages in case of failure.",
+    "NUnit2010:Use EqualConstraint for better assertion messages in case of failure",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

@@ -1,6 +1,6 @@
 # NUnit1008
 
-## Specifying ParallelScope.Self on assembly level has no effect.
+## Specifying ParallelScope.Self on assembly level has no effect
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Structure
-| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
+| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
 
 ## Description
 
@@ -30,7 +30,7 @@ In `AssemblyInfo.cs`:
 
 ### Explanation
 
-`ParallelScope.Self` [only applies to classes and methods](xref:parallelizableattribute), not to assemblies.
+`ParallelScope.Self` [only applies to classes and methods](https://github.com/nunit/docs/wiki/Parallelizable-Attribute), not to assemblies.
 
 ### Fix
 
@@ -56,7 +56,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit1008: Specifying ParallelScope.Self on assembly level has no effect.
+# NUnit1008: Specifying ParallelScope.Self on assembly level has no effect
 dotnet_diagnostic.NUnit1008.severity = chosenSeverity
 ```
 
@@ -65,22 +65,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit1008 // Specifying ParallelScope.Self on assembly level has no effect.
+#pragma warning disable NUnit1008 // Specifying ParallelScope.Self on assembly level has no effect
 Code violating the rule here
-#pragma warning restore NUnit1008 // Specifying ParallelScope.Self on assembly level has no effect.
+#pragma warning restore NUnit1008 // Specifying ParallelScope.Self on assembly level has no effect
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1008 // Specifying ParallelScope.Self on assembly level has no effect.
+#pragma warning disable NUnit1008 // Specifying ParallelScope.Self on assembly level has no effect
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1008:Specifying ParallelScope.Self on assembly level has no effect.",
+    "NUnit1008:Specifying ParallelScope.Self on assembly level has no effect",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

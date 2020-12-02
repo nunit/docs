@@ -1,6 +1,6 @@
 # NUnit2001
 
-## Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).
+## Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
+| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
 
 ## Description
 
@@ -50,7 +50,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit2001: Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).
+# NUnit2001: Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)
 dotnet_diagnostic.NUnit2001.severity = chosenSeverity
 ```
 
@@ -59,22 +59,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit2001 // Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).
+#pragma warning disable NUnit2001 // Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)
 Code violating the rule here
-#pragma warning restore NUnit2001 // Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).
+#pragma warning restore NUnit2001 // Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2001 // Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).
+#pragma warning disable NUnit2001 // Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2001:Consider using Assert.That(expr, Is.False) instead of Assert.False(expr).",
+    "NUnit2001:Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->
