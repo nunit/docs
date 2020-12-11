@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit2040">NUnit2040</h1>
 
-<h2 id="non-reference-types-for-sameas-constraint">Non-reference types for SameAs constraint.</h2>
+<h2 id="non-reference-types-for-sameas-constraint">Non-reference types for SameAs constraint</h2>
 <table>
 <thead>
 <tr>
@@ -106,7 +106,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/SameAsOnValueTypes/SameAsOnValueTypesAnalyzer.cs">SameAsOnValueTypesAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/SameAsOnValueTypes/SameAsOnValueTypesAnalyzer.cs">SameAsOnValueTypesAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -131,21 +131,21 @@ Assert.That(actual, Is.EqualTo(expected));
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit2040: Non-reference types for SameAs constraint.
+<pre><code class="lang-ini"># NUnit2040: Non-reference types for SameAs constraint
 dotnet_diagnostic.NUnit2040.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2040 // Non-reference types for SameAs constraint.
+<pre><code class="lang-csharp">#pragma warning disable NUnit2040 // Non-reference types for SameAs constraint
 Code violating the rule here
-#pragma warning restore NUnit2040 // Non-reference types for SameAs constraint.
+#pragma warning restore NUnit2040 // Non-reference types for SameAs constraint
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2040 // Non-reference types for SameAs constraint.
+<pre><code class="lang-csharp">#pragma warning disable NUnit2040 // Non-reference types for SameAs constraint
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2040:Non-reference types for SameAs constraint.&quot;,
+    &quot;NUnit2040:Non-reference types for SameAs constraint&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->

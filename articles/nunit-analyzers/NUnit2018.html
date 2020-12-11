@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit2018">NUnit2018</h1>
 
-<h2 id="consider-using-assertthatexpr-isnotnull-instead-of-assertnotnullexpr">Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr).</h2>
+<h2 id="consider-using-assertthatexpr-isnotnull-instead-of-assertnotnullexpr">Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)</h2>
 <table>
 <thead>
 <tr>
@@ -106,7 +106,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs">ClassicModelAssertUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs">ClassicModelAssertUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -137,21 +137,21 @@ public void Test()
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit2018: Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr).
+<pre><code class="lang-ini"># NUnit2018: Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)
 dotnet_diagnostic.NUnit2018.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr).
+<pre><code class="lang-csharp">#pragma warning disable NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)
 Code violating the rule here
-#pragma warning restore NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr).
+#pragma warning restore NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr).
+<pre><code class="lang-csharp">#pragma warning disable NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2018:Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr).&quot;,
+    &quot;NUnit2018:Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->

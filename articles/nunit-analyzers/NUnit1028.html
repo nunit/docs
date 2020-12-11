@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit1028">NUnit1028</h1>
 
-<h2 id="the-non-test-method-is-public">The non-test method is public.</h2>
+<h2 id="the-non-test-method-is-public">The non-test method is public</h2>
 <table>
 <thead>
 <tr>
@@ -106,12 +106,13 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/NonTestMethodAccessibilityLevel/NonTestMethodAccessibilityLevelAnalyzer.cs">NonTestMethodAccessibilityLevelAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/NonTestMethodAccessibilityLevel/NonTestMethodAccessibilityLevelAnalyzer.cs">NonTestMethodAccessibilityLevelAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>A fixture should not contain any public non-test methods.</p>
+<p>A fixture should not contain any public non-test methods.
+There are two exceptions: A public constructor and an <code>IDisposable.Dispose</code> method implementation.</p>
 <h2 id="motivation">Motivation</h2>
 <p>A fixture should be self-contained and not have methods callable by other classes.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
@@ -122,21 +123,21 @@ methods to a separate class used by the relevant test fixtures.</p>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit1028: The non-test method is public.
+<pre><code class="lang-ini"># NUnit1028: The non-test method is public
 dotnet_diagnostic.NUnit1028.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1028 // The non-test method is public.
+<pre><code class="lang-csharp">#pragma warning disable NUnit1028 // The non-test method is public
 Code violating the rule here
-#pragma warning restore NUnit1028 // The non-test method is public.
+#pragma warning restore NUnit1028 // The non-test method is public
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1028 // The non-test method is public.
+<pre><code class="lang-csharp">#pragma warning disable NUnit1028 // The non-test method is public
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Structure&quot;,
-    &quot;NUnit1028:The non-test method is public.&quot;,
+    &quot;NUnit1028:The non-test method is public&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->

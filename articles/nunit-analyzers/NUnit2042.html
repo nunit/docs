@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>NUnit1007 | NUnit Docs </title>
+    <title>NUnit2042 | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="NUnit1007 | NUnit Docs ">
+    <meta name="title" content="NUnit2042 | NUnit Docs ">
     <meta name="generator" content="docfx 2.56.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -77,9 +77,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="nunit1007">NUnit1007</h1>
+<h1 id="nunit2042">NUnit2042</h1>
 
-<h2 id="the-method-has-non-void-return-type-but-no-result-is-expected-in-expectedresult">The method has non-void return type, but no result is expected in ExpectedResult</h2>
+<h2 id="comparison-constraint-on-object">Comparison constraint on object</h2>
 <table>
 <thead>
 <tr>
@@ -90,11 +90,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Id</td>
-<td style="text-align: left;">NUnit1007</td>
+<td style="text-align: left;">NUnit2042</td>
 </tr>
 <tr>
 <td style="text-align: left;">Severity</td>
-<td style="text-align: left;">Error</td>
+<td style="text-align: left;">Info</td>
 </tr>
 <tr>
 <td style="text-align: left;">Enabled</td>
@@ -102,41 +102,37 @@
 </tr>
 <tr>
 <td style="text-align: left;">Category</td>
-<td style="text-align: left;">Structure</td>
+<td style="text-align: left;">Assertion</td>
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs">TestMethodUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ComparableTypes/ComparableTypesAnalyzer.cs">ComparableTypesAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>The method has non-void return type, but no result is expected in ExpectedResult.</p>
+<p>The comparison constraint might fail as the actual and the expected value might not implement IComparable.</p>
 <h2 id="motivation">Motivation</h2>
-<p>To prevent tests that will fail at runtime due to improper construction.</p>
+<pre><code class="lang-csharp">public static void ShouldBeGreaterThan(this object actual, object expected, string? message = null)
+{
+    Assert.That(actual, Is.GreaterThan(expected), message);
+}
+</code></pre>
+<p>In the above function it is assumed that every instance of object is comparable.
+The function works if the types actually are comparable, but will result in NUnit runtime errors if they are not.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
-<h3 id="example-violation">Example Violation</h3>
-<pre><code class="lang-csharp">[TestCase(1)]
-public string NUnit1007SampleTest(int inputValue)
+<p>Change the type to <code>IComparable</code>. This way you will get compilation failures
+if called with types that do not implement IComparable.
+A similar solution can be created which works for types implementing the generic <code>IComparable&lt;T&gt;</code>.</p>
+<pre><code class="lang-csharp">public static void ShouldBeGreaterThan(this IComparable actual, IComparable expected, string? message = null)
 {
-    return &quot;&quot;;
+    Assert.That(actual, Is.GreaterThan(expected), message);
 }
-</code></pre>
-<h3 id="explanation">Explanation</h3>
-<p>No <code>ExpectedResult</code> was defined, but the return type of the method in our sample is of type <code>string</code>, meaning it does indeed return a result and we should use the <code>ExpectedResult</code> syntax in order to capture it.</p>
-<h3 id="fix">Fix</h3>
-<p>Either modify the <code>TestCase</code> to add an <code>ExpectedResult</code>:</p>
-<pre><code class="lang-csharp">[TestCase(1, ExpectedResult = &quot;&quot;)]
-public string NUnit1007SampleTest(int inputValue)
+
+public static void ShouldBeGreaterThan&lt;T&gt;(this T actual, T expected, string? message = null)
+    where T : IComparable&lt;T&gt;
 {
-    return &quot;&quot;;
-}
-</code></pre>
-<p>Or modify the return type of the test method to be <code>void</code>:</p>
-<pre><code class="lang-csharp">[TestCase(1)]
-public void NUnit1007SampleTest(int inputValue)
-{
-    return Assert.That(inputValue, Is.EqualTo(1));
+    Assert.That(actual, Is.GreaterThan(expected), message);
 }
 </code></pre>
 <!-- start generated config severity -->
@@ -144,21 +140,21 @@ public void NUnit1007SampleTest(int inputValue)
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit1007: The method has non-void return type, but no result is expected in ExpectedResult
-dotnet_diagnostic.NUnit1007.severity = chosenSeverity
+<pre><code class="lang-ini"># NUnit2042: Comparison constraint on object
+dotnet_diagnostic.NUnit2042.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1007 // The method has non-void return type, but no result is expected in ExpectedResult
+<pre><code class="lang-csharp">#pragma warning disable NUnit2042 // Comparison constraint on object
 Code violating the rule here
-#pragma warning restore NUnit1007 // The method has non-void return type, but no result is expected in ExpectedResult
+#pragma warning restore NUnit2042 // Comparison constraint on object
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1007 // The method has non-void return type, but no result is expected in ExpectedResult
+<pre><code class="lang-csharp">#pragma warning disable NUnit2042 // Comparison constraint on object
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
-<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Structure&quot;,
-    &quot;NUnit1007:The method has non-void return type, but no result is expected in ExpectedResult&quot;,
+<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
+    &quot;NUnit2042:Comparison constraint on object&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->
@@ -170,7 +166,7 @@ Code violating the rule here
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit1007.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit2042.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

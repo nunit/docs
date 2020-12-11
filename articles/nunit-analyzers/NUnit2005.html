@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit2005">NUnit2005</h1>
 
-<h2 id="consider-using-assertthatactual-isequaltoexpected-instead-of-assertareequalexpected-actual">Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual).</h2>
+<h2 id="consider-using-assertthatactual-isequaltoexpected-instead-of-assertareequalexpected-actual">Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)</h2>
 <table>
 <thead>
 <tr>
@@ -106,7 +106,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs">ClassicModelAssertUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs">ClassicModelAssertUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -135,21 +135,21 @@ public void Test()
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see <a href="https://msdn.microsoft.com/en-us/library/dd264949.aspx">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit2005: Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual).
+<pre><code class="lang-ini"># NUnit2005: Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)
 dotnet_diagnostic.NUnit2005.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2005 // Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual).
+<pre><code class="lang-csharp">#pragma warning disable NUnit2005 // Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)
 Code violating the rule here
-#pragma warning restore NUnit2005 // Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual).
+#pragma warning restore NUnit2005 // Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2005 // Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual).
+<pre><code class="lang-csharp">#pragma warning disable NUnit2005 // Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2005:Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual).&quot;,
+    &quot;NUnit2005:Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->
