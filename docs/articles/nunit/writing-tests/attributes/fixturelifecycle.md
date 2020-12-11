@@ -35,4 +35,4 @@ The constructor of **FixtureLifeCycleAttribute** takes a **LifeCycle** attribute
 
 * [Parallelizable Attribute](parallelizable.md)
 * [OneTimeSetUp Attribute](onetimesetup.md)
-* [OneTimeTearDown Atttribute](onetimeteardown.md)
+* [OneTimeTearDown Attribute](onetimeteardown.md)
