@@ -56,17 +56,17 @@ class OneTimeSetUp methods before those in the derived classes.
 
 ## Notes
 
- 1. Although it is possible to define multiple OneTimeSetUp methods
-    in the same class, you should rarely do so. Unlike methods defined in
-    separate classes in the inheritance hierarchy, the order in which they
-    are executed is not guaranteed.
+ 1. Although it is possible to define multiple **OneTimeSetUp** methods in the same class, you should rarely do so. Unlike methods defined in separate classes in the inheritance hierarchy, the order in which they are executed is not guaranteed.
 
- 2. OneTimeSetUp methods may be async if running under .NET 4.0 or higher.
+ 2. **OneTimeSetUp** methods may be async if running under .NET 4.0 or higher.
 
- 3. OneTimeSetUp methods run in the context of the TestFixture or SetUpFixture, which is separate from the context of    any individual test cases. It's important to keep this in mind when using [TestContext](xref:testcontext) methods and properties within the method.
+ 3. **OneTimeSetUp** methods run in the context of the **TestFixture** or **SetUpFixture**, which is separate from the context of any individual test cases. It's important to keep this in mind when using [TestContext](xref:testcontext) methods and properties within the method.
+
+ 4. When using **FixtureLifeCycle** with **LifeCycle.InstancePerTestCase**, the **OneTimeTearDown** method must be static and is only called once. This is required so that the setup method does not access instance fields or properties that are reset for every test.
 
 ## See Also
 
 * [SetUp Attribute](setup.md)
 * [TearDown Attribute](teardown.md)
 * [OneTimeTearDown Attribute](onetimeteardown.md)
+* [FixtureLifeCycle Attribute](fixturelifecycle.md)
