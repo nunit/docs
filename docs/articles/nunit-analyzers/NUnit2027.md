@@ -1,6 +1,6 @@
 # NUnit2027
 
-## Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected).
+## Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected)
 
 | Topic    | Value
 | :--      | :--
@@ -8,11 +8,11 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
+| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
 
 ## Description
 
-Consider using the constraint model, Assert.That(actual, Is.GreaterThan(expected)), instead of the classic model, Assert.Greater(actual, expected).
+Consider using the constraint model, `Assert.That(actual, Is.GreaterThan(expected))`, instead of the classic model, `Assert.Greater(actual, expected)`.
 
 ## Motivation
 
@@ -50,7 +50,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit2027: Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected).
+# NUnit2027: Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected)
 dotnet_diagnostic.NUnit2027.severity = chosenSeverity
 ```
 
@@ -59,22 +59,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit2027 // Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected).
+#pragma warning disable NUnit2027 // Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected)
 Code violating the rule here
-#pragma warning restore NUnit2027 // Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected).
+#pragma warning restore NUnit2027 // Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected)
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2027 // Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected).
+#pragma warning disable NUnit2027 // Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected)
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2027:Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected).",
+    "NUnit2027:Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected)",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

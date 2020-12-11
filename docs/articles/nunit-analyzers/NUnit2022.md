@@ -1,6 +1,6 @@
 # NUnit2022
 
-## Missing property required for constraint.
+## Missing property required for constraint
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Assertion
-| Code     | [MissingPropertyAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/MissingProperty/MissingPropertyAnalyzer.cs)
+| Code     | [MissingPropertyAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/MissingProperty/MissingPropertyAnalyzer.cs)
 
 ## Description
 
@@ -44,7 +44,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit2022: Missing property required for constraint.
+# NUnit2022: Missing property required for constraint
 dotnet_diagnostic.NUnit2022.severity = chosenSeverity
 ```
 
@@ -53,22 +53,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit2022 // Missing property required for constraint.
+#pragma warning disable NUnit2022 // Missing property required for constraint
 Code violating the rule here
-#pragma warning restore NUnit2022 // Missing property required for constraint.
+#pragma warning restore NUnit2022 // Missing property required for constraint
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2022 // Missing property required for constraint.
+#pragma warning disable NUnit2022 // Missing property required for constraint
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2022:Missing property required for constraint.",
+    "NUnit2022:Missing property required for constraint",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

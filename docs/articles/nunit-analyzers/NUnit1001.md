@@ -1,6 +1,6 @@
 # NUnit1001
 
-## The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method.
+## The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs)
+| Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs)
 
 ## Description
 
@@ -70,7 +70,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit1001: The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method.
+# NUnit1001: The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method
 dotnet_diagnostic.NUnit1001.severity = chosenSeverity
 ```
 
@@ -79,22 +79,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit1001 // The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method.
+#pragma warning disable NUnit1001 // The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method
 Code violating the rule here
-#pragma warning restore NUnit1001 // The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method.
+#pragma warning restore NUnit1001 // The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1001 // The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method.
+#pragma warning disable NUnit1001 // The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1001:The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method.",
+    "NUnit1001:The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

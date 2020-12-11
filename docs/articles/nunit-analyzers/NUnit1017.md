@@ -1,6 +1,6 @@
 # NUnit1017
 
-## The specified source is not static.
+## The specified source is not static
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
 
 ## Description
 
@@ -78,7 +78,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit1017: The specified source is not static.
+# NUnit1017: The specified source is not static
 dotnet_diagnostic.NUnit1017.severity = chosenSeverity
 ```
 
@@ -87,22 +87,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit1017 // The specified source is not static.
+#pragma warning disable NUnit1017 // The specified source is not static
 Code violating the rule here
-#pragma warning restore NUnit1017 // The specified source is not static.
+#pragma warning restore NUnit1017 // The specified source is not static
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1017 // The specified source is not static.
+#pragma warning disable NUnit1017 // The specified source is not static
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1017:The specified source is not static.",
+    "NUnit1017:The specified source is not static",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

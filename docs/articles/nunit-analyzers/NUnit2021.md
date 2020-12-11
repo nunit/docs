@@ -1,6 +1,6 @@
 # NUnit2021
 
-## Incompatible types for EqualTo constraint.
+## Incompatible types for EqualTo constraint
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Assertion
-| Code     | [EqualToIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/EqualToIncompatibleTypes/EqualToIncompatibleTypesAnalyzer.cs)
+| Code     | [EqualToIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/EqualToIncompatibleTypes/EqualToIncompatibleTypesAnalyzer.cs)
 
 ## Description
 
@@ -42,7 +42,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit2021: Incompatible types for EqualTo constraint.
+# NUnit2021: Incompatible types for EqualTo constraint
 dotnet_diagnostic.NUnit2021.severity = chosenSeverity
 ```
 
@@ -51,22 +51,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit2021 // Incompatible types for EqualTo constraint.
+#pragma warning disable NUnit2021 // Incompatible types for EqualTo constraint
 Code violating the rule here
-#pragma warning restore NUnit2021 // Incompatible types for EqualTo constraint.
+#pragma warning restore NUnit2021 // Incompatible types for EqualTo constraint
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2021 // Incompatible types for EqualTo constraint.
+#pragma warning disable NUnit2021 // Incompatible types for EqualTo constraint
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2021:Incompatible types for EqualTo constraint.",
+    "NUnit2021:Incompatible types for EqualTo constraint",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

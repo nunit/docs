@@ -1,6 +1,6 @@
 # NUnit2034
 
-## Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr).
+## Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr)
 
 | Topic    | Value
 | :--      | :--
@@ -8,11 +8,11 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
+| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
 
 ## Description
 
-Consider using the constraint model, Assert.That(expr, Is.NaN), instead of the classic model, Assert.IsNaN(expr).
+Consider using the constraint model, `Assert.That(expr, Is.NaN)`, instead of the classic model, `Assert.IsNaN(expr)`.
 
 ## Motivation
 
@@ -50,7 +50,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit2034: Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr).
+# NUnit2034: Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr)
 dotnet_diagnostic.NUnit2034.severity = chosenSeverity
 ```
 
@@ -59,22 +59,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit2034 // Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr).
+#pragma warning disable NUnit2034 // Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr)
 Code violating the rule here
-#pragma warning restore NUnit2034 // Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr).
+#pragma warning restore NUnit2034 // Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr)
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2034 // Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr).
+#pragma warning disable NUnit2034 // Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr)
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2034:Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr).",
+    "NUnit2034:Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr)",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

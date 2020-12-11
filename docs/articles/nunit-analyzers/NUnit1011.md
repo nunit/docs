@@ -1,6 +1,6 @@
 # NUnit1011
 
-## The TestCaseSource argument does not specify an existing member.
+## The TestCaseSource argument does not specify an existing member
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
 
 ## Description
 
@@ -81,7 +81,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit1011: The TestCaseSource argument does not specify an existing member.
+# NUnit1011: The TestCaseSource argument does not specify an existing member
 dotnet_diagnostic.NUnit1011.severity = chosenSeverity
 ```
 
@@ -90,22 +90,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit1011 // The TestCaseSource argument does not specify an existing member.
+#pragma warning disable NUnit1011 // The TestCaseSource argument does not specify an existing member
 Code violating the rule here
-#pragma warning restore NUnit1011 // The TestCaseSource argument does not specify an existing member.
+#pragma warning restore NUnit1011 // The TestCaseSource argument does not specify an existing member
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1011 // The TestCaseSource argument does not specify an existing member.
+#pragma warning disable NUnit1011 // The TestCaseSource argument does not specify an existing member
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1011:The TestCaseSource argument does not specify an existing member.",
+    "NUnit1011:The TestCaseSource argument does not specify an existing member",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

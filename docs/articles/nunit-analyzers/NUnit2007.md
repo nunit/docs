@@ -1,6 +1,6 @@
 # NUnit2007
 
-## The actual value should not be a constant.
+## The actual value should not be a constant
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Assertion
-| Code     | [ConstActualValueUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ConstActualValueUsage/ConstActualValueUsageAnalyzer.cs)
+| Code     | [ConstActualValueUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ConstActualValueUsage/ConstActualValueUsageAnalyzer.cs)
 
 ## Description
 
@@ -64,7 +64,7 @@ Configure the severity per project, for more info see [MSDN](https://msdn.micros
 ### Via .editorconfig file
 
 ```ini
-# NUnit2007: The actual value should not be a constant.
+# NUnit2007: The actual value should not be a constant
 dotnet_diagnostic.NUnit2007.severity = chosenSeverity
 ```
 
@@ -73,22 +73,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit2007 // The actual value should not be a constant.
+#pragma warning disable NUnit2007 // The actual value should not be a constant
 Code violating the rule here
-#pragma warning restore NUnit2007 // The actual value should not be a constant.
+#pragma warning restore NUnit2007 // The actual value should not be a constant
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2007 // The actual value should not be a constant.
+#pragma warning disable NUnit2007 // The actual value should not be a constant
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2007:The actual value should not be a constant.",
+    "NUnit2007:The actual value should not be a constant",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->
