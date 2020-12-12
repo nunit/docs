@@ -33,6 +33,6 @@ The constructor of **FixtureLifeCycleAttribute** takes a **LifeCycle** attribute
 
 ## See Also
 
-* [Parallelizable Attribute](parallelizable.md)
-* [OneTimeSetUp Attribute](onetimesetup.md)
-* [OneTimeTearDown Attribute](onetimeteardown.md)
+* [Parallelizable Attribute](xref:parallelizableattribute)
+* [OneTimeSetUp Attribute](xref:onetimesetup-attribute)
+* [OneTimeTearDown Attribute](xref:onetimeteardown-attribute)
