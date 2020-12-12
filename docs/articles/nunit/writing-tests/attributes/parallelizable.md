@@ -15,7 +15,7 @@ When used without an argument, **Parallelizable** causes the test fixture or met
 
 The constructor takes an optional **ParallelScope** enumeration argument (see below), which indicates whether the attribute applies to the item itself, to its descendants or both. It defaults to **ParallelScope.Self**. The Scope may also be specified using the named property **scope=**, for example;
 
-```c#
+```csharp
 [Parallelizable(scope: ParallelScope.All)]
 ```
 
