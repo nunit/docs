@@ -57,19 +57,19 @@ class OneTimeTearDown methods after those in the derived classes.
 
 ## Notes
 
- 1. Although it is possible to define multiple **OneTimeTearDown** methods in the same class, you should rarely do so. Unlike methods defined in separate classes in the inheritance hierarchy, the order in which they are executed is not guaranteed.
+* Although it is possible to define multiple `OneTimeTearDown` methods in the same class, you should rarely do so. Unlike methods defined in separate classes in the inheritance hierarchy, the order in which they are executed is not guaranteed.
 
- 2. **OneTimeTearDown** methods may be async if running under .NET 4.0 or higher.
+ * `OneTimeTearDown` methods may be async if running under .NET 4.0 or higher.
 
- 3. **OneTimeTearDown** methods run in the context of the TestFixture or SetUpFixture, which is separate from the context of any individual test cases. It's important to keep this in mind when using [TestContext](xref:testcontext) methods and properties within the method.
+* `OneTimeTearDown` methods run in the context of the [`TestFixture`](xref:testfixtureattribute) or [`SetUpFixture`](xref:setupfixture-attribute), which is separate from the context of any individual test cases. It's important to keep this in mind when using [`TestContext`](xref:testcontext) methods and properties within the method.
 
- 4. When using **FixtureLifeCycle** with **LifeCycle.InstancePerTestCase**, the **OneTimeTearDown** method must be static and is only called once. This is required so that the teardown method does not access instance fields or properties that are reset for every test.
+* When using  [`FixtureLifeCycle`](xref:fixturelifecycleattribute) with `LifeCycle.InstancePerTestCase`, the `OneTimeTearDown` method must be static and is only called once. This is required so that the teardown method does not access instance fields or properties that are reset for every test.
 
 ## See Also
 
 * [SetUp Attribute](setup.md)
 * [TearDown Attribute](teardown.md)
-* [OneTimeSetUp Attribute](onetimesetup.md)
-* [TestFixture Attribute](testfixture.md)
-* [SetUpFixture Attribute](setupfixture.md)
-* [FixtureLifeCycle Attribute](fixturelifecycle.md)
+* [OneTimeSetUp Attribute](xref:onetimesetup-attribute)
+* [TestFixture Attribute](xref:testfixtureattribute)
+* [SetUpFixture Attribute](xref:setupfixture-attribute)
+* [FixtureLifeCycle Attribute](fixturelifecycleattribute)
