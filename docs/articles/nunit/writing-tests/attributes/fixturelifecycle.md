@@ -10,7 +10,7 @@ The **FixtureLifeCycleAttribute** is used to indicate that an instance for a tes
 
 This attribute may be applied to a test fixture (class) or to a test assembly. It is useful in combination with the [Parallelizable Attribute](parallelizable.md) so that a new instance of a test fixture is constructed for every test within the test fixture. This allows tests to run in isolation without sharing instance fields and properties during parallel test runs. This make running parallel tests easier because it is easier to make your tests thread safe.
 
-This attribute can be applied to Classes or to the entire test Assembly. If applied to an Assembly, it may be overridden at the class level.
+This attribute can be applied to classes or to the entire test assembly. If applied to an assembly, it may be overridden at the class level.
 
 ## LifeCycle Enumeration
 
