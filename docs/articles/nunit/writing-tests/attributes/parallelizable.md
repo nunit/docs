@@ -40,6 +40,6 @@ This is a **[Flags]** enumeration used to specify which tests may run in paralle
 
 ## See Also
 
-* [FixtureLifeCycle Attribute](fixturelifecycle.md)
+* [FixtureLifeCycle Attribute](xref:fixturelifecycleattribute)
 * [NonParallelizable Attribute](nonparallelizable.md)
 * [LevelOfParallelism Attribute](levelofparallelism.md)
