@@ -59,7 +59,7 @@ class OneTimeTearDown methods after those in the derived classes.
 
 * Although it is possible to define multiple `OneTimeTearDown` methods in the same class, you should rarely do so. Unlike methods defined in separate classes in the inheritance hierarchy, the order in which they are executed is not guaranteed.
 
- * `OneTimeTearDown` methods may be async if running under .NET 4.0 or higher.
+* `OneTimeTearDown` methods may be async if running under .NET 4.0 or higher.
 
 * `OneTimeTearDown` methods run in the context of the [`TestFixture`](xref:testfixtureattribute) or [`SetUpFixture`](xref:setupfixture-attribute), which is separate from the context of any individual test cases. It's important to keep this in mind when using [`TestContext`](xref:testcontext) methods and properties within the method.
 
@@ -72,4 +72,4 @@ class OneTimeTearDown methods after those in the derived classes.
 * [OneTimeSetUp Attribute](xref:onetimesetup-attribute)
 * [TestFixture Attribute](xref:testfixtureattribute)
 * [SetUpFixture Attribute](xref:setupfixture-attribute)
-* [FixtureLifeCycle Attribute](fixturelifecycleattribute)
+* [FixtureLifeCycle Attribute](xref:fixturelifecycleattribute)

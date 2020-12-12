@@ -4,7 +4,7 @@ uid: fixturelifecycleattribute
 
 # FixtureLifeCycle
 
-Added in **NUnit 3.13.**
+Added in **NUnit 3.13**
 
 The `FixtureLifeCycleAttribute` is used to indicate that an instance for a test fixture or all test fixtures in an assembly should be constructed for each test within the fixture or assembly.
 
@@ -18,8 +18,8 @@ The constructor of `FixtureLifeCycleAttribute` takes a `LifeCycle` attribute to 
 
  Value | Meaning
 -------|---------
-**LifeCycle.SingleInstance**     | A single instance is created and shared for all test cases
-**LifeCycle.InstancePerTestCase** | A new instance is created for each test case
+`LifeCycle.SingleInstance`     | A single instance is created and shared for all test cases
+`LifeCycle.InstancePerTestCase` | A new instance is created for each test case
 
 ## Notes
 
