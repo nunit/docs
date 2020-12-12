@@ -36,7 +36,7 @@ This is a **[Flags]** enumeration used to specify which tests may run in paralle
 
 * The `ParallelScope` enum has additional values, which are used internally but are not visible to users through Intellisense.
 
-3. The **ParallelizableAttribute** may be specified on multiple levels of the tests. Settings at a higher level may affect lower level tests, unless those lower-level tests override the inherited settings.
+* The `ParallelizableAttribute` may be specified on multiple levels of the tests. Settings at a higher level may affect lower level tests, unless those lower-level tests override the inherited settings.
 
 ## See Also
 
