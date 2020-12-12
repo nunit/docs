@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
 
 ## Description
 
@@ -74,11 +74,20 @@ public static object[] MyTestSource()
 <!-- start generated config severity -->
 ## Configure severity
 
-### Via ruleset file.
+### Via ruleset file
 
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
-### Via #pragma directive.
+### Via .editorconfig file
+
+```ini
+# NUnit1011: The TestCaseSource argument does not specify an existing member.
+dotnet_diagnostic.NUnit1011.severity = chosenSeverity
+```
+
+where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, or `error`.
+
+### Via #pragma directive
 
 ```csharp
 #pragma warning disable NUnit1011 // The TestCaseSource argument does not specify an existing member.
@@ -92,7 +101,7 @@ Or put this at the top of the file to disable all instances.
 #pragma warning disable NUnit1011 // The TestCaseSource argument does not specify an existing member.
 ```
 
-### Via attribute `[SuppressMessage]`.
+### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",

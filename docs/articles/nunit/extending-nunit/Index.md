@@ -5,4 +5,4 @@ NUnit is intended to be extensible. We can't do everything for everybody but we 
 ## Types of Extensibility
 
 * [Framework Extensibility](Framework-Extensibility.md)
-* [Engine Extensibility](Engine-Extensibility.md)
+* [Engine Extensibility](xref:engineextensionsindex)

@@ -1,14 +1,12 @@
+---
+uid: testengineapi
+---
+
 # Test Engine API
 
 The NUnit Test Engine API is our published API for discovering, exploring and executing tests programmatically. Third-party test runners should use the Engine API as the supported method to execute NUnit tests.
 
 ## Overview
-
-The Engine API is included in the `nunit.engine.api` assembly, which must be referenced by any runners wanting to use it. This assembly is being released as version 3.0, to coincide with the versioning of other NUnit components.
-
-The actual engine is contained in the `nunit.engine` assembly. This assembly is **not** referenced by the runners. Instead, the API is used to locate and load an appropriate version of the engine, returning an instance of the `ITestEngine` interface to the  runner.
-
-### Getting an Instance of the Engine
 
 The static class [TestEngineActivator](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/TestEngineActivator.cs) is used to get an interface to the engine. Its `CreateInstance` member has two overloads, depending on whether a particular minimum version of the engine is required.
 
@@ -19,10 +17,7 @@ public static ITestEngine CreateInstance(Version minVersion, bool unused = false
 
 (The `unused` bool parameter previously allowed users to indicate if wished to restrict usage of global NUnit Engine installations. The latter functionality is no longer available.)
 
-We search for the engine in a standard set of locations, starting with the current ApplicationBase.
-
-1. The Application base and probing `privatepath`.
-2. A copy installed as a NuGet package - intended for use only when developing runners that make use of the engine.
+The TestEngineActivator searches for an engine to load in two places. First, the current App Domain Base Directory is searched, and then any path set as the App Domain's `RelativeSearchPath`.
 
 ### Key Interfaces
 
@@ -64,15 +59,11 @@ namespace NUnit.Engine
         InternalTraceLevel InternalTraceLevel { get; set; }
 
         /// <summary>
-        /// Initialize the engine. This includes initializing mono addins,
-        /// setting the trace level and creating the standard set of services
-        /// used in the Engine.
+        /// Initialize the engine. This includes setting the trace level and
+        /// creating the standard set of services used in the Engine.
         ///
-        /// This interface is not normally called by user code. Programs linking
-        /// only to the nunit.engine.api assembly are given a
-        /// pre-initialized instance of TestEngine. Programs
-        /// that link directly to nunit.engine usually do so
-        /// in order to perform custom initialization.
+        /// This interface is not recommended to be called by user code. The TestEngineActivator
+        /// will provide a pre-initialized engine, which should be used as provided.
         /// </summary>
         void Initialize();
 
@@ -91,11 +82,11 @@ The normal sequence of calls for initially acquiring this interface is:
 
 ```csharp
 ITestEngine engine = TestEngineActivator.CreateInstance(...);
-engine.WorkDirectory = ...; // Defaults to the current directory
-engine.InternalTraceLevel = ...; // Defaults to Off
+engine.WorkDirectory = ...;         // Defaults to the current directory
+engine.InternalTraceLevel = ...;    // Defaults to off
 ```
 
-The engine provides a number of services, some internal and some public. Public services are those for which the interface is publicly defined in the nunit.engine.api assembly. Internal services are... well, internal to the engine. See below for a list of public services available to runners.
+The engine provides a number of services, some internal and some public. Public services are those for which the interface is publicly defined in the nunit.engine.api assembly, listed later in this document.
 
 The final and probably most frequently used method on the interface is `GetRunner`. It takes a `TestPackage` and returns an `ITestRunner` that is appropriate for the options specified.
 
@@ -166,7 +157,7 @@ namespace NUnit.Engine
         ITestRun RunAsync(ITestEventListener listener, TestFilter filter);
 
         /// <summary>
-        /// Cancel the ongoing test run. If no  test is running, the call is ignored.
+        /// Cancel the ongoing test run. If no test is running, the call is ignored.
         /// </summary>
         /// <param name="force">If true, cancel any ongoing test threads, otherwise wait for them to complete.</param>
         void StopRun(bool force);
@@ -185,25 +176,7 @@ For the most common use cases, it isn't necessary to call `Load`, `Unload` or `R
 
 The `Explore` methods returns an `XmlNode` containing the description of all tests found. The `Run` method returns an `XmlNode` containing the results of every test. The XML format for results is the same as that for the exploration of tests, with additional nodes added to indicate the outcome of the test. `RunAsync` returns an `ITestRun` interface, which allows retrieving the XML result when it is complete.
 
-The progress of a run is reported to the `ITestEventListener` passed to one of the run methods. Notifications received on this interface are strings in XML format, rather than XmlNodes, so that they may be passed directly across a Remoting interface.
-
-The following example shows how to get a copy of the engine, create a runner and run tests using the interfaces.
-
-```csharp
-// Get an interface to the engine
-ITestEngine engine = TestEngineActivator.CreateInstance();
-
-// Create a simple test package - one assembly, no special settings
-TestPackage package = new TestPackage("my.test.assembly.dll");
-
-// Get a runner for the test package
-ITestRunner runner = engine.GetRunner(package);
-
-// Run all the tests in the assembly
-XmlNode testResult = runner.Run(this, TestFilter.Empty);
-```
-
-The call to `Run` assumes that the calling class implements ITestEventListener. The returned result is an XmlNode representing the result of the test run.
+The progress of a run is reported to the `ITestEventListener` passed to the run methods. Notifications received on this interface are strings in XML format, rather than XmlNodes, so that they may be passed directly across a Remoting interface.
 
 #### Engine Services
 
@@ -255,26 +228,6 @@ The following services are used internally by the engine but are not currently e
 | RuntimeFrameworkSelector | Determines the runtime framework to be used in running a test |
 | TestAgency               | Creates and manages Processes used to run tests       |
 
-##### Extensibility Interfaces
+#### Extensibility Interfaces
 
-The following interfaces are used by engine extensions:
-
-| Interface              | Extension Function  |
-|------------------------|-----------------|
-| [IProjectLoader](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/Extensibility/IProjectLoader.cs)       | Load projects in a particular format |
-| [IProject](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/Extensibility/IProject.cs)             | Project returned by IProjectLoader |
-| [IDriverFactory](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/Extensibility/IDriverFactory.cs)       | Provide a driver to interface with a test framework |
-| [IFrameworkDriver](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/Extensibility/IFrameworkDriver.cs)     | Driver returned by IDriverFactory |
-| [IResultWriter](https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/Extensibility/IResultWriter.cs)        | Result writer returned by IResultWriterFactory |
-
-### Objectives of the API
-
-The API was developed with a number of objectives in mind:
-
-* To provide a public, published API for discovering and executing NUnit tests, suitable for use by the NUnit console and Gui runners as well as by third parties.
-* To allow discovery and execution of NUnit tests independent of the particular build or version of the framework used and without the need to reference the framework itself.
-* To allow future development of drivers for other frameworks and for those tests to be discovered and executed in the same way as NUnit tests.
-* To provide specific features beyond the frameworks, including:
-  * Determining how and where each test assembly is loaded and executed.
-  * Parsing project files of various types and using them to determine the location of test assemblies and the options to be used in executing them.
-  * Providing access to NUnit settings for a machine.
+The API also contains various interfaces used by engine extensions. More information on these can be found in the [Engine Extensions](xref:engineextensionsindex) section.

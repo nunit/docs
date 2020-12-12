@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
 
 ## Description
 
@@ -60,11 +60,20 @@ public class AnalyzeWhenSourceDoesProvideIEnumerable
 <!-- start generated config severity -->
 ## Configure severity
 
-### Via ruleset file.
+### Via ruleset file
 
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
-### Via #pragma directive.
+### Via .editorconfig file
+
+```ini
+# NUnit1019: The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable.
+dotnet_diagnostic.NUnit1019.severity = chosenSeverity
+```
+
+where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, or `error`.
+
+### Via #pragma directive
 
 ```csharp
 #pragma warning disable NUnit1019 // The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable.
@@ -78,7 +87,7 @@ Or put this at the top of the file to disable all instances.
 #pragma warning disable NUnit1019 // The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable.
 ```
 
-### Via attribute `[SuppressMessage]`.
+### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",

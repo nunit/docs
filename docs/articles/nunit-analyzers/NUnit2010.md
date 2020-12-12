@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [EqualConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.4.0/src/nunit.analyzers/ConstraintUsage/EqualConstraintUsageAnalyzer.cs)
+| Code     | [EqualConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.5.0/src/nunit.analyzers/ConstraintUsage/EqualConstraintUsageAnalyzer.cs)
 
 ## Description
 
@@ -44,11 +44,20 @@ public void Test()
 <!-- start generated config severity -->
 ## Configure severity
 
-### Via ruleset file.
+### Via ruleset file
 
 Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
 
-### Via #pragma directive.
+### Via .editorconfig file
+
+```ini
+# NUnit2010: Use EqualConstraint for better assertion messages in case of failure.
+dotnet_diagnostic.NUnit2010.severity = chosenSeverity
+```
+
+where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, or `error`.
+
+### Via #pragma directive
 
 ```csharp
 #pragma warning disable NUnit2010 // Use EqualConstraint for better assertion messages in case of failure.
@@ -62,7 +71,7 @@ Or put this at the top of the file to disable all instances.
 #pragma warning disable NUnit2010 // Use EqualConstraint for better assertion messages in case of failure.
 ```
 
-### Via attribute `[SuppressMessage]`.
+### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",

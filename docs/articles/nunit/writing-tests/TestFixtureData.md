@@ -10,7 +10,7 @@ The following example varies the example shown under [TestFixture Attribute](xre
 a `TestFixtureSourceAttribute` with a data source in a separately defined class.
 
 ```csharp
-[TestFixtureSource(typeof(MyFixtureData), "Fixtureparams")]
+[TestFixtureSource(typeof(MyFixtureData), nameof(MyFixtureData.Fixtureparams))]
 public class ParameterizedTestFixture
 {
     private string eq1;
