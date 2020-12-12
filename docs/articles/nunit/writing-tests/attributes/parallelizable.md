@@ -32,7 +32,7 @@ This is a **[Flags]** enumeration used to specify which tests may run in paralle
 
 ## Notes
 
-1. Some values are invalid on certain elements, although they will compile. NUnit will report any tests so marked as invalid and will produce an error message.
+* Some values are invalid on certain elements, although they will compile. NUnit will report any tests so marked as invalid and will produce an error message.
 
 2. The **ParallelScope** enum has additional values, which are used internally but are not visible to users through Intellisense.
 
