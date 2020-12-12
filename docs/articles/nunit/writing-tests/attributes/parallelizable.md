@@ -34,7 +34,7 @@ This is a **[Flags]** enumeration used to specify which tests may run in paralle
 
 * Some values are invalid on certain elements, although they will compile. NUnit will report any tests so marked as invalid and will produce an error message.
 
-2. The **ParallelScope** enum has additional values, which are used internally but are not visible to users through Intellisense.
+* The `ParallelScope` enum has additional values, which are used internally but are not visible to users through Intellisense.
 
 3. The **ParallelizableAttribute** may be specified on multiple levels of the tests. Settings at a higher level may affect lower level tests, unless those lower-level tests override the inherited settings.
 
