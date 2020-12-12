@@ -16,6 +16,7 @@ This table lists all the attributes supported by NUnit.
 | [DefaultFloatingPointTolerance Attribute](attributes/defaultfloatingpointtolerance.md) | Indicates that the test should use the specified tolerance as default for float and double comparisons. |
 | [Description Attribute](attributes/description.md)         | Applies descriptive text to a Test, TestFixture or Assembly. |
 | [Explicit Attribute](attributes/explicit.md)            | Indicates that a test should be skipped unless explicitly run. |
+| [FixtureLifeCycle Attribute](attributes/fixturelifecycle.md)  | Specifies the lifecycle of a fixture allowing a new instance of a test fixture to be constructed for each test case. Useful in situations where test case parallelism is important. |
 | [Ignore Attribute](attributes/ignore.md)              | Indicates that a test shouldn't be run for some reason. |
 | [LevelOfParallelism Attribute](attributes/levelofparallelism.md)  | Specifies the level of parallelism at assembly level. |
 | [MaxTime Attribute](attributes/maxtime.md)             | Specifies the maximum time in milliseconds for a test case to succeed. |
