@@ -59,7 +59,7 @@ uid: frameworkreleasenotes
 * [3331](https://github.com/nunit/nunit/issues/3331) `Contains.Key` no longer working for `IDictionary`
 * [3338](https://github.com/nunit/nunit/issues/3338) Azure Pipelines is failing on Linux for both netstandard 1.4 and 2.0
 * [3356](https://github.com/nunit/nunit/issues/3356) `SetUpFixture` not run
-* [3368](https://github.com/nunit/nunit/issues/3368) Tests with warnings are not added to console TestResult.xml's total count
+* [3368](https://github.com/nunit/nunit/issues/3368) Tests with warnings are not added to console `TestResult.xml` total count
 * [3383](https://github.com/nunit/nunit/issues/3383) Drop netstandard1.4 and stop testing on end-of-life versions of .NET Core
 * [3389](https://github.com/nunit/nunit/issues/3389) Show names of parameters
 * [3390](https://github.com/nunit/nunit/issues/3390) `SetUpFixture` not being triggered when running tests using `--testlist`
@@ -104,7 +104,7 @@ uid: frameworkreleasenotes
 * [3632](https://github.com/nunit/nunit/issues/3632) `Assert.Inconclusive()` reports failed when timeout used
 * [3636](https://github.com/nunit/nunit/issues/3636) NUnitLite filtering fails if space in test name before (
 * [3641](https://github.com/nunit/nunit/issues/3641) Type implementing `IComparable<float>` (or any `IComparable`) fails comparison.
-* [3647](https://github.com/nunit/nunit/issues/3647) Fix exception under blazor 5
+* [3647](https://github.com/nunit/nunit/issues/3647) Fix exception under Blazor 5
 * [3650](https://github.com/nunit/nunit/issues/3650) Build issue with the latest .NET SDK 5.0.100-rc.2
 * [3657](https://github.com/nunit/nunit/issues/3657) Add Framework Version to the XML
 * [3662](https://github.com/nunit/nunit/issues/3662) `TestContext.CurrentContext.CurrentRepeatCount` only contains retry count not the repeat count
