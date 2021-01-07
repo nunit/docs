@@ -88,88 +88,58 @@
 <h1 id="packaging-the-framework">Packaging the Framework</h1>
 
 <p>This note describes how to create release packages for the NUnit Framework. Currently, all the builds and packaging must be done on a single Windows machine. This is likely to change in the future as we add more platforms.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>These instructions assume that you are creating releases for SilverLight and the Compact Framework at the same time as the general release. If that's not the case, you may skip the steps marked CF or SL. To release either build separately, perform those steps in sequence.</p>
-</div>
 <h2 id="software-prerequisites">Software Prerequisites</h2>
 <p>Various software combinations and environments may be used to build NUnit components. The following software is what we have used and tested for building everything and creating the release packages. We'll add options to the list as we find them.</p>
 <ol>
-<li>Visual Studio 2017 with the NuGet Package manager.</li>
-<li>.NET Core 1.1.4</li>
+<li>Visual Studio 2019 16.8 or newer with the NuGet Package manager.</li>
+<li>.NET 5.0 SDK</li>
 </ol>
 <h2 id="preparing-for-release">Preparing for Release</h2>
 <h3 id="create-a-release-branch">Create a Release Branch</h3>
 <p>All work on releases should be done on a branch.</p>
 <ol>
-<li>Fetch and pull latest from master</li>
-<li>Check out the release branch</li>
-<li>Merge latest into the release branch</li>
-<li>As you make the changes below, push the branch to GitHub and create a Pull Request to allow other team members to review your changes.</li>
-<li><strong>Do not merge the release branch or PR</strong>, we will create a separate PR to merge the changes back into master.</li>
+<li>On master <code>git checkout master</code>, Fetch <code>git fetch -p</code> and pull latest <code>git pull</code></li>
+<li>Create a branch to prepare the release <code>git checkout -b release313</code></li>
+<li>Push the branch to GitHub <code>git push -u origin release313</code></li>
+<li>As you make the changes below, push the changes to GitHub and create a Pull Request targeting the <code>release</code> branch to allow other team members to review your changes.</li>
+<li>The PR can be created in the web or using the GitHub CLI with <code>gh pr create -a rprouse -B release -t &quot;Release 3.13&quot;</code></li>
 </ol>
 <h3 id="make-sure-it-works">Make Sure it Works</h3>
 <ol>
 <li><p>Close all instances of Visual Studio or other IDE to ensure that no changes are left unsaved.</p>
 </li>
 <li><p>Do a clean build and run all the tests on Windows. You may use the command below or three separate commands if preferred. If you encounter errors at any stage, you're not actually ready to release!</p>
-<p><code>build.cmd -Target=Clean</code>
-<code>build.cmd -Target=Test</code></p>
+<p><code>.\build.ps1 -Target Clean</code>
+<code>.\build.ps1 -Target Test</code></p>
 </li>
-<li><p>Repeat the build on a Linux system, if available. If this is not possible, be sure to scrutinize the results from the Travis CI build carefully. On Linux, you may use the command</p>
+<li><p>Repeat the build on a Linux system, if available. If this is not possible, be sure to scrutinize the results from the Linux Azure DevOps build carefully. On Linux, you may use the command</p>
 <p><code>./build -Target=Test</code></p>
-</li>
-<li><p>Make sure that the most recent commits of master passed all tests in the CI builds. Check the builds on both Travis and AppVeyor.</p>
 </li>
 </ol>
 <h3 id="review-milestone-status">Review Milestone Status</h3>
 <ol>
-<li><p>Check the milestone for the current release to see that there are no open issues. Any issues that are not going to be in this release should be moved to a future milestone. This may be the time to create the next milestone.</p>
-</li>
-<li><p>Make sure that completed issues are marked with the appropriate 'closed' label depending on disposition. The release notes will end up reflecting issues marked closed:done.</p>
-</li>
-<li><p>Check all future open milestones for completed issues. Anything that is completed will be included in this release so change its milestone to the current release.</p>
-</li>
+<li>Check the milestone for the current release to see that there are no open issues. Any issues that are not going to be in this release should be moved to a future milestone. This may be the time to create the next milestone.</li>
+<li>Make sure that completed issues are marked with the appropriate 'closed' label depending on disposition. The release notes will end up reflecting issues marked closed:done.</li>
+<li>Check all future open milestones for completed issues. Anything that is completed will be included in this release so change its milestone to the current release.</li>
+<li>Review all closed issues without a milestone. Move them to the current milestone if they were fixed in this release, or set their milestone to <code>Closed without action</code> for questions and issues that were closed without a fix.</li>
 </ol>
-<h3 id="check-assembly-versioning">Check Assembly Versioning</h3>
-<p>AssemblyVersion and AssemblyFileVersion are set separately for the framework, engine, engine api and console runner. Each is kept in a separate file and they may be updated separately. Using the 3.4.1 release as an example, version information was set as follows:</p>
-<pre><code>  Component             | File to Update      | AssemblyVersion | AssemblyFileVersion 
-  --------------------- | ------------------- | --------------- | -------------------
-  Framework             | FrameworkVersion.cs |     3.6.0.0     |      3.6.0.0
-</code></pre>
 <h3 id="update-copyright-year">Update Copyright Year</h3>
 <p>The copyright year in all the source files is only updated as they are changed, but the copyright in the <code>[assembly: AssemblyCopyright(&quot;...&quot;)]</code> and the copyright text displayed by <code>nunitlite</code> should be updated to the year of the release. Search for <code>AssemblyCopyright</code> in the solution and update it where needed, then check <code>TextUI.cs</code> in <code>nunitlite-runner</code> for default values used when no attribute is found.</p>
-<p>If necessary, update the year in the general copyright notice LICENSE.txt. Note that these copyright notices refer to each of the packages in their entirety. Each of the <code>.nuspec</code> files in the <code>nuget</code> subdirectory contains a copyright line, which should also be updated.</p>
+<p>If necessary, update the year in the general copyright notice LICENSE.txt. Note that these copyright notices refer to each of the packages in their entirety. Each of the <code>.nuspec</code> files in the <code>nuget</code> subdirectory contains a copyright line, which should also be updated along with <code>program.cs</code> and <code>program.vb</code> in the <code>nuspec/nunitlite</code> directory.</p>
 <p>Notices at the top of each source code file are only updated when copyrightable changes are made to the file, not at the time of release.</p>
-<h3 id="update-package-versions">Update Package Versions</h3>
-<p>The package version is updated in the <code>build.cake</code> file. The following lines appear near the beginning of the file. Update the versions and modifiers as necessary.</p>
-<pre><code class="lang-csharp">var version=&quot;3.6.0&quot;;
-var modifier=&quot;&quot;
-</code></pre>
-<p>The version variables are three-part version numbers that follow the basic principles of <a href="https://semver.org/">semantic versioning</a>. Since we publish a number of NuGet packages, we use the NuGet implementation of semantic versioning.</p>
-<p>For NUnit, the major version is updated only rarely. Normal releases will update the minor version and set the third component to zero. The third component is incremented when &quot;hot fixes&quot; are made to a production release or for builds created for a special purpose.</p>
-<p>For pre-release versions, a non-empty modifier is specified. This is a suffix added to the version. Our standard suffixes are currently <code>-alpha-n</code>, <code>-beta-n</code> and <code>-rc-n</code> The build script adds an additional suffix of -dbg to any packages created using a Debug build.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>The first alpha, beta or rc release may omit the <code>-n</code>. In that case, any following alpha, beta or rc should use <code>-2</code>.</p>
-</div>
 <h3 id="update-changes-file">Update CHANGES File</h3>
 <p>The <code>CHANGES.md</code> file in the project root contains all relevant changes for each release. It contains the same information as the release notes in the project documentation, in text format. Because the CHANGES file includes the <strong>date</strong> of the release, you must know when the release is coming out in order to edit it. Otherwise, it will be necessary to make a final change to the file at the point of making the release.</p>
 <p>Create new sections in the CHANGES file to match those for prior releases. To ensure that all changes are included, review closed issues in the current and any future milestones. If an issue for a previous milestone was actually completed and closed, move it to the current milestone, since that's where it is being released. Include all issues resolved as closed:done in the issues section of the file. Significant feature additions and changes should be documented, even if they are also listed with issue numbers. Reviewing commits and merged pull requests may help in catching additional changes.</p>
-<p>You should commit the CHANGES file separately from the version number changes since that commit will be merged back into master while the version changes will not.</p>
+<p>To generate the change list in the format required, use <a href="https://github.com/rprouse/GetChanges">rprouse/GetChanges</a> which fetches and prints all issues in the current milestone.</p>
+<p><code>GetChanges.exe -o nunit -r nunit</code></p>
 <h3 id="update-the-documentation">Update the Documentation</h3>
-<p>The <a class="xref" href="../nunit/release-notes/framework.html">Release Notes</a> section of the documentation site should match the content of the CHANGES.txt file except for any format differences.</p>
-<div class="NOTE">
-<h5>Note</h5>
-</div>
-<p>Now that the documentation is being kept in a github site, it may be possible to use the github markdown text directly in this file for future releases.</p>
-<p>For any significant changes to how NUnit is used or what it does, the appropriate pages of the documentation should be updated or new pages created. If you do this in advance of the release (which is actually a good idea) you should do it in a way that the new documentation is not visible until the release is actually made.</p>
-<h3 id="regenerate-the-public-api-files">Regenerate the Public API Files</h3>
-<p>TODO: Add detail during the next release...</p>
-<p>During each release, we will have to manually delete the entire contents of each of the eight Shipped/Unshipped files, then use the light bulb fix on the warnings in the error list to repopulate the Unshipped files, then cut the contents of each Unshipped file and paste</p>
+<p>The <a class="xref" href="../nunit/release-notes/framework.html">Release Notes</a> section of the documentation site should match the content of the <code>CHANGES.md</code> file except for any format differences.</p>
+<p>Once again, <code>GetChanges.exe -o nunit -r nunit -l</code> may be used to generate the issue list in the appropriate format.</p>
+<p>For any significant changes to how NUnit is used or what it does, the appropriate pages of the documentation should be updated or new pages created. For new features or changes to features, include the version of NUnit that the feature was implemented in.</p>
 <h3 id="push-all-changes">Push All Changes</h3>
-<p>If you made any changes to the files in git as part of the preceding steps. Make sure you have pushed them and they have been reviewed in the PR.</p>
-<h2 id="creating-the-release">Creating the Release</h2>
+<p>Push all changes to the files in git as part of the preceding steps. Make sure you have pushed them and they have been reviewed in the PR.</p>
+<h2 id="creating-the-release-locally">Creating the Release Locally</h2>
+<p>The release <strong>should not</strong> be built on a developers machine, it should be built by the build servers. The following steps are only for reproducing the steps locally.</p>
 <ol>
 <li><p>Clear the package directory to avoid confusion:</p>
 <p><code>erase package\*</code></p>
@@ -200,75 +170,70 @@ this step as a new one will be created automatically.</p>
 <li>NUnitLite.VERSION.nupkg</li>
 </ul>
 <h2 id="testing-the-release">Testing the Release</h2>
-<p>The degree to which each package needs testing may vary depending on what has been changed. Here is a minimal set of tests for each package.</p>
-<ul>
-<li><p><strong>Binary Zip</strong> Unzip the file, change into the bin directory and use an install of the console to run all the tests.</p>
-<pre><code>```
-nunit3-console.exe net-2.0\nunit.framework.tests.dll
-nunit3-console.exe net-3.5\nunit.framework.tests.dll
-nunit3-console.exe net-4.0\nunit.framework.tests.dll
-nunit3-console.exe net-4.5\nunit.framework.tests.dll
-portable\nunitlite-runner.exe portable\nunit.framework.tests.dll
-portable\nunitlite.tests.exe
-```
-</code></pre>
-</li>
-<li><p><strong>NuGet Packages</strong> Create a test project. Install the packages and verify that they apply to the project correctly. Run tests.</p>
-</li>
-</ul>
-<h2 id="archiving-the-release">Archiving the Release</h2>
-<p>Packages are archived on nunit.org in the downloads directory. Create a new sub-folder under downloads/nunit/v3 for the release. Upload all the package files into that directory.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>We need to develop a plan for additionally archiving the image directory. For the moment, the binary zip package provides a backup but it's possible that the two may diverge in the future.</p>
-</div>
+<p>The degree to which each package needs testing may vary depending on what has been changed. At a minimum,</p>
+<ol>
+<li>Ensure the <a href="https://nunit.visualstudio.com/NUnit/_build?definitionId=11">NUnit Framework CI</a> build succeeds on all platforms and that the tests passed.</li>
+<li>Download <code>Package.zip</code> from the build and extract it locally.</li>
+<li>Three files should be extracted, <code>NUnit.{version}.nupkg</code>, <code>NunitLite.{version}.nupkg</code> and <code>NUnit.Framework-{version}.zip</code>.</li>
+<li>In Visual Studio, create a test project and add your local directory as a package source. Install the packages and verify that they apply to the project correctly.</li>
+<li>Run unit tests for platforms or features that have changed in the release.</li>
+</ol>
+<h2 id="merge-the-release-pr">Merge the Release PR</h2>
+<p>Once you have tested the release PR and all checks have passed, merge the PR into the release branch.</p>
 <h2 id="publishing-the-release">Publishing the Release</h2>
+<p>Once the <a href="https://nunit.visualstudio.com/NUnit/_build?definitionId=11">NUnit Framework CI</a> build for the merge to the release branch finishes, once again download and unzip <code>Package.zip</code>.</p>
 <h3 id="github">Github</h3>
 <ol>
-<li><p>Log onto Github and go to the main NUnit repository at <a href="https://github.com/nunit/nunit">https://github.com/nunit/nunit</a>.</p>
-</li>
-<li><p>Select Releases and then click on the &quot;Draft a new release&quot; button.</p>
-</li>
-<li><p>Enter a tag to be used for the release. Currently our tags are simply the version of the release, like 3.0.0-alpha-5. If you start typing with '3' you'll get a list of earlier release tags so you can see the format. <strong>Select your release branch</strong> as the target for the tag.</p>
-</li>
-<li><p>Enter a title for the release, like NUnit 3.0 RC release. If you type 'N' you'll get some hints.</p>
-</li>
-<li><p>Add a description of the release. It will be easier if you have prepared this in advance and can just paste it in.</p>
-</li>
-<li><p>If this is an Alpha or Beta release, check the box that indicates a pre-release.</p>
-</li>
-<li><p>Upload the packages you created earlier either directly from the package directory or from their archive location. Note that we upload all the packages, including those that are also published on NuGet.</p>
-</li>
-<li><p>Click the &quot;Publish release&quot; button to publish the release on Github.</p>
-</li>
+<li>Log onto Github and go to the main NUnit repository at <a href="https://github.com/nunit/nunit">https://github.com/nunit/nunit</a>.</li>
+<li>Select Releases and then click on the &quot;Draft a new release&quot; button.</li>
+<li>Enter a tag to be used for the release. Currently our tags are simply the version of the release prefixed with a <code>v</code>, like <code>v3.12</code>. If you start typing with 'v' you'll get a list of earlier release tags so you can see the format. <strong>Select the release branch</strong> as the target for the tag.</li>
+<li>Enter a title for the release, like NUnit 3.13. If you type 'N' you'll get some hints.</li>
+<li>Use the preamble from the release notes for the description and add a link to the full release notes on the docs website.</li>
+<li>If this is an Alpha or Beta release, check the box that indicates a pre-release.</li>
+<li>Upload the three files from <code>Package.zip</code> that you downloaded. Note that we upload all the packages, including those that are also published on NuGet.</li>
+<li>Click the &quot;Publish release&quot; button to publish the release on Github.</li>
 </ol>
 <h3 id="nuget">NuGet</h3>
 <ol>
-<li><p>Sign on to nuget.org.</p>
-</li>
-<li><p>Select Upload package.</p>
-</li>
-<li><p>Browse to the location of the NUnit.VERSION.nupkg you created and upload it.</p>
-</li>
-<li><p>Verify that the info is correct and click the &quot;Submit&quot; button.</p>
-</li>
-<li><p>Repeat steps 2-4 for NUnitLite.VERSION.nupkg</p>
-</li>
-</ol>
-<h3 id="merge-into-master">Merge into Master</h3>
-<ol>
-<li>Close your release Pull Request</li>
-<li>Create a new branch off of your release branch</li>
-<li>Increment the version in the various locations. For example 3.5 -&gt; 3.6. See the Update Package Versions section above.</li>
-<li>Push your changes to GitHub</li>
-<li>Create a pull request from your branch making sure it is based off master</li>
+<li>Sign on to nuget.org.</li>
+<li>Select Upload package.</li>
+<li>Browse to the location of the <code>NUnit.VERSION.nupkg</code> you created and upload it.</li>
+<li>Verify that the info is correct and click the &quot;Submit&quot; button.</li>
+<li>Repeat steps 2-4 for <code>NUnitLite.VERSION.nupkg</code></li>
 </ol>
 <h3 id="website">Website</h3>
-<p>If changes to the website have been accumulated in a branch, now is the time to merge it and upload the pages to the site.</p>
+<p>Create a PR to update the NUnit.org website with the release.</p>
 <h3 id="notify-users">Notify Users</h3>
 <p>Send notifications to the mailing list and twitter.</p>
 <h3 id="close-the-milestone">Close the Milestone</h3>
 <p>The milestone representing this release should be closed at this time.</p>
+<h2 id="update-master-with-changes-from-release">Update Master with Changes from Release</h2>
+<h3 id="create-a-merge-branch">Create a Merge Branch</h3>
+<p>On your local machine, change to the release branch, fetch latest, pull, then create a branch to merge the release changes back to master.</p>
+<pre><code class="lang-sh">git checkout release
+git fetch -p
+git pull
+git checkout release313-merge
+</code></pre>
+<h3 id="update-assembly-versioning">Update Assembly Versioning</h3>
+<p><code>AssemblyVersion</code> and <code>AssemblyFileVersion</code> are set for all projects in the framework in one file. Update the version in <code>FrameworkVersion.cs</code> to the next planned release number.</p>
+<h3 id="update-package-versions">Update Package Versions</h3>
+<p>The package version is updated in the <code>build.cake</code> file. The following lines appear near the beginning of the file. Update the versions and modifiers as necessary.</p>
+<pre><code class="lang-csharp">var version=&quot;3.14.0&quot;;
+var modifier=&quot;&quot;
+</code></pre>
+<p>The version variables are three-part version numbers that follow the basic principles of <a href="https://semver.org/">semantic versioning</a>. Since we publish a number of NuGet packages, we use the NuGet implementation of semantic versioning.</p>
+<p>For NUnit, the major version is updated only rarely. Normal releases will update the minor version and set the third component to zero. The third component is incremented when &quot;hot fixes&quot; are made to a production release or for builds created for a special purpose.</p>
+<p>For pre-release versions, a non-empty modifier is specified. This is a suffix added to the version. Our standard suffixes are currently <code>-alpha-n</code>, <code>-beta-n</code> and <code>-rc-n</code> The build script adds an additional suffix of -dbg to any packages created using a Debug build.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The first alpha, beta or rc release may omit the <code>-n</code>. In that case, any following alpha, beta or rc should use <code>-2</code>.</p>
+</div>
+<h3 id="create-a-pr-to-merge-to-master">Create a PR to Merge to Master</h3>
+<p>Push your local changes to GitHub and create a PR to merge the changes back to master. You can do this in the web or using the GitHub CLI.</p>
+<pre><code class="lang-sh">gh pr create -a rprouse -B master -t &quot;Merge 3.13 release changes to master&quot;
+</code></pre>
+<p>Once the PR is built, approved and passes all checks, merge to master.</p>
 </article>
           </div>
           
