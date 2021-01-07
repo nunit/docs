@@ -6,7 +6,7 @@ uid: frameworkreleasenotes
 
 ## NUnit 3.13 - January 7, 2021
 
-The [`FixtureLifeCycle`](xref:fixturelifecycleattribute) has been added to indicate that an instance for a test fixture or all test fixtures in an assembly should be constructed for each test within the fixture or assembly.
+The [`FixtureLifeCycle`](xref:fixturelifecycleattribute) attribute has been added to indicate that an instance for a test fixture or all test fixtures in an assembly should be constructed for each test within the fixture or assembly.
 
 This attribute may be applied to a test fixture (class) or to a test assembly. It is useful in combination with the [Parallelizable Attribute](xref:parallelizableattribute) so that a new instance of a test fixture is constructed for every test within the test fixture. This allows tests to run in isolation without sharing instance fields and properties during parallel test runs. This make running parallel tests easier because it is easier to make your tests thread safe.
 
