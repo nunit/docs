@@ -4,6 +4,122 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
+## NUnit 3.13 - January 7, 2021
+
+The [`FixtureLifeCycle`](xref:fixturelifecycleattribute) attribute has been added to indicate that an instance for a test fixture or all test fixtures in an assembly should be constructed for each test within the fixture or assembly.
+
+This attribute may be applied to a test fixture (class) or to a test assembly. It is useful in combination with the [Parallelizable Attribute](xref:parallelizableattribute) so that a new instance of a test fixture is constructed for every test within the test fixture. This allows tests to run in isolation without sharing instance fields and properties during parallel test runs. This make running parallel tests easier because it is easier to make your tests thread safe.
+
+This release also fixes several issues running tests in .NET 5.0. If your tests target .NET 5.0, we recommend updating to this release.
+
+### Issues Resolved
+
+* [34](https://github.com/nunit/nunit/issues/34) Async testing with F#
+* [52](https://github.com/nunit/nunit/issues/52) Self-contained item in array causes stack overflow
+* [1394](https://github.com/nunit/nunit/issues/1394) `Has.Property` cannot see explicit interface implementation properties
+* [1491](https://github.com/nunit/nunit/issues/1491) Add a CLA to the project
+* [1546](https://github.com/nunit/nunit/issues/1546) `NUnitEqualityComparer.GetEquatableGenericArguments` should explicitly order arguments
+* [1809](https://github.com/nunit/nunit/issues/1809) `Assert.AreEqual` fails for Complex on Linux
+* [1897](https://github.com/nunit/nunit/issues/1897) `EqualTo().Using()` prevents caller from comparing strings to anything else
+* [2211](https://github.com/nunit/nunit/issues/2211) Add support of indexers to the PropertyConstraint
+* [2222](https://github.com/nunit/nunit/issues/2222) Switch to one Release branch
+* [2477](https://github.com/nunit/nunit/issues/2477) Parameterized fixture with `Explicit` attribute can not be run when selected by name
+* [2574](https://github.com/nunit/nunit/issues/2574) Instance-per-test-case feature
+* [2680](https://github.com/nunit/nunit/issues/2680) Deprecate the `DebugWriter` class
+* [3611](https://github.com/nunit/nunit/issues/3611) Properties are shown when `--explore:nunit3` is run on entire project, but omitted when using the `--where` clause
+* [3054](https://github.com/nunit/nunit/issues/3054) Don't enforce `[Timeout]` when debugger is attached
+* [3075](https://github.com/nunit/nunit/issues/3075) Complete `RunAsyncAction` tests in `FrameworkControllerTests`
+* [3228](https://github.com/nunit/nunit/issues/3228) Modulo bias is present in `Randomizer.NextDecimal(decimal)`
+* [3240](https://github.com/nunit/nunit/issues/3240) Automate uploading of test results to Azure Pipelines
+* [3243](https://github.com/nunit/nunit/issues/3243) Azure DevOps does not build release branch
+* [3249](https://github.com/nunit/nunit/issues/3249) Pin GitLink version to speed up Cake script
+* [3251](https://github.com/nunit/nunit/issues/3251) `RawInt32()` can't use Next since the maximum is always exclusive and it would never return int.MaxValue
+* [3252](https://github.com/nunit/nunit/issues/3252) Timeout of 100 ms in `TestTimeoutDoesNotStopCompletion` occasionally fails the macOS build
+* [3253](https://github.com/nunit/nunit/issues/3253) Chance of failure in random bias tests is not sufficiently low for CI
+* [3256](https://github.com/nunit/nunit/issues/3256) Building under VS2019
+* [3257](https://github.com/nunit/nunit/issues/3257) Running under mono
+* [3259](https://github.com/nunit/nunit/issues/3259) The type of an Array isn't inferred from properly
+* [3264](https://github.com/nunit/nunit/issues/3264) Test that `IRepeatTest` only gets attributes via the `IMethodInfo` interface
+* [3275](https://github.com/nunit/nunit/issues/3275) Enable setting `IgnoreUntilDate` in `TestCaseData.Ignore`
+* [3279](https://github.com/nunit/nunit/issues/3279) Improve failure message from `UniqueItemsConstraint`
+* [3282](https://github.com/nunit/nunit/issues/3282) `TimeoutAttribute` makes all Assertions count as failure
+* [3283](https://github.com/nunit/nunit/issues/3283) `ExecutionContext` is flowed between unrelated tests
+* [3286](https://github.com/nunit/nunit/issues/3286) Testing for equality using a predicate throws exception for collections
+* [3290](https://github.com/nunit/nunit/issues/3290) 'Good first issue' or 'help wanted' issue count badge
+* [3296](https://github.com/nunit/nunit/issues/3296) `ExceptionHelper.GetExceptionMessage(Exception ex)` should tolerate exceptions from exceptions
+* [3302](https://github.com/nunit/nunit/issues/3302) Incorrect formatting of failure message if test fails with `Assert.Multiple`
+* [3303](https://github.com/nunit/nunit/issues/3303) Check type of actual argument using consistent helper method
+* [3304](https://github.com/nunit/nunit/issues/3304) `CheckString` should not be a generic method
+* [3305](https://github.com/nunit/nunit/issues/3305) Remove unused methods
+* [3307](https://github.com/nunit/nunit/issues/3307) Sporadic `GetResultIsNotCalledUntilContinued` failure
+* [3308](https://github.com/nunit/nunit/issues/3308) Fix disposal in `EnumerablesComparer`
+* [3309](https://github.com/nunit/nunit/issues/3309) Simplify code in `EventListenerTextWriter`
+* [3311](https://github.com/nunit/nunit/issues/3311) Minimal unit of `DateTime` in the report when Test was started/ended
+* [3312](https://github.com/nunit/nunit/issues/3312) Simplify `ProviderCache` and make it instantiable since it is intentionally not thread safe
+* [3315](https://github.com/nunit/nunit/issues/3315) `Assert.DoesNotThrow()` stopped working as it was previously
+* [3318](https://github.com/nunit/nunit/issues/3318) Fix `AwaitAdapter` terminology
+* [3321](https://github.com/nunit/nunit/issues/3321) Keep dependencies up to date
+* [3322](https://github.com/nunit/nunit/issues/3322) Speed up build script by removing unnecessary builds
+* [3324](https://github.com/nunit/nunit/issues/3324) Broken link in `CHANGES.md`
+* [3328](https://github.com/nunit/nunit/issues/3328) Problems when using a mixture of Not and Or filters in NUnit framework 3.12.0
+* [3331](https://github.com/nunit/nunit/issues/3331) `Contains.Key` no longer working for `IDictionary`
+* [3338](https://github.com/nunit/nunit/issues/3338) Azure Pipelines is failing on Linux for both netstandard 1.4 and 2.0
+* [3356](https://github.com/nunit/nunit/issues/3356) `SetUpFixture` not run
+* [3368](https://github.com/nunit/nunit/issues/3368) Tests with warnings are not added to console `TestResult.xml` total count
+* [3383](https://github.com/nunit/nunit/issues/3383) Drop netstandard1.4 and stop testing on end-of-life versions of .NET Core
+* [3389](https://github.com/nunit/nunit/issues/3389) Show names of parameters
+* [3390](https://github.com/nunit/nunit/issues/3390) `SetUpFixture` not being triggered when running tests using `--testlist`
+* [3392](https://github.com/nunit/nunit/issues/3392) Use of `Thread.CurrentPrincipal` in Blazor/WASM
+* [3393](https://github.com/nunit/nunit/issues/3393) Nuget Package Not Signed
+* [3395](https://github.com/nunit/nunit/issues/3395) `Randomizer.NextString()` can probably be sped up
+* [3408](https://github.com/nunit/nunit/issues/3408) Save test results as build artifacts
+* [3411](https://github.com/nunit/nunit/issues/3411) Update nuspec file to mention support for NET Standard 2.0+
+* [3414](https://github.com/nunit/nunit/issues/3414) Azure pipelines are failing on Linux
+* [3415](https://github.com/nunit/nunit/issues/3415) Azure CI: Still publish test results on failure
+* [3423](https://github.com/nunit/nunit/issues/3423) `TestResult.cs` casts `ITestResult` to `TestResult`
+* [3447](https://github.com/nunit/nunit/issues/3447) `Is.EqualTo(...).Using(StructuralComparisons.StructuralEqualityComparer or StructuralComparer)` not working
+* [3452](https://github.com/nunit/nunit/issues/3452) Assertions that use an existing Regex
+* [3453](https://github.com/nunit/nunit/issues/3453) Visibility of SetUp/TearDown Methods
+* [3454](https://github.com/nunit/nunit/issues/3454) Pre-Filtering in NUnitLite has problems
+* [3464](https://github.com/nunit/nunit/issues/3464) Improve debugging experience
+* [3470](https://github.com/nunit/nunit/issues/3470) Assertion for key-value-pair
+* [3475](https://github.com/nunit/nunit/issues/3475) Our XML comments are using `<code>` (block element) instead of `<c>` (inline element)
+* [3485](https://github.com/nunit/nunit/issues/3485) Should we make `MultipleAssertException.TestResult` maybe-null or obsolete two constructors?
+* [3496](https://github.com/nunit/nunit/issues/3496) Adding data dictionary should not add a trailing newline
+* [3497](https://github.com/nunit/nunit/issues/3497) Fix mixed line endings in Git
+* [3503](https://github.com/nunit/nunit/issues/3503) Remove implicit cast from `ITestResult` to `TestResult`
+* [3505](https://github.com/nunit/nunit/issues/3505) Better failure messages for Subset and Superset constraints
+* [3506](https://github.com/nunit/nunit/issues/3506) `ValueTuple` tests now running if not targeting NET35
+* [3536](https://github.com/nunit/nunit/issues/3536) Reduce newly added API surface
+* [3542](https://github.com/nunit/nunit/issues/3542) Update NuGet Package Icons
+* [3547](https://github.com/nunit/nunit/issues/3547) `DelayedConstraint` constrains does not preserve original result additional information
+* [3551](https://github.com/nunit/nunit/issues/3551) Add `PrivateAssets="all"` to analyzer dependency
+* [3552](https://github.com/nunit/nunit/issues/3552) `MessagePumpStrategy` does not work for WPF on netcoreapp3.0 and upwards
+* [3559](https://github.com/nunit/nunit/issues/3559) Disables the DOC100 suggestion and reverts the added paragraph elements
+* [3563](https://github.com/nunit/nunit/issues/3563) Improve `TextMessageWriter` output for numeric values
+* [3565](https://github.com/nunit/nunit/issues/3565) .NET 5 issue with `PlatformAttribute`
+* [3583](https://github.com/nunit/nunit/issues/3583) Avoid using a culture-sensitive `EndsWith` in common code
+* [3592](https://github.com/nunit/nunit/issues/3592) Add classname and methodname to the start-test event
+* [3594](https://github.com/nunit/nunit/issues/3594) Reduce memory overhead of `TestNameGenerator`
+* [3596](https://github.com/nunit/nunit/issues/3596) `AreAlmostEqualUlps` throws `OverflowException` for `-0`
+* [3598](https://github.com/nunit/nunit/issues/3598) Fix typo
+* [3608](https://github.com/nunit/nunit/issues/3608) `[Platform]` attribute fails with `DllNotFoundException` in WASM
+* [3616](https://github.com/nunit/nunit/issues/3616) Extend `Is.Empty` to work for `Guid.Empty`
+* [3618](https://github.com/nunit/nunit/issues/3618) NUnit has a P/Invoke whose native function doesn't exist on all platforms
+* [3622](https://github.com/nunit/nunit/issues/3622) `EmptyDirectoryConstraint` doesn't need to enumerate entire directory contents
+* [3632](https://github.com/nunit/nunit/issues/3632) `Assert.Inconclusive()` reports failed when timeout used
+* [3636](https://github.com/nunit/nunit/issues/3636) NUnitLite filtering fails if space in test name before (
+* [3641](https://github.com/nunit/nunit/issues/3641) Type implementing `IComparable<float>` (or any `IComparable`) fails comparison.
+* [3647](https://github.com/nunit/nunit/issues/3647) Fix exception under Blazor 5
+* [3650](https://github.com/nunit/nunit/issues/3650) Build issue with the latest .NET SDK 5.0.100-rc.2
+* [3657](https://github.com/nunit/nunit/issues/3657) Add Framework Version to the XML
+* [3662](https://github.com/nunit/nunit/issues/3662) `TestContext.CurrentContext.CurrentRepeatCount` only contains retry count not the repeat count
+* [3667](https://github.com/nunit/nunit/issues/3667) Create FrameworkPackageSetting to set `CurrentCulture` and `CurrentUICulture`
+* [3676](https://github.com/nunit/nunit/issues/3676) `Parallelizeable` tests sometimes shares memory
+* [3679](https://github.com/nunit/nunit/issues/3679) Issue 3390: Do not prefilter relevant `SetUpFixtures`
+* [3694](https://github.com/nunit/nunit/issues/3694) Async tests causes double failure messages
+* [3699](https://github.com/nunit/nunit/issues/3699) Compilation of netcoreapp3.1 targets fails on CI (both AppVeyor and Azure Pipelines)
+
 ## NUnit 3.12 - May 14, 2019
 
 This release of NUnit finally drops support for .NET 2.0. If your application still
@@ -123,7 +239,7 @@ and enabling Timeout on tests.
 * [2876](https://github.com/nunit/nunit/issues/2876) Implement Discovery-time filtering for NUnitLite
 * [2883](https://github.com/nunit/nunit/issues/2883) Our public ConcurrentQueue causes type conflicts
 * [2885](https://github.com/nunit/nunit/issues/2885) Copy/paste error in Assert.That documentation
-* [2887](https://github.com/nunit/nunit/issues/2887) NETStandard 1.3 support dropped in NUnit 3.10  
+* [2887](https://github.com/nunit/nunit/issues/2887) NETStandard 1.3 support dropped in NUnit 3.10
 * [2896](https://github.com/nunit/nunit/issues/2896) Some tests are silently skipped on netstandard1.x since #2796
 * [2898](https://github.com/nunit/nunit/issues/2898) AssemblyPath contains invalid characters
 * [2901](https://github.com/nunit/nunit/issues/2901) Values attribute support for nullable bool and enum types
