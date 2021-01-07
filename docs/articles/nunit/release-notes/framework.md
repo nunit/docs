@@ -4,7 +4,13 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
-## NUnit 3.13 - January 6, 2021
+## NUnit 3.13 - January 7, 2021
+
+The [`FixtureLifeCycle`](xref:fixturelifecycleattribute) has been added to indicate that an instance for a test fixture or all test fixtures in an assembly should be constructed for each test within the fixture or assembly.
+
+This attribute may be applied to a test fixture (class) or to a test assembly. It is useful in combination with the [Parallelizable Attribute](parallelizable.md) so that a new instance of a test fixture is constructed for every test within the test fixture. This allows tests to run in isolation without sharing instance fields and properties during parallel test runs. This make running parallel tests easier because it is easier to make your tests thread safe.
+
+This release also fixes several issues running tests in .NET 5.0. If your tests target .NET 5.0, we recommend updating to this release.
 
 ### Issues Resolved
 
@@ -15,7 +21,7 @@ uid: frameworkreleasenotes
 * [1546](https://github.com/nunit/nunit/issues/1546) `NUnitEqualityComparer.GetEquatableGenericArguments` should explicitly order arguments
 * [1809](https://github.com/nunit/nunit/issues/1809) `Assert.AreEqual` fails for Complex on Linux
 * [1897](https://github.com/nunit/nunit/issues/1897) `EqualTo().Using()` prevents caller from comparing strings to anything else
-* [2211](https://github.com/nunit/nunit/issues/2211) Request: Add support of indexers to the PropertyConstraint
+* [2211](https://github.com/nunit/nunit/issues/2211) Add support of indexers to the PropertyConstraint
 * [2222](https://github.com/nunit/nunit/issues/2222) Switch to one Release branch
 * [2477](https://github.com/nunit/nunit/issues/2477) Parameterized fixture with `Explicit` attribute can not be run when selected by name
 * [2574](https://github.com/nunit/nunit/issues/2574) Instance-per-test-case feature
