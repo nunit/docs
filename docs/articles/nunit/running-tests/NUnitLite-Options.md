@@ -7,7 +7,7 @@ The NUnitLite runner is invoked by executing the test program. If desired, any o
 | `--test=NAMES` | Comma-separated list of NAMES of tests to run or explore. This option may be repeated. |
 | `--testlist=PATH` | File PATH containing a list of tests to run, one per line. This option may be repeated. |
 | `--prefilter=NAMES` | Comma-separated list of NAMES of test classes or namespaces to be loaded. This option may be repeated. |
-| `--where=EXPRESSION` | Test selection EXPRESSION indicating what tests will be run. | 
+| `--where=EXPRESSION` | Test selection EXPRESSION indicating what tests will be run. |
 | `--params, -p=VALUE` | Define a test parameter. |
 | `--timeout=MILLISECONDS` | Set timeout for each test case in MILLISECONDS. |
 | `--seed=SEED` | Set the random SEED used to generate test cases. |
