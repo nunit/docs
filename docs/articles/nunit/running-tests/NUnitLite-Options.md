@@ -36,6 +36,29 @@ assemblies and projects specified. If the `--explore` option
 is used, no tests are executed but a description of the tests
 is saved in the specified or default format.
 
+## Test Selelection
+
+Several options allow selection of a subset of the tests in an
+assembly for execution or display.
+
+The `--prefilter` option operates first. If specified, it 
+limits the classes, which NUnit will examine to find tests.
+Classes not included are simply ignored and the other two
+selection options never even see them.
+
+The `--where` option introduces a _where clause_, the most flexible
+but also the most complex way to introduce tests. See the documentation of
+[Test SelectionLanguage](https://docs.nunit.org/articles/nunit/running-tests/Test-Selection-Language.html)
+for details.
+
+The '--test` and `testlist` options allow selecting individual
+tests by name. The list of tests selected is joined to any `--where`
+clause you provide by a logical `and` operation. That is, if both
+`--test` and `--where` are specified, __both__ must be satisfied by
+a test in order for it to run.
+
+## XML Output
+
 Several options that specify processing of XML output take
 an output specification as a value. A SPEC may take one of
 the following forms:
