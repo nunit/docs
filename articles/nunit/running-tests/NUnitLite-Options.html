@@ -105,12 +105,16 @@
 <td>File PATH containing a list of tests to run, one per line. This option may be repeated.</td>
 </tr>
 <tr>
-<td><code>--include=CATEGORIES</code></td>
-<td>Test CATEGORIES to be included. May be a single category, a comma-separated list of categories or a category expression.</td>
+<td><code>--prefilter=NAMES</code></td>
+<td>Comma-separated list of NAMES of test classes or namespaces to be loaded. This option may be repeated.</td>
 </tr>
 <tr>
-<td><code>--exclude=CATEGORIES</code></td>
-<td>Test CATEGORIES to be excluded. May be a single category, a comma-separated list of categories or a category expression.</td>
+<td><code>--where=EXPRESSION</code></td>
+<td>Test selection EXPRESSION indicating what tests will be run.</td>
+</tr>
+<tr>
+<td><code>--params, -p=VALUE</code></td>
+<td>Define a test parameter.</td>
 </tr>
 <tr>
 <td><code>--timeout=MILLISECONDS</code></td>
@@ -122,7 +126,7 @@
 </tr>
 <tr>
 <td><code>--workers=NUMBER</code></td>
-<td>Specify the NUMBER of worker threads to be used in running tests.</td>
+<td>Specify the NUMBER of worker threads to be used in running tests. If not specified, defaults to 2 or the number of processors, whichever is greater.</td>
 </tr>
 <tr>
 <td><code>--stoponerror</code></td>
@@ -134,7 +138,7 @@
 </tr>
 <tr>
 <td><code>--work=PATH</code></td>
-<td>PATH of the directory to use for output files.</td>
+<td>PATH of the directory to use for output files. If not specified, defaults to the current directory.</td>
 </tr>
 <tr>
 <td><code>--output</code>, <code>--out=PATH</code></td>
@@ -161,12 +165,16 @@
 <td>Specify whether to write test case names to the output. Values: <code>Off</code>, <code>On</code>, <code>All</code></td>
 </tr>
 <tr>
-<td><code>--trace=LEVEL</code></td>
-<td>Set internal trace LEVEL. Values: <code>Off</code>, <code>Error</code>, <code>Warning</code>, <code>Info</code>, <code>Verbose</code> (Debug)</td>
+<td><code>--test-name-format=VALUE</code></td>
+<td>Non-standard naming pattern to use in generating test names.</td>
 </tr>
 <tr>
 <td><code>--teamcity</code></td>
 <td>Turns on use of TeamCity service messages.</td>
+</tr>
+<tr>
+<td><code>--trace=LEVEL</code></td>
+<td>Set internal trace LEVEL. Values: <code>Off</code>, <code>Error</code>, <code>Warning</code>, <code>Info</code>, <code>Verbose</code> (Debug)</td>
 </tr>
 <tr>
 <td><code>--noheader</code>, <code>--noh</code></td>
@@ -177,12 +185,12 @@
 <td>Displays console output without color.</td>
 </tr>
 <tr>
-<td><code>--verbose</code>, <code>-v</code></td>
-<td>Display additional information as the test runs.</td>
-</tr>
-<tr>
 <td><code>--help</code>, <code>-h</code></td>
 <td>Display this message and exit.</td>
+</tr>
+<tr>
+<td><code>--version</code>, <code>-V</code></td>
+<td>Display the header and exit.</td>
 </tr>
 </tbody>
 </table>
@@ -191,6 +199,23 @@
 assemblies and projects specified. If the <code>--explore</code> option
 is used, no tests are executed but a description of the tests
 is saved in the specified or default format.</p>
+<h2 id="test-selection">Test Selection</h2>
+<p>Several options allow selection of a subset of the tests in an
+assembly for execution or display.</p>
+<p>The <code>--prefilter</code> option operates first. If specified, it
+limits the classes, which NUnit will examine to find tests.
+Classes not included are simply ignored and the other two
+selection options never even see them.</p>
+<p>The <code>--where</code> option introduces a <em>where clause</em>, the most flexible
+but also the most complex way to introduce tests. See the documentation of
+<a href="https://docs.nunit.org/articles/nunit/running-tests/Test-Selection-Language.html">Test SelectionLanguage</a>
+for details.</p>
+<p>The <code>--test</code> and <code>testlist</code> options allow selecting individual
+tests by name. The list of tests selected is joined to any <code>--where</code>
+clause you provide by a logical <code>and</code> operation. That is, if both
+<code>--test</code> and <code>--where</code> are specified, <strong>both</strong> must be satisfied by
+a test in order for it to run.</p>
+<h2 id="xml-output">XML Output</h2>
 <p>Several options that specify processing of XML output take
 an output specification as a value. A SPEC may take one of
 the following forms:</p>
