@@ -7,7 +7,7 @@ a TestFixture or Test attribute.
 
 ```csharp
 [TestFixture]
-[TestOf(typeof(MyClass)]
+[TestOf(typeof(MyClass))]
 public class MyTests
 {
  [Test]
