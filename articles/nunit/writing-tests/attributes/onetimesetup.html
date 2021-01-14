@@ -137,7 +137,7 @@ class OneTimeSetUp methods before those in the derived classes.</p>
 </li>
 <li><p><a class="xref" href="onetimesetup.html"><code>OneTimeSetUp</code></a> methods run in the context of the <a class="xref" href="testfixture.html"><code>TestFixture</code></a> or <a class="xref" href="setupfixture.html"><code>SetUpFixture</code></a>, which is separate from the context of any individual test cases. It's important to keep this in mind when using <a class="xref" href="../TestContext.html"><code>TestContext</code></a> methods and properties within the method.</p>
 </li>
-<li><p>When using <a class="xref" href="fixturelifecycle.html"><code>FixtureLifeCycle</code></a> with <code>LifeCycle.InstancePerTestCase</code>, the <a class="xref" href="onetimeteardown.html"><code>OneTimeTearDown</code></a> method must be static and is only called once. This is required so that the setup method does not access instance fields or properties that are reset for every test.</p>
+<li><p>When using <a class="xref" href="fixturelifecycle.html"><code>FixtureLifeCycle</code></a> with <code>LifeCycle.InstancePerTestCase</code>, the <a class="xref" href="onetimesetup.html"><code>OneTimeSetUp</code></a> method must be static and is only called once. This is required so that the setup method does not access instance fields or properties that are reset for every test.</p>
 </li>
 </ul>
 <h2 id="see-also">See Also</h2>
