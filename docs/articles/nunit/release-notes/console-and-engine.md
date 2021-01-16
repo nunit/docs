@@ -1,5 +1,36 @@
 # Console and Engine
 
+## NUnit Console & Engine 3.12 - January 17, 2021
+
+## .NET Core NUnit Console 3.12 Beta 2  - January 17, 2021
+
+This release contains various improvements to running tests on .NET Core and Mono, and changes to
+extension loading logic to allow the Engine to better support extensions which target multiple platforms. There are additionally
+a number of fixes to issues that were identified with 3.12 Beta 1. Please also be aware that this will be the last version of
+the NUnit Engine to support .NET Standard 1.6.
+
+The .NET Core Console remains in Beta due to some unresolved dependency loading and framework targeting issues - contributions to
+fix this issues would be very welcome!
+
+Code contributions in this release were included from [Charlie Poole](https://github.com/CharliePoole), [Chris Maddock](https://github.com/ChrisMaddock), [Christian Bay](https://github.com/tdctaz), [Eberhard Beilharz](https://github.com/ermshiperete), [Ed Ball](https://github.com/ejball), [Joseph Musser](https://github.com/jnm2), [Manohar Singh](https://github.com/mano-si), [Mattias Cavigelli](https://github.com/mcavigelli) and [Mikkel Nylander Bundgaard](https://github.com/mikkelbu). Thank you to all those who contributed both in code, and otherwise.
+
+Please note the below list includes only issues resolved between 3.12.0 Beta 1 and the final release. For those upgrading from 3.11.1
+or earlier, please also see the Beta release notes.
+
+* [511](https://github.com/nunit/nunit-console/issues/511) [Build] Improve detection of installed .NET Core Runtimes
+* [718](https://github.com/nunit/nunit-console/issues/718) Eliminate use of Mono.Cecil
+* [810](https://github.com/nunit/nunit-console/issues/810) Build NUnit.ConsoleRunner.NetCore as a .NET Core Tool.
+* [811](https://github.com/nunit/nunit-console/issues/811) Use readonly modifier where possible
+* [818](https://github.com/nunit/nunit-console/issues/818) Remove redundant dependency on Microsoft.DotNet.InternalAbstractions for platforms other than .NET Standard 1.6
+* [825](https://github.com/nunit/nunit-console/issues/825) Revert change to increment nunit.engine.api assembly version
+* [829](https://github.com/nunit/nunit-console/issues/829) Revert change made to IExtensionService in nunit.engine.api
+* [830](https://github.com/nunit/nunit-console/issues/830) [CI] Test on .NET 5.0
+* [837](https://github.com/nunit/nunit-console/issues/837) Fully remove Microsoft.Dotnet.InternalAbstractions dependency
+* [844](https://github.com/nunit/nunit-console/issues/844) .NET Core console runner fails to load extensions when netfx and netstandard versions conflict
+* [847](https://github.com/nunit/nunit-console/issues/847) [Build] Specify .NET 2.0 version of extensions for msi
+* [853](https://github.com/nunit/nunit-console/issues/853) [Build] Allow local build to succeed even if all runtimes are not installed
+* [863](https://github.com/nunit/nunit-console/issues/863) [Build] Use released version of NUnit Framework 3.13.0
+
 ## NUnit Console & Engine 3.12 Beta 1 - August 1, 2020
 
 This is the first beta release of the NUnit Console able to run .NET Core Tests. In addition to this, this release also contains a number of bug fixes, improvements when running on Mono and significant refactoring work towards the goal of creating an engine able to run tests on a wider range of .NET platforms.
