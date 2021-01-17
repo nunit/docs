@@ -10,7 +10,7 @@ a number of fixes to issues that were identified with 3.12 Beta 1. Please also b
 the NUnit Engine to support .NET Standard 1.6.
 
 The .NET Core Console remains in Beta due to some unresolved dependency loading and framework targeting issues - contributions to
-fix this issues would be very welcome!
+fix these issues would be very welcome!
 
 Code contributions in this release were included from [Charlie Poole](https://github.com/CharliePoole), [Chris Maddock](https://github.com/ChrisMaddock), [Christian Bay](https://github.com/tdctaz), [Eberhard Beilharz](https://github.com/ermshiperete), [Ed Ball](https://github.com/ejball), [Joseph Musser](https://github.com/jnm2), [Manohar Singh](https://github.com/mano-si), [Mattias Cavigelli](https://github.com/mcavigelli) and [Mikkel Nylander Bundgaard](https://github.com/mikkelbu). Thank you to all those who contributed both in code, and otherwise.
 
