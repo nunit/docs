@@ -87,6 +87,32 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="console-and-engine">Console and Engine</h1>
 
+<h2 id="nunit-console--engine-312---january-17-2021">NUnit Console &amp; Engine 3.12 - January 17, 2021</h2>
+<h2 id="net-core-nunit-console-312-beta-2----january-17-2021">.NET Core NUnit Console 3.12 Beta 2  - January 17, 2021</h2>
+<p>This release contains various improvements to running tests on .NET Core and Mono, and changes to
+extension loading logic to allow the Engine to better support extensions which target multiple platforms. There are additionally
+a number of fixes to issues that were identified with 3.12 Beta 1. Please also be aware that this will be the last version of
+the NUnit Engine to support .NET Standard 1.6.</p>
+<p>The .NET Core Console remains in Beta due to some unresolved dependency loading and framework targeting issues - contributions to
+fix these issues would be very welcome!</p>
+<p>Code contributions in this release were included from <a href="https://github.com/CharliePoole">Charlie Poole</a>, <a href="https://github.com/ChrisMaddock">Chris Maddock</a>, <a href="https://github.com/tdctaz">Christian Bay</a>, <a href="https://github.com/ermshiperete">Eberhard Beilharz</a>, <a href="https://github.com/ejball">Ed Ball</a>, <a href="https://github.com/jnm2">Joseph Musser</a>, <a href="https://github.com/mano-si">Manohar Singh</a>, <a href="https://github.com/mcavigelli">Mattias Cavigelli</a> and <a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a>. Thank you to all those who contributed both in code, and otherwise.</p>
+<p>Please note the below list includes only issues resolved between 3.12.0 Beta 1 and the final release. For those upgrading from 3.11.1
+or earlier, please also see the Beta release notes.</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/511">511</a> [Build] Improve detection of installed .NET Core Runtimes</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/718">718</a> Eliminate use of Mono.Cecil</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/810">810</a> Build NUnit.ConsoleRunner.NetCore as a .NET Core Tool.</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/811">811</a> Use readonly modifier where possible</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/818">818</a> Remove redundant dependency on Microsoft.DotNet.InternalAbstractions for platforms other than .NET Standard 1.6</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/825">825</a> Revert change to increment nunit.engine.api assembly version</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/829">829</a> Revert change made to IExtensionService in nunit.engine.api</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/830">830</a> [CI] Test on .NET 5.0</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/837">837</a> Fully remove Microsoft.Dotnet.InternalAbstractions dependency</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/844">844</a> .NET Core console runner fails to load extensions when netfx and netstandard versions conflict</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/847">847</a> [Build] Specify .NET 2.0 version of extensions for msi</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/853">853</a> [Build] Allow local build to succeed even if all runtimes are not installed</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/863">863</a> [Build] Use released version of NUnit Framework 3.13.0</li>
+</ul>
 <h2 id="nunit-console--engine-312-beta-1---august-1-2020">NUnit Console &amp; Engine 3.12 Beta 1 - August 1, 2020</h2>
 <p>This is the first beta release of the NUnit Console able to run .NET Core Tests. In addition to this, this release also contains a number of bug fixes, improvements when running on Mono and significant refactoring work towards the goal of creating an engine able to run tests on a wider range of .NET platforms.</p>
 <p>We're particularly interested in this beta release being tested by users of the .NET Core console and users running tests on Mono. Please feedback any issues to the <a href="https://github.com/nunit/nunit-console/issues">nunit-console repository</a>.</p>
