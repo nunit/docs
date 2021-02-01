@@ -167,14 +167,16 @@ this step as a new one will be created automatically.</p>
 <ul>
 <li>NUnit-VERSION.zip</li>
 <li>NUnit.VERSION.nupkg</li>
+<li>NUnit.VERSION.snupkg</li>
 <li>NUnitLite.VERSION.nupkg</li>
+<li>NUnitLite.VERSION.snupkg</li>
 </ul>
 <h2 id="testing-the-release">Testing the Release</h2>
 <p>The degree to which each package needs testing may vary depending on what has been changed. At a minimum,</p>
 <ol>
 <li>Ensure the <a href="https://nunit.visualstudio.com/NUnit/_build?definitionId=11">NUnit Framework CI</a> build succeeds on all platforms and that the tests passed.</li>
 <li>Download <code>Package.zip</code> from the build and extract it locally.</li>
-<li>Three files should be extracted, <code>NUnit.{version}.nupkg</code>, <code>NunitLite.{version}.nupkg</code> and <code>NUnit.Framework-{version}.zip</code>.</li>
+<li>Five files should be extracted, <code>NUnit.{version}.nupkg</code>, <code>NUnit.{version}.snupkg</code>, <code>NunitLite.{version}.nupkg</code>, <code>NunitLite.{version}.snupkg</code> and <code>NUnit.Framework-{version}.zip</code>.</li>
 <li>In Visual Studio, create a test project and add your local directory as a package source. Install the packages and verify that they apply to the project correctly.</li>
 <li>Run unit tests for platforms or features that have changed in the release.</li>
 </ol>
@@ -190,7 +192,7 @@ this step as a new one will be created automatically.</p>
 <li>Enter a title for the release, like NUnit 3.13. If you type 'N' you'll get some hints.</li>
 <li>Use the preamble from the release notes for the description and add a link to the full release notes on the docs website.</li>
 <li>If this is an Alpha or Beta release, check the box that indicates a pre-release.</li>
-<li>Upload the three files from <code>Package.zip</code> that you downloaded. Note that we upload all the packages, including those that are also published on NuGet.</li>
+<li>Upload the five files from <code>Package.zip</code> that you downloaded. Note that we upload all the packages, including those that are also published on NuGet.</li>
 <li>Click the &quot;Publish release&quot; button to publish the release on Github.</li>
 </ol>
 <h3 id="nuget">NuGet</h3>
@@ -199,7 +201,7 @@ this step as a new one will be created automatically.</p>
 <li>Select Upload package.</li>
 <li>Browse to the location of the <code>NUnit.VERSION.nupkg</code> you created and upload it.</li>
 <li>Verify that the info is correct and click the &quot;Submit&quot; button.</li>
-<li>Repeat steps 2-4 for <code>NUnitLite.VERSION.nupkg</code></li>
+<li>Repeat steps 2-4 for <code>NUnitLite.VERSION.nupkg</code> and the two <code>snupkg</code> files.</li>
 </ol>
 <h3 id="website">Website</h3>
 <p>Create a PR to update the NUnit.org website with the release.</p>

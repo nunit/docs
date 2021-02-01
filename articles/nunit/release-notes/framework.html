@@ -87,11 +87,25 @@
             <article class="content wrap" id="_content" data-uid="frameworkreleasenotes">
 <h1 id="framework-release">Framework Release</h1>
 
+<h2 id="nunit-3131---january-31-2021">NUnit 3.13.1 - January 31, 2021</h2>
+<p>This release addresses several misses with the new <code>FixtureLifeCycle</code> attribute, switches to using <a href="https://github.com/dotnet/sourcelink">SourceLink</a> and NuGet <a href="https://docs.microsoft.com/en-us/nuget/create-packages/symbol-packages-snupkg">snupkg</a> packages for debugging into NUnit from your unit tests. It also addresses issues with the time format of ignored and explicit tests in the test results file.</p>
+<h3 id="issues-resolved">Issues Resolved</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit/issues/2339">2339</a> Wrong date format in Ignored TestFixtures</li>
+<li><a href="https://github.com/nunit/nunit/issues/3715">3715</a> <code>FixtureLifeCycle(LifeCycle.InstancePerTestCase)</code> Not working with <code>TestFixtureSource</code></li>
+<li><a href="https://github.com/nunit/nunit/issues/3716">3716</a> Assembly level <code>FixtureLifeCycle(LifeCycle.InstancePerTestCase)</code> doesn't work</li>
+<li><a href="https://github.com/nunit/nunit/issues/3724">3724</a> Test start and end time should end with Z</li>
+<li><a href="https://github.com/nunit/nunit/issues/3726">3726</a> Assert <code>EqualTo().Within().Seconds</code> does not work with DateTimes in NUnit 3.13</li>
+<li><a href="https://github.com/nunit/nunit/issues/3729">3729</a> AppVeyor builds failing</li>
+<li><a href="https://github.com/nunit/nunit/issues/3736">3736</a> <code>AreEqual.Within</code> throws on failure with non-numeric types</li>
+<li><a href="https://github.com/nunit/nunit/issues/3743">3743</a> Parametrized tests do not respect <code>FixtureLifeCycle.InstancePerTestCase</code></li>
+<li><a href="https://github.com/nunit/nunit/issues/3745">3745</a> After upgrading to NUnit 3.13.0 the debugger enters NUnit code despite having checked &quot;Enable Just My Code&quot;</li>
+</ul>
 <h2 id="nunit-313---january-7-2021">NUnit 3.13 - January 7, 2021</h2>
 <p>The <a class="xref" href="../writing-tests/attributes/fixturelifecycle.html"><code>FixtureLifeCycle</code></a> attribute has been added to indicate that an instance for a test fixture or all test fixtures in an assembly should be constructed for each test within the fixture or assembly.</p>
 <p>This attribute may be applied to a test fixture (class) or to a test assembly. It is useful in combination with the <a class="xref" href="../writing-tests/attributes/parallelizable.html">Parallelizable Attribute</a> so that a new instance of a test fixture is constructed for every test within the test fixture. This allows tests to run in isolation without sharing instance fields and properties during parallel test runs. This make running parallel tests easier because it is easier to make your tests thread safe.</p>
 <p>This release also fixes several issues running tests in .NET 5.0. If your tests target .NET 5.0, we recommend updating to this release.</p>
-<h3 id="issues-resolved">Issues Resolved</h3>
+<h3 id="issues-resolved-1">Issues Resolved</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/34">34</a> Async testing with F#</li>
 <li><a href="https://github.com/nunit/nunit/issues/52">52</a> Self-contained item in array causes stack overflow</li>
@@ -210,7 +224,7 @@ and better exception handling.</p>
 <p>The .NET Standard 2.0 version of NUnit continues to gain more functionality that
 is found in the .NET 4.5 version of the framework like setting the ApartmentState
 and enabling Timeout on tests.</p>
-<h3 id="issues-resolved-1">Issues Resolved</h3>
+<h3 id="issues-resolved-2">Issues Resolved</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/474">474</a> TypeHelperTests.cs is orphaned</li>
 <li><a href="https://github.com/nunit/nunit/issues/999">999</a> Support multiple TestOf attributes per test</li>
@@ -277,7 +291,7 @@ and enabling Timeout on tests.</p>
 <li>Async tests detecting and running Windows Forms or WPF message pumps rather than deadlocking</li>
 <li>Support for UWP 10.0 is back via .NET Standard 1.4</li>
 </ul>
-<h3 id="issues-resolved-2">Issues Resolved</h3>
+<h3 id="issues-resolved-3">Issues Resolved</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/352">352</a> Test with infinite loop in TearDown cannot be aborted</li>
 <li><a href="https://github.com/nunit/nunit/issues/452">452</a> Deprecate the existing Chocolatey framework package</li>
@@ -351,7 +365,7 @@ effects people contributing to the project. NUnit still supports building and
 compiling your tests in older .NET IDEs and NUnit still supports older versions
 of the .NET Framework back to 2.0. For contributors, NUnit can now compile all
 supported targets on Windows, Linux and Mac using the Cake command line build.</p>
-<h3 id="issues-resolved-3">Issues Resolved</h3>
+<h3 id="issues-resolved-4">Issues Resolved</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/1212">1212</a> Separate AssertionHelper project or assembly</li>
 <li><a href="https://github.com/nunit/nunit/issues/1373">1373</a> Setting with a null value</li>
@@ -412,7 +426,7 @@ supported targets on Windows, Linux and Mac using the Cake command line build.</
 </ul>
 <h2 id="nunit-39---november-10-2017">NUnit 3.9 - November 10, 2017</h2>
 <p>This release addresses numerous parallelization issues that were introduced in 3.8 when method level parallelization was added. Most of the parallelization issues resolved were tests never completing when using some combinations of parallel tests and <code>ApartmentState</code> not being properly applied to tests in all cases.</p>
-<h3 id="issues-resolved-4">Issues Resolved</h3>
+<h3 id="issues-resolved-5">Issues Resolved</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/893">893</a> Inconsistent Tuple behavior.</li>
 <li><a href="https://github.com/nunit/nunit/issues/1239">1239</a> NUnit3 sometimes hangs if SetUpFixtures are run in parallel</li>
@@ -468,7 +482,7 @@ supported targets on Windows, Linux and Mac using the Cake command line build.</
 </ul>
 <h2 id="nunit-381---august-28-2017">NUnit 3.8.1 - August 28, 2017</h2>
 <p>This release fixes two critical regressions in the 3.8 release. The first caused the console runner to crash if you are using test parameters. The second issue caused collection constraints checking for multiple items in a collection to fail.</p>
-<h3 id="issues-resolved-5">Issues Resolved</h3>
+<h3 id="issues-resolved-6">Issues Resolved</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/2386">2386</a> Contains.Item() fails for collections in NUnit 3.8</li>
 <li><a href="https://github.com/nunit/nunit/issues/2390">2390</a> Missing value attribute in test parameters setting causes NullReferenceException in console</li>
@@ -480,7 +494,7 @@ original 3.0 release. Support for iOS and Android has been improved.</p>
 the use of Assert.Multiple in async code.</p>
 <p>The Order attribute can now also be applied to the class level to set the order
 that test fixtures will be run.</p>
-<h3 id="issues-resolved-6">Issues Resolved</h3>
+<h3 id="issues-resolved-7">Issues Resolved</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/345">345</a> Order of Fixture Execution</li>
 <li><a href="https://github.com/nunit/nunit/issues/1151">1151</a> Include differences in output for Is.EquivalentTo</li>
@@ -531,7 +545,7 @@ that test fixtures will be run.</p>
 </ul>
 <h2 id="nunit-371---june-6-2017">NUnit 3.7.1 - June 6, 2017</h2>
 <p>This is a hotfix release that addresses occasional hangs when using test parallelization and fixes crashes in NCrunch prior to version 3.9.</p>
-<h3 id="issues-resolved-7">Issues Resolved</h3>
+<h3 id="issues-resolved-8">Issues Resolved</h3>
 <ul>
 <li>2205 NCrunch: System.Xml.XmlException: Root element is missing, when adding NUnit 3.7.0</li>
 <li>2209 NUnit occasionally hangs when parallelizable TestFixture has OneTimeSetUp and OneTimeTearDown</li>
@@ -547,7 +561,7 @@ weren't available in portable like Path and Directory based asserts.</p>
 <p>The AssertionHelper class has been deprecated because it is seldom used and has
 not received any of the updates that Asserts and Constraints receive. If your code
 is using the AssertionHelper class, we recommend that you migrate your asserts.</p>
-<h3 id="issues-resolved-8">Issues Resolved</h3>
+<h3 id="issues-resolved-9">Issues Resolved</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/164">164</a> Run test methods within a fixture in parallel</li>
 <li><a href="https://github.com/nunit/nunit/issues/391">391</a> Multiple Assertions</li>
@@ -622,7 +636,7 @@ is using the AssertionHelper class, we recommend that you migrate your asserts.<
 <h2 id="nunit-361---february-26-2017">NUnit 3.6.1 - February 26, 2017</h2>
 <p>This is a hotfix release of the framework that addresses critical issues found in
 the 3.6 release.</p>
-<h3 id="issues-resolved-9">Issues Resolved</h3>
+<h3 id="issues-resolved-10">Issues Resolved</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/1962">1962</a> A Theory with no data passes</li>
 <li><a href="https://github.com/nunit/nunit/issues/1986">1986</a> NUnitLite ignores --workers option</li>
@@ -643,7 +657,7 @@ the 3.6 release.</p>
 <li>Enabled Path, File and Directory Asserts/Constraints for .NET Core testing</li>
 <li>Added NonTestAssemblyAttribute for use by third-party developers to indicate that their assemblies reference the NUnit framework, but do not contain tests</li>
 </ul>
-<h3 id="issues-resolved-10">Issues Resolved</h3>
+<h3 id="issues-resolved-11">Issues Resolved</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/406">406</a> Warning-level Assertions</li>
 <li><a href="https://github.com/nunit/nunit/issues/890">890</a> Allow file references anywhere in the command line.</li>
