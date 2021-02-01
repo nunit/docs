@@ -4,6 +4,22 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
+## NUnit 3.13.1 - January 31, 2021
+
+This release addresses several misses with the new `FixtureLifeCycle` attribute, switches to using [SourceLink](https://github.com/dotnet/sourcelink) and NuGet [snupkg](https://docs.microsoft.com/en-us/nuget/create-packages/symbol-packages-snupkg) packages for debugging into NUnit from your unit tests. It also addresses issues with the time format of ignored and explicit tests in the test results file.
+
+### Issues Resolved
+
+* [2339](https://github.com/nunit/nunit/issues/2339) Wrong date format in Ignored TestFixtures
+* [3715](https://github.com/nunit/nunit/issues/3715) `FixtureLifeCycle(LifeCycle.InstancePerTestCase)` Not working with `TestFixtureSource`
+* [3716](https://github.com/nunit/nunit/issues/3716) Assembly level `FixtureLifeCycle(LifeCycle.InstancePerTestCase)` doesn't work
+* [3724](https://github.com/nunit/nunit/issues/3724) Test start and end time should end with Z
+* [3726](https://github.com/nunit/nunit/issues/3726) Assert `EqualTo().Within().Seconds` does not work with DateTimes in NUnit 3.13
+* [3729](https://github.com/nunit/nunit/issues/3729) AppVeyor builds failing
+* [3736](https://github.com/nunit/nunit/issues/3736) `AreEqual.Within` throws on failure with non-numeric types
+* [3743](https://github.com/nunit/nunit/issues/3743) Parametrized tests do not respect `FixtureLifeCycle.InstancePerTestCase`
+* [3745](https://github.com/nunit/nunit/issues/3745) After upgrading to NUnit 3.13.0 the debugger enters NUnit code despite having checked "Enable Just My Code"
+
 ## NUnit 3.13 - January 7, 2021
 
 The [`FixtureLifeCycle`](xref:fixturelifecycleattribute) attribute has been added to indicate that an instance for a test fixture or all test fixtures in an assembly should be constructed for each test within the fixture or assembly.

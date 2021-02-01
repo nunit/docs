@@ -105,7 +105,9 @@ The release **should not** be built on a developers machine, it should be built 
 
 * NUnit-VERSION.zip
 * NUnit.VERSION.nupkg
+* NUnit.VERSION.snupkg
 * NUnitLite.VERSION.nupkg
+* NUnitLite.VERSION.snupkg
 
 ## Testing the Release
 
@@ -113,7 +115,7 @@ The degree to which each package needs testing may vary depending on what has be
 
 1. Ensure the [NUnit Framework CI](https://nunit.visualstudio.com/NUnit/_build?definitionId=11) build succeeds on all platforms and that the tests passed.
 2. Download `Package.zip` from the build and extract it locally.
-3. Three files should be extracted, `NUnit.{version}.nupkg`, `NunitLite.{version}.nupkg` and `NUnit.Framework-{version}.zip`.
+3. Five files should be extracted, `NUnit.{version}.nupkg`, `NUnit.{version}.snupkg`, `NunitLite.{version}.nupkg`, `NunitLite.{version}.snupkg` and `NUnit.Framework-{version}.zip`.
 4. In Visual Studio, create a test project and add your local directory as a package source. Install the packages and verify that they apply to the project correctly.
 5. Run unit tests for platforms or features that have changed in the release.
 
@@ -133,7 +135,7 @@ Once the [NUnit Framework CI](https://nunit.visualstudio.com/NUnit/_build?defini
 4. Enter a title for the release, like NUnit 3.13. If you type 'N' you'll get some hints.
 5. Use the preamble from the release notes for the description and add a link to the full release notes on the docs website.
 6. If this is an Alpha or Beta release, check the box that indicates a pre-release.
-7. Upload the three files from `Package.zip` that you downloaded. Note that we upload all the packages, including those that are also published on NuGet.
+7. Upload the five files from `Package.zip` that you downloaded. Note that we upload all the packages, including those that are also published on NuGet.
 8. Click the "Publish release" button to publish the release on Github.
 
 ### NuGet
@@ -142,7 +144,7 @@ Once the [NUnit Framework CI](https://nunit.visualstudio.com/NUnit/_build?defini
 2. Select Upload package.
 3. Browse to the location of the `NUnit.VERSION.nupkg` you created and upload it.
 4. Verify that the info is correct and click the "Submit" button.
-5. Repeat steps 2-4 for `NUnitLite.VERSION.nupkg`
+5. Repeat steps 2-4 for `NUnitLite.VERSION.nupkg` and the two `snupkg` files.
 
 ### Website
 
