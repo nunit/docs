@@ -12,10 +12,6 @@ instance methods and you may define more than one of them in a fixture.
 Normally, multiple OneTimeTearDown methods are only defined at different levels
 of an inheritance hierarchy, as explained below.
 
-So long as any OneTimeSetUp method runs without error, the OneTimeTearDown method is
-guaranteed to run. It will not run if a OneTimeSetUp method fails or throws an
-exception.
-
 ## Example
 
 ```csharp
