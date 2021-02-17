@@ -93,9 +93,6 @@ in a fixture. It may appear on methods of a TestFixture or a SetUpFixture.</p>
 instance methods and you may define more than one of them in a fixture.
 Normally, multiple OneTimeTearDown methods are only defined at different levels
 of an inheritance hierarchy, as explained below.</p>
-<p>So long as any OneTimeSetUp method runs without error, the OneTimeTearDown method is
-guaranteed to run. It will not run if a OneTimeSetUp method fails or throws an
-exception.</p>
 <h2 id="example">Example</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
