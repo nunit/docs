@@ -1,6 +1,7 @@
 # NUnit Copyright Notice
 
 ## NUnit
+
 ```text
 // ***********************************************************************
 // Copyright (c) yyyy Charlie Poole
@@ -27,6 +28,7 @@
 ```
 
 ## NUnit Console
+
 ```text
 // Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
 ```
