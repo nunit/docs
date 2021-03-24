@@ -43,11 +43,9 @@ All work on releases should be done on a branch.
 
 ### Update Copyright Year
 
-The copyright year in all the source files is only updated as they are changed, but the copyright in the `[assembly: AssemblyCopyright("...")]` and the copyright text displayed by `nunitlite` should be updated to the year of the release. Search for `AssemblyCopyright` in the solution and update it where needed, then check `TextUI.cs` in `nunitlite-runner` for default values used when no attribute is found.
+The copyright in the `[assembly: AssemblyCopyright("...")]` and the copyright text displayed by `nunitlite` should be updated to the year of the release. Search for `AssemblyCopyright` in the solution and update it where needed, then check `TextUI.cs` in `nunitlite-runner` for default values used when no attribute is found.
 
-If necessary, update the year in the general copyright notice LICENSE.txt. Note that these copyright notices refer to each of the packages in their entirety. Each of the `.nuspec` files in the `nuget` subdirectory contains a copyright line, which should also be updated along with `program.cs` and `program.vb` in the `nuspec/nunitlite` directory.
-
-Notices at the top of each source code file are only updated when copyrightable changes are made to the file, not at the time of release.
+If necessary, update the year in the general copyright notice LICENSE.txt. Note that these copyright notices refer to each of the packages in their entirety. Each of the `.nuspec` files in the `nuget` subdirectory contains a copyright line, which should also be updated.
 
 ### Update CHANGES File
 
