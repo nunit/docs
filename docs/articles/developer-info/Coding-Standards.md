@@ -20,15 +20,15 @@ Visual Studio can be set up to match the coding standards by importing the [nuni
 
 ## Copyright
 
-NUnit is licensed under the MIT / X11 license. Each file is prefixed by the [NUnit Copyright Notice](NUnit-Copyright-Notice.md) enclosed in appropriate comment characters for the language of the file.
+NUnit is licensed under the MIT license. Each file is prefixed by the NUnit Copyright Notice `Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt` enclosed in appropriate comment characters for the language of the file.
 
 ### Notes
 
-1. Charlie Poole is the copyright holder for the NUnit code on behalf of the NUnit community, at least until some other arrangement is made. Do not place your name on the copyright line if you wish to contribute code.
+1. Charlie Poole and Rob Prouse are the copyright holders for the NUnit code on behalf of the NUnit community. Do not place your name on the copyright line if you wish to contribute code.
 
-2. The year given is the year of the file's creation. Subsequently, as copyrightable (non-trivial) changes are made, additional years or ranges of years may be added. For example, some file might include the statement `Copyright (c) 2007-2015 Charlie Poole`.
+2. The year is not included in the copyright file header.
 
-3. Do not update the copyright years when no changes or only trivial changes are made to a file.
+3. In the NUnit Framework project, you can insert the copyright header in a file using the quick fix `Ctrl+.` in Visual Studio.
 
 ### Language Level
 
