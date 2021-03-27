@@ -27,6 +27,7 @@ Does.Not.ContainKey(object)
 ...Using<T>(Func<T, T, bool> comparer)
 ...Using<T>(IEqualityComparer<T> comparer)
 ...Using<TCollectionType, TMemberType>(Func<TCollectionType, TMemberType, bool> comparison)
+...WithValue(object expectedValue)
 ```
 
 ## Examples of Use
@@ -38,8 +39,10 @@ Assert.That(idict, Contains.Key(1));
 Assert.That(idict, Does.ContainKey(2));
 Assert.That(idict, Does.Not.ContainKey(3));
 Assert.That(mydict, Contains.Key(myOwnObject).Using(myComparer));
+Assert.That(mydict, Does.ContainKey("Hello").WithValue("World"));
 ```
 
 ## See also
 
 * [DictionaryContainsValueConstraint](DictionaryContainsValueConstraint.md)
+* [DictionaryContainsKeyValuePairConstraint](DictionaryContainsKeyValuePairConstraint.md)
