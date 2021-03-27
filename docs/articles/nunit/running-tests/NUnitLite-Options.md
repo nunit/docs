@@ -65,7 +65,6 @@ the following forms:
 
 * `--OPTION:filename`
 * `--OPTION:filename;format=formatname`
-* `--OPTION:filename;transform=xsltfile`
 
 The `--result` option may use any of the following formats:
 
@@ -82,5 +81,3 @@ test cases is output to the console.
 
 If none of the options (`--result`, `--explore`, `--noxml`) is used,
 NUnit saves the results to `TestResult.xml` in nunit3 format.
-
-Any transforms provided must handle input in the native nunit3 format.
