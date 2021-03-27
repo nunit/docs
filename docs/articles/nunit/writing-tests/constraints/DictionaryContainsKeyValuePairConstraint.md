@@ -1,45 +1,34 @@
-# DictionaryContainsKey Constraint
+# DictionaryContainsKeyValuePairConstraint Constraint
 
-`DictionaryContainsKeyConstraint` is used to test whether a dictionary
-contains an expected object as a key.
+`DictionaryContainsKeyValuePairConstraint` is used to test whether a dictionary
+contains an expected key along with an expected corresponding value.
 
 ## Constructor
 
 ```csharp
-DictionaryContainsKeyConstraint(object)
+public DictionaryContainsKeyValuePairConstraint(object key, object value)
+    : this(new KeyValuePair<object, object>(key, value))
+{
+}
+
+protected DictionaryContainsKeyValuePairConstraint(KeyValuePair<object, object> arg)
+    : base(arg)
+{
+    Expected = arg;
+}
 ```
 
 ## Syntax
 
 ```csharp
-Contains.Key(object)
-Does.ContainKey(object)
-Does.Not.ContainKey(object)
-```
-
-## Modifiers
-
-```csharp
-...Using(IComparer comparer)
-...Using(IEqualityComparer comparer)
-...Using<T>(IComparer<T> comparer)
-...Using<T>(Comparison<T> comparer)
-...Using<T>(Func<T, T, bool> comparer)
-...Using<T>(IEqualityComparer<T> comparer)
-...Using<TCollectionType, TMemberType>(Func<TCollectionType, TMemberType, bool> comparison)
-```
-
-## Examples of Use
-
-```csharp
-IDictionary<int, int> idict = new IDictionary<int, string> { { 1, 4 }, { 2, 5 } };
-
-Assert.That(idict, Contains.Key(1));
-Assert.That(idict, Does.ContainKey(2));
-Assert.That(idict, Does.Not.ContainKey(3));
-Assert.That(mydict, Contains.Key(myOwnObject).Using(myComparer));
+Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("Hi", "Universe"));
+Assert.That(dictionary, Does.ContainKey("Hola").WithValue("Mundo"));
+Assert.That(dictionary, Does.Not.ContainKey("Hello").WithValue("NotValue"));
+Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("HI", "UNIVERSE").IgnoreCase);
+Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("HI", "UNIVERSE").Using<string>((x, y) => StringUtil.Compare(x, y, true)));
 ```
 
 ## See also
 
 * [DictionaryContainsValueConstraint](DictionaryContainsValueConstraint.md)
+* [DictionaryContainsKeyConstraint](DictionaryContainsKeyConstraint.md)
