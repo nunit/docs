@@ -129,8 +129,12 @@ Without the V2 driver, only version 3.0 and higher tests may be run.</p>
 <td>An expression indicating which tests to run. It may specify test names, classes, methods, categories or properties comparing them to actual values with the operators ==, !=, =~ and !~. See <a href="Test-Selection-Language.html">Test Selection Language</a> for a full description of the syntax.</td>
 </tr>
 <tr>
-<td><code>--params|p=PARAMETER</code></td>
-<td>A test PARAMETER specified in the form NAME=VALUE for consumption by tests. Multiple parameters may be specified, separated by semicolons or by repeating the --params option multiple times. Case-sensitive.</td>
+<td><code>--testparam:PARAMETER, --tp:PARAMETER</code></td>
+<td>A test PARAMETER specified in the form NAME=VALUE for consumption by tests. Multiple parameters must be specified separated using a <code>--testparam</code> or <code>--tp</code> option for each.</td>
+</tr>
+<tr>
+<td><code>--params=PARAMETER, --p=PARAMETER</code></td>
+<td>(<strong>NOTE:</strong> <em>this is deprecated and will be removed in a future release. Please use --testparam instead</em>.) A test PARAMETER specified in the form NAME=VALUE for consumption by tests. Multiple parameters may be specified, separated by semicolons or by repeating the --params option multiple times. Case-sensitive.</td>
 </tr>
 <tr>
 <td><code>--config=NAME</code></td>
