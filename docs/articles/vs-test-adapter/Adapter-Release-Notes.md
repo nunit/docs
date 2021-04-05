@@ -1,6 +1,5 @@
 # Adapter Release Notes
 
-
 ## NUnit3 Test Adapter for Visual Studio - Version 4.0.0-beta.2 - April 6, 2021
 
 This will be a short beta.2, given we don't hit on any intricate issues.  
@@ -12,7 +11,7 @@ The following issues have been resolved:
 * [824](https://github.com/nunit/nunit3-vs-adapter/issues/824 ) "Not a TestFixture or TestSuite, but SetUpFixture" exception is being thrown in case of more than one SetUpFixture
 * [811](https://github.com/nunit/nunit3-vs-adapter/issues/811) "System.FormatException: The UTC representation of the date falls outside the year range 1-9999" from skipped test in Eastern European time zone.  Thanks to [KalleOlaviNiemitalo](https://github.com/KalleOlaviNiemitalo) for suggesting the fix.
 
-Also a performance improvement was done, thanks to [pakrym](https://github.com/pakrym) for the [PR 821](https://github.com/nunit/nunit3-vs-adapter/pull/821)
+Also a performance improvement was done, thanks to [Pakrym](https://github.com/pakrym) for the [PR 821](https://github.com/nunit/nunit3-vs-adapter/pull/821)
 
 ## NUnit3 Test Adapter for Visual Studio - Version 4.0.0-beta.1 - Nov 20, 2020
 
