@@ -28,6 +28,7 @@ Constraint Name                      |
 [CollectionSupersetConstraint](CollectionSupersetConstraint.md)     |
 [DelayedConstraint](DelayedConstraint.md)                |
 [DictionaryContainsKeyConstraint](DictionaryContainsKeyConstraint.md)  |
+[DictionaryContainsKeyValuePairConstraint](DictionaryContainsKeyValuePairConstraint.md)  |
 [DictionaryContainsValueConstraint](DictionaryContainsValueConstraint.md)|
 [EmptyCollectionConstraint](EmptyCollectionConstraint.md)        |
 [EmptyConstraint](EmptyConstraint.md)                  |
@@ -81,6 +82,7 @@ Constraint Name                      |
 [CollectionSubsetConstraint](CollectionSubsetConstraint.md)       |
 [CollectionSupersetConstraint](CollectionSupersetConstraint.md)     |
 [DictionaryContainsKeyConstraint](DictionaryContainsKeyConstraint.md)  |
+[DictionaryContainsKeyValuePairConstraint](DictionaryContainsKeyValuePairConstraint.md)  |
 [DictionaryContainsValueConstraint](DictionaryContainsValueConstraint.md)|
 [EmptyCollectionConstraint](EmptyCollectionConstraint.md)        |
 [ExactCountConstraint](ExactCountConstraint.md)             |

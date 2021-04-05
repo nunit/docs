@@ -62,7 +62,7 @@ class OneTimeSetUp methods before those in the derived classes.
 
 * [`OneTimeSetUp`](xref:onetimesetup-attribute) methods run in the context of the [`TestFixture`](xref:testfixtureattribute) or [`SetUpFixture`](xref:setupfixture-attribute), which is separate from the context of any individual test cases. It's important to keep this in mind when using [`TestContext`](xref:testcontext) methods and properties within the method.
 
-* When using [`FixtureLifeCycle`](xref:fixturelifecycleattribute) with `LifeCycle.InstancePerTestCase`, the [`OneTimeTearDown`](xref:onetimeteardown-attribute) method must be static and is only called once. This is required so that the setup method does not access instance fields or properties that are reset for every test.
+* When using [`FixtureLifeCycle`](xref:fixturelifecycleattribute) with `LifeCycle.InstancePerTestCase`, the [`OneTimeSetUp`](xref:onetimesetup-attribute) method must be static and is only called once. This is required so that the setup method does not access instance fields or properties that are reset for every test.
 
 ## See Also
 
