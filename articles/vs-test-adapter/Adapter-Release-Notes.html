@@ -87,6 +87,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="adapter-release-notes">Adapter Release Notes</h1>
 
+<h2 id="nunit3-test-adapter-for-visual-studio---version-400-beta2---april-6-2021">NUnit3 Test Adapter for Visual Studio - Version 4.0.0-beta.2 - April 6, 2021</h2>
+<p>This will be a short beta.2, given we don't hit on any intricate issues.</p>
+<p>A major change in this version is the upgrade of the NUnit.Engine to version 3.12, and thus Mono.Cecil is no longer used.  Instead it has a reduced version (based on Mono.Cecil) packed into TestCentric.engine.metadata doing the same job with navigation data.</p>
+<p>The following issues have been resolved:</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/824">824</a> &quot;Not a TestFixture or TestSuite, but SetUpFixture&quot; exception is being thrown in case of more than one SetUpFixture</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/811">811</a> &quot;System.FormatException: The UTC representation of the date falls outside the year range 1-9999&quot; from skipped test in Eastern European time zone.  Thanks to <a href="https://github.com/KalleOlaviNiemitalo">KalleOlaviNiemitalo</a> for suggesting the fix.</li>
+</ul>
+<p>Also a performance improvement was done, thanks to <a href="https://github.com/pakrym">Pakrym</a> for the <a href="https://github.com/nunit/nunit3-vs-adapter/pull/821">PR 821</a></p>
 <h2 id="nunit3-test-adapter-for-visual-studio---version-400-beta1---nov-20-2020">NUnit3 Test Adapter for Visual Studio - Version 4.0.0-beta.1 - Nov 20, 2020</h2>
 <p>This beta is based on the earlier alpha version, and includes new fixes, some reported in the alpha. A great thank you to those who reported and checked out the fixes in the alpha!</p>
 <p>The alpha has more than 32000 downloads, with only a few issues reported, so we feel safe to move up to a beta.  The time for beta will be much shorter, so we might be able to release a final 4.0.0 version before end of 2020.</p>

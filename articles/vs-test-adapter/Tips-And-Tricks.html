@@ -231,7 +231,7 @@ The following options are available:</p>
 <td><a href="#skipnontestassemblies">SkipNonTestAssemblies</a></td>
 <td>bool</td>
 <td>Adapter supports NonTestAssemblyAttribute</td>
-<td>false</td>
+<td>true</td>
 </tr>
 <tr>
 <td><a href="#mapwarningto">MapWarningTo</a></td>
@@ -366,7 +366,8 @@ You can find the files under your current output folder, in a sub-folder named D
 <h4 id="skipnontestassemblies">SkipNonTestAssemblies</h4>
 <p>If the attribute <code>NonTestAssembly</code> is added in an assembly, it will be skipped from further testing.  If <a href="https://devblogs.microsoft.com/dotnet/real-time-test-discovery/">RTD</a> is enabled in Visual Studio, the tests will be displayed, but running will skip them.<br>
 See explanation for the <a class="xref" href="../nunit/writing-tests/attributes/nontestassembly.html">NonTestAssembly Attribute</a>, and <a href="https://github.com/nunit/nunit3-vs-adapter/issues/758">Issue explanation here</a>.</p>
-<p>(From version 3.17.0)</p>
+<p>(From version 3.17.0)
+(Default changed to true from 4.0.0)</p>
 <h4 id="displayname">DisplayName</h4>
 <p>The default for Test Explorer <code>DisplayName</code> is to use the Name of the test, which normally is the method name.  Using DisplayName you can change between <code>Name</code>, <code>FullName</code> or <code>FullNameSep</code>.  The last one will then use the FullNameSeparator,which defaults to '<code>:</code>'.
 See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/640">Issue 640</a> for explanations of use and <a href="https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue640">sample code</a> here.</p>
