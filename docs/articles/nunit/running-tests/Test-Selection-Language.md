@@ -55,9 +55,9 @@ The right-hand side of the comparison may be a sequence of non-blank, non-specia
   test=~TestCaseAttributeTest
 ```
 
-For matching regular expressions, NUnit uses .NET's `Regex.IsMatch` method. For detailed information on the syntax of regular expressions in .NET, see <https://msdn.microsoft.com/en-us/library/az24scfc%28v=vs.110%29.aspx>.
+For matching regular expressions, NUnit uses .NET's `Regex.IsMatch` method. For detailed information on the syntax of regular expressions in .NET, see [Regular Expressions in .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
-For specifying qualified names, the same format as used for reflection should be used. For example `My.Name.Space.TestFixture+NestedFixture` can be used to select a nested fixture. For detailed information see: [Specifying Special Characters](https://msdn.microsoft.com/en-us/library/yfsftwz6(v=vs.110).aspx#Anchor_1)
+For specifying qualified names, the same format as used for reflection should be used. For example `My.Name.Space.TestFixture+NestedFixture` can be used to select a nested fixture. For detailed information see: [Specifying Special Characters](https://docs.microsoft.com/dotnet/framework/reflection-and-codedom/specifying-fully-qualified-type-names#specifying-special-characters)
 
 ## Filtering By Namespace
 
