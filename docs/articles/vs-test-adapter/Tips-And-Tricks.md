@@ -33,6 +33,7 @@ The following options are available:
 |[UseParentFQNForParametrizedTests](#useparentfqnforparametrizedtests)|bool|Enable parent as FQN for parametrized tests|false|
 |[UseNUnitIdforTestCaseId](#usenunitidfortestcaseid) |bool|Uses NUnit test id as VSTest Testcase Id, instead of FullyQualifiedName|false|
 |[ConsoleOut](#consoleout)|int|Sends standard console output to the output window|1|
+|[UseTestNameInConsoleOutput](#usetestnameinconsoleoutput)|bool|Adds name of test as a prefix in the output window for console output|true|
 |[StopOnError](#stoponerror)|bool|Stops on first error|false|
 |[SkipNonTestAssemblies](#skipnontestassemblies)|bool|Adapter supports NonTestAssemblyAttribute|false|
 |[MapWarningTo](#mapwarningto)|enum|Map Assert.Warn to either Passed, Failed or Skipped|Skipped|
@@ -183,6 +184,12 @@ Disable this by setting it to 0, which is also the default for version earlier t
 See [Issue 343](https://github.com/nunit/nunit3-vs-adapter/issues/343) for more information and discussion
 
 (From version 3.17.0)
+
+#### UseTestNameInConsoleOutput
+
+When set to ```true```, default, the name of test is added as a prefix in front of each console line output.  This only applies to the output in the output window.
+
+(From version 4.0.0)
 
 #### StopOnError
 
