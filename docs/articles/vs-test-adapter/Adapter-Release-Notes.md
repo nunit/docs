@@ -8,17 +8,19 @@ This is currently the version that will support Visual Studio 2022.
 
 * [**Explicit**](https://github.com/nunit/nunit3-vs-adapter/issues?q=is%3Aissue+is%3Aclosed+project%3Anunit%2Fnunit3-vs-adapter%2F3) works now for all versions of Visual Studio. This is covered by several issues, see below on alpha and beta release notes.  
 
-The following features have been implemented in the final release.
+See the alpha and beta release notes below for more issues and features that have been resolved and is included in this major release.
 
-* [863](https://github.com/nunit/nunit3-vs-adapter/pull/863) The Test Name is default added to the console output for tests. It can be turned off by the [UseTestNameInConsoleOutput]() runsetting.
+The following additional features have been implemented in the final release.
+
+* [863](https://github.com/nunit/nunit3-vs-adapter/pull/863) The Test Name is default added to the console output for tests. It can be turned off by the [UseTestNameInConsoleOutput](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#usetestnameinconsoleoutput) property.
 
 * [843](https://github.com/nunit/nunit3-vs-adapter/issues/843) Reporting random seed for a test case
 
-The following issue has been resolved:
+The following additional issue has been resolved:
 
 * [852](https://github.com/nunit/nunit3-vs-adapter/issues/852) NullReferenceException in ExtractTestFixture in v4.0.0-beta2.
 
-See the former alpha and beta release notes below for more issues and features that have been resolved and is included in this major release.
+
 
 ## NUnit3 Test Adapter for Visual Studio - Version 4.0.0-beta.2 - April 6, 2021
 
