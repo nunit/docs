@@ -35,7 +35,7 @@ The following options are available:
 |[ConsoleOut](#consoleout)|int|Sends standard console output to the output window|1|
 |[UseTestNameInConsoleOutput](#usetestnameinconsoleoutput)|bool|Adds name of test as a prefix in the output window for console output|true|
 |[StopOnError](#stoponerror)|bool|Stops on first error|false|
-|[SkipNonTestAssemblies](#skipnontestassemblies)|bool|Adapter supports NonTestAssemblyAttribute|false|
+|[SkipNonTestAssemblies](#skipnontestassemblies)|bool|Adapter supports NonTestAssemblyAttribute|true|
 |[MapWarningTo](#mapwarningto)|enum|Map Assert.Warn to either Passed, Failed or Skipped|Skipped|
 |[DisplayName](#displayname)|enum|Set what a DisplayName is, options: Name, FullName or FullNameSep|Name|
 |[FullnameSeparator](#fullnameseparator)|string|FullNameSep separator|':'|
@@ -212,6 +212,7 @@ If the attribute `NonTestAssembly` is added in an assembly, it will be skipped f
 See explanation for the [NonTestAssembly Attribute](xref:nontestassembly), and [Issue explanation here](https://github.com/nunit/nunit3-vs-adapter/issues/758).
 
 (From version 3.17.0)
+(Default changed to true from 4.0.0)
 
 #### DisplayName
 
