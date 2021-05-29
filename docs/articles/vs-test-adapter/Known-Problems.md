@@ -6,7 +6,7 @@
 
     1  Adapter versions in the 4.XX series support the `explicit` keyword in all Visual Studio versions.
 
-    2 Adapter versions in the 3.XX series:  From version 16.2 (Visual Studio 2019) the Explicit keyword is no longer explicitly supported by Visual Studio.  If you want to use it, it does exist as a Category, so you can use it as a category filter.
+    2 Adapter versions in the 3.XX series:  From version 16.2 (Visual Studio 2019) the `Explicit` keyword is no longer explicitly supported by Visual Studio.  If you want to use it, it does exist as a Category, so you can use it as a category filter.
 
 3. There is no test status in Visual Studio corresponding to NUnit's Inconclusive result, so tests with this result are reported as Not Run. Click on the individual test to see the result.
 
