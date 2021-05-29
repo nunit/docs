@@ -4,7 +4,9 @@
 
 This major release contains a series of changes, and also underlying changes in the adapter.  
 
-This is currently the version that will support Visual Studio 2022.
+This is currently the version that will support Visual Studio 2022.  The earlier versions will initially not support VS 2022.
+
+(There is a currently unknown issue that blocks the 3.X series for VS 2022.  It is currently unclear if the Visual Studio team may be able to fix this issue. Any fix from the adapter side will include an upgrade, and then the 4.X series is the solution for that.)
 
 * [**Explicit**](https://github.com/nunit/nunit3-vs-adapter/issues?q=is%3Aissue+is%3Aclosed+project%3Anunit%2Fnunit3-vs-adapter%2F3) works now for all versions of Visual Studio. This is covered by several issues, see below on alpha and beta release notes.  
 
