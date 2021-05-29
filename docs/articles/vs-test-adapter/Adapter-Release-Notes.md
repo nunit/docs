@@ -20,8 +20,6 @@ The following additional issue has been resolved:
 
 * [852](https://github.com/nunit/nunit3-vs-adapter/issues/852) NullReferenceException in ExtractTestFixture in v4.0.0-beta2.
 
-
-
 ## NUnit3 Test Adapter for Visual Studio - Version 4.0.0-beta.2 - April 6, 2021
 
 This will be a short beta.2, given we don't hit on any intricate issues.  
