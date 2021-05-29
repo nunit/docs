@@ -12,15 +12,15 @@ See the alpha and beta release notes below for more issues and features that hav
 
 The following additional features have been implemented in the final release.
 
-* [863](https://github.com/nunit/nunit3-vs-adapter/pull/863) The Test Name is default added to the console output for tests. It can be turned off by the [UseTestNameInConsoleOutput](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#usetestnameinconsoleoutput) property.
+* [671](https://github.com/nunit/nunit3-vs-adapter/issues/671) Exception in OneTimeSetUp has no stack trace
 
 * [843](https://github.com/nunit/nunit3-vs-adapter/issues/843) Reporting random seed for a test case
+
+* [863](https://github.com/nunit/nunit3-vs-adapter/pull/863) The Test Name is by default added to the console output for tests. It can be turned off by the [UseTestNameInConsoleOutput](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#usetestnameinconsoleoutput) property.
 
 The following additional issue has been resolved:
 
 * [852](https://github.com/nunit/nunit3-vs-adapter/issues/852) NullReferenceException in ExtractTestFixture in v4.0.0-beta2.
-
-
 
 ## NUnit3 Test Adapter for Visual Studio - Version 4.0.0-beta.2 - April 6, 2021
 

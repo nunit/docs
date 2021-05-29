@@ -42,6 +42,7 @@ The following options are available:
 |[DiscoveryMethod](#discoverymethod)|enum|How execution discovery is done, options are `Legacy` or `Current`|Current|
 |[AssemblySelectLimit](#assemblyselectlimit)|int|Number of tests accepted before filters are turned off|2000|
 |[NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)|bool|Creates a new file for each test run|false|
+|[IncludeStackTraceForSuites](#includestacktraceforsuites)|bool|Includes stack trace for failures in suites, like exceptions in OneTimeSetup|true|
 
 ### Visual Studio templates for runsettings
 
@@ -115,11 +116,11 @@ This setting is used by the adapter to signal to the VSTest.Execution engine to 
 
 These settings are used to dump the output from NUnit, as it is received by the adapter, before any processing in the adapter is done, to disk.  It is part of the diagnostics tools for the adapter.
 You can find the files under your current output folder, in a sub-folder named Dump.
-(Note: This is not the same as the TestResults folder, this data is not testresults, but diagnostics dumps)
+(Note: This is not the same as the TestResults folder, this data is not test results, but diagnostics dumps)
 
 #### PreFilter
 
-A prefilter will improve performance when testing a selection of tests from the Test Explorer.  It is default off, because there are issues in certain cases, see below. If you **don't** have any of the cases below, you can turn PreFilter on.
+A pre-filter will improve performance when testing a selection of tests from the Test Explorer.  It is default off, because there are issues in certain cases, see below. If you **don't** have any of the cases below, you can turn PreFilter on.
 
 * Your code contains a SetupFixture [#649](https://github.com/nunit/nunit3-vs-adapter/issues/649)
 * Your code uses a TestCaseSource and uses SetName to set the display name instead of SetArgDisplayNames [#650](https://github.com/nunit/nunit3-vs-adapter/issues/650)
@@ -241,7 +242,7 @@ If you run from the IDE (Visual Studio) the adapter will receive a list of tests
 
 This might have an adverse effect if you select a category and you have more than 2000 tests, the category setting will be ignored. In that case, just increase this limit to higher than your number of tests.
 
-You might also receive a list from the command line, and in that case it will also be skipped the same way.  Here the category will be honoured since the category filter will be converted to a NUnit filter.
+You might also receive a list from the command line, and in that case it will also be skipped the same way.  Here the category will be honored since the category filter will be converted to a NUnit filter.
 
 (From version 4.0.0)
 
@@ -253,6 +254,12 @@ The background is the following scenario, as described by [netcorefactory](https
 
 "*Running test in azure devops one can choose to rerun failed ( flaky ) tests. Mostly when running (selenium) e2e tests this becomes important. The .xml results file is currently overwritten each retry run. Other test coverage tooling dependent on this file receives only latest run results.
 Better to allow the possibility to deliver a results file per run.*"
+
+(From version 4.0.0)
+
+#### IncludeStackTraceForSuites
+
+Exceptions outside test cases are reported with its stack trace included in the message.  One example here is exceptions in OneTimeSetUp and OneTimeTearDown. They belong to the outer suite, and their exceptions are reported as part of the message. This option includes the stack trace in that message.  If this becomes too much information, this option turns the stack trace reporting off.
 
 (From version 4.0.0)
 
