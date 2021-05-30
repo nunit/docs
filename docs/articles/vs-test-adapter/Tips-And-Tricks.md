@@ -188,7 +188,7 @@ See [Issue 343](https://github.com/nunit/nunit3-vs-adapter/issues/343) for more 
 
 #### UseTestNameInConsoleOutput
 
-When set to ```true```, default, the name of test is added as a prefix in front of each console line output.  This only applies to the output in the output window.
+When set to `true`, the default, the name of the test is added as a prefix in front of each console line output.  This only applies to the output in the output window.
 
 (From version 4.0.0)
 
