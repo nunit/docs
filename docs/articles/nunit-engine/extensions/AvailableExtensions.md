@@ -26,7 +26,7 @@ TODO
 
 ### Teamcity Test Listener
 
-> [!WARN]
+> [!WARNING]
 > We plan to stop distributing the teamcity extension at some point, but for now it's included.
 
 ## Community-Authored Extensions Highlight
