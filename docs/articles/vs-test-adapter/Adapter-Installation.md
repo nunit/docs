@@ -25,8 +25,6 @@ To add it is a NuGet package, you must have an active solution, then follow thes
 > [!WARNING]
 > The use of the VSIX extension manager is deprecated.  It still works, but at some time support for it will be removed from Visual Studio, and also newer versions of the adapter. We recommend you try to move to nuget based adapters.
 
-We recommend you try to move to nuget based adapters.
-
 To install the NUnit Test Adapter using the Extension Manager, follow these steps:
 
 1. From within Visual Studio, select Tools | Extension Manager.
