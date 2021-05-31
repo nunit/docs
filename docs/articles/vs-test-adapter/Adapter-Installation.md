@@ -38,7 +38,7 @@ Use the Extension Manager to ensure that the NUnit 3.0 Test Adapter is enabled.
 
 ## How to choose between Extension and NuGet package
 
-The use of the vsix extension manager is deprecated.  It still works, but at some time support for it will be removed from Visual Studio, and also newer versions of the adapter.
+The use of the VSIX extension manager is deprecated.  It still works, but at some time support for it will be removed from Visual Studio, and also newer versions of the adapter.
 
 We recommend you try to move to nuget based adapters.
 
