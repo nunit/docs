@@ -7,7 +7,7 @@ uid: vstestadapterinstallation
 There are two ways of installing the adapter within Visual Studio. See below for info on how to choose.
 
 * Add it as a NuGet package to your solution. (Requires VS 2012 Update 1 or later)
-* Use the Extension Manager  (Deprecated)
+* Use the Extension Manager  (Deprecated and pending future removal; see notes below.)
 
 
 ## Installing the NuGet Package
