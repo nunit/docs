@@ -9,7 +9,6 @@ There are two ways of installing the adapter within Visual Studio. See below for
 * Add it as a NuGet package to your solution. (Requires VS 2012 Update 1 or later)
 * Use the Extension Manager  (Deprecated)
 
-
 ## Installing the NuGet Package
 
 To add it is a NuGet package, you must have an active solution, then follow these steps:
