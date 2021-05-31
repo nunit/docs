@@ -57,10 +57,10 @@ Without the tracelistener, the blocks in red will not be present.
 
 Running ``dotnet test -v n`, the output will be:
 
-![DotNet Trace Debug output](../../images/TraceDebug2.png)
+![DotNet Trace Debug output showing the lines outputted by the TraceListener](../../images/TraceDebug2.png)
 
 ## Discussion and source
 
-This issue have been discussed at [Issue 718](https://github.com/nunit/nunit3-vs-adapter/issues/718) and [Issue 301](https://github.com/nunit/nunit3-vs-adapter/issues/301). Use of tracelistener suggested by [Frans Bouma](https://github.com/FransBouma).
+This issue have been discussed at [Issue 718](https://github.com/nunit/nunit3-vs-adapter/issues/718) and [Issue 301](https://github.com/nunit/nunit3-vs-adapter/issues/301). Use of `TraceListener` suggested by [Frans Bouma](https://github.com/FransBouma).
 
 The repro code for the issue can be found [here](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue718).

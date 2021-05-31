@@ -7,7 +7,7 @@ uid: vstestadapterinstallation
 There are two ways of installing the adapter within Visual Studio. See below for info on how to choose.
 
 * Add it as a NuGet package to your solution. (Requires VS 2012 Update 1 or later)
-* Use the Extension Manager  (Deprecated)
+* Use the Extension Manager  (Deprecated and pending future removal; see notes below.)
 
 ## Installing the NuGet Package
 
@@ -21,22 +21,21 @@ To add it is a NuGet package, you must have an active solution, then follow thes
 
 ## Installing With the Extension Manager
 
-The use of the vsix extension manager is deprecated.  It still works, but at some time support for it will be removed from Visual Studio, and also newer versions of the adapter.
-
-We recommend you try to move to nuget based adapters.
+> [!WARNING]
+> The use of the VSIX extension manager is deprecated.  It still works, but at some time support for it will be removed from Visual Studio, and also newer versions of the adapter. We recommend you try to move to nuget based adapters.
 
 To install the NUnit Test Adapter using the Extension Manager, follow these steps:
 
 1. From within Visual Studio, select Tools | Extension Manager.
-2. In the left panel of the Extension Manager, select Online Extensions
-3. Locate (search for) the NUnit 3.0 Test Adapter in the center panel and highlight it.
-4. Click 'Download' and follow the instructions.
+1. In the left panel of the Extension Manager, select Online Extensions
+1. Locate (search for) the NUnit 3.0 Test Adapter in the center panel and highlight it.
+1. Click 'Download' and follow the instructions.
 
 Use the Extension Manager to ensure that the NUnit 3.0 Test Adapter is enabled.
 
 ## How to choose between Extension and NuGet package
 
-The use of the vsix extension manager is deprecated.  It still works, but at some time support for it will be removed from Visual Studio, and also newer versions of the adapter.
+The use of the VSIX extension manager is deprecated.  It still works, but at some time support for it will be removed from Visual Studio, and also newer versions of the adapter.
 
 We recommend you try to move to nuget based adapters.
 
