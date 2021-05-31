@@ -57,7 +57,7 @@ Without the tracelistener, the blocks in red will not be present.
 
 Running ``dotnet test -v n`, the output will be:
 
-![DotNet Trace Debug output](../../images/TraceDebug2.png)
+![DotNet Trace Debug output showing the lines outputted by the TraceListener](../../images/TraceDebug2.png)
 
 ## Discussion and source
 
