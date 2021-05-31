@@ -61,6 +61,6 @@ Running ``dotnet test -v n`, the output will be:
 
 ## Discussion and source
 
-This issue have been discussed at [Issue 718](https://github.com/nunit/nunit3-vs-adapter/issues/718) and [Issue 301](https://github.com/nunit/nunit3-vs-adapter/issues/301). Use of tracelistener suggested by [Frans Bouma](https://github.com/FransBouma).
+This issue have been discussed at [Issue 718](https://github.com/nunit/nunit3-vs-adapter/issues/718) and [Issue 301](https://github.com/nunit/nunit3-vs-adapter/issues/301). Use of `TraceListener` suggested by [Frans Bouma](https://github.com/FransBouma).
 
 The repro code for the issue can be found [here](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue718).
