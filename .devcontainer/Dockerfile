@@ -1,0 +1,1 @@
+FROM nunitdocs/docfx-action:latest
