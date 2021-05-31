@@ -22,6 +22,8 @@ The following additional features have been implemented in the final release.
 
 The following additional issue has been resolved:
 
+* [779](https://github.com/nunit/nunit3-vs-adapter/issues/779) Filtering tests with any "PropertyAttribute"
+
 * [852](https://github.com/nunit/nunit3-vs-adapter/issues/852) NullReferenceException in ExtractTestFixture in v4.0.0-beta2.
 
 ## NUnit3 Test Adapter for Visual Studio - Version 4.0.0-beta.2 - April 6, 2021
