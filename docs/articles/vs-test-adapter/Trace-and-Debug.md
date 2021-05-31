@@ -1,10 +1,10 @@
 # How to enable Trace and Debug output
 
-Trace and Debug output is by default not sent to the console output, or anywhere else.  If you want to have this output, you must add your own tracelistener.
+Trace and Debug output is by default not sent to the console output, or anywhere else.  If you want to have this output, you must add your own `TraceListener`.
 
-## Implementing the tracelistener in your code
+## Implementing the `TraceListener` in your code
 
-This is easy to do, and you can do it per assembly, per namespace or per test.  All it takes is to add the necessary initialization of the tracelistener.
+This is easy to do, and you can do it per assembly, per namespace or per test.  All it takes is to add the necessary initialization of the `TraceListener`.
 
 To add it to a namespace, place the following class inside that namespace, and it will apply to all tests inside that namespace and below.  The code shown adds the output to console output.  If you like you can change that to another kind of listener.
 
@@ -49,11 +49,11 @@ Given the following verbose test
         }
 ```
 
-With a tracelistener, the output in Visual Studio Test Explorer is:
+With a `TraceListener`, the output in Visual Studio Test Explorer is:
 
 ![Trace Debug output](../../images/TraceDebug1.png)
 
-Without the tracelistener, the blocks in red will not be present.
+Without the `TraceListener`, the blocks in red will not be present.
 
 Running ``dotnet test -v n`, the output will be:
 
