@@ -29,9 +29,9 @@ We recommend you try to move to nuget based adapters.
 To install the NUnit Test Adapter using the Extension Manager, follow these steps:
 
 1. From within Visual Studio, select Tools | Extension Manager.
-2. In the left panel of the Extension Manager, select Online Extensions
-3. Locate (search for) the NUnit 3.0 Test Adapter in the center panel and highlight it.
-4. Click 'Download' and follow the instructions.
+1. In the left panel of the Extension Manager, select Online Extensions
+1. Locate (search for) the NUnit 3.0 Test Adapter in the center panel and highlight it.
+1. Click 'Download' and follow the instructions.
 
 Use the Extension Manager to ensure that the NUnit 3.0 Test Adapter is enabled.
 
