@@ -22,7 +22,8 @@ To add it is a NuGet package, you must have an active solution, then follow thes
 
 ## Installing With the Extension Manager
 
-The use of the vsix extension manager is deprecated.  It still works, but at some time support for it will be removed from Visual Studio, and also newer versions of the adapter.
+> [!WARNING]
+> The use of the VSIX extension manager is deprecated.  It still works, but at some time support for it will be removed from Visual Studio, and also newer versions of the adapter. We recommend you try to move to nuget based adapters.
 
 We recommend you try to move to nuget based adapters.
 
