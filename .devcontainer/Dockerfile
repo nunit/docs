@@ -1,2 +1,2 @@
-FROM nunit/docfx-action:latest
+FROM nunitdocs/docfx-action:latest
 EXPOSE 8080
