@@ -16,7 +16,7 @@ RUN apt update -yqq \
 ENV PATH="/docfx:${PATH}"
 # ENTRYPOINT [ "docfx" ]
 
-# ADD ./entrypoint.sh /usr/local/bin/docfx
+ADD ./entrypoint.sh /usr/local/bin/docfx
 
 ADD https://github.com/dotnet/docfx/releases/download/v2.57.1/docfx.zip /
 RUN unzip docfx.zip -d /docfx && \
