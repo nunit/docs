@@ -43,4 +43,4 @@ The NuGet Package will apply to the solution, and will work for any other user t
 
 If you are testing **.NET Core or .NET Standard** you must use the NuGet package and Visual Studio 2017 or newer. Visual Studio does not support running .NET Core tests using an extension. The extension will only work with the full .NET Framework.
 
-The Extension will apply to Visual Studio itself, and will work for all projects you use. All users of your solution need to install the Extension. If you use TFS Build you must also install the extension to the build system there.
+The Extension will be installed to Visual Studio itself, and will work for all projects you use. All users of your solution need to install the extension. If you use TFS Build, you must also install the extension to the build system there.
