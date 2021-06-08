@@ -8,7 +8,7 @@ This is easy to do, and you can do it per assembly, per namespace or per test.  
 
 To add it to a namespace, place the following class inside that namespace, and it will apply to all tests inside that namespace and below.  The code shown adds the output to console output.  If you like you can change that to another kind of listener.
 
-```cs
+```csharp
 [SetUpFixture]
 public class SetupTrace
 {
