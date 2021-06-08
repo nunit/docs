@@ -34,7 +34,7 @@ If you'd like to only apply to a given test fixture/class, you can add the `Star
 
 Given the following verbose test:
 
-```cs
+```csharp
         [Test]
         public void Test1()
         {
