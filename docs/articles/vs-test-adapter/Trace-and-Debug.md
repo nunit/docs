@@ -28,7 +28,7 @@ public class SetupTrace
 
 If you place the code above outside of any namespace it will apply to the whole assembly.
 
-If you just want it to apply to a given test fixture/class, then you just add the `StartTest and EndTest` methods to the given test fixture/class.
+If you'd like to only apply to a given test fixture/class, you can add the `StartTest and EndTest` methods to the given test fixture/class.
 
 ## Example outputs
 
