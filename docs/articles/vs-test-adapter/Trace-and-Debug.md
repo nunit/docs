@@ -55,7 +55,7 @@ With a `TraceListener`, the output in Visual Studio Test Explorer is:
 
 Without the `TraceListener`, the blocks in red will not be present.
 
-Running ``dotnet test -v n`, the output will be:
+Running `dotnet test -v n`, the output will be:
 
 ![DotNet Trace Debug output showing the lines outputted by the TraceListener](../../images/TraceDebug2.png)
 
