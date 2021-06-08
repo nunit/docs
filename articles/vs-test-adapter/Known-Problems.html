@@ -16,7 +16,7 @@
     <title>Known Problems | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Known Problems | NUnit Docs ">
-    <meta name="generator" content="docfx 2.56.1.0">
+    <meta name="generator" content="docfx 2.57.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -67,11 +67,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -91,8 +91,8 @@
 <li><p>Using both the VSIX adapter and nuget adapters at the same time can lead to discovery issues; see <a href="https://github.com/nunit/nunit3-vs-adapter/issues/769">nunit3-vs-adapter/issues #769</a>.  The resolution is to uninstall the VSIX adapter, and only use the nuget adapters.  The VSIX adapters are being deprecated in later VS versions.</p>
 </li>
 <li><p>Support for Explicit keyword</p>
-<p>1 Adapter versions in the 3.XX series:  From version 16.2 (Visual Studio 2019) the Explicit keyword is no longer explicitly supported by Visual Studio.  If you want to use it, it does exist as a Category also, so you can use it as a category filter.</p>
-<p>2 Adapter versions in the 4.XX series support the explicit keyword.</p>
+<p>1  Adapter versions in the 4.XX series support the <code>explicit</code> keyword in all Visual Studio versions.</p>
+<p>2 Adapter versions in the 3.XX series:  From version 16.2 (Visual Studio 2019) the <code>Explicit</code> keyword is no longer explicitly supported by Visual Studio.  If you want to use it, it does exist as a Category, so you can use it as a category filter.</p>
 </li>
 <li><p>There is no test status in Visual Studio corresponding to NUnit's Inconclusive result, so tests with this result are reported as Not Run. Click on the individual test to see the result.</p>
 </li>
@@ -135,7 +135,8 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

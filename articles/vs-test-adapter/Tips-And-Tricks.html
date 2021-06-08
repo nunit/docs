@@ -16,7 +16,7 @@
     <title>Tips and Tricks | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Tips and Tricks | NUnit Docs ">
-    <meta name="generator" content="docfx 2.56.1.0">
+    <meta name="generator" content="docfx 2.57.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -67,11 +67,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -222,6 +222,12 @@ The following options are available:</p>
 <td>1</td>
 </tr>
 <tr>
+<td><a href="#usetestnameinconsoleoutput">UseTestNameInConsoleOutput</a></td>
+<td>bool</td>
+<td>Adds name of test as a prefix in the output window for console output</td>
+<td>true</td>
+</tr>
+<tr>
 <td><a href="#stoponerror">StopOnError</a></td>
 <td>bool</td>
 <td>Stops on first error</td>
@@ -269,6 +275,12 @@ The following options are available:</p>
 <td>Creates a new file for each test run</td>
 <td>false</td>
 </tr>
+<tr>
+<td><a href="#includestacktraceforsuites">IncludeStackTraceForSuites</a></td>
+<td>bool</td>
+<td>Includes stack trace for failures in suites, like exceptions in OneTimeSetup</td>
+<td>true</td>
+</tr>
 </tbody>
 </table>
 <h3 id="visual-studio-templates-for-runsettings">Visual Studio templates for runsettings</h3>
@@ -313,9 +325,9 @@ It has the following actual levels:</p>
 <h4 id="dumpxmltestdiscovery-and-dumpxmltestresults">DumpXmlTestDiscovery and DumpXmlTestResults</h4>
 <p>These settings are used to dump the output from NUnit, as it is received by the adapter, before any processing in the adapter is done, to disk.  It is part of the diagnostics tools for the adapter.
 You can find the files under your current output folder, in a sub-folder named Dump.
-(Note: This is not the same as the TestResults folder, this data is not testresults, but diagnostics dumps)</p>
+(Note: This is not the same as the TestResults folder, this data is not test results, but diagnostics dumps)</p>
 <h4 id="prefilter">PreFilter</h4>
-<p>A prefilter will improve performance when testing a selection of tests from the Test Explorer.  It is default off, because there are issues in certain cases, see below. If you <strong>don't</strong> have any of the cases below, you can turn PreFilter on.</p>
+<p>A pre-filter will improve performance when testing a selection of tests from the Test Explorer.  It is default off, because there are issues in certain cases, see below. If you <strong>don't</strong> have any of the cases below, you can turn PreFilter on.</p>
 <ul>
 <li>Your code contains a SetupFixture <a href="https://github.com/nunit/nunit3-vs-adapter/issues/649">#649</a></li>
 <li>Your code uses a TestCaseSource and uses SetName to set the display name instead of SetArgDisplayNames <a href="https://github.com/nunit/nunit3-vs-adapter/issues/650">#650</a></li>
@@ -355,6 +367,9 @@ You can find the files under your current output folder, in a sub-folder named D
 <p>Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.</p>
 <p>See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/343">Issue 343</a> for more information and discussion</p>
 <p>(From version 3.17.0)</p>
+<h4 id="usetestnameinconsoleoutput">UseTestNameInConsoleOutput</h4>
+<p>When set to <code>true</code>, the default, the name of the test is added as a prefix in front of each console line output.  This only applies to the output in the output window.</p>
+<p>(From version 4.0.0)</p>
 <h4 id="stoponerror">StopOnError</h4>
 <p>When enabled (set to true), the tests will stop after the first test failed.  Useful when working with a system with many tests running for a long time, where a few fails.  It can then speed up by stopping at the first one.</p>
 <p>See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/675">Issue 675</a> for more information and discussion</p>
@@ -382,13 +397,16 @@ See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/640">Issue 640</a
 <h4 id="assemblyselectlimit">AssemblySelectLimit</h4>
 <p>If you run from the IDE (Visual Studio) the adapter will receive a list of tests to process.  This is heavy when the number of tests are large. If the number of tests exceeds this limit, the list will be skipped and all tests in the assembly will be run (except those tests that are Explicit or Ignored).</p>
 <p>This might have an adverse effect if you select a category and you have more than 2000 tests, the category setting will be ignored. In that case, just increase this limit to higher than your number of tests.</p>
-<p>You might also receive a list from the command line, and in that case it will also be skipped the same way.  Here the category will be honoured since the category filter will be converted to a NUnit filter.</p>
+<p>You might also receive a list from the command line, and in that case it will also be skipped the same way.  Here the category will be honored since the category filter will be converted to a NUnit filter.</p>
 <p>(From version 4.0.0)</p>
 <h4 id="newoutputxmlfileforeachrun">NewOutputXmlFileForEachRun</h4>
 <p>Default behavior is to produce one test output file which is being overwritten for each run  Setting this to <code>true</code>, the adapter produces a new test output file for each run, numbering them sequentially.  Default is <code>false</code>.</p>
 <p>The background is the following scenario, as described by <a href="https://github.com/netcorefactory">netcorefactory</a> in <a href="https://github.com/nunit/nunit3-vs-adapter/issues/800">Issue 800</a>:</p>
 <p>&quot;<em>Running test in azure devops one can choose to rerun failed ( flaky ) tests. Mostly when running (selenium) e2e tests this becomes important. The .xml results file is currently overwritten each retry run. Other test coverage tooling dependent on this file receives only latest run results.
 Better to allow the possibility to deliver a results file per run.</em>&quot;</p>
+<p>(From version 4.0.0)</p>
+<h4 id="includestacktraceforsuites">IncludeStackTraceForSuites</h4>
+<p>Exceptions outside test cases are reported with its stack trace included in the message.  One example here is exceptions in OneTimeSetUp and OneTimeTearDown. They belong to the outer suite, and their exceptions are reported as part of the message. This option includes the stack trace in that message.  If this becomes too much information, this option turns the stack trace reporting off.</p>
 <p>(From version 4.0.0)</p>
 <hr>
 <h3 id="some-further-information-on-directories-from-comment-on-issue-575-by-charlie-">Some further information on directories (From <a href="https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421">comment on issue 575</a> by <a href="https://github.com/CharliePoole">Charlie</a> )</h3>
@@ -424,7 +442,8 @@ Better to allow the possibility to deliver a results file per run.</em>&quot;</p
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
