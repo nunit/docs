@@ -32,7 +32,7 @@ If you just want it to apply to a given test fixture/class, then you just add th
 
 ## Example outputs
 
-Given the following verbose test
+Given the following verbose test:
 
 ```cs
         [Test]
