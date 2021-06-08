@@ -51,7 +51,7 @@ Given the following verbose test:
 
 With a `TraceListener`, the output in Visual Studio Test Explorer is:
 
-![Trace Debug output](../../images/TraceDebug1.png)
+![Trace Debug output showing the lines outputted by the TraceListener](../../images/TraceDebug1.png)
 
 Without the `TraceListener`, the blocks in red will not be present.
 
