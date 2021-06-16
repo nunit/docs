@@ -77,10 +77,15 @@ They may be expressed in upper, lower or mixed case.
 * Windows7
 * Win2012Server
 * Windows8
+* Windows8.1
+* Windows10
+* WindowsServer10
 * Unix
 * Linux
 * MacOsX
 * XBox
+
+A list of supported platform identifiers can also be obtained from the constant string ``PlatformHelper.OSPlatforms`` of the NUnit assembly you use. Note that this is for informational purposes only, because the ``PlatformHelper`` is considered an internal type and shall not be used in production.
 
 ### Architecture
 
