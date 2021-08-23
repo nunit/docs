@@ -89,7 +89,7 @@
 
 <p>Extensions are located by the engine by use of an <code>.addins</code> file.</p>
 <p>For certain package managers, default <code>.addins</code> have been created such that when both engine and extensions are installed from the same package manager, all extensions are installed automatically. Currently, this includes NuGet and Chocolatey.</p>
-<p>In other cases, the user may need to create a new <code>.addins</code> file, or edit an existing one. Ths behavior of the <code>.addins</code> file is covered below.</p>
+<p>In other cases, the user may need to create a new <code>.addins</code> file, or edit an existing one. The behavior of the <code>.addins</code> file is covered below.</p>
 <h2 id="the-addins-file">The .addins file</h2>
 <p><code>.addins</code> files are used to locate engine extensions. Either a single <code>.addins</code> file can be used to list all extensions and directories to be searched, or multiple files. <code>.addins</code> files can also be chained together -- allowing multiple levels of redirection.</p>
 <p>Each line of the <code>.addins</code> file contains the path of an extension assembly or a directory containing assemblies. Wildcards may be used for assembly entries and relative paths are interpreted based on the location of the <code>.addins</code> file.</p>
