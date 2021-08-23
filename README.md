@@ -16,6 +16,15 @@ The docs site is a project within the NUnit organization. [Read the vision at VI
 * Run `docfx build`
 * Run `docfx serve` and navigate to <http://localhost:8080/_site>
 
+## How to Build These Docs Within GitHub Codespaces
+
+Fancy using GitHub Codespaces for your work on these docs? You can!
+
+* Open the branch you want to work on in GitHub CodeSpaces
+* The tooling, VS code extensions, etc. that we use will immediately be available to you.
+* To build, from the in-browser terminal window, run `cd docs` (yes, docs/docs) and run `docfx build`. This will create the `_site` folder.
+* To serve within GitHub Codespaces, from the in-browser terminal window, ensure you're in the `docs` directory and run `docfx serve _site -n "*"`. This will forward port 8080 to GitHub Codespaces for you to consume.
+
 ## Linting Locally
 
 * Install `markdownlint`: `npm install markdownlint-cli -g`
