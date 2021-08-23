@@ -25,6 +25,8 @@ Fancy using GitHub Codespaces for your work on these docs? You can!
 * To build, from the in-browser terminal window, run `cd docs` (yes, docs/docs) and run `docfx build`. This will create the `_site` folder.
 * To serve within GitHub Codespaces, from the in-browser terminal window, ensure you're in the `docs` directory and run `docfx serve _site -n "*"`. This will forward port 8080 to GitHub Codespaces for you to consume.
 
+We'll be working on follow-ups to make this more user-friendly, but it's now workable.
+
 ## Linting Locally
 
 * Install `markdownlint`: `npm install markdownlint-cli -g`
