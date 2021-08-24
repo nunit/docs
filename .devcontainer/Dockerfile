@@ -51,7 +51,6 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
       | cut -d: -f1 \
       | sort -u \
       | xargs -r apt-mark manual \
-    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
     && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
     # smoke tests
     && node --version \
@@ -86,6 +85,5 @@ RUN set -ex \
     | cut -d: -f1 \
     | sort -u \
     | xargs -r apt-mark manual \
-  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   # smoke test
   && yarn --version
