@@ -94,3 +94,8 @@ RUN set -ex \
   RUN npm install -g npm
   RUN npm install -g cspell
   RUN npm install -g markdownlint-cli
+
+  ### Add the aliases
+
+  RUN echo 'alias spellcheck="cspell --config /workspaces/docs/cSpell.json \"/workspaces/docs/docs/**/*.md\""' >> ~/.bashrc
+  RUN echo 'alias lint="markdownlint -c /workspaces/docs/.github/linters/.markdown-lint.yml /workspaces/docs/docs/**/*.md"' >> ~/.bashrc
