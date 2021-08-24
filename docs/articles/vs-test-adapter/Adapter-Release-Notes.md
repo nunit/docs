@@ -1,5 +1,31 @@
 # Adapter Release Notes
 
+## NUnit3 Test Adapter for Visual Studio - Version 4.0.0 - June 6, 2021
+
+This major release contains a series of changes, and also underlying changes in the adapter.  
+
+This is currently the version that will support Visual Studio 2022.  The earlier versions will initially not support VS 2022.
+
+(There is a currently unknown issue that blocks the 3.X series for VS 2022.  It is currently unclear if the Visual Studio team may be able to fix this issue. Any fix from the adapter side will include an upgrade, and then the 4.X series is the solution for that.)
+
+* [**Explicit**](https://github.com/nunit/nunit3-vs-adapter/issues?q=is%3Aissue+is%3Aclosed+project%3Anunit%2Fnunit3-vs-adapter%2F3) works now for all versions of Visual Studio. This is covered by several issues, see below on alpha and beta release notes.  
+
+See the alpha and beta release notes below for more issues and features that have been resolved and is included in this major release.
+
+The following additional features have been implemented in the final release.
+
+* [671](https://github.com/nunit/nunit3-vs-adapter/issues/671) Exception in OneTimeSetUp has no stack trace
+
+* [843](https://github.com/nunit/nunit3-vs-adapter/issues/843) Reporting random seed for a test case
+
+* [863](https://github.com/nunit/nunit3-vs-adapter/pull/863) The Test Name is by default added to the console output for tests. It can be turned off by the [UseTestNameInConsoleOutput](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#usetestnameinconsoleoutput) property.
+
+The following additional issue has been resolved:
+
+* [779](https://github.com/nunit/nunit3-vs-adapter/issues/779) Filtering tests with any "PropertyAttribute"
+
+* [852](https://github.com/nunit/nunit3-vs-adapter/issues/852) NullReferenceException in ExtractTestFixture in v4.0.0-beta2.
+
 ## NUnit3 Test Adapter for Visual Studio - Version 4.0.0-beta.2 - April 6, 2021
 
 This will be a short beta.2, given we don't hit on any intricate issues.  
