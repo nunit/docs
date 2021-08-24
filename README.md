@@ -22,8 +22,8 @@ Fancy using GitHub Codespaces for your work on these docs? You can!
 
 * Open the branch you want to work on in GitHub Codespaces
 * The tooling, VS code extensions, etc. that we use will immediately be available to you.
-* To build, from the in-browser terminal window, run `cd docs` (yes, docs/docs) and run `docfx build`. This will create the `_site` folder.
-* To serve within GitHub Codespaces, from the in-browser terminal window, ensure you're in the `docs` directory and run `docfx serve _site -n "*"`. This will forward port 8080 to GitHub Codespaces for you to consume.
+* To build from the Codespaces terminal: `build` (we've taken care of the rest for you)
+* To serve / preview from the Codespaces terminal: `serve` (we've taken care of the rest for you)
 * To run markdown linting from the Codespaces terminal: `lint` (we've taken care of the rest for you)
 * To run spellcheck from the Codespaces terminal: `spellcheck` (we've taken care of the rest for you)
 
