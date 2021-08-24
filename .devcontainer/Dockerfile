@@ -87,3 +87,8 @@ RUN set -ex \
     | xargs -r apt-mark manual \
   # smoke test
   && yarn --version
+
+  RUN npm install -g npm
+
+  RUN npm install -g cspell
+  RUN npm install -g markdownlint-cli
