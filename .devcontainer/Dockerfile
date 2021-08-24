@@ -1,6 +1,7 @@
 FROM nunitdocs/docfx-action:latest
 EXPOSE 8080
 
+### Installing Node into the container -- from https://github.com/nodejs/docker-node/tree/main/16/buster-slim
 
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
@@ -88,7 +89,8 @@ RUN set -ex \
   # smoke test
   && yarn --version
 
-  RUN npm install -g npm
+  ### Installing the relevant npm packages
 
+  RUN npm install -g npm
   RUN npm install -g cspell
   RUN npm install -g markdownlint-cli
