@@ -8,7 +8,7 @@ Extensions are located by the engine by use of an `.addins` file.
 
 For certain package managers, default `.addins` have been created such that when both engine and extensions are installed from the same package manager, all extensions are installed automatically. Currently, this includes NuGet and Chocolatey.
 
-In other cases, the user may need to create a new `.addins` file, or edit an existing one. Ths behavior of the `.addins` file is covered below.
+In other cases, the user may need to create a new `.addins` file, or edit an existing one. The behavior of the `.addins` file is covered below.
 
 ## The .addins file
 
