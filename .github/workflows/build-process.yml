@@ -39,7 +39,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       name: Check out the code
-    - uses: nunit/docfx-action@master
+    - uses: "nunitdocs/docfx-action:v1.3.1"
       name: Build with Docfx
       with:
         args: docs/docfx.json --warningsAsErrors true
