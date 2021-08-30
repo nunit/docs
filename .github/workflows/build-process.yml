@@ -13,60 +13,60 @@ jobs:
     name: "Markdown linting"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      name: Check out the code
-    - name: Lint Code Base
-      uses: docker://avtodev/markdown-lint:v1
-      with:
-        args: 'docs/**/*.md'      
-  spellcheck: 
+      - uses: actions/checkout@v2
+        name: Check out the code
+      - name: Lint Code Base
+        uses: docker://avtodev/markdown-lint:v1
+        with:
+          args: "docs/**/*.md"
+  spellcheck:
     name: "Spell check"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      name: Check out the code
-    - uses: actions/setup-node@v1
-      name: Setup node
-      with:
-        node-version: '12'
-    - run: npm install -g cspell
-      name: Install cSpell
-    - run: cspell --config ./cSpell.json "docs/**/*.md"
-      name: run cSpell
+      - uses: actions/checkout@v2
+        name: Check out the code
+      - uses: actions/setup-node@v1
+        name: Setup node
+        with:
+          node-version: "12"
+      - run: npm install -g cspell
+        name: Install cSpell
+      - run: cspell --config ./cSpell.json "docs/**/*.md"
+        name: run cSpell
   build:
     name: "Build the site with docfx"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      name: Check out the code
-    - uses: nunit/docfx-action@master
-      name: Build with Docfx
-      with:
-        args: docs/docfx.json --warningsAsErrors true
-    - name: zip site contents
-      run: zip -r _site.zip docs/_site/
-    - name: Archive site artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: siteArtifact
-        path: _site.zip
+      - uses: actions/checkout@v2
+        name: Check out the code
+      - uses: "docker://nunitdocs/docfx-action:v1.3.1"
+        name: Build with Docfx
+        with:
+          args: docs/docfx.json --warningsAsErrors true
+      - name: zip site contents
+        run: zip -r _site.zip docs/_site/
+      - name: Archive site artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: siteArtifact
+          path: _site.zip
   publish:
     name: Publish (master branch only)
     needs: [linting, spellcheck, build]
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master'}}
     steps:
-    - name: Download site artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: siteArtifact
-    - name: unzip site contents
-      run: unzip _site.zip
-    - name: Push to gh-pages branch (master only)
-      if: ${{ github.ref == 'refs/heads/master'}}
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        commit_message: ${{ github.event.head_commit.message }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/_site
-        publish_branch: gh-pages
+      - name: Download site artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: siteArtifact
+      - name: unzip site contents
+        run: unzip _site.zip
+      - name: Push to gh-pages branch (master only)
+        if: ${{ github.ref == 'refs/heads/master'}}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          commit_message: ${{ github.event.head_commit.message }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_site
+          publish_branch: gh-pages
