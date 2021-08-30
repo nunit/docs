@@ -1,4 +1,4 @@
-FROM nunitdocs/docfx-action:latest
+FROM nunitdocs/docfx-action:v1.3.1
 EXPOSE 8080
 
 ### Installing Node into the container -- from https://github.com/nodejs/docker-node/tree/main/16/buster-slim
