@@ -312,7 +312,7 @@
 </li>
 </ul>
 <h2 id="reason"><code>&lt;reason&gt;</code></h2>
-<p>Optional element that may appear on tests or suites that were not executed. Contains a message giving the reason for skipping the test.</p>
+<p>Optional element that may appear on tests or suites that were not executed. The element may also appear on tests that were short circuited using <code>Assert.Pass</code>. Contains a message giving the reason for skipping or short circuiting the test.</p>
 <ul>
 <li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
 <li><strong>Contained Elements:</strong> <a href="#message"><code>&lt;message&gt;</code></a></li>
