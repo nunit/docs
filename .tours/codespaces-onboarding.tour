@@ -1,0 +1,24 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Codespaces Onboarding",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "## Welcome! \n\nPerhaps you've just opened this repository in GitHub Codespaces. We'd like to walk you through how to get the most of the Codespaces experience when editing the docs.\n"
+    },
+    {
+      "file": ".devcontainer/Dockerfile",
+      "description": "## The `Dockerfile`\n\nGitHub Codespaces is powered by Docker. This repository contains this `Dockerfile`.\n\nThe `Dockerfile` does a few things:\n\n* Specifies the image we pull from (our own container, which we use for builds, that contains `docfx` built using `mono`)\n* Exposes the port we'll need to serve the docs site\n* Installs node and all of the node-based tools we use in our GitHub Actions\n* Adds command aliases to make the environment easier to use\n",
+      "line": 1
+    },
+    {
+      "file": ".devcontainer/devcontainer.json",
+      "description": "## The Codespaces `json` File\n\nThis file:\n\n* Tells GitHub Codespaces to forward port `8080` anytime it's attached to something (our `docfx` site is served on `8080` by default)\n* Tells Codespaces which Dockerfile to use to create itself\n* Lists VS Code extensions that are installed.\n\nWe've installed:\n\n* The `cSpell` spell checker which should highlight any spelling errors\n* Indent rainbow, to help indents line up\n* Markdown shortcuts which are hopefully of use in editing the docs\n* `Markdownlint` which helps show errors in markdown in real time.\n* A YAML plugin that should help with editing TOC files.\n* This code tours plugin to enable you to see these tours.\n",
+      "line": 2
+    },
+    {
+      "title": "Running Commands",
+      "description": "## Running Commands\n\nWe've introduced some shortcuts that you can run in the terminal to achieve most of what you'll need to do when editing the docs.\n\n### To lint markdown\n\n>> lint\n\n### To check spelling\n\n>> spellcheck\n\n### To build the site with `docfx`\n\n>> build\n\n### To serve the site (which will build it first)\n\n>> serve\n\n## Want to know more?\n\nTo see the full aliases for these commands, you can look at the [Dockerfile](https://github.com/nunit/docs/blob/HEAD/./.devcontainer/Dockerfile).\n"
+    }
+  ]
+}
