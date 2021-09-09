@@ -11,7 +11,7 @@ bundled with specific distributions of the Console runner.
 ## V2 Result Writer
 
 The V2 Result writer makes it possible to save test results in the older NUnit V2 format, for use
-with report programs and integration servers, which require that format.
+with report programs and integration servers that require that format.
 
 ### Installation
 
