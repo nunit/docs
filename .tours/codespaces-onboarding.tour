@@ -8,7 +8,7 @@
     },
     {
       "file": ".devcontainer/Dockerfile",
-      "description": "## The `Dockerfile`\n\nGitHub Codespaces is powered by Docker. This repository contains this `Dockerfile`.\n\nThe `Dockerfile` does a few things:\n\n* Specifies the image we pull from (our own container, which we use for builds, that contains `docfx` built using `mono`)\n* Exposes the port we'll need to serve the docs site\n* Installs node and all of the node-based tools we use in our GitHub Actions\n* Adds command aliases to make the environment easier to use\n",
+      "description": "## The Docker File\n\nGitHub Codespaces is powered by Docker. This repository contains this `Dockerfile`.\n\nThe `Dockerfile` does a few things:\n\n* Specifies the image we pull from (our own container, which we use for builds, that contains `docfx` built using `mono`)\n* Exposes the port we'll need to serve the docs site\n* Installs node and all of the node-based tools we use in our GitHub Actions\n* Adds command aliases to make the environment easier to use\n",
       "line": 1
     },
     {
@@ -18,7 +18,11 @@
     },
     {
       "title": "Running Commands",
-      "description": "## Running Commands\n\nWe've introduced some shortcuts that you can run in the terminal to achieve most of what you'll need to do when editing the docs.\n\n### To lint markdown\n\n>> lint\n\n### To check spelling\n\n>> spellcheck\n\n### To build the site with `docfx`\n\n>> build\n\n### To serve the site (which will build it first)\n\n>> serve\n\n## Want to know more?\n\nTo see the full aliases for these commands, you can look at the [Dockerfile](https://github.com/nunit/docs/blob/HEAD/./.devcontainer/Dockerfile).\n"
+      "description": "## Running Commands\n\nWe've introduced some shortcuts that you can run in the terminal to achieve most of what you'll need to do when editing the docs.\n\n(Note: you can click the commands below to run them in a terminal window while in Codespaces.)\n\n### To lint markdown\n\n>> lint\n\n### To check spelling\n\n>> spellcheck\n\n### To build the site with `docfx`\n\n>> build\n\n### To serve the site (which will build it first)\n\n>> serve\n\n## Want to know more?\n\nTo see the full aliases for these commands, you can look at the [Dockerfile](https://github.com/nunit/docs/blob/HEAD/./.devcontainer/Dockerfile).\n"
+    },
+    {
+      "title": "VIewing the site",
+      "description": "## Viewing the Site\n\nWhen you begin working on the docs, you may want to view the site.\n\n* First, serve the site if you haven't already:\n\n>> serve\n\n* GitHub Codespaces will show you a message that a site has become available at port `8080`, and will present a button click to go there\n* Click the button. A new browser window will open, and the site will display.\n\nNOTE: Subsequent changes will not be detected; `docfx` does not currently have a `watch` option. You will need to exit the process and run `serve` again upon making changes.\n"
     }
   ]
 }
