@@ -13,9 +13,9 @@
     </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Result Writers | NUnit Docs </title>
+    <title>Available NUnit Engine Extensions | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Result Writers | NUnit Docs ">
+    <meta name="title" content="Available NUnit Engine Extensions | NUnit Docs ">
     <meta name="generator" content="docfx 2.58.2.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
@@ -84,51 +84,77 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="resultwriters">
-<h1 id="result-writers">Result Writers</h1>
+            <article class="content wrap" id="_content" data-uid="availableengineextensions">
+<h1 id="available-nunit-engine-extensions">Available NUnit Engine Extensions</h1>
 
-<p><strong>Result Writers</strong> take the result of a test run, in NUnit 3 XML format, and use it to create a result file in some other format. The NUnit Organization itself provides a two result writers, one to create output in NUnit V2 format and another to write test cases to the console. The definition of a result writer extension might look something like this:</p>
-<pre><code class="lang-csharp">[Extension]
-[ExtensionProperty(&quot;Format&quot;, &quot;custom&quot;)]
-public class CustomResultWriterFactory : IResultWriter
-{
-    /* ... */
-}
-</code></pre>
-<p>An <code>ExtensionPropertyAttribute</code> must be provided giving the name of the format you support. Users would access the format from the NUnit Console command-line by using that name in a result specification, such as:</p>
-<pre><code class="lang-cmd">   nunit-console test.dll --result=CustomResult.xml;format=custom
-</code></pre>
-<p>The <code>IResultWriter</code> interface which must be implemented, is defined as follows:</p>
-<pre><code class="lang-csharp">/// &lt;summary&gt;
-/// Common interface for objects that process and write out test results
-/// &lt;/summary&gt;
-[TypeExtensionPoint(
-    Description = &quot;Supplies a writer to write the result of a test to a file using a specific format.&quot;)]
-public interface IResultWriter
-{
-    /// &lt;summary&gt;
-    /// Checks if the output path is writable. If the output is not
-    /// writable, this method should throw an exception.
-    /// &lt;/summary&gt;
-    /// &lt;param name=&quot;outputPath&quot;&gt;Path to test&lt;/param&gt;
-    void CheckWritability(string outputPath);
-
-    /// &lt;summary&gt;
-    /// Writes result to the specified output path.
-    /// &lt;/summary&gt;
-    /// &lt;param name=&quot;resultNode&quot;&gt;XmlNode for the result&lt;/param&gt;
-    /// &lt;param name=&quot;outputPath&quot;&gt;Path to which it should be written&lt;/param&gt;
-    void WriteResultFile(XmlNode resultNode, string outputPath);
-
-    /// &lt;summary&gt;
-    /// Writes result to a TextWriter.
-    /// &lt;/summary&gt;
-    /// &lt;param name=&quot;resultNode&quot;&gt;XmlNode for the result&lt;/param&gt;
-    /// &lt;param name=&quot;writer&quot;&gt;TextWriter to which it should be written&lt;/param&gt;
-    void WriteResultFile(XmlNode resultNode, TextWriter writer);
-}
-</code></pre>
-<p>The engine calls the <code>CheckWritability</code> method at the start of the run, before executing any tests. The <code>WriteResultFile</code> method is called after the run is complete. The writer may check writability in any way desired, including writing an abbreviated output file, which it will later overwrite.</p>
+<p>The NUnit team provides several extensions for the engine. They are all available individually as
+packages for installation through NuGet and also as Chocolatey packages. Some extensions are also
+bundled with specific distributions of the Console runner.</p>
+<h2 id="v2-result-writer">V2 Result Writer</h2>
+<p>The V2 Result writer makes it possible to save test results in the older NUnit V2 format, for use
+with report programs and integration servers that require that format.</p>
+<h3 id="installation">Installation</h3>
+<ul>
+<li>NuGet: Reference package <code>NUnit.Extension.NUnitV2ResultWriter</code> in your project</li>
+<li>Chocolatey: <code>choco install nunit-extension-v2-result-writer</code></li>
+<li>Also bundled with the <code>NUnit.Console</code> NuGet and MSI packages.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>Specify <code>nunit2</code> format with the console runner <code>--result</code> or <code>--explore</code> options.</p>
+<h2 id="v2-framework-driver">V2 Framework Driver</h2>
+<p>The V2 Framework Driver allows the engine to run NUnit V2 tests, which is not normally possible.</p>
+<h3 id="installation-1">Installation</h3>
+<ul>
+<li>NuGet: Reference package <code>NUnit.Extension.NUnitV2.Driver</code> in your project</li>
+<li>Chocolatey: <code>choco install nunit-extension-nunit-v2-driver</code></li>
+<li>Also bundled with the <code>NUnit.Console</code> NuGet and MSI packages.</li>
+</ul>
+<h3 id="usage-1">Usage</h3>
+<p>If installed, it is used automatically when V2 tests are being run.</p>
+<h2 id="nunit-project-loader">NUnit Project Loader</h2>
+<p>The NUnit Project Loader allows the engine to run NUnit projects, which have a file extension of <code>.nunit</code>.
+If it is not installed, the runner will give an error indicating the file type is unrecognized.</p>
+<h3 id="installation-2">Installation</h3>
+<ul>
+<li>NuGet: Reference package <code>NUnit.Extension.NUnitProjectLoader</code> in your project</li>
+<li>Chocolatey: <code>choco install nunit-extension-nunit-project-loader</code></li>
+<li>Also bundled with the <code>NUnit.Console</code> NuGet and MSI packages.</li>
+</ul>
+<h3 id="usage-2">Usage</h3>
+<p>Create the project in any editor, following the NUnit project format specification.
+You may also use the NUnit Project Editor, a legacy V2 program, since the format has
+not changed in NUnit 3.</p>
+<h2 id="visual-studio-project-loader">Visual Studio Project Loader</h2>
+<p>The VS Project Loader allows the engine to load tests from a Visual Studio
+project or solution.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When used with a solution file, the extension tries to avoid loading assemblies that do not contain tests, through the use of heuristics. This may fail in certain circumstances.</p>
+</div>
+<h3 id="installation-3">Installation</h3>
+<ul>
+<li>NuGet: Reference package <code>NUnit.Extension.VSProjectLoader</code> in your project</li>
+<li>Chocolatey: <code>choco install nunit-extension-vs-project-loader</code></li>
+<li>Also bundled with the <code>NUnit.Console</code> NuGet and MSI packages.</li>
+</ul>
+<h3 id="usage-3">Usage</h3>
+<p>If installed, it is used automatically when V2 tests are being run.</p>
+<h2 id="teamcity-test-listener">Teamcity Test Listener</h2>
+<p>The Teamcity Test Listener is used to run NUnit under TeamCity, providing
+special output messages, which TeamCity is able to interpret.</p>
+<h3 id="installation-4">Installation</h3>
+<ul>
+<li>NuGet: Reference package <code>NUnit.Extension.TeamCityEventListener</code> in your project</li>
+<li>Chocolatey: <code>choco install nunit-extension-teamcity-event-listener</code></li>
+<li>Also bundled with the <code>NUnit.Console</code> NuGet and MSI packages.</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>We plan to stop bundling the TeamCity extension with the release of NUnit 4.0. When that happens, individual installation will be required in order to use it.</p>
+</div>
+<h3 id="usage-4">Usage</h3>
+<p>This extension must be activated for a particular test run. When running under the
+NUnit 3 Console runner, use the <code>--teamcity</code> option to activate it.</p>
 </article>
           </div>
           
@@ -137,7 +163,7 @@ public interface IResultWriter
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-engine/extensions/Result-Writers.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-engine/extensions/AvailableExtensions.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
