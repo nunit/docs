@@ -39,7 +39,7 @@ The V2 Framework Driver allows the engine to run NUnit V2 tests, which is not no
 
 ## NUnit Project Loader
 
-The NUnit Project Loader allows the engine to run NUnit projects, file extension `.nunit`.
+The NUnit Project Loader allows the engine to run NUnit projects, which have a file extension of `.nunit`.
 If it is not installed, the runner will give an error indicating the file type is unrecognized.
 
 ### Installation
