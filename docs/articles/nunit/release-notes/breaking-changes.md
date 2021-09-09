@@ -28,6 +28,10 @@ uid: breakingchanges
 
 * The AssertionHelper class has now been deprecated. Users can use the [NUnit.StaticExpect](https://github.com/fluffynuts/NUnit.StaticExpect) library as a near drop-in replacement.
 
+## NUnit 3.5
+
+* `nunit3-console.exe` is no longer shipped with NUnit and must now be used as its own separate package, `nunit-console`. The console was separated from the framework to allow the two components to be developed separately.
+
 ## NUnit 3.4
 
 Breaking changes introduced in NUnit 3.4
