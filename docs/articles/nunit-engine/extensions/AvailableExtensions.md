@@ -5,7 +5,7 @@ uid: availableengineextensions
 # Available NUnit Engine Extensions
 
 The NUnit team provides several extensions for the engine. They are all available individually as
-packages for installation through nuget and also as chcolatey packages. Some extensions are also
+packages for installation through nuget and also as chocolatey packages. Some extensions are also
 bundled with specific distributions of the Console runner.
 
 ## V2 Result Writer
