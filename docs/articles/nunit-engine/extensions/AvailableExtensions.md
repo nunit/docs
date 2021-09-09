@@ -5,7 +5,7 @@ uid: availableengineextensions
 # Available NUnit Engine Extensions
 
 The NUnit team provides several extensions for the engine. They are all available individually as
-packages for installation through nuget and also as chocolatey packages. Some extensions are also
+packages for installation through NuGet and also as Chocolatey packages. Some extensions are also
 bundled with specific distributions of the Console runner.
 
 ## V2 Result Writer
@@ -15,9 +15,9 @@ with report programs and integration servers, which require that format.
 
 ### Installation
 
-* NUget: Reference package `NUnit.Extension.NUnitV2ResultWriter` in your project
+* NuGet: Reference package `NUnit.Extension.NUnitV2ResultWriter` in your project
 * Chocolatey: `choco install nunit-extension-v2-result-writer`
-* Also bundled with the `NUnit.Console` NuGet and msi packages.
+* Also bundled with the `NUnit.Console` NuGet and MSI packages.
 
 ### Usage
 
@@ -31,7 +31,7 @@ The V2 Framework Driver allows the engine to run NUnit V2 tests, which is not no
 
 * NuGet: Reference package `NUnit.Extension.NUnitV2.Driver` in your project
 * Chocolatey: `choco install nunit-extension-nunit-v2-driver`
-* Also bundled with the `NUnit.Console` NuGet and msi packages.
+* Also bundled with the `NUnit.Console` NuGet and MSI packages.
 
 ### Usage
 
@@ -46,7 +46,7 @@ If it is not installed, the runner will give an error indicating the file type i
 
 * NuGet: Reference package `NUnit.Extension.NUnitProjectLoader` in your project
 * Chocolatey: `choco install nunit-extension-nunit-project-loader`
-* Also bundled with the `NUnit.Console` NuGet and msi packages.
+* Also bundled with the `NUnit.Console` NuGet and MSI packages.
 
 ### Usage
 
@@ -65,7 +65,7 @@ of heuristics, which may fail in certain circumstances.
 
 * NuGet: Reference package `NUnit.Extension.VSProjectLoader` in your project
 * Chocolatey: `choco install nunit-extension-vs-project-loader`
-* Also bundled with the `NUnit.Console` NuGet and msi packages.
+* Also bundled with the `NUnit.Console` NuGet and MSI packages.
 
 ### Usage
 
@@ -80,10 +80,10 @@ special output messages, which TeamCity is able to interpret.
 
 * NuGet: Reference package `NUnit.Extension.TeamCityEventListener` in your project
 * Chocolatey: `choco install nunit-extension-teamcity-event-listener`
-* Also bundled with the `NUnit.Console` NuGet and msi packages.
+* Also bundled with the `NUnit.Console` NuGet and MSI packages.
 
 > [!WARNING]
-> We plan to stop bundling the teamcity extension with the release of NUnit 4.0. When that happens, individual installation will be required in order to use it.
+> We plan to stop bundling the TeamCity extension with the release of NUnit 4.0. When that happens, individual installation will be required in order to use it.
 
 ### Usage
 
