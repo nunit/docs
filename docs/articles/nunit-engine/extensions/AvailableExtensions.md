@@ -57,9 +57,10 @@ If it is not installed, the runner will give an error indicating the file type i
 ## Visual Studio Project Loader
 
 The VS Project Loader allows the engine to load tests from a Visual Studio
-project or solution. Note that when used with a solution file, the extension
-tries to avoid loading assemblies, which do not contain tests, through use
-of heuristics, which may fail in certain circumstances.
+project or solution. 
+
+> [!NOTE]
+> When used with a solution file, the extension tries to avoid loading assemblies that do not contain tests, through the use of heuristics. This may fail in certain circumstances.
 
 ### Installation
 
