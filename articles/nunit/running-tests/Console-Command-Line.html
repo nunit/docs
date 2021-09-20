@@ -158,11 +158,11 @@ Without the V2 driver, only version 3.0 and higher tests may be run.</p>
 </tr>
 <tr>
 <td><code>--framework=FRAMEWORK</code></td>
-<td>FRAMEWORK type/version to use for tests. Examples: mono, net-4.5, v4.0, 2.0, mono-4.0</td>
+<td>FRAMEWORK type/version to use for tests. Examples: mono, net-4.5, v4.0, 2.0, mono-4.0. <strong>NOTE:</strong> Only use this option if you are sure all tests will run under the specified runtime. The option does <strong>not</strong> select a particular build from a project with multiple runtime targets.</td>
 </tr>
 <tr>
 <td><code>--x86</code></td>
-<td>Run tests in a 32-bit process on 64-bit systems.</td>
+<td>Run tests in a 32-bit process on 64-bit systems. <strong>NOTE:</strong> This option forces all tests to run as 32 bits. It is normally not needed since x86 test assemblies are automatically run as 32 bits. It is needed, however, when a non-x86 test assembly references an x86 assembly.</td>
 </tr>
 <tr>
 <td><code>--dispose-runners</code></td>
