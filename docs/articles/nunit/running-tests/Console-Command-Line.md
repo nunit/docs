@@ -43,8 +43,8 @@ Without the V2 driver, only version 3.0 and higher tests may be run.
 |`--inprocess` | This option is a synonym for --process=Single |
 |`--agents=NUMBER` | NUMBER of agents that may be allowed to run simultaneously assuming you are not running inprocess. If not specified, all agent processes run tests at the same time, whatever the number of assemblies. This setting is used to control running your assemblies in parallel. |
 |`--domain=DOMAIN` | DOMAIN isolation for test assemblies.  Values: None, Single, Multiple. If not specified, defaults to Single for a single assembly or Multiple for more than one. **NOTE:** `None` is an extremely rarely used option intended for cases where you are testing features that can only run in a primary domain; when choosing this option, you are responsible for copying all needed files, including NUnit components, into a common directory. |
-|`--framework=FRAMEWORK` | FRAMEWORK type/version to use for tests. Examples: mono, net-4.5, v4.0, 2.0, mono-4.0 |
-|`--x86` | Run tests in a 32-bit process on 64-bit systems. |
+|`--framework=FRAMEWORK` | FRAMEWORK type/version to use for tests. Examples: mono, net-4.5, v4.0, 2.0, mono-4.0. **NOTE:** Only use this option if you are sure all tests will run under the specified runtime. The option does **not** select a particular build from a project with multiple runtime targets. |
+|`--x86` | Run tests in a 32-bit process on 64-bit systems. **NOTE:** This option forces all tests to run as 32 bits. It is normally not needed since x86 test assemblies are automatically run as 32 bits. It is needed, however, when a non-x86 test assembly references an x86 assembly. |
 |`--dispose-runners` | Dispose each test runner after it has finished running its tests |
 |`--timeout=MILLISECONDS` | Set timeout for each test case in MILLISECONDS. |
 |`--seed=SEED` | Set the random SEED used to generate test cases. |
