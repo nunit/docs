@@ -127,7 +127,7 @@ Assert.That(TestDelegate code, IResolveConstraint constraint,
     Func&lt;string&gt; getExceptionMessage)
 </code></pre>
 <p>The overloads that take a bool work exactly like <code>Assert.IsTrue</code>, except that <code>Assert.IsTrue</code> does not accept a <code>Func&lt;string&gt;</code> for the exception message.</p>
-<p>For overloads taking a constraint, the argument must be a object implementing
+<p>For overloads taking a constraint, the argument must be an object implementing
 the <strong>IResolveConstraint</strong> interface, which supports performing a test
 on an actual value and generating appropriate messages. This interface
 is described in more detail under <a class="xref" href="../../../extending-nunit/Custom-Constraints.html">Custom Constraints</a>.</p>
