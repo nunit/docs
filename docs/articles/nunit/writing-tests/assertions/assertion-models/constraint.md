@@ -55,7 +55,7 @@ Assert.That(TestDelegate code, IResolveConstraint constraint,
 
 The overloads that take a bool work exactly like `Assert.IsTrue`, except that `Assert.IsTrue` does not accept a `Func<string>` for the exception message.
 
-For overloads taking a constraint, the argument must be a object implementing
+For overloads taking a constraint, the argument must be an object implementing
 the **IResolveConstraint** interface, which supports performing a test
 on an actual value and generating appropriate messages. This interface
 is described in more detail under [Custom Constraints](xref:customconstraints).
