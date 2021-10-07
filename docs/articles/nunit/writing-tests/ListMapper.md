@@ -1,5 +1,7 @@
 # ListMapper
 
+> ListMapper has been deprecated as of NUnit Framework 3.13.2. The functionality will be removed in NUnit Framework 4.0.
+
 Unlike Constraint classes, `ListMapper` is used to modify the actual
 value argument to `Assert.That()`. It transforms the actual value, which
 must be a collection, creating a new collection to be tested against the
