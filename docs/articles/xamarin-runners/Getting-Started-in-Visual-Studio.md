@@ -12,7 +12,7 @@ In your solution;
 2. Write your unit tests in this project, in a portable project, or in a shared project, referencing the project with the tests.
 3. Build and run the tests on your device or emulator
 
-If you tests are in a separate portable project, note that:
+If your tests are in a separate portable project, note that:
 
 * You need to add that assembly to the `NUnit.Runner.App` in the startup code
 
