@@ -1,5 +1,17 @@
 # Adapter Release Notes
 
+## NUnit3 Test Adapter for Visual Studio - Version 4.1.0 - Nov 8, 2021
+
+This is a bug fix release, with the following fixes:
+
+* [516](https://github.com/nunit/nunit3-vs-adapter/issues/516) ArgumentException when whitespace sent to logger
+
+* [865](https://github.com/nunit/nunit3-vs-adapter/issues/865) Breaking changing in 3.17 on "Exception encountered unloading application domain"
+
+* [869](https://github.com/nunit/nunit3-vs-adapter/issues/869) NUnitTestAdapter - Discovery exception
+
+* [884](https://github.com/nunit/nunit3-vs-adapter/issues/884) NUnit3TestAdapter 4.0.0 - DiscoveryException: Not a TestFixture, SetUpFixture or TestSuite, but ParameterizedFixture
+
 ## NUnit3 Test Adapter for Visual Studio - Version 4.0.0 - June 6, 2021
 
 This major release contains a series of changes, and also underlying changes in the adapter.  
