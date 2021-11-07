@@ -4,7 +4,7 @@
 
 This is a bug fix release, with the following fixes:
 
-* [516](https://github.com/nunit/nunit3-vs-adapter/issues/516) ArgumentException when whitespace sent to logger
+* [516](https://github.com/nunit/nunit3-vs-adapter/issues/516) ArgumentException when whitespace sent to logger. Thanks to [Matt Jones - mthjones](https://github.com/mthjones) for a very good repro, that helped nail this down!
 
 * [865](https://github.com/nunit/nunit3-vs-adapter/issues/865) Breaking changing in 3.17 on "Exception encountered unloading application domain"
 
