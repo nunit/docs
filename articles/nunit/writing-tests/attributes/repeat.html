@@ -97,6 +97,14 @@ test case created for that method is repeated.</li>
 <li>It is not currently possible to use RepeatAttribute on a TestFixture
 or any higher level suite. Only test cases may be repeated.</li>
 </ol>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp">[Test]
+[Repeat(25)]
+public void MyTest()
+{
+    /* The contents of this test will be run 25 times. */
+}
+</code></pre>
 </article>
           </div>
           
