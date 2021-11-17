@@ -41,6 +41,9 @@ In general, the forms that specify a minimum and maximum should be used on argum
 
 Note that there is no constructor taking decimal values for min and max. This is because .NET does not support use of decimal in an attribute constructor.
 
+> [!NOTE]
+> `Guid` support for `RandomAttribute` is possible only from NUnit version 4.0.
+
 ## Example
 
 The following test will be executed fifteen times, three times
