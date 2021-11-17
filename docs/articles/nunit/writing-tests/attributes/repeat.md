@@ -18,6 +18,6 @@ not run and a failure is reported.
 [Repeat(25)]
 public void MyTest()
 {
-    /* ... */
+    /* The contents of this test will be run 25 times. */
 }
 ```
