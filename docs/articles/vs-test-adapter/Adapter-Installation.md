@@ -49,7 +49,7 @@ You should ensure you have the ```Microsoft.NET.Test.Sdk``` in there too.
   </ItemGroup>
 ```
 
-*Note: You don't need to add any nunit.console or any runner package*
+Note: *You don't need to add any nunit.console or any runner package*
 
 ### Working with the Visual Studio Nuget manager
 
