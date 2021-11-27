@@ -24,6 +24,7 @@ Assume you are at a solution root, and you either have a solution file, or have 
 
 ```cmd
 md Whatever.Test
+cd Whatever.Test
 dotnet new nunit
 cd ..
 dotnet sln add Whatever.Test\Whatever.Test.csproj
