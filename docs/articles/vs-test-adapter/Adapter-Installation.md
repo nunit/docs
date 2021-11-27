@@ -36,7 +36,7 @@ And you're ready to go !
 
 The recommended set of packages you should install is the framework, the adapter and the analyzer.  The adapter and the framework is required, the analyzer will help you, but is not required to make your project work.  The coverlet.collector is the recommended code coverage package you should go for.
 
-You should ensure you have the ```Microsoft.NET.Test.Sdk``` in there too.
+You should ensure you have the ```Microsoft.NET.Test.Sdk``` in there too, as it is also required.
 
 1. Open your test project csproj file
 2. Add the necessary package references as shown in the snippet example below (the versions should be the latest ones, the ones below is what is current at the date of writing)
@@ -47,10 +47,11 @@ You should ensure you have the ```Microsoft.NET.Test.Sdk``` in there too.
     <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="NUnit3TestAdapter" version="4.1.0" />
     <PackageReference Include="coverlet.collector" Version="3.1.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.2.0" />
   </ItemGroup>
 ```
 
-Note: *You don't need to add any nunit.console or any runner package*
+Note: *You don't need to add any nunit.console or any other runner package*
 
 ### Working with the Visual Studio Nuget manager
 
