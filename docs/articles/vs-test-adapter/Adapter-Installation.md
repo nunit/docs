@@ -31,15 +31,14 @@ dotnet sln add Whatever.Test\Whatever.Test.csproj
 
 And you're ready to go !
 
-
 ### Manually adding it as a package reference to your test projects
 
-The recommended set of packages you should install is the framework, the adapter and the analyzer.  The adapter and the framework is required, the analyzer will help you, but is not required to make your project work.  
+The recommended set of packages you should install is the framework, the adapter and the analyzer.  The adapter and the framework is required, the analyzer will help you, but is not required to make your project work.  The coverlet.collector is the recommended code coverage package you should go for.
 
-You should ensure you have the 
+You should ensure you have the ```Microsoft.NET.Test.Sdk``` in there too.
 
 1. Open your test project csproj file
-2. Add the package references as shown in the snippet example below (the versions should be the latest ones, the ones below is what is current at the date of writing) 
+2. Add the necessary package references as shown in the snippet example below (the versions should be the latest ones, the ones below is what is current at the date of writing)
 
 ```xml
   <ItemGroup>
@@ -50,7 +49,7 @@ You should ensure you have the
   </ItemGroup>
 ```
 
-**Note:  You don't need to add any nunit.console or any runner package**
+*Note: You don't need to add any nunit.console or any runner package*
 
 ### Working with the Visual Studio Nuget manager
 
