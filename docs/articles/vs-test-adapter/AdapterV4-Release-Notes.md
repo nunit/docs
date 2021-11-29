@@ -1,5 +1,13 @@
 # Adapter V4 Release Notes
 
+## NUnit3 Test Adapter for Visual Studio - Version 4.2.0 - Nov 28, 2021
+
+This is a bug fix release, with the following fixes:
+
+* [914](https://github.com/nunit/nunit3-vs-adapter/issues/914) 
+* [918](https://github.com/nunit/nunit3-vs-adapter/issues/918) New DiscoveryMode doesn't play nicely with TestFixtureSource - Missing GenericFixture
+
+
 ## NUnit3 Test Adapter for Visual Studio - Version 4.1.0 - Nov 8, 2021
 
 This is a bug fix release, with the following fixes:
