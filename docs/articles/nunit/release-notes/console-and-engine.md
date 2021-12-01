@@ -10,9 +10,9 @@ A second major feature in this release is engine support for preemptive cancella
 self-terminate doesn't work. This is an engine feature, available to any runners supporting cancellation.
 
 * [382](https://github.com/nunit/nunit-console/issues/382) Only 1 agent running with multiple projects and --process=Multiple
-* [418](https://github.com/nunit/nunit-console/issues/418) <TestAssemly.dll>.config files not loaded when using an .nunit project file and --process=Multiple
+* [418](https://github.com/nunit/nunit-console/issues/418) <TestAssembly.dll>.config files not loaded when using an .nunit project file and --process=Multiple
 * [551](https://github.com/nunit/nunit-console/issues/551) Make engine easier to Debug
-* [609](https://github.com/nunit/nunit-console/issues/609) Run after Reload reports assemblies multipletimes
+* [609](https://github.com/nunit/nunit-console/issues/609) Run after Reload reports assemblies multiple times
 * [642](https://github.com/nunit/nunit-console/issues/642) Engine needs preemptive cancellation
 * [726](https://github.com/nunit/nunit-console/issues/726) Remove .NET Standard 1.6 build
 * [764](https://github.com/nunit/nunit-console/issues/764) Error: Found two different objects associated with the same URI, /xxxxx/TestAgency
@@ -34,7 +34,7 @@ self-terminate doesn't work. This is an engine feature, available to any runners
 * [947](https://github.com/nunit/nunit-console/issues/947) Make default TestAgency URI unique per run (v2)
 * [949](https://github.com/nunit/nunit-console/issues/949) nunit.engine.tests are failing to unload on master branch
 * [956](https://github.com/nunit/nunit-console/issues/956) fix for test assembly loading failure in NUnit.ConsoleRunner.NetCore
-* [957](https://github.com/nunit/nunit-console/issues/957) Include pdbs with nuget and zip packges and publish source code
+* [957](https://github.com/nunit/nunit-console/issues/957) Include pdbs with nuget and zip packages and publish source code
 * [964](https://github.com/nunit/nunit-console/issues/954) Update Code of Conduct
 * [1014](https://github.com/nunit/nunit-console/issues/1014) GetClrVersionForFramework throws if .Net6.0 is installed
 * [1025](https://github.com/nunit/nunit-console/issues/1025) chore(pipeline): Use ubuntu-latest
