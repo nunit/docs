@@ -1,5 +1,48 @@
 # Console and Engine
 
+## NUnit Console & Engine 3.13 - November 30, 2021
+
+This is the first release of the NUnit Console Runner, `nunit3-console.exe`, which allows running of both .NET Framework and .NET Core tests,
+either separately or in combination. The `nunit3-console.exe` runner executes under the .NET Framework but is able to launch .NET Core agents
+and communicate with them over a TCP connection.
+
+A second major feature in this release is engine support for preemptive cancellation when the normal approach of requesting the test run to
+self-terminate doesn't work. This is an engine feature, available to any runners supporting cancellation.
+
+* [382](https://github.com/nunit/nunit-console/issues/382) Only 1 agent running with multiple projects and --process=Multiple
+* [418](https://github.com/nunit/nunit-console/issues/418) <TestAssemly.dll>.config files not loaded when using an .nunit project file and --process=Multiple
+* [551](https://github.com/nunit/nunit-console/issues/551) Make engine easier to Debug
+* [609](https://github.com/nunit/nunit-console/issues/609) Run after Reload reports assemblies multipletimes
+* [642](https://github.com/nunit/nunit-console/issues/642) Engine needs preemptive cancellation
+* [726](https://github.com/nunit/nunit-console/issues/726) Remove .NET Standard 1.6 build
+* [764](https://github.com/nunit/nunit-console/issues/764) Error: Found two different objects associated with the same URI, /xxxxx/TestAgency
+* [789](https://github.com/nunit/nunit-console/issues/789) DirectoryFinder.GetDirectories throws for a path with the drive specified
+* [803](https://github.com/nunit/nunit-console/issues/803) Remove CHANGES.TXT to simplify release process
+* [828](https://github.com/nunit/nunit-console/issues/828) Reported issues with dependency loading in .NET Core Console
+* [852](https://github.com/nunit/nunit-console/issues/852) No tests of .NET Core 3.1 packages
+* [855](https://github.com/nunit/nunit-console/issues/855) Improved testability of DirectoryFinder
+* [869](https://github.com/nunit/nunit-console/issues/869) Link to release notes on docs and Review uses of CHANGES.TXT
+* [892](https://github.com/nunit/nunit-console/issues/892) Implement Package tests for engine and console runner
+* [895](https://github.com/nunit/nunit-console/issues/895) Make sure AssemblyDefinitions are disposed after use.
+* [898](https://github.com/nunit/nunit-console/issues/898) Removed support for .NET Core 1.1
+* [904](https://github.com/nunit/nunit-console/issues/904) The test-run element is missing a count of warnings
+* [908](https://github.com/nunit/nunit-console/issues/908) Known Vulnerability in System.Xml.XPath.XmlDocument
+* [915](https://github.com/nunit/nunit-console/issues/915) StackOverflowException in console-runner when addins-file contains "./" or ".\"
+* [923](https://github.com/nunit/nunit-console/issues/923) Agent communication layer
+* [933](https://github.com/nunit/nunit-console/issues/933) Update TestCentric MetaData dependency
+* [943](https://github.com/nunit/nunit-console/issues/943) Remove Travis CI
+* [947](https://github.com/nunit/nunit-console/issues/947) Make default TestAgency URI unique per run (v2)
+* [949](https://github.com/nunit/nunit-console/issues/949) nunit.engine.tests are failing to unload on master branch
+* [956](https://github.com/nunit/nunit-console/issues/956) fix for test assembly loading failure in NUnit.ConsoleRunner.NetCore
+* [957](https://github.com/nunit/nunit-console/issues/957) Include pdbs with nuget and zip packges and publish source code
+* [964](https://github.com/nunit/nunit-console/issues/954) Update Code of Conduct
+* [1014](https://github.com/nunit/nunit-console/issues/1014) GetClrVersionForFramework throws if .Net6.0 is installed
+* [1025](https://github.com/nunit/nunit-console/issues/1025) chore(pipeline): Use ubuntu-latest
+* [1031](https://github.com/nunit/nunit-console/issues/1031) Fix incorrect MyGet push URL
+* [1033](https://github.com/nunit/nunit-console/issues/1033) Update to current version of TestCentric.Metadata package
+* [1037](https://github.com/nunit/nunit-console/issues/1037) Eliminate End of Life Check in builds
+* [1039](https://github.com/nunit/nunit-console/issues/1039) Stop re-publishing deprecated packages with each new release
+
 ## NUnit Console & Engine 3.12 - January 17, 2021
 
 ## .NET Core NUnit Console 3.12 Beta 2  - January 17, 2021
