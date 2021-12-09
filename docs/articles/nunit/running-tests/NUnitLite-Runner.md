@@ -27,11 +27,6 @@ public static int Main(string[] args)
 If you install the NUnitLite runner via the NuGet package, steps 2 is handled
 automatically. Both assemblies are installed and referenced for you.
 
-In addition, if you are using C#, step 3 is handled as well. A file, Program.cs, is added to your project with a Main() like that above.
-
-> [!NOTE]
-> If you are not working in C#, you should delete the Program.cs file that the NuGet package added to your test project.
-
 ## NUnitLite Output
 
 As seen in the following screen shot, the output from an NUnitLite run is quite similar to that from the console runner.
