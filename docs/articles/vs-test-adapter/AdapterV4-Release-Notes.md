@@ -10,7 +10,7 @@ This is a bug fix release, with the following fixes:
 
 ### Development
 
-The [debugging of an adapter](Debugging.md) has been made simpler, using just a runsetting to enable it.  See [this post](http://hermit.no/debugging-the-nunit3testadapter-take-2/) for details on the process. 
+The [debugging of an adapter](Debugging.md) has been made simpler, using just a runsetting to enable it.  See [this post](http://hermit.no/debugging-the-nunit3testadapter-take-2/) for details on the process.
 
 ## NUnit3 Test Adapter for Visual Studio - Version 4.1.0 - Nov 8, 2021
 
