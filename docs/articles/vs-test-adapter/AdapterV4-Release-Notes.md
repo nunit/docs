@@ -7,6 +7,7 @@ This is a bug fix release, with the following fixes:
 * [912](https://github.com/nunit/nunit3-vs-adapter/issues/912) Explicit runs when using NUnit-filters 'cat!=FOO'
 * [914](https://github.com/nunit/nunit3-vs-adapter/issues/914) AddTestAttachment does not work anymore in VS2022
 * [918](https://github.com/nunit/nunit3-vs-adapter/issues/918) New DiscoveryMode doesn't play nicely with TestFixtureSource - Missing GenericFixture
+* [818](https://github.com/nunit/nunit3-vs-adapter/issues/818) Known Vulnerability in System.Xml.XPath.XmlDocument
 
 ### Engine update
 
