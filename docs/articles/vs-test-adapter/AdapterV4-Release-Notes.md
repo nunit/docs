@@ -1,12 +1,16 @@
 # Adapter V4 Release Notes
 
-## NUnit3 Test Adapter for Visual Studio - Version 4.2.0 - Nov 28, 2021
+## NUnit3 Test Adapter for Visual Studio - Version 4.2.0 - Des 11, 2021
 
 This is a bug fix release, with the following fixes:
 
-* [914](https://github.com/nunit/nunit3-vs-adapter/issues/914) 
+* [912](https://github.com/nunit/nunit3-vs-adapter/issues/912) Explicit runs when using NUnit-filters 'cat!=FOO'
+* [914](https://github.com/nunit/nunit3-vs-adapter/issues/914) AddTestAttachment does not work anymore in VS2022
 * [918](https://github.com/nunit/nunit3-vs-adapter/issues/918) New DiscoveryMode doesn't play nicely with TestFixtureSource - Missing GenericFixture
 
+### Development
+
+The [debugging of an adapter](Debugging.md) has been made simpler, using just a runsetting to enable it.  See [this post](http://hermit.no/debugging-the-nunit3testadapter-take-2/) for details on the process. 
 
 ## NUnit3 Test Adapter for Visual Studio - Version 4.1.0 - Nov 8, 2021
 
