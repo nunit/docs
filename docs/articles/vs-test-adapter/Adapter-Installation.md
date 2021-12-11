@@ -60,7 +60,7 @@ If you have a legacy project type, or prefer working outside of the command line
 With an active solution in Visual Studio, follow these steps:
 
 1. From the `Tools` menu, use Library Package Manager and select `Manage NuGet packages for solution`
-2. In the left panel, select Online
+2. In the left panel, select `Online`
 3. Locate (search for) `NUnit3Test Adapter` in the center panel and highlight it
 4. Click `Install`
 5. In the `Select Projects` dialog, select all test projects in your solution.
