@@ -36,7 +36,7 @@ And you're ready to go !
 
 When adding packages manually, we recommended installing the framework, the adapter, and the analyzer for optimal out-of-the-box functionality.  The adapter and the framework are required. The analyzer will help during development, but is not strictly required to make your project work.  `coverlet.collector` is the recommended code coverage package you should go for.
 
-You should ensure you have the ```Microsoft.NET.Test.Sdk``` in there too, as it is also required.
+You should ensure you also reference `Microsoft.NET.Test.Sdk` as well; it is required for test discoverability.
 
 1. Open your test project csproj file
 2. Add the necessary package references as shown in the snippet example below (the versions should be the latest ones, the ones below is what is current at the date of writing)
