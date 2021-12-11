@@ -34,7 +34,7 @@ And you're ready to go !
 
 ### Manually adding it as a package reference to your test projects
 
-The recommended set of packages you should install is the framework, the adapter and the analyzer.  The adapter and the framework is required, the analyzer will help you, but is not required to make your project work.  The coverlet.collector is the recommended code coverage package you should go for.
+When adding packages manually, we recommended installing the framework, the adapter, and the analyzer for optimal out-of-the-box functionality.  The adapter and the framework are required. The analyzer will help during development, but is not strictly required to make your project work.  `coverlet.collector` is the recommended code coverage package you should go for.
 
 You should ensure you have the ```Microsoft.NET.Test.Sdk``` in there too, as it is also required.
 
