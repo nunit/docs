@@ -55,7 +55,7 @@ Note: *You don't need to add any nunit.console or any other runner package*
 
 ### Working with the Visual Studio Nuget manager
 
-If you have a legacy project type, the easiest way is to use the Visual Studio 'Manage nuget packages in the solution' menu option. It can also be used for the new SDK projects, but it is actually faster to just open the csproj and copy paste the references in.
+If you have a legacy project type, or prefer working outside of the command line, you can also use the Visual Studio 'Manage NuGet packages in the solution' menu option. It can also be used for the new SDK projects, but you may find it faster to open the `csproj` and copy/paste the references in.
 
 You need to have an active solution, then follow these steps:
 
