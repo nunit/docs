@@ -32,7 +32,7 @@ dotnet sln add Whatever.Test\Whatever.Test.csproj
 
 And you're ready to go !
 
-### Manually adding it as a package reference to your test projects
+### Manually Adding the Adapter as a Package Reference to Your Test Projects
 
 When adding packages manually, we recommended installing the framework, the adapter, and the analyzer for optimal out-of-the-box functionality.  The adapter and the framework are required. The analyzer will help during development, but is not strictly required to make your project work.  `coverlet.collector` is the recommended code coverage package you should go for.
 
