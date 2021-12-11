@@ -8,6 +8,10 @@ This is a bug fix release, with the following fixes:
 * [914](https://github.com/nunit/nunit3-vs-adapter/issues/914) AddTestAttachment does not work anymore in VS2022
 * [918](https://github.com/nunit/nunit3-vs-adapter/issues/918) New DiscoveryMode doesn't play nicely with TestFixtureSource - Missing GenericFixture
 
+### Engine update
+
+The NUnit.Engine has been updated to version 3.13 in this release.
+
 ### Development
 
 The [debugging of an adapter](Debugging.md) has been made simpler, using just a runsetting to enable it.  See [this post](http://hermit.no/debugging-the-nunit3testadapter-take-2/) for details on the process.
