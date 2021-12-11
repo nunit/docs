@@ -4,43 +4,63 @@ uid: vstestadapterinstallation
 
 # Adapter Installation
 
-There are two ways of installing the adapter within Visual Studio. See below for info on how to choose.
-
-* Add it as a NuGet package to your solution. (Requires VS 2012 Update 1 or later)
-* Use the Extension Manager  (Deprecated and pending future removal; see notes below.)
+You'll need to install the adapter as a NuGet package for each of your test projects.
 
 ## Installing the NuGet Package
 
-To add it is a NuGet package, you must have an active solution, then follow these steps:
+You will most likely want to add a new NUnit Test Project to your solution.  The easiest way is to use the ```dotnet``` command on the command line.
 
-1. From Tools menu, use Library Package Manager and select Manage NuGet packages for solution
-2. In the left panel, select Online
-3. Locate (search for) NUnit 3.0 Test Adapter in the center panel and highlight it
-4. Click 'Install'
-5. In the "Select Projects" dialog, you need to select at least one project to add the adapter to, see notes below.
+Go to your project root and where you want to add your project.
 
-## Installing With the Extension Manager
+Create a folder for the project with a name matching what your new test project should be named.
 
-> [!WARNING]
-> The use of the VSIX extension manager is deprecated.  It still works, but at some time support for it will be removed from Visual Studio, and also newer versions of the adapter. We recommend you try to move to nuget based adapters.
+Then run the command ````dotnet new nunit```
 
-To install the NUnit Test Adapter using the Extension Manager, follow these steps:
+You will now get a complete nunit test project with the same name as the folder.  You will also have a template unit test class there as a starter.
 
-1. From within Visual Studio, select Tools | Extension Manager.
-1. In the left panel of the Extension Manager, select Online Extensions
-1. Locate (search for) the NUnit 3.0 Test Adapter in the center panel and highlight it.
-1. Click 'Download' and follow the instructions.
+If you have a Visual Studio solution file in the root folder, you can go there and add the new nunit csproj easily:
 
-Use the Extension Manager to ensure that the NUnit 3.0 Test Adapter is enabled.
+Assume you are at a solution root, and you either have a solution file, or have just been adding it with ```dotnet new sln```
 
-## How to choose between Extension and NuGet package
+```cmd
+md Whatever.Test
+cd Whatever.Test
+dotnet new nunit
+cd ..
+dotnet sln add Whatever.Test\Whatever.Test.csproj
+```
 
-The use of the VSIX extension manager is deprecated.  It still works, but at some time support for it will be removed from Visual Studio, and also newer versions of the adapter.
+And you're ready to go !
 
-We recommend you try to move to nuget based adapters.
+### Manually Adding the Adapter as a Package Reference to Your Test Projects
 
-The NuGet Package will apply to the solution, and will work for any other user too, as it follows the solution, but requires the user to have VS 2012 Update 1 or above. It will also work for any TFS 2012 Update 1 or above server build, including TF Service and requires no further installation.
+When adding packages manually, we recommended installing the framework, the adapter, and the analyzer for optimal out-of-the-box functionality.  The adapter and the framework are required. The analyzer will help during development, but is not strictly required to make your project work.  `coverlet.collector` is the recommended code coverage package you should go for.
 
-If you are testing **.NET Core or .NET Standard** you must use the NuGet package and Visual Studio 2017 or newer. Visual Studio does not support running .NET Core tests using an extension. The extension will only work with the full .NET Framework.
+You should ensure you also reference `Microsoft.NET.Test.Sdk` as well; it is required for test discoverability.
 
-The Extension will be installed to Visual Studio itself, and will work for all projects you use. All users of your solution need to install the extension. If you use TFS Build, you must also install the extension to the build system there.
+1. Open your test project `csproj` file
+2. Add the necessary package references as shown in the snippet example below (NOTE: these are the current versions at time of writing; you'll want to install the latest versions.)
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="NUnit3TestAdapter" version="4.1.0" />
+    <PackageReference Include="coverlet.collector" Version="3.1.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.2.0" />
+  </ItemGroup>
+```
+
+Note: *You don't need to add any nunit.console or any other runner package*
+
+### Working with the Visual Studio Nuget manager
+
+If you have a legacy project type, or prefer working outside of the command line, you can also use the Visual Studio 'Manage NuGet packages in the solution' menu option. It can also be used for the new SDK projects, but you may find it faster to open the `csproj` and copy/paste the references in.
+
+With an active solution in Visual Studio, follow these steps:
+
+1. From the `Tools` menu, use Library Package Manager and select `Manage NuGet packages for solution`
+2. In the left panel, select `Online`
+3. Locate (search for) `NUnit3Test Adapter` in the center panel and highlight it
+4. Click `Install`
+5. In the `Select Projects` dialog, select all test projects in your solution.
