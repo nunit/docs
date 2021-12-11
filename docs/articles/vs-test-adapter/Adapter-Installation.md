@@ -57,7 +57,7 @@ Note: *You don't need to add any nunit.console or any other runner package*
 
 If you have a legacy project type, or prefer working outside of the command line, you can also use the Visual Studio 'Manage NuGet packages in the solution' menu option. It can also be used for the new SDK projects, but you may find it faster to open the `csproj` and copy/paste the references in.
 
-You need to have an active solution, then follow these steps:
+With an active solution in Visual Studio, follow these steps:
 
 1. From Tools menu, use Library Package Manager and select Manage NuGet packages for solution
 2. In the left panel, select Online
