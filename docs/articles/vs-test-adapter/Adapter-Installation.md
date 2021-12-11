@@ -38,7 +38,7 @@ When adding packages manually, we recommended installing the framework, the adap
 
 You should ensure you also reference `Microsoft.NET.Test.Sdk` as well; it is required for test discoverability.
 
-1. Open your test project csproj file
+1. Open your test project `csproj` file
 2. Add the necessary package references as shown in the snippet example below (the versions should be the latest ones, the ones below is what is current at the date of writing)
 
 ```xml
