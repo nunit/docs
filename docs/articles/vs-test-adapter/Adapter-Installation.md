@@ -4,7 +4,7 @@ uid: vstestadapterinstallation
 
 # Adapter Installation
 
-The adapter is to be installed as a nuget package to each of your test projects.
+You'll need to install the adapter as a NuGet package for each of your test projects.
 
 ## Installing the NuGet Package
 
