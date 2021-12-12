@@ -1,7 +1,7 @@
 # Debugging the NUnit3TestAdapter
 
 Debugging the adapter is done by first creating a debug version of the adapter.
-You can then enable a debug run by passing one of the NUnit Debug settings using runsettings.
+You can then enable a debug run by passing one of the NUnit debug settings using runsettings.
 
 The symbols are:
 
