@@ -1,6 +1,6 @@
 # Adapter V4 Release Notes
 
-## NUnit3 Test Adapter for Visual Studio - Version 4.2.0 - Des 11, 2021
+## NUnit3 Test Adapter for Visual Studio - Version 4.2.0 - Dec 11, 2021
 
 This is a bug fix release, with the following fixes:
 
