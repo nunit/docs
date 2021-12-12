@@ -87,8 +87,21 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="debugging-the-nunit3testadapter">Debugging the NUnit3TestAdapter</h1>
 
-<p>Debugging the adapter is done by creating a debug version of the adapter and enabling the <code>LAUNCHDEBUGGER</code> symbols where appropriate in the code base.</p>
-<p>A detailed explanation of the process can be found in <a href="http://hermit.no/debugging-the-nunit3testadapter/">this blog post</a>.</p>
+<p>Debugging the adapter is done by first creating a debug version of the adapter.
+You can then enable a debug run by passing one of the NUnit debug settings using runsettings.</p>
+<p>The symbols are:</p>
+<pre><code class="lang-cmd">NUnit.DebugExecution
+NUnit.DebugDiscovery
+NUnit.Debug
+</code></pre>
+<p>The last setting is equal to setting both of the two above.</p>
+<p>From command line, you can set these by adding</p>
+<pre><code class="lang-cmd">dotnet test -- NUnit.DebugExecution=true
+</code></pre>
+<p>If you want to do this using Visual Studio, you must add a runsettings file, and add these settings there to the NUnit section.</p>
+<p>A detailed explanation of the process can be found in <a href="http://hermit.no/debugging-the-nunit3testadapter-take-2/">this blog post</a></p>
+<h2 id="debugging-earlier-versions">Debugging earlier versions</h2>
+<p>See <a href="http://hermit.no/debugging-the-nunit3testadapter/">this blog post</a> for details on that process.</p>
 </article>
           </div>
           
