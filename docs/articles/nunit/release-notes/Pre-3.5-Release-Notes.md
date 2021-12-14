@@ -8,7 +8,7 @@ uid: pre35releasenotes
 > Combined Release Notes for the NUnit framework, console and engine, up to version 3.5. For later releases, see:
 >
 > * [Framework Release Notes](framework.md)
-> * [Console Release Notes](console-and-engine.md)
+> * [Console Release Notes](xref:consoleenginereleasenotes)
 
 ## NUnit 3.5 -  October 3, 2016
 
