@@ -11,7 +11,7 @@ This is a bug fix release, with the following fixes:
 
 ### Engine update
 
-The NUnit.Engine has been updated to version 3.13 in this release.  See [engine release notes](topicHref:consoleenginereleasenotes) for details.
+The NUnit.Engine has been updated to version 3.13 in this release.  See [engine release notes](xref:consoleenginereleasenotes) for details.
 
 ### Development
 
