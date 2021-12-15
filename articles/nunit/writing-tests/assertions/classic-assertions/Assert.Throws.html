@@ -180,11 +180,11 @@ which differs from <strong>Assert.Throws</strong> in allowing derived
 types. See the following code for examples:</p>
 <pre><code class="lang-csharp">// Require an ApplicationException - derived types fail!
 Assert.Throws(typeof(ApplicationException), code);
-Assert.Throws&lt;ApplicationException&gt;()(code);
+Assert.Throws&lt;ApplicationException&gt;(code);
 
 // Allow both ApplicationException and any derived type
-Assert.Throws(Is.InstanceOf(typeof(ApplicationException), code);
-Assert.Throws(Is.InstanceOf&lt;ApplicationException&gt;;(), code);
+Assert.Throws(Is.InstanceOf(typeof(ApplicationException)), code);
+Assert.Throws(Is.InstanceOf&lt;ApplicationException&gt;(), code);
 
 // Allow both ApplicationException and any derived type
 Assert.Catch&lt;ApplicationException&gt;(code);
