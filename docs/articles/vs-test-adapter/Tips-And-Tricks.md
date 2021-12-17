@@ -43,6 +43,7 @@ The following options are available:
 |[AssemblySelectLimit](#assemblyselectlimit)|int|Number of tests accepted before filters are turned off|2000|
 |[NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)|bool|Creates a new file for each test run|false|
 |[IncludeStackTraceForSuites](#includestacktraceforsuites)|bool|Includes stack trace for failures in suites, like exceptions in OneTimeSetup|true|
+|[ExplicitMode](#explicitmode)|enum|Changes handling of explicit tests|Strict|
 
 ### Visual Studio templates for runsettings
 
@@ -156,6 +157,8 @@ Using the runsettings should be like:
 </RunSettings>
 ```
 
+Note that the ```Where``` statement does not work for the Visual Studio Test Explorer, as it would generate a conflict with the test list the adapter receives. It is intended for use with command line tools, dotnet test or vstest.console.
+
 (From version 3.16.0)
 
 #### UseParentFQNForParametrizedTests
@@ -262,6 +265,12 @@ Better to allow the possibility to deliver a results file per run.*"
 Exceptions outside test cases are reported with its stack trace included in the message.  One example here is exceptions in OneTimeSetUp and OneTimeTearDown. They belong to the outer suite, and their exceptions are reported as part of the message. This option includes the stack trace in that message.  If this becomes too much information, this option turns the stack trace reporting off.
 
 (From version 4.0.0)
+
+#### ExplicitMode
+
+This setting can be either ```Strict``` or ```Relaxed```.  The default is ```Strict```, which means that ```Explicit``` tests can only be run with other Explicit tests, and not mixed with non-Explicit tests.  The ```Relaxed``` mode is the original NUnit mode, where if you select a category, a class or a set of tests, both explicit and non-explicit tests will be run.  From Visual Studio Test Explorer there are no longer (since VS2019) any way of separating between a ```Run-All``` and ```run selected tests```, so Relaxed mode doesn't work properly. It may or may not work for command line tests, dependent upon how your tests are set up and run.
+
+(From version 4.2.0)
 
 ---
 
