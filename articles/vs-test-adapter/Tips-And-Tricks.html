@@ -281,6 +281,12 @@ The following options are available:</p>
 <td>Includes stack trace for failures in suites, like exceptions in OneTimeSetup</td>
 <td>true</td>
 </tr>
+<tr>
+<td><a href="#explicitmode">ExplicitMode</a></td>
+<td>enum</td>
+<td>Changes handling of explicit tests</td>
+<td>Strict</td>
+</tr>
 </tbody>
 </table>
 <h3 id="visual-studio-templates-for-runsettings">Visual Studio templates for runsettings</h3>
@@ -352,6 +358,7 @@ You can find the files under your current output folder, in a sub-folder named D
     &lt;/NUnit&gt;
 &lt;/RunSettings&gt;
 </code></pre>
+<p>Note that the <code>Where</code> statement does not work for the Visual Studio Test Explorer, as it would generate a conflict with the test list the adapter receives. It is intended for use with command line tools, <code>dotnet test</code> or <code>vstest.console</code>.</p>
 <p>(From version 3.16.0)</p>
 <h4 id="useparentfqnforparametrizedtests">UseParentFQNForParametrizedTests</h4>
 <p>Setting this may give more stable results when you have complex data driven/parametrized tests.  However, when this is set selecting a single test within such a group, means that <strong>all</strong> tests in that group is executed.</p>
@@ -408,6 +415,9 @@ Better to allow the possibility to deliver a results file per run.</em>&quot;</p
 <h4 id="includestacktraceforsuites">IncludeStackTraceForSuites</h4>
 <p>Exceptions outside test cases are reported with its stack trace included in the message.  One example here is exceptions in OneTimeSetUp and OneTimeTearDown. They belong to the outer suite, and their exceptions are reported as part of the message. This option includes the stack trace in that message.  If this becomes too much information, this option turns the stack trace reporting off.</p>
 <p>(From version 4.0.0)</p>
+<h4 id="explicitmode">ExplicitMode</h4>
+<p>This setting can be either <code>Strict</code> or <code>Relaxed</code>.  The default is <code>Strict</code>, which means that <code>Explicit</code> tests can only be run with other Explicit tests, and not mixed with non-Explicit tests.  The <code>Relaxed</code> mode is the original NUnit mode, where if you select a category, a class or a set of tests, both explicit and non-explicit tests will be run.  From Visual Studio Test Explorer there are no longer (since VS2019) any way of separating between a <code>Run-All</code> and <code>run selected tests</code>, so Relaxed mode doesn't work properly. It may or may not work for command line tests, dependent upon how your tests are set up and run.</p>
+<p>(From version 4.2.0)</p>
 <hr>
 <h3 id="some-further-information-on-directories-from-comment-on-issue-575-by-charlie-">Some further information on directories (From <a href="https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421">comment on issue 575</a> by <a href="https://github.com/CharliePoole">Charlie</a> )</h3>
 <p>NUnit also supports TestContext.TestDirectory, which is the directory where the current test assembly is located. Note that if you have several test assemblies in different directories, the value will be different when each one of them accesses it. Note also that there is no way you can set the TestDirectory because it's always where the assembly is located.</p>
