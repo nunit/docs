@@ -157,7 +157,11 @@ Using the runsettings should be like:
 </RunSettings>
 ```
 
+<<<<<<< HEAD
 Note that the ```Where``` statement does not work for the Visual Studio Test Explorer, as it would generate a conflict with the test list the adapter receives. It is intended for use with command line tools, dotnet test or vstest.console.
+=======
+Note that the ```Where``` statement does not work for the Visual Studio Test Explorer, as it would generate a conflict with the test list the adapter receives. It is intended for use with command line tools, `dotnet test` or `vstest.console`.
+>>>>>>> origin/master
 
 (From version 3.16.0)
 
