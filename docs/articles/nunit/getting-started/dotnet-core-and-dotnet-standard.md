@@ -43,7 +43,7 @@ It is similar to a console application, it cannot be .NET Standard, it must targ
 
 This limitation is the same for all test adapters including xUnit and MSTest2.
 
-#### My tests aren't showing up in Visual Studio 2017
+#### My tests aren't showing up in Visual Studio 2017, 2019, 2022
 
 - Are you using the NuGet adapter package?
 - Are you using version 4.1.0 or newer of the NuGet package?
