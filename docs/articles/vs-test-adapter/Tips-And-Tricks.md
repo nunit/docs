@@ -43,7 +43,7 @@ The following options are available:
 |[AssemblySelectLimit](#assemblyselectlimit)|int|Number of tests accepted before filters are turned off|2000|
 |[NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)|bool|Creates a new file for each test run|false|
 |[IncludeStackTraceForSuites](#includestacktraceforsuites)|bool|Includes stack trace for failures in suites, like exceptions in OneTimeSetup|true|
-|[ExplicitMode](#explicitmode)|enum|Changes handling of explicit tests|Strict|
+|[ExplicitMode](#explicitmode)|enum|Changes handling of explicit tests, options are `Strict` or `Relaxed`|Strict|
 
 ### Visual Studio templates for runsettings
 
