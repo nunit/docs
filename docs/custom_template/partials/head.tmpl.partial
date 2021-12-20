@@ -16,7 +16,17 @@
   <meta name="title" content="{{#title}}{{title}}{{/title}}{{^title}}{{>partials/title}}{{/title}} {{#_appTitle}}| {{_appTitle}} {{/_appTitle}}">
   <meta name="generator" content="docfx {{_docfxVersion}}">
   {{#_description}}<meta name="description" content="{{_description}}">{{/_description}}
-  <link rel="shortcut icon" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicon.ico{{/_appFaviconPath}}">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/apple-touch-icon.png{{/_appFaviconPath}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/favicon-16x16.png{{/_appFaviconPath}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/favicon-32x32.png{{/_appFaviconPath}}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicon.ico{{/_appFaviconPath}}"/>
+  <link rel="manifest" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/manifest.json{{/_appFaviconPath}}">
+  <link rel="mask-icon" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/safari-pinned-tab.svg{{/_appFaviconPath}}" color="#222222">
+  <meta name="msapplication-config" content="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/browserconfig.xml{{/_appFaviconPath}}" />
+  <meta name="msapplication-TileColor" content="#222222">
+  <meta name="theme-color" content="#222222">
+
   <link rel="stylesheet" href="{{_rel}}styles/docfx.vendor.css">
   <link rel="stylesheet" href="{{_rel}}styles/docfx.css">
   <link rel="stylesheet" href="{{_rel}}styles/main.css">
