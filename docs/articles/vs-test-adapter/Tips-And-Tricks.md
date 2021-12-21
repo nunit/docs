@@ -157,11 +157,7 @@ Using the runsettings should be like:
 </RunSettings>
 ```
 
-<<<<<<< HEAD
-Note that the ```Where``` statement does not work for the Visual Studio Test Explorer, as it would generate a conflict with the test list the adapter receives. It is intended for use with command line tools, dotnet test or vstest.console.
-=======
 Note that the ```Where``` statement does not work for the Visual Studio Test Explorer, as it would generate a conflict with the test list the adapter receives. It is intended for use with command line tools, `dotnet test` or `vstest.console`.
->>>>>>> origin/master
 
 (From version 3.16.0)
 
@@ -185,13 +181,22 @@ However, it has been seen to also have adverse effects, so use with caution.
 
 #### ConsoleOut
 
-When set to 1, default, will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear here. (Note: You have to use the '-v n' option)
+When set to 1 or 2, 2 is default, will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear in the output.
 
 Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.
 
+There seems to have been a change in dotnet test that causes ConsoleOut=1 to no longer fully work, ConsoleOut=2 reintroduces that and is the new default value.
+
 See [Issue 343](https://github.com/nunit/nunit3-vs-adapter/issues/343) for more information and discussion
 
-(From version 3.17.0)
+In earlier versions you had to use ```-v n```, but that is no longer required.  In order to silence it in ```dotnet test``` you have to do:
+
+```cmd
+dotnet test -- NUnit.ConsoleOut=0
+```
+(Note the space after ```--```. )
+
+(From version 3.17.0, Modified in 4.2.0)
 
 #### UseTestNameInConsoleOutput
 
