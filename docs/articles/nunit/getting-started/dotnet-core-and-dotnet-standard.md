@@ -2,7 +2,7 @@
 
 More information and getting started tutorials are available for NUnit and .NET Core targeting [C#](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit), [F#](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-fsharp-with-nunit) and [Visual Basic](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-visual-basic-with-nunit) in the .NET Core documentation's [Unit Testing in .NET Core and .NET Standard](https://docs.microsoft.com/en-us/dotnet/core/testing/) page.
 
-Each test project need to reference version 4.1.0 or later of the NUnit3 Visual Studio Test Adapter.
+Each test project needs to reference version 4.1.0 or later of the NUnit3 Visual Studio Test Adapter.
 
 It is recommended to install the adapter from NuGet if you are testing .NET Core or .NET Standard projects.
 The VSIX adapter has been deprecated for VS2019. Latest version is 3.17.0. For VS2022 there is no VSIX adapter.
@@ -29,7 +29,7 @@ For a more complete walk-through, please see [Testing .NET Core with NUnit in Vi
 
 ## Using the NUnit project templates
 
-The NUnit test project templates comes included with `dotnet`.
+The NUnit test project templates come included with `dotnet`.
 
 You can run `dotnet new nunit` to create an NUnit test project.
 
@@ -43,7 +43,7 @@ It is similar to a console application, it cannot be .NET Standard, it must targ
 
 This limitation is the same for all test adapters including xUnit and MSTest2.
 
-#### My tests aren't showing up in Visual Studio 2017, 2019, 2022
+#### My tests aren't showing up in Visual Studio 2017 or later
 
 - Are you using the NuGet adapter package?
 - Are you using version 4.1.0 or newer of the NuGet package?
@@ -69,4 +69,4 @@ dotnet test  -- NUnit.TestOutputXml=yourfoldername
 
 The folder is relative to the binary test folder, or you can use an absolute path. The latter is useful in CI scenarios.
 
-Alternatively, there is a 3rd party package, [NUnitXml.TestLogger](https://www.nuget.org/packages/NunitXml.TestLogger/) which also produce a NUnit3 xml format. Details for [use see here](https://github.com/spekt/nunit.testlogger). Note that this is a re-implementation of the NUnit3 format, and may differ.
+Alternatively, there is a 3rd party package, [NUnitXml.TestLogger](https://www.nuget.org/packages/NunitXml.TestLogger/) which also produces a NUnit3 xml format. Details for [use see here](https://github.com/spekt/nunit.testlogger). Note that this is a re-implementation of the NUnit3 format, and may differ.
