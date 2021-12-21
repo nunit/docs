@@ -69,4 +69,4 @@ dotnet test  -- NUnit.TestOutputXml=yourfoldername
 
 The folder is relative to the binary test folder, or you can use an absolute path. The latter is useful in CI scenarios.
 
-Alternatively, there is a 3rd party package, [NUnitXml.TestLogger](https://www.nuget.org/packages/NunitXml.TestLogger/) which also produce a NUnit3 xml format. Details for [use see here](https://github.com/spekt/nunit.testlogger). Note that this is a re-implementation of the NUnit3 format, and may differ.
+Alternatively, there is a 3rd party package, [NUnitXml.TestLogger](https://www.nuget.org/packages/NunitXml.TestLogger/) which also produces a NUnit3 xml format. Details for [use see here](https://github.com/spekt/nunit.testlogger). Note that this is a re-implementation of the NUnit3 format, and may differ.
