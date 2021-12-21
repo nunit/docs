@@ -29,7 +29,7 @@ For a more complete walk-through, please see [Testing .NET Core with NUnit in Vi
 
 ## Using the NUnit project templates
 
-The NUnit test project templates comes included with `dotnet`.
+The NUnit test project templates come included with `dotnet`.
 
 You can run `dotnet new nunit` to create an NUnit test project.
 
