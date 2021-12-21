@@ -2,7 +2,7 @@
 
 More information and getting started tutorials are available for NUnit and .NET Core targeting [C#](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit), [F#](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-fsharp-with-nunit) and [Visual Basic](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-visual-basic-with-nunit) in the .NET Core documentation's [Unit Testing in .NET Core and .NET Standard](https://docs.microsoft.com/en-us/dotnet/core/testing/) page.
 
-Each test project need to reference version 4.1.0 or later of the NUnit3 Visual Studio Test Adapter.
+Each test project needs to reference version 4.1.0 or later of the NUnit3 Visual Studio Test Adapter.
 
 It is recommended to install the adapter from NuGet if you are testing .NET Core or .NET Standard projects.
 The VSIX adapter has been deprecated for VS2019. Latest version is 3.17.0. For VS2022 there is no VSIX adapter.
