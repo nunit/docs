@@ -181,7 +181,7 @@ However, it has been seen to also have adverse effects, so use with caution.
 
 #### ConsoleOut
 
-When set to 1 or 2, 2 is default, will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear in the output.
+When set to 1 or 2 (2 is default), will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear in the output.
 
 Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.
 
