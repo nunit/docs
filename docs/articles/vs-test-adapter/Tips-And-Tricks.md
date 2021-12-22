@@ -194,7 +194,7 @@ In earlier versions you had to use `-v n`, but that is no longer required.  In o
 ```console
 dotnet test -- NUnit.ConsoleOut=0
 ```
-(Note the space after ```--```. )
+(Note the space after `--`. )
 
 (From version 3.17.0, Modified in 4.2.0)
 
