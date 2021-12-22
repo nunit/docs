@@ -294,7 +294,7 @@ The following options are available:</p>
 <tr>
 <td><a href="#explicitmode">ExplicitMode</a></td>
 <td>enum</td>
-<td>Changes handling of explicit tests</td>
+<td>Changes handling of explicit tests, options are <code>Strict</code> or <code>Relaxed</code></td>
 <td>Strict</td>
 </tr>
 </tbody>
@@ -380,10 +380,15 @@ You can find the files under your current output folder, in a sub-folder named D
 <p>However, it has been seen to also have adverse effects, so use with caution.</p>
 <p>(From version 3.16.1)</p>
 <h4 id="consoleout">ConsoleOut</h4>
-<p>When set to 1, default, will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear here. (Note: You have to use the '-v n' option)</p>
+<p>When set to 1 or 2 (2 is default), will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear in the output.</p>
 <p>Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.</p>
+<p>There seems to have been a change in <code>dotnet test</code> that causes <code>ConsoleOut=1</code> to no longer fully work; <code>ConsoleOut=2</code> reintroduces that, and is the new default value.</p>
 <p>See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/343">Issue 343</a> for more information and discussion</p>
-<p>(From version 3.17.0)</p>
+<p>In earlier versions you had to use <code>-v n</code>, but that is no longer required.  In order to silence it in <code>dotnet test</code> you have to do:</p>
+<pre><code class="lang-console">dotnet test -- NUnit.ConsoleOut=0
+</code></pre>
+<p>(Note the space after <code>--</code>. )</p>
+<p>(From version 3.17.0, Modified in 4.2.0)</p>
 <h4 id="usetestnameinconsoleoutput">UseTestNameInConsoleOutput</h4>
 <p>When set to <code>true</code>, the default, the name of the test is added as a prefix in front of each console line output.  This only applies to the output in the output window.</p>
 <p>(From version 4.0.0)</p>

@@ -97,13 +97,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="adapter-v4-release-notes">Adapter V4 Release Notes</h1>
 
-<h2 id="nunit3-test-adapter-for-visual-studio---version-420---dec-11-2021">NUnit3 Test Adapter for Visual Studio - Version 4.2.0 - Dec 11, 2021</h2>
+<h2 id="nunit3-test-adapter-for-visual-studio---version-420---dec-19-2021">NUnit3 Test Adapter for Visual Studio - Version 4.2.0 - Dec 19, 2021</h2>
 <p>This is a bug fix release, with the following fixes:</p>
 <ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/818">818</a> Known Vulnerability in System.Xml.XPath.XmlDocument</li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/912">912</a> Explicit runs when using NUnit-filters 'cat!=FOO'</li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/914">914</a> AddTestAttachment does not work anymore in VS2022</li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/918">918</a> New DiscoveryMode doesn't play nicely with TestFixtureSource - Missing GenericFixture</li>
-<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/818">818</a> Known Vulnerability in System.Xml.XPath.XmlDocument</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/929">929</a> Lots of warnings logged when filter matches no tests 'cat=BAZ', including other issues in the same.  Thanks to <a href="https://github.com/runehalfdan">@runehalfdan</a> for a lot of help reproducing and verifying these issues.  Fixing this also improved performance, and cleared out issues with Explicit tests.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/934">934</a> Console output no longer output by dotnet test -v n.</li>
 </ul>
 <h3 id="engine-update">Engine update</h3>
 <p>The NUnit.Engine has been updated to version 3.13 in this release.  See <a class="xref" href="../nunit-engine/release-notes.html">engine release notes</a> for details.</p>

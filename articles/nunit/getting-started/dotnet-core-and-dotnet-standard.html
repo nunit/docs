@@ -98,9 +98,10 @@
 <h1 id="net-core-and-net-standard">.NET Core and .NET Standard</h1>
 
 <p>More information and getting started tutorials are available for NUnit and .NET Core targeting <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit">C#</a>, <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-fsharp-with-nunit">F#</a> and <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-visual-basic-with-nunit">Visual Basic</a> in the .NET Core documentation's <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/">Unit Testing in .NET Core and .NET Standard</a> page.</p>
-<p>Testing .NET Core and .NET Standard projects requires <em>each</em> test project to reference version 3.9.0 or later of the NUnit 3 Visual Studio Test Adapter.</p>
-<p>It is recommended to install the adapter from NuGet if you are testing .NET Core or .NET Standard projects. The VSIX adapter does not, and will not, support .NET Core because VSIX packages cannot target multiple platforms.</p>
-<p>Adding this adapter and <code>Microsoft.NET.Test.Sdk</code> version <code>15.5.0</code> to your NUnit test projects will also enable the <code>dotnet test</code> command for .NET Core projects.</p>
+<p>Each test project needs to reference version 4.1.0 or later of the NUnit3 Visual Studio Test Adapter.</p>
+<p>It is recommended to install the adapter from NuGet if you are testing .NET Core or .NET Standard projects.
+The VSIX adapter has been deprecated for VS2019. Latest version is 3.17.0. For VS2022 there is no VSIX adapter.</p>
+<p>Adding this adapter and <code>Microsoft.NET.Test.Sdk</code> version <code>17.0.0</code> to your NUnit test projects will also enable the <code>dotnet test</code> command for .NET Core projects.</p>
 <p>Any tests using the new style CSPROJ format, either .NET Core or .NET 4.x, need to add a <code>PackageReference</code> to the NuGet package <code>Microsoft.NET.Test.Sdk</code>. Your test assemblies must also be .NET Core or .NET 4.x, not .NET Standard.</p>
 <pre><code class="lang-xml">&lt;ItemGroup&gt;
   &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;15.5.0&quot; /&gt;
@@ -111,20 +112,19 @@
 <p>.NET Core test can be run on the command line with <code>dotnet test</code>, for example,</p>
 <pre><code class="lang-cmd">&gt; dotnet test .\test\NetCore10Tests\NetCore10Tests.csproj
 </code></pre>
-<p>Also, note that <strong>Code Coverage</strong> and <strong>Live Unit Testing</strong> does not work with .NET Core yet. They will be supported in a future version of Visual Studio, likely post 15.3.</p>
 <p>For a more complete walk-through, please see <a href="http://www.alteridem.net/2017/05/04/test-net-core-nunit-vs2017/">Testing .NET Core with NUnit in Visual Studio 2017</a></p>
-<h2 id="install-the-nunit-project-template">Install the NUnit project template</h2>
-<p>The NUnit test project templates need to be installed before creating a test project. This only needs to be done once. Run <code>dotnet new -i NUnit3.DotNetNew.Template</code> to install the NUnit templates.</p>
-<p>Once you do this, you can then run <code>dotnet new nunit</code> to create an NUnit test project.</p>
+<h2 id="using-the-nunit-project-templates">Using the NUnit project templates</h2>
+<p>The NUnit test project templates come included with <code>dotnet</code>.</p>
+<p>You can run <code>dotnet new nunit</code> to create an NUnit test project.</p>
 <h3 id="faq">FAQ</h3>
 <h4 id="why-cant-my-tests-target-net-standard">Why can't my tests target .NET Standard</h4>
 <p>Visual Studio and VSTest require that the tests target a specific platform. .NET Standard is like a Portable library in that it does not target any specific platform, but can run on any supported platform. Microsoft decided that your tests should be compiled to target a platform so they know which platform to run your tests under and you get the behavior you expect for the platform you are targeting. You can however target multiple platforms in your tests and compile and run each from the command line. It still only runs one platform from Visual Studio, but I would hope that is being worked on. I haven't tested 15.3 yet.</p>
 <p>It is similar to a console application, it cannot be .NET Standard, it must target a platform, .NET Core or .NET Framework.</p>
 <p>This limitation is the same for all test adapters including xUnit and MSTest2.</p>
-<h4 id="my-tests-arent-showing-up-in-visual-studio-2017">My tests aren't showing up in Visual Studio 2017</h4>
+<h4 id="my-tests-arent-showing-up-in-visual-studio-2017-or-later">My tests aren't showing up in Visual Studio 2017 or later</h4>
 <ul>
-<li>Are you using the NuGet package?</li>
-<li>Are you using version 3.8.0 or newer of the NuGet package?</li>
+<li>Are you using the NuGet adapter package?</li>
+<li>Are you using version 4.1.0 or newer of the NuGet package?</li>
 <li>Do your tests target .NET Core or the full .NET Framework? (see above)</li>
 <li>Have you added a Package Reference to <code>Microsoft.NET.Test.Sdk</code>?</li>
 <li>Have you restarted Visual Studio? It is still a bit temperamental.</li>
@@ -132,10 +132,13 @@
 <h4 id="my-tests-multi-target-net-core-and-net-framework-why-cant-i-run-both-in-visual-studio">My tests multi-target .NET Core and .NET Framework, why can't I run both in Visual Studio</h4>
 <p>This is a limitation of Visual Studio, hopefully it will be fixed in a future release.</p>
 <p>Meanwhile, you can run specific tests using the <code>--framework</code> command line option of <a href="https://docs.microsoft.com/en-ca/dotnet/core/tools/dotnet-test?tabs=netcore2x">dotnet test</a></p>
-<h4 id="how-to-i-produce-a-test-results-file">How to I produce a test results file</h4>
-<p><code>dotnet test</code> does not currently support passing command line options on to the test adapter, so NUnit
-cannot produce TestResults.xml yet. We are looking at ways of working around this, but for now, people have
-had success producing a VSTest results file. See the issue <a href="https://github.com/nunit/nunit3-vs-adapter/issues/323">Add support for producing XML test results</a> for more info.</p>
+<h4 id="how-do-i-produce-a-test-results-file">How do I produce a test results file</h4>
+<p><code>dotnet test</code> can generate an NUnit3 test result file by adding a runsettings property. The property to add is <a href="https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#testoutputxml">TestOutputXml</a>. This generation is done using the NUnit Engine report service, and produce the same result as the <a href="https://www.nuget.org/packages/NUnit.Console/">NUnit3-console</a>. This is available through the <a href="https://www.nuget.org/packages/NUnit3TestAdapter">NUnit3TestAdapter</a>.</p>
+<p>You run it by adding the setting on the command line (or in a runsettings file):</p>
+<pre><code class="lang-console">dotnet test  -- NUnit.TestOutputXml=yourfoldername
+</code></pre>
+<p>The folder is relative to the binary test folder, or you can use an absolute path. The latter is useful in CI scenarios.</p>
+<p>Alternatively, there is a 3rd party package, <a href="https://www.nuget.org/packages/NunitXml.TestLogger/">NUnitXml.TestLogger</a> which also produces a NUnit3 xml format. Details for <a href="https://github.com/spekt/nunit.testlogger">use see here</a>. Note that this is a re-implementation of the NUnit3 format, and may differ.</p>
 </article>
           </div>
           
