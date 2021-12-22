@@ -185,7 +185,7 @@ When set to 1 or 2 (2 is default), will send Console standard output to the Visu
 
 Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.
 
-There seems to have been a change in dotnet test that causes ConsoleOut=1 to no longer fully work, ConsoleOut=2 reintroduces that and is the new default value.
+There seems to have been a change in `dotnet test` that causes `ConsoleOut=1` to no longer fully work; `ConsoleOut=2` reintroduces that, and is the new default value.
 
 See [Issue 343](https://github.com/nunit/nunit3-vs-adapter/issues/343) for more information and discussion
 
