@@ -194,6 +194,7 @@ In earlier versions you had to use ```-v n```, but that is no longer required.  
 ```cmd
 dotnet test -- NUnit.ConsoleOut=0
 ```
+
 (Note the space after ```--```. )
 
 (From version 3.17.0, Modified in 4.2.0)
