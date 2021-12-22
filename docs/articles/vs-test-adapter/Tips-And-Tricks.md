@@ -189,7 +189,7 @@ There seems to have been a change in `dotnet test` that causes `ConsoleOut=1` to
 
 See [Issue 343](https://github.com/nunit/nunit3-vs-adapter/issues/343) for more information and discussion
 
-In earlier versions you had to use ```-v n```, but that is no longer required.  In order to silence it in ```dotnet test``` you have to do:
+In earlier versions you had to use `-v n`, but that is no longer required.  In order to silence it in `dotnet test` you have to do:
 
 ```cmd
 dotnet test -- NUnit.ConsoleOut=0
