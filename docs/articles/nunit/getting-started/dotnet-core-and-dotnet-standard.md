@@ -63,7 +63,7 @@ Meanwhile, you can run specific tests using the `--framework` command line optio
 
 You run it by adding the setting on the command line (or in a runsettings file):
 
-```cmd
+```console
 dotnet test  -- NUnit.TestOutputXml=yourfoldername
 ```
 
