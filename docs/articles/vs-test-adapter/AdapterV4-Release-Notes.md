@@ -1,13 +1,15 @@
 # Adapter V4 Release Notes
 
-## NUnit3 Test Adapter for Visual Studio - Version 4.2.0 - Dec 11, 2021
+## NUnit3 Test Adapter for Visual Studio - Version 4.2.0 - Dec 19, 2021
 
 This is a bug fix release, with the following fixes:
 
+* [818](https://github.com/nunit/nunit3-vs-adapter/issues/818) Known Vulnerability in System.Xml.XPath.XmlDocument
 * [912](https://github.com/nunit/nunit3-vs-adapter/issues/912) Explicit runs when using NUnit-filters 'cat!=FOO'
 * [914](https://github.com/nunit/nunit3-vs-adapter/issues/914) AddTestAttachment does not work anymore in VS2022
 * [918](https://github.com/nunit/nunit3-vs-adapter/issues/918) New DiscoveryMode doesn't play nicely with TestFixtureSource - Missing GenericFixture
-* [818](https://github.com/nunit/nunit3-vs-adapter/issues/818) Known Vulnerability in System.Xml.XPath.XmlDocument
+* [929](https://github.com/nunit/nunit3-vs-adapter/issues/929) Lots of warnings logged when filter matches no tests 'cat=BAZ', including other issues in the same.  Thanks to [@runehalfdan](https://github.com/runehalfdan) for a lot of help reproducing and verifying these issues.  Fixing this also improved performance, and cleared out issues with Explicit tests.
+* [934](https://github.com/nunit/nunit3-vs-adapter/issues/934) Console output no longer output by dotnet test -v n.
 
 ### Engine update
 

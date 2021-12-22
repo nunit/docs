@@ -43,7 +43,7 @@ The following options are available:
 |[AssemblySelectLimit](#assemblyselectlimit)|int|Number of tests accepted before filters are turned off|2000|
 |[NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)|bool|Creates a new file for each test run|false|
 |[IncludeStackTraceForSuites](#includestacktraceforsuites)|bool|Includes stack trace for failures in suites, like exceptions in OneTimeSetup|true|
-|[ExplicitMode](#explicitmode)|enum|Changes handling of explicit tests|Strict|
+|[ExplicitMode](#explicitmode)|enum|Changes handling of explicit tests, options are `Strict` or `Relaxed`|Strict|
 
 ### Visual Studio templates for runsettings
 
@@ -181,13 +181,23 @@ However, it has been seen to also have adverse effects, so use with caution.
 
 #### ConsoleOut
 
-When set to 1, default, will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear here. (Note: You have to use the '-v n' option)
+When set to 1 or 2 (2 is default), will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear in the output.
 
 Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.
 
+There seems to have been a change in `dotnet test` that causes `ConsoleOut=1` to no longer fully work; `ConsoleOut=2` reintroduces that, and is the new default value.
+
 See [Issue 343](https://github.com/nunit/nunit3-vs-adapter/issues/343) for more information and discussion
 
-(From version 3.17.0)
+In earlier versions you had to use `-v n`, but that is no longer required.  In order to silence it in `dotnet test` you have to do:
+
+```console
+dotnet test -- NUnit.ConsoleOut=0
+```
+
+(Note the space after `--`. )
+
+(From version 3.17.0, Modified in 4.2.0)
 
 #### UseTestNameInConsoleOutput
 
