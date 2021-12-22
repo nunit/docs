@@ -191,7 +191,7 @@ See [Issue 343](https://github.com/nunit/nunit3-vs-adapter/issues/343) for more 
 
 In earlier versions you had to use `-v n`, but that is no longer required.  In order to silence it in `dotnet test` you have to do:
 
-```cmd
+```console
 dotnet test -- NUnit.ConsoleOut=0
 ```
 (Note the space after ```--```. )
