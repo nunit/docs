@@ -6,7 +6,7 @@ uid: tipsandtricks
 
 ## NUnit 3
 
-### VS Test .Runsettings configuration
+### DotNet test and VS Test .Runsettings configuration
 
 Certain NUnit Test Adapter settings are configurable using a .runsettings file.
 The following options are available:
@@ -32,7 +32,7 @@ The following options are available:
 |[Where](#where)|string| NUnit Filter expression|
 |[UseParentFQNForParametrizedTests](#useparentfqnforparametrizedtests)|bool|Enable parent as FQN for parametrized tests|false|
 |[UseNUnitIdforTestCaseId](#usenunitidfortestcaseid) |bool|Uses NUnit test id as VSTest Testcase Id, instead of FullyQualifiedName|false|
-|[ConsoleOut](#consoleout)|int|Sends standard console output to the output window|1|
+|[ConsoleOut](#consoleout)|int|Sends standard console output to the output window|2|
 |[UseTestNameInConsoleOutput](#usetestnameinconsoleoutput)|bool|Adds name of test as a prefix in the output window for console output|true|
 |[StopOnError](#stoponerror)|bool|Stops on first error|false|
 |[SkipNonTestAssemblies](#skipnontestassemblies)|bool|Adapter supports NonTestAssemblyAttribute|true|
