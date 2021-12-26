@@ -44,6 +44,7 @@ The following options are available:
 |[NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)|bool|Creates a new file for each test run|false|
 |[IncludeStackTraceForSuites](#includestacktraceforsuites)|bool|Includes stack trace for failures in suites, like exceptions in OneTimeSetup|true|
 |[ExplicitMode](#explicitmode)|enum|Changes handling of explicit tests, options are `Strict` or `Relaxed`|Strict|
+|[SkipExecutionWhenNoTests](#skipexecutionwhennotests)|bool|Skip execution if no tests are found|false|
 
 ### Visual Studio templates for runsettings
 
@@ -279,6 +280,12 @@ Exceptions outside test cases are reported with its stack trace included in the 
 #### ExplicitMode
 
 This setting can be either ```Strict``` or ```Relaxed```.  The default is ```Strict```, which means that ```Explicit``` tests can only be run with other Explicit tests, and not mixed with non-Explicit tests.  The ```Relaxed``` mode is the original NUnit mode, where if you select a category, a class or a set of tests, both explicit and non-explicit tests will be run.  From Visual Studio Test Explorer there are no longer (since VS2019) any way of separating between a ```Run-All``` and ```run selected tests```, so Relaxed mode doesn't work properly. It may or may not work for command line tests, dependent upon how your tests are set up and run.
+
+(From version 4.2.0)
+
+#### SkipExecutionWhenNoTests
+
+If set, this setting will skip execution for an assembly if no tests are found during the pre-execution discovery phase.  It will give you a small performance boost, but if you skip the execution, this assembly will not generate any log files. The default is false.
 
 (From version 4.2.0)
 
