@@ -6,7 +6,7 @@ uid: tipsandtricks
 
 ## NUnit 3
 
-### DotNet test and VS Test `.runsettings` configuration
+### `dotnet test` and VS Test `.runsettings` configuration
 
 Certain NUnit Test Adapter settings are configurable using a .runsettings file.
 The following options are available:
