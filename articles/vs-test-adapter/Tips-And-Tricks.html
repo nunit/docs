@@ -98,7 +98,7 @@
 <h1 id="tips-and-tricks">Tips and Tricks</h1>
 
 <h2 id="nunit-3">NUnit 3</h2>
-<h3 id="vs-test-runsettings-configuration">VS Test .Runsettings configuration</h3>
+<h3 id="dotnet-test-and-vs-test-runsettings-configuration"><code>dotnet test</code> and VS Test <code>.runsettings</code> configuration</h3>
 <p>Certain NUnit Test Adapter settings are configurable using a .runsettings file.
 The following options are available:</p>
 <table>
@@ -229,7 +229,7 @@ The following options are available:</p>
 <td><a href="#consoleout">ConsoleOut</a></td>
 <td>int</td>
 <td>Sends standard console output to the output window</td>
-<td>1</td>
+<td>2</td>
 </tr>
 <tr>
 <td><a href="#usetestnameinconsoleoutput">UseTestNameInConsoleOutput</a></td>
@@ -296,6 +296,12 @@ The following options are available:</p>
 <td>enum</td>
 <td>Changes handling of explicit tests, options are <code>Strict</code> or <code>Relaxed</code></td>
 <td>Strict</td>
+</tr>
+<tr>
+<td><a href="#skipexecutionwhennotests">SkipExecutionWhenNoTests</a></td>
+<td>bool</td>
+<td>Skip execution if no tests are found</td>
+<td>false</td>
 </tr>
 </tbody>
 </table>
@@ -432,6 +438,9 @@ Better to allow the possibility to deliver a results file per run.</em>&quot;</p
 <p>(From version 4.0.0)</p>
 <h4 id="explicitmode">ExplicitMode</h4>
 <p>This setting can be either <code>Strict</code> or <code>Relaxed</code>.  The default is <code>Strict</code>, which means that <code>Explicit</code> tests can only be run with other Explicit tests, and not mixed with non-Explicit tests.  The <code>Relaxed</code> mode is the original NUnit mode, where if you select a category, a class or a set of tests, both explicit and non-explicit tests will be run.  From Visual Studio Test Explorer there are no longer (since VS2019) any way of separating between a <code>Run-All</code> and <code>run selected tests</code>, so Relaxed mode doesn't work properly. It may or may not work for command line tests, dependent upon how your tests are set up and run.</p>
+<p>(From version 4.2.0)</p>
+<h4 id="skipexecutionwhennotests">SkipExecutionWhenNoTests</h4>
+<p>If set, this setting will skip execution for an assembly if no tests are found during the pre-execution discovery phase.  It will give you a small performance boost, but if you skip the execution, this assembly will not generate any log files. The default is false.</p>
 <p>(From version 4.2.0)</p>
 <hr>
 <h3 id="some-further-information-on-directories-from-comment-on-issue-575-by-charlie-">Some further information on directories (From <a href="https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421">comment on issue 575</a> by <a href="https://github.com/CharliePoole">Charlie</a> )</h3>
