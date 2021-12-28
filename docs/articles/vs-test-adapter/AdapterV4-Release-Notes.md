@@ -8,6 +8,7 @@ This is a bug fix release, with the following fixes:
 * [912](https://github.com/nunit/nunit3-vs-adapter/issues/912) Explicit runs when using NUnit-filters 'cat!=FOO'
 * [914](https://github.com/nunit/nunit3-vs-adapter/issues/914) AddTestAttachment does not work anymore in VS2022
 * [918](https://github.com/nunit/nunit3-vs-adapter/issues/918) New DiscoveryMode doesn't play nicely with TestFixtureSource - Missing GenericFixture
+* [919](https://github.com/nunit/nunit3-vs-adapter/issues/919) VSTest test case filter does not work with parentheses
 * [929](https://github.com/nunit/nunit3-vs-adapter/issues/929) Lots of warnings logged when filter matches no tests 'cat=BAZ', including other issues in the same.  Thanks to [@runehalfdan](https://github.com/runehalfdan) for a lot of help reproducing and verifying these issues.  Fixing this also improved performance, and cleared out issues with Explicit tests.
 * [934](https://github.com/nunit/nunit3-vs-adapter/issues/934) Console output no longer output by dotnet test -v n.
 
