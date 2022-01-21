@@ -1,5 +1,13 @@
 # Adapter V4 Release Notes
 
+## NUnit3 Test Adapter for Visual Studio - Version 4.2.1 - Jan 21, 2022
+
+This is a hotfix release for
+
+* [941](https://github.com/nunit/nunit3-vs-adapter/issues/941) When running `dotnet test` with filter, all tests are run and all console output is logged.
+
+This issue applies to test projects where all tests are excluded by a test item filter, then the opposite actually happens, and all these tests are being run. Note that this issue does not affect category filters.
+
 ## NUnit3 Test Adapter for Visual Studio - Version 4.2.0 - Dec 19, 2021
 
 This is a bug fix release, with the following fixes:
