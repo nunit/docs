@@ -97,6 +97,12 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="adapter-v4-release-notes">Adapter V4 Release Notes</h1>
 
+<h2 id="nunit3-test-adapter-for-visual-studio---version-421---jan-21-2022">NUnit3 Test Adapter for Visual Studio - Version 4.2.1 - Jan 21, 2022</h2>
+<p>This is a hotfix release for</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/941">941</a> When running <code>dotnet test</code> with filter, all tests are run and all console output is logged.</li>
+</ul>
+<p>This fix applies to test projects where all tests are excluded by a test item filter. Previously, as of v4.2.0, all tests were unintentionally run. Note that this issue did not affect category filters.</p>
 <h2 id="nunit3-test-adapter-for-visual-studio---version-420---dec-19-2021">NUnit3 Test Adapter for Visual Studio - Version 4.2.0 - Dec 19, 2021</h2>
 <p>This is a bug fix release, with the following fixes:</p>
 <ul>
