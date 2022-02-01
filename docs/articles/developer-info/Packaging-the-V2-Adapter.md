@@ -67,13 +67,13 @@ The resulting files can be found in the "package" folder:
 You need Visual Studio 2013.  We use the ultimate edition, but it should be enough with the premium edition.  (I will probably work with both the Pro or the Express editions too, but we haven't tried them).  The latest 1.1 version is built using Update 2 RC.
 
 1. **Visual Studio 2013 SDK**  
-You need this to work with the vsix.  Download from <http://www.microsoft.com/en-us/download/details.aspx?id=40758>
+You need this to work with the vsix.  Download from <https://www.microsoft.com/en-us/download/details.aspx?id=40758>
 
 1. **NAnt**
 Download from <http://nant.sourceforge.net/>.  We use the 0.92 version.
 
 1. **NuGet**
-You need the nuget.exe in your path.  Download the exe from <http://nuget.codeplex.com/downloads/get/784779>.  We use the 2.8 version
+You need the nuget.exe in your path.  Download the exe fro<http://nuget.codeplex.com/downloads/get/784779>.  We use the 2.8 version
 
 1. **VS2012 TestPlatform object model**
 You need to have this around, the adapter and the test project refer to this.  The easiest way to get it, is to have VS2012 installed and get it from there.
@@ -95,7 +95,7 @@ The file is named **vsTestAdapterReleaseNotes.html**, and is found under Docs/2.
 Also check that the files **vsTestAdapterLicense.html** and **vsTestAdapterReleaseNotes.html** is up to date.
 
 [semantic versioning]:https://semver.org/
-[Visual Studio Gallery]:http://visualstudiogallery.msdn.microsoft.com/6ab922d0-21c0-4f06-ab5f-4ecd1fe7175d
+[Visual Studio Gallery]:https://visualstudiogallery.msdn.microsoft.com/6ab922d0-21c0-4f06-ab5f-4ecd1fe7175d
 [NuGet for the adapter]:https://www.nuget.org/packages/NUnitTestAdapter/
 [NuGet for the adapter with framework]:https://www.nuget.org/packages/NUnitTestAdapter.WithFramework/
 [nunit.org repository]:https://github.com/nunit/nunit.org

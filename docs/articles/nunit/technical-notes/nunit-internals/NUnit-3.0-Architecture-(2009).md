@@ -13,7 +13,7 @@ This specification describes the overall layered architecture of the NUnit Platf
 
 ### Launchpad Blueprint
 
-* <http://blueprints.launchpad.net/nunit-3.0/+spec/nunit-3.0-architecture>
+* <https://blueprints.launchpad.net/nunit-3.0/+spec/nunit-3.0-architecture>
 
 ## User Stories
 
