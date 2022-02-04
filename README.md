@@ -1,6 +1,6 @@
 # NUnit Documentation
 
-This repository serves the content that is found at <http://docs.nunit.org>.
+This repository serves the content that is found at <https://docs.nunit.org>.
 
 [![NUnit Documentation Build Process](https://github.com/nunit/docs/actions/workflows/build-process.yml/badge.svg)](https://github.com/nunit/docs/actions/workflows/build-process.yml)
 
