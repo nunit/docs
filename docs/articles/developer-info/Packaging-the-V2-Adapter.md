@@ -73,7 +73,7 @@ You need this to work with the vsix.  Download from <https://www.microsoft.com/e
 Download from <http://nant.sourceforge.net/>.  We use the 0.92 version.
 
 1. **NuGet**
-You need the nuget.exe in your path.  Download the exe fro<http://nuget.codeplex.com/downloads/get/784779>.  We use the 2.8 version
+You need the nuget.exe in your path.  Download the exe from <http://nuget.codeplex.com/downloads/get/784779>.  We use the 2.8 version
 
 1. **VS2012 TestPlatform object model**
 You need to have this around, the adapter and the test project refer to this.  The easiest way to get it, is to have VS2012 installed and get it from there.
