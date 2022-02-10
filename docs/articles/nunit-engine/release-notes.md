@@ -4,6 +4,43 @@ uid: consoleenginereleasenotes
 
 # Console and Engine Release Notes
 
+## NUnit Console & Engine 3.15 - Fegruary 10, 2021
+
+Final Release of NUnit ConsoleRunner 3.15.0. No changes from the beta1 Release. 
+
+Version 3.15.0 is expected to be the final release in the 3.x series.
+
+## NUnit Console & Engine 3.15 Beta 1 - February 6, 2021
+
+Beta release of version 3.15.0 of the Console Runner. Both the standard runner and the dotnet CLI command are now able to run tests under .Net 6.0.
+
+* [__#1017__](https://github.com/nunit/nunit-console/issues/1017) Should we change 'master' to 'main'?
+* [__#1026__](https://github.com/nunit/nunit-console/issues/1026) Make NUnit.Engine.Internal.Tests.PathUtilTests_Windows.SamePathOrUnder work under ubuntu-latest
+* [__#1044__](https://github.com/nunit/nunit-console/issues/1044) Agent for .NET 6.0
+* [__#1050__](https://github.com/nunit/nunit-console/issues/1050) More discrete logging
+* [__#1087__](https://github.com/nunit/nunit-console/issues/1087) Switch all engine tests to NUnitLite
+* [__#1094__](https://github.com/nunit/nunit-console/issues/1094) CreateDraftRelease command should run locally without a release branch
+* [__#1095__](https://github.com/nunit/nunit-console/issues/1095) Allow single-letter options for cake script
+* [__#1096__](https://github.com/nunit/nunit-console/issues/1096) Symbol package validation failing for NUnit.ConsoleRunner.NetCore
+* [__#1108__](https://github.com/nunit/nunit-console/issues/1108) Generate AssemblyInfo files from csproj
+* [__#1112__](https://github.com/nunit/nunit-console/issues/1112) Use VS2022 for CI Build
+* [__#1123__](https://github.com/nunit/nunit-console/issues/1123) NETCORE Console Runner should target .NET 6.0
+* [__#1125__](https://github.com/nunit/nunit-console/pull/1125) Save results of each package test separately
+
+## NUnit Console & Engine 3.14 - January 15, 2021
+
+This release features a new agent for tests targeting .NET 5.0. In addition, automation of our publication and release process 
+is now complete from creation of a draft release through releasing to production on GitHub. While this doesn't impact users directly, 
+it will allow us to speed up the introduction of new features in coming releases.
+
+* [570](https://github.com/nunit/nunit-console/issues/570) Where are the checksums for your downloads?
+* [1012](https://github.com/nunit/nunit-console/issues/1012) Automatically roll-forward if no .NET Core 3.1 runtime available
+* [1048](https://github.com/nunit/nunit-console/issues/1048) Agent for Net 5.0
+* [1057](https://github.com/nunit/nunit-console/issues/1057) Automate all package publication and release
+* [1075](https://github.com/nunit/nunit-console/issues/1075) Separate nunit.engine.core.tests from nunit.engine.tests
+* [1084](https://github.com/nunit/nunit-console/issues/1084) Eliminate Packaging on Azure
+* [1090](https://github.com/nunit/nunit-console/issues/1090) Test of --debug-agent option fails under linux Debug configuration
+
 ## NUnit Console & Engine 3.13 - November 30, 2021
 
 This is the first release of the NUnit Console Runner, `nunit3-console.exe`, which allows running of both .NET Framework and .NET Core tests,
