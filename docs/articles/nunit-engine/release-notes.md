@@ -6,7 +6,7 @@ uid: consoleenginereleasenotes
 
 ## NUnit Console & Engine 3.15 - Fegruary 10, 2021
 
-Final Release of NUnit ConsoleRunner 3.15.0. No changes from the beta1 Release. 
+Final Release of NUnit ConsoleRunner 3.15.0. No changes from the beta1 Release.
 
 Version 3.15.0 is expected to be the final release in the 3.x series.
 
@@ -29,8 +29,8 @@ Beta release of version 3.15.0 of the Console Runner. Both the standard runner a
 
 ## NUnit Console & Engine 3.14 - January 15, 2021
 
-This release features a new agent for tests targeting .NET 5.0. In addition, automation of our publication and release process 
-is now complete from creation of a draft release through releasing to production on GitHub. While this doesn't impact users directly, 
+This release features a new agent for tests targeting .NET 5.0. In addition, automation of our publication and release process
+is now complete from creation of a draft release through releasing to production on GitHub. While this doesn't impact users directly,
 it will allow us to speed up the introduction of new features in coming releases.
 
 * [570](https://github.com/nunit/nunit-console/issues/570) Where are the checksums for your downloads?
