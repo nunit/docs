@@ -97,6 +97,38 @@
             <article class="content wrap" id="_content" data-uid="consoleenginereleasenotes">
 <h1 id="console-and-engine-release-notes">Console and Engine Release Notes</h1>
 
+<h2 id="nunit-console--engine-315---february-10-2021">NUnit Console &amp; Engine 3.15 - February 10, 2021</h2>
+<p>Final Release of NUnit ConsoleRunner 3.15.0. No changes from the beta1 Release.</p>
+<p>Version 3.15.0 is expected to be the final release in the 3.x series.</p>
+<h2 id="nunit-console--engine-315-beta-1---february-6-2021">NUnit Console &amp; Engine 3.15 Beta 1 - February 6, 2021</h2>
+<p>Beta release of version 3.15.0 of the Console Runner. Both the standard runner and the dotnet CLI command are now able to run tests under .Net 6.0.</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/1017"><strong>#1017</strong></a> Should we change 'master' to 'main'?</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1026"><strong>#1026</strong></a> Make NUnit.Engine.Internal.Tests.PathUtilTests_Windows.SamePathOrUnder work under ubuntu-latest</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1044"><strong>#1044</strong></a> Agent for .NET 6.0</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1050"><strong>#1050</strong></a> More discrete logging</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1087"><strong>#1087</strong></a> Switch all engine tests to NUnitLite</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1094"><strong>#1094</strong></a> CreateDraftRelease command should run locally without a release branch</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1095"><strong>#1095</strong></a> Allow single-letter options for cake script</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1096"><strong>#1096</strong></a> Symbol package validation failing for NUnit.ConsoleRunner.NetCore</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1108"><strong>#1108</strong></a> Generate AssemblyInfo files from csproj</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1112"><strong>#1112</strong></a> Use VS2022 for CI Build</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1123"><strong>#1123</strong></a> NETCORE Console Runner should target .NET 6.0</li>
+<li><a href="https://github.com/nunit/nunit-console/pull/1125"><strong>#1125</strong></a> Save results of each package test separately</li>
+</ul>
+<h2 id="nunit-console--engine-314---january-15-2021">NUnit Console &amp; Engine 3.14 - January 15, 2021</h2>
+<p>This release features a new agent for tests targeting .NET 5.0. In addition, automation of our publication and release process
+is now complete from creation of a draft release through releasing to production on GitHub. While this doesn't impact users directly,
+it will allow us to speed up the introduction of new features in coming releases.</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/570">570</a> Where are the checksums for your downloads?</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1012">1012</a> Automatically roll-forward if no .NET Core 3.1 runtime available</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1048">1048</a> Agent for Net 5.0</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1057">1057</a> Automate all package publication and release</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1075">1075</a> Separate nunit.engine.core.tests from nunit.engine.tests</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1084">1084</a> Eliminate Packaging on Azure</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1090">1090</a> Test of --debug-agent option fails under linux Debug configuration</li>
+</ul>
 <h2 id="nunit-console--engine-313---november-30-2021">NUnit Console &amp; Engine 3.13 - November 30, 2021</h2>
 <p>This is the first release of the NUnit Console Runner, <code>nunit3-console.exe</code>, which allows running of both .NET Framework and .NET Core tests,
 either separately or in combination. The <code>nunit3-console.exe</code> runner executes under the .NET Framework but is able to launch .NET Core agents
