@@ -4,7 +4,7 @@ uid: consoleenginereleasenotes
 
 # Console and Engine Release Notes
 
-## NUnit Console & Engine 3.15 - Fegruary 10, 2021
+## NUnit Console & Engine 3.15 - February 10, 2021
 
 Final Release of NUnit ConsoleRunner 3.15.0. No changes from the beta1 Release.
 
