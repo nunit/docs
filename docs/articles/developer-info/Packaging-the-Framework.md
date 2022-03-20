@@ -27,8 +27,10 @@ All work on releases should be done on a branch.
 
 2. Do a clean build and run all the tests on Windows. You may use the command below or three separate commands if preferred. If you encounter errors at any stage, you're not actually ready to release!
 
-      `.\build.ps1 -Target Clean`
-      `.\build.ps1 -Target Test`
+    ```sh
+    .\build.ps1 --Target Clean
+    .\build.ps1 --Target Test
+    ```
 
 3. Repeat the build on a Linux system, if available. If this is not possible, be sure to scrutinize the results from the Linux Azure DevOps build carefully. On Linux, you may use the command
 
@@ -85,11 +87,11 @@ The release **should not** be built on a developers machine, it should be built 
 3. Ensure that the release build is up to date. If you have any doubt whether the latest code changes
    have actually been built, do a clean build. If the build is up to date you may skip this step.
 
-      `build -Target Build`
+      `.\build.ps1 --Target Build`
 
 4. Create the image directory
 
-      `build -Target CreateImage`
+      `.\build.ps1 ---Target CreateImage`
 
    You do this to ensure that the latest build is used for packaging. If the `images` directory does
    not already contain a subdirectory named for this release (package version and suffix) you may skip
@@ -97,7 +99,7 @@ The release **should not** be built on a developers machine, it should be built 
 
 5. Create the packages by running:
 
-      `build -Target Package`
+      `.\build.ps1 --Target Package`
 
 6. Verify that the correct packages have been created in the `package` sub-directory:
 
