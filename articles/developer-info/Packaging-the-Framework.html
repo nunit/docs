@@ -119,8 +119,9 @@
 <li><p>Close all instances of Visual Studio or other IDE to ensure that no changes are left unsaved.</p>
 </li>
 <li><p>Do a clean build and run all the tests on Windows. You may use the command below or three separate commands if preferred. If you encounter errors at any stage, you're not actually ready to release!</p>
-<p><code>.\build.ps1 -Target Clean</code>
-<code>.\build.ps1 -Target Test</code></p>
+<pre><code class="lang-sh">.\build.ps1 --Target Clean
+.\build.ps1 --Target Test
+</code></pre>
 </li>
 <li><p>Repeat the build on a Linux system, if available. If this is not possible, be sure to scrutinize the results from the Linux Azure DevOps build carefully. On Linux, you may use the command</p>
 <p><code>./build -Target=Test</code></p>
@@ -159,16 +160,16 @@ in the directory.</p>
 </li>
 <li><p>Ensure that the release build is up to date. If you have any doubt whether the latest code changes
 have actually been built, do a clean build. If the build is up to date you may skip this step.</p>
-<p><code>build -Target Build</code></p>
+<p><code>.\build.ps1 --Target Build</code></p>
 </li>
 <li><p>Create the image directory</p>
-<p><code>build -Target CreateImage</code></p>
+<p><code>.\build.ps1 ---Target CreateImage</code></p>
 <p>You do this to ensure that the latest build is used for packaging. If the <code>images</code> directory does
 not already contain a subdirectory named for this release (package version and suffix) you may skip
 this step as a new one will be created automatically.</p>
 </li>
 <li><p>Create the packages by running:</p>
-<p><code>build -Target Package</code></p>
+<p><code>.\build.ps1 --Target Package</code></p>
 </li>
 <li><p>Verify that the correct packages have been created in the <code>package</code> sub-directory:</p>
 </li>
