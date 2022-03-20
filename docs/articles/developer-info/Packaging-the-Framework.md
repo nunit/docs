@@ -27,10 +27,10 @@ All work on releases should be done on a branch.
 
 2. Do a clean build and run all the tests on Windows. You may use the command below or three separate commands if preferred. If you encounter errors at any stage, you're not actually ready to release!
 
-```sh
-.\build.ps1 --Target Clean
-.\build.ps1 --Target Test
-```
+    ```sh
+    .\build.ps1 --Target Clean
+    .\build.ps1 --Target Test
+    ```
 
 3. Repeat the build on a Linux system, if available. If this is not possible, be sure to scrutinize the results from the Linux Azure DevOps build carefully. On Linux, you may use the command
 

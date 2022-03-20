@@ -34,7 +34,7 @@ There are also several fixes for the new `FixtureLifeCycle` feature and other sm
 * [4032](https://github.com/nunit/nunit/issues/4032) Tests won't run with an abstract base class that has a TestCaseFixtureSource
 * [4033](https://github.com/nunit/nunit/issues/4033) Recognized private members in base class for Source attributes
 * [4034](https://github.com/nunit/nunit/issues/4034) Improve method discovery and filtering performance
-* [4041](https://github.com/nunit/nunit/issues/4041) Minimze empty array allocations via centralized helper for pre-net46
+* [4041](https://github.com/nunit/nunit/issues/4041) Minimize empty array allocations via centralized helper for pre-net46
 * [4043](https://github.com/nunit/nunit/issues/4043) Stop testing the framework against netcoreapp21 in v3.13 branch
 * [4045](https://github.com/nunit/nunit/issues/4045) Drop netcore2.1 as a target (backport #3986)
 * [4058](https://github.com/nunit/nunit/issues/4058) Remove TopLevel property from ValueMatchFilter
