@@ -243,7 +243,7 @@ each test parameter separately using a `--testparam` or `--tp` option for each.
 * [508](https://github.com/nunit/nunit-console/issues/508) Re-Enable OSX CI tests
 * [515](https://github.com/nunit/nunit-console/issues/515) Appveyor CI failing on master
 * [518](https://github.com/nunit/nunit-console/issues/518) Correct Refactoring Error
-* [519](https://github.com/nunit/nunit-console/issues/519) Break up multiple console error messages with colour
+* [519](https://github.com/nunit/nunit-console/issues/519) Break up multiple console error messages with color
 * [523](https://github.com/nunit/nunit-console/issues/523) Reloading multiple files causes exception
 * [524](https://github.com/nunit/nunit-console/issues/524) .NET Standard 2.0 engine crashes when .NET Framework extensions are in Global NuGet Cache
 * [525](https://github.com/nunit/nunit-console/issues/525) Separate NuGet Restore for Appveyor build
