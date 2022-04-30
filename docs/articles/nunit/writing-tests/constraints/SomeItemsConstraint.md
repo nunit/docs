@@ -20,5 +20,5 @@ Has.Some...
 int[] iarray = new int[] { 1, 2, 3 };
 string[] sarray = new string[] { "a", "b", "c" };
 Assert.That(iarray, Has.Some.GreaterThan(2));
-Assert.That(sarray, Has.Some.Length(1));
+Assert.That(sarray, Has.Some.Length.EqualTo(1));
 ```
