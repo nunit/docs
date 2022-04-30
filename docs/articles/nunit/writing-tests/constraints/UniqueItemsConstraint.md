@@ -18,5 +18,6 @@ Is.Unique
 ## Example of Use
 
 ```csharp
-Assert.That(collection, Is.Unique);
+int[] iarray = new int[] { 1, 2, 3 };
+Assert.That(iarray, Is.Unique);
 ```
