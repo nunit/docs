@@ -33,7 +33,7 @@ Does.Not.ContainKey(object)
 ## Examples of Use
 
 ```csharp
-IDictionary<int, int> idict = new IDictionary<int, string> { { 1, 4 }, { 2, 5 } };
+IDictionary<int, int> idict = new IDictionary<int, int> { { 1, 4 }, { 2, 5 } };
 
 Assert.That(idict, Contains.Key(1));
 Assert.That(idict, Does.ContainKey(2));
