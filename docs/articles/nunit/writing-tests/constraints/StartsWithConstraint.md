@@ -24,7 +24,7 @@ StartsWith(string expected)
 ## Examples of Use
 
 ```csharp
-string phrase = "Make your tests fail before passing!"
+string phrase = "Make your tests fail before passing!";
 
 Assert.That(phrase, Does.StartWith("Make"));
 Assert.That(phrase, Does.Not.StartWith("Break"));
