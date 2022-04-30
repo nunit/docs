@@ -118,7 +118,7 @@ Does.Not.ContainKey(object)
 ...WithValue(object expectedValue)
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">IDictionary&lt;int, int&gt; idict = new IDictionary&lt;int, string&gt; { { 1, 4 }, { 2, 5 } };
+<pre><code class="lang-csharp">IDictionary&lt;int, int&gt; idict = new IDictionary&lt;int, int&gt; { { 1, 4 }, { 2, 5 } };
 
 Assert.That(idict, Contains.Key(1));
 Assert.That(idict, Does.ContainKey(2));
