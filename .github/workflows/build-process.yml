@@ -28,7 +28,7 @@ jobs:
       - uses: actions/setup-node@v1
         name: Setup node
         with:
-          node-version: "12"
+          node-version: "18"
       - run: npm install -g cspell
         name: Install cSpell
       - run: cspell --config ./cSpell.json "docs/**/*.md"
