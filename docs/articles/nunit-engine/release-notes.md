@@ -4,6 +4,17 @@ uid: consoleenginereleasenotes
 
 # Console and Engine Release Notes
 
+## NUnit Console & Engine 3.15.2 - June 30, 2022
+
+Release primarily to correct a critical bug arising when .NET 7.0 is installed.
+
+__Note:__ There is no 3.15.1 release because a 3.15.1 package identical to 3.15.0 was accidentally uploaded to NuGet.org when 3.15 was released.
+
+- [__#1178__](https://github.com/nunit/nunit-console/issues/1178) Running tests with nunit3-console version 3.15.0 generates empty log files
+- [__#1193__](https://github.com/nunit/nunit-console/issues/1193) Prevent Crash under .NET 7.0 in 3.15.1 build
+- [__#1196__](https://github.com/nunit/nunit-console/issues/1196) Modify build script to support continued version 3 releases where needed
+
+
 ## NUnit Console & Engine 3.15 - February 10, 2022
 
 Final Release of NUnit ConsoleRunner 3.15.0. No changes from the beta1 Release.
