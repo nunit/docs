@@ -14,7 +14,6 @@ __Note:__ There is no 3.15.1 release because a 3.15.1 package identical to 3.15.
 - [__#1193__](https://github.com/nunit/nunit-console/issues/1193) Prevent Crash under .NET 7.0 in 3.15.1 build
 - [__#1196__](https://github.com/nunit/nunit-console/issues/1196) Modify build script to support continued version 3 releases where needed
 
-
 ## NUnit Console & Engine 3.15 - February 10, 2022
 
 Final Release of NUnit ConsoleRunner 3.15.0. No changes from the beta1 Release.
