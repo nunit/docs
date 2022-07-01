@@ -45,11 +45,11 @@ This limitation is the same for all test adapters including xUnit and MSTest2.
 
 #### My tests aren't showing up in Visual Studio 2017 or later
 
-- Are you using the NuGet adapter package?
-- Are you using version 4.1.0 or newer of the NuGet package?
-- Do your tests target .NET Core or the full .NET Framework? (see above)
-- Have you added a Package Reference to `Microsoft.NET.Test.Sdk`?
-- Have you restarted Visual Studio? It is still a bit temperamental.
+* Are you using the NuGet adapter package?
+* Are you using version 4.1.0 or newer of the NuGet package?
+* Do your tests target .NET Core or the full .NET Framework? (see above)
+* Have you added a Package Reference to `Microsoft.NET.Test.Sdk`?
+* Have you restarted Visual Studio? It is still a bit temperamental.
 
 #### My tests multi-target .NET Core and .NET Framework, why can't I run both in Visual Studio
 
