@@ -25,7 +25,7 @@ Multiple SetUp, OneTimeSetUp, TearDown and OneTimeTearDown methods may exist wit
 
 Setup methods (both types) are called on base classes first, then on derived classes. If any setup method throws an exception, no further setups are called.
 
-Teardown methods (again, both types) are called on derived classes first, then on the base class. The teardown methods at any level in the inheritance hierarchy will be called only if a setup method **at the same level** was called. The following example is illustrates the difference.
+Teardown methods (again, both types) are called on derived classes first, then on the base class. The teardown methods at any level in the inheritance hierarchy will be called only if a setup method **at the same level** was called. The following example illustrates the difference.
 
 ```csharp
 public class BaseClass
