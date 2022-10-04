@@ -29,7 +29,6 @@ of such fixtures is indeterminate.
 * A SetUpFixture outside of any namespace provides SetUp and TearDown for the entire assembly.
 * A SetUpFixture in a namespace will apply tests to that exact namespace only, and not to any namespaces below it.
 
-
 ## Example
 
 ```csharp
