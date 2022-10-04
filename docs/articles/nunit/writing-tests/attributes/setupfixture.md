@@ -5,7 +5,7 @@ uid: setupfixture-attribute
 # SetUpFixture
 
 This is the attribute that marks a class that contains the one-time
-setup or teardown methods for all the test fixtures under a given
+setup or teardown methods for all the test fixtures in a given
 namespace. The class may contain at most one method marked with the
 OneTimeSetUpAttribute and one method marked with the OneTimeTearDownAttribute.
 
@@ -24,7 +24,11 @@ individual or fixture teardowns have completed execution.
 Multiple SetUpFixtures may be created in a given namespace. The order of execution
 of such fixtures is indeterminate.
 
-A SetUpFixture outside of any namespace provides SetUp and TearDown for the entire assembly.
+## Notes
+
+* A SetUpFixture outside of any namespace provides SetUp and TearDown for the entire assembly.
+* A SetUpFixture in a namespace will apply tests to that exact namespace only, and not to any namespaces below it.
+
 
 ## Example
 
