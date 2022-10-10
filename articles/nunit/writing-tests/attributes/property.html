@@ -146,7 +146,7 @@ A custom test reporting system might make use of the property to provide special
 public class SeverityAttribute : PropertyAttribute
 {
     public SeverityAttribute(SeverityLevel level)
-      : base(level);
+      : base(level.ToString()) {}
 }
 
 ...
