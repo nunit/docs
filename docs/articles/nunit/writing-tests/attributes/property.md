@@ -62,7 +62,7 @@ public enum SeverityLevel
 public class SeverityAttribute : PropertyAttribute
 {
     public SeverityAttribute(SeverityLevel level)
-      : base(level);
+      : base(level.ToString()) {}
 }
 
 ...
