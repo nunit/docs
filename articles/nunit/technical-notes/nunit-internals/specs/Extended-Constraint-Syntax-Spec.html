@@ -170,12 +170,12 @@
 </table>
 <h2 id="unresolved-issues">Unresolved Issues</h2>
 <p>How would the following actually work?</p>
-<pre><code class="lang-csharp">Assert.That(“something”).StartsWith(“so”).Or.EndsWith(“ing”);
+<pre><code class="lang-csharp">Assert.That(&quot;something&quot;).StartsWith(&quot;so&quot;).Or.EndsWith(&quot;ing&quot;);
 </code></pre>
 <p>How would ''StartsWith'' know that it's not supposed to do anything if it fails, since there is a chance ''EndsWith'' might succeed?</p>
 <p>Remember, the above code is semantically identical to this:</p>
-<pre><code class="lang-csharp">var temp = Assert.That(“something”).StartsWith(“so”);
-temp.Or.EndsWith(“ing”);
+<pre><code class="lang-csharp">var temp = Assert.That(&quot;something&quot;).StartsWith(&quot;so&quot;);
+temp.Or.EndsWith(&quot;ing&quot;);
 </code></pre>
 <p>Extension methods can lead to namespace pollution; in particular if defined on ''object'' (which we therefore should try to avoid).</p>
 <h2 id="expression-based-constraint-proposal">Expression Based Constraint Proposal</h2>
