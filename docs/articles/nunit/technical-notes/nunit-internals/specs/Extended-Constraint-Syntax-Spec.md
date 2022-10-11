@@ -68,7 +68,7 @@ Taking syntax shown on the [SharpTestsEx homepage](http://sharptestex.codeplex.c
 How would the following actually work?
 
 ```csharp
-Assert.That(“something”).StartsWith(“so”).Or.EndsWith(“ing”);
+Assert.That("something").StartsWith("so").Or.EndsWith("ing");
 ```
 
 How would ''StartsWith'' know that it's not supposed to do anything if it fails, since there is a chance ''EndsWith'' might succeed?
@@ -76,8 +76,8 @@ How would ''StartsWith'' know that it's not supposed to do anything if it fails,
 Remember, the above code is semantically identical to this:
 
 ```csharp
-var temp = Assert.That(“something”).StartsWith(“so”);
-temp.Or.EndsWith(“ing”);
+var temp = Assert.That("something").StartsWith("so");
+temp.Or.EndsWith("ing");
 ```
 
 Extension methods can lead to namespace pollution; in particular if defined on ''object'' (which we therefore should try to avoid).
