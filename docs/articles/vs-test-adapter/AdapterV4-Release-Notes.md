@@ -11,7 +11,7 @@ The support is due to the updated embedded NUnit.Engine version 3.15.2.
 Other bugs fixed:
 
 * [990](https://github.com/nunit/nunit3-vs-adapter/issues/990) Missing output with failed test stack traces for Assert.Multiple
-* [997](https://github.com/nunit/nunit3-vs-adapter/issues/997) TRX report file folder inconsistent with XML report folder using .runsettings file. Note that a new runsettings flag has been added for supporting this, see [OutputXmlFolderMode ](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#OutputXmlFolderMode).
+* [997](https://github.com/nunit/nunit3-vs-adapter/issues/997) TRX report file folder inconsistent with XML report folder using .runsettings file. Note that a new runsettings flag has been added for supporting this, see [OutputXmlFolderMode](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#OutputXmlFolderMode).
 
 ## NUnit3 Test Adapter for Visual Studio - Version 4.2.1 - Jan 21, 2022
 
