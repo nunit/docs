@@ -4,7 +4,7 @@
 
 This version is for support of the .net 7 framework. See an overview of [supported frameworks here](https://docs.nunit.org/articles/vs-test-adapter/Supported-Frameworks.html).
 
-The support is due to the updated embedded NUnit.Engine version 3.15.2.
+The support is due to the updated embedded [NUnit.Engine version 3.15.2](https://docs.nunit.org/articles/nunit-engine/release-notes.html#nunit-console--engine-3152---june-30-2022).
 
 * [987](https://github.com/nunit/nunit3-vs-adapter/issues/987)  System.ArgumentException: Unknown framework version 7.0
 
