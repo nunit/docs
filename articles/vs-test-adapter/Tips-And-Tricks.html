@@ -186,6 +186,12 @@ The following options are available:</p>
 <td>Test Result Xml output folder</td>
 </tr>
 <tr>
+<td><a href="#outputxmlfoldermode">OutputXmlFolderMode</a></td>
+<td>enum</td>
+<td>UseResultDirectory,RelativeToResultDirectory,RelativeToWorkFolder,AsSpecified</td>
+<td>RelativeToWorkFolder</td>
+</tr>
+<tr>
 <td><a href="#dumpxmltestdiscovery-and-dumpxmltestresults">DumpXmlTestDiscovery</a></td>
 <td>bool</td>
 <td>Enable dumping of NUnit discovery response xml</td>
@@ -328,6 +334,9 @@ The folder can be</p>
 <li>A relative path, which is then relative to either WorkDirectory, or if this is not specified, relative to the current directory, as defined by .net runtime.</li>
 </ol>
 <p>(From version 3.12)</p>
+<h4 id="outputxmlfoldermode">OutputXmlFolderMode</h4>
+<p>This setting sets which folder the <code>TestOutputXml</code> will be going to. The default is the <code>RelativeToWorkFolder</code> (see <a href="#workdirectory">WorkDirectory</a>) above.  The option <code>UseResultDirectory</code> will put the results in the same directory as the <code>Trx</code> files, the overall specified test result directory.  The last option is the <code>RelativeToResultDirectory</code>, which is normally some path below the result directory. The last option is <code>AsSpecified</code>, which should be used when <code>TestOutputXml</code> is an absolute path.</p>
+<p>(From version 4.3.0)</p>
 <h4 id="internaltracelevel">InternalTraceLevel</h4>
 <p>This setting is a diagnostic setting forwarded to NUnit, and not used by the adapter itself.  For further information see the <a class="xref" href="../nunit/technical-notes/nunit-internals/specs/Internal-Trace-Spec.html">NUnit Tracelevel documentation</a></p>
 <h4 id="numberoftestworkers">NumberOfTestWorkers</h4>
