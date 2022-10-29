@@ -84,7 +84,7 @@ The folder can be
 
 #### OutputXmlFolderMode
 
-This setting sets which folder the TestOutputXml will be going to. The default is the RelativeToWorkFolder, see [WorkDirectory](#workdirectory) above.  The option UseResultDirectory will put the results in the same directory as the Trx files, the overall specified test result directory.  The last option is the RelativeToResultDirectory, which is normally some path below the result directory. The last option is AsSpecified, which should be used when TestOutputXml is an absolute path.
+This setting sets which folder the `TestOutputXml` will be going to. The default is the `RelativeToWorkFolder` (see [WorkDirectory](#workdirectory)) above.  The option `UseResultDirectory` will put the results in the same directory as the `Trx` files, the overall specified test result directory.  The last option is the `RelativeToResultDirectory`, which is normally some path below the result directory. The last option is `AsSpecified`, which should be used when `TestOutputXml` is an absolute path.
 
 (From version 4.3.0)
 
