@@ -67,6 +67,6 @@ You run it by adding the setting on the command line (or in a runsettings file):
 dotnet test  -- NUnit.TestOutputXml=yourfoldername
 ```
 
-The folder is relative to the binary test folder, or you can use an absolute path. The latter is useful in CI scenarios.
+The folder is relative to a base folder determined by the OutputXmlFolder settings, or you can use an absolute path. The latter is useful in CI scenarios.
 
 Alternatively, there is a 3rd party package, [NUnitXml.TestLogger](https://www.nuget.org/packages/NunitXml.TestLogger/) which also produces a NUnit3 xml format. Details for [use see here](https://github.com/spekt/nunit.testlogger). Note that this is a re-implementation of the NUnit3 format, and may differ.

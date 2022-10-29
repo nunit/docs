@@ -13,3 +13,4 @@ The table below show which versions of frameworks are supported for the differen
 |Net Framework 4.X|All up to latest ||
 |Net 5|Works with 3.15.1 and upwards|May also work with earlier versions, but not tested|
 |Net 6|Works with 4.1 and upwards|May also work with earlier versions, but not tested|
+|Net 7|Works with 4.3 and upwards||

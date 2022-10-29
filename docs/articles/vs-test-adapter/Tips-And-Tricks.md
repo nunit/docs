@@ -25,6 +25,7 @@ The following options are available:
 |[DefaultTestNamePattern](#defaulttestnamepattern)|string|Pattern for display name|{m}{a}|
 |[WorkDirectory](#workdirectory)|string|specify directory|Test assembly location|
 |[TestOutputXml](#testoutputxml)|string|specify directory|Test Result Xml output folder|
+|[OutputXmlFolderMode](#outputxmlfoldermode)|enum|UseResultDirectory,RelativeToResultDirectory,RelativeToWorkFolder,AsSpecified|RelativeToWorkFolder|
 |[DumpXmlTestDiscovery](#dumpxmltestdiscovery-and-dumpxmltestresults)|bool|Enable dumping of NUnit discovery response xml|false|
 |[DumpXmlTestResults](#dumpxmltestdiscovery-and-dumpxmltestresults)|bool|Enable dumping of NUnit execution response xml|false|
 |[PreFilter](#prefilter)|bool|Enable pre-filtering to increase performance for Visual Studio testing|false|
@@ -80,6 +81,12 @@ The folder can be
 2) A relative path, which is then relative to either WorkDirectory, or if this is not specified, relative to the current directory, as defined by .net runtime.
 
 (From version 3.12)
+
+#### OutputXmlFolderMode
+
+This setting sets which folder the `TestOutputXml` will be going to. The default is the `RelativeToWorkFolder` (see [WorkDirectory](#workdirectory)) above.  The option `UseResultDirectory` will put the results in the same directory as the `Trx` files, the overall specified test result directory.  The last option is the `RelativeToResultDirectory`, which is normally some path below the result directory. The last option is `AsSpecified`, which should be used when `TestOutputXml` is an absolute path.
+
+(From version 4.3.0)
 
 #### InternalTraceLevel
 
