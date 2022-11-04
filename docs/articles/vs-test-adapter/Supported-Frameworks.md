@@ -1,6 +1,6 @@
 # Supported Frameworks
 
-The table below show which versions of frameworks are supported for the different versions of the adapter
+The table below shows the supported adapter versions for a given framework version.
 
 |Framework version|Supported by Adapter versions|Comment|
 |---|---|---|
