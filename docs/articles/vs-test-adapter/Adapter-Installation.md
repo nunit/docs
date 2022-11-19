@@ -14,7 +14,7 @@ Go to your project root and where you want to add your project.
 
 Create a folder for the project with a name matching what your new test project should be named.
 
-Then run the command ```dotnet new nunit```.
+Then run the command `dotnet new nunit`.
 
 You will now get a complete nunit test project with the same name as the folder.  You will also have a template unit test class there as a starter.
 
