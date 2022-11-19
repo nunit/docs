@@ -88,6 +88,10 @@ This setting sets which folder the `TestOutputXml` will be going to. The default
 
 (From version 4.3.0)
 
+ The last option `AsSpecified` is set automatically when `TestOutputXml` is an absolute path.
+
+(From version 4.3.1)
+
 #### InternalTraceLevel
 
 This setting is a diagnostic setting forwarded to NUnit, and not used by the adapter itself.  For further information see the [NUnit Tracelevel documentation](xref:internaltracespec)

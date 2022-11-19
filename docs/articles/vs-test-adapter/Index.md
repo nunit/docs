@@ -4,7 +4,7 @@ The NUnit 3 Test Adapter allows you to run NUnit 3 tests inside Visual Studio or
 
 The current release is designed to work with Visual Studio 2012, 2013, 2015, 2017, 2019 and 2022. Some features are not available under VS2012 RTM. It also works from the command line using either `vstest.console` or `dotnet test`.
 
-The current release works with .net framework 3.5 and higher, with .net core `2.*` and `3.*`, and with .net 5, .net 6, and .net 7.
+The current release works with .net framework 3.5 and higher, with .net core `3.*`, and with .net 5, .net 6, and .net 7.
 
 Releases of Visual Studio prior to VS 2012 did not have the ability to directly run tests built with Open Source testing frameworks like NUnit.
 

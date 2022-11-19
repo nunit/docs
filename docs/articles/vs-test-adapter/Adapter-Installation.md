@@ -14,13 +14,13 @@ Go to your project root and where you want to add your project.
 
 Create a folder for the project with a name matching what your new test project should be named.
 
-Then run the command ````dotnet new nunit```
+Then run the command ```dotnet new nunit```.
 
 You will now get a complete nunit test project with the same name as the folder.  You will also have a template unit test class there as a starter.
 
 If you have a Visual Studio solution file in the root folder, you can go there and add the new nunit csproj easily:
 
-Assume you are at a solution root, and you either have a solution file, or have just been adding it with ```dotnet new sln```
+Assume you are at a solution root, and you either have a solution file, or have just been adding it with ```dotnet new sln```.
 
 ```cmd
 md Whatever.Test
@@ -43,11 +43,11 @@ You should ensure you also reference `Microsoft.NET.Test.Sdk` as well; it is req
 
 ```xml
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
-    <PackageReference Include="NUnit" Version="3.13.2" />
-    <PackageReference Include="NUnit3TestAdapter" version="4.1.0" />
-    <PackageReference Include="coverlet.collector" Version="3.1.0" />
-    <PackageReference Include="NUnit.Analyzers" Version="3.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" version="4.3.1" />
+    <PackageReference Include="coverlet.collector" Version="3.2.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.5.0" />
   </ItemGroup>
 ```
 

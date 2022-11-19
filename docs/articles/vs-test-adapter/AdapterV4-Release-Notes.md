@@ -1,5 +1,25 @@
 # Adapter V4 Release Notes
 
+## NUnit3 Test Adapter for Visual Studio - Version 4.3.1 - Nov 19, 2022
+
+This is a hotfix release for three major and critical problems:
+1) .Net Framework (4.8 and lower) would crash due to InternalTracelog files trying to be written to the Program Files directory. 
+2) InternalTracelog files would appear in root of solution
+3) TestOutputXml did not work correctly when specified
+
+In order to get these fixed the support for netcore2.1 had to be dropped.  This version is also now unsupported by Microsoft, so the adapter follows that.
+
+* [987](https://github.com/nunit/nunit3-vs-adapter/issues/987) Regression on this issue due to the InternalTracelog files
+* [1026](https://github.com/nunit/nunit3-vs-adapter/issues/1026) Current directory C:\WINDOWS\system32 again
+* [1027](https://github.com/nunit/nunit3-vs-adapter/issues/1027) Test Explorer is finding tests, but not running them after upgrading to NUnit3TestAdapter v4.3.0
+* [1028](https://github.com/nunit/nunit3-vs-adapter/issues/1028) Test discovery emits zero length internaltrace log file per project
+* [1030](https://github.com/nunit/nunit3-vs-adapter/issues/1030) Problem if OutputXmlFolderMode setting is not in .runsettings
+* [1031](https://github.com/nunit/nunit3-vs-adapter/issues/1031) TestOutputXml regressions
+
+### Credits
+
+Thanks to [Jan Inge Dalsbø](https://github.com/janid1967), [Taylor Willis](https://github.com/Guitrum), [Kai Nadler](https://github.com/smkanadl), [Barnabas Lakner](https://github.com/barnabas90), [sandrohanea](https://github.com/sandrohanea), [Elliot Prior](https://github.com/Quogu), [Todd Ogin](https://github.com/ojintoad), [Evheniyrz](https://github.com/evheniyrz), [Manfred Brands](https://github.com/manfred-brands), [Boris Drajer](https://github.com/bdrajer), [Ken V](https://github.com/varnk), [Mike Vorhees](https://github.com/mrvoorhe) for all the help with reporting the issues, reproducing them, analysis and diagnostics, and confirming that 4.3.1 resolves the issues.  Your help is really appreciated!
+
 ## NUnit3 Test Adapter for Visual Studio - Version 4.3.0 - Oct 29, 2022
 
 This version is for support of the .net 7 framework. See an overview of [supported frameworks here](https://docs.nunit.org/articles/vs-test-adapter/Supported-Frameworks.html).
