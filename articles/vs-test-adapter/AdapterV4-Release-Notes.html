@@ -99,6 +99,24 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="adapter-v4-release-notes">Adapter V4 Release Notes</h1>
 
+<h2 id="nunit3-test-adapter-for-visual-studio---version-431---nov-19-2022">NUnit3 Test Adapter for Visual Studio - Version 4.3.1 - Nov 19, 2022</h2>
+<p>This is a hotfix release for three major and critical problems:</p>
+<ol>
+<li>.Net Framework (4.8 and lower) would crash due to InternalTracelog files trying to be written to the Program Files directory.</li>
+<li>InternalTracelog files would appear in root of solution</li>
+<li>TestOutputXml did not work correctly when specified</li>
+</ol>
+<p>In order to get these fixed the support for netcore2.1 had to be dropped.  This version is also now unsupported by Microsoft, so the adapter follows that.</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/987">987</a> Regression on this issue due to the InternalTracelog files</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1026">1026</a> Current directory C:\WINDOWS\system32 again</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1027">1027</a> Test Explorer is finding tests, but not running them after upgrading to NUnit3TestAdapter v4.3.0</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1028">1028</a> Test discovery emits zero length <code>internaltrace</code> log file per project</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1030">1030</a> Problem if OutputXmlFolderMode setting is not in .runsettings</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1031">1031</a> TestOutputXml regressions</li>
+</ul>
+<h3 id="credits">Credits</h3>
+<p>Thanks to <a href="https://github.com/janid1967">Jan Inge Dalsbø</a>, <a href="https://github.com/Guitrum">Taylor Willis</a>, <a href="https://github.com/smkanadl">Kai Nadler</a>, <a href="https://github.com/barnabas90">Barnabas Lakner</a>, <a href="https://github.com/sandrohanea">sandrohanea</a>, <a href="https://github.com/Quogu">Elliot Prior</a>, <a href="https://github.com/ojintoad">Todd Ogin</a>, <a href="https://github.com/evheniyrz">Evheniyrz</a>, <a href="https://github.com/manfred-brands">Manfred Brands</a>, <a href="https://github.com/bdrajer">Boris Drajer</a>, <a href="https://github.com/varnk">Ken V</a>, <a href="https://github.com/mrvoorhe">Mike Vorhees</a> for all the help with reporting the issues, reproducing them, analysis and diagnostics, and confirming that 4.3.1 resolves the issues.  Your help is really appreciated!</p>
 <h2 id="nunit3-test-adapter-for-visual-studio---version-430---oct-29-2022">NUnit3 Test Adapter for Visual Studio - Version 4.3.0 - Oct 29, 2022</h2>
 <p>This version is for support of the .net 7 framework. See an overview of <a href="https://docs.nunit.org/articles/vs-test-adapter/Supported-Frameworks.html">supported frameworks here</a>.</p>
 <p>The support is due to the updated embedded <a href="https://docs.nunit.org/articles/nunit-engine/release-notes.html#nunit-console--engine-3152---june-30-2022">NUnit.Engine version 3.15.2</a>.</p>

@@ -104,10 +104,10 @@
 <p>You will most likely want to add a new NUnit Test Project to your solution.  The easiest way is to use the <code>dotnet</code> command on the command line.</p>
 <p>Go to your project root and where you want to add your project.</p>
 <p>Create a folder for the project with a name matching what your new test project should be named.</p>
-<p>Then run the command ````dotnet new nunit```</p>
+<p>Then run the command <code>dotnet new nunit</code>.</p>
 <p>You will now get a complete nunit test project with the same name as the folder.  You will also have a template unit test class there as a starter.</p>
 <p>If you have a Visual Studio solution file in the root folder, you can go there and add the new nunit csproj easily:</p>
-<p>Assume you are at a solution root, and you either have a solution file, or have just been adding it with <code>dotnet new sln</code></p>
+<p>Assume you are at a solution root, and you either have a solution file, or have just been adding it with <code>dotnet new sln</code>.</p>
 <pre><code class="lang-cmd">md Whatever.Test
 cd Whatever.Test
 dotnet new nunit
@@ -123,11 +123,11 @@ dotnet sln add Whatever.Test\Whatever.Test.csproj
 <li>Add the necessary package references as shown in the snippet example below (NOTE: these are the current versions at time of writing; you'll want to install the latest versions.)</li>
 </ol>
 <pre><code class="lang-xml">  &lt;ItemGroup&gt;
-    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;16.11.0&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;3.13.2&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; version=&quot;4.1.0&quot; /&gt;
-    &lt;PackageReference Include=&quot;coverlet.collector&quot; Version=&quot;3.1.0&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit.Analyzers&quot; Version=&quot;3.2.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;17.4.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;3.13.3&quot; /&gt;
+    &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; version=&quot;4.3.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;coverlet.collector&quot; Version=&quot;3.2.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;NUnit.Analyzers&quot; Version=&quot;3.5.0&quot; /&gt;
   &lt;/ItemGroup&gt;
 </code></pre>
 <p>Note: <em>You don't need to add any nunit.console or any other runner package</em></p>
