@@ -3,7 +3,8 @@
 ## NUnit3 Test Adapter for Visual Studio - Version 4.3.1 - Nov 19, 2022
 
 This is a hotfix release for three major and critical problems:
-1) .Net Framework (4.8 and lower) would crash due to InternalTracelog files trying to be written to the Program Files directory. 
+
+1) .Net Framework (4.8 and lower) would crash due to InternalTracelog files trying to be written to the Program Files directory.
 2) InternalTracelog files would appear in root of solution
 3) TestOutputXml did not work correctly when specified
 
