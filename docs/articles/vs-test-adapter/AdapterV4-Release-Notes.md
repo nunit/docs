@@ -13,7 +13,7 @@ In order to get these fixed the support for netcore2.1 had to be dropped.  This 
 * [987](https://github.com/nunit/nunit3-vs-adapter/issues/987) Regression on this issue due to the InternalTracelog files
 * [1026](https://github.com/nunit/nunit3-vs-adapter/issues/1026) Current directory C:\WINDOWS\system32 again
 * [1027](https://github.com/nunit/nunit3-vs-adapter/issues/1027) Test Explorer is finding tests, but not running them after upgrading to NUnit3TestAdapter v4.3.0
-* [1028](https://github.com/nunit/nunit3-vs-adapter/issues/1028) Test discovery emits zero length internaltrace log file per project
+* [1028](https://github.com/nunit/nunit3-vs-adapter/issues/1028) Test discovery emits zero length `internaltrace` log file per project
 * [1030](https://github.com/nunit/nunit3-vs-adapter/issues/1030) Problem if OutputXmlFolderMode setting is not in .runsettings
 * [1031](https://github.com/nunit/nunit3-vs-adapter/issues/1031) TestOutputXml regressions
 
