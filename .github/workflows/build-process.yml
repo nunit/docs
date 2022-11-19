@@ -31,7 +31,7 @@ jobs:
           node-version: "18"
       - run: npm install -g cspell
         name: Install cSpell
-      - run: cspell --config ./cSpell.json "docs/**/*.md"
+      - run: cspell --config ./cSpell.json "docs/**/*.md" --no-progress
         name: run cSpell
   build:
     name: "Build the site with docfx"
