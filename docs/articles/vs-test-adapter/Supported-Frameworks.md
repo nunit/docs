@@ -6,7 +6,7 @@ The table below shows the supported adapter versions for a given framework versi
 |---|---|---|
 |Net Core 1.0|3.8 - 3.15.1||
 |Net Core 2.0|3.8 - 3.15.1||
-|Net Core 2.1|3.8 - up to latest ||
+|Net Core 2.1|3.8 - 4.3.0||
 |Net Core 3.0|3.8 - up to latest ||
 |Net Core 3.1|3.8 - up to latest ||
 |Net Framework 3.5|All up to latest ||
