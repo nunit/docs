@@ -20,7 +20,7 @@ You will now get a complete nunit test project with the same name as the folder.
 
 If you have a Visual Studio solution file in the root folder, you can go there and add the new nunit csproj easily:
 
-Assume you are at a solution root, and you either have a solution file, or have just been adding it with ```dotnet new sln```.
+Assume you are at a solution root, and you either have a solution file, or have just been adding it with `dotnet new sln`.
 
 ```cmd
 md Whatever.Test
