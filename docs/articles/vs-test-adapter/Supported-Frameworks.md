@@ -10,8 +10,8 @@ The table below shows the supported adapter versions for a given framework versi
 |Net Core 2.2|3.8 - 4.3.0||
 |Net Core 3.0|3.8 - 4.3.0||
 |Net Core 3.1|3.8 - up to latest ||
-|Net Framework 3.5|All up to 4.4.0| 4.4.0 to be released|
-|Net Framework 4.X-4.6.1|All up to 4.4.0|4.4.0 to be released|
+|Net Framework 3.5|All up to 4.3.X||
+|Net Framework 4.X-4.6.1|All up to 4.3.X||
 |Net Framework 4.6.2 - 4.8|3.8 - up to latest ||
 |Net 5|Works with 3.15.1 and upwards|May also work with earlier versions, but not tested|
 |Net 6|Works with 4.1 and upwards|May also work with earlier versions, but not tested|
