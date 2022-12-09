@@ -20,6 +20,7 @@ The table below shows the supported adapter versions for a given framework versi
 The adapter is shipped with two different versions of the test framework. The first is the full framework version, which is used for .NET Framework based test projects.  The second is the .NET (Core)  version, which is used for .NET Core 1.0, 2.0, 2.1, 2.2, 3.0, 3.1, 5.0, 6.0 and 7.0.  The different versions of the adapter supports different versions of the test framework.  The table above shows the supported versions.
 
 The included versions are as shown below, only the versions where changes are done are listed.
+
 |Adapter version|Test framework version|Test Net (core) version|Comment|
 |---|---|---|---|
 |3.8|3.5|1.0|Some versions included 2.0 too|
