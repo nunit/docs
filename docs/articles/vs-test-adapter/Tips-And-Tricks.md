@@ -6,7 +6,7 @@ uid: tipsandtricks
 
 ## NUnit 3
 
-### VS Test .Runsettings configuration
+### `dotnet test` and VS Test `.runsettings` configuration
 
 Certain NUnit Test Adapter settings are configurable using a .runsettings file.
 The following options are available:
@@ -25,6 +25,7 @@ The following options are available:
 |[DefaultTestNamePattern](#defaulttestnamepattern)|string|Pattern for display name|{m}{a}|
 |[WorkDirectory](#workdirectory)|string|specify directory|Test assembly location|
 |[TestOutputXml](#testoutputxml)|string|specify directory|Test Result Xml output folder|
+|[OutputXmlFolderMode](#outputxmlfoldermode)|enum|UseResultDirectory,RelativeToResultDirectory,RelativeToWorkFolder,AsSpecified|RelativeToWorkFolder|
 |[DumpXmlTestDiscovery](#dumpxmltestdiscovery-and-dumpxmltestresults)|bool|Enable dumping of NUnit discovery response xml|false|
 |[DumpXmlTestResults](#dumpxmltestdiscovery-and-dumpxmltestresults)|bool|Enable dumping of NUnit execution response xml|false|
 |[PreFilter](#prefilter)|bool|Enable pre-filtering to increase performance for Visual Studio testing|false|
@@ -32,7 +33,7 @@ The following options are available:
 |[Where](#where)|string| NUnit Filter expression|
 |[UseParentFQNForParametrizedTests](#useparentfqnforparametrizedtests)|bool|Enable parent as FQN for parametrized tests|false|
 |[UseNUnitIdforTestCaseId](#usenunitidfortestcaseid) |bool|Uses NUnit test id as VSTest Testcase Id, instead of FullyQualifiedName|false|
-|[ConsoleOut](#consoleout)|int|Sends standard console output to the output window|1|
+|[ConsoleOut](#consoleout)|int|Sends standard console output to the output window|2|
 |[UseTestNameInConsoleOutput](#usetestnameinconsoleoutput)|bool|Adds name of test as a prefix in the output window for console output|true|
 |[StopOnError](#stoponerror)|bool|Stops on first error|false|
 |[SkipNonTestAssemblies](#skipnontestassemblies)|bool|Adapter supports NonTestAssemblyAttribute|true|
@@ -43,6 +44,8 @@ The following options are available:
 |[AssemblySelectLimit](#assemblyselectlimit)|int|Number of tests accepted before filters are turned off|2000|
 |[NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)|bool|Creates a new file for each test run|false|
 |[IncludeStackTraceForSuites](#includestacktraceforsuites)|bool|Includes stack trace for failures in suites, like exceptions in OneTimeSetup|true|
+|[ExplicitMode](#explicitmode)|enum|Changes handling of explicit tests, options are `Strict` or `Relaxed`|Strict|
+|[SkipExecutionWhenNoTests](#skipexecutionwhennotests)|bool|Skip execution if no tests are found|false|
 
 ### Visual Studio templates for runsettings
 
@@ -78,6 +81,16 @@ The folder can be
 2) A relative path, which is then relative to either WorkDirectory, or if this is not specified, relative to the current directory, as defined by .net runtime.
 
 (From version 3.12)
+
+#### OutputXmlFolderMode
+
+This setting sets which folder the `TestOutputXml` will be going to. The default is the `RelativeToWorkFolder` (see [WorkDirectory](#workdirectory)) above.  The option `UseResultDirectory` will put the results in the same directory as the `Trx` files, the overall specified test result directory.  The last option is the `RelativeToResultDirectory`, which is normally some path below the result directory. The last option is `AsSpecified`, which should be used when `TestOutputXml` is an absolute path.
+
+(From version 4.3.0)
+
+ The last option `AsSpecified` is set automatically when `TestOutputXml` is an absolute path.
+
+(From version 4.3.1)
 
 #### InternalTraceLevel
 
@@ -156,6 +169,8 @@ Using the runsettings should be like:
 </RunSettings>
 ```
 
+Note that the ```Where``` statement does not work for the Visual Studio Test Explorer, as it would generate a conflict with the test list the adapter receives. It is intended for use with command line tools, `dotnet test` or `vstest.console`.
+
 (From version 3.16.0)
 
 #### UseParentFQNForParametrizedTests
@@ -178,13 +193,23 @@ However, it has been seen to also have adverse effects, so use with caution.
 
 #### ConsoleOut
 
-When set to 1, default, will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear here. (Note: You have to use the '-v n' option)
+When set to 1 or 2 (2 is default), will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear in the output.
 
 Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.
 
+There seems to have been a change in `dotnet test` that causes `ConsoleOut=1` to no longer fully work; `ConsoleOut=2` reintroduces that, and is the new default value.
+
 See [Issue 343](https://github.com/nunit/nunit3-vs-adapter/issues/343) for more information and discussion
 
-(From version 3.17.0)
+In earlier versions you had to use `-v n`, but that is no longer required.  In order to silence it in `dotnet test` you have to do:
+
+```console
+dotnet test -- NUnit.ConsoleOut=0
+```
+
+(Note the space after `--`. )
+
+(From version 3.17.0, Modified in 4.2.0)
 
 #### UseTestNameInConsoleOutput
 
@@ -263,13 +288,25 @@ Exceptions outside test cases are reported with its stack trace included in the 
 
 (From version 4.0.0)
 
+#### ExplicitMode
+
+This setting can be either ```Strict``` or ```Relaxed```.  The default is ```Strict```, which means that ```Explicit``` tests can only be run with other Explicit tests, and not mixed with non-Explicit tests.  The ```Relaxed``` mode is the original NUnit mode, where if you select a category, a class or a set of tests, both explicit and non-explicit tests will be run.  From Visual Studio Test Explorer there are no longer (since VS2019) any way of separating between a ```Run-All``` and ```run selected tests```, so Relaxed mode doesn't work properly. It may or may not work for command line tests, dependent upon how your tests are set up and run.
+
+(From version 4.2.0)
+
+#### SkipExecutionWhenNoTests
+
+If set, this setting will skip execution for an assembly if no tests are found during the pre-execution discovery phase.  It will give you a small performance boost, but if you skip the execution, this assembly will not generate any log files. The default is false.
+
+(From version 4.2.0)
+
 ---
 
 ### Some further information on directories (From [comment on issue 575](https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421) by [Charlie](https://github.com/CharliePoole) )
 
 NUnit also supports TestContext.TestDirectory, which is the directory where the current test assembly is located. Note that if you have several test assemblies in different directories, the value will be different when each one of them accesses it. Note also that there is no way you can set the TestDirectory because it's always where the assembly is located.
 
-The BasePath is a .NET thing. It's the base directory where assemblies are searched for. You can also have subdirectories listed in the PrivateBinPath. NUnit take scare of all this automatically now, so the old console options are no longer supported. For finding things you want to read at runtime, the TestDirectory and the BasePath will usually be the same thing.
+The BasePath is a .NET thing. It's the base directory where assemblies are searched for. You can also have subdirectories listed in the PrivateBinPath. NUnit takes care of all this automatically now, so the old console options are no longer supported. For finding things you want to read at runtime, the TestDirectory and the BasePath will usually be the same thing.
 
 ### Registry Settings
 

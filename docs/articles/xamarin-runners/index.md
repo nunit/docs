@@ -4,7 +4,7 @@ uid: xamarinrunners
 
 # NUnit Xamarin Runners
 
-The NUnit Xamarin Runners provide NUnit 3 test runners for Xamarin and mobile devices. See [Testing Xamarin projects using NUnit 3](http://www.alteridem.net/2015/12/21/testing-xamarin-projects-using-nunit-3/) for more general information.
+The NUnit Xamarin Runners provide NUnit 3 test runners for Xamarin and mobile devices. See [Testing Xamarin projects using NUnit 3](https://www.alteridem.net/2015/12/21/testing-xamarin-projects-using-nunit-3/) for more general information.
 
 ## Options
 

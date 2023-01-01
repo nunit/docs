@@ -34,7 +34,7 @@ Without the V2 driver, only version 3.0 and higher tests may be run.
 | ------ | ----------- |
 |`@FILE` | Specifies the name (or path) of a FILE containing additional command-line arguments to be interpolated at the point where the @FILE expression appears. Each line in the file represents a separate command-line argument.|
 |`--test=FULLNAMES` | Comma-separated list of FULLNAMES of tests to run or explore. This option may be repeated. Note that this option is retained for backward compatibility. The --where option can now be used instead. |
-|`--testlist=FILE` | The name (or path) of a FILE containing a list of tests to run or explore, one per line. |
+|`--testlist=FILE` | The name (or path) of a FILE containing a list of tests to run or explore, one per line. May also include comment lines, indicated by `#` in the first column. |
 |`--where=EXPRESSION` | An expression indicating which tests to run. It may specify test names, classes, methods, categories or properties comparing them to actual values with the operators ==, !=, =~ and !~. See [Test Selection Language](Test-Selection-Language.md) for a full description of the syntax. |
 |`--testparam:PARAMETER, --tp:PARAMETER` | A test PARAMETER specified in the form NAME=VALUE for consumption by tests. Multiple parameters must be specified separated using a `--testparam` or `--tp` option for each. |
 |`--params=PARAMETER, --p=PARAMETER` | (**NOTE:** _this is deprecated and will be removed in a future release. Please use --testparam instead_.) A test PARAMETER specified in the form NAME=VALUE for consumption by tests. Multiple parameters may be specified, separated by semicolons or by repeating the --params option multiple times. Case-sensitive. |
@@ -43,8 +43,8 @@ Without the V2 driver, only version 3.0 and higher tests may be run.
 |`--inprocess` | This option is a synonym for --process=Single |
 |`--agents=NUMBER` | NUMBER of agents that may be allowed to run simultaneously assuming you are not running inprocess. If not specified, all agent processes run tests at the same time, whatever the number of assemblies. This setting is used to control running your assemblies in parallel. |
 |`--domain=DOMAIN` | DOMAIN isolation for test assemblies.  Values: None, Single, Multiple. If not specified, defaults to Single for a single assembly or Multiple for more than one. **NOTE:** `None` is an extremely rarely used option intended for cases where you are testing features that can only run in a primary domain; when choosing this option, you are responsible for copying all needed files, including NUnit components, into a common directory. |
-|`--framework=FRAMEWORK` | FRAMEWORK type/version to use for tests. Examples: mono, net-4.5, v4.0, 2.0, mono-4.0 |
-|`--x86` | Run tests in a 32-bit process on 64-bit systems. |
+|`--framework=FRAMEWORK` | FRAMEWORK type/version to use for tests. Examples: mono, net-4.5, v4.0, 2.0, mono-4.0. **NOTE:** Only use this option if you are sure all tests will run under the specified runtime. The option does **not** select a particular build from a project with multiple runtime targets. |
+|`--x86` | Run tests in a 32-bit process on 64-bit systems. **NOTE:** This option forces all tests to run as 32 bits. It is normally not needed since x86 test assemblies are automatically run as 32 bits. It is needed, however, when a non-x86 test assembly references an x86 assembly. |
 |`--dispose-runners` | Dispose each test runner after it has finished running its tests |
 |`--timeout=MILLISECONDS` | Set timeout for each test case in MILLISECONDS. |
 |`--seed=SEED` | Set the random SEED used to generate test cases. |

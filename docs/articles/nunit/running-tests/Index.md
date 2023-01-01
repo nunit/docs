@@ -19,7 +19,7 @@ When running tests in a separate process, the console and gui runners make use o
 Various third-party applications are available for loading and running NUnit tests. Some of these actually use NUnit to load the tests, while others provide their own emulation and may not work in the same way that NUnit does.
 
 Because the status of such projects may change from time to time, we don't discuss them individually here. For the latest information, consult the manufacturer of any third-party software or ask other users on our
-[discussion list](http://groups.google.com/group/nunit-discuss).
+[discussion list](https://groups.google.com/group/nunit-discuss).
 
 ## Additional Information
 

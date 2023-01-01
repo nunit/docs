@@ -194,7 +194,7 @@ Returns a random enum value of the type specified as an object, which the caller
 
 ### `GetString()`
 
-Returns a random string of default length, composed using a default set of characters. In the current implementation, the default length is hard-coded as 25 and the default characters are "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789_".
+Returns a random string of default length, composed using a default set of characters. In the current implementation, the default length is hard-coded as 25 and the default characters are `abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789_`.
 
 ### `GetString(int length)`
 

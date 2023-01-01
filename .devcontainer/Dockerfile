@@ -91,6 +91,7 @@ RUN set -ex \
 
 ### Installing the relevant npm packages
 
+
 RUN npm install -g npm
 RUN npm install -g cspell
 RUN npm install -g markdownlint-cli

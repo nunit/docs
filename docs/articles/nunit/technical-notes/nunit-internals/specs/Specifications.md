@@ -15,8 +15,6 @@ Specifications are descriptions of work we are doing or plan to do. They may var
 |  **Framework**  | [Include and Exclude Attributes Spec](Include-and-Exclude-Attributes-Spec.md)    | No             |
 |                 | [Extended Constraint Syntax Spec](Extended-Constraint-Syntax-Spec.md)        | No             |
 |                 | [Dynamic Test Cases Spec](Dynamic-Test-Cases-Spec.md)               | No             |
-|                 | [Text Output from Tests Spec](Text-Output-from-Tests-Spec.md)            | Yes            |
-|                 | [Generation of Test Names Spec](Generation-of-Test-Names-Spec.md)          | Yes            |
 |                 | [Parameterized Test Fixtures Spec](Parameterized-Test-Fixtures-Spec.md)      | Partial        |
 |                 | [Test Dependency Attribute Spec](Test-Dependency-Attribute-Spec.md)         | No             |
 | **Test Engine** | [Engine Addins Spec](Engine-Addins-Spec.md)                     | Partial        |

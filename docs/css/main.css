@@ -5990,8 +5990,15 @@ body {
   justify-self: flex-end;
   justify-content: flex-start;
   align-items: center;
-  height: 50px;
+  padding: 15px 0;
   background-color: #00181A; }
+
+@media (max-width: 767px) {
+  .footer .col-sm-4,
+  .footer .container {
+    text-align: center;
+  }
+}
 
 .footer > .container {
   padding-right: 15px;
@@ -6047,6 +6054,13 @@ div.notice {
   width: 60%;
   max-width: 660px; }
 
+@media (max-width: 767px) {
+  div.notice {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
 pre.prettyprint {
   padding: 10px;
   max-width: 660px; }
@@ -6062,6 +6076,15 @@ pre.prettyprint {
   padding: 0.25em;
   border: solid #ccc;
   border-width: .1em .1em .1em .1em; }
+
+@media (max-width: 991px) {
+  #subnav {
+    position: relative;
+    left: auto;
+    top: 0;
+    width: 100%;
+  }
+}
 
 #subnav ul {
   margin: 0;
@@ -6111,8 +6134,11 @@ pre.prettyprint {
     padding: 0;
     margin: 0 0 1em 0; }
 
-div.help {
-  min-width: 992px; }
+@media (min-width: 992px) {
+  div.help {
+    min-width: 992px;
+  }
+}
 
 pre.programtext {
   max-width: 660px; }
