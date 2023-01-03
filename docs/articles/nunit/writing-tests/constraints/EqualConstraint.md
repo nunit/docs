@@ -57,7 +57,7 @@ Assert.That(2 + 2, Is.EqualTo(4.0));
 Assert.That(2 + 2 == 4);
 Assert.That(2 + 2, Is.Not.EqualTo(5));
 Assert.That(2 + 2 != 5);
-Assert.That(5.0, Is.EqualTo(5);
+Assert.That(5.0, Is.EqualTo(5));
 Assert.That(5.5, Is.EqualTo(5).Within(0.075));
 Assert.That(5.5, Is.EqualTo(5).Within(1.5).Percent);
 ```
