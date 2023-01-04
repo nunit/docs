@@ -4,6 +4,69 @@ uid: consoleenginereleasenotes
 
 # Console and Engine Release Notes
 
+## NUnit Console & Engine 3.16.1 - January 4, 2023
+
+This release fixes several critical or high-priority bugs in the 3.16.0 release.
+
+__Bugs__
+
+- [__#1271__](https://github.com/nunit/nunit-console/issues/1271) Install dotnet tool failed
+- [__#1274__](https://github.com/nunit/nunit-console/issues/1274) NUnit Console won't run unless .NET Desktop and ASP.NET Runtimes are installed
+- [__#1275__](https://github.com/nunit/nunit-console/issues/1275) Missing assembly in NUnit.Engine nuget package
+- [__#1277__](https://github.com/nunit/nunit-console/issues/1277) NUnit does not work without .NET Core 
+
+__Build__
+
+- [__#1284__](https://github.com/nunit/nunit-console/pull/1284) Restore ability to debug packages
+
+## NUnit Console & Engine 3.16.0 - November 14, 2022
+
+Further releases in the 3.x series were not anticipated after 3.15. However, since a number of new features and enhancements have been implemented,
+we are releasing version 3.16 of the engine and console runner.
+
+This release incorporates support for executing tests under .NET 7.0. The runner itself is now built for .NET 4.6.2 rather than .NET 2.0.
+Substantial changes have been made in the location of dependencies when running under .NET Core.
+
+__Bugs__
+
+- [__#291__](https://github.com/nunit/nunit-console/issues/291) Error running tests from assembly built using VS2017 csproj file format
+- [__#299__](https://github.com/nunit/nunit-console/issues/299) Attempting to target too low a framework throws exception
+- [__#1130__](https://github.com/nunit/nunit-console/issues/1130) v3.14 fails with target framework net461 ... net48 on linux (ArgumentException: The net-4.6.1 framework is not available.), but v3.12 works well 
+- [__#1176__](https://github.com/nunit/nunit-console/issues/1176) Exception when targeting .NET Framework with .NET 7 installed
+- [__#1178__](https://github.com/nunit/nunit-console/issues/1178) Running tests with nunit3-console version 3.15.0 generates empty log files
+- [__#1180__](https://github.com/nunit/nunit-console/issues/1180) NUnit Engine 3.15.0 cannot load the test assembly 
+- [__#1182__](https://github.com/nunit/nunit-console/issues/1182) Running tests using the VS Solution results in an exception if any projects target .NET Standard
+- [__#1183__](https://github.com/nunit/nunit-console/issues/1183) Build hangs when test spawns processes which do not terminate properly
+- [__#1185__](https://github.com/nunit/nunit-console/issues/1185) 3.15.0 - MSI package is unable to acquire remote process agent
+- [__#1203__](https://github.com/nunit/nunit-console/issues/1203) NUnit Console 3.15.2: Could not load file or assembly "System.Windows.Forms"
+- [__#1206__](https://github.com/nunit/nunit-console/issues/1206) NUnit.Engine.NUnitEngineException when spaces in agent file path
+- [__#1208__](https://github.com/nunit/nunit-console/issues/1208) Inconsistencies between nunit3-console and running the project via Visual Studio
+- [__#1217__](https://github.com/nunit/nunit-console/issues/1217) Assembly loading deduplication
+- [__#1225__](https://github.com/nunit/nunit-console/issues/1225) Restore netcoreapp3.1 build to the engine package
+
+__Build__
+
+- [__#1118__](https://github.com/nunit/nunit-console/issues/1118) Reorganize build output (bin) directories
+- [__#1244__](https://github.com/nunit/nunit-console/pull/1244) Upgrade Cake.Tool to 2.3.0
+- [__#1246__](https://github.com/nunit/nunit-console/issues/1246) Reduce build targets for nunit.engine.core assembly
+- [__#1254__](https://github.com/nunit/nunit-console/pull/1254) Get Linux build working under Azure - tests still not run
+- [__#1255__](https://github.com/nunit/nunit-console/pull/1255) Get MacOS build working in Azure
+- [__#1257__](https://github.com/nunit/nunit-console/pull/1257) Enable testing under MacOS on Azure
+
+__Enhancements__
+
+- [__#941__](https://github.com/nunit/nunit-console/issues/941) Allow netcoreapp agent to work with non-standard dotnet install locations
+- [__#1223__](https://github.com/nunit/nunit-console/issues/1223) Exception when previously unknown .NET Core runtime is found on machine
+- [__#1224__](https://github.com/nunit/nunit-console/issues/1224) Change name of NUnit Net Core Runner executable
+- [__#1243__](https://github.com/nunit/nunit-console/issues/1243) Upgrade our .Net 7.0 assemblies to RC 2
+
+__Features__
+
+- [__#1216__](https://github.com/nunit/nunit-console/issues/1216) Add .NET 7.0 Agent
+- [__#1232__](https://github.com/nunit/nunit-console/issues/1232) Stop building console runner with .NET 2.0
+- [__#1265__](https://github.com/nunit/nunit-console/issues/1265) Update .NET 7.0 Support from RC-2 to Final Release
+
+
 ## NUnit Console & Engine 3.15.2 - June 30, 2022
 
 Release primarily to correct a critical bug arising when .NET 7.0 is installed.
@@ -74,7 +137,22 @@ self-terminate doesn't work. This is an engine feature, available to any runners
 * [855](https://github.com/nunit/nunit-console/issues/855) Improved testability of DirectoryFinder
 * [869](https://github.com/nunit/nunit-console/issues/869) Link to release notes on docs and Review uses of CHANGES.TXT
 * [892](https://github.com/nunit/nunit-console/issues/892) Implement Package tests for engine and console runner
-* [895](https://github.com/nunit/nunit-console/issues/895) Make sure AssemblyDefinitions are disposed after use.
+* [895](https://github.com/n- [__#291__](https://github.com/nunit/nunit-console/issues/291) Error running tests from assembly built using VS2017 csproj file format
+- [__#299__](https://github.com/nunit/nunit-console/issues/299) Attempting to target too low a framework throws exception
+- [__#1130__](https://github.com/nunit/nunit-console/issues/1130) v3.14 fails with target framework net461 ... net48 on linux (ArgumentException: The net-4.6.1 framework is not available.), but v3.12 works well 
+- [__#1176__](https://github.com/nunit/nunit-console/issues/1176) Exception when targeting .NET Framework with .NET 7 installed
+- [__#1178__](https://github.com/nunit/nunit-console/issues/1178) Running tests with nunit3-console version 3.15.0 generates empty log files
+- [__#1180__](https://github.com/nunit/nunit-console/issues/1180) NUnit Engine 3.15.0 cannot load the test assembly 
+- [__#1182__](https://github.com/nunit/nunit-console/issues/1182) Running tests using the VS Solution results in an exception if any projects target .NET Standard
+- [__#1183__](https://github.com/nunit/nunit-console/issues/1183) Build hangs when test spawns processes which do not terminate properly
+- [__#1185__](https://github.com/nunit/nunit-console/issues/1185) 3.15.0 - MSI package is unable to acquire remote process agent
+- [__#1203__](https://github.com/nunit/nunit-console/issues/1203) NUnit Console 3.15.2: Could not load file or assembly "System.Windows.Forms"
+- [__#1206__](https://github.com/nunit/nunit-console/issues/1206) NUnit.Engine.NUnitEngineException when spaces in agent file path
+- [__#1208__](https://github.com/nunit/nunit-console/issues/1208) Inconsistencies between nunit3-console and running the project via Visual Studio
+- [__#1217__](https://github.com/nunit/nunit-console/issues/1217) Assembly loading deduplication
+- [__#1225__](https://github.com/nunit/nunit-console/issues/1225) Restore netcoreapp3.1 build to the engine package
+
+unit/nunit-console/issues/895) Make sure AssemblyDefinitions are disposed after use.
 * [898](https://github.com/nunit/nunit-console/issues/898) Removed support for .NET Core 1.1
 * [904](https://github.com/nunit/nunit-console/issues/904) The test-run element is missing a count of warnings
 * [908](https://github.com/nunit/nunit-console/issues/908) Known Vulnerability in System.Xml.XPath.XmlDocument
