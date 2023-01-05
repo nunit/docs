@@ -45,7 +45,7 @@ jobs:
         name: Check out the code
         with:
           set-safe-directory: ${{ github.workspace }}
-      - uses: "nunit/docfx-action@v2.0.0-preview.1"
+      - uses: "nunit/docfx-action@v2.0.0-preview.2"
         name: Build with Docfx
         with:
           args: docs/docfx.json --warningsAsErrors true
