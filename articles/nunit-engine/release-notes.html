@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-  
+
       gtag('config', 'G-PCB5BYBNM2');
     </script>
     <meta charset="utf-8">
@@ -16,9 +16,9 @@
     <title>Console and Engine Release Notes | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Console and Engine Release Notes | NUnit Docs ">
-    <meta name="generator" content="docfx 2.59.4.0">
-    
+    <meta name="generator" content="docfx ">
   
+
     <link rel="apple-touch-icon" sizes="180x180" href="../../favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../favicons/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../../favicons/favicon-32x32.png">
@@ -30,20 +30,20 @@
     <meta name="msapplication-config" content="../../favicons/browserconfig.xml">
     <meta name="msapplication-TileColor" content="#222222">
     <meta name="theme-color" content="#222222">
-  
+
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
-    
-    <meta property="docfx:rel" content="../../">
-    
+  
+  <meta property="docfx:rel" content="../../">
+  
   </head>
   `  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../index.html">
                 <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
@@ -67,7 +67,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -77,7 +77,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -87,7 +87,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -99,9 +99,67 @@
             <article class="content wrap" id="_content" data-uid="consoleenginereleasenotes">
 <h1 id="console-and-engine-release-notes">Console and Engine Release Notes</h1>
 
+<h2 id="nunit-console--engine-3161---january-4-2023">NUnit Console &amp; Engine 3.16.1 - January 4, 2023</h2>
+<p>This release fixes several critical or high-priority bugs in the 3.16.0 release.</p>
+<h3 id="bugs">Bugs</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/1271"><strong>#1271</strong></a> Install dotnet tool failed</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1274"><strong>#1274</strong></a> NUnit Console won't run unless .NET Desktop and ASP.NET Runtimes are installed</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1275"><strong>#1275</strong></a> Missing assembly in NUnit.Engine nuget package</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1277"><strong>#1277</strong></a> NUnit does not work without .NET Core</li>
+</ul>
+<h3 id="build">Build</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/pull/1284"><strong>#1284</strong></a> Restore ability to debug packages</li>
+</ul>
+<h2 id="nunit-console--engine-3160---november-14-2022">NUnit Console &amp; Engine 3.16.0 - November 14, 2022</h2>
+<p>Further releases in the 3.x series were not anticipated after 3.15. However, since a number of new features and enhancements have been implemented,
+we are releasing version 3.16 of the engine and console runner.</p>
+<p>This release incorporates support for executing tests under .NET 7.0. The runner itself is now built for .NET 4.6.2 rather than .NET 2.0.
+Substantial changes have been made in the location of dependencies when running under .NET Core.</p>
+<h3 id="bugs-1">Bugs</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/291"><strong>#291</strong></a> Error running tests from assembly built using VS2017 csproj file format</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/299"><strong>#299</strong></a> Attempting to target too low a framework throws exception</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1130"><strong>#1130</strong></a> v3.14 fails with target framework net461 ... net48 on linux (ArgumentException: The net-4.6.1 framework is not available.), but v3.12 works well</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1176"><strong>#1176</strong></a> Exception when targeting .NET Framework with .NET 7 installed</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1178"><strong>#1178</strong></a> Running tests with nunit3-console version 3.15.0 generates empty log files</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1180"><strong>#1180</strong></a> NUnit Engine 3.15.0 cannot load the test assembly</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1182"><strong>#1182</strong></a> Running tests using the VS Solution results in an exception if any projects target .NET Standard</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1183"><strong>#1183</strong></a> Build hangs when test spawns processes which do not terminate properly</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1185"><strong>#1185</strong></a> 3.15.0 - MSI package is unable to acquire remote process agent</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1203"><strong>#1203</strong></a> NUnit Console 3.15.2: Could not load file or assembly &quot;System.Windows.Forms&quot;</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1206"><strong>#1206</strong></a> NUnit.Engine.NUnitEngineException when spaces in agent file path</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1208"><strong>#1208</strong></a> Inconsistencies between nunit3-console and running the project via Visual Studio</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1217"><strong>#1217</strong></a> Assembly loading deduplication</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1225"><strong>#1225</strong></a> Restore netcoreapp3.1 build to the engine package</li>
+</ul>
+<h3 id="build-1">Build</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/1118"><strong>#1118</strong></a> Reorganize build output (bin) directories</li>
+<li><a href="https://github.com/nunit/nunit-console/pull/1244"><strong>#1244</strong></a> Upgrade Cake.Tool to 2.3.0</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1246"><strong>#1246</strong></a> Reduce build targets for nunit.engine.core assembly</li>
+<li><a href="https://github.com/nunit/nunit-console/pull/1254"><strong>#1254</strong></a> Get Linux build working under Azure - tests still not run</li>
+<li><a href="https://github.com/nunit/nunit-console/pull/1255"><strong>#1255</strong></a> Get MacOS build working in Azure</li>
+<li><a href="https://github.com/nunit/nunit-console/pull/1257"><strong>#1257</strong></a> Enable testing under MacOS on Azure</li>
+</ul>
+<h3 id="enhancements">Enhancements</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/941"><strong>#941</strong></a> Allow netcoreapp agent to work with non-standard dotnet install locations</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1223"><strong>#1223</strong></a> Exception when previously unknown .NET Core runtime is found on machine</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1224"><strong>#1224</strong></a> Change name of NUnit Net Core Runner executable</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1243"><strong>#1243</strong></a> Upgrade our .Net 7.0 assemblies to RC 2</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/1216"><strong>#1216</strong></a> Add .NET 7.0 Agent</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1232"><strong>#1232</strong></a> Stop building console runner with .NET 2.0</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1265"><strong>#1265</strong></a> Update .NET 7.0 Support from RC-2 to Final Release</li>
+</ul>
 <h2 id="nunit-console--engine-3152---june-30-2022">NUnit Console &amp; Engine 3.15.2 - June 30, 2022</h2>
 <p>Release primarily to correct a critical bug arising when .NET 7.0 is installed.</p>
 <p><strong>Note:</strong> There is no 3.15.1 release because a 3.15.1 package identical to 3.15.0 was accidentally uploaded to NuGet.org when 3.15 was released.</p>
+<h3 id="bugs-2">Bugs</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit-console/issues/1178"><strong>#1178</strong></a> Running tests with nunit3-console version 3.15.0 generates empty log files</li>
 <li><a href="https://github.com/nunit/nunit-console/issues/1193"><strong>#1193</strong></a> Prevent Crash under .NET 7.0 in 3.15.1 build</li>
@@ -146,7 +204,7 @@ and communicate with them over a TCP connection.</p>
 <p>A second major feature in this release is engine support for preemptive cancellation when the normal approach of requesting the test run to
 self-terminate doesn't work. This is an engine feature, available to any runners supporting cancellation.</p>
 <ul>
-<li><a href="https://github.com/nunit/nunit-console/issues/382">382</a> Only 1 agent running with multiple projects and --process=Multiple</li>
+<li><a href="https://github.com/nu__Bugs__nit/nunit-console/issues/382">382</a> Only 1 agent running with multiple projects and --process=Multiple</li>
 <li><a href="https://github.com/nunit/nunit-console/issues/418">418</a> &lt;TestAssembly.dll&gt;.config files not loaded when using an .nunit project file and --process=Multiple</li>
 <li><a href="https://github.com/nunit/nunit-console/issues/551">551</a> Make engine easier to Debug</li>
 <li><a href="https://github.com/nunit/nunit-console/issues/609">609</a> Run after Reload reports assemblies multiple times</li>
@@ -507,7 +565,7 @@ unique id in the scope of all test agents for NUnit 2 tests</li>
 </ul>
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -525,7 +583,7 @@ unique id in the scope of all test agents for NUnit 2 tests</li>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -533,13 +591,13 @@ unique id in the scope of all test agents for NUnit 2 tests</li>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
