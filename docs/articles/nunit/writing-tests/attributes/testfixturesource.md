@@ -31,7 +31,7 @@ The single attribute argument in this form is a string representing the name of 
 to provide arguments for constructing the `TestFixture`. It has the following characteristics:
 
 * It may be a field, property or method in the test class.
-* It __must__ be static.
+* It **must** be static.
 * It must return an `IEnumerable` or a type that implements `IEnumerable`. For fields an array is generally used. For properties and methods, you may return an array or implement your own iterator.
 * The individual items returned by the enumerator must either be object arrays or derive from the `TestFixtureParameters` class. Arguments must be consistent with the fixture constructor.
 
@@ -62,7 +62,7 @@ The second argument is a string representing the name of the source used
 to provide test fixtures. It has the following characteristics:
 
 * It may be a field, property or method in the test class.
-* It __must__ be static.
+* It **must** be static.
 * It must return an `IEnumerable` or a type that implements `IEnumerable`. For fields an array is generally used. For properties and methods, you may return an array or implement your own iterator.
 * The individual items returned by the enumerator must either be object arrays or derive from the `TestFixtureParameters` class. Arguments must be consistent with the fixture constructor.
 
