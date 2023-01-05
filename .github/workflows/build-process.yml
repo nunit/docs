@@ -15,6 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Check out the code
+        with:
+          set-safe-directory: ${{ github.workspace }}
       - name: Lint Code Base
         uses: docker://avtodev/markdown-lint:v1
         with:
@@ -25,6 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Check out the code
+        with:
+          set-safe-directory: ${{ github.workspace }}
       - uses: actions/setup-node@v1
         name: Setup node
         with:
@@ -39,10 +43,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Check out the code
-      - name: Set ownership
-        run: |
-          # this is to fix GIT not liking owner of the checkout dir
-          chown -R $(id -u):$(id -g) $PWD
+        with:
+          set-safe-directory: ${{ github.workspace }}
       - uses: "nunit/docfx-action@v2.0.0-preview.1"
         name: Build with Docfx
         with:
