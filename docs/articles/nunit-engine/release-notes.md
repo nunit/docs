@@ -124,7 +124,7 @@ and communicate with them over a TCP connection.
 A second major feature in this release is engine support for preemptive cancellation when the normal approach of requesting the test run to
 self-terminate doesn't work. This is an engine feature, available to any runners supporting cancellation.
 
-* [382](https://github.com/nu__Bugs__nit/nunit-console/issues/382) Only 1 amdgent running with multiple projects and --process=Multiple
+* [382](https://github.com/nu__Bugs__nit/nunit-console/issues/382) Only 1 agent running with multiple projects and --process=Multiple
 * [418](https://github.com/nunit/nunit-console/issues/418) <TestAssembly.dll>.config files not loaded when using an .nunit project file and --process=Multiple
 * [551](https://github.com/nunit/nunit-console/issues/551) Make engine easier to Debug
 * [609](https://github.com/nunit/nunit-console/issues/609) Run after Reload reports assemblies multiple times
