@@ -15,7 +15,7 @@ RUN npm -v
 RUN yarn -v
 ### Add the aliases
 
-RUN echo 'alias spellcheck="cspell --config /workspaces/docs/cSpell.json \"/workspaces/docs/docs/**/*.md\""' >> ~/.bashrc
-RUN echo 'alias lint="markdownlint -c /workspaces/docs/.github/linters/.markdown-lint.yml /workspaces/docs/docs/**/*.md"' >> ~/.bashrc
-RUN echo 'alias build="cd /workspaces/docs/docs && docfx build"' >> ~/.bashrc
+RUN echo 'alias spellcheck="cspell --config /workspaces/nunit-docs/cSpell.json \"/workspaces/nunit-docs/docs/**/*.md\" --no-progress"' >> ~/.bashrc
+RUN echo 'alias lint="markdownlint -c /workspaces/nunit-docs/.github/linters/.markdown-lint.yml /workspaces/nunit-docs/docs/**/*.md"' >> ~/.bashrc
+RUN echo 'alias build="cd /workspaces/nunit-docs/docs && docfx build"' >> ~/.bashrc
 RUN echo 'alias serve="build && docfx serve _site -n \"*\""' >> ~/.bashrc
