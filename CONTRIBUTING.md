@@ -27,7 +27,15 @@ So you've got some docs you'd like to contribute to the project. First off -- **
 
 We try to avoid being strict about accepting PRs because we value contributions from others, but some general guidelines are below. If you are unsure about any of the steps to contribute, just ask -- we're happy to help.
 
+## General Suggestions
+
 * You should probably [submit an issue](https://github.com/nunit/docs/issues/new) before beginning a pull request. This makes sure that we have a good heads up that you want to contribute, and also makes sure that if we don't think the idea is a good fit, you don't spend time writing docs only to have the PR rejected later.
+* We suggest creating a pull request early in the process and placing `WIP` or `In Progress` in the title of the pull request (you can edit it later). This way, as you add changes, we can see the progress, and might be able to jump in to help if we see things going off the rails. This one's your call, though; do whatever suits you.
+* Try to make many small commits, with notes, at each step of the way. This will help us understand your thought process when we review the PR. We'll squash these changes at the end of the process, so no worries about being verbose throughout.
+* Similarly, don't worry about pre-squashing your changes for us. We'll use Github's functionality at the end of the PR to do that when accepting it.
+* Before asking for a review or declaring the PR to be ready, make sure the CI build passes. You'll receive updates on this as you go, so the status at any given time should hopefully be clear.
+
+## How to Contribute
 
 There are a few ways to contribute. Here's a video showing them, as of January 2023:
 
@@ -56,13 +64,6 @@ You can open the repository in GitHub Codespaces. This will open an instance of 
 ### Option 3a: A Container Within VS Code
 
 You can check out the codebase on your local machine and open it with VSCode. If you have Docker installed, VS Code will prompt you to reopen within a container. It will build the same container that Codespaces above uses, and you'll have the same functionality available to you.
-
-## General Suggestions
-
-* We suggest creating a pull request early in the process and placing `WIP` or `In Progress` in the title of the pull request (you can edit it later). This way, as you add changes, we can see the progress, and might be able to jump in to help if we see things going off the rails. This one's your call, though; do whatever suits you.
-* Try to make many small commits, with notes, at each step of the way. This will help us understand your thought process when we review the PR. We'll squash these changes at the end of the process, so no worries about being verbose throughout.
-* Similarly, don't worry about pre-squashing your changes for us. We'll use Github's functionality at the end of the PR to do that when accepting it.
-* Before asking for a review or declaring the PR to be ready, make sure the CI build passes. You'll receive updates on this as you go, so the status at any given time should hopefully be clear.
 
 ## Is this confusing? Do you need help? Do you feel hesitant?
 
