@@ -17,7 +17,7 @@ RUN yarn -v
 ### Add the aliases
 # We get the first workspace, because there should only be one
 # This is so that when someone updates their devcontainer name, it doesn't get screwed up
-RUN echo '$first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias spellcheck="cspell --config /workspaces/$first_workspace/cSpell.json \"/workspaces/$first_workspace/docs/**/*.md\" --no-progress"' >> ~/.bashrc
-RUN echo '$first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias lint="markdownlint -c /workspaces/$first_workspace/.github/linters/.markdown-lint.yml /workspaces/$first_workspace/docs/**/*.md"' >> ~/.bashrc
-RUN echo '$first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias build="cd /workspaces/$first_workspace/docs && docfx build"' >> ~/.bashrc
-RUN echo '$first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias serve="build && docfx serve _site -n \"*\""' >> ~/.bashrc
+RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias spellcheck="cspell --config /workspaces/$first_workspace/cSpell.json \"/workspaces/$first_workspace/docs/**/*.md\" --no-progress"' >> ~/.bashrc
+RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias lint="markdownlint -c /workspaces/$first_workspace/.github/linters/.markdown-lint.yml /workspaces/$first_workspace/docs/**/*.md"' >> ~/.bashrc
+RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias build="cd /workspaces/$first_workspace/docs && docfx build"' >> ~/.bashrc
+RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias serve="build && docfx serve _site -n \"*\""' >> ~/.bashrc
