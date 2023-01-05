@@ -13,7 +13,7 @@ jobs:
     name: "Markdown linting"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Check out the code
       - name: Lint Code Base
         uses: docker://avtodev/markdown-lint:v1
@@ -23,7 +23,7 @@ jobs:
     name: "Spell check"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Check out the code
       - uses: actions/setup-node@v1
         name: Setup node
@@ -37,9 +37,9 @@ jobs:
     name: "Build the site with docfx"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Check out the code
-      - uses: "nunit/docfx-action@v1.12.0"
+      - uses: "nunit/docfx-action@v2.0.0-preview.3"
         name: Build with Docfx
         with:
           args: docs/docfx.json --warningsAsErrors true

@@ -57,7 +57,7 @@ Assert.That(2 + 2, Is.EqualTo(4.0));
 Assert.That(2 + 2 == 4);
 Assert.That(2 + 2, Is.Not.EqualTo(5));
 Assert.That(2 + 2 != 5);
-Assert.That(5.0, Is.EqualTo(5);
+Assert.That(5.0, Is.EqualTo(5));
 Assert.That(5.5, Is.EqualTo(5).Within(0.075));
 Assert.That(5.5, Is.EqualTo(5).Within(1.5).Percent);
 ```
@@ -92,7 +92,7 @@ comparing arrays or collections of strings.
 Assert.That("Hello!", Is.Not.EqualTo("HELLO!"));
 Assert.That("Hello!", Is.EqualTo("HELLO!").IgnoreCase);
 
-string[] expected = new string[] { "Hello", World" };
+string[] expected = new string[] { "Hello", "World" };
 string[] actual = new string[] { "HELLO", "world" };
 ```
 
@@ -112,7 +112,7 @@ DateTime now = DateTime.Now;
 DateTime later = now + TimeSpan.FromHours(1.0);
 
 Assert.That(now, Is.EqualTo(now));
-Assert.That(later. Is.EqualTo(now).Within(TimeSpan.FromHours(3.0));
+Assert.That(later, Is.EqualTo(now).Within(TimeSpan.FromHours(3.0));
 Assert.That(later, Is.EqualTo(now).Within(3).Hours);
 ```
 
@@ -143,8 +143,8 @@ int[] iunequal = new int[] { 1, 3, 2 };
 Assert.That(i3, Is.EqualTo(d3));
 Assert.That(i3, Is.Not.EqualTo(iunequal));
 
-int array2x2 = new int[,] { { 1, 2 }, { 3, 4 } };
-int array4 = new int[] { 1, 2, 3, 4 };
+int[,] array2x2 = new int[,] { { 1, 2 }, { 3, 4 } };
+int[] array4 = new int[] { 1, 2, 3, 4 };
 Assert.That(array2x2, Is.Not.EqualTo(array4));
 Assert.That(array2x2, Is.EqualTo(array4).AsCollection);
 ```
