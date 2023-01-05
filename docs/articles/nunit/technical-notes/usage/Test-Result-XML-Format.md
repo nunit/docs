@@ -212,7 +212,7 @@ A single property
 
 ## `<reason>`
 
-Optional element that may appear on tests or suites that were not executed. Contains a message giving the reason for skipping the test.
+Optional element that may appear on tests or suites that were not executed. The element may also appear on tests that were short circuited using `Assert.Pass`. Contains a message giving the reason for skipping or short circuiting the test.
 
 * **Containing Elements:** [`<test-suite>`](#test-suite), [`<test-case>`](#test-case)
 * **Contained Elements:** [`<message>`](#message)

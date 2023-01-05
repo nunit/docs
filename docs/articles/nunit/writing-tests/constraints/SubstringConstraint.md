@@ -23,7 +23,7 @@ Does.Contain(string expected)
 ## Examples of Use
 
 ```csharp
-string phrase = "Make your tests fail before passing!"
+string phrase = "Make your tests fail before passing!";
 
 Assert.That(phrase, Does.Contain("tests fail"));
 Assert.That(phrase, Does.Not.Contain("tests pass"));

@@ -2,7 +2,7 @@
 
 The easiest way to get started is to install the [NUnit Templates extension for Visual Studio](https://visualstudiogallery.msdn.microsoft.com/6cd55f79-4936-49e7-b81d-c40fcd81abc7). It will add project templates for the various Xamarin platforms.
 
-For more general information, see [Testing Xamarin Projects using NUnit 3](http://www.alteridem.net/2015/12/21/testing-xamarin-projects-using-nunit-3/).
+For more general information, see [Testing Xamarin Projects using NUnit 3](https://www.alteridem.net/2015/12/21/testing-xamarin-projects-using-nunit-3/).
 
 ## Getting started
 
@@ -12,7 +12,7 @@ In your solution;
 2. Write your unit tests in this project, in a portable project, or in a shared project, referencing the project with the tests.
 3. Build and run the tests on your device or emulator
 
-If you tests are in a separate portable project, note that:
+If your tests are in a separate portable project, note that:
 
 * You need to add that assembly to the `NUnit.Runner.App` in the startup code
 

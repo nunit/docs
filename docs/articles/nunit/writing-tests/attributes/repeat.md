@@ -10,3 +10,14 @@ not run and a failure is reported.
    test case created for that method is repeated.
 2. It is not currently possible to use RepeatAttribute on a TestFixture
    or any higher level suite. Only test cases may be repeated.
+
+## Examples
+
+```csharp
+[Test]
+[Repeat(25)]
+public void MyTest()
+{
+    /* The contents of this test will be run 25 times. */
+}
+```

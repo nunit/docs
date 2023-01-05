@@ -5,7 +5,7 @@ uid: randomattribute
 # Random
 
 The **RandomAttribute** is used to specify a set of random values to be provided
-for an individual numeric parameter of a parameterized test method. Since
+for an individual numeric parameter, or `Guid` of a parameterized test method. Since
 NUnit combines the data provided for each parameter into a set of
 test cases, data must be provided for all parameters if it is
 provided for any of them.
@@ -31,7 +31,7 @@ public Random(double min, double max, int count);
 public Random(float min, float max, int count);
 ```
 
-In the first form, without minimum and maximum values, the attribute automatically generates values of the appropriate numeric Type for the argument provided, using the `Randomizer` object associated with the current context. See [Randomizer Methods](xref:randomizermethods) for details.
+In the first form, without minimum and maximum values, the attribute automatically generates values of the appropriate numeric Type or `Guid` for the argument provided, using the `Randomizer` object associated with the current context. See [Randomizer Methods](xref:randomizermethods) for details.
 
 In general, the forms that specify a minimum and maximum should be used on arguments of the same type. However, the following exceptions are supported:
 
@@ -40,6 +40,9 @@ In general, the forms that specify a minimum and maximum should be used on argum
 * You may use a double range on arguments of type decimal.
 
 Note that there is no constructor taking decimal values for min and max. This is because .NET does not support use of decimal in an attribute constructor.
+
+> [!NOTE]
+> `Guid` support for `RandomAttribute` is available from version 4.0 onwards.
 
 ## Example
 

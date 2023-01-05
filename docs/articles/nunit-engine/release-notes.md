@@ -1,4 +1,162 @@
-# Console and Engine
+---
+uid: consoleenginereleasenotes
+---
+
+# Console and Engine Release Notes
+
+## NUnit Console & Engine 3.16.1 - January 4, 2023
+
+This release fixes several critical or high-priority bugs in the 3.16.0 release.
+
+### Bugs
+
+- [__#1271__](https://github.com/nunit/nunit-console/issues/1271) Install dotnet tool failed
+- [__#1274__](https://github.com/nunit/nunit-console/issues/1274) NUnit Console won't run unless .NET Desktop and ASP.NET Runtimes are installed
+- [__#1275__](https://github.com/nunit/nunit-console/issues/1275) Missing assembly in NUnit.Engine nuget package
+- [__#1277__](https://github.com/nunit/nunit-console/issues/1277) NUnit does not work without .NET Core
+
+### Build
+
+- [__#1284__](https://github.com/nunit/nunit-console/pull/1284) Restore ability to debug packages
+
+## NUnit Console & Engine 3.16.0 - November 14, 2022
+
+Further releases in the 3.x series were not anticipated after 3.15. However, since a number of new features and enhancements have been implemented,
+we are releasing version 3.16 of the engine and console runner.
+
+This release incorporates support for executing tests under .NET 7.0. The runner itself is now built for .NET 4.6.2 rather than .NET 2.0.
+Substantial changes have been made in the location of dependencies when running under .NET Core.
+
+### Bugs
+
+- [__#291__](https://github.com/nunit/nunit-console/issues/291) Error running tests from assembly built using VS2017 csproj file format
+- [__#299__](https://github.com/nunit/nunit-console/issues/299) Attempting to target too low a framework throws exception
+- [__#1130__](https://github.com/nunit/nunit-console/issues/1130) v3.14 fails with target framework net461 ... net48 on linux (ArgumentException: The net-4.6.1 framework is not available.), but v3.12 works well
+- [__#1176__](https://github.com/nunit/nunit-console/issues/1176) Exception when targeting .NET Framework with .NET 7 installed
+- [__#1178__](https://github.com/nunit/nunit-console/issues/1178) Running tests with nunit3-console version 3.15.0 generates empty log files
+- [__#1180__](https://github.com/nunit/nunit-console/issues/1180) NUnit Engine 3.15.0 cannot load the test assembly
+- [__#1182__](https://github.com/nunit/nunit-console/issues/1182) Running tests using the VS Solution results in an exception if any projects target .NET Standard
+- [__#1183__](https://github.com/nunit/nunit-console/issues/1183) Build hangs when test spawns processes which do not terminate properly
+- [__#1185__](https://github.com/nunit/nunit-console/issues/1185) 3.15.0 - MSI package is unable to acquire remote process agent
+- [__#1203__](https://github.com/nunit/nunit-console/issues/1203) NUnit Console 3.15.2: Could not load file or assembly "System.Windows.Forms"
+- [__#1206__](https://github.com/nunit/nunit-console/issues/1206) NUnit.Engine.NUnitEngineException when spaces in agent file path
+- [__#1208__](https://github.com/nunit/nunit-console/issues/1208) Inconsistencies between nunit3-console and running the project via Visual Studio
+- [__#1217__](https://github.com/nunit/nunit-console/issues/1217) Assembly loading deduplication
+- [__#1225__](https://github.com/nunit/nunit-console/issues/1225) Restore netcoreapp3.1 build to the engine package
+
+### Build
+
+- [__#1118__](https://github.com/nunit/nunit-console/issues/1118) Reorganize build output (bin) directories
+- [__#1244__](https://github.com/nunit/nunit-console/pull/1244) Upgrade Cake.Tool to 2.3.0
+- [__#1246__](https://github.com/nunit/nunit-console/issues/1246) Reduce build targets for nunit.engine.core assembly
+- [__#1254__](https://github.com/nunit/nunit-console/pull/1254) Get Linux build working under Azure - tests still not run
+- [__#1255__](https://github.com/nunit/nunit-console/pull/1255) Get MacOS build working in Azure
+- [__#1257__](https://github.com/nunit/nunit-console/pull/1257) Enable testing under MacOS on Azure
+
+### Enhancements
+
+- [__#941__](https://github.com/nunit/nunit-console/issues/941) Allow netcoreapp agent to work with non-standard dotnet install locations
+- [__#1223__](https://github.com/nunit/nunit-console/issues/1223) Exception when previously unknown .NET Core runtime is found on machine
+- [__#1224__](https://github.com/nunit/nunit-console/issues/1224) Change name of NUnit Net Core Runner executable
+- [__#1243__](https://github.com/nunit/nunit-console/issues/1243) Upgrade our .Net 7.0 assemblies to RC 2
+
+### Features
+
+- [__#1216__](https://github.com/nunit/nunit-console/issues/1216) Add .NET 7.0 Agent
+- [__#1232__](https://github.com/nunit/nunit-console/issues/1232) Stop building console runner with .NET 2.0
+- [__#1265__](https://github.com/nunit/nunit-console/issues/1265) Update .NET 7.0 Support from RC-2 to Final Release
+
+## NUnit Console & Engine 3.15.2 - June 30, 2022
+
+Release primarily to correct a critical bug arising when .NET 7.0 is installed.
+
+__Note:__ There is no 3.15.1 release because a 3.15.1 package identical to 3.15.0 was accidentally uploaded to NuGet.org when 3.15 was released.
+
+### Bugs
+
+* [__#1178__](https://github.com/nunit/nunit-console/issues/1178) Running tests with nunit3-console version 3.15.0 generates empty log files
+* [__#1193__](https://github.com/nunit/nunit-console/issues/1193) Prevent Crash under .NET 7.0 in 3.15.1 build
+* [__#1196__](https://github.com/nunit/nunit-console/issues/1196) Modify build script to support continued version 3 releases where needed
+
+## NUnit Console & Engine 3.15 - February 10, 2022
+
+Final Release of NUnit ConsoleRunner 3.15.0. No changes from the beta1 Release.
+
+Version 3.15.0 is expected to be the final release in the 3.x series.
+
+## NUnit Console & Engine 3.15 Beta 1 - February 6, 2022
+
+Beta release of version 3.15.0 of the Console Runner. Both the standard runner and the dotnet CLI command are now able to run tests under .Net 6.0.
+
+* [__#1017__](https://github.com/nunit/nunit-console/issues/1017) Should we change 'master' to 'main'?
+* [__#1026__](https://github.com/nunit/nunit-console/issues/1026) Make NUnit.Engine.Internal.Tests.PathUtilTests_Windows.SamePathOrUnder work under ubuntu-latest
+* [__#1044__](https://github.com/nunit/nunit-console/issues/1044) Agent for .NET 6.0
+* [__#1050__](https://github.com/nunit/nunit-console/issues/1050) More discrete logging
+* [__#1087__](https://github.com/nunit/nunit-console/issues/1087) Switch all engine tests to NUnitLite
+* [__#1094__](https://github.com/nunit/nunit-console/issues/1094) CreateDraftRelease command should run locally without a release branch
+* [__#1095__](https://github.com/nunit/nunit-console/issues/1095) Allow single-letter options for cake script
+* [__#1096__](https://github.com/nunit/nunit-console/issues/1096) Symbol package validation failing for NUnit.ConsoleRunner.NetCore
+* [__#1108__](https://github.com/nunit/nunit-console/issues/1108) Generate AssemblyInfo files from csproj
+* [__#1112__](https://github.com/nunit/nunit-console/issues/1112) Use VS2022 for CI Build
+* [__#1123__](https://github.com/nunit/nunit-console/issues/1123) NETCORE Console Runner should target .NET 6.0
+* [__#1125__](https://github.com/nunit/nunit-console/pull/1125) Save results of each package test separately
+
+## NUnit Console & Engine 3.14 - January 15, 2022
+
+This release features a new agent for tests targeting .NET 5.0. In addition, automation of our publication and release process
+is now complete from creation of a draft release through releasing to production on GitHub. While this doesn't impact users directly,
+it will allow us to speed up the introduction of new features in coming releases.
+
+* [570](https://github.com/nunit/nunit-console/issues/570) Where are the checksums for your downloads?
+* [1012](https://github.com/nunit/nunit-console/issues/1012) Automatically roll-forward if no .NET Core 3.1 runtime available
+* [1048](https://github.com/nunit/nunit-console/issues/1048) Agent for Net 5.0
+* [1057](https://github.com/nunit/nunit-console/issues/1057) Automate all package publication and release
+* [1075](https://github.com/nunit/nunit-console/issues/1075) Separate nunit.engine.core.tests from nunit.engine.tests
+* [1084](https://github.com/nunit/nunit-console/issues/1084) Eliminate Packaging on Azure
+* [1090](https://github.com/nunit/nunit-console/issues/1090) Test of --debug-agent option fails under linux Debug configuration
+
+## NUnit Console & Engine 3.13 - November 30, 2021
+
+This is the first release of the NUnit Console Runner, `nunit3-console.exe`, which allows running of both .NET Framework and .NET Core tests,
+either separately or in combination. The `nunit3-console.exe` runner executes under the .NET Framework but is able to launch .NET Core agents
+and communicate with them over a TCP connection.
+
+A second major feature in this release is engine support for preemptive cancellation when the normal approach of requesting the test run to
+self-terminate doesn't work. This is an engine feature, available to any runners supporting cancellation.
+
+* [382](https://github.com/nu__Bugs__nit/nunit-console/issues/382) Only 1 agent running with multiple projects and --process=Multiple
+* [418](https://github.com/nunit/nunit-console/issues/418) <TestAssembly.dll>.config files not loaded when using an .nunit project file and --process=Multiple
+* [551](https://github.com/nunit/nunit-console/issues/551) Make engine easier to Debug
+* [609](https://github.com/nunit/nunit-console/issues/609) Run after Reload reports assemblies multiple times
+* [642](https://github.com/nunit/nunit-console/issues/642) Engine needs preemptive cancellation
+* [726](https://github.com/nunit/nunit-console/issues/726) Remove .NET Standard 1.6 build
+* [764](https://github.com/nunit/nunit-console/issues/764) Error: Found two different objects associated with the same URI, /xxxxx/TestAgency
+* [789](https://github.com/nunit/nunit-console/issues/789) DirectoryFinder.GetDirectories throws for a path with the drive specified
+* [803](https://github.com/nunit/nunit-console/issues/803) Remove CHANGES.TXT to simplify release process
+* [828](https://github.com/nunit/nunit-console/issues/828) Reported issues with dependency loading in .NET Core Console
+* [852](https://github.com/nunit/nunit-console/issues/852) No tests of .NET Core 3.1 packages
+* [855](https://github.com/nunit/nunit-console/issues/855) Improved testability of DirectoryFinder
+* [869](https://github.com/nunit/nunit-console/issues/869) Link to release notes on docs and Review uses of CHANGES.TXT
+* [892](https://github.com/nunit/nunit-console/issues/892) Implement Package tests for engine and console runner
+* [895](https://github.com/nunit/nunit-console/issues/895) Make sure AssemblyDefinitions are disposed after use.
+* [898](https://github.com/nunit/nunit-console/issues/898) Removed support for .NET Core 1.1
+* [904](https://github.com/nunit/nunit-console/issues/904) The test-run element is missing a count of warnings
+* [908](https://github.com/nunit/nunit-console/issues/908) Known Vulnerability in System.Xml.XPath.XmlDocument
+* [915](https://github.com/nunit/nunit-console/issues/915) StackOverflowException in console-runner when addins-file contains "./" or ".\"
+* [923](https://github.com/nunit/nunit-console/issues/923) Agent communication layer
+* [933](https://github.com/nunit/nunit-console/issues/933) Update TestCentric MetaData dependency
+* [943](https://github.com/nunit/nunit-console/issues/943) Remove Travis CI
+* [947](https://github.com/nunit/nunit-console/issues/947) Make default TestAgency URI unique per run (v2)
+* [949](https://github.com/nunit/nunit-console/issues/949) nunit.engine.tests are failing to unload on master branch
+* [956](https://github.com/nunit/nunit-console/issues/956) fix for test assembly loading failure in NUnit.ConsoleRunner.NetCore
+* [957](https://github.com/nunit/nunit-console/issues/957) Include pdbs with nuget and zip packages and publish source code
+* [964](https://github.com/nunit/nunit-console/issues/954) Update Code of Conduct
+* [1014](https://github.com/nunit/nunit-console/issues/1014) GetClrVersionForFramework throws if .Net6.0 is installed
+* [1025](https://github.com/nunit/nunit-console/issues/1025) chore(pipeline): Use ubuntu-latest
+* [1031](https://github.com/nunit/nunit-console/issues/1031) Fix incorrect MyGet push URL
+* [1033](https://github.com/nunit/nunit-console/issues/1033) Update to current version of TestCentric.Metadata package
+* [1037](https://github.com/nunit/nunit-console/issues/1037) Eliminate End of Life Check in builds
+* [1039](https://github.com/nunit/nunit-console/issues/1039) Stop re-publishing deprecated packages with each new release
 
 ## NUnit Console & Engine 3.12 - January 17, 2021
 
@@ -159,7 +317,7 @@ each test parameter separately using a `--testparam` or `--tp` option for each.
 * [508](https://github.com/nunit/nunit-console/issues/508) Re-Enable OSX CI tests
 * [515](https://github.com/nunit/nunit-console/issues/515) Appveyor CI failing on master
 * [518](https://github.com/nunit/nunit-console/issues/518) Correct Refactoring Error
-* [519](https://github.com/nunit/nunit-console/issues/519) Break up multiple console error messages with colour
+* [519](https://github.com/nunit/nunit-console/issues/519) Break up multiple console error messages with color
 * [523](https://github.com/nunit/nunit-console/issues/523) Reloading multiple files causes exception
 * [524](https://github.com/nunit/nunit-console/issues/524) .NET Standard 2.0 engine crashes when .NET Framework extensions are in Global NuGet Cache
 * [525](https://github.com/nunit/nunit-console/issues/525) Separate NuGet Restore for Appveyor build
@@ -342,7 +500,7 @@ aggregate NuGet packages also include updated versions of several extensions.
 ## Earlier Releases
 
 * Release Notes for [NUnit 2.9.1 through 3.5](xref:pre35releasenotes).
-* Release Notes for [NUnit 2.6 through 2.6.4](http://www.nunit.org/?p=releaseNotes&r=2.6.4)
-* Release Notes for [NUnit 2.5 through 2.5.10](http://www.nunit.org/?p=releaseNotes&r=2.5.10)
-* Release Notes for [NUnit 2.4 through 2.4.8](http://www.nunit.org/?p=releaseNotes&r=2.4.8)
-* Release Notes for [NUnit 2.0 through 2.2.10](http://www.nunit.org/?p=releaseNotes&r=2.2.10)
+* Release Notes for [NUnit 2.6 through 2.6.4](https://www.nunit.org/?p=releaseNotes&r=2.6.4)
+* Release Notes for [NUnit 2.5 through 2.5.10](https://www.nunit.org/?p=releaseNotes&r=2.5.10)
+* Release Notes for [NUnit 2.4 through 2.4.8](https://www.nunit.org/?p=releaseNotes&r=2.4.8)
+* Release Notes for [NUnit 2.0 through 2.2.10](https://www.nunit.org/?p=releaseNotes&r=2.2.10)

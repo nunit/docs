@@ -22,7 +22,7 @@ as shown in the following table.
 
 |              | Complete Test Cases          | Data for One Argument |
 |--------------|------------------------------|-----------------------|
-| **Inline**   | [TestCase Attribute](xref:testcaseattribute)       | [Random Attribute](xref:testcaseattribute), [Range Attribute](xref:rangeattribute), [Values Attribute](xref:valuesattribute) |
+| **Inline**   | [TestCase Attribute](xref:testcaseattribute)       | [Random Attribute](xref:randomattribute), [Range Attribute](xref:rangeattribute), [Values Attribute](xref:valuesattribute) |
 | **Separate** | [TestCaseSource Attribute](xref:testcasesourceattribute) | [ValueSource Attribute](xref:valuesource) |
 
 In addition, when data is specified for individual arguments, special attributes

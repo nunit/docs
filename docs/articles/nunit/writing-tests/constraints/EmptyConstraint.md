@@ -17,9 +17,9 @@ Is.Empty
 ## Examples of Use
 
 ```csharp
-Assert.That(aString, Is.Empty);
-Assert.That(dirInfo, Is.Empty);
-Assert.That(collection, Is.Empty);
+Assert.That("", Is.Empty);
+Assert.That(new Dictionary<int, int>(), Is.Empty);
+Assert.That(new List<string>(), Is.Empty);
 ```
 
 ## Notes
