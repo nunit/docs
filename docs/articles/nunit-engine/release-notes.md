@@ -71,7 +71,9 @@ Substantial changes have been made in the location of dependencies when running 
 Release primarily to correct a critical bug arising when .NET 7.0 is installed.
 
 __Note:__ There is no 3.15.1 release because a 3.15.1 package identical to 3.15.0 was accidentally uploaded to NuGet.org when 3.15 was released.
-__Bugs__
+
+### Bugs
+
 * [__#1178__](https://github.com/nunit/nunit-console/issues/1178) Running tests with nunit3-console version 3.15.0 generates empty log files
 * [__#1193__](https://github.com/nunit/nunit-console/issues/1193) Prevent Crash under .NET 7.0 in 3.15.1 build
 * [__#1196__](https://github.com/nunit/nunit-console/issues/1196) Modify build script to support continued version 3 releases where needed
@@ -122,7 +124,7 @@ and communicate with them over a TCP connection.
 A second major feature in this release is engine support for preemptive cancellation when the normal approach of requesting the test run to
 self-terminate doesn't work. This is an engine feature, available to any runners supporting cancellation.
 
-* [382](https://github.com/nu__Bugs__nit/nunit-console/issues/382) Only 1 agent running with multiple projects and --process=Multiple
+* [382](https://github.com/nu__Bugs__nit/nunit-console/issues/382) Only 1 amdgent running with multiple projects and --process=Multiple
 * [418](https://github.com/nunit/nunit-console/issues/418) <TestAssembly.dll>.config files not loaded when using an .nunit project file and --process=Multiple
 * [551](https://github.com/nunit/nunit-console/issues/551) Make engine easier to Debug
 * [609](https://github.com/nunit/nunit-console/issues/609) Run after Reload reports assemblies multiple times
