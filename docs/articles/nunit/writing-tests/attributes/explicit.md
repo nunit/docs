@@ -34,7 +34,7 @@ explicit tests that fall under the selection.
     --where "cat==X || cat==Y"
 ```
 
-However, the following options will __not__ include explicit tests
+However, the following options will **not** include explicit tests
 
 ```none
     --where test!=My.Namespace.Fixture

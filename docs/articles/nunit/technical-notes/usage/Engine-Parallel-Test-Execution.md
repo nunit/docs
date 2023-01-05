@@ -4,7 +4,7 @@ The NUnit test engine is able to offer a certain degree of parallelization by ru
 
 If tests are already split across multiple assemblies, this is the simplest way to improve performance through parallel execution. By running in separate processes, the tests in each assembly are independent of one another so long as they do not use any common external resources such as files or databases. **Parallel execution is the default behavior** when running multiple assemblies together using the `nunit3-console` runner.
 
-Normally, __all__ the test processes run simultaneously. If you need to reduce the number of processes allowed to run at one time, you may specify a value for the `--agents` option on the `nunit3-console` command-line. For example, if you are running tests in 10 different processes, a setting of `--agents=3` will allow no more than three of them to execute simultaneously.
+Normally, **all** the test processes run simultaneously. If you need to reduce the number of processes allowed to run at one time, you may specify a value for the `--agents` option on the `nunit3-console` command-line. For example, if you are running tests in 10 different processes, a setting of `--agents=3` will allow no more than three of them to execute simultaneously.
 
 > [!NOTE]
 > This facility does not depend on the test framework used in any way. Test assemblies that use older versions of NUnit may be run in parallel processes just as easily as those using NUnit 3. If extensions are created to support additional frameworks, the NUnit engine will run those assemblies in parallel as well.

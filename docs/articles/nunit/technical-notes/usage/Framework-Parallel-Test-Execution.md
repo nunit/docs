@@ -37,21 +37,21 @@ This is a `[Flags]` type enumeration used to specify which tests may run in para
 
 It is important to note that a parallel or non-parallel specification only applies at that level where it appears and below. It cannot override the settings on higher-level tests. In this way, parallelism is not absolute but is relative to other tests at the same level in the tree. The following are a few examples of how this works:
 
-1. **Non-parallel class with parallel methods:** The methods only run in parallel with one another, not with the test methods of any other classes.
+1. __Non-parallel class with parallel methods:__ The methods only run in parallel with one another, not with the test methods of any other classes.
 
-2. **Parallel class with non-parallel methods:** The methods run sequentially, usually on the same thread that ran the class one-time setup, but may actually be running in parallel with other, unrelated methods from other classes.
+2. __Parallel class with non-parallel methods:__ The methods run sequentially, usually on the same thread that ran the class one-time setup, but may actually be running in parallel with other, unrelated methods from other classes.
 
-3. **Non-parallel SetUpFixture with parallel test fixtures:** The entire group of fixtures runs separately from any fixtures outside the group. Within the group, multiple fixtures run in parallel.
+3. __Non-parallel SetUpFixture with parallel test fixtures:__ The entire group of fixtures runs separately from any fixtures outside the group. Within the group, multiple fixtures run in parallel.
 
-4. **Parallel SetUpFixture with non-parallel test fixtures:** The group runs in parallel with other fixtures and groups. Within the group, only one fixture at a time may execute.
+4. __Parallel SetUpFixture with non-parallel test fixtures:__ The group runs in parallel with other fixtures and groups. Within the group, only one fixture at a time may execute.
 
-5. **Parallel SetUpFixture with non-parallel test fixtures containing parallel test cases:** This is just one example of a more complex setup. The fixtures themselves run as described in (4) but the cases within each fixture run in parallel with one another.
+5. __Parallel SetUpFixture with non-parallel test fixtures containing parallel test cases:__ This is just one example of a more complex setup. The fixtures themselves run as described in (4) but the cases within each fixture run in parallel with one another.
 
 Once you understand the principles, you can construct complex hierarchies of parallel and non-parallel tests.
 
 ## LevelOfParallelismAttribute
 
-This is an **assembly-level** attribute, which may be used to specify the level of parallelism, that is, the maximum number of worker threads executing tests in this assembly. It may be overridden using a command-line option in the console runner. If it is not specified, NUnit uses a default value based on the number of processors available or a specified minimum, whichever is greater.
+This is an __assembly-level__ attribute, which may be used to specify the level of parallelism, that is, the maximum number of worker threads executing tests in this assembly. It may be overridden using a command-line option in the console runner. If it is not specified, NUnit uses a default value based on the number of processors available or a specified minimum, whichever is greater.
 
 ## Parallel Execution Internals
 

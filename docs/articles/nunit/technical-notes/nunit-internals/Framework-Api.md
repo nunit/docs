@@ -110,9 +110,9 @@ public ExploreTestsAction(FrameworkController controller, string filter, object 
 
 where
 
-* **controller** is the FrameworkController instance that was created for managing the test assembly.
-* **filter** is the string representation of a filter in XML format to be used when exploring tests.
-* **handler** is an object implementing ICallbackEventHandler, to receive the result of the call.
+* __controller__ is the FrameworkController instance that was created for managing the test assembly.
+* __filter__ is the string representation of a filter in XML format to be used when exploring tests.
+* __handler__ is an object implementing ICallbackEventHandler, to receive the result of the call.
 
 The result returned from `handler.GetCallbackResult()` is the XML representation of the test assembly, containing all tests that passed the filter, arranged as a tree with child tests contained within their parents.
 
