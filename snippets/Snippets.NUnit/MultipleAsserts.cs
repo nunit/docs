@@ -2,6 +2,7 @@ namespace Snippets.NUnit;
 
 public class MultipleAsserts
 {
+    // <{MultipleAssertsProdCode}>
     public class CalculationResult
     {
         public double RealPart { get; set; }
@@ -20,7 +21,9 @@ public class MultipleAsserts
             };
         }
     }
+    // </{MultipleAssertsProdCode}>
 
+    // <{MultipleAssertsTests}>
     [Test]
     public void MultipleAssertsDemo()
     {
@@ -32,5 +35,13 @@ public class MultipleAsserts
             Assert.That(result.RealPart, Is.EqualTo(5.2));
             Assert.That(result.ImaginaryPart, Is.EqualTo(3.9));
         });
+
+        // Can also work with the classic assertion syntax
+        Assert.Multiple(() =>
+        {
+            Assert.AreEqual(5.2, result.RealPart, "Real Part");
+            Assert.AreEqual(3.9, result.ImaginaryPart, "Imaginary Part");
+        });
     }
+    // </{MultipleAssertsTests}>
 }
