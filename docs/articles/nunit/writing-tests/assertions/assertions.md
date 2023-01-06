@@ -26,18 +26,10 @@ model must be used in order to have full access to NUnit's capabilities.
 
 For example, the following code must use the constraint model. There is no real classic equivalent.
 
-```csharp
-int[] array = new int[] { 1, 2, 3 };
-Assert.That(array, Has.Exactly(1).EqualTo(3));
-Assert.That(array, Has.Exactly(2).GreaterThan(1));
-Assert.That(array, Has.Exactly(3).LessThan(100));
-```
+[!code-csharp[ConstraintWithoutClassicEquivalent](~/snippets/Snippets.NUnit/ClassicVsConstraintAssertions.cs#ConstraintWithoutClassicEquivalent)]
 
 Where equivalents do exist, the two approaches will always give the same result,
 because the methods of the classic approach have all been implemented internally
 using constraints. For example...
 
-```csharp
-Assert.AreEqual(4, 2+2);
-Assert.That(2+2, Is.EqualTo(4));
-```
+[!code-csharp[ClassicAndConstraintsAreEquivalent](~/snippets/Snippets.NUnit/ClassicVsConstraintAssertions.cs#ClassicAndConstraintsAreEquivalent)]
