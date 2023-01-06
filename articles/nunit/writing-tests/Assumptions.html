@@ -101,10 +101,29 @@
 
 <p>Assumptions are intended to express the state a test must be in to provide a meaningful result. They are functionally similar to assertions, however a unmet assumption will produce an Inconclusive test result, as opposed to a Failure.</p>
 <p>Assumptions make use of the <code>Assume</code> static class.</p>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Assume.That(myString, Is.EqualTo(&quot;Hello&quot;));
+<h2 id="syntax-example">Syntax Example</h2>
+<pre><code class="lang-csharp" name="AssumptionsTests">[Test]
+public void Number_Divided_By_Itself_Is1()
+{
+    var numberToCheck = 5;
+    var divisor = GetMatchingDivisor(numberToCheck);
+
+    Assume.That(divisor, Is.Not.EqualTo(0), () =&gt; &quot;divisor must not zero in order for this test to be valid&quot;);
+
+    var result = numberToCheck / divisor;
+    Assert.That(result, Is.EqualTo(1));
+}
+
+/// &lt;summary&gt;
+/// Returns same number that's passed in
+/// &lt;/summary&gt;
+private int GetMatchingDivisor(int inputNumber)
+{
+    // If this ever returned 0, we'd be in trouble
+    return inputNumber;
+}
 </code></pre>
-<p><code>Assume.That()</code> has the same set of overloads as <code>Assert.That()</code>. For further details there, see the <a class="xref" href="assertions/assertion-models/constraint.html">Constraint Model</a> documentation.</p>
+<p><code>Assume.That()</code> has the same set of overloads as <code>Assert.That()</code>. For further details, see the <a class="xref" href="assertions/assertion-models/constraint.html">Constraint Model</a> documentation.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Failing assumptions indicate that running tests is invalid,  while <a class="xref" href="assertions/multiple-asserts.html">Multiple Asserts</a> allow testing to continue after a failure. For that reason, the two features are incompatible and assumptions may not be used within a <a class="xref" href="assertions/multiple-asserts.html">multiple assert</a> block.</p>

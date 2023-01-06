@@ -117,39 +117,44 @@ TActual Assert.ThrowsAsync&lt;TActual&gt;(AsyncTestDelegate code,
 <strong>Task AsyncTestDelegate()</strong>, which is used to execute the code
 in question. This will likely be a lambda expression.</p>
 <p>The following example shows the most common way of writing tests.</p>
-<pre><code class="lang-csharp">[TestFixture]
+<pre><code class="lang-csharp" name="AssertThrowsAsync">[TestFixture]
 public class AssertThrowsTests
 {
-  [Test]
-  public void Tests()
-  {  
-    // Using a method as a delegate
-    Assert.ThrowsAsync&lt;ArgumentException&gt;(async () =&gt; await MethodThatThrows());
-  }
-  
-  async Task MethodThatThrows()
-  {
-    await Task.Delay(100);
-    throw new ArgumentException();
-  }
+    [Test]
+    public void Tests()
+    {
+        // Using a method as a delegate
+        Assert.ThrowsAsync&lt;ArgumentException&gt;(async () =&gt; await MethodThatThrows());
+    }
+
+    private async Task MethodThatThrows()
+    {
+        await Task.Delay(100);
+        throw new ArgumentException();
+    }
 }
 </code></pre>
 <p>This example shows use of the return value to perform
 additional verification of the exception. Note that you do not need to await the result.</p>
-<pre><code class="lang-csharp">[TestFixture]
+<pre><code class="lang-csharp" name="AssertThrowsAsync">[TestFixture]
 public class UsingReturnValue
 {
-  [Test]
-  public async Task TestException()
-  {
-    MyException ex = Assert.ThrowsAsync&lt;MyException&gt;(async () =&gt; await MethodThatThrows());
+    [Test]
+    public async Task TestException()
+    {
+        MyException ex = Assert.ThrowsAsync&lt;MyException&gt;(async () =&gt; await MethodThatThrows());
 
-    Assert.That(ex.Message, Is.EqualTo(&quot;message&quot;));
-    Assert.That(ex.MyParam, Is.EqualTo(42));
-  }
+        Assert.That(ex.Message, Is.EqualTo(&quot;message&quot;));
+        Assert.That(ex.MyParam, Is.EqualTo(42));
+    }
+
+    private async Task MethodThatThrows()
+    {
+        await Task.Delay(100);
+        throw new MyException(&quot;message&quot;, 42);
+    }
 }
-</code></pre>
-<h2 id="see-also">See Also</h2>
+</code></pre><h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="Assert.Catch.html">Assert.Catch</a></li>
 <li><a href="Assert.CatchAsync.html">Assert.CatchAsync</a></li>

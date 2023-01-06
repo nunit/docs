@@ -102,33 +102,33 @@
 <p>The <strong>Author</strong> Attribute adds information about the author of the tests. It can be applied to test fixtures and to tests.</p>
 <p>The constructor takes the name of the test author and optionally the author's email address. Author can also be specified on
 a TestFixture or Test attribute.</p>
-<pre><code class="lang-csharp">[TestFixture]
+<pre><code class="lang-csharp" name="AuthorAttributeExample">[TestFixture]
 [Author(&quot;Jane Doe&quot;, &quot;jane.doe@example.com&quot;)]
 [Author(&quot;Another Developer&quot;, &quot;email@example.com&quot;)]
 public class MyTests
 {
- [Test]
- public void Test1() { /* ... */ }
+    [Test]
+    public void Test1() { /* ... */ }
 
- [Test]
- [Author(&quot;Joe Developer&quot;)]
- [Author(&quot;Yet Another Developer&quot;, &quot;not.my.email@example.com&quot;)]
- public void Test2() { /* ... */ }
+    [Test]
+    [Author(&quot;Joe Developer&quot;)]
+    [Author(&quot;Yet Another Developer&quot;, &quot;not.my.email@example.com&quot;)]
+    public void Test2() { /* ... */ }
 }
 
 [TestFixture(Author = &quot;Jane Doe&quot;)]
 public class MyOtherTests
 {
- [Test]
- public void Test1() { /* ... */ }
+    [Test]
+    public void Test1() { /* ... */ }
 
- [Test(Author = &quot;Joe Developer&quot;)]
- public void Test2() { /* ... */ }
+    [Test(Author = &quot;Joe Developer&quot;)]
+    public void Test2() { /* ... */ }
 }
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>From NUnit version 3.7  you can have multiple Author attributes per fixture or test. Before version 3.7 you could only have one Author attribute  per fixture or test.</p>
+<p>From NUnit version 3.7, you can have multiple Author attributes per fixture or test. Before version 3.7 you could only have one Author attribute  per fixture or test.</p>
 </div>
 </article>
           </div>

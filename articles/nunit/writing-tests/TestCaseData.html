@@ -100,7 +100,7 @@
 <h1 id="testcasedata">TestCaseData</h1>
 
 <p>The <code>TestCaseData</code> class provides extended test case information for a parameterized test, although any object deriving from <code>TestCaseParameters</code> may be used. Unlike NUnit 2, you cannot implement <code>ITestCaseData</code>, you must derive from <code>TestCaseParameters</code>.</p>
-<pre><code class="lang-csharp">[TestFixture]
+<pre><code class="lang-csharp" name="TestCaseDataExample">[TestFixture]
 public class MyTests
 {
     [TestCaseSource(typeof(MyDataClass), nameof(MyDataClass.TestCases))]
@@ -120,7 +120,7 @@ public class MyDataClass
             yield return new TestCaseData(12, 2).Returns(6);
             yield return new TestCaseData(12, 4).Returns(3);
         }
-    }  
+    }
 }
 </code></pre>
 <p>This example uses the fluent interface supported by <strong>TestCaseData</strong>

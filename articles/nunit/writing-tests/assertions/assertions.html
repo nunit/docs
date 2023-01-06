@@ -118,7 +118,7 @@ for each different assertion. This <a class="xref" href="assertion-models/classi
 since no new features have been added to it for some time, the constraint-based
 model must be used in order to have full access to NUnit's capabilities.</p>
 <p>For example, the following code must use the constraint model. There is no real classic equivalent.</p>
-<pre><code class="lang-csharp">int[] array = new int[] { 1, 2, 3 };
+<pre><code class="lang-csharp" name="ConstraintWithoutClassicEquivalent">int[] array = { 1, 2, 3 };
 Assert.That(array, Has.Exactly(1).EqualTo(3));
 Assert.That(array, Has.Exactly(2).GreaterThan(1));
 Assert.That(array, Has.Exactly(3).LessThan(100));
@@ -126,10 +126,9 @@ Assert.That(array, Has.Exactly(3).LessThan(100));
 <p>Where equivalents do exist, the two approaches will always give the same result,
 because the methods of the classic approach have all been implemented internally
 using constraints. For example...</p>
-<pre><code class="lang-csharp">Assert.AreEqual(4, 2+2);
-Assert.That(2+2, Is.EqualTo(4));
-</code></pre>
-</article>
+<pre><code class="lang-csharp" name="ClassicAndConstraintsAreEquivalent">Assert.AreEqual(4, 2 + 2);
+Assert.That(2 + 2, Is.EqualTo(4));
+</code></pre></article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">

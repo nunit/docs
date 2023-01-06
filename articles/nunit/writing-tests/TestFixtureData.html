@@ -102,18 +102,18 @@
 <p>The <code>TestFixtureData</code> class provides specific instance information for a parameterized fixture, although any object deriving from <code>TestFixtureParameters</code> may be used. Unlike NUnit 2, you cannot implement <code>IFixtureData</code>, you must derive from <code>TestFixtureParameters</code>.</p>
 <p>The following example varies the example shown under <a class="xref" href="attributes/testfixture.html">TestFixture Attribute</a> by using
 a <code>TestFixtureSourceAttribute</code> with a data source in a separately defined class.</p>
-<pre><code class="lang-csharp">[TestFixtureSource(typeof(MyFixtureData), nameof(MyFixtureData.Fixtureparams))]
+<pre><code class="lang-csharp" name="TestFixtureDataExample">[TestFixtureSource(typeof(MyFixtureData), nameof(MyFixtureData.FixtureParams))]
 public class ParameterizedTestFixture
 {
-    private string eq1;
-    private string eq2;
-    private string neq;
+    private readonly string _eq1;
+    private readonly string _eq2;
+    private readonly string? _neq;
 
-    public ParameterizedTestFixture(string eq1, string eq2, string neq)
+    public ParameterizedTestFixture(string eq1, string eq2, string? neq)
     {
-        this.eq1 = eq1;
-        this.eq2 = eq2;
-        this.neq = neq;
+        _eq1 = eq1;
+        _eq2 = eq2;
+        _neq = neq;
     }
 
     public ParameterizedTestFixture(string eq1, string eq2)
@@ -121,32 +121,32 @@ public class ParameterizedTestFixture
 
     public ParameterizedTestFixture(int eq1, int eq2, int neq)
     {
-        this.eq1 = eq1.ToString();
-        this.eq2 = eq2.ToString();
-        this.neq = neq.ToString();
+        _eq1 = eq1.ToString();
+        _eq2 = eq2.ToString();
+        _neq = neq.ToString();
     }
 
     [Test]
     public void TestEquality()
     {
-        Assert.AreEqual(eq1, eq2);
-        if (eq1 != null &amp;&amp; eq2 != null)
-            Assert.AreEqual(eq1.GetHashCode(), eq2.GetHashCode());
+        Assert.That(_eq2, Is.EqualTo(_eq1));
+        Assert.That(_eq2.GetHashCode(), Is.EqualTo(_eq1.GetHashCode()));
     }
 
     [Test]
     public void TestInequality()
     {
-        Assert.AreNotEqual(eq1, neq);
-        if (eq1 != null &amp;&amp; neq != null)
-            Assert.AreNotEqual(eq1.GetHashCode(), neq.GetHashCode());
+        Assert.That(_neq, Is.Not.EqualTo(_eq1));
+        if (_neq != null)
+        {
+            Assert.That(_neq.GetHashCode(), Is.Not.EqualTo(_eq1.GetHashCode()));
+        }
     }
 }
 
-
 public class MyFixtureData
 {
-    public static IEnumerable Fixtureparams
+    public static IEnumerable FixtureParams
     {
         get
         {
@@ -154,10 +154,9 @@ public class MyFixtureData
             yield return new TestFixtureData(&quot;zip&quot;, &quot;zip&quot;);
             yield return new TestFixtureData(42, 42, 99);
         }
-    }  
+    }
 }
-</code></pre>
-</article>
+</code></pre></article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">

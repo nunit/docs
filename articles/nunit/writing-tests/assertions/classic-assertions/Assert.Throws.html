@@ -127,59 +127,68 @@ in question. This may be an anonymous delegate or, when compiling
 under C# 3.0 or greater, a lambda expression.</p>
 <p>The following example shows different ways of writing the
 same test.</p>
-<pre><code class="lang-csharp">[TestFixture]
+<pre><code class="lang-csharp" name="AssertThrows">[TestFixture]
 public class AssertThrowsTests
 {
-  [Test]
-  public void Tests()
-  {  
-    // Using a method as a delegate
-    Assert.Throws&lt;ArgumentException&gt;(MethodThatThrows);
+    [Test]
+    public void Tests()
+    {
+        // Using a method as a delegate
+        Assert.Throws&lt;ArgumentException&gt;(MethodThatThrows);
 
-    // Using an anonymous delegate
-    Assert.Throws&lt;ArgumentException&gt;(
-    delegate { throw new ArgumentException(); });
+        // Using an anonymous delegate
+        Assert.Throws&lt;ArgumentException&gt;(
+            delegate { throw new ArgumentException(); });
 
-    // Using a Lambda expression
-    Assert.Throws&lt;ArgumentException&gt;(
-      () =&gt; { throw new ArgumentException(); });
-  }
-  
-  void MethodThatThrows()
-  {
-    throw new ArgumentException();
-  }
+        // Using a Lambda expression
+        Assert.Throws&lt;ArgumentException&gt;(
+            () =&gt; throw new ArgumentException());
+    }
+
+    void MethodThatThrows()
+    {
+        throw new ArgumentException();
+    }
 }
 </code></pre>
-<p>This example shows use of the return value to perform
-additional verification of the exception.</p>
-<pre><code class="lang-csharp">[TestFixture]
+<p>If, for example, we were to assume a custom exception class of:</p>
+<pre><code class="lang-csharp" name="MyException">public class MyException : Exception
+{
+    public int MyParam { get; }
+
+    public MyException(string message, int myParam) : base(message)
+    {
+        MyParam = myParam;
+    }
+}
+</code></pre>
+<p>The below example shows use of the return value to perform additional verification of the exception.</p>
+<pre><code class="lang-csharp" name="UsingReturnValue">[TestFixture]
 public class UsingReturnValue
 {
-  [Test]
-  public void TestException()
-  {
-    MyException ex = Assert.Throws&lt;MyException&gt;(
-      delegate { throw new MyException(&quot;message&quot;, 42); });
+    [Test]
+    public void TestException()
+    {
+        MyException ex = Assert.Throws&lt;MyException&gt;(
+            () =&gt; throw new MyException(&quot;message&quot;, 42));
 
-    Assert.That(ex.Message, Is.EqualTo(&quot;message&quot;));
-    Assert.That(ex.MyParam, Is.EqualTo(42));
-  }
+        Assert.That(ex.Message, Is.EqualTo(&quot;message&quot;));
+        Assert.That(ex.MyParam, Is.EqualTo(42));
+    }
 }
 </code></pre>
-<p>This example does the same thing
-using the overload that includes a constraint.</p>
-<pre><code class="lang-csharp">[TestFixture]
+<p>This example does the same thing using the overload that includes a constraint.</p>
+<pre><code class="lang-csharp" name="UsingConstraint">[TestFixture]
 public class UsingConstraint
 {
-  [Test]
-  public void TestException()
-  {
-    Assert.Throws(Is.TypeOf&lt;MyException&gt;()
-                 .And.Message.EqualTo(&quot;message&quot;)
-                 .And.Property(&quot;MyParam&quot;).EqualTo(42),
-      delegate { throw new MyException(&quot;message&quot;, 42); });
-  }
+    [Test]
+    public void TestException()
+    {
+        Assert.Throws(Is.TypeOf&lt;MyException&gt;()
+                .And.Message.EqualTo(&quot;message&quot;)
+                .And.Property(&quot;MyParam&quot;).EqualTo(42),
+            () =&gt; throw new MyException(&quot;message&quot;, 42));
+    }
 }
 </code></pre>
 <p>Use the form that matches your style of coding.</p>
