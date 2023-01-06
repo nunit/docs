@@ -20,23 +20,7 @@ Consider a test of the divide operation, taking three arguments: the numerator, 
 > [!NOTE]
 > We use [the `nameof` operator](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/nameof) to avoid introducing [magic strings](https://wikipedia.org/wiki/Magic_string) into code, which offers better resilience when refactoring. While `nameof` is recommended, you could also use the string "DivideCases" to achieve the same outcome.
 
-```csharp
-public class MyTestClass
-{
-    [TestCaseSource(nameof(DivideCases))]
-    public void DivideTest(int n, int d, int q)
-    {
-        Assert.AreEqual(q, n / d);
-    }
-
-    static object[] DivideCases =
-    {
-        new object[] { 12, 3, 4 },
-        new object[] { 12, 2, 6 },
-        new object[] { 12, 4, 3 }
-    };
-}
-```
+[!code-csharp[BasicTestCaseSource](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#BasicTestCaseSource)]
 
 The single attribute argument in this form is a string representing the name of the source used
 to provide test cases. It has the following characteristics:
@@ -50,54 +34,11 @@ to provide test cases. It has the following characteristics:
 
 Sometimes we would like to parameterize the source, e.g. if we use the same source for multiple tests, to this end it is possible to pass parameters to the source, if the source is a method. The parameters are specified as an array of parameters that are passed to the source method.
 
-```csharp
-public class MyTestClass
-{
-    [TestCaseSource(nameof(TestStrings), new object[] { true })]
-    public void LongNameWithEvenNumberOfCharacters(string name)
-    {
-        Assert.That(name.Length, Is.GreaterThan(5));
-        bool hasEvenNumOfCharacters = (name.Length / 2) == 0;
-    }
+[!code-csharp[ParameterizedSource](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#ParameterizedSource)]
 
-    [TestCaseSource(nameof(TestStrings), new object[] { false })]
-    public void ShortName(string name)
-    {
-        Assert.That(name.Length, Is.LessThan(15));
-    }
+### Form 2 - `[TestCaseSource(Type sourceType, string sourceName)]`
 
-    static IEnumerable<string> TestStrings(bool generateLongTestCase)
-    {
-        if (generateLongTestCase)
-            yield return "ThisIsAVeryLongNameThisIsAVeryLongName";
-        yield return "SomeName";
-        yield return "YetAnotherName";
-    }
-}
-```
-
-### Form 2 - [TestCaseSource(Type sourceType, string sourceName)]
-
-```csharp
-public class MyTestClass
-{
-    [TestCaseSource(typeof(AnotherClass), nameof(AnotherClass.DivideCases))]
-    public void DivideTest(int n, int d, int q)
-    {
-        Assert.AreEqual(q, n / d);
-    }
-}
-
-class AnotherClass
-{
-    static object[] DivideCases =
-    {
-        new object[] { 12, 3, 4 },
-        new object[] { 12, 2, 6 },
-        new object[] { 12, 4, 3 }
-    };
-}
-```
+[!code-csharp[ClassAsTestCaseSource](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#ClassAsTestCaseSource)]
 
 The first argument of the attribute in this form is a Type representing the class that will provide
 the test cases.
