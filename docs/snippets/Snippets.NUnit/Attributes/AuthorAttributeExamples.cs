@@ -1,5 +1,9 @@
 ﻿using NUnit.Framework;
 using System.Collections;
+// ReSharper disable ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+#pragma warning disable NUnit2041
+#pragma warning disable NUnit1001
+#pragma warning disable NUnit2045
 #pragma warning disable CS8625
 
 namespace Snippets.NUnit.Attributes
@@ -36,17 +40,18 @@ namespace Snippets.NUnit.Attributes
             [Test]
             public void TestEquality()
             {
-                Assert.AreEqual(_eq1, _eq2);
-                if (_eq1 != null && _eq2 != null)
-                    Assert.AreEqual(_eq1.GetHashCode(), _eq2.GetHashCode());
+                Assert.That(_eq2, Is.EqualTo(_eq1));
+                Assert.That(_eq2.GetHashCode(), Is.EqualTo(_eq1.GetHashCode()));
             }
 
             [Test]
             public void TestInequality()
             {
-                Assert.AreNotEqual(_eq1, _neq);
-                if (_eq1 != null && _neq != null)
-                    Assert.AreNotEqual(_eq1.GetHashCode(), _neq.GetHashCode());
+                Assert.That(_neq, Is.Not.EqualTo(_eq1));
+                if (_neq != null)
+                {
+                    Assert.That(_neq.GetHashCode(), Is.Not.EqualTo(_eq1.GetHashCode()));
+                }
             }
         }
         #endregion
@@ -54,21 +59,21 @@ namespace Snippets.NUnit.Attributes
         #region GenericTestFixtures
         [TestFixture(typeof(ArrayList))]
         [TestFixture(typeof(List<int>))]
-        public class IList_Tests<TList> where TList : IList, new()
+        public class GenericListTests<TList> where TList : IList, new()
         {
-            private IList list;
+            private IList _list = null!;
 
             [SetUp]
             public void CreateList()
             {
-                this.list = new TList();
+                _list = new TList();
             }
 
             [Test]
             public void CanAddToList()
             {
-                list.Add(1); list.Add(2); list.Add(3);
-                Assert.AreEqual(3, list.Count);
+                _list.Add(1); _list.Add(2); _list.Add(3);
+                Assert.That(_list, Has.Count.EqualTo(3));
             }
         }
         #endregion
@@ -78,20 +83,23 @@ namespace Snippets.NUnit.Attributes
         [TestFixture(typeof(int), typeof(double), 42, 100.0)]
         public class SpecifyBothSetsOfArgs<T1, T2>
         {
-            T1 t1;
-            T2 t2;
+            private readonly T1 _t1;
+            private readonly T2 _t2;
 
             public SpecifyBothSetsOfArgs(T1 t1, T2 t2)
             {
-                this.t1 = t1;
-                this.t2 = t2;
+                _t1 = t1;
+                _t2 = t2;
             }
 
             [TestCase(5, 7)]
             public void TestMyArgTypes(T1 t1, T2 t2)
             {
                 Assert.That(t1, Is.TypeOf<T1>());
+                Assert.That(t1, Is.LessThan(_t1));
+
                 Assert.That(t2, Is.TypeOf<T2>());
+                Assert.That(t2, Is.LessThan(_t2));
             }
         }
         #endregion
