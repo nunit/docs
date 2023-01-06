@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using NUnit.Framework;
+#pragma warning disable CA2211
 #pragma warning disable NUnit2005
 
 namespace Snippets.NUnit;
@@ -105,9 +106,9 @@ public class TestCaseSourceExamples
     #endregion
 
     #region SingleArgumentMatchingValueShorthand
-    static int[] EvenNumbers = { 2, 4, 6, 8 };
+    static int[] _evenNumbers = { 2, 4, 6, 8 };
 
-    [Test, TestCaseSource(nameof(EvenNumbers))]
+    [Test, TestCaseSource(nameof(_evenNumbers))]
     public void TestMethod(int num)
     {
         Assert.That(num % 2, Is.Zero);
