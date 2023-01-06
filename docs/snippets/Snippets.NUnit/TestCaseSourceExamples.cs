@@ -103,4 +103,14 @@ public class TestCaseSourceExamples
         }
     }
     #endregion
+
+    #region SingleArgumentMatchingValueShorthand
+    static int[] EvenNumbers = { 2, 4, 6, 8 };
+
+    [Test, TestCaseSource(nameof(EvenNumbers))]
+    public void TestMethod(int num)
+    {
+        Assert.That(num % 2, Is.Zero);
+    }
+    #endregion
 }
