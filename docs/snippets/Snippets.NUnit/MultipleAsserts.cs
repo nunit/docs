@@ -23,7 +23,7 @@ public class MultipleAsserts
     }
     #endregion
 
-    // <{MultipleAssertsTests}>
+    #region MultipleAssertsTests
     [Test]
     public void MultipleAssertsDemo()
     {
@@ -43,5 +43,5 @@ public class MultipleAsserts
             Assert.AreEqual(3.9, result.ImaginaryPart, "Imaginary Part");
         });
     }
-    // </{MultipleAssertsTests}>
+    #endregion
 }
