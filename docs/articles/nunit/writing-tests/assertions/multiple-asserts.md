@@ -6,9 +6,13 @@ uid: multipleasserts
 
 Usually, once an assertion fails, we want the test to terminate. But sometimes, it's desirable to continue and accumulate any additional failures so they may all be fixed at once. This is particularly useful for testing things like object initialization and UI appearance as well as certain kinds of integration testing.
 
-## Syntax
+## Syntax / Example
 
-Multiple asserts are implemented using the `Assert.Multiple` method. Here is an example of its use:
+Multiple asserts are implemented using the `Assert.Multiple` method.
+
+Let's assume we have production code that looks like the following:
+
+[!code-csharp[Main](/snippets/Snippets.NUnit/MultipleAsserts.cs#MultipleAssertsProdCode "Production code that defines a calculator that returns some hard-coded values, for the purposes of our demo.")]
 
 ```csharp
 [Test]
