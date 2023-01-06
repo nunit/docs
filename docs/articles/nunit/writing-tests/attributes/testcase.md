@@ -9,15 +9,7 @@ parameters as a test method and providing inline data to be used when
 invoking that method. Here is an example of a test being run three
 times, with three different sets of data:
 
-```csharp
-[TestCase(12, 3, 4)]
-[TestCase(12, 2, 6)]
-[TestCase(12, 4, 3)]
-public void DivideTest(int n, int d, int q)
-{
-    Assert.AreEqual(q, n / d);
-}
-```
+[!code-csharp[BasicTestCase](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#BasicTestCase)]
 
 > [!NOTE]
 > Because arguments to .NET attributes are limited in terms of the Types that may be used, NUnit will make some attempt to convert the supplied values using `Convert.ChangeType()` before supplying it to the test.
@@ -29,15 +21,7 @@ The method may optionally be marked with the [Test Attribute](test.md) as well.
 By using the named parameter `ExpectedResult` this test set may be simplified
 further:
 
-```csharp
-[TestCase(12, 3, ExpectedResult=4)]
-[TestCase(12, 2, ExpectedResult=6)]
-[TestCase(12, 4, ExpectedResult=3)]
-public int DivideTest(int n, int d)
-{
-    return n / d;
-}
-```
+[!code-csharp[TestCaseWithExpectedResult](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithExpectedResult)]
 
 In the above example, NUnit checks that the return
 value of the method is equal to the expected result provided on the attribute.

@@ -1,9 +1,14 @@
 ﻿using NUnit.Framework;
 
+// ReSharper disable ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+#pragma warning disable NUnit2041
+#pragma warning disable NUnit1001
+#pragma warning disable NUnit2045
+#pragma warning disable CS8625
+
 namespace Snippets.NUnit.Attributes
 {
-
-    public class AuthorAttributeExample
+    public class AuthorAttributeExamples
     {
         #region AuthorAttributeExample
         [TestFixture]
