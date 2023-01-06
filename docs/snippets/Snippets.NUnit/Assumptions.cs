@@ -1,4 +1,5 @@
-﻿namespace Snippets.NUnit
+﻿// ReSharper disable ConvertToLambdaExpression
+namespace Snippets.NUnit
 {
     public class Assumptions
     {
