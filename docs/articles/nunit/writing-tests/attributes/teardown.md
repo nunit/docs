@@ -4,17 +4,11 @@ uid: teardown-attribute
 
 # TearDown
 
-This attribute is used inside a [TestFixture](xref:testfixtureattribute)
-to provide a common set of functions that are performed after each test method.
+This attribute is used inside a [TestFixture](xref:testfixtureattribute) to provide a common set of functions that are performed after each test method.
 
-TearDown methods may be either static or
-instance methods and you may define more than one of them in a fixture.
-Normally, multiple TearDown methods are only defined at different levels
-of an inheritance hierarchy, as explained below.
+TearDown methods may be either static or instance methods and you may define more than one of them in a fixture. Normally, multiple TearDown methods are only defined at different levels of an inheritance hierarchy, as explained below.
 
-So long as any SetUp method runs without error, the TearDown method is
-guaranteed to run. It will not run if a SetUp method fails or throws an
-exception.
+So long as any SetUp method runs without error, the TearDown method is guaranteed to run. For example, it is not guaranteed to run if a SetUp method fails or throws an exception.
 
 ## Example
 
