@@ -5,11 +5,11 @@
 This release has a series of enhancements and bugfixes.  There have been two 3.17 beta releases (beta.1 and beta.2) published earlier on nuget.org.
 A major bugfix is that the console output now is properly appearing.  There are also a series of fixes for corner cases.  
 
-[StopOnError](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#stoponerror) can be very useful to reduce time of long test runs that are failing.
+[StopOnError](/articles/vs-test-adapter/Tips-And-Tricks.html#stoponerror) can be very useful to reduce time of long test runs that are failing.
 
 The ability to set custom paths for the test code can be useful with data driven tests, where you want to point to the data file (and line number therein) instead of the default C# test code.
 
-See [here for all details](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html) on the settings.
+See [here for all details](/articles/vs-test-adapter/Tips-And-Tricks.html) on the settings.
 
 ### Features and Enhancements
 
