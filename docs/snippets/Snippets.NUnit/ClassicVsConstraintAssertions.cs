@@ -1,4 +1,6 @@
-﻿namespace Snippets.NUnit;
+﻿#pragma warning disable NUnit2007
+#pragma warning disable NUnit2005
+namespace Snippets.NUnit;
 
 public class ClassicVsConstraintAssertions
 {
