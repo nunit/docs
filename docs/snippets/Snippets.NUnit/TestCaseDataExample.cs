@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-
 namespace Snippets.NUnit;
 
 public class TestCaseDataExample
