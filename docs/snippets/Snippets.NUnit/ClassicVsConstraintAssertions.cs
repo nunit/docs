@@ -1,4 +1,6 @@
-﻿#pragma warning disable NUnit2007
+﻿using NUnit.Framework;
+
+#pragma warning disable NUnit2007
 #pragma warning disable NUnit2005
 namespace Snippets.NUnit;
 

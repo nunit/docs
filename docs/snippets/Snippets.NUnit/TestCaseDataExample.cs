@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using NUnit.Framework;
+
 namespace Snippets.NUnit;
 
 public class TestCaseDataExample

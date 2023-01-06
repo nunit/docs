@@ -1,5 +1,8 @@
 ﻿// ReSharper disable ConvertToLambdaExpression
 // ReSharper disable MemberCanBeMadeStatic.Local
+
+using NUnit.Framework;
+
 #pragma warning disable CA1822
 #pragma warning disable CS8602
 #pragma warning disable NUnit2045

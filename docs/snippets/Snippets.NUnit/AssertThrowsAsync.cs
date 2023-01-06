@@ -1,4 +1,5 @@
-﻿using static Snippets.NUnit.AssertThrows;
+﻿using NUnit.Framework;
+using static Snippets.NUnit.AssertThrows;
 
 namespace Snippets.NUnit;
 

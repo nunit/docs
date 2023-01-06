@@ -1,4 +1,6 @@
-﻿namespace Snippets.NUnit;
+﻿using NUnit.Framework;
+
+namespace Snippets.NUnit;
 
 public class WarningExamples
 {
