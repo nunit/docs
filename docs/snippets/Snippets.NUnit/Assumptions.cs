@@ -15,7 +15,7 @@ namespace Snippets.NUnit
             var numberToCheck = 5;
             var divisor = GetMatchingDivisor(numberToCheck);
 
-            Assume.That(divisor, Is.GreaterThan(0), () => "divisor must be greater than zero for this test to make sense.");
+            Assume.That(divisor, Is.Not.EqualTo(0), () => "divisor must not zero in order for this test to be correct");
 
             var result = numberToCheck / divisor;
             Assert.That(result, Is.EqualTo(1));
