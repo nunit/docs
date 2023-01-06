@@ -3,7 +3,7 @@
 namespace Snippets.NUnit.Attributes
 {
 
-    public class AuthorAttributeExample
+    public class AuthorAttributeExamples
     {
         #region AuthorAttributeExample
         [TestFixture]
