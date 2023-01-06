@@ -36,68 +36,19 @@ under C# 3.0 or greater, a lambda expression.
 The following example shows different ways of writing the
 same test.
 
-```csharp
-[TestFixture]
-public class AssertThrowsTests
-{
-  [Test]
-  public void Tests()
-  {  
-    // Using a method as a delegate
-    Assert.Throws<ArgumentException>(MethodThatThrows);
+[!code-csharp[AssertThrows](~/snippets/Snippets.NUnit/AssertThrows.cs#AssertThrows)]
 
-    // Using an anonymous delegate
-    Assert.Throws<ArgumentException>(
-    delegate { throw new ArgumentException(); });
+If, for example, we were to assume a custom exception class of:
 
-    // Using a Lambda expression
-    Assert.Throws<ArgumentException>(
-      () => { throw new ArgumentException(); });
-  }
-  
-  void MethodThatThrows()
-  {
-    throw new ArgumentException();
-  }
-}
-```
+[!code-csharp[MyException](~/snippets/Snippets.NUnit/AssertThrows.cs#MyException)]
 
-This example shows use of the return value to perform
-additional verification of the exception.
+The below example shows use of the return value to perform additional verification of the exception.
 
-```csharp
-[TestFixture]
-public class UsingReturnValue
-{
-  [Test]
-  public void TestException()
-  {
-    MyException ex = Assert.Throws<MyException>(
-      delegate { throw new MyException("message", 42); });
+[!code-csharp[UsingReturnValue](~/snippets/Snippets.NUnit/AssertThrows.cs#UsingReturnValue)]
 
-    Assert.That(ex.Message, Is.EqualTo("message"));
-    Assert.That(ex.MyParam, Is.EqualTo(42));
-  }
-}
-```
+This example does the same thing using the overload that includes a constraint.
 
-This example does the same thing
-using the overload that includes a constraint.
-
-```csharp
-[TestFixture]
-public class UsingConstraint
-{
-  [Test]
-  public void TestException()
-  {
-    Assert.Throws(Is.TypeOf<MyException>()
-                 .And.Message.EqualTo("message")
-                 .And.Property("MyParam").EqualTo(42),
-      delegate { throw new MyException("message", 42); });
-  }
-}
-```
+[!code-csharp[UsingConstraint](~/snippets/Snippets.NUnit/AssertThrows.cs#UsingConstraint)]
 
 Use the form that matches your style of coding.
 
