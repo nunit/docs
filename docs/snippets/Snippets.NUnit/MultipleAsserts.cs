@@ -2,7 +2,7 @@ namespace Snippets.NUnit;
 
 public class MultipleAsserts
 {
-    // <{MultipleAssertsProdCode}>
+    #region MultipleAssertsProdCode
     public class CalculationResult
     {
         public double RealPart { get; set; }
@@ -21,7 +21,7 @@ public class MultipleAsserts
             };
         }
     }
-    // </{MultipleAssertsProdCode}>
+    #endregion
 
     // <{MultipleAssertsTests}>
     [Test]
