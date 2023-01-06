@@ -107,12 +107,12 @@ test methods. See <a class="xref" href="../../technical-notes/usage/Parameterize
 tests with arguments.</p>
 <h2 id="usage">Usage</h2>
 <p>Consider a test of the divide operation, taking three arguments: the numerator, the denominator and the expected result. We can specify the test and its data using one of the forms of <strong>TestCaseSourceAttribute</strong>:</p>
-<h3 id="form-1---testcasesourcestring-sourcename">Form 1 - [TestCaseSource(string sourceName)]</h3>
+<h3 id="form-1---testcasesourcestring-sourcename">Form 1 - <code>[TestCaseSource(string sourceName)]</code></h3>
 <div class="NOTE">
 <h5>Note</h5>
 <p>We use <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/operators/nameof">the <code>nameof</code> operator</a> to avoid introducing <a href="https://wikipedia.org/wiki/Magic_string">magic strings</a> into code, which offers better resilience when refactoring. While <code>nameof</code> is recommended, you could also use the string &quot;DivideCases&quot; to achieve the same outcome.</p>
 </div>
-<pre><code class="lang-csharp">public class MyTestClass
+<pre><code class="lang-csharp" name="BasicTestCaseSource">public class BasicTestCaseSourceFixture
 {
     [TestCaseSource(nameof(DivideCases))]
     public void DivideTest(int n, int d, int q)
@@ -120,7 +120,7 @@ tests with arguments.</p>
         Assert.AreEqual(q, n / d);
     }
 
-    static object[] DivideCases =
+    public static object[] DivideCases =
     {
         new object[] { 12, 3, 4 },
         new object[] { 12, 2, 6 },
@@ -139,43 +139,55 @@ with the signature of the method on which the attribute appears.
 See the <strong>Test Case Construction</strong> section below for details.</li>
 </ul>
 <p>Sometimes we would like to parameterize the source, e.g. if we use the same source for multiple tests, to this end it is possible to pass parameters to the source, if the source is a method. The parameters are specified as an array of parameters that are passed to the source method.</p>
-<pre><code class="lang-csharp">public class MyTestClass
+<pre><code class="lang-csharp" name="ParameterizedSource">public class ParameterizedSourceExampleFixture
 {
     [TestCaseSource(nameof(TestStrings), new object[] { true })]
     public void LongNameWithEvenNumberOfCharacters(string name)
     {
         Assert.That(name.Length, Is.GreaterThan(5));
-        bool hasEvenNumOfCharacters = (name.Length / 2) == 0;
+
+        bool hasEvenNumOfCharacters = (name.Length % 2) == 0;
+        Assert.That(hasEvenNumOfCharacters, Is.True);
     }
 
     [TestCaseSource(nameof(TestStrings), new object[] { false })]
-    public void ShortName(string name)
+    public void ShortNameWithEvenNumberOfCharacters(string name)
     {
         Assert.That(name.Length, Is.LessThan(15));
+
+        bool hasEvenNumOfCharacters =  (name.Length % 2) == 0;
+        Assert.That(hasEvenNumOfCharacters, Is.True);
     }
 
     static IEnumerable&lt;string&gt; TestStrings(bool generateLongTestCase)
     {
         if (generateLongTestCase)
+        {
             yield return &quot;ThisIsAVeryLongNameThisIsAVeryLongName&quot;;
-        yield return &quot;SomeName&quot;;
-        yield return &quot;YetAnotherName&quot;;
+            yield return &quot;SomeName&quot;;
+            yield return &quot;YetAnotherName&quot;;
+        }
+        else
+        {
+            yield return &quot;AA&quot;;
+            yield return &quot;BB&quot;;
+            yield return &quot;CC&quot;;
+        }
     }
 }
-</code></pre>
-<h3 id="form-2---testcasesourcetype-sourcetype-string-sourcename">Form 2 - [TestCaseSource(Type sourceType, string sourceName)]</h3>
-<pre><code class="lang-csharp">public class MyTestClass
+</code></pre><h3 id="form-2---testcasesourcetype-sourcetype-string-sourcename">Form 2 - <code>[TestCaseSource(Type sourceType, string sourceName)]</code></h3>
+<pre><code class="lang-csharp" name="ClassMethodAsTestCaseSource">public class TestFixtureThatUsesClassMethodAsTestCaseSource
 {
-    [TestCaseSource(typeof(AnotherClass), nameof(AnotherClass.DivideCases))]
+    [TestCaseSource(typeof(AnotherClassWithTestFixtures), nameof(AnotherClassWithTestFixtures.DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
         Assert.AreEqual(q, n / d);
     }
 }
 
-class AnotherClass
+public class AnotherClassWithTestFixtures
 {
-    static object[] DivideCases =
+    public static object[] DivideCases =
     {
         new object[] { 12, 3, 4 },
         new object[] { 12, 2, 6 },
@@ -196,17 +208,17 @@ with the signature of the method on which the attribute appears.
 See the <strong>Test Case Construction</strong> section below for details.</li>
 </ul>
 <p>Similar to Form 1 it is possible to pass parameters to the source, if the source is a method.</p>
-<h3 id="form-3---testcasesourcetype-sourcetype">Form 3 - [TestCaseSource(Type sourceType)]</h3>
-<pre><code class="lang-csharp">public class MyTestClass
+<h3 id="form-3---testcasesourcetype-sourcetype">Form 3 - <code>[TestCaseSource(Type sourceType)]</code></h3>
+<pre><code class="lang-csharp" name="ClassWithoutMethodAsTestCaseSource">public class TestFixtureThatUsesClassAsTestCaseSource
 {
-    [TestCaseSource(typeof(DivideCases))]
+    [TestCaseSource(typeof(DivideCasesClass))]
     public void DivideTest(int n, int d, int q)
     {
         Assert.AreEqual(q, n / d);
     }
 }
 
-class DivideCases : IEnumerable
+public class DivideCasesClass : IEnumerable
 {
     public IEnumerator GetEnumerator()
     {
@@ -237,12 +249,13 @@ the <a class="xref" href="../TestCaseData.html">TestCaseData</a> type for this p
 that argument it is used directly. This can eliminate a bit of extra typing by the programmer,
 as in this example:</li>
 </ul>
-<pre><code class="lang-csharp">static int[] EvenNumbers = new int[] { 2, 4, 6, 8 };
+<pre><code class="lang-csharp" name="SingleArgumentMatchingValueShorthand">
+private static int[] _evenNumbers = { 2, 4, 6, 8 };
 
-[Test, TestCaseSource(nameof(EvenNumbers))]
+[Test, TestCaseSource(nameof(_evenNumbers))]
 public void TestMethod(int num)
 {
-    Assert.IsTrue(num % 2 == 0);
+    Assert.That(num % 2, Is.Zero);
 }
 </code></pre>
 <ul>

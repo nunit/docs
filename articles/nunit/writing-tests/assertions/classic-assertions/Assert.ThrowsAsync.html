@@ -140,7 +140,7 @@ additional verification of the exception. Note that you do not need to await the
 public class UsingReturnValue
 {
     [Test]
-    public async Task TestException()
+    public void TestException()
     {
         MyException ex = Assert.ThrowsAsync&lt;MyException&gt;(async () =&gt; await MethodThatThrows());
 

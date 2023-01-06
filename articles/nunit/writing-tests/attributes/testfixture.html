@@ -177,20 +177,20 @@ list of categories.</p>
 passing in each set of arguments to the appropriate constructor. Note
 that there are three different constructors, matching the data types
 provided as arguments.</p>
-<pre><code class="lang-csharp">[TestFixture(&quot;hello&quot;, &quot;hello&quot;, &quot;goodbye&quot;)]
+<pre><code class="lang-csharp" name="MultipleParameterizedTestFixtures">[TestFixture(&quot;hello&quot;, &quot;hello&quot;, &quot;goodbye&quot;)]
 [TestFixture(&quot;zip&quot;, &quot;zip&quot;)]
 [TestFixture(42, 42, 99)]
 public class ParameterizedTestFixture
 {
-    private string eq1;
-    private string eq2;
-    private string neq;
+    private readonly string _eq1;
+    private readonly string _eq2;
+    private readonly string _neq;
 
     public ParameterizedTestFixture(string eq1, string eq2, string neq)
     {
-        this.eq1 = eq1;
-        this.eq2 = eq2;
-        this.neq = neq;
+        _eq1 = eq1;
+        _eq2 = eq2;
+        _neq = neq;
     }
 
     public ParameterizedTestFixture(string eq1, string eq2)
@@ -198,29 +198,29 @@ public class ParameterizedTestFixture
 
     public ParameterizedTestFixture(int eq1, int eq2, int neq)
     {
-        this.eq1 = eq1.ToString();
-        this.eq2 = eq2.ToString();
-        this.neq = neq.ToString();
+        _eq1 = eq1.ToString();
+        _eq2 = eq2.ToString();
+        _neq = neq.ToString();
     }
 
     [Test]
     public void TestEquality()
     {
-        Assert.AreEqual(eq1, eq2);
-        if (eq1 != null &amp;&amp; eq2 != null)
-            Assert.AreEqual(eq1.GetHashCode(), eq2.GetHashCode());
+        Assert.That(_eq2, Is.EqualTo(_eq1));
+        Assert.That(_eq2.GetHashCode(), Is.EqualTo(_eq1.GetHashCode()));
     }
 
     [Test]
     public void TestInequality()
     {
-        Assert.AreNotEqual(eq1, neq);
-        if (eq1 != null &amp;&amp; neq != null)
-            Assert.AreNotEqual(eq1.GetHashCode(), neq.GetHashCode());
+        Assert.That(_neq, Is.Not.EqualTo(_eq1));
+        if (_neq != null)
+        {
+            Assert.That(_neq.GetHashCode(), Is.Not.EqualTo(_eq1.GetHashCode()));
+        }
     }
 }
-</code></pre>
-<h2 id="generic-test-fixtures">Generic Test Fixtures</h2>
+</code></pre><h2 id="generic-test-fixtures">Generic Test Fixtures</h2>
 <p>You may also use a generic class as a test fixture.
 In order for NUnit to instantiate the fixture, you must either specify the
 types to be used as arguments to <strong>TestFixtureAttribute</strong> or use the
@@ -230,27 +230,26 @@ you provide.</p>
 <h3 id="example-2">Example</h3>
 <p>The following test fixture would be instantiated by NUnit twice,
 once using an <code>ArrayList</code> and once using a <code>List&lt;int&gt;</code>.</p>
-<pre><code class="lang-csharp">[TestFixture(typeof(ArrayList))]
+<pre><code class="lang-csharp" name="GenericTestFixtures">[TestFixture(typeof(ArrayList))]
 [TestFixture(typeof(List&lt;int&gt;))]
-public class IList_Tests&lt;TList&gt; where TList : IList, new()
+public class GenericListTests&lt;TList&gt; where TList : IList, new()
 {
-  private IList list;
+    private IList _list = null!;
 
-  [SetUp]
-  public void CreateList()
-  {
-    this.list = new TList();
-  }
+    [SetUp]
+    public void CreateList()
+    {
+        _list = new TList();
+    }
 
-  [Test]
-  public void CanAddToList()
-  {
-    list.Add(1); list.Add(2); list.Add(3);
-    Assert.AreEqual(3, list.Count);
-  }
+    [Test]
+    public void CanAddToList()
+    {
+        _list.Add(1); _list.Add(2); _list.Add(3);
+        Assert.That(_list, Has.Count.EqualTo(3));
+    }
 }
-</code></pre>
-<h3 id="generic-test-fixtures-with-parameters">Generic Test Fixtures with Parameters</h3>
+</code></pre><h3 id="generic-test-fixtures-with-parameters">Generic Test Fixtures with Parameters</h3>
 <p>If a Generic fixture, uses constructor arguments, there are three
 approaches to telling NUnit which arguments are type parameters
 and which are normal constructor parameters.</p>
@@ -260,24 +259,27 @@ Leading <strong>System.Type</strong> arguments are used as type parameters, whil
 any remaining arguments are used to construct the instance. In the
 following example, this leads to some obvious duplication...</li>
 </ul>
-<pre><code class="lang-csharp">[TestFixture(typeof(double), typeof(int), 100.0, 42)]
-[TestFixture(typeof(int) typeof(double), 42, 100.0)]
+<pre><code class="lang-csharp" name="GenericTestFixtureWithParameters">[TestFixture(typeof(double), typeof(int), 100.0, 42)]
+[TestFixture(typeof(int), typeof(double), 42, 100.0)]
 public class SpecifyBothSetsOfArgs&lt;T1, T2&gt;
 {
-    T1 t1;
-    T2 t2;
+    private readonly T1 _t1;
+    private readonly T2 _t2;
 
     public SpecifyBothSetsOfArgs(T1 t1, T2 t2)
     {
-        this.t1 = t1;
-        this.t2 = t2;
+        _t1 = t1;
+        _t2 = t2;
     }
 
     [TestCase(5, 7)]
     public void TestMyArgTypes(T1 t1, T2 t2)
     {
         Assert.That(t1, Is.TypeOf&lt;T1&gt;());
+        Assert.That(t1, Is.LessThan(_t1));
+
         Assert.That(t2, Is.TypeOf&lt;T2&gt;());
+        Assert.That(t2, Is.LessThan(_t2));
     }
 }
 </code></pre>
@@ -287,24 +289,27 @@ and use the named parameter <strong>TypeArgs=</strong> to specify the type
 arguments. Again, for this example, the type info is duplicated, but
 it is at least more cleanly separated from the normal arguments...</li>
 </ul>
-<pre><code class="lang-csharp">[TestFixture(100.0, 42, TypeArgs=new Type[] { typeof(double), typeof(int) })]
-[TestFixture(42, 100.0, TypeArgs=new Type[] { typeof(int), typeof(double) })]
+<pre><code class="lang-csharp" name="SpecifyTypeArgsSeparately">[TestFixture(100.0, 42, TypeArgs = new[] { typeof(double), typeof(int) })]
+[TestFixture(42, 100.0, TypeArgs = new[] { typeof(int), typeof(double) })]
 public class SpecifyTypeArgsSeparately&lt;T1, T2&gt;
 {
-    T1 t1;
-    T2 t2;
+    private readonly T1 _t1;
+    private readonly T2 _t2;
 
     public SpecifyTypeArgsSeparately(T1 t1, T2 t2)
     {
-        this.t1 = t1;
-        this.t2 = t2;
+        _t1 = t1;
+        _t2 = t2;
     }
 
     [TestCase(5, 7)]
     public void TestMyArgTypes(T1 t1, T2 t2)
     {
         Assert.That(t1, Is.TypeOf&lt;T1&gt;());
+        Assert.That(t1, Is.LessThan(_t1));
+
         Assert.That(t2, Is.TypeOf&lt;T2&gt;());
+        Assert.That(t2, Is.LessThan(_t2));
     }
 }
 </code></pre>
@@ -314,28 +319,30 @@ NUnit may simply be able to deduce them from the arguments provided.
 That's the case here and the following is the preferred way to
 write this example...</li>
 </ul>
-<pre><code class="lang-csharp">[TestFixture(100.0, 42)]
+<pre><code class="lang-csharp" name="DeducedTypesFromArguments">[TestFixture(100.0, 42)]
 [TestFixture(42, 100.0)]
 public class DeduceTypeArgsFromArgs&lt;T1, T2&gt;
 {
-    T1 t1;
-    T2 t2;
+    private readonly T1 _t1;
+    private readonly T2 _t2;
 
     public DeduceTypeArgsFromArgs(T1 t1, T2 t2)
     {
-        this.t1 = t1;
-        this.t2 = t2;
+        _t1 = t1;
+        _t2 = t2;
     }
 
     [TestCase(5, 7)]
     public void TestMyArgTypes(T1 t1, T2 t2)
     {
         Assert.That(t1, Is.TypeOf&lt;T1&gt;());
+        Assert.That(t1, Is.LessThan(_t1));
+
         Assert.That(t2, Is.TypeOf&lt;T2&gt;());
+        Assert.That(t2, Is.LessThan(_t2));
     }
 }
-</code></pre>
-</article>
+</code></pre></article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">
