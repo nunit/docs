@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
 using static Snippets.NUnit.AssertThrows;
+#pragma warning disable NUnit2045
+#pragma warning disable CA1822
 
 namespace Snippets.NUnit;
 
@@ -30,7 +32,7 @@ public class AssertThrowsAsync
     public class UsingReturnValue
     {
         [Test]
-        public async Task TestException()
+        public void TestException()
         {
             MyException ex = Assert.ThrowsAsync<MyException>(async () => await MethodThatThrows());
 

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using NUnit.Framework;
+#pragma warning disable NUnit2046
+#pragma warning disable IDE0044
 #pragma warning disable CA2211
 #pragma warning disable NUnit2005
 
@@ -106,7 +108,8 @@ public class TestCaseSourceExamples
     #endregion
 
     #region SingleArgumentMatchingValueShorthand
-    static int[] _evenNumbers = { 2, 4, 6, 8 };
+
+    private static int[] _evenNumbers = { 2, 4, 6, 8 };
 
     [Test, TestCaseSource(nameof(_evenNumbers))]
     public void TestMethod(int num)
