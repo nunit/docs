@@ -99,15 +99,9 @@
             <article class="content wrap" id="_content" data-uid="teardown-attribute">
 <h1 id="teardown">TearDown</h1>
 
-<p>This attribute is used inside a <a class="xref" href="testfixture.html">TestFixture</a>
-to provide a common set of functions that are performed after each test method.</p>
-<p>TearDown methods may be either static or
-instance methods and you may define more than one of them in a fixture.
-Normally, multiple TearDown methods are only defined at different levels
-of an inheritance hierarchy, as explained below.</p>
-<p>So long as any SetUp method runs without error, the TearDown method is
-guaranteed to run. It will not run if a SetUp method fails or throws an
-exception.</p>
+<p>This attribute is used inside a <a class="xref" href="testfixture.html">TestFixture</a> to provide a common set of functions that are performed after each test method.</p>
+<p>TearDown methods may be either static or instance methods and you may define more than one of them in a fixture. Normally, multiple TearDown methods are only defined at different levels of an inheritance hierarchy, as explained below.</p>
+<p>So long as any SetUp method runs without error, the TearDown method is guaranteed to run. For example, it is not guaranteed to run if a SetUp method fails or throws an exception.</p>
 <h2 id="example">Example</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
