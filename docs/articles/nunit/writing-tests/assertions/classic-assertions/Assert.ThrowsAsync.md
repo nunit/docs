@@ -23,42 +23,12 @@ in question. This will likely be a lambda expression.
 
 The following example shows the most common way of writing tests.
 
-```csharp
-[TestFixture]
-public class AssertThrowsTests
-{
-  [Test]
-  public void Tests()
-  {  
-    // Using a method as a delegate
-    Assert.ThrowsAsync<ArgumentException>(async () => await MethodThatThrows());
-  }
-  
-  async Task MethodThatThrows()
-  {
-    await Task.Delay(100);
-    throw new ArgumentException();
-  }
-}
-```
+[!code-csharp[AssertThrowsAsync](~/snippets/Snippets.NUnit/AssertThrowsAsync.cs#AssertThrowsAsync)]
 
 This example shows use of the return value to perform
 additional verification of the exception. Note that you do not need to await the result.
 
-```csharp
-[TestFixture]
-public class UsingReturnValue
-{
-  [Test]
-  public async Task TestException()
-  {
-    MyException ex = Assert.ThrowsAsync<MyException>(async () => await MethodThatThrows());
-
-    Assert.That(ex.Message, Is.EqualTo("message"));
-    Assert.That(ex.MyParam, Is.EqualTo(42));
-  }
-}
-```
+[!code-csharp[AssertThrowsAsync](~/snippets/Snippets.NUnit/AssertThrowsAsync.cs#UsingReturnValue)]
 
 ## See Also
 
