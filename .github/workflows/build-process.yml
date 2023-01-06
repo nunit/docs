@@ -54,6 +54,24 @@ jobs:
         with:
           name: siteArtifact
           path: _site.zip
+  snippets:
+    name: "Build/Test Snippets"
+    runs-on: ubuntu-latest
+    env:
+      SOLUTION_LOCATION: "./docs/snippets/Snippets.sln"
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 7.x
+      - name: Restore dependencies
+        run: dotnet restore $SOLUTION_LOCATION
+      - name: Build
+        run: dotnet build --no-restore $SOLUTION_LOCATION
+      - name: Test
+        run: dotnet test --no-build --verbosity normal $SOLUTION_LOCATION
   publish:
     name: Publish (master branch only)
     needs: [linting, spellcheck, build]
