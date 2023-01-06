@@ -12,7 +12,7 @@ Multiple asserts are implemented using the `Assert.Multiple` method.
 
 Let's assume we have production code that looks like the following:
 
-[!code-csharp[Main](/snippets/Snippets.NUnit/MultipleAsserts.cs#MultipleAssertsProdCode "Production code that defines a calculator that returns some hard-coded values, for the purposes of our demo.")]
+[!code-csharp[Main](~/snippets/Snippets.NUnit/MultipleAsserts.cs#MultipleAssertsProdCode "Production code that defines a calculator that returns some hard-coded values, for the purposes of our demo.")]
 
 ```csharp
 [Test]
