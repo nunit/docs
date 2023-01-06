@@ -100,50 +100,7 @@ passing in each set of arguments to the appropriate constructor. Note
 that there are three different constructors, matching the data types
 provided as arguments.
 
-```csharp
-[TestFixture("hello", "hello", "goodbye")]
-[TestFixture("zip", "zip")]
-[TestFixture(42, 42, 99)]
-public class ParameterizedTestFixture
-{
-    private string eq1;
-    private string eq2;
-    private string neq;
-
-    public ParameterizedTestFixture(string eq1, string eq2, string neq)
-    {
-        this.eq1 = eq1;
-        this.eq2 = eq2;
-        this.neq = neq;
-    }
-
-    public ParameterizedTestFixture(string eq1, string eq2)
-        : this(eq1, eq2, null) { }
-
-    public ParameterizedTestFixture(int eq1, int eq2, int neq)
-    {
-        this.eq1 = eq1.ToString();
-        this.eq2 = eq2.ToString();
-        this.neq = neq.ToString();
-    }
-
-    [Test]
-    public void TestEquality()
-    {
-        Assert.AreEqual(eq1, eq2);
-        if (eq1 != null && eq2 != null)
-            Assert.AreEqual(eq1.GetHashCode(), eq2.GetHashCode());
-    }
-
-    [Test]
-    public void TestInequality()
-    {
-        Assert.AreNotEqual(eq1, neq);
-        if (eq1 != null && neq != null)
-            Assert.AreNotEqual(eq1.GetHashCode(), neq.GetHashCode());
-    }
-}
-```
+[!code-csharp[MultipleParameterizedTestFixtures](~/snippets/Snippets.NUnit/Attributes/TestFixtureAttributeExamples.cs#MultipleParameterizedTestFixtures)]
 
 ## Generic Test Fixtures
 
@@ -159,27 +116,7 @@ you provide.
 The following test fixture would be instantiated by NUnit twice,
 once using an `ArrayList` and once using a `List<int>`.
 
-```csharp
-[TestFixture(typeof(ArrayList))]
-[TestFixture(typeof(List<int>))]
-public class IList_Tests<TList> where TList : IList, new()
-{
-  private IList list;
-
-  [SetUp]
-  public void CreateList()
-  {
-    this.list = new TList();
-  }
-
-  [Test]
-  public void CanAddToList()
-  {
-    list.Add(1); list.Add(2); list.Add(3);
-    Assert.AreEqual(3, list.Count);
-  }
-}
-```
+[!code-csharp[GenericTestFixtures](~/snippets/Snippets.NUnit/Attributes/TestFixtureAttributeExamples.cs#GenericTestFixtures)]
 
 ### Generic Test Fixtures with Parameters
 
@@ -192,28 +129,7 @@ and which are normal constructor parameters.
    any remaining arguments are used to construct the instance. In the
    following example, this leads to some obvious duplication...
 
-```csharp
-[TestFixture(typeof(double), typeof(int), 100.0, 42)]
-[TestFixture(typeof(int) typeof(double), 42, 100.0)]
-public class SpecifyBothSetsOfArgs<T1, T2>
-{
-    T1 t1;
-    T2 t2;
-
-    public SpecifyBothSetsOfArgs(T1 t1, T2 t2)
-    {
-        this.t1 = t1;
-        this.t2 = t2;
-    }
-
-    [TestCase(5, 7)]
-    public void TestMyArgTypes(T1 t1, T2 t2)
-    {
-        Assert.That(t1, Is.TypeOf<T1>());
-        Assert.That(t2, Is.TypeOf<T2>());
-    }
-}
-```
+[!code-csharp[GenericTestFixtureWithParameters](~/snippets/Snippets.NUnit/Attributes/TestFixtureAttributeExamples.cs#GenericTestFixtureWithParameters)]
 
 * Specify normal parameters as arguments to **TestFixtureAttribute**
    and use the named parameter **TypeArgs=** to specify the type
