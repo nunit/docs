@@ -135,7 +135,7 @@ The VSIX adapter has been deprecated for VS2019. Latest version is 3.17.0. For V
 <p>This is a limitation of Visual Studio, hopefully it will be fixed in a future release.</p>
 <p>Meanwhile, you can run specific tests using the <code>--framework</code> command line option of <a href="https://docs.microsoft.com/en-ca/dotnet/core/tools/dotnet-test?tabs=netcore2x">dotnet test</a></p>
 <h4 id="how-do-i-produce-a-test-results-file">How do I produce a test results file</h4>
-<p><code>dotnet test</code> can generate an NUnit3 test result file by adding a runsettings property. The property to add is <a href="https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#testoutputxml">TestOutputXml</a>. This generation is done using the NUnit Engine report service, and produce the same result as the <a href="https://www.nuget.org/packages/NUnit.Console/">NUnit3-console</a>. This is available through the <a href="https://www.nuget.org/packages/NUnit3TestAdapter">NUnit3TestAdapter</a>.</p>
+<p><code>dotnet test</code> can generate an NUnit3 test result file by adding a runsettings property. The property to add is <a href="/articles/vs-test-adapter/Tips-And-Tricks.html#testoutputxml">TestOutputXml</a>. This generation is done using the NUnit Engine report service, and produce the same result as the <a href="https://www.nuget.org/packages/NUnit.Console/">NUnit3-console</a>. This is available through the <a href="https://www.nuget.org/packages/NUnit3TestAdapter">NUnit3TestAdapter</a>.</p>
 <p>You run it by adding the setting on the command line (or in a runsettings file):</p>
 <pre><code class="lang-console">dotnet test  -- NUnit.TestOutputXml=yourfoldername
 </code></pre>
