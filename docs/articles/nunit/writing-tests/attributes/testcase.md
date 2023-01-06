@@ -23,16 +23,6 @@ further:
 
 [!code-csharp[TestCaseWithExpectedResult](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithExpectedResult)]
 
-```csharp
-[TestCase(12, 3, ExpectedResult=4)]
-[TestCase(12, 2, ExpectedResult=6)]
-[TestCase(12, 4, ExpectedResult=3)]
-public int DivideTest(int n, int d)
-{
-    return n / d;
-}
-```
-
 In the above example, NUnit checks that the return
 value of the method is equal to the expected result provided on the attribute.
 
