@@ -14,19 +14,9 @@ Let's assume we have production code that looks like the following:
 
 [!code-csharp[MultipleAssertsProdCode](~/snippets/Snippets.NUnit/MultipleAsserts.cs#MultipleAssertsProdCode)]
 
-```csharp
-[Test]
-public void ComplexNumberTest()
-{
-    ComplexNumber result = SomeCalculation();
+In that case, we could write a test with multiple assertions, such as:
 
-    Assert.Multiple(() =>
-    {
-        Assert.AreEqual(5.2, result.RealPart, "Real part");
-        Assert.AreEqual(3.9, result.ImaginaryPart, "Imaginary part");
-    });
-}
-```
+[!code-csharp[MultipleAssertsTests](~/snippets/Snippets.NUnit/MultipleAsserts.cs#MultipleAssertsTests)]
 
 Functionally, this results in NUnit storing any failures encountered in the block and reporting all of them together upon exit from the block. If both asserts failed, then both would be reported. The test itself would terminate at the end of the block if any failures were encountered, but would continue otherwise.
 
