@@ -6,30 +6,7 @@ uid: testcasedata
 
 The `TestCaseData` class provides extended test case information for a parameterized test, although any object deriving from `TestCaseParameters` may be used. Unlike NUnit 2, you cannot implement `ITestCaseData`, you must derive from `TestCaseParameters`.
 
-```csharp
-[TestFixture]
-public class MyTests
-{
-    [TestCaseSource(typeof(MyDataClass), nameof(MyDataClass.TestCases))]
-    public int DivideTest(int n, int d)
-    {
-        return n / d;
-    }
-}
-
-public class MyDataClass
-{
-    public static IEnumerable TestCases
-    {
-        get
-        {
-            yield return new TestCaseData(12, 3).Returns(4);
-            yield return new TestCaseData(12, 2).Returns(6);
-            yield return new TestCaseData(12, 4).Returns(3);
-        }
-    }  
-}
-```
+[!code-csharp[TestCaseDataExample](~/snippets/Snippets.NUnit/TestCaseDataExample.cs#TestCaseDataExample)]
 
 This example uses the fluent interface supported by **TestCaseData**
 to make the program more readable.
