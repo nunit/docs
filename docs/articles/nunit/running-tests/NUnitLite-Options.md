@@ -48,7 +48,7 @@ selection options never even see them.
 
 The `--where` option introduces a _where clause_, the most flexible
 but also the most complex way to introduce tests. See the documentation of
-[Test SelectionLanguage](https://docs.nunit.org/articles/nunit/running-tests/Test-Selection-Language.html)
+[Test SelectionLanguage](/articles/nunit/running-tests/Test-Selection-Language.html)
 for details.
 
 The `--test` and `testlist` options allow selecting individual

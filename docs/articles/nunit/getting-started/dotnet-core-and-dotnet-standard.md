@@ -59,7 +59,7 @@ Meanwhile, you can run specific tests using the `--framework` command line optio
 
 #### How do I produce a test results file
 
-`dotnet test` can generate an NUnit3 test result file by adding a runsettings property. The property to add is [TestOutputXml](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#testoutputxml). This generation is done using the NUnit Engine report service, and produce the same result as the [NUnit3-console](https://www.nuget.org/packages/NUnit.Console/). This is available through the [NUnit3TestAdapter](https://www.nuget.org/packages/NUnit3TestAdapter).
+`dotnet test` can generate an NUnit3 test result file by adding a runsettings property. The property to add is [TestOutputXml](/articles/vs-test-adapter/Tips-And-Tricks.html#testoutputxml). This generation is done using the NUnit Engine report service, and produce the same result as the [NUnit3-console](https://www.nuget.org/packages/NUnit.Console/). This is available through the [NUnit3TestAdapter](https://www.nuget.org/packages/NUnit3TestAdapter).
 
 You run it by adding the setting on the command line (or in a runsettings file):
 

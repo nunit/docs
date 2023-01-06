@@ -23,16 +23,16 @@ Thanks to [Jan Inge Dalsbø](https://github.com/janid1967), [Taylor Willis](http
 
 ## NUnit3 Test Adapter for Visual Studio - Version 4.3.0 - Oct 29, 2022
 
-This version is for support of the .net 7 framework. See an overview of [supported frameworks here](https://docs.nunit.org/articles/vs-test-adapter/Supported-Frameworks.html).
+This version is for support of the .net 7 framework. See an overview of [supported frameworks here](/articles/vs-test-adapter/Supported-Frameworks.html).
 
-The support is due to the updated embedded [NUnit.Engine version 3.15.2](https://docs.nunit.org/articles/nunit-engine/release-notes.html#nunit-console--engine-3152---june-30-2022).
+The support is due to the updated embedded [NUnit.Engine version 3.15.2](/articles/nunit-engine/release-notes.html#nunit-console--engine-3152---june-30-2022).
 
 * [987](https://github.com/nunit/nunit3-vs-adapter/issues/987)  System.ArgumentException: Unknown framework version 7.0
 
 Other bugs fixed:
 
 * [990](https://github.com/nunit/nunit3-vs-adapter/issues/990) Missing output with failed test stack traces for Assert.Multiple
-* [997](https://github.com/nunit/nunit3-vs-adapter/issues/997) TRX report file folder inconsistent with XML report folder using .runsettings file. Note that a new runsettings flag has been added for supporting this, see [OutputXmlFolderMode](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#OutputXmlFolderMode).
+* [997](https://github.com/nunit/nunit3-vs-adapter/issues/997) TRX report file folder inconsistent with XML report folder using .runsettings file. Note that a new runsettings flag has been added for supporting this, see [OutputXmlFolderMode](/articles/vs-test-adapter/Tips-And-Tricks.html#OutputXmlFolderMode).
 
 ## NUnit3 Test Adapter for Visual Studio - Version 4.2.1 - Jan 21, 2022
 
@@ -92,7 +92,7 @@ The following additional features have been implemented in the final release.
 
 * [843](https://github.com/nunit/nunit3-vs-adapter/issues/843) Reporting random seed for a test case
 
-* [863](https://github.com/nunit/nunit3-vs-adapter/pull/863) The Test Name is by default added to the console output for tests. It can be turned off by the [UseTestNameInConsoleOutput](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html#usetestnameinconsoleoutput) property.
+* [863](https://github.com/nunit/nunit3-vs-adapter/pull/863) The Test Name is by default added to the console output for tests. It can be turned off by the [UseTestNameInConsoleOutput](/articles/vs-test-adapter/Tips-And-Tricks.html#usetestnameinconsoleoutput) property.
 
 The following additional issue has been resolved:
 
