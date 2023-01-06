@@ -38,7 +38,7 @@ Sometimes we would like to parameterize the source, e.g. if we use the same sour
 
 ### Form 2 - `[TestCaseSource(Type sourceType, string sourceName)]`
 
-[!code-csharp[ClassAsTestCaseSource](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#ClassAsTestCaseSource)]
+[!code-csharp[ClassMethodAsTestCaseSource](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#ClassMethodAsTestCaseSource)]
 
 The first argument of the attribute in this form is a Type representing the class that will provide
 the test cases.
@@ -57,26 +57,7 @@ Similar to Form 1 it is possible to pass parameters to the source, if the source
 
 ### Form 3 - [TestCaseSource(Type sourceType)]
 
-```csharp
-public class MyTestClass
-{
-    [TestCaseSource(typeof(DivideCases))]
-    public void DivideTest(int n, int d, int q)
-    {
-        Assert.AreEqual(q, n / d);
-    }
-}
-
-class DivideCases : IEnumerable
-{
-    public IEnumerator GetEnumerator()
-    {
-        yield return new object[] { 12, 3, 4 };
-        yield return new object[] { 12, 2, 6 };
-        yield return new object[] { 12, 4, 3 };
-    }
-}
-```
+[!code-csharp[ClassWithoutMethodAsTestCaseSource](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#ClassWithoutMethodAsTestCaseSource)]
 
 The Type argument in this form represents the class that provides test cases.
 It must have a default constructor and implement `IEnumerable`. The enumerator
