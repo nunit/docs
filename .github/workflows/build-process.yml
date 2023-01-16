@@ -50,7 +50,7 @@ jobs:
       - name: zip site contents
         run: zip -r _site.zip docs/_site/
       - name: Archive site artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: siteArtifact
           path: _site.zip
