@@ -79,7 +79,7 @@ jobs:
     if: ${{ github.ref == 'refs/heads/master'}}
     steps:
       - name: Download site artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: siteArtifact
       - name: unzip site contents
