@@ -13,9 +13,9 @@
     </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Supported Frameworks | NUnit Docs </title>
+    <title>Compatibility of the Test Adapter with the Test Engine | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Supported Frameworks | NUnit Docs ">
+    <meta name="title" content="Compatibility of the Test Adapter with the Test Engine | NUnit Docs ">
     <meta name="generator" content="docfx ">
   
 
@@ -97,124 +97,76 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="supported-frameworks">Supported Frameworks</h1>
+<h1 id="compatibility-of-the-test-adapter-with-the-test-engine">Compatibility of the Test Adapter with the Test Engine</h1>
 
-<p>The table below shows the supported adapter versions for a given framework version.</p>
-<table>
-<thead>
-<tr>
-<th>Framework version</th>
-<th>Supported by Adapter versions</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Net Core 1.0</td>
-<td>3.8 - 3.15.1</td>
-<td></td>
-</tr>
-<tr>
-<td>Net Core 2.0</td>
-<td>3.8 - 3.15.1</td>
-<td></td>
-</tr>
-<tr>
-<td>Net Core 2.1</td>
-<td>3.8 - 4.3.0</td>
-<td></td>
-</tr>
-<tr>
-<td>Net Core 2.2</td>
-<td>3.8 - 4.3.0</td>
-<td></td>
-</tr>
-<tr>
-<td>Net Core 3.0</td>
-<td>3.8 - 4.3.0</td>
-<td></td>
-</tr>
-<tr>
-<td>Net Core 3.1</td>
-<td>3.8 - up to latest</td>
-<td></td>
-</tr>
-<tr>
-<td>Net Framework 3.5</td>
-<td>All up to 4.3.X</td>
-<td></td>
-</tr>
-<tr>
-<td>Net Framework 4.X-4.6.1</td>
-<td>All up to 4.3.X</td>
-<td></td>
-</tr>
-<tr>
-<td>Net Framework 4.6.2 - 4.8</td>
-<td>3.8 - up to latest</td>
-<td></td>
-</tr>
-<tr>
-<td>Net 5</td>
-<td>Works with 3.15.1 and upwards</td>
-<td>May also work with earlier versions, but not tested</td>
-</tr>
-<tr>
-<td>Net 6</td>
-<td>Works with 4.1 and upwards</td>
-<td>May also work with earlier versions, but not tested</td>
-</tr>
-<tr>
-<td>Net 7</td>
-<td>Works with 4.3 and upwards</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>The adapter is shipped with two different versions of the test framework. The first is the full framework version, which is used for .NET Framework based test projects.  The second is the .NET (Core)  version, which is used for .NET Core 1.0, 2.0, 2.1, 2.2, 3.0, 3.1, 5.0, 6.0 and 7.0.  The different versions of the adapter supports different versions of the test framework.  The table above shows the supported versions.</p>
-<p>The included versions are as shown below, only the versions where changes are done are listed.</p>
+<p>The <strong>NUnit3TestAdapter</strong> has an embedded <strong>NUnit.Engine</strong> package. This means that you don't need to install the engine separately, and you don't need to add a reference to the engine in your test project.</p>
+<p>Actually, you should <strong>never</strong> add an extra reference to the NUnit.Engine when using the adapter in a project, as that may cause the adapter to malfunction.</p>
+<p><a href="https://github.com/charliepoole">@CharliePoole</a> has written a <a href="http://charliepoole.org/technical/nunit-engine-version-conflicts-in-visual-studio.html">blog post</a> about the compatibility of the adapter with the engine, explaining how it works and how you should work with both the console, engine and adapter.</p>
+<p>The table below shows the embedded engine versions for the different adapter versions, extended from Charlie's blog post.</p>
 <table>
 <thead>
 <tr>
 <th>Adapter version</th>
-<th>Test framework version</th>
-<th>Test Net (core) version</th>
-<th>Comment</th>
+<th>Embedded engine version</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>3.8</td>
-<td>3.5</td>
-<td>1.0</td>
-<td>Some versions included 2.0 too</td>
-</tr>
-<tr>
-<td>3.16.0</td>
-<td>3.5</td>
-<td>2.1</td>
-<td></td>
-</tr>
-<tr>
 <td>4.3.1</td>
-<td>3.5</td>
-<td>3.1</td>
-<td></td>
+<td>3.15.2</td>
 </tr>
 <tr>
-<td>4.4.0</td>
-<td>4.6.2</td>
-<td>3.1</td>
-<td>To be released</td>
+<td>4.2.1</td>
+<td>3.13.2</td>
+</tr>
+<tr>
+<td>4.2</td>
+<td>3.13</td>
+</tr>
+<tr>
+<td>4.0-4.1</td>
+<td>3.12</td>
+</tr>
+<tr>
+<td>3.17</td>
+<td>3.11.1</td>
+</tr>
+<tr>
+<td>3.14-3.16.1</td>
+<td>3.10</td>
+</tr>
+<tr>
+<td>3.8-3.13</td>
+<td>3.10</td>
+</tr>
+<tr>
+<td>3.7</td>
+<td>3.6</td>
+</tr>
+<tr>
+<td>3.5-3.6.1</td>
+<td>3.5</td>
+</tr>
+<tr>
+<td>3.4</td>
+<td>3.4.1</td>
+</tr>
+<tr>
+<td>3.2</td>
+<td>3.2.1</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>3.0.1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="traps">Traps</h2>
-<ul>
-<li>Microsoft.NET.Test.Sdk 17.4.0 is not compatible with .NET Framework lower than 4.6.2</li>
-</ul>
-<h2 id="tips">Tips</h2>
-<p>See <a href="Adapter-Engine-Compatibility.html">Adapter/Engine compatibility</a> for information on which engine versions are being used with the adapter.</p>
+<h2 id="using-the-console">Using the console</h2>
+<p>If, for some unknown reason, you really badly want to use the NUnit.Console, and you really want to add it as a package reference instead of just installing it globally, you should use the exact same version as listed for the engine in the table above.</p>
+<p>Note that most of what the console can do, can be done using the <code>dotnet test</code> command with the appropriate runsettings added, see <a href="https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html">Tips&amp;Tricks</a>.</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>If you try to add another engine version package, it may seem that the adapter and test are still working.  That is just by luck, and it does so because the interfaces between the version you have added are the same as the embedded version.  But if you try to use a feature that is not in the embedded version, it will fail.</p>
+<p>Most likely you will see messages about &quot;no tests found&quot;, or it may simply crash during test.</p>
 </article>
           </div>
 
@@ -223,7 +175,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/vs-test-adapter/Supported-Frameworks.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/vs-test-adapter/Adapter-Engine-Compatibility.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
