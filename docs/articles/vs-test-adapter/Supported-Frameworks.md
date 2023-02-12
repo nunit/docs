@@ -31,3 +31,7 @@ The included versions are as shown below, only the versions where changes are do
 ## Traps
 
 * Microsoft.NET.Test.Sdk 17.4.0 is not compatible with .NET Framework lower than 4.6.2
+
+## Tips
+
+See [Adapter/Engine compatibility](Adapter-Engine-Compatibility.md) for information on which engine versions are being used with the adapter.
