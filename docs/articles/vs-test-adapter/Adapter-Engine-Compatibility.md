@@ -29,7 +29,7 @@ If, for some unknown reason, you really badly want to use the NUnit.Console, and
 
 Note that most of what the console can do, can be done using the `dotnet test` command with the appropriate runsettings added, see [Tips&Tricks](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html).
 
-## Disclaimer
+## Warning
 
 If you try to add another engine version package, it may seem that the adapter and test are still working.  That is just by luck, and it does so because the interfaces between the version you have added are the same as the embedded version.  But if you try to use a feature that is not in the embedded version, it will fail.
 
