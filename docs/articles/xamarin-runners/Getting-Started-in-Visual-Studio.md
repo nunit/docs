@@ -2,7 +2,7 @@
 
 The easiest way to get started is to install the [NUnit Templates extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=NUnitDevelopers.NUnitTemplatesforVisualStudio). It will add project templates for the various Xamarin platforms.
 
-For more general information, see [Testing Xamarin Projects using NUnit 3](https://www.alteridem.net/2015/12/21/testing-xamarin-projects-using-nunit-3/).
+For more general information, see [Testing Xamarin Projects using NUnit 3](https://alteridem.net/2015/12/21/testing-xamarin-projects-using-nunit-3/).
 
 ## Getting started
 
