@@ -2,7 +2,7 @@
 
 The `NUnit3TestAdapter` has an embedded `NUnit.Engine` package. This means that you don't need to install the engine separately, and you don't need to add a reference to the engine in your test project.
 
-You should **never** add an extra reference to the NUnit.Engine when using the adapter in a project, as that may cause the adapter to malfunction.
+You should **never** add an extra reference to the `NUnit.Engine` when using the adapter in a project, as that may cause the adapter to malfunction.
 
 [@CharliePoole](https://github.com/charliepoole) has written a [blog post](http://charliepoole.org/technical/nunit-engine-version-conflicts-in-visual-studio.html) about the compatibility of the adapter with the engine, explaining how it works and how you should work with both the console, engine and adapter.
 
