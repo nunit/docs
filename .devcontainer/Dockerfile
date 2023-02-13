@@ -21,3 +21,4 @@ RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias spellchec
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias lint="markdownlint -c /workspaces/$first_workspace/.github/linters/.markdown-lint.yml /workspaces/$first_workspace/docs/**/*.md"' >> ~/.bashrc
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias build="docfx /workspaces/$first_workspace/docs/docfx.json"' >> ~/.bashrc
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias serve="docfx /workspaces/$first_workspace/docs/docfx.json --serve"' >> ~/.bashrc
+RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias snippets="dotnet test /workspaces/$first_workspace/docs/snippets/Snippets.sln"' >> ~/.bashrc

@@ -16,9 +16,9 @@ The docs site is a project within the NUnit organization. [Read the vision at VI
 * Run `docfx build`
 * Run `docfx serve` and navigate to <http://localhost:8080/_site>
 
-## How to Build These Docs Within GitHub Codespaces
+## How to Build These Docs Within GitHub Codespaces or a Dev Container
 
-Fancy using GitHub Codespaces for your work on these docs? You can!
+Fancy using GitHub Codespaces for your work on these docs? Or want to work in the environment locally? You can!
 
 * Open the branch you want to work on in GitHub Codespaces
 * The tooling, VS code extensions, etc. that we use will immediately be available to you.
@@ -26,6 +26,7 @@ Fancy using GitHub Codespaces for your work on these docs? You can!
 * To serve / preview from the Codespaces terminal: `serve` (we've taken care of the rest for you)
 * To run markdown linting from the Codespaces terminal: `lint` (we've taken care of the rest for you)
 * To run spellcheck from the Codespaces terminal: `spellcheck` (we've taken care of the rest for you)
+* To build/test the snippets from the Codespaces terminal: `snippets` (we've taken care of the rest for you)
 
 We'll be working on follow-ups to make this more user-friendly, but it's now workable.
 
