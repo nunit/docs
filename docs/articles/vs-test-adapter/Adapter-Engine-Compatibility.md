@@ -8,20 +8,20 @@ You should **never** add an extra reference to the NUnit.Engine when using the a
 
 The table below shows the embedded engine versions for the different adapter versions, extended from Charlie's blog post.
 
-|Adapter version|Embedded engine version|
-|---|---|
-|4.3.1|3.15.2|
-|4.2.1|3.13.2|
-|4.2|3.13|
-|4.0-4.1|3.12|
-|3.17|3.11.1|
-|3.14-3.16.1|3.10|
-|3.8-3.13|3.10|
-|3.7|3.6|
-|3.5-3.6.1|3.5|
-|3.4|3.4.1|
-|3.2|3.2.1|
-|3.0|3.0.1|
+| Adapter version | Embedded engine version |
+| --------------- | ----------------------- |
+| 4.3.1           | 3.15.2                  |
+| 4.2.1           | 3.13.2                  |
+| 4.2             | 3.13                    |
+| 4.0-4.1         | 3.12                    |
+| 3.17            | 3.11.1                  |
+| 3.14-3.16.1     | 3.10                    |
+| 3.8-3.13        | 3.10                    |
+| 3.7             | 3.6                     |
+| 3.5-3.6.1       | 3.5                     |
+| 3.4             | 3.4.1                   |
+| 3.2             | 3.2.1                   |
+| 3.0             | 3.0.1                   |
 
 ## Using the console
 
