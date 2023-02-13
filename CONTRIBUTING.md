@@ -59,7 +59,7 @@ You can open the repository in GitHub Codespaces. This will open an instance of 
 
 * Syntax highlighting for spelling and markdown issues
 * Auto-formatting on save according to our standards
-* Simple command aliases in the terminal: `spellcheck`, `lint`, `build`, and `serve` will cover most folks' workflow.
+* Simple command aliases in the terminal: `spellcheck`, `lint`, `build`, `serve`, and `snippets` will cover most folks' workflow.
 
 ### Option 3a: A Container Within VS Code
 
