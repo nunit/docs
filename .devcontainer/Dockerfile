@@ -9,6 +9,7 @@ RUN npm install -g yarn
 RUN npm install -g npm
 RUN npm install -g cspell
 RUN npm install -g markdownlint-cli
+RUN npm install -g link-checker
 
 RUN node -v
 RUN npm -v
