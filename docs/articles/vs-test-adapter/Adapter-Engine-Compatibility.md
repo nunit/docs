@@ -1,8 +1,8 @@
 # Compatibility of the Test Adapter with the Test Engine
 
-The **NUnit3TestAdapter** has an embedded **NUnit.Engine** package. This means that you don't need to install the engine separately, and you don't need to add a reference to the engine in your test project.
+The `NUnit3TestAdapter` has an embedded `NUnit.Engine` package. This means that you don't need to install the engine separately, and you don't need to add a reference to the engine in your test project.
 
-Actually, you should **never** add an extra reference to the NUnit.Engine when using the adapter in a project, as that may cause the adapter to malfunction.
+You should **never** add an extra reference to the NUnit.Engine when using the adapter in a project, as that may cause the adapter to malfunction.
 
 [@CharliePoole](https://github.com/charliepoole) has written a [blog post](http://charliepoole.org/technical/nunit-engine-version-conflicts-in-visual-studio.html) about the compatibility of the adapter with the engine, explaining how it works and how you should work with both the console, engine and adapter.
 
@@ -29,7 +29,7 @@ If, for some unknown reason, you really badly want to use the NUnit.Console, and
 
 Note that most of what the console can do, can be done using the `dotnet test` command with the appropriate runsettings added, see [Tips&Tricks](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html).
 
-## Warning
+## :warning: Warning
 
 If you try to add another engine version package, it may seem that the adapter and test are still working.  That is just by luck, and it does so because the interfaces between the version you have added are the same as the embedded version.  But if you try to use a feature that is not in the embedded version, it will fail.
 
