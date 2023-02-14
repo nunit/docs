@@ -37,7 +37,7 @@ See [here for all details](/articles/vs-test-adapter/Tips-And-Tricks.html) on th
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.2 - June 8, 2020
 
-This is the 2nd beta for 3.17, published on [Nuget](https://nuget.org).
+This is the 2nd beta for 3.17, published on [Nuget](https://www.nuget.org/).
 
 ### Features and Enhancements
 
@@ -59,7 +59,7 @@ This is the 2nd beta for 3.17, published on [Nuget](https://nuget.org).
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.1 - April 19, 2020
 
-This is the first beta release published on [Nuget](https://nuget.org).
+This is the first beta release published on [Nuget](https://www.nuget.org/).
 
 It contains new features and some bugfixes.
 

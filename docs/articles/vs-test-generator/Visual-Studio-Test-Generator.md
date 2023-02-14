@@ -23,7 +23,7 @@ or from the [GitHub Releases Page](https://github.com/nunit/nunit-vs-testgenerat
 ### How to Use
 
 For more information on using IntelliTest and this extension, please
-see the [Microsoft documentation](https://msdn.microsoft.com/en-us/library/dn823749.aspx).
+see the [Microsoft documentation](https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/test/generate-unit-tests-for-your-code-with-intellitest?view=vs-2015&redirectedfrom=MSDN).
 
 #### Right-Click to Create Tests
 
