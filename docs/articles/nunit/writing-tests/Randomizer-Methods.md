@@ -208,4 +208,4 @@ Returns a random string of the specified length using the characters in the stri
 
 ### `NextGuid()` (available in version 3.8)
 
-Generates a version 4 Guid conforming the [RFC 4122](https://tools.ietf.org/html/rfc4122#section-4.4). Version 4 Guids are made of random data.
+Generates a version 4 Guid conforming the [RFC 4122](https://www.rfc-editor.org/rfc/rfc4122#section-4.4). Version 4 Guids are made of random data.
