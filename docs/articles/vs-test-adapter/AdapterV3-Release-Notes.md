@@ -188,7 +188,7 @@ This release focuses on producing NUnit test result XML which can be useful when
 
 The VSIX is also made compatible with the upcoming VS 2019. Please note support for the VSIX is being deprecated in Visual Studio, and we strongly recommend you to change your test projects to use the [NuGet adapter version](https://www.nuget.org/packages/NUnit3TestAdapter/).
 
-The [NUnit internal properties](https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs) have been "over-populating" in the Test Explorer.  These are now filtered out, although you may still see these when you have [Source Based Discovery (SBD)](https://docs.microsoft.com/en-us/visualstudio/test/test-explorer-faq?view=vs-2017) turned on (which is the default in VS).  Once you have run, they will be gone. We expect this part of the issue (SBD) to be fixed in VS.
+The [NUnit internal properties](https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs) have been "over-populating" in the Test Explorer.  These are now filtered out, although you may still see these when you have [Source Based Discovery (SBD)](https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2017/test/test-explorer-faq?view=vs-2017) turned on (which is the default in VS).  Once you have run, they will be gone. We expect this part of the issue (SBD) to be fixed in VS.
 
 If you still want to see the properties, you can enable that again setting a runsettings property `ShowInternalProperties` to true.
 
@@ -252,7 +252,7 @@ This is a hotfix release to fix the duplicated traits issue.
 
 ### Features
 
-* [PR 500](https://github.com/nunit/nunit3-vs-adapter/pull/500) NUnit3VsAdapter to support managed sources only based on [RFC](https://github.com/Microsoft/vstest-docs/blob/master/RFCs/0020-Improving-Logic-To-Pass-Sources-To-Adapters.md)  (Thanks to [mayankbansal018](https://github.com/mayankbansal018) for this PR)
+* [PR 500](https://github.com/nunit/nunit3-vs-adapter/pull/500) NUnit3VsAdapter to support managed sources only based on [RFC](https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0020-Improving-Logic-To-Pass-Sources-To-Adapters.md)  (Thanks to [mayankbansal018](https://github.com/mayankbansal018) for this PR)
 
 * [543](https://github.com/nunit/nunit3-vs-adapter/issues/543) Adapter should pass `Error` and `Progress` messages to vstest engine as well as stdOut messages (Thanks to [NikolayPianikov](https://github.com/NikolayPianikov) for [PR 544](https://github.com/nunit/nunit3-vs-adapter/pull/544)). Also fixes this [TeamCity issue](https://youtrack.jetbrains.com/issue/TW-55900)  
 
