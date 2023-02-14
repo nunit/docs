@@ -716,7 +716,7 @@ This release of the framework no longer includes builds for Compact Framework or
 ## Earlier Releases
 
 * Release Notes for [NUnit 2.9.1 through 3.5](xref:pre35releasenotes)
-* Release Notes for [NUnit 2.6 through 2.6.4](https://www.nunit.org/?p=releaseNotes&r=2.6.4)
-* Release Notes for [NUnit 2.5 through 2.5.10](https://www.nunit.org/?p=releaseNotes&r=2.5.10)
-* Release Notes for [NUnit 2.4 through 2.4.8](https://www.nunit.org/?p=releaseNotes&r=2.4.8)
-* Release Notes for [NUnit 2.0 through 2.2.10](https://www.nunit.org/?p=releaseNotes&r=2.2.10)
+* Release Notes for [NUnit 2.6 through 2.6.4](https://nunit.org/?p=releaseNotes&r=2.6.4)
+* Release Notes for [NUnit 2.5 through 2.5.10](https://nunit.org/?p=releaseNotes&r=2.5.10)
+* Release Notes for [NUnit 2.4 through 2.4.8](https://nunit.org/?p=releaseNotes&r=2.4.8)
+* Release Notes for [NUnit 2.0 through 2.2.10](https://nunit.org/?p=releaseNotes&r=2.2.10)
