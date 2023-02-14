@@ -25,7 +25,7 @@ Any tests using the new style CSPROJ format, either .NET Core or .NET 4.x, need 
 > dotnet test .\test\NetCore10Tests\NetCore10Tests.csproj
 ```
 
-For a more complete walk-through, please see [Testing .NET Core with NUnit in Visual Studio 2017](https://www.alteridem.net/2017/05/04/test-net-core-nunit-vs2017/)
+For a more complete walk-through, please see [Testing .NET Core with NUnit in Visual Studio 2017](https://alteridem.net/2017/05/04/test-net-core-nunit-vs2017/)
 
 ## Using the NUnit project templates
 

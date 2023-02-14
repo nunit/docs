@@ -5,7 +5,7 @@ uid: apartment-attribute
 # Apartment
 
 The `ApartmentAttribute` is used on a test method, class or assembly
-to specify that the tests should be run in a particular [apartment](https://docs.microsoft.com/en-us/windows/desktop/com/processes--threads--and-apartments), either
+to specify that the tests should be run in a particular [apartment](https://learn.microsoft.com/en-us/windows/win32/com/processes--threads--and-apartments), either
 the STA or the MTA.
 
 When running tests in parallel, the test is simply scheduled to execute

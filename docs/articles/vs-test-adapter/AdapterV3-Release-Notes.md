@@ -338,7 +338,7 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Features
 
-* The adapter now support running .net core projects. See [this post](https://www.alteridem.net/2017/05/04/test-net-core-nunit-vs2017/) for details.  Note: Only supported by the nuget adapter, not the vsix.
+* The adapter now support running .net core projects. See [this post](https://alteridem.net/2017/05/04/test-net-core-nunit-vs2017/) for details.  Note: Only supported by the nuget adapter, not the vsix.
 * The adapter now uses version 3.7 of the engine to run tests ([360](https://github.com/nunit/nunit3-vs-adapter/issues/360))
 * Attachments can be added to tests ([358](https://github.com/nunit/nunit3-vs-adapter/issues/358))
 * Prepared for new  upcoming Test Explorer functionality, as documented in this [RFC](https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0010-Source-Information-For-Discovered-Tests.md)  ([351](https://github.com/nunit/nunit3-vs-adapter/issues/351))

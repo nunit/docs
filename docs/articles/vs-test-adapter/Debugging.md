@@ -21,8 +21,8 @@ dotnet test -- NUnit.DebugExecution=true
 
 If you want to do this using Visual Studio, you must add a runsettings file, and add these settings there to the NUnit section.
 
-A detailed explanation of the process can be found in [this blog post](http://hermit.no/debugging-the-nunit3testadapter-take-2/)
+A detailed explanation of the process can be found in [this blog post](https://hermit.no/debugging-the-nunit3testadapter-take-2/)
 
 ## Debugging earlier versions
 
-See [this blog post](http://hermit.no/debugging-the-nunit3testadapter/) for details on that process.
+See [this blog post](https://hermit.no/debugging-the-nunit3testadapter/) for details on that process.
