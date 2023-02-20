@@ -197,7 +197,13 @@ When set to 1 or 2 (2 is default), will send Console standard output to the Visu
 
 Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.
 
-There seems to have been a change in `dotnet test` that causes `ConsoleOut=1` to no longer fully work; `ConsoleOut=2` reintroduces that, and is the new default value.
+The value 1 sends it out as Information, while 2 sends it out as Warning.  
+
+Using `dotnet test` with  `ConsoleOut=1` (Information)  (`dotnet test -- NUnit.ConsoleOut=1 `), nothing will appear in the output.  
+
+Setting  `ConsoleOut=2` (Warning) the message will be shown. 
+
+Adding the logger `dotnet test -l "console;verbosity=detailed" -- NUnit.Consoleout=1` the message will be shown.
 
 See [Issue 343](https://github.com/nunit/nunit3-vs-adapter/issues/343) for more information and discussion
 
