@@ -401,7 +401,10 @@ You can find the files under your current output folder, in a sub-folder named D
 <h4 id="consoleout">ConsoleOut</h4>
 <p>When set to 1 or 2 (2 is default), will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear in the output.</p>
 <p>Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.</p>
-<p>There seems to have been a change in <code>dotnet test</code> that causes <code>ConsoleOut=1</code> to no longer fully work; <code>ConsoleOut=2</code> reintroduces that, and is the new default value.</p>
+<p>The value 1 sends it out as Information, while 2 sends it out as Warning.</p>
+<p>Using <code>dotnet test</code> with  <code>ConsoleOut=1</code> (Information)  (<code>dotnet test -- NUnit.ConsoleOut=1 </code>), nothing will appear in the output.</p>
+<p>Setting  <code>ConsoleOut=2</code> (Warning) the message will be shown.</p>
+<p>Adding the logger <code>dotnet test -l &quot;console;verbosity=detailed&quot; -- NUnit.Consoleout=1</code> the message will be shown.</p>
 <p>See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/343">Issue 343</a> for more information and discussion</p>
 <p>In earlier versions you had to use <code>-v n</code>, but that is no longer required.  In order to silence it in <code>dotnet test</code> you have to do:</p>
 <pre><code class="lang-console">dotnet test -- NUnit.ConsoleOut=0
