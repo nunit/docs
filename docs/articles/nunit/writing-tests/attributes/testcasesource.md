@@ -77,7 +77,7 @@ TestCaseSourceAttribute supports one named parameter:
 In constructing tests, NUnit uses each item returned by
 the enumerator as follows:
 
-* If it is an object derived from the `TestCaseDataParameters` class,
+* If it is an object derived from the `TestCaseParameters` class,
    its properties are used to provide the test case. NUnit provides
    the [TestCaseData](xref:testcasedata) type for this purpose.
 * If the test has a single argument and the returned value matches the type of
