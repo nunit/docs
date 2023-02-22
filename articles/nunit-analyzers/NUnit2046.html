@@ -13,9 +13,9 @@
     </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>NUnit1021 | NUnit Docs </title>
+    <title>NUnit2046 | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="NUnit1021 | NUnit Docs ">
+    <meta name="title" content="NUnit2046 | NUnit Docs ">
     <meta name="generator" content="docfx ">
   
 
@@ -97,9 +97,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="nunit1021">NUnit1021</h1>
+<h1 id="nunit2046">NUnit2046</h1>
 
-<h2 id="the-valuesource-should-use-nameof-operator-to-specify-target">The ValueSource should use nameof operator to specify target</h2>
+<h2 id="use-collectionconstraint-for-better-assertion-messages-in-case-of-failure">Use CollectionConstraint for better assertion messages in case of failure</h2>
 <table>
 <thead>
 <tr>
@@ -110,11 +110,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Id</td>
-<td style="text-align: left;">NUnit1021</td>
+<td style="text-align: left;">NUnit2046</td>
 </tr>
 <tr>
 <td style="text-align: left;">Severity</td>
-<td style="text-align: left;">Warning</td>
+<td style="text-align: left;">Info</td>
 </tr>
 <tr>
 <td style="text-align: left;">Enabled</td>
@@ -122,67 +122,58 @@
 </tr>
 <tr>
 <td style="text-align: left;">Category</td>
-<td style="text-align: left;">Structure</td>
+<td style="text-align: left;">Assertion</td>
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs">ValueSourceUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/UseCollectionConstraint/UseCollectionConstraintAnalyzer.cs">UseCollectionConstraintAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>The ValueSource should use nameof operator to specify target.</p>
+<p>Use Has.Length/Has.Count/Is.Empty instead of testing property directly.</p>
 <h2 id="motivation">Motivation</h2>
-<p>Prevent test rot by ensuring that future renames don't accidentally break tests in an unexpected way. <code>nameof</code> adds some compile-time support in these situations.</p>
+<p>Consider the difference in error message between the following pairs of Asserts:</p>
+<pre><code class="lang-csharp">int[] array = { 1, 2 };
+Assert.That(array.Length, Is.EqualTo(1));
+Assert.That(array, Has.Length.EqualTo(1));
+</code></pre>
+<p>The first gives: <code>Expected: 1, But was: 2</code>, the second: <code>Expected: property Length equal to 1, But was: 2</code>
+making it clear we talking about number of elements, not just a number.</p>
+<p>The next example:</p>
+<pre><code class="lang-csharp">int[] array = { 1, 2 };
+Assert.That(array.Length, Is.EqualTo(0));
+Assert.That(array, Is.Empty);
+</code></pre>
+<p>This results in <code>Expected: 0, But was: 2</code> in the first case and <code>Expected: &lt;empty&gt;, But was: &lt; 1, 2 &gt;</code> in the second.</p>
+<pre><code class="lang-csharp">int[] array = Array.Empty&lt;int&gt;();
+Assert.That(array.Length, Is.GreaterThanOrEqualTo(1));
+Assert.That(array, Is.Not.Empty);
+</code></pre>
+<p>This would change: <code>Expected: greater than or equal to 1, But was: 0</code> into <code>Expected: not &lt;empty&gt;, But was: &lt;empty&gt;</code></p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
-<h3 id="example-violation">Example Violation</h3>
-<pre><code class="lang-csharp">[Test]
-public void SampleTest([ValueSource(&quot;MyTestSource&quot;)] string stringValue)
-{
-    Assert.That(stringValue.Length, Is.EqualTo(3));
-}
-
-public static object[] MyTestSource()
-{
-    return new object[] {&quot;One&quot;, &quot;Two&quot;};
-}
-</code></pre>
-<h3 id="problem">Problem</h3>
-<p>In this case, we're referring to <code>&quot;MyTestSource&quot;</code> as a string directly. This is brittle; should the name of the property change, the test case source would become invalid, and we would not know this until executing tests.</p>
-<h3 id="fix">Fix</h3>
-<p>The fix is to use the C# <code>nameof</code> operator, which produces a string but references the field name. This way, when refactoring and changing the name of your test source, it would also update the name within the <code>nameof()</code> operator.</p>
-<p>The fix in action:</p>
-<pre><code class="lang-csharp">[Test]
-public void SampleTest([ValueSource(nameof(MyTestSource))] string stringValue)
-{
-    Assert.That(stringValue.Length, Is.EqualTo(3));
-}
-
-public static object[] MyTestSource()
-{
-    return new object[] {&quot;One&quot;, &quot;Two&quot;};
-}
-</code></pre>
+<p>Replace test on explicit <code>.Length</code> or <code>.Count</code> properties with <code>Has.Length</code> and <code>Has.Count</code> respectively.
+If testing against the value 0 use <code>Is.Empty</code> or <code>Is.Not.Empty</code> instead.</p>
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit1021: The ValueSource should use nameof operator to specify target
-dotnet_diagnostic.NUnit1021.severity = chosenSeverity
+<pre><code class="lang-ini"># NUnit2046: Use CollectionConstraint for better assertion messages in case of failure
+dotnet_diagnostic.NUnit2046.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1021 // The ValueSource should use nameof operator to specify target
+<pre><code class="lang-csharp">#pragma warning disable NUnit2046 // Use CollectionConstraint for better assertion messages in case of failure
 Code violating the rule here
-#pragma warning restore NUnit1021 // The ValueSource should use nameof operator to specify target
+#pragma warning restore NUnit2046 // Use CollectionConstraint for better assertion messages in case of failure
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1021 // The ValueSource should use nameof operator to specify target
+<pre><code class="lang-csharp">#pragma warning disable NUnit2046 // Use CollectionConstraint for better assertion messages in case of failure
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
-<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Structure&quot;,
-    &quot;NUnit1021:The ValueSource should use nameof operator to specify target&quot;,
+<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
+    &quot;NUnit2046:Use CollectionConstraint for better assertion messages in case of failure&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->
@@ -194,7 +185,7 @@ Code violating the rule here
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit1021.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit2046.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -321,6 +321,20 @@
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1029.html">NUnit1029</a></td>
+<td style="text-align: left;">The number of parameters provided by the TestCaseSource does not match the number of parameters in the Test method</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❗</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit1030.html">NUnit1030</a></td>
+<td style="text-align: left;">The type of parameter provided by the TestCaseSource does not match the type of the parameter in the Test method</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❗</td>
+<td style="text-align: center;">❌</td>
+</tr>
 </tbody>
 </table>
 <h2 id="assertion-rules-nunit2001---">Assertion Rules (NUnit2001 - )</h2>
@@ -626,6 +640,63 @@
 <tr>
 <td style="text-align: left;"><a href="NUnit2042.html">NUnit2042</a></td>
 <td style="text-align: left;">Comparison constraint on object</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">ℹ️</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2043.html">NUnit2043</a></td>
+<td style="text-align: left;">Use ComparisonConstraint for better assertion messages in case of failure</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">ℹ️</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2044.html">NUnit2044</a></td>
+<td style="text-align: left;">Non-delegate actual parameter</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❗</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2045.html">NUnit2045</a></td>
+<td style="text-align: left;">Use Assert.Multiple</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">ℹ️</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2046.html">NUnit2046</a></td>
+<td style="text-align: left;">Use CollectionConstraint for better assertion messages in case of failure</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">ℹ️</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="suppressor-rules-nunit3001---">Suppressor Rules (NUnit3001 - )</h2>
+<p>Rules which suppress compiler errors based on context. Note that these rules are only available in the .NET Standard 2.0 builds (version 3.0.0 and above) which require Visual Studio 2019.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Id</th>
+<th style="text-align: left;">Title</th>
+<th style="text-align: center;">🔍</th>
+<th style="text-align: center;">📝</th>
+<th style="text-align: center;">💡</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="NUnit3001.html">NUnit3001</a></td>
+<td style="text-align: left;">Expression was checked in an Assert.NotNull, Assert.IsNotNull or Assert.That call</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">ℹ️</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit3002.html">NUnit3002</a></td>
+<td style="text-align: left;">Field/Property is initialized in SetUp or OneTimeSetUp method</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">❌</td>

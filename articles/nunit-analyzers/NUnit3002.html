@@ -13,9 +13,9 @@
     </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>NUnit1021 | NUnit Docs </title>
+    <title>NUnit3002 | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="NUnit1021 | NUnit Docs ">
+    <meta name="title" content="NUnit3002 | NUnit Docs ">
     <meta name="generator" content="docfx ">
   
 
@@ -97,9 +97,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="nunit1021">NUnit1021</h1>
+<h1 id="nunit3002">NUnit3002</h1>
 
-<h2 id="the-valuesource-should-use-nameof-operator-to-specify-target">The ValueSource should use nameof operator to specify target</h2>
+<h2 id="fieldproperty-is-initialized-in-setup-or-onetimesetup-method">Field/Property is initialized in SetUp or OneTimeSetUp method</h2>
 <table>
 <thead>
 <tr>
@@ -110,11 +110,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Id</td>
-<td style="text-align: left;">NUnit1021</td>
+<td style="text-align: left;">NUnit3002</td>
 </tr>
 <tr>
 <td style="text-align: left;">Severity</td>
-<td style="text-align: left;">Warning</td>
+<td style="text-align: left;">Info</td>
 </tr>
 <tr>
 <td style="text-align: left;">Enabled</td>
@@ -122,68 +122,69 @@
 </tr>
 <tr>
 <td style="text-align: left;">Category</td>
-<td style="text-align: left;">Structure</td>
+<td style="text-align: left;">Suppressor</td>
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs">ValueSourceUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/DiagnosticSuppressors/NonNullableFieldOrPropertyIsUninitializedSuppressor.cs">NonNullableFieldOrPropertyIsUninitializedSuppressor</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>The ValueSource should use nameof operator to specify target.</p>
+<p>This rule check diagnostics reported by the CS8618 compiler error:</p>
+<p><code>CS8618: Non-nullable field '_name_' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.</code>
+<code>CS8618: Non-nullable property '_Name_' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.</code></p>
+<p>If the violating field/property is set in the <code>SetUp</code> or <code>OneTimeSetUp</code> method. The rule suppresses the error.
+This allows for non-nullable fields/properties to be used in a <code>TestFixture</code>.</p>
+<p>The rule does detect indirect calls, when the field is set in a method called by the <code>SetUp</code> or <code>OneTimeSetUp</code> methods.</p>
 <h2 id="motivation">Motivation</h2>
-<p>Prevent test rot by ensuring that future renames don't accidentally break tests in an unexpected way. <code>nameof</code> adds some compile-time support in these situations.</p>
+<pre><code class="lang-csharp">[TestFixture]
+internal sealed class SomeClassFixture
+{
+    private SomeClass instance;
+
+    [SetUp]
+    public void Setup()
+    {
+        instance = new SomeClass();
+    }
+
+    [Test]
+    public void Test()
+    {
+        Assert.That(instance.MethodUnderTest(), Is.True)
+    }
+}
+</code></pre>
+<p>In the above fixture the compiler would give a warning because <code>instance</code> is not set in the constructor.
+The suggestion to mark <code>instance</code> as nullable would mean that we have to test for null in all <code>Test</code> methods
+or use the null suppression operator (<code>!</code>) everywhere.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
-<h3 id="example-violation">Example Violation</h3>
-<pre><code class="lang-csharp">[Test]
-public void SampleTest([ValueSource(&quot;MyTestSource&quot;)] string stringValue)
-{
-    Assert.That(stringValue.Length, Is.EqualTo(3));
-}
-
-public static object[] MyTestSource()
-{
-    return new object[] {&quot;One&quot;, &quot;Two&quot;};
-}
-</code></pre>
-<h3 id="problem">Problem</h3>
-<p>In this case, we're referring to <code>&quot;MyTestSource&quot;</code> as a string directly. This is brittle; should the name of the property change, the test case source would become invalid, and we would not know this until executing tests.</p>
-<h3 id="fix">Fix</h3>
-<p>The fix is to use the C# <code>nameof</code> operator, which produces a string but references the field name. This way, when refactoring and changing the name of your test source, it would also update the name within the <code>nameof()</code> operator.</p>
-<p>The fix in action:</p>
-<pre><code class="lang-csharp">[Test]
-public void SampleTest([ValueSource(nameof(MyTestSource))] string stringValue)
-{
-    Assert.That(stringValue.Length, Is.EqualTo(3));
-}
-
-public static object[] MyTestSource()
-{
-    return new object[] {&quot;One&quot;, &quot;Two&quot;};
-}
-</code></pre>
+<p>Initialize the field in the <code>SetUp</code> or <code>OneTimeSetUp</code> methods.</p>
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
+<p>The rule has no severity, but can be disabled.</p>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>To disable the rule for a project, you need to add a
+<a href="https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset">ruleset file</a></p>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;RuleSet Name=&quot;NUnit.Analyzer Suppressions&quot; Description=&quot;DiagnosticSuppression Rules&quot; ToolsVersion=&quot;12.0&quot;&gt;
+  &lt;Rules AnalyzerId=&quot;DiagnosticSuppressors&quot; RuleNamespace=&quot;NUnit.NUnitAnalyzers&quot;&gt;
+    &lt;Rule Id=&quot;NUnit3001&quot; Action=&quot;Info&quot; /&gt; &lt;!-- Possible Null Reference --&gt;
+    &lt;Rule Id=&quot;NUnit3002&quot; Action=&quot;Info&quot; /&gt; &lt;!-- NonNullableField/Property is Uninitialized --&gt;
+  &lt;/Rules&gt;
+&lt;/RuleSet&gt;
+</code></pre>
+<p>and add it to the project like:</p>
+<pre><code class="lang-xml">&lt;PropertyGroup&gt;
+  &lt;CodeAnalysisRuleSet&gt;NUnit.Analyzers.Suppressions.ruleset&lt;/CodeAnalysisRuleSet&gt;
+&lt;/PropertyGroup&gt;
+</code></pre>
+<p>For more info about rulesets see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit1021: The ValueSource should use nameof operator to specify target
-dotnet_diagnostic.NUnit1021.severity = chosenSeverity
-</code></pre>
-<p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
-<h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1021 // The ValueSource should use nameof operator to specify target
-Code violating the rule here
-#pragma warning restore NUnit1021 // The ValueSource should use nameof operator to specify target
-</code></pre>
-<p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1021 // The ValueSource should use nameof operator to specify target
-</code></pre>
-<h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
-<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Structure&quot;,
-    &quot;NUnit1021:The ValueSource should use nameof operator to specify target&quot;,
-    Justification = &quot;Reason...&quot;)]
+<p>This is currently not working. Waiting for <a href="https://github.com/dotnet/roslyn/issues/49727">Roslyn</a></p>
+<pre><code class="lang-ini"># NUnit3002: Field/Property is initialized in SetUp or OneTimeSetUp method
+dotnet_diagnostic.NUnit3002.severity = none
 </code></pre>
 <!-- end generated config severity -->
 </article>
@@ -194,7 +195,7 @@ Code violating the rule here
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit1021.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit3002.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

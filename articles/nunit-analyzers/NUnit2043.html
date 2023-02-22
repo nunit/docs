@@ -13,9 +13,9 @@
     </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>NUnit1021 | NUnit Docs </title>
+    <title>NUnit2043 | NUnit Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="NUnit1021 | NUnit Docs ">
+    <meta name="title" content="NUnit2043 | NUnit Docs ">
     <meta name="generator" content="docfx ">
   
 
@@ -97,9 +97,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="nunit1021">NUnit1021</h1>
+<h1 id="nunit2043">NUnit2043</h1>
 
-<h2 id="the-valuesource-should-use-nameof-operator-to-specify-target">The ValueSource should use nameof operator to specify target</h2>
+<h2 id="use-comparisonconstraint-for-better-assertion-messages-in-case-of-failure">Use ComparisonConstraint for better assertion messages in case of failure</h2>
 <table>
 <thead>
 <tr>
@@ -110,11 +110,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Id</td>
-<td style="text-align: left;">NUnit1021</td>
+<td style="text-align: left;">NUnit2043</td>
 </tr>
 <tr>
 <td style="text-align: left;">Severity</td>
-<td style="text-align: left;">Warning</td>
+<td style="text-align: left;">Info</td>
 </tr>
 <tr>
 <td style="text-align: left;">Enabled</td>
@@ -122,45 +122,33 @@
 </tr>
 <tr>
 <td style="text-align: left;">Category</td>
-<td style="text-align: left;">Structure</td>
+<td style="text-align: left;">Assertion</td>
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs">ValueSourceUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/ConstraintUsage/ComparisonConstraintUsageAnalyzer.cs">ComparisonConstraintUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>The ValueSource should use nameof operator to specify target.</p>
+<p>Using ComparisonConstraint will lead to better assertion messages in case of failure.</p>
 <h2 id="motivation">Motivation</h2>
-<p>Prevent test rot by ensuring that future renames don't accidentally break tests in an unexpected way. <code>nameof</code> adds some compile-time support in these situations.</p>
-<h2 id="how-to-fix-violations">How to fix violations</h2>
-<h3 id="example-violation">Example Violation</h3>
+<p>Using <code>Is.GreaterThan</code> constraint will lead to better assertion messages in case of failure,
+so this analyzer marks all usages of a comparison operators <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code> and <code>&lt;=</code>
+where it is possible to replace with the appropriate comparison constraint.</p>
 <pre><code class="lang-csharp">[Test]
-public void SampleTest([ValueSource(&quot;MyTestSource&quot;)] string stringValue)
+public void Test()
 {
-    Assert.That(stringValue.Length, Is.EqualTo(3));
-}
-
-public static object[] MyTestSource()
-{
-    return new object[] {&quot;One&quot;, &quot;Two&quot;};
+    Assert.True(actual &gt; expected);
 }
 </code></pre>
-<h3 id="problem">Problem</h3>
-<p>In this case, we're referring to <code>&quot;MyTestSource&quot;</code> as a string directly. This is brittle; should the name of the property change, the test case source would become invalid, and we would not know this until executing tests.</p>
-<h3 id="fix">Fix</h3>
-<p>The fix is to use the C# <code>nameof</code> operator, which produces a string but references the field name. This way, when refactoring and changing the name of your test source, it would also update the name within the <code>nameof()</code> operator.</p>
-<p>The fix in action:</p>
+<h2 id="how-to-fix-violations">How to fix violations</h2>
+<p>The analyzer comes with a code fix that will replace <code>Assert.True(actual &gt; expected)</code> with
+<code>Assert.That(actual, Is.GreaterThan(expected))</code>. So the code block above will be changed into</p>
 <pre><code class="lang-csharp">[Test]
-public void SampleTest([ValueSource(nameof(MyTestSource))] string stringValue)
+public void Test()
 {
-    Assert.That(stringValue.Length, Is.EqualTo(3));
-}
-
-public static object[] MyTestSource()
-{
-    return new object[] {&quot;One&quot;, &quot;Two&quot;};
+    Assert.That(actual, Is.GreaterThan(expected));
 }
 </code></pre>
 <!-- start generated config severity -->
@@ -168,21 +156,21 @@ public static object[] MyTestSource()
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit1021: The ValueSource should use nameof operator to specify target
-dotnet_diagnostic.NUnit1021.severity = chosenSeverity
+<pre><code class="lang-ini"># NUnit2043: Use ComparisonConstraint for better assertion messages in case of failure
+dotnet_diagnostic.NUnit2043.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1021 // The ValueSource should use nameof operator to specify target
+<pre><code class="lang-csharp">#pragma warning disable NUnit2043 // Use ComparisonConstraint for better assertion messages in case of failure
 Code violating the rule here
-#pragma warning restore NUnit1021 // The ValueSource should use nameof operator to specify target
+#pragma warning restore NUnit2043 // Use ComparisonConstraint for better assertion messages in case of failure
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit1021 // The ValueSource should use nameof operator to specify target
+<pre><code class="lang-csharp">#pragma warning disable NUnit2043 // Use ComparisonConstraint for better assertion messages in case of failure
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
-<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Structure&quot;,
-    &quot;NUnit1021:The ValueSource should use nameof operator to specify target&quot;,
+<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
+    &quot;NUnit2043:Use ComparisonConstraint for better assertion messages in case of failure&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->
@@ -194,7 +182,7 @@ Code violating the rule here
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit1021.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit2043.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
