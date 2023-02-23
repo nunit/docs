@@ -1,5 +1,18 @@
 # Adapter V4 Release Notes
 
+
+## NUnit3 Test Adapter for Visual Studio - Version 4.4.0-beta.1 - Feb 23, 2023
+
+This is a beta release of the NUnit3 Test Adapter for Visual Studio.
+
+The main focus is the support for .Net 8.  This version of the adapter will accept any higher version of the .net, also future higher versions than .net 8.
+
+The following issues are fixed in this release:
+
+* [1049](https://github.com/nunit/nunit3-vs-adapter/issues/1049) .Net Framework tests fails when .Net 8 is present on system
+
+* [1037](https://github.com/nunit/nunit3-vs-adapter/issues/1037) TestContext.Progress shows up as Warning in TFS/Azure Dev Ops. Thanks to [mharwig](https://github.com/mharwig) for the [PR](https://github.com/nunit/nunit3-vs-adapter/pull/1038).
+
 ## NUnit3 Test Adapter for Visual Studio - Version 4.3.1 - Nov 19, 2022
 
 This is a hotfix release for three major and critical problems:
