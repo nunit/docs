@@ -10,6 +10,7 @@ The table below shows the embedded engine versions for the different adapter ver
 
 | Adapter version | Embedded engine version |
 | --------------- | ----------------------- |
+| 4.4.0           | 3.16.3                  |
 | 4.3.1           | 3.15.2                  |
 | 4.2.1           | 3.13.2                  |
 | 4.2             | 3.13                    |
