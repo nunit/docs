@@ -16,7 +16,7 @@ The table below shows the supported adapter versions for a given framework versi
 |Net 5|Works with 3.15.1 and upwards|May also work with earlier versions, but not tested|
 |Net 6|Works with 4.1 and upwards|May also work with earlier versions, but not tested|
 |Net 7|Works with 4.3 and upwards||
-|Net 8|Works with 4.4 and upwards||
+|Net 8+|Works with 4.4 and upwards||
 
 The adapter is shipped with two different versions of the test framework. The first is the full framework version, which is used for .NET Framework based test projects.  The second is the .NET (Core)  version, which is used for .NET Core 1.0, 2.0, 2.1, 2.2, 3.0, 3.1, 5.0, 6.0, 7.0, 8.0 and upwards.  The different versions of the adapter supports different versions of the test framework.  The table above shows the supported versions.
 
@@ -29,7 +29,7 @@ The included versions are as shown below, only the versions where changes are do
 |3.8|3.5|1.0|Some versions included 2.0 too|
 |3.16.0|3.5|2.1||
 |4.3.1|3.5|3.1||
-|4.4.0|4.6.2|3.1|To be released|
+|4.4.0|4.6.2|3.1||
 
 ## Traps
 
