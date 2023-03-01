@@ -10,7 +10,7 @@ The embedded engine handles the .net 8 the same way as with the 4.4.0 adapter.
 
 The following issues, all related to the same problem, are fixed in this release:
 
-* [1065](https://github.com/nunit/nunit3-vs-adapter/issues/1065) WebHostBuilder.ConfigureServices method not found when using nunit3testadapter 4.4.0
+* [1065](https://github.com/nunit/nunit3-vs-adapter/issues/1065) WebHostBuilder.ConfigureServices method not found when using version 4.4.0
 * [1066](https://github.com/nunit/nunit3-vs-adapter/issues/1066) Breaking change for TestAssemblyLoadContext
 * [1069](https://github.com/nunit/nunit3-vs-adapter/issues/1069) Any type loaded from assembly at runtime does not match compile-time type
 * [1070](https://github.com/nunit/nunit3-vs-adapter/issues/1070) NUnit failed to load test assembly after upgrading from 4.3.1 to 4.4.0
