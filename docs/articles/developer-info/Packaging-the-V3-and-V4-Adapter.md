@@ -34,10 +34,8 @@ The version numbers have to be edited in the following files, and should match:
 | File | Change |
 | ---- | ------ |
 | `AssemblyInfo.cs`, found in the NUnitTestAdapter project | change both file and assembly version number |
-| `source.extensions.vsixmanifest`, found under the NUnitTestAdapterInstall project | change Version tag |
 | `appveyor.yml`, found under the Solution Items folder. | change the version number, but only use the three first digits.|
 | `build.cake`, found under the Solution Items folder. | change the version number, but only use the three first digits.|
-| `license.rtf`, found under the NUnit3TestAdapterInstall project. | If the copyright year has changed, update accordingly.|
 
 ## Build
 
@@ -45,6 +43,7 @@ Use the build command to build and test a release version.
 
    ```cmd
    build -t Test
+   build -t Acceptance
    ```
 
 ## Packaging
@@ -59,21 +58,17 @@ Run this from the solution root folder
 
 The resulting files can be found in the "package" folder:
 
-* **NUnit3TestAdapter-[VERSION].vsix**  This is the extension for Visual Studio, which is uploaded to the [Visual Studio Gallery].
-
 * **NUnit3TestAdapter-[VERSION].zip**  This is a zipped package for use with TFS Server Builds when you don't use the NuGet package in your solution. See  [this blog] for more information.
 
 * **NUnit3TestAdapter.[VERSION].nupkg** This is the NuGet package, which is uploaded to [NuGet for the adapter]
 
 ### Testing the Packages
 
-Test both the vsix and NuGet packages using each version of Visual Studio you have available, from 2012 through 2015.
+Test the NuGet package on the latest Visual Studio, but if you have earlier versions it is recommended to test on those too, down to VS 2012.
 
 ### Publishing the Release
 
 1. Create a release on GitHub. Few people use this directly, but it is the benchmark release and provides an archive of all past releases, so we do this first. Github will automatically create zip and tar files containing the source. In addition, upload all three packages created above as a part of the release.
-
-2. Upload the vsix package to the [Visual Studio Gallery] using the NUnitDeveloper account. If you don't have access to that account, ask one of the committers with access to do the upload for you.
 
 3. Upload the NuGet package to nuget.org. You use your own account for this but you must have been pre-authorized in order for it to work. If you are not authorized, ask a committer with access to do it for you.
 
@@ -87,11 +82,15 @@ Test both the vsix and NuGet packages using each version of Visual Studio you ha
 ## Prerequisites
 
 1. **Visual Studio**
-   Visual Studio 2017 is required in order to build the vsix. Visual Studio 2013 or 2015 may be used for other development.
+   Visual Studio 2022 is required in order to build and develop the adapter.
+2. **.Net SDKs**
+   You need at least the .Net Core 3.1, .net 5, 6 and 7 SDKs installed. Not all are required for the build, but they are required for the tests.
+   You also need .Net Framework 4.6.2 installed.
+## Links
 
-2. **Visual Studio SDK**  
-   You need this to work with the vsix.
+[NuGet for the adapter](https://www.nuget.org/packages/NUnitTestAdapter)
 
-[semantic versioning]:https://semver.org/
-[Visual Studio Gallery]:https://visualstudiogallery.msdn.microsoft.com/0da0f6bd-9bb6-4ae3-87a8-537788622f2d
-[NuGet for the adapter]:https://www.nuget.org/packages/NUnitTestAdapter/
+## Other github repositories that needs to be updated
+
+1. **.Net test templates**
+You should raise PR in the [dotnet test template repo](https://github.com/dotnet/test-templates) to update the test templates to use the latest version of the adapter. See [this PR](https://github.com/dotnet/test-templates/pull/273) for an example.  Right now (March 2023), Microsoft doesn't accept more PRs to the repo.
