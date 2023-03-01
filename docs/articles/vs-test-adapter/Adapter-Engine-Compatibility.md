@@ -10,6 +10,7 @@ The table below shows the embedded engine versions for the different adapter ver
 
 | Adapter version | Embedded engine version |
 | --------------- | ----------------------- |
+| 4.4.1           | 3.15.3-dev-build        |
 | 4.4.0           | 3.16.3                  |
 | 4.3.1           | 3.15.2                  |
 | 4.2.1           | 3.13.2                  |
@@ -35,3 +36,7 @@ Note that most of what the console can do, can be done using the `dotnet test` c
 If you try to add another engine version package, it may seem that the adapter and test are still working.  That is just by luck, and it does so because the interfaces between the version you have added are the same as the embedded version.  But if you try to use a feature that is not in the embedded version, it will fail.
 
 Most likely you will see messages about "no tests found", or it may simply crash during test.
+
+## :warning: Warning 
+
+Version 4.4.1 use an engine version that is not released yet.  This is because the engine has a bug that prevents it from working with the adapter.  The bug is fixed in the engine, but the fix is not yet released.  The adapter will be updated to use the released engine version as soon as it is released. You may try to use 3.15.2, but we can currently not confirm that it works.
