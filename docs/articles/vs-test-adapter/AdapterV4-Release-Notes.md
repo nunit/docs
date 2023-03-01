@@ -1,6 +1,6 @@
 # Adapter V4 Release Notes
 
-## NUnit3 Test Adapter for Visual Studio - Version 4.4.1 - Mar 1, 2023
+## NUnit3 Test Adapter for Visual Studio - Version 4.4.2 - Mar 1, 2023
 
 This is a hotfix for the 4.4.0 version.  The 4.4.0 included the NUnit.Engine 3.16.3, which uses an external package for loading assemblies.  It turns out the engine fails for certain types of loading, in particular when an assembly is loaded by reflection.
 
