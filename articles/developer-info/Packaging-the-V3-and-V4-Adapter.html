@@ -116,7 +116,7 @@
 <p>For each of the <strong>NUnit3TestAdapter</strong>, <strong>NUnit3TestAdapterTests</strong> and <strong>NUnit3TestAdapterInstall</strong> projects, remove references to nunit-agent and nunit-agent-x86, leaving only the four Mono.Cecil references, nunit.engine and nunit.engine.api.</p>
 <p>For the <strong>NUnit3TestAdapter</strong> project, modify the properties for nunit-engine by entering &quot;ENG&quot; for Aliases.</p>
 <h3 id="versioning">Versioning</h3>
-<p>The version numbers follow the basic principles of <a href="https://semver.org/">semantic versioning</a>.
+<p>The version numbers follow the basic principles of [semantic versioning].
 (The fourth number is used for debug versions under development, and will always be 0 for release versions.)</p>
 <p>The version numbers have to be edited in the following files, and should match:</p>
 <table>
@@ -132,10 +132,6 @@
 <td>change both file and assembly version number</td>
 </tr>
 <tr>
-<td><code>source.extensions.vsixmanifest</code>, found under the NUnitTestAdapterInstall project</td>
-<td>change Version tag</td>
-</tr>
-<tr>
 <td><code>appveyor.yml</code>, found under the Solution Items folder.</td>
 <td>change the version number, but only use the three first digits.</td>
 </tr>
@@ -143,15 +139,12 @@
 <td><code>build.cake</code>, found under the Solution Items folder.</td>
 <td>change the version number, but only use the three first digits.</td>
 </tr>
-<tr>
-<td><code>license.rtf</code>, found under the NUnit3TestAdapterInstall project.</td>
-<td>If the copyright year has changed, update accordingly.</td>
-</tr>
 </tbody>
 </table>
 <h2 id="build">Build</h2>
 <p>Use the build command to build and test a release version.</p>
 <pre><code class="lang-cmd">build -t Test
+build -t Acceptance
 </code></pre>
 <h2 id="packaging">Packaging</h2>
 <p>Use the build command to create packages</p>
@@ -160,20 +153,16 @@
 <p>Run this from the solution root folder</p>
 <p>The resulting files can be found in the &quot;package&quot; folder:</p>
 <ul>
-<li><p><strong>NUnit3TestAdapter-[VERSION].vsix</strong>  This is the extension for Visual Studio, which is uploaded to the <a href="https://visualstudiogallery.msdn.microsoft.com/0da0f6bd-9bb6-4ae3-87a8-537788622f2d">Visual Studio Gallery</a>.</p>
-</li>
 <li><p><strong>NUnit3TestAdapter-[VERSION].zip</strong>  This is a zipped package for use with TFS Server Builds when you don't use the NuGet package in your solution. See  [this blog] for more information.</p>
 </li>
-<li><p><strong>NUnit3TestAdapter.[VERSION].nupkg</strong> This is the NuGet package, which is uploaded to <a href="https://www.nuget.org/packages/NUnitTestAdapter/">NuGet for the adapter</a></p>
+<li><p><strong>NUnit3TestAdapter.[VERSION].nupkg</strong> This is the NuGet package, which is uploaded to [NuGet for the adapter]</p>
 </li>
 </ul>
 <h3 id="testing-the-packages">Testing the Packages</h3>
-<p>Test both the vsix and NuGet packages using each version of Visual Studio you have available, from 2012 through 2015.</p>
+<p>Test the NuGet package on the latest Visual Studio, but if you have earlier versions it is recommended to test on those too, down to VS 2012.</p>
 <h3 id="publishing-the-release">Publishing the Release</h3>
 <ol>
 <li><p>Create a release on GitHub. Few people use this directly, but it is the benchmark release and provides an archive of all past releases, so we do this first. Github will automatically create zip and tar files containing the source. In addition, upload all three packages created above as a part of the release.</p>
-</li>
-<li><p>Upload the vsix package to the <a href="https://visualstudiogallery.msdn.microsoft.com/0da0f6bd-9bb6-4ae3-87a8-537788622f2d">Visual Studio Gallery</a> using the NUnitDeveloper account. If you don't have access to that account, ask one of the committers with access to do the upload for you.</p>
 </li>
 <li><p>Upload the NuGet package to nuget.org. You use your own account for this but you must have been pre-authorized in order for it to work. If you are not authorized, ask a committer with access to do it for you.</p>
 </li>
@@ -188,12 +177,18 @@
 </div>
 <h2 id="prerequisites">Prerequisites</h2>
 <ol>
-<li><p><strong>Visual Studio</strong>
-Visual Studio 2017 is required in order to build the vsix. Visual Studio 2013 or 2015 may be used for other development.</p>
-</li>
-<li><p><strong>Visual Studio SDK</strong><br>
-You need this to work with the vsix.</p>
-</li>
+<li><strong>Visual Studio</strong>
+Visual Studio 2022 is required in order to build and develop the adapter.</li>
+<li><strong>.Net SDKs</strong>
+You need at least the .Net Core 3.1, .net 5, 6 and 7 SDKs installed. Not all are required for the build, but they are required for the tests.
+You also need .Net Framework 4.6.2 installed.</li>
+</ol>
+<h2 id="links">Links</h2>
+<p><a href="https://www.nuget.org/packages/NUnitTestAdapter">NuGet for the adapter</a></p>
+<h2 id="other-github-repositories-that-needs-to-be-updated">Other github repositories that needs to be updated</h2>
+<ol>
+<li><strong>.Net test templates</strong>
+You should raise PR in the <a href="https://github.com/dotnet/test-templates">dotnet test template repo</a> to update the test templates to use the latest version of the adapter. See <a href="https://github.com/dotnet/test-templates/pull/273">this PR</a> for an example.  Right now (March 2023), Microsoft doesn't accept more PRs to the repo.</li>
 </ol>
 </article>
           </div>
@@ -203,7 +198,7 @@ You need this to work with the vsix.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/developer-info/Packaging-the-V3-Adapter.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/developer-info/Packaging-the-V3-and-V4-Adapter.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
