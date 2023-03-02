@@ -19,6 +19,8 @@ Thanks to everyone that reported in, and special thanks to everyone that provide
 
 ## NUnit3 Test Adapter for Visual Studio - Version 4.4.0 - Feb 26, 2023
 
+**:warning: This version has been unlisted on NuGet, please use version 4.4.2 instead.**
+
 The main focus is the support for .Net 8.  This version of the adapter will accept any higher version of the .net, also future higher versions than .net 8.
 
 The following issues are fixed in this release:
