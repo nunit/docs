@@ -1,6 +1,1 @@
-var currentYear= new Date().getFullYear();
-document.getElementById("currentYear").innerHTML = currentYear;
-
-// NUnit docs adds the lang attribute ourselves for accessibility reasons, as docfx does not do this out of the box.
-var htmlElement = document.querySelector("html");
-htmlElement.setAttribute("lang", "en");
+// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.
