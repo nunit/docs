@@ -4,7 +4,7 @@ You can download this extension from inside Visual Studio, choosing Tools/Extens
 
 ## For Visual Studio 2022
 
-You can download from the marketplace [Visual Studio Gallery](https://marketplace.visualstudio.com/items?itemName=NUnitDevelopers.TestGeneratorNUnitextension-18371) or from the [GitHub Release page](https://github.com/nunit/nunit-vs-testgenerator/releases)
+You can download from the marketplace [Visual Studio Gallery](https://marketplace.visualstudio.com/items?itemName=NUnitDevelopers.nunittestgeneratorextension2022) or from the [GitHub Release page](https://github.com/nunit/nunit-vs-testgenerator/releases)
 ## For Visual Studio 2017/2019
 
 You can download from the marketplace [Visual Studio Gallery](https://marketplace.visualstudio.com/items?itemName=NUnitDevelopers.TestGeneratorNUnitextension-18371) or from the [GitHub Release page](https://github.com/nunit/nunit-vs-testgenerator/releases)
