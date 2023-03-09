@@ -1,4 +1,4 @@
-# Packaging the V3 Adapter
+# Packaging the V3/V4 Adapter
 
 ## Introduction
 

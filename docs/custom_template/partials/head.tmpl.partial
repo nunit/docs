@@ -10,32 +10,23 @@
     gtag('config', 'G-PCB5BYBNM2');
   </script>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>{{#title}}{{title}}{{/title}}{{^title}}{{>partials/title}}{{/title}} {{#_appTitle}}| {{_appTitle}} {{/_appTitle}}</title>
-  <meta name="viewport" content="width=device-width">
-  <meta name="title" content="{{#title}}{{title}}{{/title}}{{^title}}{{>partials/title}}{{/title}} {{#_appTitle}}| {{_appTitle}} {{/_appTitle}}">
-  <meta name="generator" content="docfx {{_docfxVersion}}">
-  {{#_description}}<meta name="description" content="{{_description}}">{{/_description}}
-
-  <link rel="apple-touch-icon" sizes="180x180" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/apple-touch-icon.png{{/_appFaviconPath}}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/favicon-16x16.png{{/_appFaviconPath}}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/favicon-32x32.png{{/_appFaviconPath}}">
-  <link rel="icon" type="image/svg+xml" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/favicon.svg{{/_appFaviconPath}}">
-  <link rel="icon" type="image/png" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/favicon.png{{/_appFaviconPath}}">
-  <link rel="shortcut icon" type="image/x-icon" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicon.ico{{/_appFaviconPath}}"/>
-  <link rel="manifest" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/manifest.json{{/_appFaviconPath}}">
-  <link rel="mask-icon" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/safari-pinned-tab.svg{{/_appFaviconPath}}" color="#222222">
-  <meta name="msapplication-config" content="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicons/browserconfig.xml{{/_appFaviconPath}}" />
-  <meta name="msapplication-TileColor" content="#222222">
-  <meta name="theme-color" content="#222222">
-
-  <link rel="stylesheet" href="{{_rel}}styles/docfx.vendor.css">
-  <link rel="stylesheet" href="{{_rel}}styles/docfx.css">
-  <link rel="stylesheet" href="{{_rel}}styles/main.css">
-  <meta property="docfx:navrel" content="{{_navRel}}">
-  <meta property="docfx:tocrel" content="{{_tocRel}}">
-  {{#_noindex}}<meta name="searchOption" content="noindex">{{/_noindex}}
-  {{#_enableSearch}}<meta property="docfx:rel" content="{{_rel}}">{{/_enableSearch}}
-  {{#_enableNewTab}}<meta property="docfx:newtab" content="true">{{/_enableNewTab}}
+  {{#redirect_url}}
+    <meta http-equiv="refresh" content="0;URL='{{redirect_url}}'">
+  {{/redirect_url}}
+  {{^redirect_url}}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{#title}}{{title}}{{/title}}{{^title}}{{>partials/title}}{{/title}} {{#_appTitle}}| {{_appTitle}} {{/_appTitle}}</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="{{#title}}{{title}}{{/title}}{{^title}}{{>partials/title}}{{/title}} {{#_appTitle}}| {{_appTitle}} {{/_appTitle}}">
+    {{#_description}}<meta name="description" content="{{_description}}">{{/_description}}
+    <link rel="shortcut icon" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicon.ico{{/_appFaviconPath}}">
+    <link rel="stylesheet" href="{{_rel}}styles/docfx.vendor.css">
+    <link rel="stylesheet" href="{{_rel}}styles/docfx.css">
+    <link rel="stylesheet" href="{{_rel}}styles/main.css">
+    <meta property="docfx:navrel" content="{{_navRel}}">
+    <meta property="docfx:tocrel" content="{{_tocRel}}">
+    {{#_noindex}}<meta name="searchOption" content="noindex">{{/_noindex}}
+    {{#_enableSearch}}<meta property="docfx:rel" content="{{_rel}}">{{/_enableSearch}}
+    {{#_enableNewTab}}<meta property="docfx:newtab" content="true">{{/_enableNewTab}}
+  {{/redirect_url}}
 </head>
-`
