@@ -90,7 +90,7 @@ Test the NuGet package on the latest Visual Studio, but if you have earlier vers
 
 [NuGet for the adapter](https://www.nuget.org/packages/NUnitTestAdapter)
 
-## Other github repositories that needs to be updated
+## Other GitHub Repositories That Need to be Updated
 
 1. **.Net test templates**
 You should raise PR in the [dotnet test template repo](https://github.com/dotnet/test-templates) to update the test templates to use the latest version of the adapter. See [this PR](https://github.com/dotnet/test-templates/pull/273) for an example.  Right now (March 2023), Microsoft doesn't accept more PRs to the repo.
