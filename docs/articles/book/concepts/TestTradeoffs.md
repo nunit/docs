@@ -47,3 +47,9 @@ Keep some of the below in mind and you may avoid some pitfalls:
   * If a test no longer serves to improve confidence in the system (and doesn't meaningfully play into the living documentation of the system), consider removing it or pushing it into finer grained tests.
   * If the maintenance of a set of unit tests is costly and things are well-covered by integration tests that provide a high degree of confidence, perhaps some of those unit tests can be retired.
 * **Keep execution times as fast as possible**. The goal is to run as many tests as possible as often as possible. If a set of tests takes 6 hours to run, how will you be able to get confidence in pushing a branch of code prior to merging it in? More often than not, those tests will be skipped.
+
+## What About Commercial Testing Products?
+
+Because this guide is intended for NUnit itself, we won't delve into that topic too much. However, these products tend to _increase_ the feedback loops around testing & results, when typically want we want is _as many tests as possible_ running _as often as possible_. Commercial tools tend to take what should be a continuous process/mindset and extract it into a separate role or separate team. We're pretty dedicated to the idea of agility these days and would prefer that testing happen along side the work in close collaboration within cross-functional teams.
+
+That's not to say we'd never recommend using a commercial testing product -- it certainly may better than having no tests at all or an entirely manual process. But, teams and organizations should be extremely careful of the lagging test feedback, high maintenance burden, and fragility of such endeavors. When in doubt, keep tests close to the work.
