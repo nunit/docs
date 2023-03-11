@@ -17,6 +17,7 @@ This rule check diagnostics reported by the CS8601-CS8607 and CS8629 compiler er
 `CS8602: Dereference of a possibly null reference.`
 
 It then checks the previous statements for one of:
+
 * `Assert.NotNull(...)`
 * `Assert.IsNotNull(...)`
 * `Assert.That(..., Is.Not.Null)`
@@ -27,6 +28,7 @@ If found, the compiler error is suppressed.
 The rule also covers `CS8629: Nullable value type may be null`
 
 In this case, the previous statement is allowed to be one of:
+
 * `Assert.That(...HasValue)`
 * `Assert.That(...HasValue, Is.True)`
 * `Assert.True(...HasValue)`
@@ -119,4 +121,3 @@ This is currently not working. Waiting for [Roslyn](https://github.com/dotnet/ro
 dotnet_diagnostic.NUnit3001.severity = none
 ```
 <!-- end generated config severity -->
-

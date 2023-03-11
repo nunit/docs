@@ -24,7 +24,7 @@ Assert.That(array.Length, Is.EqualTo(1));
 Assert.That(array, Has.Length.EqualTo(1));
 ```
 
-The first gives: `Expected: 1, But was: 2`, the second: `Expected: property Length equal to 1, But was: 2` 
+The first gives: `Expected: 1, But was: 2`, the second: `Expected: property Length equal to 1, But was: 2`
 making it clear we talking about number of elements, not just a number.
 
 The next example:
