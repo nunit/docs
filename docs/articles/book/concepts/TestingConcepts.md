@@ -85,4 +85,5 @@ Thinking about this in terms of test coverage, specifying an arbitrary coverage 
 
 My advice: Write as many tests as possible that increase confidence and add value, recognize when ROI may be limited, know your test coverage across your application, and avoid test coverage targets except as a thought exercise.
 
-NOTE: It is still helpful to measure test coverage for the purpose of these conversations, and there is nothing wrong with saying that test coverage should not trend downward without a very good reason.
+> [!NOTE]
+> It is still helpful to measure test coverage for the purpose of these conversations, and there is nothing wrong with saying that test coverage should not trend downward without a very good reason.
