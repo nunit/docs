@@ -8,7 +8,7 @@ This series aims to be for everyone -- from people who've never written a unit t
 
 We'll try to split up the articles so that you can dive in and focus on the parts that you care about. And we'll try to use real-world examples along the way.
 
-We'll also try to make it as succinct as possible, because we're not getting paid by the word -- or indeed, at all :) -- for this.
+We'll also try to make it as succinct as possible, because we're not getting paid by the word -- or indeed, at all :smile: -- for this.
 
 ### Strong Opinions, Loosely Held
 
