@@ -70,11 +70,11 @@ Test the NuGet package on the latest Visual Studio, but if you have earlier vers
 
 1. Create a release on GitHub. Few people use this directly, but it is the benchmark release and provides an archive of all past releases, so we do this first. Github will automatically create zip and tar files containing the source. In addition, upload all three packages created above as a part of the release.
 
-3. Upload the NuGet package to nuget.org. You use your own account for this but you must have been pre-authorized in order for it to work. If you are not authorized, ask a committer with access to do it for you.
+2. Upload the NuGet package to nuget.org. You use your own account for this but you must have been pre-authorized in order for it to work. If you are not authorized, ask a committer with access to do it for you.
 
-4. Update the documentation pages in the site as needed. Be sure to update the Release Notes page. In order to perform the update quickly after publishing the packages, you may want to clone the `nunit/docs` repository and prepare the pull request in advance.
+3. Update the documentation pages in the site as needed. Be sure to update the Release Notes page. In order to perform the update quickly after publishing the packages, you may want to clone the `nunit/docs` repository and prepare the pull request in advance.
 
-5. Publicize the release, first announcing it on the nunit-developer and nunit-discuss lists and then more widely as appropriate. [We should develop a list of places.]
+4. Publicize the release, first announcing it on the nunit-developer and nunit-discuss lists and then more widely as appropriate. [We should develop a list of places.]
 
 > [!NOTE]
 > Publishing the release requires access to various online accounts, which are mentioned above. For obvious reasons, the passwords are not provided. Contact Charlie or Terje if you need this access.
