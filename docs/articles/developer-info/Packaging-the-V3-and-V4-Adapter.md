@@ -84,8 +84,8 @@ Test the NuGet package on the latest Visual Studio, but if you have earlier vers
 1. **Visual Studio**
    Visual Studio 2022 is required in order to build and develop the adapter.
 2. **.Net SDKs**
-   You need at least the .Net Core 3.1, .net 5, 6 and 7 SDKs installed. Not all are required for the build, but they are required for the tests.
-   You also need .Net Framework 4.6.2 installed.
+   You need at least the .Net Core 3.1, .net 5, 6 and 7 SDKs installed. Not all are required for the build, but they are required for the tests. You also need .Net Framework 4.6.2 installed.
+
 ## Links
 
 [NuGet for the adapter](https://www.nuget.org/packages/NUnitTestAdapter)
