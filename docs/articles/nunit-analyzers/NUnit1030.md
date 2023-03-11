@@ -33,7 +33,6 @@ public void IsNUnit(int n)
 
 Match the type of parameters between the test data and the test method.
 
-
 <!-- start generated config severity -->
 ## Configure severity
 

@@ -91,4 +91,3 @@ This is currently not working. Waiting for [Roslyn](https://github.com/dotnet/ro
 dotnet_diagnostic.NUnit3002.severity = none
 ```
 <!-- end generated config severity -->
-
