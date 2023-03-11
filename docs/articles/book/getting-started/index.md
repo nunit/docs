@@ -4,7 +4,7 @@ In this exercise, we'll introduce you to NUnit and some NUnit concepts by doing 
 
 ## Introducing the Exercise: A Temperature Converter
 
-_This exercise comes to us via [Fadi Stephan]() of [Kaizenko]() who first taught it to the author. Used here with his permission. Thanks, Fadi!_
+_This exercise comes to us via [Fadi Stephan](https://www.linkedin.com/in/fadistephan/) of [Kaizenko](https://www.kaizenko.com/) who first taught it to the author. Used here with his permission. Thanks, Fadi!_
 
 Let's imagine a scenario in which we have to convert Celsius temperatures to Fahrenheit.
 
@@ -195,4 +195,4 @@ public decimal ConvertCToF(decimal celsius)
 }
 ```
 
-The tests now pass. Our refactoring is successful; we have changed the inner workings of the code with a high degree of confidence that we didn't change the code's result. When changing from the `if` statements to the algorithmic example, we were prevented from making a mistake that's all too easy to make.
+The tests now pass. Our refactoring is successful; we have changed the inner workings of the code with a high degree of confidence that we didn't change the code's result, and we've prevented a pretty severe bug. When changing from the `if` statements to the algorithmic example, we were prevented from making a mistake that's all too easy to make.
