@@ -10,7 +10,7 @@ With that said, we do recommend that you try to use each test type correctly as 
 
 ## Unit Tests
 
-These are typically meant as the "lowest level" of automated tests. They aim to test a specific, isolated class. Any dependencies that class has on other classes would be faked in unit tests, so that they can execute quickly and with a clear understanding of how the class will behave. There will be more on this later when we discuss [test doubles](TODO).
+These are typically meant as the "lowest level" of automated tests. They aim to test a specific, isolated class. Any dependencies that class has on other classes would be faked in unit tests, so that they can execute quickly and with a clear understanding of how the class will behave. There will be more on this later when we discuss [test doubles and mocks](TODO).
 
 ## Integration Tests
 
