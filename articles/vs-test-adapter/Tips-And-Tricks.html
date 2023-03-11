@@ -388,7 +388,7 @@ You can find the files under your current output folder, in a sub-folder named D
 <p>When set to 1 or 2 (2 is default), will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear in the output.</p>
 <p>Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.</p>
 <p>The value 1 sends it out as Information, while 2 sends it out as Warning.</p>
-<p>Using <code>dotnet test</code> with  <code>ConsoleOut=1</code> (Information)  (<code>dotnet test -- NUnit.ConsoleOut=1 </code>), nothing will appear in the output.</p>
+<p>Using <code>dotnet test</code> with  <code>ConsoleOut=1</code> (Information)  (<code>dotnet test -- NUnit.ConsoleOut=1</code>), nothing will appear in the output.</p>
 <p>Setting  <code>ConsoleOut=2</code> (Warning) the message will be shown.</p>
 <p>Adding the logger <code>dotnet test -l &quot;console;verbosity=detailed&quot; -- NUnit.Consoleout=1</code> the message will be shown.</p>
 <p>See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/343">Issue 343</a> for more information and discussion</p>
@@ -456,14 +456,14 @@ Better to allow the possibility to deliver a results file per run.</em>&quot;</p
 <hr>
 <h2 id="nunit-2x">NUnit 2.x</h2>
 <p>NUnit 2.X does not support runsettings.</p>
-<h3 id="registry-settings-1">Registry Settings</h3>
+<h3 id="registry-settings-for-nunit-2x">Registry Settings for NUnit 2.x</h3>
 <p>Certain settings in the registry affect how the adapter runs. All these settings are added by using RegEdit under the key <strong>HKCU\Software\nunit.org\VSAdapter</strong>.</p>
 <h4 id="shadowcopy">ShadowCopy</h4>
 <p>By default NUnit no longer uses shadowcopy. If this causes an issue for you shadowcopy can be enabled by setting the DWORD value UseShadowCopy to 1.</p>
 <h4 id="keepenginerunning">KeepEngineRunning</h4>
 <p>By default the NUnit adapter will &quot;Kill&quot; the Visual Studio Test Execution engine after each run. Visual Studio 2013 and later has a new setting under its top menu, <strong>Test | Test Settings | Keep Test Execution Engine Running</strong>. The adapter normally ignores this setting.</p>
 <p>In some cases it can be useful to have the engine running, e.g. during debugging of the adapter itself. You can then set the adapter to follow the VS setting by setting the DWORD value UseVsKeepEngineRunning to 1.</p>
-<h4 id="verbosity-1">Verbosity</h4>
+<h4 id="verbosity-for-nunit-2x">Verbosity for NUnit 2.x</h4>
 <p>Normally the adapter reports exceptions using a short format, consisting of the message only. You can change it to report a verbose format that includes the stack trace, by setting a the DWORD value Verbosity to 1.</p>
 </article>
           </div>
