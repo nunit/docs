@@ -29,7 +29,7 @@ NUnit is a testing framework for .NET. Like other frameworks -- xUnit, MSTest --
 
 * Ways to define tests
 * A runner to run the tests (though you can hook into the Visual Studio test runner, the ReSharper test runner, NCrunch, or any other runner of your choice)
-* An assertion library to use during testing (though you can substitute for FluentAssertions or the library of your choice)
+* An assertion library to use during testing (though you can substitute for [FluentAssertions](https://fluentassertions.com/) or the library of your choice)
 
 We believe the concepts we'll discuss here will be able to be applied to any major test framework in most languages. If you couple the concepts in this guide with some documentation in any major test framework, we hope you'll be able to get where you need to be.
 

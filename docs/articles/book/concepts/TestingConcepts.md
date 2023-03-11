@@ -20,8 +20,7 @@ Sometimes called the `AAA` approach, this refers to the way we might write a giv
 Sometimes you'll see these actual statements in comments such as `// Arrange`, `// Act`, and `// Assert` in a given test method. This can be helpful for some folks as a mental marker. While we would never begrudge anyone this style, typically these comments can be removed and the different sections can be separated by a blank line.
 
 > [!NOTE]
-> This guide will use NUnit's `Assert.That` syntax because it comes out of the box. But, you should know that there are several libraries that can be used with NUnit to craft assertions and return helpful messages upon failure, such as [FluentAssertions](https://fluentassertions.com/) or [Shouldly](https://docs.shouldly.org/)
-
+> This guide will use NUnit's `Assert.That` syntax because it comes out of the box. But, you should know that there are several libraries that can be used with NUnit to craft assertions and return helpful messages upon failure, such as [FluentAssertions](https://fluentassertions.com/) or [Shouldly](https://docs.shouldly.org/).
 
 ## Red / Green / Refactor
 
