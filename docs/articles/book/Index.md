@@ -22,6 +22,10 @@ Similarly, we're not trying to "sell" you on TDD. We find value in it in many ca
 
 We're writing this primarily from the perspective of .NET Core and onward, because with .NET 5 this is the path forward that the .NET team has chosen for the technology. With that said, we'll absolutely augment this guide with tips and explainers for those who are on the classic .NET Framework, and if any of what we say doesn't work for you, let us know!
 
+### This Guide Isn't Intended as a Docs Replacement
+
+This guide is going to delve into on-boarding, concepts, and thoughts on how to approach automated testing in general. But while we're going to give examples of syntax & features, we're not going to cover _every_ bit of syntax & features. If you'd like more on a certain topic, absolutely suggest it, but please try to make sure that it would bring something unique to the guide.
+
 ## This is a Living Thing. Have Feedback or Improvements?
 
 No improvement to this will happen without you. If you have a question, chances are someone else will too -- please ask! If you have an improvement, we'd love to hear about it. [Create an issue in the docs repository](https://www.notion.so/seankilleen/TBD) to start a conversation.
