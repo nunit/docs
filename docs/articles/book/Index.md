@@ -20,7 +20,7 @@ Similarly, we're not trying to "sell" you on TDD. We find value in it in many ca
 
 ### What Tech Stack Are You Using?
 
-We're writing this primarily from the perspective of .NET Core and onward, because with .NET 5 this is the path forward that the .NET team has chosen for the technology. With that said, we'll absolutely augment this guide with tips and explainers for those who are on the classic .NET Framework, and if any of what we say doesn't work for you,
+We're writing this primarily from the perspective of .NET Core and onward, because with .NET 5 this is the path forward that the .NET team has chosen for the technology. With that said, we'll absolutely augment this guide with tips and explainers for those who are on the classic .NET Framework, and if any of what we say doesn't work for you, let us know!
 
 ## This is a Living Thing. Have Feedback or Improvements?
 
