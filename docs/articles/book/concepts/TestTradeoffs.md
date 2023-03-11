@@ -4,7 +4,7 @@ Different types of tests have different trade-offs in their usage.
 
 Typically, automated tests are thought of as a pyramid or a funnel.
 
-* In a pyramid visualization, unit tests comprise the base of the pyramid (the largest part). On top of them are integration tests, then acceptance/functional tests, then UI tests. 
+* In a pyramid visualization, unit tests comprise the base of the pyramid (the largest part). On top of them are integration tests, then acceptance/functional tests, then UI tests.
 * In a funnel visualization, the pyramid is inverted, and we think about unit tests as catching a majority of potential issues, followed by integration tests and acceptance/functional tets.
 
 The thinking behind both of these visualizations is that you want most of the tests in your project to be unit tests, followed by integration tests and acceptance/functional tests because of the trade-offs we're about to get into.
@@ -38,12 +38,12 @@ Each codebase has a different context and set of trade-offs that might inform te
 Keep some of the below in mind and you may avoid some pitfalls:
 
 * **Actively talk about and re-evaluate test types**. For example:
-  * If a number of UI tests have built up confidence and you've seen no failures, and those tests are appropriately covered by finer-grained tests, it may make sense to retire them. 
+  * If a number of UI tests have built up confidence and you've seen no failures, and those tests are appropriately covered by finer-grained tests, it may make sense to retire them.
   * If you keep getting caught off-guard by integration issues, it may make sense to invest more time in integration or acceptance tests.
   * If you've discovered a way to reduce the execution time and maintenance burden of a given layer of tests, it may make sense to invest more in that layer.
-* **Remember: The goal is _confidence_**. 
-  * If a test fails, it should be treated as an issue until it can be proven otherwise. 
-  * Don't settle for flaky tests if you can at all avoid doing so. 
+* **Remember: The goal is _confidence_**.
+  * If a test fails, it should be treated as an issue until it can be proven otherwise.
+  * Don't settle for flaky tests if you can at all avoid doing so.
   * If a test no longer serves to improve confidence in the system (and doesn't meaningfully play into the living documentation of the system), consider removing it or pushing it into finer grained tests.
   * If the maintenance of a set of unit tests is costly and things are well-covered by integration tests that provide a high degree of confidence, perhaps some of those unit tests can be retired.
 * **Keep execution times as fast as possible**. The goal is to run as many tests as possible as often as possible. If a set of tests takes 6 hours to run, how will you be able to get confidence in pushing a branch of code prior to merging it in? More often than not, those tests will be skipped.
