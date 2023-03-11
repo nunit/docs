@@ -21,7 +21,7 @@ jobs:
           node-version: "18"
       - run: npm install -g markdownlint-cli
         name: Install markdownlint
-      - run: markdownlint -c /workspaces/docs/.github/linters/.markdown-lint.yml /workspaces/docs/docs/**/*.md
+      - run: markdownlint -c /workspaces/docs/.github/linters/.markdown-lint.yml '/workspaces/docs/docs/**/*.md'
         name: run Markdownlint
   spellcheck:
     name: "Spell check"
