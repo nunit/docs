@@ -17,10 +17,10 @@ Before jumping in, we think a little about the problem space and some things we 
 
 | Celsius Temperature | Fahrenheit Temperature |
 | ------------------- | ---------------------- |
-| 0 | 32 |
-| 100 | 212 |
-| 37 | 98.6 |
-| -40 | -40 |
+| 0                   | 32                     |
+| 100                 | 212                    |
+| 37                  | 98.6                   |
+| -40                 | -40                    |
 
 ## Creating the Project Structure
 
