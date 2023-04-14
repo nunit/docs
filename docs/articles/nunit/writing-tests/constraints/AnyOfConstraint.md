@@ -1,6 +1,7 @@
 # AnyOf Constraint
 
 `AnyOfConstraint` is used to determine whether a value is equal to any of the expected values.
+Note: Do provide the expected values as separate values, not as an array.
 
 ## Constructor
 
@@ -28,8 +29,8 @@ Is.AnyOf(object[] expected)
 ## Examples of Use
 
 ```csharp
-int[] iarray = new int[] { 0, -1, 42, 100 }
+Assert.That(42, Is.AnyOf(0, -1, 42, 100));
 
-Assert.That(42, Is.AnyOf(iarray));
+int[] iarray = new int[] { 0, -1, 42, 100 }
 Assert.That(myOwnObject, Is.AnyOf(myArray).Using(myComparer));
 ```
