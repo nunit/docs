@@ -1,7 +1,7 @@
 # AnyOf Constraint
 
 `AnyOfConstraint` is used to determine whether a value is equal to any of the expected values.
-Note: Do provide the expected values as separate values, not as an array.
+Note: Do provide the expected values as separate values, not as e.g. an array.
 
 ## Constructor
 
