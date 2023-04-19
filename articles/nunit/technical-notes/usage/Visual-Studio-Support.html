@@ -18,7 +18,7 @@
       <meta name="title" content="Visual Studio Support | NUnit Docs ">
     
       <link rel="shortcut icon" href="../../../../favicon.ico">
-      <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../../../../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../../../../styles/docfx.css">
       <link rel="stylesheet" href="../../../../styles/main.css">
       <meta property="docfx:navrel" content="../../../../toc.html">
@@ -100,9 +100,9 @@ meaning of the 'Target' macros so they now point to the intermediate 'obj' direc
 than the final output in one of the 'bin' directories. Here are some alternatives that
 work in both versions:</p>
 <ul>
-<li><strong>$(ProjectDir)$(ProjectFileName)</strong> to open the VS Project rather than the assembly.
+<li><strong><span class="math">\((ProjectDir)\)</span>(ProjectFileName)</strong> to open the VS Project rather than the assembly.
 If you use this approach, be sure to rename your config file accordingly and put it in the same directory as the VS project file.</li>
-<li><strong>$(ProjectDir)bin/Debug/$(TargetName)$(TargetExt)</strong> to run the assembly directly.
+<li><strong><span class="math">\((ProjectDir)bin/Debug/\)</span>(TargetName)$(TargetExt)</strong> to run the assembly directly.
 Note that this requires hard-coding part of the path, including the configuration.</li>
 </ul>
 <p>If you would like to debug your tests, use the Visual Studio
@@ -171,7 +171,7 @@ assemblies are located in or beneath the application base directory.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../../../styles/main.js"></script>
   </body>
