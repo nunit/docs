@@ -4,6 +4,48 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
+## NUnit 4.0.0-alpha.1 - TBA
+
+This is the first alpha release of version 4 of NUnit. This is a gradual improvement of the version 3, and can be used with the same runners as before, although a minor upgrade might be needed for some.  For the NUnit3TestAdapter, you will need version 4.5.  This release have more than 50 fixes and improvements implemented.
+
+There has been a series of improvements which should result in a performance boost.
+
+The minimum target framework supported is now dotnet framework 4.6.2.
+
+### Improvements
+
+* [4149](https://github.com/nunit/nunit/issues/4149) Distribute optimized framework builds with easy debugging. Thanks to [Marko Lahma](https://github.com/lahma) for [PR](https://github.com/nunit/nunit/pull/4350).
+* [4144](https://github.com/nunit/nunit/issues/4144) Stderr/Console.Error will hold back Unicode escaped log messages. Thanks to [Max Schmitt](https://github.com/mxschmitt) for [PR](https://github.com/nunit/nunit/pull/4145).
+* [4112](https://github.com/nunit/nunit/issues/4112) Update documentation to clarify passing parameters to test cases. Thanks to [Aaron Franke](https://github.com/aaronfranke) for [PR](https://github.com/nunit/nunit/pull/4114).
+* [4101](https://github.com/nunit/nunit/issues/4101) Expose ExpectedResult to the TestContext.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4239).
+* [4086](https://github.com/nunit/nunit/issues/4086) Perform case-insensitive string comparisons in-place.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4088).
+* [4053](https://github.com/nunit/nunit/issues/4053) Cache method discovery by migrating [PR 4034](https://github.com/nunit/nunit/pull/4043) to main. Fixed by team  [PR](https://github.com/nunit/nunit/pull/4208).
+
+### Bug fixes
+
+* [4319](https://github.com/nunit/nunit/issues/4319) TextRunner accidentally disposes System.Out.  Thanks to [Norm Johanson](https://github.com/normj) for the [PR](https://github.com/nunit/nunit/pull/4317)
+* [4308](https://github.com/nunit/nunit/issues/4308) Random attribute with Distinct and wide range causes test to disappear. Thanks to [Russel Smith](https://github.com/mr-russ) for the [PR](https://github.com/nunit/nunit/pull/4316)
+* [4255](https://github.com/nunit/nunit/issues/4255) InternalTrace.Initialize fails with Nullref exception.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4256).
+* [4243](https://github.com/nunit/nunit/issues/4243) Type args are not deduced correctly for parameterized fixtures. Thanks to [Samuel Delarosbil](https://github.com/sdelarosbil) for [PR](https://github.com/nunit/nunit/pull/4307).
+* [4238](https://github.com/nunit/nunit/issues/4238) Update links to https in code comments.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4239).
+* [4207](https://github.com/nunit/nunit/issues/4207) An example in 'BUILDING.md' contains a typo that leads to an error. Thanks to [TillW](https://github.com/x789) for [PR](https://github.com/nunit/nunit/pull/4208).
+
+
+### Internal fixes
+
+* [4078](https://github.com/nunit/nunit/issues/4078) THREAD_ABORT not properly set.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4079).
+* [4075](https://github.com/nunit/nunit/issues/4075) Remove unnecessary comparer allocations from NUnitEqualityComparer.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4076).
+* [4065](https://github.com/nunit/nunit/issues/4065) Use pattern matching in the comparers.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4066).
+* [4055](https://github.com/nunit/nunit/issues/4055) Use static Regex.IsMatch in ValueMatchFilter to take advantage of caching.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4056).
+* [4051](https://github.com/nunit/nunit/issues/4051) Update codebase to use Array.Empty T.  Thanks to [Marcin Jedrzejek](https://github.com/mjedrzejek) for [PR](https://github.com/nunit/nunit/pull/4127).
+
+### Deprecations
+
+
+
+
+
+
 ## NUnit 3.13.3 - March 20, 2022
 
 This release includes several performance enhancements. [@lahma](https://github.com/lahma) provided a massive speed improvement for large, parametrized test suites. In addition, equivalency tests with large unsortable collections run faster by determining if the collections are sortable before attempting to sort them.
