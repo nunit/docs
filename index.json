@@ -1322,7 +1322,7 @@
   "articles/nunit/writing-tests/constraints/AnyOfConstraint.html": {
     "href": "articles/nunit/writing-tests/constraints/AnyOfConstraint.html",
     "title": "AnyOf Constraint | NUnit Docs",
-    "keywords": "AnyOf Constraint AnyOfConstraint is used to determine whether a value is equal to any of the expected values. Constructor AnyOfConstraint(object[] expected) Syntax Is.AnyOf(object[] expected) Modifiers ...Using(IComparer comparer) ...Using<T>(IEqualityComparer comparer) ...Using<T>(Func<T, T, bool>) ...Using<T>(IComparer<T> comparer) ...Using<T>(Comparison<T> comparer) ...Using<T>(IEqualityComparer<T> comparer) Examples of Use int[] iarray = new int[] { 0, -1, 42, 100 } Assert.That(42, Is.AnyOf(iarray)); Assert.That(myOwnObject, Is.AnyOf(myArray).Using(myComparer));"
+    "keywords": "AnyOf Constraint AnyOfConstraint is used to determine whether a value is equal to any of the expected values. Note Values provided must be as parameters to the method, not as e.g. a separate array. If you are instead looking to see if a collection contains a value, see the CollectionContains Constraint. Constructor AnyOfConstraint(object[] expected) Syntax Is.AnyOf(object[] expected) Modifiers ...Using(IComparer comparer) ...Using<T>(IEqualityComparer comparer) ...Using<T>(Func<T, T, bool>) ...Using<T>(IComparer<T> comparer) ...Using<T>(Comparison<T> comparer) ...Using<T>(IEqualityComparer<T> comparer) Examples of Use Assert.That(42, Is.AnyOf(0, -1, 42, 100)); // You can use a custom comparer as well Assert.That(myOwnObject, Is.AnyOf(myArray).Using(myComparer));"
   },
   "articles/nunit/writing-tests/constraints/AssignableFromConstraint.html": {
     "href": "articles/nunit/writing-tests/constraints/AssignableFromConstraint.html",

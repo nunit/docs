@@ -86,6 +86,10 @@
 <h1 id="anyof-constraint">AnyOf Constraint</h1>
 
 <p><code>AnyOfConstraint</code> is used to determine whether a value is equal to any of the expected values.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Values provided must be as parameters to the method, not as e.g. a separate array. If you are instead looking to see if a collection contains a value, see the <a class="xref" href="CollectionContainsConstraint.html">CollectionContains Constraint</a>.</p>
+</div>
 <h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">AnyOfConstraint(object[] expected)
 </code></pre>
@@ -101,9 +105,9 @@
 ...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">int[] iarray = new int[] { 0, -1, 42, 100 }
+<pre><code class="lang-csharp">Assert.That(42, Is.AnyOf(0, -1, 42, 100));
 
-Assert.That(42, Is.AnyOf(iarray));
+// You can use a custom comparer as well
 Assert.That(myOwnObject, Is.AnyOf(myArray).Using(myComparer));
 </code></pre>
 </article>
