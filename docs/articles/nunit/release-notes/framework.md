@@ -25,7 +25,6 @@ The minimum target framework supported is now dotnet framework 4.6.2, and .net c
 * [3457](https://github.com/nunit/nunit/issues/3457) Add DefaultConstraint. Thanks to [Oleksandr Liakhevych](https://github.com/Dreamescaper) for the [PR](https://github.com/nunit/nunit/pull/3781).
 * [2843](https://github.com/nunit/nunit/issues/2843) Replacing ThrowsAsync with a composable async alternative. Thanks to [gavin Lambert](https://github.com/uecasm) for the [PR](https://github.com/nunit/nunit/pull/4322).
 
-
 ### Bug fixes
 
 * [4319](https://github.com/nunit/nunit/issues/4319) TextRunner accidentally disposes System.Out.  Thanks to [Norm Johanson](https://github.com/normj) for the [PR](https://github.com/nunit/nunit/pull/4317)
@@ -72,9 +71,6 @@ The minimum target framework supported is now dotnet framework 4.6.2, and .net c
 * [3410](https://github.com/nunit/nunit/issues/3410) Consider deprecating NUnitEqualityComparer.AreEqual optional bool parameter
 . Thanks to [TillW](https://github.com/x789) for [PR](https://github.com/nunit/nunit/pull/3960).
 * [3708](https://github.com/nunit/nunit/issues/3708) Remove AssertionHelper and AssertionHelperTests.  
-
-
-
 
 ## NUnit 3.13.3 - March 20, 2022
 
