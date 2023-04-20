@@ -59,7 +59,6 @@ The minimum target framework supported is now dotnet framework 4.6.2, and .net c
 * [3764](https://github.com/nunit/nunit/issues/3764) Switch to the dotnet tool version of Cake.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3835).
 * [2485](https://github.com/nunit/nunit/issues/2485) Remove\Trim copyright on individual files.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3795).
 
-
 ### Deprecations
 
 * [4036](https://github.com/nunit/nunit/issues/4036) Drop net45 build target in nunit4.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4050).
