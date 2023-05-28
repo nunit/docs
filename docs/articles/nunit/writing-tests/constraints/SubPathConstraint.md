@@ -11,7 +11,7 @@ SubPathConstraint(string expectedPath)
 ## Syntax
 
 ```csharp
-Is.SubPath(string expectedPath)
+Is.SubPathOf(string expectedPath)
 ```
 
 ## Modifiers
@@ -24,11 +24,11 @@ Is.SubPath(string expectedPath)
 ## Examples of Use
 
 ```csharp
-Assert.That("/folder1/./junk/../folder2", Is.SubPath("/folder1/folder2"));
-Assert.That("/folder1/junk/folder2", Is.Not.SubPath("/folder1/folder2"));
+Assert.That("/folder1/./junk/../folder2", Is.SubPathOf("/folder1/"));
+Assert.That("/folder1/junk/folder2", Is.Not.SubPathOf("/folder1/folder2"));
 
-Assert.That(@"C:\folder1\folder2\folder3", Is.SubPath(@"C:\Folder1\Folder2/Folder3").IgnoreCase);
-Assert.That("/folder1/folder2/folder3", Is.Not.SubPath("/Folder1/Folder2/Folder3").RespectCase);
+Assert.That(@"C:\folder1\folder2\Folder3", Is.SubPathOf(@"C:\Folder1\Folder2").IgnoreCase);
+Assert.That("/folder1/folder2/folder3", Is.Not.SubPathOf("/Folder1/Folder2/Folder3").RespectCase);
 ```
 
 ## Notes
