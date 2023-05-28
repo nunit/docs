@@ -1,4 +1,4 @@
-# The Teams in the NUnit project
+# The Teams in the NUnit Project
 
 The NUnit project is made up of several teams, each with its own focus and responsibilities, and with a set of team members.
 
