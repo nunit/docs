@@ -2,8 +2,7 @@
 
 ## NUnit3 Test Adapter for Visual Studio and Dotnet - Version 4.5.0 - May 30, 2023
 
-This is a version supporting the upcoming NUnit 4 version.  
-It further uses a released version of the NUnit.Engine, version 3.15.4.
+This is a version supporting the upcoming NUnit version 4.  It uses a released version of the NUnit.Engine, version 3.15.4.
 
 * [1080](https://github.com/nunit/nunit3-vs-adapter/issues/1080) Allow the adapter to be used with NUnit version 4
 * [1100](https://github.com/nunit/nunit3-vs-adapter/issues/1100) Allow to debug parallel tests
