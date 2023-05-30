@@ -309,7 +309,7 @@ If set, this setting will skip execution for an assembly if no tests are found d
 
 #### AllowParallelWithDebugger
 
-If set, this setting will allow parallel execution of tests even if the debugger is attached.  The default is false.
+If set, this setting will allow parallel execution of tests even if the debugger is attached.  The default is `false`.
 
 (From version 4.5.0)
 
