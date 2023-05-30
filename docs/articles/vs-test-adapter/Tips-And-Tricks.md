@@ -46,6 +46,7 @@ The following options are available:
 |[IncludeStackTraceForSuites](#includestacktraceforsuites)|bool|Includes stack trace for failures in suites, like exceptions in OneTimeSetup|true|
 |[ExplicitMode](#explicitmode)|enum|Changes handling of explicit tests, options are `Strict` or `Relaxed`|Strict|
 |[SkipExecutionWhenNoTests](#skipexecutionwhennotests)|bool|Skip execution if no tests are found|false|
+|[AllowParallelWithDebugger](#allowparallelwithdebugger)|bool|Allow parallel execution when debugger is attached|false|
 
 ### Visual Studio templates for runsettings
 
@@ -305,6 +306,12 @@ This setting can be either ```Strict``` or ```Relaxed```.  The default is ```Str
 If set, this setting will skip execution for an assembly if no tests are found during the pre-execution discovery phase.  It will give you a small performance boost, but if you skip the execution, this assembly will not generate any log files. The default is false.
 
 (From version 4.2.0)
+
+#### AllowParallelWithDebugger
+
+If set, this setting will allow parallel execution of tests even if the debugger is attached.  The default is `false`.
+
+(From version 4.5.0)
 
 ---
 
