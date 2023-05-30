@@ -85,6 +85,12 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="adapter-v4-release-notes">Adapter V4 Release Notes</h1>
 
+<h2 id="nunit3-test-adapter-for-visual-studio-and-dotnet---version-450---may-30-2023">NUnit3 Test Adapter for Visual Studio and Dotnet - Version 4.5.0 - May 30, 2023</h2>
+<p>This is a version supporting the upcoming NUnit version 4.  It uses a released version of the NUnit.Engine, version 3.15.4.</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1080">1080</a> Allow the adapter to be used with NUnit version 4</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1100">1100</a> Allow to debug parallel tests</li>
+</ul>
 <h2 id="nunit3-test-adapter-for-visual-studio---version-442---mar-1-2023">NUnit3 Test Adapter for Visual Studio - Version 4.4.2 - Mar 1, 2023</h2>
 <p>This is a hotfix for the 4.4.0 version.  The 4.4.0 included the NUnit.Engine 3.16.3, which uses an external package for loading assemblies.  It turns out the engine fails for certain types of loading, in particular when an assembly is loaded by reflection.</p>
 <p>In order to fix this, this version have reverted to a version of the NUnit.Engine based on 3.15.2, which does not have this way of loading assemblies. The included Engine is not available as a separate package, but if you use anything that needs the engine package (like the NUnit.Console), version 3.15.2 should work.</p>

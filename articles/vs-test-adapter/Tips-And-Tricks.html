@@ -297,6 +297,12 @@ The following options are available:</p>
 <td>Skip execution if no tests are found</td>
 <td>false</td>
 </tr>
+<tr>
+<td><a href="#allowparallelwithdebugger">AllowParallelWithDebugger</a></td>
+<td>bool</td>
+<td>Allow parallel execution when debugger is attached</td>
+<td>false</td>
+</tr>
 </tbody>
 </table>
 <h3 id="visual-studio-templates-for-runsettings">Visual Studio templates for runsettings</h3>
@@ -444,6 +450,9 @@ Better to allow the possibility to deliver a results file per run.</em>&quot;</p
 <h4 id="skipexecutionwhennotests">SkipExecutionWhenNoTests</h4>
 <p>If set, this setting will skip execution for an assembly if no tests are found during the pre-execution discovery phase.  It will give you a small performance boost, but if you skip the execution, this assembly will not generate any log files. The default is false.</p>
 <p>(From version 4.2.0)</p>
+<h4 id="allowparallelwithdebugger">AllowParallelWithDebugger</h4>
+<p>If set, this setting will allow parallel execution of tests even if the debugger is attached.  The default is <code>false</code>.</p>
+<p>(From version 4.5.0)</p>
 <hr>
 <h3 id="some-further-information-on-directories-from-comment-on-issue-575-by-charlie-">Some further information on directories (From <a href="https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421">comment on issue 575</a> by <a href="https://github.com/CharliePoole">Charlie</a> )</h3>
 <p>NUnit also supports TestContext.TestDirectory, which is the directory where the current test assembly is located. Note that if you have several test assemblies in different directories, the value will be different when each one of them accesses it. Note also that there is no way you can set the TestDirectory because it's always where the assembly is located.</p>
