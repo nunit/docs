@@ -24,7 +24,7 @@ Version 4.4 of the adapter will support future versions of .net, as long as ther
 
 The included versions are as shown below, only the versions where changes are done are listed.
 
-|Adapter version|.Net framework version|.Net (core) version|Comment|
+| Adapter version | .NET framework version | .NET (core) version | Comment |
 |---|---|---|---|
 | 3.8 | 3.5 | 1.0 | Some versions included 2.0 too |
 | 3.16.0 | 3.5 | 2.1 | |
