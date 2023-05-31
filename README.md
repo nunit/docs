@@ -13,7 +13,6 @@ The docs site is a project within the NUnit organization. [Read the vision at VI
 * Prerequisite: Install [docfx](https://dotnet.github.io/docfx/) (using [Chocolatey](https://chocolatey.org/)? The command is `choco install docfx -y`)
 * Pull this repository
 * `cd docs`
-* Run `docfx build`
 * Run `docfx serve` and navigate to <http://localhost:8080/_site>
 
 ## How to Build These Docs Within GitHub Codespaces or a Dev Container
