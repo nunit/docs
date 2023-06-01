@@ -12,15 +12,15 @@ Note that the **IgnoreAttribute** is attached to a method. If you have multiple 
 ```csharp
 namespace NUnit.Tests
 {
-  using System;
-  using NUnit.Framework;
+    using System;
+    using NUnit.Framework;
 
-  [TestFixture]
-  [Ignore("Ignore a fixture")]
-  public class SuccessTests
-  {
-    // ...
-  }
+    [TestFixture]
+    [Ignore("Ignore a fixture")]
+    public class SuccessTests
+    {
+        // ...
+    }
 }
 ```
 
@@ -29,16 +29,17 @@ namespace NUnit.Tests
 ```csharp
 namespace NUnit.Tests
 {
-  using System;
-  using NUnit.Framework;
+    using System;
+    using NUnit.Framework;
 
-  [TestFixture]
-  public class SuccessTests
-  {
-    [Test]
-    [Ignore("Ignore a test")]
-    public void IgnoredTest()
-    { /* ... */ }
+    [TestFixture]
+    public class SuccessTests
+    {
+        [Test]
+        [Ignore("Ignore a test")]
+        public void IgnoredTest()
+        { /* ... */ }
+    }
 }
 ```
 
@@ -50,11 +51,11 @@ that can be parsed to a date.
 
 ```csharp
 [TestFixture]
-[Ignore("Waiting for Joe to fix his bugs", Until = "2014-07-31 12:00:00Z"]
+[Ignore("Waiting for Joe to fix his bugs", Until = "2014-07-31 12:00:00Z")]
 public class MyTests
 {
- [Test]
- public void Test1() { /* ... */ }
+    [Test]
+    public void Test1() { /* ... */ }
 }
 ```
 
