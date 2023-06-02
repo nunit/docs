@@ -39,6 +39,7 @@ namespace NUnit.Tests
     [Ignore("Ignore a test")]
     public void IgnoredTest()
     { /* ... */ }
+  }
 }
 ```
 
@@ -50,7 +51,7 @@ that can be parsed to a date.
 
 ```csharp
 [TestFixture]
-[Ignore("Waiting for Joe to fix his bugs", Until = "2014-07-31 12:00:00Z"]
+[Ignore("Waiting for Joe to fix his bugs", Until = "2014-07-31 12:00:00Z")]
 public class MyTests
 {
  [Test]
