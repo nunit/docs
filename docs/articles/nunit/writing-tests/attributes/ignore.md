@@ -54,8 +54,8 @@ that can be parsed to a date.
 [Ignore("Waiting for Joe to fix his bugs", Until = "2014-07-31 12:00:00Z")]
 public class MyTests
 {
-  [Test]
-  public void Test1() { /* ... */ }
+ [Test]
+ public void Test1() { /* ... */ }
 }
 ```
 
