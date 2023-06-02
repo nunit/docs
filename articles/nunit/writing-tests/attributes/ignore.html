@@ -117,6 +117,7 @@ that the test needs to be corrected or otherwise changed and re-instated.</p>
     [Ignore(&quot;Ignore a test&quot;)]
     public void IgnoredTest()
     { /* ... */ }
+  }
 }
 </code></pre>
 <h2 id="ignore-until">Ignore Until</h2>
@@ -124,7 +125,7 @@ that the test needs to be corrected or otherwise changed and re-instated.</p>
 after which the test will run normally. The until date must be a string
 that can be parsed to a date.</p>
 <pre><code class="lang-csharp">[TestFixture]
-[Ignore(&quot;Waiting for Joe to fix his bugs&quot;, Until = &quot;2014-07-31 12:00:00Z&quot;]
+[Ignore(&quot;Waiting for Joe to fix his bugs&quot;, Until = &quot;2014-07-31 12:00:00Z&quot;)]
 public class MyTests
 {
  [Test]
