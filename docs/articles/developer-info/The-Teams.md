@@ -10,7 +10,7 @@ The team members are a bunch of dedicated people from all over the globe, who ar
 
 This team has overall responsibility for the NUnit organization. It defines the vision for NUnit, decides what projects should be included, appoints leads for other teams and maintainers for projects, sets standards and ensures we follow them.
 
-Team Lead: [Rob Prouse](https://github.com/rprouse)
+Team Lead: [Terje Sandstrom](https://github.com/osiristerje)
 
 ### Framework Team
 
