@@ -23,7 +23,7 @@ The constructor of `FixtureLifeCycleAttribute` takes a `LifeCycle` attribute to 
 
 ## Notes
 
-* When using `LifeCycle.InstancePerTestCase`, the [`OneTimeSetUp`](xref:onetimesetup-attribute) and [`OneTimeTearDown`](xref:onetimeteardown-attribute) methods must be static, and each are only called once. This is required so that the setup or teardown methods do not access instance fields or properties that are reset for every test.
+* When using `LifeCycle.SingleInstance`, the [`OneTimeSetUp`](xref:onetimesetup-attribute) and [`OneTimeTearDown`](xref:onetimeteardown-attribute) methods must be static, and each are only called once. This is required so that the setup or teardown methods do not access instance fields or properties that are reset for every test.
 
 * When using `LifeCycle.InstancePerTestCase`, a class's constructor will be called before every test is executed and `IDisposable` test fixtures will be disposed after the test is finished.
 
