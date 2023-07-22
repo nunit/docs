@@ -1,4 +1,4 @@
-FROM ghcr.io/nunit/docfx-action:v2.6.0
+FROM ghcr.io/nunit/docfx-action:v2.7.0
 EXPOSE 8080
 
 ### Installing Node LTS into the container
