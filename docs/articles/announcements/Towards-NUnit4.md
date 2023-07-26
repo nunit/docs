@@ -181,9 +181,9 @@ Add a nuget.config like
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
     <packageSources>
-	    <clear />
-	    <add key="nuget" value="https://api.nuget.org/v3/index.json" />
-	    <add key="NUnitMyGet" value="https://www.myget.org/F/nunit/api/v3/index.json" />
+	    <clear/>
+        <add key="nuget" value="https://api.nuget.org/v3/index.json" />
+        <add key="NUnitMyGet" value="https://www.myget.org/F/nunit/api/v3/index.json" />
     </packageSources>
 </configuration>
 ```
