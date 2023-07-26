@@ -13,6 +13,7 @@ Moreover, we have created a milestone for version 4, which you can find here [li
 The result messages in case of a failure have been improved to now include the Assert statement that was used.
 
 Earlier code like:
+
 ```cs
     [TestCase(42)]
     public void TestInt(int val)
@@ -28,7 +29,8 @@ Message: 
   Expected: 4
   But was:  42
 ```
-Not a very descriptive message. 
+
+Not a very descriptive message.
 
 In version 4 this is improved to also include the assert statement itself.
 
@@ -153,7 +155,7 @@ Version 4 has implemented stricter nullability throughout the codebase. While th
 
 These changes, along with the improved assert messages, have resulted in null values no longer being allowed for messages. As a consequence, code like the example below will not compile and will result in [CS0121](https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs0121?f1url=%3FappId%3Droslyn%26k%3Dk(CS0121))):
 
-![](AssertNull.png)
+![AssertNull](AssertNull.png)
 It's important to update such code to use valid non-null message strings
 
 ## Platform support
@@ -162,7 +164,7 @@ The lowest framework platforms support in Version 4 are **.net framework 4.6.2**
 
 ## Classic/Legacy asserts
 
-The classic/legacy asserts, like `Assert.AreEqual`, have now been moved into its own project, and will be released as a separate package.  They are now in the namespace `NUnit.Framework.Classic`. 
+The classic/legacy asserts, like `Assert.AreEqual`, have now been moved into its own project, and will be released as a separate package.  They are now in the namespace `NUnit.Framework.Classic`.
 In the early V4 alpha version they will be delivered in the standard NUnit package.
 
 This means that the default assert library going forward will be the `Constraint based` asserts.
@@ -178,11 +180,11 @@ Add a nuget.config like
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
-	<packageSources>
-		<clear />
-		<add key="nuget" value="https://api.nuget.org/v3/index.json" />
-		<add key="NUnitMyGet" value="https://www.myget.org/F/nunit/api/v3/index.json" />
-	</packageSources>
+    <packageSources>
+	    <clear />
+	    <add key="nuget" value="https://api.nuget.org/v3/index.json" />
+	    <add key="NUnitMyGet" value="https://www.myget.org/F/nunit/api/v3/index.json" />
+    </packageSources>
 </configuration>
 ```
 
@@ -197,4 +199,3 @@ and replace your current NUnit Packagereference with
 We do appreciate feedback on these version 4 features.  
 
 You can join in on the [discussion here](https://github.com/nunit/nunit/discussions/4437), comment in our [slack channel](https://nunit.slack.com), or if it is a bug or suggestion for improvement you can also  raise an issue in our [github repo](https://github.com/nunit/nunit/issues).
-
