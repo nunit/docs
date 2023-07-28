@@ -183,7 +183,7 @@ Add a nuget.config like
     <packageSources>
         <clear/>
         <add key="nuget" value="https://api.nuget.org/v3/index.json" />
-        <add key="NUnitMyGet" value="https://www.myget.org/F/nunit/api/v3/index.json" />
+        <add key="NuGetGitHub" value="https://nuget.pkg.github.com/nunit/index.json" />
     </packageSources>
 </configuration>
 ```
