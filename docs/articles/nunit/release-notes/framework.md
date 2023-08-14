@@ -4,6 +4,73 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
+## NUnit 4.0.0-alpha.1 - TBA
+
+This is the first alpha release of version 4 of NUnit. This is a gradual improvement of the version 3, and can be used with the same runners as before, although a minor upgrade might be needed for some.  For the NUnit3TestAdapter, you will need version 4.5 to run tests with NUnit 4. This release have more than 50 fixes and improvements implemented.
+
+The minimum target framework supported is now dotnet framework 4.6.2, and .net core 3.1.
+
+### Improvements
+
+* [4149](https://github.com/nunit/nunit/issues/4149) Distribute optimized framework builds with easy debugging. Thanks to [Marko Lahma](https://github.com/lahma) for the [PR](https://github.com/nunit/nunit/pull/4350).
+* [4144](https://github.com/nunit/nunit/issues/4144) Stderr/Console.Error will hold back Unicode escaped log messages. Thanks to [Max Schmitt](https://github.com/mxschmitt) for the [PR](https://github.com/nunit/nunit/pull/4145).
+* [4112](https://github.com/nunit/nunit/issues/4112) Update documentation to clarify passing parameters to test cases. Thanks to [Aaron Franke](https://github.com/aaronfranke) for the [PR](https://github.com/nunit/nunit/pull/4114).
+* [4101](https://github.com/nunit/nunit/issues/4101) Expose ExpectedResult to the TestContext.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4239).
+* [4086](https://github.com/nunit/nunit/issues/4086) Perform case-insensitive string comparisons in-place.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4088).
+* [4053](https://github.com/nunit/nunit/issues/4053) Cache method discovery by migrating [PR 4034](https://github.com/nunit/nunit/pull/4043) to main. Fixed by team  [PR](https://github.com/nunit/nunit/pull/4208).
+* [3984](https://github.com/nunit/nunit/issues/3984) Add net6.0 targets.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3988).
+* [3899](https://github.com/nunit/nunit/issues/3899) Allow randomizing 'Guid' test arguments with [Random]. Thanks to [Arnaud TAMAILLON](https://github.com/Greybird) for the [PR](https://github.com/nunit/nunit/pull/3951).
+* [3866](https://github.com/nunit/nunit/issues/3866) SupportedOSPlatform.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3926).
+* [3856](https://github.com/nunit/nunit/issues/3856) Theories in nested Testfixtures . Thanks to [Felix Kröner](https://github.com/Crown0815) for the [PR](https://github.com/nunit/nunit/pull/3857).
+* [3457](https://github.com/nunit/nunit/issues/3457) Add DefaultConstraint. Thanks to [Oleksandr Liakhevych](https://github.com/Dreamescaper) for the [PR](https://github.com/nunit/nunit/pull/3781).
+* [2843](https://github.com/nunit/nunit/issues/2843) Replacing ThrowsAsync with a composable async alternative. Thanks to [gavin Lambert](https://github.com/uecasm) for the [PR](https://github.com/nunit/nunit/pull/4322).
+
+### Bug fixes
+
+* [4319](https://github.com/nunit/nunit/issues/4319) TextRunner accidentally disposes System.Out.  Thanks to [Norm Johanson](https://github.com/normj) for the [PR](https://github.com/nunit/nunit/pull/4317)
+* [4308](https://github.com/nunit/nunit/issues/4308) Random attribute with Distinct and wide range causes test to disappear. Thanks to [Russel Smith](https://github.com/mr-russ) for the [PR](https://github.com/nunit/nunit/pull/4316)
+* [4255](https://github.com/nunit/nunit/issues/4255) InternalTrace.Initialize fails with Nullref exception.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4256).
+* [4243](https://github.com/nunit/nunit/issues/4243) Type args are not deduced correctly for parameterized fixtures. Thanks to [Samuel Delarosbil](https://github.com/sdelarosbil) for the [PR](https://github.com/nunit/nunit/pull/4307).
+* [4238](https://github.com/nunit/nunit/issues/4238) Update links to https in code comments.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4239).
+* [4207](https://github.com/nunit/nunit/issues/4207) An example in 'BUILDING.md' contains a typo that leads to an error. Thanks to [TillW](https://github.com/x789) for [PR](https://github.com/nunit/nunit/pull/4208).
+* [3964](https://github.com/nunit/nunit/issues/3964) DictionaryContainsKeyValuePairConstraint doesn't work with IDictionary TKey, TValue. Thanks to [Louis Zanella](https://github.com/louis-z) for the [PR](https://github.com/nunit/nunit/pull/4014).
+* [3961](https://github.com/nunit/nunit/issues/3961) OneTimeTearDown runs on a new thread with mismatched Thread Name and Worker Id. Thanks to [EraserKing](https://github.com/EraserKing) for the [PR](https://github.com/nunit/nunit/pull/4004).
+* [3953](https://github.com/nunit/nunit/issues/3953) Dispose is not called on test fixtures with LifeCycle.InstancePerTestCase without TearDown method.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3963).
+* [3888](https://github.com/nunit/nunit/issues/3888) FixtureLifeCycle not applied correctly to nested test classes. Thanks to [Merlijn van Deen](https://github.com/mvdfugro) for the [PR](https://github.com/nunit/nunit/pull/3889).
+* [3872](https://github.com/nunit/nunit/issues/3872) Add support for ref bool, ref bool?, in bool, and in bool? when using NUnit.Framework.ValuesAttribute
+. Thanks to [Samuel Delarosbil](https://github.com/sdelarosbil) for the [PR](https://github.com/nunit/nunit/pull/4304).
+* [3868](https://github.com/nunit/nunit/issues/3868) Order attribute skips classes with multiple test fixtures. Thanks to [Daniela Mazur](https://github.com/DanielaMazur) for the [PR](https://github.com/nunit/nunit/pull/4304).
+* [3858](https://github.com/nunit/nunit/issues/3866) Running tests with ITestAction attributes leaks memory.  Fixed by [PR 4300 by lahma](https://github.com/nunit/nunit/pull/4300).
+* [3811](https://github.com/nunit/nunit/issues/3811) Incorrect summary comments on Warn.If overloads.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3845).
+* [3432](https://github.com/nunit/nunit/issues/3432) Assert.That is blocking and might lead to deadlock when used with WCF. Thanks to [Gavin Lambert](https://github.com/uecasm) for the [PR](https://github.com/nunit/nunit/pull/4322).
+* [2870](https://github.com/nunit/nunit/issues/2870) CollectionTally (EquivalentTo) should throw for non-transitive comparisons.   Thanks to [Russel Smith](https://github.com/mr-russ) for the [PR](https://github.com/nunit/nunit/pull/4312)
+* [1428](https://github.com/nunit/nunit/issues/1428) NUnitLite package always installs both Program.cs and Program.vb.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3952).
+
+### Internal fixes
+
+* [4078](https://github.com/nunit/nunit/issues/4078) THREAD_ABORT not properly set.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4079).
+* [4075](https://github.com/nunit/nunit/issues/4075) Remove unnecessary comparer allocations from NUnitEqualityComparer.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4076).
+* [4065](https://github.com/nunit/nunit/issues/4065) Use pattern matching in the comparers.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4066).
+* [4055](https://github.com/nunit/nunit/issues/4055) Use static Regex.IsMatch in ValueMatchFilter to take advantage of caching.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4056).
+* [4051](https://github.com/nunit/nunit/issues/4051) Update codebase to use Array.Empty T.  Thanks to [Marcin Jedrzejek](https://github.com/mjedrzejek) for [PR](https://github.com/nunit/nunit/pull/4127).
+* [4049](https://github.com/nunit/nunit/issues/4049) Simplify property retrieval in DefaultTestAssemblyBuilder.Build().  Thanks to [Scott Buchanan](https://github.com/Phyrik) for the [PR](https://github.com/nunit/nunit/pull/4054).
+* [3935](https://github.com/nunit/nunit/issues/3935) Numerics.IsFixedPointNumeric should return false for decimals.  Thanks to [Wellington Balbo](https://github.com/wbalbo) for the [PR](https://github.com/nunit/nunit/pull/3942).
+* [3932](https://github.com/nunit/nunit/issues/3932) Make Numerics class internal. Thanks to [TillW](https://github.com/x789) for the [PR](https://github.com/nunit/nunit/pull/4205).
+* [3764](https://github.com/nunit/nunit/issues/3764) Switch to the dotnet tool version of Cake.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3835).
+* [2485](https://github.com/nunit/nunit/issues/2485) Remove\Trim copyright on individual files.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3795).
+
+### Deprecations
+
+* [4036](https://github.com/nunit/nunit/issues/4036) Drop net45 build target in nunit4.  Fixed by team [PR](https://github.com/nunit/nunit/pull/4050).
+* [3980](https://github.com/nunit/nunit/issues/3980) Drop netcoreapp2.1 targets.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3988).
+* [3769](https://github.com/nunit/nunit/issues/3769) Remove deprecated code, see issue for a detailed list of deprecated code.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3836).
+* [3758](https://github.com/nunit/nunit/issues/3758) Drop net35 build target in nunit4.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3760).
+* [3708](https://github.com/nunit/nunit/issues/3708) Drop net40 build target in nunit4.  Fixed by team [PR](https://github.com/nunit/nunit/pull/3760).
+* [3449](https://github.com/nunit/nunit/issues/3449) Assert.AreEqual overloads for nullable double are not useful.  Thanks to [Anton Ashmarin](https://github.com/Antash) for the [PR](https://github.com/nunit/nunit/pull/3780).
+* [3410](https://github.com/nunit/nunit/issues/3410) Consider deprecating NUnitEqualityComparer.AreEqual optional bool parameter
+. Thanks to [TillW](https://github.com/x789) for [PR](https://github.com/nunit/nunit/pull/3960).
+* [3708](https://github.com/nunit/nunit/issues/3708) Remove AssertionHelper and AssertionHelperTests.  
+
 ## NUnit 3.13.3 - March 20, 2022
 
 This release includes several performance enhancements. [@lahma](https://github.com/lahma) provided a massive speed improvement for large, parametrized test suites. In addition, equivalency tests with large unsortable collections run faster by determining if the collections are sortable before attempting to sort them.
