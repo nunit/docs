@@ -6,7 +6,7 @@ We'd like to bring your attention to several interesting aspects of NUnit 4. Fir
 
 Moreover, we have created a milestone for version 4, [which you can find a list of open issues for here](https://github.com/nunit/nunit/issues?q=is%3Aopen+is%3Aissue+milestone%3A4.0). This milestone could be useful in tracking the progress and development of version 4.
 
-**Now to some highlights, and not necessarily in chronological order.**
+Now to some highlights -- not necessarily in chronological order.
 
 ## Improved assert result messages
 
