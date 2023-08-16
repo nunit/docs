@@ -169,7 +169,7 @@ In the early V4 alpha version they will be delivered in the standard NUnit packa
 
 This means that the default assertion syntax going forward will be the "constraint-based" asserts.
 
-Exactly how these methods will be used is not quite decided yet.  We will probably need to do some name changes to avoid clashes.
+Exactly how these methods will be used is not quite decided yet. We will probably need to do some name changes to avoid clashes.
 
 ## Testing it out
 
