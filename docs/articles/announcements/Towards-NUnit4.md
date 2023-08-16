@@ -188,7 +188,7 @@ Add or modify your `nuget.config` to add the package resources such as below:
 </configuration>
 ```
 
-and replace your current NUnit Packagereference with
+Then, replace your current NUnit `PackageReference` with:
 
 ```xml
 <PackageReference Include="NUnit" Version="4.0.0-dev-07969" />
