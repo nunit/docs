@@ -10,7 +10,7 @@ Now to some highlights -- not necessarily in chronological order.
 
 ## Improved Assert Result Messages
 
-The result messages in case of a failure have been improved to now include the Assert statement that was used.
+Failure result messages now include the `Assert` statement that was used.
 
 Earlier code like:
 
