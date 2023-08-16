@@ -4,7 +4,7 @@ NUnit 4 has been long-awaited, and we are now starting to see its outline taking
 
 We'd like to bring your attention to several interesting aspects of NUnit 4. First and foremost, there is a crucial [NUnit 4 planning issue](https://github.com/nunit/nunit/issues/3325) that we want to highlight.  Additionally, we have an upcoming [release notes page](https://github.com/nunit/docs/blob/62c43cbbd32b8424c974d5ec50d5463a5c4cd621/docs/articles/nunit/release-notes/framework.md), currently in the form of a PR (Pull Request). If you're interested in changes related to supported frameworks and assert messages, we've compiled a [list of issues](https://github.com/nunit/nunit/issues/4431) for your reference.  
 
-Moreover, we have created a milestone for version 4, which you can find here [list of open issues](https://github.com/nunit/nunit/issues?q=is%3Aopen+is%3Aissue+milestone%3A4.0). This milestone could be quite useful in tracking the progress and development of version 4.
+Moreover, we have created a milestone for version 4, [which you can find a list of open issues for here](https://github.com/nunit/nunit/issues?q=is%3Aopen+is%3Aissue+milestone%3A4.0). This milestone could be useful in tracking the progress and development of version 4.
 
 **Now to some highlights, and not necessarily in chronological order.**
 
