@@ -8,7 +8,7 @@ Moreover, we have created a milestone for version 4, [which you can find a list 
 
 Now to some highlights -- not necessarily in chronological order.
 
-## Improved assert result messages
+## Improved Assert Result Messages
 
 The result messages in case of a failure have been improved to now include the Assert statement that was used.
 
