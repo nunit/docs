@@ -175,7 +175,7 @@ Exactly how these methods will be used is not quite decided yet. We will probabl
 
 If you add our Myget source to your app's nuget feeds, you can try out the new features yourself.
 
-Add a nuget.config like
+Add or modify your `nuget.config` to add the package resources such as below:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
