@@ -173,6 +173,10 @@ Exactly how these methods will be used is not quite decided yet. We will probabl
 
 ## Testing it out
 
+We have development packages deployed to a Myget feed, and now we have also added a github packages feed.  If you're using the latter you need to authenticate yourself, once that is done anyone can grab from that feed.
+
+### Myget
+
 If you add our Myget source to your app's nuget feeds, you can try out the new features yourself.
 
 Add or modify your `nuget.config` to add the package resources such as below:
@@ -183,7 +187,7 @@ Add or modify your `nuget.config` to add the package resources such as below:
     <packageSources>
         <clear/>
         <add key="nuget" value="https://api.nuget.org/v3/index.json" />
-        <add key="NuGetGitHub" value="https://nuget.pkg.github.com/nunit/index.json" />
+        <add key="NuGetGitHub" value="https://www.myget.org/F/nunit/api/v3/index.json" />
     </packageSources>
 </configuration>
 ```
@@ -191,8 +195,31 @@ Add or modify your `nuget.config` to add the package resources such as below:
 Then, replace your current NUnit `PackageReference` with:
 
 ```xml
-<PackageReference Include="NUnit" Version="4.0.0-dev-07969" />
+<PackageReference Include="NUnit" Version="4.0.0-dev-07984" />
 ```
+
+### Github packages
+
+Add or modify your `nuget.config` to add the package resources such as below:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <packageSources>
+        <clear/>
+        <add key="nuget" value="https://api.nuget.org/v3/index.json" />
+        <add key="Myget" value="https://nuget.pkg.github.com/nunit/index.json" />
+    </packageSources>
+</configuration>
+```
+
+Then, replace your current NUnit `PackageReference` with:
+
+```xml
+<PackageReference Include="NUnit" Version="4.0.0-alpha-8-g46eb5c5a1-pr-unknown" />
+```
+
+* Note: The versions should be the same, we're working on aligning the version numbers.
 
 ## Feedback
 
