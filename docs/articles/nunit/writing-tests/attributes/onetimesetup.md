@@ -64,6 +64,8 @@ class OneTimeSetUp methods before those in the derived classes.
 
 * When using [`FixtureLifeCycle`](xref:fixturelifecycleattribute) with `LifeCycle.InstancePerTestCase`, the [`OneTimeSetUp`](xref:onetimesetup-attribute) method must be static and is only called once. This is required so that the setup method does not access instance fields or properties that are reset for every test.
 
+* When set on a base class the method is invoked for each fixture that inherits from this base class and its invoked for the base class too if its not abstract. Use [`SetUpFixture`](xref:setupfixture-attribute) if this only needs to be run once or put the code in a static constructor.
+
 ## See Also
 
 * [SetUp Attribute](setup.md)
