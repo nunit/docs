@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Towards NUnit Version 4 | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Towards NUnit Version 4 | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="towards-nunit-version-4">Towards NUnit Version 4</h1>
+
+<p>NUnit 4 has been long-awaited, and we are now starting to see its outline taking shape. With the introduction of NUnit 4, we are also making changes to the release cadence, shifting towards a <a href="https://semver.org">Semver</a> based versioning scheme. This entails aiming to release version 4 as soon as possible and subsequently accelerating the pace of new major releases compared to previous versions.</p>
+<p>We'd like to bring your attention to several interesting aspects of NUnit 4. First and foremost, there is a crucial <a href="https://github.com/nunit/nunit/issues/3325">NUnit 4 planning issue</a> that we want to highlight.  Additionally, we have an upcoming <a href="https://github.com/nunit/docs/blob/62c43cbbd32b8424c974d5ec50d5463a5c4cd621/docs/articles/nunit/release-notes/framework.md">release notes page</a>, currently in the form of a PR (Pull Request). If you're interested in changes related to supported frameworks and assert messages, we've compiled a <a href="https://github.com/nunit/nunit/issues/4431">list of issues</a> for your reference.</p>
+<p>Moreover, we have created a milestone for version 4, <a href="https://github.com/nunit/nunit/issues?q=is%3Aopen+is%3Aissue+milestone%3A4.0">which you can find a list of open issues for here</a>. This milestone could be useful in tracking the progress and development of version 4.</p>
+<p>Now to some highlights -- not necessarily in chronological order.</p>
+<h2 id="improved-assert-result-messages">Improved Assert Result Messages</h2>
+<p>Failure result messages now include the <code>Assert</code> statement that was used.</p>
+<p>Earlier code like:</p>
+<pre><code class="lang-cs">    [TestCase(42)]
+    public void TestInt(int val)
+    {
+        Assert.That(val, Is.EqualTo(4));
+    }
+</code></pre>
+<p>resulted in:</p>
+<pre><code class="lang-txt">Message: 
+  Expected: 4
+  But was:  42
+</code></pre>
+<p>Not a very descriptive message.</p>
+<p>In version 4 this is improved to also include the assert statement itself.</p>
+<p>The result will then be:</p>
+<pre><code class="lang-txt">Message: 
+  Assert.That(val, Is.EqualTo(4))
+  Expected: 4
+  But was:  42
+</code></pre>
+<p>This also handles more complex statements, like for the following code:</p>
+<pre><code class="lang-cs"> [Test]
+    public void TestDouble()
+    {
+        var sut = new Math();
+        Assert.That(sut.Add(4.0, 2.0), Is.EqualTo(42.0).Within(0.1d), &quot;Add double failed&quot;);
+    }
+</code></pre>
+<p>which then results in:</p>
+<pre><code class="lang-txt">Message: 
+  Add double failed
+  Assert.That(sut.Add(4.0, 2.0), Is.EqualTo(42.0).Within(0.1d))
+  Expected: 42.0d +/- 0.10000000000000001d
+  But was:  6.0d
+  Off by:   36.0d
+</code></pre>
+<p>Note that the custom message is added before the Assert statement</p>
+<p>Including the Assert statement that caused the failure becomes particularly valuable in scenarios involving Multiple Asserts. In such cases, with a list of results from various asserts, it can be challenging to determine precisely which assert is responsible for each message. The improved result messages now offer clearer insights, making it easier to identify the specific assert that led to each failure.</p>
+<p>Given the code:</p>
+<pre><code class="lang-cs">
+[Test]
+    public void TestMultiple()
+    {
+        var x = 2;
+        Assert.Multiple(() =&gt;
+        {
+            Assert.That(x*2, Is.EqualTo(42));
+            Assert.That(x*1+40, Is.EqualTo(42));
+            Assert.That(x*3+42, Is.EqualTo(42));
+        });
+    }
+</code></pre>
+<p>which in version 3 results in:</p>
+<pre><code class="lang-txt">Message: 
+Multiple failures or warnings in test:
+  1)   Expected: 42
+  But was:  4
+
+  2)   Expected: 42
+  But was:  48
+</code></pre>
+<p>This is with only 3 asserts hard to figure out, but with version 4 we get:</p>
+<pre><code class="lang-txt">Message: 
+Multiple failures or warnings in test:
+  1)   Assert.That(x*2, Is.EqualTo(42))
+  Expected: 42
+  But was:  4
+
+  2)   Assert.That(x*3+42, Is.EqualTo(42))
+  Expected: 42
+  But was:  48
+</code></pre>
+<h3 id="breaking-change">Breaking change</h3>
+<ul>
+<li>Please be aware of a breaking change regarding assert messages in NUnit. The previous format with params args is no longer supported. If you require a similar message format, it is now necessary to convert it to an interpolated string.</li>
+</ul>
+<h3 id="developer-details">Developer details</h3>
+<p>The improved result messages have been implemented using the new <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-10.0/caller-argument-expression">CallerArgumentExpression</a> together with using a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.formattablestring?view=net-6.0">FormattableString</a> as the class for the message.</p>
+<h2 id="proper-asyncawait-you-can-now-await-the-asserts">Proper async/await, you can now await the Asserts</h2>
+<p>NUnit 3 has implemented async functionality using a pattern called 'sync-over-async.' This approach allowed for its implementation without requiring significant underlying changes.</p>
+<p>In version 4 proper async/await has been implemented with a series of new assert methods, <code>Assert.ThatAsync</code> which can be <code>await</code>'ed.</p>
+<pre><code class="lang-cs">    [Test]
+    public async Task AssertionPasses_CompletedTaskWithResult_EqualsResult()
+    {
+        await Assert.ThatAsync(() =&gt; Task.FromResult(42), Is.EqualTo(42));
+    }
+</code></pre>
+<p>Version 4 also introduces a new feature called Assert.MultipleAsync, which allows you to mix async and sync asserts within the same block. This enables you to perform multiple assertions, both asynchronous and synchronous, in a more concise and streamlined manner. Moreover, it's important to note that Assert.MultipleAsync is awaitable, providing flexibility in handling asynchronous operations and assertions.</p>
+<pre><code class="lang-cs">    [Test]
+    public async Task AssertMultipleAsyncSucceeds()
+    {
+        await Assert.MultipleAsync(async () =&gt;
+        {
+            await Assert.ThatAsync(() =&gt; Task.FromResult(42), Is.EqualTo(42));
+            Assert.That(&quot;hello&quot;, Is.EqualTo(&quot;hello&quot;));
+            await Assert.ThatAsync(() =&gt; Task.FromException(new  ArgumentNullException)), Throws.ArgumentNullException);
+        });
+    }
+</code></pre>
+<h2 id="nullability">Nullability</h2>
+<p>Version 4 has implemented stricter nullability throughout the codebase. While there are still some areas that require fixing, overall, it should now conform to the nullability requirements.  See <a href="https://github.com/nunit/nunit/issues/3376">3376</a> for details.</p>
+<p>These changes, along with the improved assert messages, have resulted in null values no longer being allowed for messages. As a consequence, code like the example below will not compile and will result in <a href="https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs0121?f1url=%3FappId%3Droslyn%26k%3Dk(CS0121)">CS0121</a>):</p>
+<p><img src="../../images/AssertNull.png" alt="AssertNull">
+It's important to update such code to use valid non-null message strings</p>
+<h2 id="platform-support">Platform support</h2>
+<p>The lowest framework platforms support in Version 4 are <strong>.net framework 4.6.2</strong> and <strong>.net 6.0</strong>.</p>
+<h2 id="classiclegacy-asserts">Classic/Legacy asserts</h2>
+<p>The classic/legacy asserts, like <code>Assert.AreEqual</code>, have now been moved into its own project, and will be released as a separate package.  They are now in the namespace <code>NUnit.Framework.Classic</code>.
+In the early V4 alpha version they will be delivered in the standard NUnit package.</p>
+<p>This means that the default assertion syntax going forward will be the &quot;constraint-based&quot; asserts.</p>
+<p>Exactly how these methods will be used is not quite decided yet. We will probably need to do some name changes to avoid clashes.</p>
+<h2 id="testing-it-out">Testing it out</h2>
+<p>We have development packages deployed to a Myget feed, and now we have also added a github packages feed.  If you're using the latter you need to authenticate yourself, once that is done anyone can grab from that feed.</p>
+<h3 id="myget">Myget</h3>
+<p>If you add our Myget source to your app's nuget feeds, you can try out the new features yourself.</p>
+<p>Add or modify your <code>nuget.config</code> to add the package resources such as below:</p>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+    &lt;packageSources&gt;
+        &lt;clear/&gt;
+        &lt;add key=&quot;nuget&quot; value=&quot;https://api.nuget.org/v3/index.json&quot; /&gt;
+        &lt;add key=&quot;NuGetGitHub&quot; value=&quot;https://www.myget.org/F/nunit/api/v3/index.json&quot; /&gt;
+    &lt;/packageSources&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>Then, replace your current NUnit <code>PackageReference</code> with:</p>
+<pre><code class="lang-xml">&lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;4.0.0-dev-07984&quot; /&gt;
+</code></pre>
+<h3 id="github-packages">Github packages</h3>
+<p>Add or modify your <code>nuget.config</code> to add the package resources such as below:</p>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+    &lt;packageSources&gt;
+        &lt;clear/&gt;
+        &lt;add key=&quot;nuget&quot; value=&quot;https://api.nuget.org/v3/index.json&quot; /&gt;
+        &lt;add key=&quot;Myget&quot; value=&quot;https://nuget.pkg.github.com/nunit/index.json&quot; /&gt;
+    &lt;/packageSources&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>Then, replace your current NUnit <code>PackageReference</code> with:</p>
+<pre><code class="lang-xml">&lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;4.0.0-alpha-8-g46eb5c5a1-pr-unknown&quot; /&gt;
+</code></pre>
+<ul>
+<li>Note: The versions should be the same, we're working on aligning the version numbers.</li>
+</ul>
+<h2 id="feedback">Feedback</h2>
+<p>We do appreciate feedback on these version 4 features.</p>
+<p>You can join in on the <a href="https://github.com/nunit/nunit/discussions/4437">discussion here</a>, comment in our <a href="https://nunit.slack.com">slack channel</a>, or if it is a bug or suggestion for improvement you can also  raise an issue in our <a href="https://github.com/nunit/nunit/issues">github repo</a>.</p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/Towards-NUnit4.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
