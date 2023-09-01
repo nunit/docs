@@ -137,6 +137,8 @@ class OneTimeSetUp methods before those in the derived classes.</p>
 </li>
 <li><p>When using <a class="xref" href="fixturelifecycle.html"><code>FixtureLifeCycle</code></a> with <code>LifeCycle.InstancePerTestCase</code>, the <a class="xref" href="onetimesetup.html"><code>OneTimeSetUp</code></a> method must be static and is only called once. This is required so that the setup method does not access instance fields or properties that are reset for every test.</p>
 </li>
+<li><p>When set on a base class the method is invoked for each fixture that inherits from this base class and its invoked for the base class too if its not abstract. Use <a class="xref" href="setupfixture.html"><code>SetUpFixture</code></a> if this only needs to be run once or put the code in a static constructor.</p>
+</li>
 </ul>
 <h2 id="see-also">See Also</h2>
 <ul>
