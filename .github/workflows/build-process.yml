@@ -13,7 +13,7 @@ jobs:
     name: "Markdown linting"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         name: Check out the code
       - uses: actions/setup-node@v3
         name: Setup node
@@ -27,7 +27,7 @@ jobs:
     name: "Spell check"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         name: Check out the code
       - uses: actions/setup-node@v3
         name: Setup node
@@ -41,7 +41,7 @@ jobs:
     name: "Build the site with docfx"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         name: Check out the code
       - uses: "nunit/docfx-action@v2.9.0"
         name: Build with Docfx
@@ -61,7 +61,7 @@ jobs:
       SOLUTION_LOCATION: "./docs/snippets/Snippets.sln"
     steps:
       - name: Check out the code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
