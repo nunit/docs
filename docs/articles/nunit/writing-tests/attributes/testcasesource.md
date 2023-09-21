@@ -66,6 +66,28 @@ See the **Test Case Construction** section below for details.
 
 Note that it is not possible to pass parameters to the source, even if the source is a method.
 
+## Sources with expected result using TestCaseData
+
+As of NUnit 3.12, it is possible to use a typed source with an expected result. This is done by using the `TestCaseSource` attribute on a method that returns a `TestCaseData` object. The `TestCaseData` object can be constructed with the expected result as a parameter.
+
+[!code-csharp[TypedSourceWithExpectedResult](~/snippets/Snippets.NUnit/TestCaseDataExample.cs#TestCaseDataExample)]
+
+See [TestCaseData](xref:testcasedata) for more information on the `TestCaseData` class.
+
+## Examples using TestCaseSource with Typed data and expected results
+
+It may seem from the examples above that TestCaseSource can only be used with simple data types or the base Object type. This is not the case.
+TestCaseSource can be used with typed data and also including expected results, also without using TestCaseData.
+
+In the example below the test method takes a single argument of a an anonymous tuple type with `Person` and an expected value of type `bool`. It can of course be any type, if that makes sense for the test.
+The TestCaseSource method returns an `IEnumerable<>` of the anonymous tuple type.
+
+[!code-csharp[TypedValuesWithExpectedAsAnonymousTuple](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#TypedValuesWithExpectedAsAnonymousTuple)]
+
+It is also possible to use a generic wrapper (or any custom wrapper) for the testcase data and the expected result, as shown in the example below.
+
+[!code-csharp[TypedValuesWithExpectedInWrapperClass](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#TypedValuesWithExpectedInWrapperClass)]
+
 ## Named Parameters
 
 TestCaseSourceAttribute supports one named parameter:
@@ -88,7 +110,7 @@ the enumerator as follows:
 
 * If it is an `object[]`, its members are used to provide
    the arguments for the method. This is the approach taken in
-   the three examples above.
+   the three first examples above.
 * If it is an array of some other type, NUnit can use it provided
    that the arguments to the method are all of that type. For example,
    the above examples could be modified to make the three nested arrays
