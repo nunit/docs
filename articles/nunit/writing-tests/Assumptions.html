@@ -88,13 +88,14 @@
 <p>Assumptions are intended to express the state a test must be in to provide a meaningful result. They are functionally similar to assertions, however a unmet assumption will produce an Inconclusive test result, as opposed to a Failure.</p>
 <p>Assumptions make use of the <code>Assume</code> static class.</p>
 <h2 id="syntax-example">Syntax Example</h2>
-<pre><code class="lang-csharp" name="AssumptionsTests">[Test]
-public void Number_Divided_By_Itself_Is1()
+<pre><code class="lang-csharp" name="AssumptionsTests">[TestCase(5)]
+[TestCase(0)]
+[TestCase(-5)]
+public void Number_Divided_By_Itself_Is1(int numberToCheck)
 {
-    var numberToCheck = 5;
     var divisor = GetMatchingDivisor(numberToCheck);
 
-    Assume.That(divisor, Is.Not.EqualTo(0), () =&gt; &quot;divisor must not zero in order for this test to be valid&quot;);
+    Assume.That(divisor, Is.Not.EqualTo(0), () =&gt; &quot;divisor must not be zero in order for this test to be valid&quot;);
 
     var result = numberToCheck / divisor;
     Assert.That(result, Is.EqualTo(1));
