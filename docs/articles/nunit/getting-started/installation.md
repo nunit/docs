@@ -12,7 +12,8 @@ You can add a NUnit project from the `Add New Project` dialog. Search for `NUnit
 
 This will add a new project to your solution, containing a single test class and a single test method. Your project file will have the necessary references to NUnit, the NUnit Test Adapter, the NUnit Analyzer, Microsoft Test SDK and the coverlet code coverage package.
 
-Be aware that the templates behind this may be out of date, so always go to the Manage NuGet Packages dialog and update to the latest version of all packages there.
+> [!NOTE]
+> Be aware that the templates behind this may be out of date, so always go to the `Manage NuGet Packages` dialog and update to the latest version of all packages there.
 
 ## I'm using Visual Studio Code as my development tool
 
