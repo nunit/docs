@@ -141,7 +141,7 @@ Follow the instructions for [NUnitLite](xref:nunitlite) to install the package a
 
 To run your tests, simply run your executable test assembly. No other runner is needed.
 
-Note that since this approach includes a Program.cs it can not be combined with the ordinary Unit test project, as that would give dual entry points, making the compiler confused.
+Note that since this approach includes a `Program.cs` it can not be combined with the ordinary unit test project, as that would create two entry points, which would confuse the compiler.
 
 ### Downloading the Zip File, and be on shaky grounds
 
