@@ -1,3 +1,7 @@
+---
+uid: nunitlite
+---
+
 # NUnite Lite Runner
 
 NUnitLite started out life as a separate version of the NUnit framework, with fewer features and a built-in test runner. It ran on devices as well as on desktop .NET and mono and allowed users to create executable tests without the overhead of a full NUnit installation.
