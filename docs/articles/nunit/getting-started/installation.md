@@ -36,7 +36,7 @@ The results will be exactly the same as if you had used Visual Studio.
 
 All of the above will create a new project with the following structure, after updating the packages to the latest versions (as of Sept 2023):
 
-```csproj
+```xml
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
