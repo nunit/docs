@@ -123,7 +123,7 @@ Install both packages. The **NUnit** package should be referenced by each of you
 Locate nunit3-console in the **packages\NUnit.ConsoleRunner.3.X.X\tools** (or your configured package directory of choice) directory under your solution. This is the location from which you must run nunit3-console when if you would like to run NUnit3 from console.
 We recommend you only use this approach when running under the control of a script on your build server.
 
-See here for more details of using the [NUnit Console app](https://github.com/nunit/nunit-console#readme)
+ [See here for more details of using the NUnit Console app](https://github.com/nunit/nunit-console#readme).
 
 ## NUnit3TestAdapter
 
