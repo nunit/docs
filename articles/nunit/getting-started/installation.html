@@ -82,33 +82,111 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="installation">
 <h1 id="installation">Installation</h1>
 
-<p>To get a copy of the NUnit 3, you can use various installation approaches.</p>
+<p>To install NUnit, you can use various installation approaches, depending upon your preferred development environment and preferences.</p>
+<h2 id="im-using-visual-studio-as-my-development-tool">I'm using Visual Studio as my development tool</h2>
+<p>You can add a NUnit project from the <code>Add New Project</code> dialog. Search for <code>NUnit</code> and choose the <code>NUnit Test Project</code> template.</p>
+<p>This will add a new project to your solution, containing a single test class and a single test method. Your project file will have the necessary references to NUnit, the NUnit Test Adapter, the NUnit Analyzer, Microsoft Test SDK and the coverlet code coverage package.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Be aware that the templates behind this may be out of date, so always go to the <code>Manage NuGet Packages</code> dialog and update to the latest version of all packages there.</p>
+</div>
+<h2 id="im-using-visual-studio-code-as-my-development-tool">I'm using Visual Studio Code as my development tool</h2>
+<p>Ensure you have the <a href="https://code.visualstudio.com/docs/csharp/get-started">C# Dev Kit</a> installed. Then <code>Shift+CTRL+P</code>, type <code>New</code> and select <code>New Project</code>. Select <code>NUnit 3 Test Project</code> and follow the prompts.
+The results will be exactly the same as if you had used Visual Studio.</p>
+<p>Rider has built-in support for NUnit, and is using the same template, so you'll achieve the same result.</p>
+<h2 id="im-using-rider-as-my-development-tool">I'm using Rider as my development tool</h2>
+<p>This is the same procedure as for Visual Studio: <code>Add New Project</code>, select the <code>NUnit Test Project</code> template, and follow the prompts.
+The results will be exactly the same as if you had used Visual Studio.</p>
+<h2 id="i-prefer-to-do-this-using-the-command-line-or-any-of-the-built-in-terminals">I prefer to do this using the command line or any of the built-in terminals</h2>
+<p>From your solution folder, run <code>dotnet new nunit -o TestProject1</code> to create a new NUnit test project in the folder <code>TestProject1</code>.
+The results will be exactly the same as if you had used Visual Studio.</p>
+<h2 id="examples-of-what-you-get">Examples of what you get</h2>
+<p>All of the above will create a new project with the following structure, after updating the packages to the latest versions (as of Sept 2023):</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+
+    &lt;PropertyGroup&gt;
+        &lt;TargetFramework&gt;net8.0&lt;/TargetFramework&gt;
+        &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+        &lt;Nullable&gt;enable&lt;/Nullable&gt;
+
+        &lt;IsPackable&gt;false&lt;/IsPackable&gt;
+    &lt;/PropertyGroup&gt;
+
+    &lt;ItemGroup&gt;
+        &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;17.7.2&quot; /&gt;
+        &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;3.13.3&quot; /&gt;
+        &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; Version=&quot;4.5.0&quot; /&gt;
+        &lt;PackageReference Include=&quot;NUnit.Analyzers&quot; Version=&quot;3.7.0&quot;&gt;
+          &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
+          &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
+        &lt;/PackageReference&gt;
+        &lt;PackageReference Include=&quot;coverlet.collector&quot; Version=&quot;6.0.0&quot;&gt;
+          &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
+          &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
+        &lt;/PackageReference&gt;
+     &lt;/ItemGroup&gt;
+
+&lt;/Project&gt;
+
+</code></pre>
+<p>It will create a <code>UnitTest1.cs</code> file with the following contents:</p>
+<pre><code class="lang-cs">namespace TestProject1;
+
+public class Tests
+{
+    [SetUp]
+    public void Setup()
+    {
+    }
+
+    [Test]
+    public void Test1()
+    {
+        Assert.Pass();
+    }
+}
+</code></pre>
+<p>and a <code>Usings.cs</code> file:</p>
+<pre><code class="lang-cs">global using NUnit.Framework;
+</code></pre>
+<h2 id="adding-nunit-to-an-existing-test-project">Adding NUnit to an existing test project</h2>
+<p>If you need to update an existing test project to use NUnit -- perhaps a .NET Standard class lib you want to convert to a test project, or adding NUnit to a project that already has XUnit or MSTest -- you can do that by adding the <code>ItemGroup</code> in the <code>.csproj</code> file above to your project file, and then the appropriate <code>using NUnit.Framework;</code> in your code.</p>
+<p>Also note that multiple different test frameworks (XUnit, MSTest, NUnit) can co-exist in the same test project, preferably in different files to avoid name clashes. See <a href="https://devblogs.microsoft.com/devops/part-2using-traits-with-different-test-frameworks-in-the-unit-test-explorer/">this blog post</a> for details.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>All of the above ways to create a new NUnit project will result in the same structure, the same test class and methods, and the same packages being installed. That means you can do it any way you like, you can start with one tool and continue with another.</p>
+<p>The template used is maintained as part of .NET and will be upgraded when .NET updates. All the above pick the template from .NET, which is why the end result is the same.</p>
+<h2 id="i-want-to-do-it-the-old-and-hard-way">I want to do it the old and hard way</h2>
+<p>This is from the older documentation, and is still valid, but we recommend you use the above methods.</p>
 <ol>
 <li>Full NUnit install via NuGet.</li>
 <li>NUnitLite install via NuGet.</li>
 <li>Zip and/or MSI file download.</li>
 <li>Combined Approach</li>
 </ol>
-<h2 id="using-nuget-packages">Using NuGet Packages</h2>
+<h3 id="using-nuget-packages-and-the-nunit-console">Using NuGet Packages and the NUnit Console</h3>
 <p>In Visual Studio, from the Tools menu, select NuGet Package Manager | Manage NuGet packages for solution...
 Open the Browser tab, and Scroll or use search to locate the <strong>NUnit</strong> and <strong>NUnit.Console</strong> packages.</p>
-<h2 id="nunit-and-nunitconsole">NUnit and NUnit.Console</h2>
+<h3 id="nunit-and-nunitconsole">NUnit and NUnit.Console</h3>
 <p>Install both packages. The <strong>NUnit</strong> package should be referenced by each of your test assemblies, but not by any others.</p>
 <p>Locate nunit3-console in the <strong>packages\NUnit.ConsoleRunner.3.X.X\tools</strong> (or your configured package directory of choice) directory under your solution. This is the location from which you must run nunit3-console when if you would like to run NUnit3 from console.
 We recommend you only use this approach when running under the control of a script on your build server.</p>
+<p><a href="https://github.com/nunit/nunit-console#readme">See here for more details of using the NUnit Console app</a>.</p>
 <h2 id="nunit3testadapter">NUnit3TestAdapter</h2>
-<p>If you want to run NUnit tests automated on a clean machine without any installations (e.g. TFS build agent) - and you're using Visual Studio 2012 or later, use this package.</p>
-<p>It's based on <a class="xref" href="../../vs-test-adapter/Adapter-Installation.html">the Visual Studio Test Adapter</a> and provides a compiled NUnit3 Visual Studio Test Adapter.</p>
+<p>If you want to automate the running of NUnit tests on a clean machine without any installations (e.g. Azure DevOps or GitHub Actions build agents) - and you're using Visual Studio 2012 or later, use this package.</p>
+<p>See <a class="xref" href="../../vs-test-adapter/Adapter-Installation.html">the Visual Studio Test Adapter</a> for details.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you have used any of the above 4 approaches, you already have this package installed, and it will work on any CI build system.</p>
+</div>
 <h3 id="using-nuget-nunitlite-package">Using NuGet NUnitLite Package</h3>
-<p>The NUnitLite approach provides a way to run NUnit tests without a full install of the NUnit runner and test engine assemblies. Only the framework and a small runner program are installed. Note that this is currently the only way to run tests under SilverLight 5.0 or the compact framework.</p>
-<p>In Visual Studio, from the Tools menu, select NuGet Package Manager | Manage NuGet packages for solution...</p>
-<p>Scroll or use search to locate the <strong>NUnitLite Version 3</strong> and install it. The package should be referenced by each of your test assemblies, but not by any others.</p>
-<p>As a result of your installation, a file named &quot;Program.cs&quot; will have been copied into each of your test projects. NUnitLite test projects are console applications and this file contains the Main() program for your tests. If you already have a Main() in some other class, you may delete the file. This file also contains comments describing how the main should call the NUnitLite runner.</p>
+<p>The NUnitLite approach provides a way to run NUnit tests without a full install of the NUnit runner and test engine assemblies. Only the framework and a small runner program are installed. If you want to experiment with NUnit or debug something in NUnit, this can be a helpful choice.</p>
+<p>Follow the instructions for <a class="xref" href="../running-tests/NUnitLite-Runner.html">NUnitLite</a> to install the package and create a test assembly. You will need to add a reference to the <code>NUnitLite</code> package in your test assembly.</p>
 <p>To run your tests, simply run your executable test assembly. No other runner is needed.</p>
-<h3 id="downloading-the-zip-file">Downloading the Zip File</h3>
+<p>Note that since this approach includes a <code>Program.cs</code> it can not be combined with the ordinary unit test project, as that would create two entry points, which would confuse the compiler.</p>
+<h3 id="downloading-the-zip-file----not-recommended">Downloading the Zip File -- Not Recommended</h3>
 <p>Download the latest binary zip of the NUnit Framework from our <a href="https://nunit.org/download/">Download page</a>. Unzip the file into any convenient directory.</p>
 <p>You can also download the latest binary zip or an MSI installer of the NUnit Console from <a href="https://github.com/nunit/nunit-console/releases">GitHub</a>. Unzip the file or install the MSI and then if you would like be able to run nunit3-console from the command line, put the bin directory, containing nunit3-console.exe on your path.</p>
 <p>In your test assemblies, add a reference to nunit.framework.dll, using the copy in the subdirectory for the appropriate runtime version. For example, if you are targeting .NET 4.0, you should reference the framework assembly in the net-4.0 subdirectory.</p>

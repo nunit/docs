@@ -86,15 +86,15 @@
 <h1 id="net-core-and-net-standard">.NET Core and .NET Standard</h1>
 
 <p>More information and getting started tutorials are available for NUnit and .NET Core targeting <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit">C#</a>, <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-fsharp-with-nunit">F#</a> and <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-visual-basic-with-nunit">Visual Basic</a> in the .NET Core documentation's <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/">Unit Testing in .NET Core and .NET Standard</a> page.</p>
-<p>Each test project needs to reference version 4.1.0 or later of the NUnit3 Visual Studio Test Adapter.</p>
-<p>It is recommended to install the adapter from NuGet if you are testing .NET Core or .NET Standard projects.
-The VSIX adapter has been deprecated for VS2019. Latest version is 3.17.0. For VS2022 there is no VSIX adapter.</p>
-<p>Adding this adapter and <code>Microsoft.NET.Test.Sdk</code> version <code>17.0.0</code> to your NUnit test projects will also enable the <code>dotnet test</code> command for .NET Core projects.</p>
+<p>The other information on this page is older documentation. If you follow the instructions in the <a class="xref" href="installation.html">Installation section</a> your project will work with .NET Core and .NET Standard.</p>
+<p>The test projects have to be .NET Core or .NET Framework; .NET Standard can't be used as a test project, since it can't be run on its own, but any code in a .NET Standard library can be tested from a .NET Core or .NET Framework test project.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>Adding the adapter and <code>Microsoft.NET.Test.Sdk</code> version <code>17.0.0</code> or greater to your NUnit test projects will also enable the <code>dotnet test</code> command for .NET Core projects.</p>
 <p>Any tests using the new style CSPROJ format, either .NET Core or .NET 4.x, need to add a <code>PackageReference</code> to the NuGet package <code>Microsoft.NET.Test.Sdk</code>. Your test assemblies must also be .NET Core or .NET 4.x, not .NET Standard.</p>
 <pre><code class="lang-xml">&lt;ItemGroup&gt;
-  &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;15.5.0&quot; /&gt;
-  &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;3.9.0&quot; /&gt;
-  &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; Version=&quot;3.9.0&quot; /&gt;
+  &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;17.7.2&quot; /&gt;
+  &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;3.13.3&quot; /&gt;
+  &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; Version=&quot;4.5.0&quot; /&gt;
 &lt;/ItemGroup&gt;
 </code></pre>
 <p>.NET Core test can be run on the command line with <code>dotnet test</code>, for example,</p>
@@ -120,7 +120,7 @@ The VSIX adapter has been deprecated for VS2019. Latest version is 3.17.0. For V
 <h4 id="my-tests-multi-target-net-core-and-net-framework-why-cant-i-run-both-in-visual-studio">My tests multi-target .NET Core and .NET Framework, why can't I run both in Visual Studio</h4>
 <p>This is a limitation of Visual Studio, hopefully it will be fixed in a future release.</p>
 <p>Meanwhile, you can run specific tests using the <code>--framework</code> command line option of <a href="https://docs.microsoft.com/en-ca/dotnet/core/tools/dotnet-test?tabs=netcore2x">dotnet test</a></p>
-<h4 id="how-do-i-produce-a-test-results-file">How do I produce a test results file</h4>
+<h2 id="how-do-i-produce-a-test-results-file">How do I produce a test results file</h2>
 <p><code>dotnet test</code> can generate an NUnit3 test result file by adding a runsettings property. The property to add is <a href="/articles/vs-test-adapter/Tips-And-Tricks.html#testoutputxml">TestOutputXml</a>. This generation is done using the NUnit Engine report service, and produce the same result as the <a href="https://www.nuget.org/packages/NUnit.Console/">NUnit3-console</a>. This is available through the <a href="https://www.nuget.org/packages/NUnit3TestAdapter">NUnit3TestAdapter</a>.</p>
 <p>You run it by adding the setting on the command line (or in a runsettings file):</p>
 <pre><code class="lang-console">dotnet test  -- NUnit.TestOutputXml=yourfoldername
