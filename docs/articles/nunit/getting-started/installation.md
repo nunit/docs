@@ -4,7 +4,7 @@ To install NUnit, you can use various installation approaches, depending upon yo
 
 ## I'm using Visual Studio as my development tool
 
-You can add a NUnit project from the Add New Project dialog. Search for NUnit and choose the NUnit Test Project template. 
+You can add a NUnit project from the Add New Project dialog. Search for NUnit and choose the NUnit Test Project template.
 
 This will add a new project to your solution, containing a single test class and a single test method. Your project file will have the necessary references to NUnit, the NUnit Test Adapter, the NUnit Analyzer, Microsoft Test SDK and the coverlet code coverage package.
 
@@ -98,8 +98,6 @@ All of the above ways to create a new NUnit project will result in the same stru
 
 The template used is maintained as part of dotnet and will be upgraded when dotnet updates. All the above pick the template from dotnet, which is why the end result is the same.
 
-
-
 ## I want to do it the old and hard way
 
 This is from the older documentation, and is still valid, but we recommend you use the above methods.
@@ -139,7 +137,7 @@ Follow the instructions for [NUnitLite](xref:nunitlite) to install the package a
 
 To run your tests, simply run your executable test assembly. No other runner is needed.
 
-Note that since this approach includes a Program.cs it can not be combined with the ordinary Unit test project, as that would give dual entry points, making the compiler confused. 
+Note that since this approach includes a Program.cs it can not be combined with the ordinary Unit test project, as that would give dual entry points, making the compiler confused.
 
 ### Downloading the Zip File, and be on shaky grounds
 
