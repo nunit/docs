@@ -23,7 +23,7 @@ Rider has built-in support for NUnit, but are using the same template, so you ge
 
 ## I'm using Rider as my development tool
 
-This is the same procedure as for Visual Studio, `Add New Project`, select the `NUnit Test Project` template and follow the prompts.
+This is the same procedure as for Visual Studio: `Add New Project`, select the `NUnit Test Project` template, and follow the prompts.
 The results will be exactly the same as if you had used Visual Studio.
 
 ## I prefer to do this using the command line or any of the built-in terminals
