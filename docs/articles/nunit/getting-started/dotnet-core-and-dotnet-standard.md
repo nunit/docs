@@ -4,7 +4,7 @@ More information and getting started tutorials are available for NUnit and .NET 
 
 The other information on this page is older documentation. If you follow the instructions in the [Installation section](xref:installation) your project will work with .NET Core and .NET Standard.
 
-The test projects have to be .Net Core or .Net Framework, .Net Standard can't be used as a test project, since it can't be run on its own, but any code in a .Net Standard library can be tested from a .Net Core or .Net Framework test project.
+The test projects have to be .NET Core or .NET Framework; .NET Standard can't be used as a test project, since it can't be run on its own, but any code in a .NET Standard library can be tested from a .NET Core or .NET Framework test project.
 
 ## TL;DR
 
