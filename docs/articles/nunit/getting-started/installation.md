@@ -143,7 +143,7 @@ To run your tests, simply run your executable test assembly. No other runner is 
 
 Note that since this approach includes a `Program.cs` it can not be combined with the ordinary unit test project, as that would create two entry points, which would confuse the compiler.
 
-### Downloading the Zip File, and be on shaky grounds
+### Downloading the Zip File -- Not Recommended
 
 Download the latest binary zip of the NUnit Framework from our [Download page](https://nunit.org/download/). Unzip the file into any convenient directory.
 
