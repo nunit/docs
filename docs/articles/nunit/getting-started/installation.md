@@ -135,7 +135,7 @@ Note that if you have used any of the top 4 approaches, you already have this pa
 
 ### Using NuGet NUnitLite Package
 
-The NUnitLite approach provides a way to run NUnit tests without a full install of the NUnit runner and test engine assemblies. Only the framework and a small runner program are installed. If you want to experiment with NUnit, debug something in NUnit, this can be a good way to go.
+The NUnitLite approach provides a way to run NUnit tests without a full install of the NUnit runner and test engine assemblies. Only the framework and a small runner program are installed. If you want to experiment with NUnit or debug something in NUnit, this can be a helpful choice.
 
 Follow the instructions for [NUnitLite](xref:nunitlite) to install the package and create a test assembly. You will need to add a reference to the NUnitLite package in your test assembly.
 
