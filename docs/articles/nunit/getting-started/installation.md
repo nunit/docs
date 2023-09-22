@@ -100,7 +100,7 @@ Also note that multiple different test frameworks (XUnit, MSTest, NUnit) can co-
 
 All of the above ways to create a new NUnit project will result in the same structure, the same test class and methods, and the same packages being installed. That means you can do it any way you like, you can start with one tool and continue with another.
 
-The template used is maintained as part of dotnet and will be upgraded when dotnet updates. All the above pick the template from dotnet, which is why the end result is the same.
+The template used is maintained as part of .NET and will be upgraded when .NET updates. All the above pick the template from .NET, which is why the end result is the same.
 
 ## I want to do it the old and hard way
 
