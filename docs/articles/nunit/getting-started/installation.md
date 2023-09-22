@@ -1,3 +1,7 @@
+---
+uid: installation
+---
+
 # Installation
 
 To install NUnit, you can use various installation approaches, depending upon your preferred development environment and preferences.
