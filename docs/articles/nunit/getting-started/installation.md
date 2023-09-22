@@ -8,7 +8,7 @@ To install NUnit, you can use various installation approaches, depending upon yo
 
 ## I'm using Visual Studio as my development tool
 
-You can add a NUnit project from the Add New Project dialog. Search for NUnit and choose the NUnit Test Project template.
+You can add a NUnit project from the `Add New Project` dialog. Search for `NUnit` and choose the `NUnit Test Project` template.
 
 This will add a new project to your solution, containing a single test class and a single test method. Your project file will have the necessary references to NUnit, the NUnit Test Adapter, the NUnit Analyzer, Microsoft Test SDK and the coverlet code coverage package.
 
