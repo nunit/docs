@@ -19,7 +19,7 @@ Be aware that the templates behind this may be out of date, so always go to the 
 Ensure you have the [C# Dev Kit](https://code.visualstudio.com/docs/csharp/get-started) installed. Then Shift-Control-P, type `Net` and select `New Project`. Select `NUnit 3 Test Project` and follow the prompts.
 The results will be exactly the same as if you had used Visual Studio.
 
-Rider has built-in support for NUnit, but are using the same template, so you get the full result.
+Rider has built-in support for NUnit, and is using the same template, so you'll achieve the same result.
 
 ## I'm using Rider as my development tool
 
