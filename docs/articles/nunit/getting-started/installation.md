@@ -127,7 +127,7 @@ We recommend you only use this approach when running under the control of a scri
 
 ## NUnit3TestAdapter
 
-If you want to run NUnit tests automated on a clean machine without any installations (e.g. Azure Devops or Github actions build agent) - and you're using Visual Studio 2012 or later, use this package.
+If you want to automate the running of NUnit tests on a clean machine without any installations (e.g. Azure DevOps or GitHub Actions build agents) - and you're using Visual Studio 2012 or later, use this package.
 
 See [the Visual Studio Test Adapter](xref:vstestadapterinstallation) for details.
 
