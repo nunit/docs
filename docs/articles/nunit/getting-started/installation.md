@@ -33,7 +33,7 @@ The results will be exactly the same as if you had used Visual Studio.
 
 ## Examples of what you get
 
-All of the above will create a new project with the following structure, after updating the packages to the latest versions (of Sept 2023):
+All of the above will create a new project with the following structure, after updating the packages to the latest versions (as of Sept 2023):
 
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
