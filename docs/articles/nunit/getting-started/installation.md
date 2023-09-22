@@ -132,7 +132,8 @@ If you want to automate the running of NUnit tests on a clean machine without an
 
 See [the Visual Studio Test Adapter](xref:vstestadapterinstallation) for details.
 
-Note that if you have used any of the top 4 approaches, you already have this package installed, and it will work on any CI build system.
+> [!NOTE]
+> If you have used any of the above 4 approaches, you already have this package installed, and it will work on any CI build system.
 
 ### Using NuGet NUnitLite Package
 
