@@ -8,7 +8,7 @@ The test projects have to be .NET Core or .NET Framework; .NET Standard can't be
 
 ## TL;DR
 
-Adding the adapter and `Microsoft.NET.Test.Sdk` version `17.0.0` to your NUnit test projects will also enable the `dotnet test` command for .NET Core projects.
+Adding the adapter and `Microsoft.NET.Test.Sdk` version `17.0.0` or greater to your NUnit test projects will also enable the `dotnet test` command for .NET Core projects.
 
 Any tests using the new style CSPROJ format, either .NET Core or .NET 4.x, need to add a `PackageReference` to the NuGet package `Microsoft.NET.Test.Sdk`. Your test assemblies must also be .NET Core or .NET 4.x, not .NET Standard.
 
