@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Suppressor
-| Code     | [NonNullableFieldOrPropertyIsUninitializedSuppressor](https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/DiagnosticSuppressors/NonNullableFieldOrPropertyIsUninitializedSuppressor.cs)
+| Code     | [NonNullableFieldOrPropertyIsUninitializedSuppressor](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/NonNullableFieldOrPropertyIsUninitializedSuppressor.cs)
 
 ## Description
 
@@ -60,7 +60,7 @@ The rule has no severity, but can be disabled.
 ### Via ruleset file
 
 To disable the rule for a project, you need to add a
-[ruleset file](https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
+[ruleset file](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

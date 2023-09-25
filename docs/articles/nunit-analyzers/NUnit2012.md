@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [StringConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs)
+| Code     | [StringConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs)
 
 ## Description
 
