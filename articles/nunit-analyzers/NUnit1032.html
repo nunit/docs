@@ -12,9 +12,9 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>NUnit2041 | NUnit Docs </title>
+      <title>NUnit1032 | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="NUnit2041 | NUnit Docs ">
+      <meta name="title" content="NUnit1032 | NUnit Docs ">
     
       <link rel="shortcut icon" href="../../favicon.ico">
       <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
@@ -83,9 +83,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="nunit2041">NUnit2041</h1>
+<h1 id="nunit1032">NUnit1032</h1>
 
-<h2 id="incompatible-types-for-comparison-constraint">Incompatible types for comparison constraint</h2>
+<h2 id="an-idisposable-fieldproperty-should-be-disposed-in-a-teardown-method">An IDisposable field/property should be Disposed in a TearDown method</h2>
 <table>
 <thead>
 <tr>
@@ -96,7 +96,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Id</td>
-<td style="text-align: left;">NUnit2041</td>
+<td style="text-align: left;">NUnit1032</td>
 </tr>
 <tr>
 <td style="text-align: left;">Severity</td>
@@ -108,48 +108,42 @@
 </tr>
 <tr>
 <td style="text-align: left;">Category</td>
-<td style="text-align: left;">Assertion</td>
+<td style="text-align: left;">Structure</td>
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ComparableTypes/ComparableTypesAnalyzer.cs">ComparableTypesAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DisposeFieldsAndPropertiesInTearDown/DisposeFieldsAndPropertiesInTearDownAnalyzer.cs">DisposeFieldsAndPropertiesInTearDownAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>The comparison constraint always fails as the actual and the expected value are not comparable.</p>
+<p>An IDisposable field/property should be Disposed in a TearDown method.</p>
 <h2 id="motivation">Motivation</h2>
-<pre><code class="lang-csharp">class Foo { }
-class Bar { }
-
-var foo = new Foo();
-var bar = new Bar();
-
-Assert.That(foo, Is.GreaterThan(bar));
-</code></pre>
-<p>There is no comparisons defined between instances of types <code>Foo</code> and <code>Bar</code>, therefore such assertion will always fail.</p>
+<p>Not Disposing fields/properties can cause memory leaks or failing tests.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
-<p>Fix your assertion (i.e. fix actual or expected value) or implement <code>IComparable&lt;Bar&gt;</code> on <code>Foo</code>.</p>
+<p>Dispose any fields/properties that are initialized in <code>SetUp</code> or <code>Test</code> methods in a <code>TearDown</code> method.
+Fields/Properties that are initialized in <code>OneTimeSetUp</code>, or with initializers or in constructors
+must be disposed in <code>OneTimeTearDown</code>.</p>
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit2041: Incompatible types for comparison constraint
-dotnet_diagnostic.NUnit2041.severity = chosenSeverity
+<pre><code class="lang-ini"># NUnit1032: An IDisposable field/property should be Disposed in a TearDown method
+dotnet_diagnostic.NUnit1032.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2041 // Incompatible types for comparison constraint
+<pre><code class="lang-csharp">#pragma warning disable NUnit1032 // An IDisposable field/property should be Disposed in a TearDown method
 Code violating the rule here
-#pragma warning restore NUnit2041 // Incompatible types for comparison constraint
+#pragma warning restore NUnit1032 // An IDisposable field/property should be Disposed in a TearDown method
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2041 // Incompatible types for comparison constraint
+<pre><code class="lang-csharp">#pragma warning disable NUnit1032 // An IDisposable field/property should be Disposed in a TearDown method
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
-<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2041:Incompatible types for comparison constraint&quot;,
+<pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Structure&quot;,
+    &quot;NUnit1032:An IDisposable field/property should be Disposed in a TearDown method&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->
@@ -161,7 +155,7 @@ Code violating the rule here
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit2041.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit1032.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
