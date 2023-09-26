@@ -8,7 +8,7 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Structure
-| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
+| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
 
 ## Description
 

@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Structure
-| Code     | [NonTestMethodAccessibilityLevelAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/NonTestMethodAccessibilityLevel/NonTestMethodAccessibilityLevelAnalyzer.cs)
+| Code     | [NonTestMethodAccessibilityLevelAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/NonTestMethodAccessibilityLevel/NonTestMethodAccessibilityLevelAnalyzer.cs)
 
 ## Description
 

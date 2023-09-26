@@ -8,7 +8,7 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Assertion
-| Code     | [ConstActualValueUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.6.0/src/nunit.analyzers/ConstActualValueUsage/ConstActualValueUsageAnalyzer.cs)
+| Code     | [ConstActualValueUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ConstActualValueUsage/ConstActualValueUsageAnalyzer.cs)
 
 ## Description
 
