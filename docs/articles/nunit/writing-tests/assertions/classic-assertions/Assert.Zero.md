@@ -1,28 +1,28 @@
-# Assert.Zero
+# ClassicAssert.Zero
 
-**Assert.Zero** tests that a value is zero.
+**ClassicAssert.Zero** tests that a value is zero.
 
 ```csharp
-Assert.Zero(int actual);
-Assert.Zero(int actual, string message, params object[] args);
+ClassicAssert.Zero(int actual);
+ClassicAssert.Zero(int actual, string message, params object[] args);
 
-Assert.Zero(uint actual);
-Assert.Zero(uint actual, string message, params object[] args);
+ClassicAssert.Zero(uint actual);
+ClassicAssert.Zero(uint actual, string message, params object[] args);
 
-Assert.Zero(long actual);
-Assert.Zero(long actual, string message, params object[] args);
+ClassicAssert.Zero(long actual);
+ClassicAssert.Zero(long actual, string message, params object[] args);
 
-Assert.Zero(ulong actual);
-Assert.Zero(ulong actual, string message, params object[] args);
+ClassicAssert.Zero(ulong actual);
+ClassicAssert.Zero(ulong actual, string message, params object[] args);
 
-Assert.Zero(decimal actual);
-Assert.Zero(decimal actual, string message, params object[] args);
+ClassicAssert.Zero(decimal actual);
+ClassicAssert.Zero(decimal actual, string message, params object[] args);
 
-Assert.Zero(double actual);
-Assert.Zero(double actual, string message, params object[] args);
+ClassicAssert.Zero(double actual);
+ClassicAssert.Zero(double actual, string message, params object[] args);
 
-Assert.Zero(float actual);
-Assert.Zero(float actual, string message, params object[] args);
+ClassicAssert.Zero(float actual);
+ClassicAssert.Zero(float actual, string message, params object[] args);
 ```
 
 You may also use **Assert.That** with a Is.Zero constraint to achieve the

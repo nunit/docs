@@ -1,14 +1,14 @@
-# Assert.AreEqual
+# ClassicAssert.AreEqual
 
-**Assert.AreEqual** tests whether the two arguments are equal.
+**ClassicAssert.AreEqual** tests whether the two arguments are equal.
 
 ```csharp
-Assert.AreEqual(double expected, double actual, double tolerance);
-Assert.AreEqual(double expected, double actual, double tolerance,
+ClassicAssert.AreEqual(double expected, double actual, double tolerance);
+ClassicAssert.AreEqual(double expected, double actual, double tolerance,
                 string message, params object[] params);
 
-Assert.AreEqual(object expected, object actual);
-Assert.AreEqual(object expected, object actual,
+ClassicAssert.AreEqual(object expected, object actual);
+ClassicAssert.AreEqual(object expected, object actual,
                 string message, params object[] params);
 ```
 
@@ -18,7 +18,7 @@ The method overloads that compare two objects make special provision so that num
 values of different types compare as expected. This assert succeeds:
 
 ```csharp
-Assert.AreEqual(5, 5.0);
+ClassicAssert.AreEqual(5, 5.0);
 ```
 
 ## Comparing Floating Point Values
@@ -30,9 +30,9 @@ as equal.
 Special values are handled so that the following Asserts succeed:
 
 ```csharp
-Assert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
-Assert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
-Assert.AreEqual(double.NaN, double.NaN);
+ClassicAssert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
+ClassicAssert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
+ClassicAssert.AreEqual(double.NaN, double.NaN);
 ```
 
 ## Comparing Arrays and Collections

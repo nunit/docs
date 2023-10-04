@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 #pragma warning disable NUnit2005
 namespace Snippets.NUnit;
@@ -42,8 +43,8 @@ public class MultipleAsserts
         // Can also work with the classic assertion syntax
         Assert.Multiple(() =>
         {
-            Assert.AreEqual(5.2, result.RealPart, "Real Part");
-            Assert.AreEqual(3.9, result.ImaginaryPart, "Imaginary Part");
+            ClassicAssert.AreEqual(5.2, result.RealPart, "Real Part");
+            ClassicAssert.AreEqual(3.9, result.ImaginaryPart, "Imaginary Part");
         });
     }
     #endregion

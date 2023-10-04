@@ -18,7 +18,7 @@ The constructor of `FixtureLifeCycleAttribute` takes a `LifeCycle` attribute to 
 
  Value | Meaning
 -------|---------
-`LifeCycle.SingleInstance`     | A single instance is created and shared for all test cases
+`LifeCycle.SingleInstance`     | A single instance is created and shared for all test cases. This is the default.
 `LifeCycle.InstancePerTestCase` | A new instance is created for each test case
 
 ## Notes

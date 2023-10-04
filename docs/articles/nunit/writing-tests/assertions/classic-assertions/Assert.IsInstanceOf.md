@@ -1,13 +1,13 @@
-# Assert.IsInstanceOf
+# ClassicAssert.IsInstanceOf
 
-**Assert.IsInstanceOf** succeeds if the object provided as an actual value is an instance of the expected type.
+**ClassicAssert.IsInstanceOf** succeeds if the object provided as an actual value is an instance of the expected type.
 
 ```csharp
-Assert.IsInstanceOf(Type expected, object actual);
-Assert.IsInstanceOf(Type expected, object actual,
+ClassicAssert.IsInstanceOf(Type expected, object actual);
+ClassicAssert.IsInstanceOf(Type expected, object actual,
                     string message, params object[] params);
-Assert.IsInstanceOf<T>(object actual);
-Assert.IsInstanceOf<T>(object actual,
+ClassicAssert.IsInstanceOf<T>(object actual);
+ClassicAssert.IsInstanceOf<T>(object actual,
                        string message, params object[] params);
 ```
 

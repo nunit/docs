@@ -14,40 +14,37 @@ StringAssert.AreEqualIgnoringCase("Hello", myString);
 
 The Assert class provides the most common assertions in NUnit:
 
-* [Assert.True](../classic-assertions/Assert.True.md)
-* [Assert.False](../classic-assertions/Assert.False.md)
-* [Assert.Null](../classic-assertions/Assert.Null.md)
-* [Assert.NotNull](../classic-assertions/Assert.NotNull.md)
-* [Assert.Zero](../classic-assertions/Assert.Zero.md)
-* [Assert.NotZero](../classic-assertions/Assert.NotZero.md)
-* [Assert.IsNaN](../classic-assertions/Assert.IsNaN.md)
-* [Assert.IsEmpty](../classic-assertions/Assert.IsEmpty.md)
-* [Assert.IsNotEmpty](../classic-assertions/Assert.IsNotEmpty.md)
-* [Assert.AreEqual](../classic-assertions/Assert.AreEqual.md)
-* [Assert.AreNotEqual](../classic-assertions/Assert.AreNotEqual.md)
-* [Assert.AreSame](../classic-assertions/Assert.AreSame.md)
-* [Assert.AreNotSame](../classic-assertions/Assert.AreNotSame.md)
-* [Assert.Contains](../classic-assertions/Assert.Contains.md)
-* [Assert.Greater](../classic-assertions/Assert.Greater.md)
-* [Assert.GreaterOrEqual](../classic-assertions/Assert.GreaterOrEqual.md)
-* [Assert.Less](../classic-assertions/Assert.Less.md)
-* [Assert.LessOrEqual](../classic-assertions/Assert.LessOrEqual.md)
-* [Assert.Positive](../classic-assertions/Assert.Positive.md)
-* [Assert.Negative](../classic-assertions/Assert.Negative.md)
-* [Assert.IsInstanceOf](../classic-assertions/Assert.IsInstanceOf.md)
-* [Assert.IsNotInstanceOf](../classic-assertions/Assert.IsNotInstanceOf.md)
-* [Assert.IsAssignableFrom](../classic-assertions/Assert.IsAssignableFrom.md)
-* [Assert.IsNotAssignableFrom](../classic-assertions/Assert.IsNotAssignableFrom.md)
+* [ClassicAssert.True](../classic-assertions/Assert.True.md)
+* [ClassicAssert.False](../classic-assertions/Assert.False.md)
+* [ClassicAssert.Null](../classic-assertions/Assert.Null.md)
+* [ClassicAssert.NotNull](../classic-assertions/Assert.NotNull.md)
+* [ClassicAssert.Zero](../classic-assertions/Assert.Zero.md)
+* [ClassicAssert.NotZero](../classic-assertions/Assert.NotZero.md)
+* [ClassicAssert.IsNaN](../classic-assertions/Assert.IsNaN.md)
+* [ClassicAssert.IsEmpty](../classic-assertions/Assert.IsEmpty.md)
+* [ClassicAssert.IsNotEmpty](../classic-assertions/Assert.IsNotEmpty.md)
+* [ClassicAssert.AreEqual](../classic-assertions/Assert.AreEqual.md)
+* [ClassicAssert.AreNotEqual](../classic-assertions/Assert.AreNotEqual.md)
+* [ClassicAssert.AreSame](../classic-assertions/Assert.AreSame.md)
+* [ClassicAssert.AreNotSame](../classic-assertions/Assert.AreNotSame.md)
+* [ClassicAssert.Contains](../classic-assertions/Assert.Contains.md)
+* [ClassicAssert.Greater](../classic-assertions/Assert.Greater.md)
+* [ClassicAssert.GreaterOrEqual](../classic-assertions/Assert.GreaterOrEqual.md)
+* [ClassicAssert.Less](../classic-assertions/Assert.Less.md)
+* [ClassicAssert.LessOrEqual](../classic-assertions/Assert.LessOrEqual.md)
+* [ClassicAssert.Positive](../classic-assertions/Assert.Positive.md)
+* [ClassicAssert.Negative](../classic-assertions/Assert.Negative.md)
+* [ClassicAssert.IsInstanceOf](../classic-assertions/Assert.IsInstanceOf.md)
+* [ClassicAssert.IsNotInstanceOf](../classic-assertions/Assert.IsNotInstanceOf.md)
+* [ClassicAssert.IsAssignableFrom](../classic-assertions/Assert.IsAssignableFrom.md)
+* [ClassicAssert.IsNotAssignableFrom](../classic-assertions/Assert.IsNotAssignableFrom.md)
 * [Assert.Throws](../classic-assertions/Assert.Throws.md)
 * [Assert.ThrowsAsync](../classic-assertions/Assert.ThrowsAsync.md)
 * [Assert.DoesNotThrow](../classic-assertions/Assert.DoesNotThrow.md)
 * [Assert.DoesNotThrowAsync](../classic-assertions/Assert.DoesNotThrowAsync.md)
 * [Assert.Catch](../classic-assertions/Assert.Catch.md)
 * [Assert.CatchAsync](../classic-assertions/Assert.CatchAsync.md)
-* [Assert.Pass](../classic-assertions/Assert.Pass.md)
-* [Assert.Fail](../classic-assertions/Assert.Fail.md)
-* [Assert.Ignore](../classic-assertions/Assert.Ignore.md)
-* [Assert.Inconclusive](../classic-assertions/Assert.Inconclusive.md)
+
 
 Additional assertions are provided by the following classes:
 
@@ -59,3 +56,7 @@ Additional assertions are provided by the following classes:
 ## See Also
 
 * [Constraint Model](xref:constraintmodel)
+
+## Notes
+
+* The exception-family of classic asserts have not yet been moved to the legacy namespace.  They will be moved and renamed in a later release. They have equivalents in the constraint model.

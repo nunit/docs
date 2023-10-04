@@ -1,3 +1,7 @@
+---
+uid: towardsnunit4
+---
+
 # Towards NUnit Version 4
 
 NUnit 4 has been long-awaited, and we are now starting to see its outline taking shape. With the introduction of NUnit 4, we are also making changes to the release cadence, shifting towards a [Semver](https://semver.org) based versioning scheme. This entails aiming to release version 4 as soon as possible and subsequently accelerating the pace of new major releases compared to previous versions.
@@ -164,12 +168,13 @@ The lowest framework platforms support in Version 4 are **.net framework 4.6.2**
 
 ## Classic/Legacy asserts
 
-The classic/legacy asserts, like `Assert.AreEqual`, have now been moved into its own project, and will be released as a separate package.  They are now in the namespace `NUnit.Framework.Classic`.
-In the early V4 alpha version they will be delivered in the standard NUnit package.
+The classic/legacy asserts, like `Assert.AreEqual`, have now been moved into its own project, and will later be released as a separate package.  They are now in the namespace `NUnit.Framework.Legacy`, and the `Assert` have been renamed to `ClassicAssert`.
+In the early V4 versions they will be delivered in the standard NUnit package.
 
 This means that the default assertion syntax going forward will be the "constraint-based" asserts.
 
-Exactly how these methods will be used is not quite decided yet. We will probably need to do some name changes to avoid clashes.
+See []() for more details of their usage.
+
 
 ## Testing it out
 
@@ -187,7 +192,7 @@ Add or modify your `nuget.config` to add the package resources such as below:
     <packageSources>
         <clear/>
         <add key="nuget" value="https://api.nuget.org/v3/index.json" />
-        <add key="NuGetGitHub" value="https://www.myget.org/F/nunit/api/v3/index.json" />
+        <add key="Myget" value="https://www.myget.org/F/nunit/api/v3/index.json" />
     </packageSources>
 </configuration>
 ```
@@ -208,7 +213,7 @@ Add or modify your `nuget.config` to add the package resources such as below:
     <packageSources>
         <clear/>
         <add key="nuget" value="https://api.nuget.org/v3/index.json" />
-        <add key="Myget" value="https://nuget.pkg.github.com/nunit/index.json" />
+        <add key="Github" value="https://nuget.pkg.github.com/nunit/index.json" />
     </packageSources>
 </configuration>
 ```
