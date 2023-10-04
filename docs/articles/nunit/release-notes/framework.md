@@ -6,7 +6,9 @@ uid: frameworkreleasenotes
 
 ## NUnit 4.0.0-beta.1 - TBA
 
-This is the first beta release of version 4 of NUnit. This is a gradual improvement of the version 3, and can be used with the same runners as before, although a minor upgrade might be needed for some.  For the NUnit3TestAdapter, you will need version 4.5 to run tests with NUnit 4. This release have more than 50 fixes and improvements implemented.
+This is the first beta release of version 4 of NUnit. This is an incremental improvement of version 3, and can be used with the same runners as before, although a minor upgrade might be needed for some. For the `NUnit3TestAdapter`, you will need version 4.5 to run tests with NUnit 4. 
+
+This release has more than 50 fixes and improvements implemented.
 
 The minimum target framework supported is now dotnet framework 4.6.2, and .net 6.0.
 
