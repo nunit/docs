@@ -12,7 +12,6 @@ The minimum target framework supported is now dotnet framework 4.6.2, and .net 6
 
 See [planning notes](../Towards-NUnit4.md) for more information about the changes.
 
-
 ### Enhancements
 
 * [4431](https://github.com/nunit/nunit/issues/4431) Improving error message handling and performing assert consolidation. Fixed by team [PR 4430](https://github.com/nunit/nunit/pull/4430)
@@ -29,7 +28,7 @@ See [planning notes](../Towards-NUnit4.md) for more information about the change
 * [3899](https://github.com/nunit/nunit/issues/3899) Allow randomizing 'Guid' test arguments with [Random]. Thanks to [Arnaud TAMAILLON](https://github.com/Greybird) for [PR 3951](https://github.com/nunit/nunit/pull/3951)
 * [3866](https://github.com/nunit/nunit/issues/3866) SupportedOSPlatform. Fixed by team [PR 3926](https://github.com/nunit/nunit/pull/3926)
 * [3856](https://github.com/nunit/nunit/issues/3856) Theories in nested Testfixtures. Thanks to [Felix Kr”ner](https://github.com/Crown0815) for [PR 3857](https://github.com/nunit/nunit/pull/3857)
-* [3718](https://github.com/nunit/nunit/issues/3718) Improve readability of "assert failed" message for DictionaryContainsKeyValuePairConstraint WithValue(). 
+* [3718](https://github.com/nunit/nunit/issues/3718) Improve readability of "assert failed" message for DictionaryContainsKeyValuePairConstraint WithValue().
 * [3457](https://github.com/nunit/nunit/issues/3457) Add DefaultConstraint. Thanks to [Oleksandr Liakhevych](https://github.com/Dreamescaper) for [PR 3781](https://github.com/nunit/nunit/pull/3781)
 * [3432](https://github.com/nunit/nunit/issues/3432) Assert.That is blocking and might lead to deadlock when used with WCF.. Thanks to [Gavin Lambert](https://github.com/uecasm) for [PR 4322](https://github.com/nunit/nunit/pull/4322)
 * [2843](https://github.com/nunit/nunit/issues/2843) Replacing ThrowsAsync with a composable async alternative. Thanks to [Gavin Lambert](https://github.com/uecasm) for [PR 4322](https://github.com/nunit/nunit/pull/4322)
@@ -57,7 +56,7 @@ See [planning notes](../Towards-NUnit4.md) for more information about the change
 
 * [4434](https://github.com/nunit/nunit/issues/4434) Fixing the classic asserts. Fixed by team [PR 4438](https://github.com/nunit/nunit/pull/4438)
 * [4416](https://github.com/nunit/nunit/issues/4416) Move classic asserts into its own project . Fixed by team [PR 4417](https://github.com/nunit/nunit/pull/4417)
-* [4051](https://github.com/nunit/nunit/issues/4051) Update codebase to use Array.Empty<T>. Thanks to [Marcin Jedrzejek](https://github.com/mjedrzejek) for [PR 4127](https://github.com/nunit/nunit/pull/4127)
+* [4051](https://github.com/nunit/nunit/issues/4051) Update codebase to use Array.Empty T. Thanks to [Marcin Jedrzejek](https://github.com/mjedrzejek) for [PR 4127](https://github.com/nunit/nunit/pull/4127)
 * [3932](https://github.com/nunit/nunit/issues/3932) Make `Numerics` class internal. Thanks to [TillW](https://github.com/x789) for [PR 4205](https://github.com/nunit/nunit/pull/4205)
 
 ### Internal fixes
@@ -89,9 +88,9 @@ See [planning notes](../Towards-NUnit4.md) for more information about the change
 * [3989](https://github.com/nunit/nunit/issues/3989) Revisit build documentation relating to IDEs. Fixed by team [PR 4050](https://github.com/nunit/nunit/pull/4050)
 * [3869](https://github.com/nunit/nunit/issues/3869) Copyright notices for third-party code. Thanks to [Lennart Brggemann](https://github.com/lennartb-) for [PR 4444](https://github.com/nunit/nunit/pull/4444)
 * [3812](https://github.com/nunit/nunit/issues/3812) Add GitHub Actions. Fixed by team [PR 3819](https://github.com/nunit/nunit/pull/3819)
-* [3376](https://github.com/nunit/nunit/issues/3376) Nullable Reference Types annotations. Fixed by team through multiple PRs. . 
+* [3376](https://github.com/nunit/nunit/issues/3376) Nullable Reference Types annotations. Fixed by team through multiple PRs.
 * [3301](https://github.com/nunit/nunit/issues/3301) [HandleProcessCorruptedStateExceptions] has no effect unless we disable partial trust. Fixed by team [PR 4398](https://github.com/nunit/nunit/pull/4398)
-* [3132](https://github.com/nunit/nunit/issues/3132) Remove AssertionHelper and AssertionHelperTests. 
+* [3132](https://github.com/nunit/nunit/issues/3132) Remove AssertionHelper and AssertionHelperTests.
 
 ### The following issues are marked as breaking changes
 
