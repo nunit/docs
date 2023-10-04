@@ -173,8 +173,7 @@ In the early V4 versions they will be delivered in the standard NUnit package.
 
 This means that the default assertion syntax going forward will be the "constraint-based" asserts.
 
-See []() for more details of their usage.
-
+See [Assertions](xref:assertions) for more details.
 
 ## Testing it out
 

@@ -1,3 +1,7 @@
+---
+uid: assertions
+---
+
 # Assertions
 
 Assertions are central to unit testing in any of the xUnit frameworks, and NUnit
@@ -45,4 +49,4 @@ All assertions in the `ClassicAssert` class are rerouting to use the constraint 
 
 As shown in the example in [Towards NUnit 4](xref:towards-nunit4), error message have been enhanced so that you see the Assert expression.  This also works for the ClassicAsserts, but what you will see there is the equivalent constraint expression.
 
-![](../../../../images/nunit-classic-asserts-fails.png)
+![Classic-Assert-Fails](../../../../images/nunit-classic-asserts-fails.png)

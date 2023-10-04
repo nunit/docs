@@ -45,8 +45,7 @@ The Assert class provides the most common assertions in NUnit:
 * [Assert.Catch](../classic-assertions/Assert.Catch.md)
 * [Assert.CatchAsync](../classic-assertions/Assert.CatchAsync.md)
 
-
-Additional assertions are provided by the following classes:
+Additional assertions are provided by the following classes, which are also in the `NUnit.Framework.Legacy` namespace:
 
 * [String Assert](../classic-assertions/String-Assert.md)
 * [Collection Assert](../classic-assertions/Collection-Assert.md)
