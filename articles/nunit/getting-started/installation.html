@@ -153,7 +153,7 @@ public class Tests
 <pre><code class="lang-cs">global using NUnit.Framework;
 </code></pre>
 <h2 id="adding-nunit-to-an-existing-test-project">Adding NUnit to an existing test project</h2>
-<p>If you need to update an existing test project to use NUnit -- perhaps a .NET Standard class lib you want to convert to a test project, or adding NUnit to a project that already has XUnit or MSTest -- you can do that by adding the <code>ItemGroup</code> in the <code>.csproj</code> file above to your project file, and then the appropriate <code>using NUnit.Framework;</code> in your code.</p>
+<p>If you need to update an existing test project to use NUnit -- perhaps a .NET  class lib you want to convert to a test project, or adding NUnit to a project that already has XUnit or MSTest -- you can do that by adding the <code>ItemGroup</code> in the <code>.csproj</code> file above to your project file, and then the appropriate <code>using NUnit.Framework;</code> in your code.</p>
 <p>Also note that multiple different test frameworks (XUnit, MSTest, NUnit) can co-exist in the same test project, preferably in different files to avoid name clashes. See <a href="https://devblogs.microsoft.com/devops/part-2using-traits-with-different-test-frameworks-in-the-unit-test-explorer/">this blog post</a> for details.</p>
 <h2 id="tldr">TL;DR</h2>
 <p>All of the above ways to create a new NUnit project will result in the same structure, the same test class and methods, and the same packages being installed. That means you can do it any way you like, you can start with one tool and continue with another.</p>
