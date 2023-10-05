@@ -38,7 +38,7 @@ You may also use **ClassicAssert.That** with a **Is.Positive** constraint to ach
 
 ## See Also
 
-* [ClassicAssert.Negative](ClassicAssert.Negative.md)
-* [ClassicAssert.Zero](ClassicAssert.Zero.md)
-* [ClassicAssert.NotZero](ClassicAssert.NotZero.md)
-* [ClassicAssert.IsNaN](ClassicAssert.IsNaN.md)
+* [ClassicAssert.Negative](Assert.Negative.md)
+* [ClassicAssert.Zero](Assert.Zero.md)
+* [ClassicAssert.NotZero](Assert.NotZero.md)
+* [ClassicAssert.IsNaN](Assert.IsNaN.md)
