@@ -4,7 +4,13 @@ uid: templatebasedtestnaming
 
 # Template-Based Test Naming
 
-NUnit uses a standard naming convention for all tests - however, this can be overridden by the user if required. TestName generation is driven by a name formatting string, which may contain any of the following format specifiers:
+NUnit uses a standard naming convention for all tests, which in the language described below corresponds to `{m}{a}`. The most used runners, Visual Studio and dotnet depends on this being the default, and trying to change this will cause display issues in these runners.
+
+**We strongly recommend you to NOT change the test naming.**
+
+## If you still want to do it
+
+However, if you're out on your own, the naming *can* be overridden by the user if required. TestName generation is driven by a name formatting string, which may contain any of the following format specifiers:
 
 * `{n}` The namespace of the test or empty if there is no namespace. If empty, any immediately following '.' is ignored.
 
