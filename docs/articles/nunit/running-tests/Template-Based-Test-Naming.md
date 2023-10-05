@@ -36,7 +36,7 @@ After the name is formatted, any leading or trailing '.' characters are removed.
 
 String arguments may be truncated to a maximum length. Either the {a} specifier or any of the individual argument specifiers may be followed by a colon and a length:
 
-* `{a:40}` Truncate __each string argument__ to 40 characters. All strings more than 37 characters are truncated to the first 37 followed by "..."
+* `{a:40}` Truncate **each string argument** to 40 characters. All strings more than 37 characters are truncated to the first 37 followed by "..."
 
 * `{0:20}` Truncate argument zero to 20 characters.
 
