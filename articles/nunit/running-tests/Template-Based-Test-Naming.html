@@ -85,7 +85,10 @@
             <article class="content wrap" id="_content" data-uid="templatebasedtestnaming">
 <h1 id="template-based-test-naming">Template-Based Test Naming</h1>
 
-<p>NUnit uses a standard naming convention for all tests - however, this can be overridden by the user if required. TestName generation is driven by a name formatting string, which may contain any of the following format specifiers:</p>
+<p>NUnit uses a standard naming convention for all tests, which in the language described below corresponds to <code>{m}{a}</code>. The most used runners, Visual Studio and dotnet depends on this being the default, and trying to change this will cause display issues in these runners.</p>
+<p><strong>We strongly recommend you to NOT change the test naming.</strong></p>
+<h2 id="if-you-still-want-to-do-it">If you still want to do it</h2>
+<p>However, if you're out on your own, the naming <em>can</em> be overridden by the user if required. TestName generation is driven by a name formatting string, which may contain any of the following format specifiers:</p>
 <ul>
 <li><p><code>{n}</code> The namespace of the test or empty if there is no namespace. If empty, any immediately following '.' is ignored.</p>
 </li>

@@ -86,10 +86,12 @@
 <h1 id="test-selection-language">Test Selection Language</h1>
 
 <p>The console command-line allows you to specify a filter, which will select which tests are executed. This is done using the --where option, followed by an expression in NUnit's Test Selection Language (TSL), a simple domain-specific language designed for this purpose.</p>
+<p>The --where option can be used with the <code>dotnet test</code> as <code>-- NUnit.Where</code> (note the space after the --). This will inject this into the runsettings. You can also add the same to a <code>.runsettings</code> file, see <a href="https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html">Adapter options</a> and <a href="https://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/">this blog post</a>.</p>
 <p>Some of the characters used in the expression, such as space, | or &amp;, may have a special meaning when entered on the command-line. In such a case, you should place the expression in quotation marks.</p>
-<pre><code class="lang-cmd">  nunit3-console mytest.dll --where &quot;cat == Urgent || Priority == High&quot;
+<pre><code class="lang-cmd">  dotnet test -- NUnit.Where=&quot;cat == Urgent or Priority == High&quot;
+  nunit3-console mytest.dll --where &quot;cat == Urgent || Priority == High&quot;
+
 </code></pre>
-<p>Note that TSL is handled by the NUnit engine but requires framework support to actually select the tests. The NUnit 3.0 framework supports it fully. See below for support limitations in NUnit V2 tests.</p>
 <h2 id="simple-expressions">Simple Expressions</h2>
 <p>Simple Expressions are essentially comparisons, consisting of a key word or property name on the left-hand side, an operator and some constant value on the right-hand side. Here are some examples:</p>
 <pre><code class="lang-text">  cat == Data

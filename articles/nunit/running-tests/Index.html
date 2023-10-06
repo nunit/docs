@@ -85,18 +85,52 @@
             <article class="content wrap" id="_content" data-uid="runningtests">
 <h1 id="running-tests">Running Tests</h1>
 
-<p>NUnit provides three different runners, which may be used to load and
-run your tests.</p>
+<p>There are several ways to run your tests, depending on your needs.
+The most common way is to use one of the common IDEs, such as Visual Studio, Visual Studio Code or Rider, or to use <code>dotnet test</code> from the command line. All of these use different parts of the NUnit ecosystem to run your tests. The Microsoft tools use the NUnit3TestAdapter, whereas Jetbrains Rider use the NUnit.Engine.</p>
+<p>To start using NUnit with these tools, see the <a class="xref" href="../getting-started/installation.html">Installation section</a>.</p>
+<p>Also see the information on the <a href="https://docs.nunit.org/articles/vs-test-adapter/Index.html">NUnit3TestAdapter</a> for more detailed information on how to use it and configure it.</p>
+<p>In addition to these NUnit provides two special runners, the NUnit.Console and the NUnitLite runners, which are described below.</p>
 <ul>
 <li>The <a href="Console-Runner.html">Console Runner</a>, <code>nunit-console.exe</code>, is used for batch execution.</li>
-<li>The Gui Runner, <code>nunit.exe</code>, provides interactive loading and running of tests.</li>
+<li>The <a href="NUnitLite-Runner.html">NUnitLite runner</a>, <code>nunitlite-runner.exe</code>, is a light weight runner originally used internally in the team, but can be used by anyone who wants to have a simple way of running tests from the command line.</li>
 </ul>
-<h2 id="nunit-agent">NUnit Agent</h2>
+<p>Just for fun, to see how the different runners are being used, we can look at the <code>nuget.org</code> download statistics for each of the runners, per Oct 2023:</p>
+<table>
+<thead>
+<tr>
+<th>Runner</th>
+<th>Downloads</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NUnit3TestAdapter</td>
+<td>211.4 million</td>
+<td>Used by Visual Studio, VS Code and dotnet test</td>
+</tr>
+<tr>
+<td>NUnit.Console</td>
+<td>22.5 million</td>
+<td></td>
+</tr>
+<tr>
+<td>NUnitLite</td>
+<td>4.6 million</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="other-runners">Other runners</h2>
+<p>The <code>VSTest.Console</code> is also a Microsoft runner, but it is less used now as <code>dotnet test</code> has taken over.  It does use the <code>NUnit3TestAdapter</code> as well.</p>
+<p>The <code>Azure Pipelines</code> have some tasks for running tests, like <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/vstest-v2?view=azure-pipelines">VSTest</a>, which also use the <code>NUnit3TestAdapter</code> under the hood.</p>
+<h2 id="some-information-on-the-internal-working">Some information on the internal working</h2>
+<h3 id="nunitengine">NUnit.Engine</h3>
+<p>All runners except NUnitLite use the NUnit.Engine, including Rider.
+It should not be used alone, as the different runners have different requirements for how the engine is used and which version is being used.
+See <a href="https://docs.nunit.org/articles/vs-test-adapter/Adapter-Engine-Compatibility.html">Compatibility of the Test Adapter with the Test Engine</a> for some more detailed information on this.</p>
+<h3 id="nunit-agent">NUnit Agent</h3>
 <p>When running tests in a separate process, the console and gui runners make use of the NUnit Agent program, nunit-agent.exe. Although not directly run by users, nunit-agent does load and execute tests and users need to be aware of it, especially when debugging is involved.</p>
-<h2 id="third-party-runners">Third-Party Runners</h2>
-<p>Various third-party applications are available for loading and running NUnit tests. Some of these actually use NUnit to load the tests, while others provide their own emulation and may not work in the same way that NUnit does.</p>
-<p>Because the status of such projects may change from time to time, we don't discuss them individually here. For the latest information, consult the manufacturer of any third-party software or ask other users on our
-<a href="https://groups.google.com/group/nunit-discuss">discussion list</a>.</p>
 <h2 id="additional-information">Additional Information</h2>
 <p>For additional general information on how tests are loaded and run, see</p>
 <ul>
