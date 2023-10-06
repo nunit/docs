@@ -4,7 +4,7 @@ More information and getting started tutorials are available for NUnit and .NET 
 
 The other information on this page is older documentation. If you follow the instructions in the [Installation section](xref:installation) your project will work with .NET Core and .NET Standard.
 
-The test projects have to be .NET Core or .NET Framework; .NET Standard can't be used as a test project, since it can't be run on its own, but any code in a .NET Standard library can be tested from a .NET Core or .NET Framework test project.
+The test projects have to be .NET (Core) or .NET Framework; .NET Standard can't be used as a test project, since it can't be run on its own, but any code in a .NET Standard library can be tested from a .NET (Core) or .NET Framework test project.
 
 ## TL;DR
 
@@ -12,18 +12,36 @@ Adding the adapter and `Microsoft.NET.Test.Sdk` version `17.0.0` or greater to y
 
 Any tests using the new style CSPROJ format, either .NET Core or .NET 4.x, need to add a `PackageReference` to the NuGet package `Microsoft.NET.Test.Sdk`. Your test assemblies must also be .NET Core or .NET 4.x, not .NET Standard.
 
+You can create a new NUnit test project using `dotnet new nunit`. It will create an ItemGroup in the csproj file with the necessary references.
+
 ```xml
-<ItemGroup>
-  <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
-  <PackageReference Include="NUnit" Version="3.13.3" />
-  <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.6.1" />
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+  </ItemGroup>
 ```
 
 .NET Core test can be run on the command line with `dotnet test`, for example,
 
+From the solution root folder
+
 ```cmd
-> dotnet test .\test\NetCore10Tests\NetCore10Tests.csproj
+  dotnet test
+```
+
+or from the test project folder
+
+```cmd
+  dotnet test
+```
+
+Or you can specify the csproj file you want to test
+
+```cmd
+  dotnet test .\test\NetCore10Tests\NetCore10Tests.csproj
 ```
 
 For a more complete walk-through, please see [Testing .NET Core with NUnit in Visual Studio 2017](https://www.alteridem.net/2017/05/04/test-net-core-nunit-vs2017/)
