@@ -41,7 +41,11 @@ All work on releases should be done on a branch.
 1. Check the milestone for the current release to see that there are no open issues. Any issues that are not going to be in this release should be moved to a future milestone. This may be the time to create the next milestone.
 2. Make sure that completed issues are marked with the appropriate 'closed' label depending on disposition. The release notes will end up reflecting issues marked closed:done.
 3. Check all future open milestones for completed issues. Anything that is completed will be included in this release so change its milestone to the current release.
-4. Review all closed issues without a milestone. Move them to the current milestone if they were fixed in this release, or set their milestone to `Closed without action` for questions and issues that were closed without a fix.
+4. Review all closed issues without a milestone. Move them to the current milestone if they were fixed in this release, or set their milestone to `Closed without action` for questions and issues that were closed without a fix. You can use the following query to find issues that need to be reviewed:
+
+```
+    is:issue no:milestone is:closed -label:closed:sep -label:closed:notabug -label:is:question -label:closed:wontfix -label:closed:noresponsefromreporter -label:closed:fixedin_newer_version -label:closed_moved_to_discussion -label:closed:duplicate -label:closed:byDesign
+```
 
 ### Update Copyright Year
 
@@ -55,15 +59,17 @@ The `CHANGES.md` file in the project root contains all relevant changes for each
 
 Create new sections in the CHANGES file to match those for prior releases. To ensure that all changes are included, review closed issues in the current and any future milestones. If an issue for a previous milestone was actually completed and closed, move it to the current milestone, since that's where it is being released. Include all issues resolved as closed:done in the issues section of the file. Significant feature additions and changes should be documented, even if they are also listed with issue numbers. Reviewing commits and merged pull requests may help in catching additional changes.
 
-To generate the change list in the format required, use [rprouse/GetChanges](https://github.com/rprouse/GetChanges) which fetches and prints all issues in the current milestone.
+To generate the change list in the format required, use the **rprouse/GetChanges** console app from [NUnit.InternalTools](https://github.com/nunit/NUnit.InternalTools) which fetches and prints all issues in the given milestone, e.g. for milestone 4.0:
 
-`GetChanges.exe -o nunit -r nunit`
+`dotnet run -o nunit -r nunit -l -m 4.0`
+
+Clone the repo and run it from the solution root. The `-o` and `-r` options specify the owner and repo, respectively. The `-l` option includes all links, including those that are closed. The `-m` option specifies the milestone. If no milestone is specified, the current milestone is used.
+
+*Note:  You might need to manually create the IssuePr link file. It will be automated in the future.*
 
 ### Update the Documentation
 
 The [Release Notes](xref:frameworkreleasenotes) section of the documentation site should match the content of the `CHANGES.md` file except for any format differences.
-
-Once again, `GetChanges.exe -o nunit -r nunit -l` may be used to generate the issue list in the appropriate format.
 
 For any significant changes to how NUnit is used or what it does, the appropriate pages of the documentation should be updated or new pages created. For new features or changes to features, include the version of NUnit that the feature was implemented in.
 
