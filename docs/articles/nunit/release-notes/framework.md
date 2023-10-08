@@ -12,9 +12,9 @@ This release has more than 50 fixes and improvements implemented.
 
 The minimum target framework supported is now dotnet framework 4.6.2, and .net 6.0.
 
-See [planning notes](../Towards-NUnit4.md) for more information about the changes.
+See the [planning notes](../Towards-NUnit4.md) for more information about the changes, and also information on the breaking changes in this release.
 
-The total number of issues fixed in this release is : 82.
+There are 82 issues fixed in this release.
 
 ### Enhancements
 
@@ -67,7 +67,7 @@ The total number of issues fixed in this release is : 82.
 * [2436](https://github.com/nunit/nunit/issues/2436) Properties on System.Type cannot be used with either property constraint. Fixed by team [PR 4259](https://github.com/nunit/nunit/pull/4259)
 * [1428](https://github.com/nunit/nunit/issues/1428) NUnitLite package always installs both Program.cs and Program.vb. Fixed by team [PR 3952](https://github.com/nunit/nunit/pull/3952)
 
-### Refactorings
+### Refactoring
 
 * [4434](https://github.com/nunit/nunit/issues/4434) Fixing the classic asserts. Fixed by team [PR 4438](https://github.com/nunit/nunit/pull/4438)
 * [4416](https://github.com/nunit/nunit/issues/4416) Move classic asserts into its own project . Fixed by team [PR 4417](https://github.com/nunit/nunit/pull/4417)
