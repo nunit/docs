@@ -55,7 +55,7 @@ Team Lead: [Sean Killeen](https://github.com/seankilleen)
 |[Sean Killeen](https://github.com/SeanKilleen) :us: | :heavy_check_mark: | | | | :heavy_check_mark: | :heavy_check_mark: |
 |[Steven Weerdenburg](https://github.com/stevenaw) :canada: | :heavy_check_mark: | :heavy_check_mark: | | | | |
 |[Ihor Sychevskyi](https://github.com/Arhell) :ukraine: | | | | | | :heavy_check_mark: |
-|[Manfred Brands](https://github.com/manfred-brands) :australia: | | :heavy_check_mark: | | | :heavy_check_mark: | |
+|[Manfred Brands](https://github.com/manfred-brands) :australia: | :heavy_check_mark: | :heavy_check_mark: | | | :heavy_check_mark: | |
 |[Simon Cropp](https://github.com/SimonCropp) :australia: | | :heavy_check_mark: | | | | |
 
 ### Former members and honorable mentions (and there are multiple more, we'll add them as we find them)
