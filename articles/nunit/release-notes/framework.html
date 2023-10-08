@@ -89,12 +89,17 @@
 <p>This is the first beta release of version 4 of NUnit. This is an incremental improvement of version 3, and can be used with the same runners as before, although a minor upgrade might be needed for some. For the <code>NUnit3TestAdapter</code>, you will need version 4.5 to run tests with NUnit 4.</p>
 <p>This release has more than 50 fixes and improvements implemented.</p>
 <p>The minimum target framework supported is now dotnet framework 4.6.2, and .net 6.0.</p>
-<p>See <a href="../Towards-NUnit4.html">planning notes</a> for more information about the changes.</p>
+<p>See the <a href="../Towards-NUnit4.html">planning notes</a> for more information about the changes, and also information on the breaking changes in this release.</p>
+<p>There are 82 issues fixed in this release.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/4433">4433</a> Add string syntax attributes (.NET 7+). Thanks to <a href="https://github.com/RenderMichael">Michael Render</a> for <a href="https://github.com/nunit/nunit/pull/4425">PR 4425</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4431">4431</a> Improving error message handling and performing assert consolidation. Fixed by team <a href="https://github.com/nunit/nunit/pull/4430">PR 4430</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4421">4421</a> Add support for native .NET-6.0 target . Fixed by team <a href="https://github.com/nunit/nunit/pull/4431">PR 4431</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4413">4413</a> Assert.That methods should autogenerate message, if null. Fixed by team <a href="https://github.com/nunit/nunit/pull/4419">PR 4419</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4394">4394</a> Expand NUnitEquality to use Equality of all Properties. Fixed by team <a href="https://github.com/nunit/nunit/pull/4436">PR 4436</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4391">4391</a> Hash/Partition based Test Filter. Thanks to <a href="https://github.com/Plasma">Andrew Armstrong</a> for <a href="https://github.com/nunit/nunit/pull/4392">PR 4392</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4385">4385</a> Add support for Test Cancellation. Fixed by team <a href="https://github.com/nunit/nunit/pull/4386">PR 4386</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4355">4355</a> Allow Is.AnyOf to be called with arrays or other collections. Fixed by team <a href="https://github.com/nunit/nunit/pull/4356">PR 4356</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4149">4149</a> Distribute optimized framework builds with easy debugging. Thanks to <a href="https://github.com/lahma">Marko Lahma</a> for <a href="https://github.com/nunit/nunit/pull/4350">PR 4350</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4144">4144</a> Stderr/Console.Error will hold back unicode escaped log messages. Thanks to <a href="https://github.com/mxschmitt">Max Schmitt</a> for <a href="https://github.com/nunit/nunit/pull/4145">PR 4145</a></li>
@@ -106,15 +111,19 @@
 <li><a href="https://github.com/nunit/nunit/issues/3899">3899</a> Allow randomizing 'Guid' test arguments with [Random]. Thanks to <a href="https://github.com/Greybird">Arnaud TAMAILLON</a> for <a href="https://github.com/nunit/nunit/pull/3951">PR 3951</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3866">3866</a> SupportedOSPlatform. Fixed by team <a href="https://github.com/nunit/nunit/pull/3926">PR 3926</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3856">3856</a> Theories in nested Testfixtures. Thanks to <a href="https://github.com/Crown0815">Felix Kr”ner</a> for <a href="https://github.com/nunit/nunit/pull/3857">PR 3857</a></li>
-<li><a href="https://github.com/nunit/nunit/issues/3718">3718</a> Improve readability of &quot;assert failed&quot; message for DictionaryContainsKeyValuePairConstraint WithValue().</li>
+<li><a href="https://github.com/nunit/nunit/issues/3718">3718</a> Improve readability of &quot;assert failed&quot; message for DictionaryContainsKeyValuePairConstraint WithValue(). Fixed by team <a href="https://github.com/nunit/nunit/pull/3778">PR 3778</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3457">3457</a> Add DefaultConstraint. Thanks to <a href="https://github.com/Dreamescaper">Oleksandr Liakhevych</a> for <a href="https://github.com/nunit/nunit/pull/3781">PR 3781</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3432">3432</a> Assert.That is blocking and might lead to deadlock when used with WCF.. Thanks to <a href="https://github.com/uecasm">Gavin Lambert</a> for <a href="https://github.com/nunit/nunit/pull/4322">PR 4322</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/2843">2843</a> Replacing ThrowsAsync with a composable async alternative. Thanks to <a href="https://github.com/uecasm">Gavin Lambert</a> for <a href="https://github.com/nunit/nunit/pull/4322">PR 4322</a></li>
 </ul>
 <h3 id="bug-fixes">Bug fixes</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/4423">4423</a> Chaining multiple collection asserts with index. Thanks to <a href="https://github.com/crabstars">Daniel Waechtler</a> for <a href="https://github.com/nunit/nunit/pull/4480">PR 4480</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4400">4400</a> Within throws ArgumentException if null value is involved. Thanks to <a href="https://github.com/ashishdawale20">Ashish Dawale</a> for <a href="https://github.com/nunit/nunit/pull/4482">PR 4482</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4319">4319</a> TextRunner accidentally disposes System.Out. Thanks to <a href="https://github.com/normj">Norm Johanson</a> for <a href="https://github.com/nunit/nunit/pull/4317">PR 4317</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4308">4308</a> Random attribute with Distinct and wide range causes test to disappear. Thanks to <a href="https://github.com/mr-russ">Russell Smith</a> for <a href="https://github.com/nunit/nunit/pull/4316">PR 4316</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4264">4264</a> Assert.Multiple method should fail only if a contained assertion failed. Thanks to <a href="https://github.com/sdelarosbil">Samuel Delarosbil</a> for <a href="https://github.com/nunit/nunit/pull/4313">PR 4313</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4259">4259</a> Bug: Assert.That(IEnumerable Type, Has.All.Property(nameof(Type.Namespace)) fails.. Fixed by team <a href="https://github.com/nunit/nunit/pull/4260">PR 4260</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4255">4255</a> InternalTrace.Initialize fails with Nullref exception. Fixed by team <a href="https://github.com/nunit/nunit/pull/4256">PR 4256</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4243">4243</a> Type args are not deduced correctly for parameterized fixtures. Thanks to <a href="https://github.com/sdelarosbil">Samuel Delarosbil</a> for <a href="https://github.com/nunit/nunit/pull/4307">PR 4307</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4237">4237</a> Bogus check for Windows 11. Fixed by team <a href="https://github.com/nunit/nunit/pull/4374">PR 4374</a></li>
@@ -126,19 +135,27 @@
 <li><a href="https://github.com/nunit/nunit/issues/3867">3867</a> nunit Framework tests do not run with &quot;dotnet test&quot; nor inside VS2019 (Windows). Fixed by team <a href="https://github.com/nunit/nunit/pull/4315">PR 4315</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3858">3858</a> Running tests with ITestAction attributes leaks memory. Thanks to <a href="https://github.com/lahma">Marko Lahma</a> for <a href="https://github.com/nunit/nunit/pull/4300">PR 4300</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3811">3811</a> Incorrect summary comments on Warn.If overloads. Fixed by team <a href="https://github.com/nunit/nunit/pull/3845">PR 3845</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/3735">3735</a> Parallelizable TestFixtureSource with TestFixtureData not running in parallel. Thanks to <a href="https://github.com/jairbubbles">Julien Richard</a> for <a href="https://github.com/nunit/nunit/pull/4099">PR 4099</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3449">3449</a> Assert.AreEqual overloads for nullable double are not useful. Thanks to <a href="https://github.com/Antash">Anton Ashmarin</a> for <a href="https://github.com/nunit/nunit/pull/3780">PR 3780</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/3215">3215</a> Better error message for generic test where type parameter cannot be determined. Thanks to <a href="https://github.com/ovebastiansen">Ove Bastiansen</a> for <a href="https://github.com/nunit/nunit/pull/4382">PR 4382</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/2870">2870</a> CollectionTally (EquivalentTo) should throw for non-transitive comparisons. Thanks to <a href="https://github.com/mr-russ">Russell Smith</a> for <a href="https://github.com/nunit/nunit/pull/4312">PR 4312</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/2436">2436</a> Properties on System.Type cannot be used with either property constraint. Fixed by team <a href="https://github.com/nunit/nunit/pull/4259">PR 4259</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/1428">1428</a> NUnitLite package always installs both Program.cs and Program.vb. Fixed by team <a href="https://github.com/nunit/nunit/pull/3952">PR 3952</a></li>
 </ul>
 <h3 id="refactoring">Refactoring</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4434">4434</a> Fixing the classic asserts. Fixed by team <a href="https://github.com/nunit/nunit/pull/4438">PR 4438</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4416">4416</a> Move classic asserts into its own project . Fixed by team <a href="https://github.com/nunit/nunit/pull/4417">PR 4417</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4380">4380</a> Consistently use _ prefix for field names. Fixed by team <a href="https://github.com/nunit/nunit/pull/4387">PR 4387</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4378">4378</a> Update code base to use 'is (not) null' consistently. Fixed by team <a href="https://github.com/nunit/nunit/pull/4379">PR 4379</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4376">4376</a> Update code base to explicitly specify accessibility. Fixed by team <a href="https://github.com/nunit/nunit/pull/4377">PR 4377</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4364">4364</a> Add NUnit.Analyzer to our test projects. Fixed by team <a href="https://github.com/nunit/nunit/pull/4366">PR 4366</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4051">4051</a> Update codebase to use Array.Empty T. Thanks to <a href="https://github.com/mjedrzejek">Marcin Jedrzejek</a> for <a href="https://github.com/nunit/nunit/pull/4127">PR 4127</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3932">3932</a> Make <code>Numerics</code> class internal. Thanks to <a href="https://github.com/x789">TillW</a> for <a href="https://github.com/nunit/nunit/pull/4205">PR 4205</a></li>
 </ul>
 <h3 id="internal-fixes">Internal fixes</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/4432">4432</a> Fix null message in internal static string? ExtendedMessage(string methodName, string? message, string actualExpression, string constraintExpression). Fixed by team <a href="https://github.com/nunit/nunit/pull/4430">PR 4430</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4331">4331</a> Add testing to &quot;Accumulate further failures if any on AssertMultiple instead of throwing&quot;. Thanks to <a href="https://github.com/sdelarosbil">Samuel Delarosbil</a> for <a href="https://github.com/nunit/nunit/pull/4313">PR 4313</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4078">4078</a> THREAD_ABORT not properly set. Fixed by team <a href="https://github.com/nunit/nunit/pull/4079">PR 4079</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4075">4075</a> Remove unnecessary allocations in NUnitEqualityComparer. Fixed by team <a href="https://github.com/nunit/nunit/pull/4076">PR 4076</a></li>
@@ -166,7 +183,7 @@
 <li><a href="https://github.com/nunit/nunit/issues/3989">3989</a> Revisit build documentation relating to IDEs. Fixed by team <a href="https://github.com/nunit/nunit/pull/4050">PR 4050</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3869">3869</a> Copyright notices for third-party code. Thanks to <a href="https://github.com/lennartb-">Lennart Brggemann</a> for <a href="https://github.com/nunit/nunit/pull/4444">PR 4444</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3812">3812</a> Add GitHub Actions. Fixed by team <a href="https://github.com/nunit/nunit/pull/3819">PR 3819</a></li>
-<li><a href="https://github.com/nunit/nunit/issues/3376">3376</a> Nullable Reference Types annotations. Fixed by team through multiple PRs.</li>
+<li><a href="https://github.com/nunit/nunit/issues/3376">3376</a> Nullable Reference Types annotations. Fixed by team through multiple PRs. . Fixed by team <a href="https://github.com/nunit/nunit/pull/3488">PR 3488</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3301">3301</a> [HandleProcessCorruptedStateExceptions] has no effect unless we disable partial trust. Fixed by team <a href="https://github.com/nunit/nunit/pull/4398">PR 4398</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3132">3132</a> Remove AssertionHelper and AssertionHelperTests.</li>
 </ul>

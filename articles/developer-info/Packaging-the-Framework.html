@@ -120,19 +120,22 @@
 <li>Check the milestone for the current release to see that there are no open issues. Any issues that are not going to be in this release should be moved to a future milestone. This may be the time to create the next milestone.</li>
 <li>Make sure that completed issues are marked with the appropriate 'closed' label depending on disposition. The release notes will end up reflecting issues marked closed:done.</li>
 <li>Check all future open milestones for completed issues. Anything that is completed will be included in this release so change its milestone to the current release.</li>
-<li>Review all closed issues without a milestone. Move them to the current milestone if they were fixed in this release, or set their milestone to <code>Closed without action</code> for questions and issues that were closed without a fix.</li>
+<li>Review all closed issues without a milestone. Move them to the current milestone if they were fixed in this release, or set their milestone to <code>Closed without action</code> for questions and issues that were closed without a fix. You can use the following query to find issues that need to be reviewed:</li>
 </ol>
+<pre><code class="lang-cmd">    is:issue no:milestone is:closed -label:closed:sep -label:closed:notabug -label:is:question -label:closed:wontfix -label:closed:noresponsefromreporter -label:closed:fixedin_newer_version -label:closed_moved_to_discussion -label:closed:duplicate -label:closed:byDesign
+</code></pre>
 <h3 id="update-copyright-year">Update Copyright Year</h3>
 <p>The copyright in the <code>[assembly: AssemblyCopyright(&quot;...&quot;)]</code> and the copyright text displayed by <code>nunitlite</code> should be updated to the year of the release. Search for <code>AssemblyCopyright</code> in the solution and update it where needed, then check <code>TextUI.cs</code> in <code>nunitlite-runner</code> for default values used when no attribute is found.</p>
 <p>If necessary, update the year in the general copyright notice LICENSE.txt. Note that these copyright notices refer to each of the packages in their entirety. Each of the <code>.nuspec</code> files in the <code>nuget</code> subdirectory contains a copyright line, which should also be updated.</p>
 <h3 id="update-changes-file">Update CHANGES File</h3>
 <p>The <code>CHANGES.md</code> file in the project root contains all relevant changes for each release. It contains the same information as the release notes in the project documentation, in text format. Because the CHANGES file includes the <strong>date</strong> of the release, you must know when the release is coming out in order to edit it. Otherwise, it will be necessary to make a final change to the file at the point of making the release.</p>
 <p>Create new sections in the CHANGES file to match those for prior releases. To ensure that all changes are included, review closed issues in the current and any future milestones. If an issue for a previous milestone was actually completed and closed, move it to the current milestone, since that's where it is being released. Include all issues resolved as closed:done in the issues section of the file. Significant feature additions and changes should be documented, even if they are also listed with issue numbers. Reviewing commits and merged pull requests may help in catching additional changes.</p>
-<p>To generate the change list in the format required, use <a href="https://github.com/rprouse/GetChanges">rprouse/GetChanges</a> which fetches and prints all issues in the current milestone.</p>
-<p><code>GetChanges.exe -o nunit -r nunit</code></p>
+<p>To generate the change list in the format required, use the <strong>rprouse/GetChanges</strong> console app from <a href="https://github.com/nunit/NUnit.InternalTools">NUnit.InternalTools</a> which fetches and prints all issues in the given milestone, e.g. for milestone 4.0:</p>
+<p><code>dotnet run -o nunit -r nunit -l -m 4.0</code></p>
+<p>Clone the repo and run it from the solution root. The <code>-o</code> and <code>-r</code> options specify the owner and repo, respectively. The <code>-l</code> option includes all links, including those that are closed. The <code>-m</code> option specifies the milestone. If no milestone is specified, the current milestone is used.</p>
+<p><em>Note:  You might need to manually create the IssuePr link file. It will be automated in the future.</em></p>
 <h3 id="update-the-documentation">Update the Documentation</h3>
 <p>The <a class="xref" href="../nunit/release-notes/framework.html">Release Notes</a> section of the documentation site should match the content of the <code>CHANGES.md</code> file except for any format differences.</p>
-<p>Once again, <code>GetChanges.exe -o nunit -r nunit -l</code> may be used to generate the issue list in the appropriate format.</p>
 <p>For any significant changes to how NUnit is used or what it does, the appropriate pages of the documentation should be updated or new pages created. For new features or changes to features, include the version of NUnit that the feature was implemented in.</p>
 <h3 id="push-all-changes">Push All Changes</h3>
 <p>Push all changes to the files in git as part of the preceding steps. Make sure you have pushed them and they have been reviewed in the PR.</p>
