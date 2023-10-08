@@ -4,7 +4,7 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
-## NUnit 4.0.0-beta.1 - TBA
+## NUnit 4.0.0-beta.1 - October 8. 2023
 
 This is the first beta release of version 4 of NUnit. This is an incremental improvement of version 3, and can be used with the same runners as before, although a minor upgrade might be needed for some. For the `NUnit3TestAdapter`, you will need version 4.5 to run tests with NUnit 4.
 
