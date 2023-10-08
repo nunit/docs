@@ -48,7 +48,7 @@ The total number of issues fixed in this release is : 82.
 * [4319](https://github.com/nunit/nunit/issues/4319) TextRunner accidentally disposes System.Out. Thanks to [Norm Johanson](https://github.com/normj) for [PR 4317](https://github.com/nunit/nunit/pull/4317)
 * [4308](https://github.com/nunit/nunit/issues/4308) Random attribute with Distinct and wide range causes test to disappear. Thanks to [Russell Smith](https://github.com/mr-russ) for [PR 4316](https://github.com/nunit/nunit/pull/4316)
 * [4264](https://github.com/nunit/nunit/issues/4264) Assert.Multiple method should fail only if a contained assertion failed. Thanks to [Samuel Delarosbil](https://github.com/sdelarosbil) for [PR 4313](https://github.com/nunit/nunit/pull/4313)
-* [4259](https://github.com/nunit/nunit/issues/4259) Bug: Assert.That(IEnumerable<Type>, Has.All.Property(nameof(Type.Namespace)) fails.. Fixed by team [PR 4260](https://github.com/nunit/nunit/pull/4260)
+* [4259](https://github.com/nunit/nunit/issues/4259) Bug: Assert.That(IEnumerable Type, Has.All.Property(nameof(Type.Namespace)) fails.. Fixed by team [PR 4260](https://github.com/nunit/nunit/pull/4260)
 * [4255](https://github.com/nunit/nunit/issues/4255) InternalTrace.Initialize fails with Nullref exception. Fixed by team [PR 4256](https://github.com/nunit/nunit/pull/4256)
 * [4243](https://github.com/nunit/nunit/issues/4243) Type args are not deduced correctly for parameterized fixtures. Thanks to [Samuel Delarosbil](https://github.com/sdelarosbil) for [PR 4307](https://github.com/nunit/nunit/pull/4307)
 * [4237](https://github.com/nunit/nunit/issues/4237) Bogus check for Windows 11. Fixed by team [PR 4374](https://github.com/nunit/nunit/pull/4374)
@@ -75,7 +75,7 @@ The total number of issues fixed in this release is : 82.
 * [4378](https://github.com/nunit/nunit/issues/4378) Update code base to use 'is (not) null' consistently. Fixed by team [PR 4379](https://github.com/nunit/nunit/pull/4379)
 * [4376](https://github.com/nunit/nunit/issues/4376) Update code base to explicitly specify accessibility. Fixed by team [PR 4377](https://github.com/nunit/nunit/pull/4377)
 * [4364](https://github.com/nunit/nunit/issues/4364) Add NUnit.Analyzer to our test projects. Fixed by team [PR 4366](https://github.com/nunit/nunit/pull/4366)
-* [4051](https://github.com/nunit/nunit/issues/4051) Update codebase to use Array.Empty<T>. Thanks to [Marcin Jedrzejek](https://github.com/mjedrzejek) for [PR 4127](https://github.com/nunit/nunit/pull/4127)
+* [4051](https://github.com/nunit/nunit/issues/4051) Update codebase to use Array.Empty T. Thanks to [Marcin Jedrzejek](https://github.com/mjedrzejek) for [PR 4127](https://github.com/nunit/nunit/pull/4127)
 * [3932](https://github.com/nunit/nunit/issues/3932) Make `Numerics` class internal. Thanks to [TillW](https://github.com/x789) for [PR 4205](https://github.com/nunit/nunit/pull/4205)
 
 ### Internal fixes
@@ -110,7 +110,7 @@ The total number of issues fixed in this release is : 82.
 * [3812](https://github.com/nunit/nunit/issues/3812) Add GitHub Actions. Fixed by team [PR 3819](https://github.com/nunit/nunit/pull/3819)
 * [3376](https://github.com/nunit/nunit/issues/3376) Nullable Reference Types annotations. Fixed by team through multiple PRs. . Fixed by team [PR 3488](https://github.com/nunit/nunit/pull/3488)
 * [3301](https://github.com/nunit/nunit/issues/3301) [HandleProcessCorruptedStateExceptions] has no effect unless we disable partial trust. Fixed by team [PR 4398](https://github.com/nunit/nunit/pull/4398)
-* [3132](https://github.com/nunit/nunit/issues/3132) Remove AssertionHelper and AssertionHelperTests. 
+* [3132](https://github.com/nunit/nunit/issues/3132) Remove AssertionHelper and AssertionHelperTests.
 
 ### The following issues are marked as breaking changes
 

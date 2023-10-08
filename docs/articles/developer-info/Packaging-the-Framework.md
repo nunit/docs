@@ -43,7 +43,7 @@ All work on releases should be done on a branch.
 3. Check all future open milestones for completed issues. Anything that is completed will be included in this release so change its milestone to the current release.
 4. Review all closed issues without a milestone. Move them to the current milestone if they were fixed in this release, or set their milestone to `Closed without action` for questions and issues that were closed without a fix. You can use the following query to find issues that need to be reviewed:
 
-```
+```cmd
     is:issue no:milestone is:closed -label:closed:sep -label:closed:notabug -label:is:question -label:closed:wontfix -label:closed:noresponsefromreporter -label:closed:fixedin_newer_version -label:closed_moved_to_discussion -label:closed:duplicate -label:closed:byDesign
 ```
 
