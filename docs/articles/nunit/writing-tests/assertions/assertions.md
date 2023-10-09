@@ -43,7 +43,7 @@ The classic/legacy asserts, like `ClassicAssert.AreEqual`, have now been moved i
 
 If you're upgrading from NUnit 3.X to NUnit 4, you need to add a using for `NUnit.Framework.Legacy` to your test classes, and rename all classic asserts from `Assert` to `ClassicAssert`.
 
-You can freely mix the constraint model assertions and the classic asserts in the same test class.
+You *can* freely mix the constraint model assertions and the classic asserts in the same test class, but we don't recommend it.
 
 All assertions in the `ClassicAssert` class are rerouting to use the constraint model.
 
