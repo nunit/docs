@@ -91,42 +91,38 @@
 </code></pre>
 <p>The Assert class provides the most common assertions in NUnit:</p>
 <ul>
-<li><a href="../classic-assertions/Assert.True.html">Assert.True</a></li>
-<li><a href="../classic-assertions/Assert.False.html">Assert.False</a></li>
-<li><a href="../classic-assertions/Assert.Null.html">Assert.Null</a></li>
-<li><a href="../classic-assertions/Assert.NotNull.html">Assert.NotNull</a></li>
-<li><a href="../classic-assertions/Assert.Zero.html">Assert.Zero</a></li>
-<li><a href="../classic-assertions/Assert.NotZero.html">Assert.NotZero</a></li>
-<li><a href="../classic-assertions/Assert.IsNaN.html">Assert.IsNaN</a></li>
-<li><a href="../classic-assertions/Assert.IsEmpty.html">Assert.IsEmpty</a></li>
-<li><a href="../classic-assertions/Assert.IsNotEmpty.html">Assert.IsNotEmpty</a></li>
-<li><a href="../classic-assertions/Assert.AreEqual.html">Assert.AreEqual</a></li>
-<li><a href="../classic-assertions/Assert.AreNotEqual.html">Assert.AreNotEqual</a></li>
-<li><a href="../classic-assertions/Assert.AreSame.html">Assert.AreSame</a></li>
-<li><a href="../classic-assertions/Assert.AreNotSame.html">Assert.AreNotSame</a></li>
-<li><a href="../classic-assertions/Assert.Contains.html">Assert.Contains</a></li>
-<li><a href="../classic-assertions/Assert.Greater.html">Assert.Greater</a></li>
-<li><a href="../classic-assertions/Assert.GreaterOrEqual.html">Assert.GreaterOrEqual</a></li>
-<li><a href="../classic-assertions/Assert.Less.html">Assert.Less</a></li>
-<li><a href="../classic-assertions/Assert.LessOrEqual.html">Assert.LessOrEqual</a></li>
-<li><a href="../classic-assertions/Assert.Positive.html">Assert.Positive</a></li>
-<li><a href="../classic-assertions/Assert.Negative.html">Assert.Negative</a></li>
-<li><a href="../classic-assertions/Assert.IsInstanceOf.html">Assert.IsInstanceOf</a></li>
-<li><a href="../classic-assertions/Assert.IsNotInstanceOf.html">Assert.IsNotInstanceOf</a></li>
-<li><a href="../classic-assertions/Assert.IsAssignableFrom.html">Assert.IsAssignableFrom</a></li>
-<li><a href="../classic-assertions/Assert.IsNotAssignableFrom.html">Assert.IsNotAssignableFrom</a></li>
+<li><a href="../classic-assertions/Assert.True.html">ClassicAssert.True</a></li>
+<li><a href="../classic-assertions/Assert.False.html">ClassicAssert.False</a></li>
+<li><a href="../classic-assertions/Assert.Null.html">ClassicAssert.Null</a></li>
+<li><a href="../classic-assertions/Assert.NotNull.html">ClassicAssert.NotNull</a></li>
+<li><a href="../classic-assertions/Assert.Zero.html">ClassicAssert.Zero</a></li>
+<li><a href="../classic-assertions/Assert.NotZero.html">ClassicAssert.NotZero</a></li>
+<li><a href="../classic-assertions/Assert.IsNaN.html">ClassicAssert.IsNaN</a></li>
+<li><a href="../classic-assertions/Assert.IsEmpty.html">ClassicAssert.IsEmpty</a></li>
+<li><a href="../classic-assertions/Assert.IsNotEmpty.html">ClassicAssert.IsNotEmpty</a></li>
+<li><a href="../classic-assertions/Assert.AreEqual.html">ClassicAssert.AreEqual</a></li>
+<li><a href="../classic-assertions/Assert.AreNotEqual.html">ClassicAssert.AreNotEqual</a></li>
+<li><a href="../classic-assertions/Assert.AreSame.html">ClassicAssert.AreSame</a></li>
+<li><a href="../classic-assertions/Assert.AreNotSame.html">ClassicAssert.AreNotSame</a></li>
+<li><a href="../classic-assertions/Assert.Contains.html">ClassicAssert.Contains</a></li>
+<li><a href="../classic-assertions/Assert.Greater.html">ClassicAssert.Greater</a></li>
+<li><a href="../classic-assertions/Assert.GreaterOrEqual.html">ClassicAssert.GreaterOrEqual</a></li>
+<li><a href="../classic-assertions/Assert.Less.html">ClassicAssert.Less</a></li>
+<li><a href="../classic-assertions/Assert.LessOrEqual.html">ClassicAssert.LessOrEqual</a></li>
+<li><a href="../classic-assertions/Assert.Positive.html">ClassicAssert.Positive</a></li>
+<li><a href="../classic-assertions/Assert.Negative.html">ClassicAssert.Negative</a></li>
+<li><a href="../classic-assertions/Assert.IsInstanceOf.html">ClassicAssert.IsInstanceOf</a></li>
+<li><a href="../classic-assertions/Assert.IsNotInstanceOf.html">ClassicAssert.IsNotInstanceOf</a></li>
+<li><a href="../classic-assertions/Assert.IsAssignableFrom.html">ClassicAssert.IsAssignableFrom</a></li>
+<li><a href="../classic-assertions/Assert.IsNotAssignableFrom.html">ClassicAssert.IsNotAssignableFrom</a></li>
 <li><a href="../classic-assertions/Assert.Throws.html">Assert.Throws</a></li>
 <li><a href="../classic-assertions/Assert.ThrowsAsync.html">Assert.ThrowsAsync</a></li>
 <li><a href="../classic-assertions/Assert.DoesNotThrow.html">Assert.DoesNotThrow</a></li>
 <li><a href="../classic-assertions/Assert.DoesNotThrowAsync.html">Assert.DoesNotThrowAsync</a></li>
 <li><a href="../classic-assertions/Assert.Catch.html">Assert.Catch</a></li>
 <li><a href="../classic-assertions/Assert.CatchAsync.html">Assert.CatchAsync</a></li>
-<li><a href="../classic-assertions/Assert.Pass.html">Assert.Pass</a></li>
-<li><a href="../classic-assertions/Assert.Fail.html">Assert.Fail</a></li>
-<li><a href="../classic-assertions/Assert.Ignore.html">Assert.Ignore</a></li>
-<li><a href="../classic-assertions/Assert.Inconclusive.html">Assert.Inconclusive</a></li>
 </ul>
-<p>Additional assertions are provided by the following classes:</p>
+<p>Additional assertions are provided by the following classes, which are also in the <code>NUnit.Framework.Legacy</code> namespace:</p>
 <ul>
 <li><a href="../classic-assertions/String-Assert.html">String Assert</a></li>
 <li><a href="../classic-assertions/Collection-Assert.html">Collection Assert</a></li>
@@ -137,6 +133,10 @@
 <ul>
 <li><a class="xref" href="constraint.html">Constraint Model</a></li>
 </ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>The exception-family of classic asserts have not yet been moved to the legacy namespace.  They have not yet full equivalents in the constraint model.</li>
+</ul>
 </article>
           </div>
 
@@ -145,12 +145,12 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/assertions/assertion-models/classic.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/assertions/assertion-models/classic.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

@@ -82,7 +82,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="towardsnunit4">
 <h1 id="towards-nunit-version-4">Towards NUnit Version 4</h1>
 
 <p>NUnit 4 has been long-awaited, and we are now starting to see its outline taking shape. With the introduction of NUnit 4, we are also making changes to the release cadence, shifting towards a <a href="https://semver.org">Semver</a> based versioning scheme. This entails aiming to release version 4 as soon as possible and subsequently accelerating the pace of new major releases compared to previous versions.</p>
@@ -92,11 +92,11 @@
 <h2 id="improved-assert-result-messages">Improved Assert Result Messages</h2>
 <p>Failure result messages now include the <code>Assert</code> statement that was used.</p>
 <p>Earlier code like:</p>
-<pre><code class="lang-cs">    [TestCase(42)]
-    public void TestInt(int val)
-    {
-        Assert.That(val, Is.EqualTo(4));
-    }
+<pre><code class="lang-cs">[TestCase(42)]
+public void TestInt(int val)
+{
+    Assert.That(val, Is.EqualTo(4));
+}
 </code></pre>
 <p>resulted in:</p>
 <pre><code class="lang-txt">Message: 
@@ -112,12 +112,12 @@
   But was:  42
 </code></pre>
 <p>This also handles more complex statements, like for the following code:</p>
-<pre><code class="lang-cs"> [Test]
-    public void TestDouble()
-    {
-        var sut = new Math();
-        Assert.That(sut.Add(4.0, 2.0), Is.EqualTo(42.0).Within(0.1d), &quot;Add double failed&quot;);
-    }
+<pre><code class="lang-cs">[Test]
+public void TestDouble()
+{
+    var sut = new Math();
+    Assert.That(sut.Add(4.0, 2.0), Is.EqualTo(42.0).Within(0.1d), &quot;Add double failed&quot;);
+}
 </code></pre>
 <p>which then results in:</p>
 <pre><code class="lang-txt">Message: 
@@ -132,16 +132,16 @@
 <p>Given the code:</p>
 <pre><code class="lang-cs">
 [Test]
-    public void TestMultiple()
+public void TestMultiple()
+{
+    var x = 2;
+    Assert.Multiple(() =&gt;
     {
-        var x = 2;
-        Assert.Multiple(() =&gt;
-        {
-            Assert.That(x*2, Is.EqualTo(42));
-            Assert.That(x*1+40, Is.EqualTo(42));
-            Assert.That(x*3+42, Is.EqualTo(42));
-        });
-    }
+        Assert.That(x*2, Is.EqualTo(42));
+        Assert.That(x*1+40, Is.EqualTo(42));
+        Assert.That(x*3+42, Is.EqualTo(42));
+    });
+}
 </code></pre>
 <p>which in version 3 results in:</p>
 <pre><code class="lang-txt">Message: 
@@ -172,23 +172,23 @@ Multiple failures or warnings in test:
 <h2 id="proper-asyncawait-you-can-now-await-the-asserts">Proper async/await, you can now await the Asserts</h2>
 <p>NUnit 3 has implemented async functionality using a pattern called 'sync-over-async.' This approach allowed for its implementation without requiring significant underlying changes.</p>
 <p>In version 4 proper async/await has been implemented with a series of new assert methods, <code>Assert.ThatAsync</code> which can be <code>await</code>'ed.</p>
-<pre><code class="lang-cs">    [Test]
-    public async Task AssertionPasses_CompletedTaskWithResult_EqualsResult()
-    {
-        await Assert.ThatAsync(() =&gt; Task.FromResult(42), Is.EqualTo(42));
-    }
+<pre><code class="lang-cs">[Test]
+public async Task AssertionPasses_CompletedTaskWithResult_EqualsResult()
+{
+    await Assert.ThatAsync(() =&gt; Task.FromResult(42), Is.EqualTo(42));
+}
 </code></pre>
 <p>Version 4 also introduces a new feature called Assert.MultipleAsync, which allows you to mix async and sync asserts within the same block. This enables you to perform multiple assertions, both asynchronous and synchronous, in a more concise and streamlined manner. Moreover, it's important to note that Assert.MultipleAsync is awaitable, providing flexibility in handling asynchronous operations and assertions.</p>
-<pre><code class="lang-cs">    [Test]
-    public async Task AssertMultipleAsyncSucceeds()
+<pre><code class="lang-cs">[Test]
+public async Task AssertMultipleAsyncSucceeds()
+{
+    await Assert.MultipleAsync(async () =&gt;
     {
-        await Assert.MultipleAsync(async () =&gt;
-        {
-            await Assert.ThatAsync(() =&gt; Task.FromResult(42), Is.EqualTo(42));
-            Assert.That(&quot;hello&quot;, Is.EqualTo(&quot;hello&quot;));
-            await Assert.ThatAsync(() =&gt; Task.FromException(new  ArgumentNullException)), Throws.ArgumentNullException);
-        });
-    }
+        await Assert.ThatAsync(() =&gt; Task.FromResult(42), Is.EqualTo(42));
+        Assert.That(&quot;hello&quot;, Is.EqualTo(&quot;hello&quot;));
+        await Assert.ThatAsync(() =&gt; Task.FromException(new  ArgumentNullException)), Throws.ArgumentNullException);
+    });
+}
 </code></pre>
 <h2 id="nullability">Nullability</h2>
 <p>Version 4 has implemented stricter nullability throughout the codebase. While there are still some areas that require fixing, overall, it should now conform to the nullability requirements.  See <a href="https://github.com/nunit/nunit/issues/3376">3376</a> for details.</p>
@@ -198,10 +198,10 @@ It's important to update such code to use valid non-null message strings</p>
 <h2 id="platform-support">Platform support</h2>
 <p>The lowest framework platforms support in Version 4 are <strong>.net framework 4.6.2</strong> and <strong>.net 6.0</strong>.</p>
 <h2 id="classiclegacy-asserts">Classic/Legacy asserts</h2>
-<p>The classic/legacy asserts, like <code>Assert.AreEqual</code>, have now been moved into its own project, and will be released as a separate package.  They are now in the namespace <code>NUnit.Framework.Classic</code>.
-In the early V4 alpha version they will be delivered in the standard NUnit package.</p>
+<p>The classic/legacy asserts, like <code>Assert.AreEqual</code>, have now been moved into their own project, and will later be released as a separate package.  They are now in the namespace <code>NUnit.Framework.Legacy</code>, and the <code>Assert</code> class has been renamed to <code>ClassicAssert</code>.
+In the early V4 versions they will be delivered in the standard NUnit package.</p>
 <p>This means that the default assertion syntax going forward will be the &quot;constraint-based&quot; asserts.</p>
-<p>Exactly how these methods will be used is not quite decided yet. We will probably need to do some name changes to avoid clashes.</p>
+<p>See <a class="xref" href="writing-tests/assertions/assertions.html">Assertions</a> for more details.</p>
 <h2 id="testing-it-out">Testing it out</h2>
 <p>We have development packages deployed to a Myget feed, and now we have also added a github packages feed.  If you're using the latter you need to authenticate yourself, once that is done anyone can grab from that feed.</p>
 <h3 id="myget">Myget</h3>
@@ -212,7 +212,7 @@ In the early V4 alpha version they will be delivered in the standard NUnit packa
     &lt;packageSources&gt;
         &lt;clear/&gt;
         &lt;add key=&quot;nuget&quot; value=&quot;https://api.nuget.org/v3/index.json&quot; /&gt;
-        &lt;add key=&quot;NuGetGitHub&quot; value=&quot;https://www.myget.org/F/nunit/api/v3/index.json&quot; /&gt;
+        &lt;add key=&quot;Myget&quot; value=&quot;https://www.myget.org/F/nunit/api/v3/index.json&quot; /&gt;
     &lt;/packageSources&gt;
 &lt;/configuration&gt;
 </code></pre>
@@ -226,7 +226,7 @@ In the early V4 alpha version they will be delivered in the standard NUnit packa
     &lt;packageSources&gt;
         &lt;clear/&gt;
         &lt;add key=&quot;nuget&quot; value=&quot;https://api.nuget.org/v3/index.json&quot; /&gt;
-        &lt;add key=&quot;Myget&quot; value=&quot;https://nuget.pkg.github.com/nunit/index.json&quot; /&gt;
+        &lt;add key=&quot;Github&quot; value=&quot;https://nuget.pkg.github.com/nunit/index.json&quot; /&gt;
     &lt;/packageSources&gt;
 &lt;/configuration&gt;
 </code></pre>
@@ -247,12 +247,12 @@ In the early V4 alpha version they will be delivered in the standard NUnit packa
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/Towards-NUnit4.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/Towards-NUnit4.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

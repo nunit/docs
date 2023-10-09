@@ -218,7 +218,8 @@ you provide.</p>
 once using an <code>ArrayList</code> and once using a <code>List&lt;int&gt;</code>.</p>
 <pre><code class="lang-csharp" name="GenericTestFixtures">[TestFixture(typeof(ArrayList))]
 [TestFixture(typeof(List&lt;int&gt;))]
-public class GenericListTests&lt;TList&gt; where TList : IList, new()
+public class GenericListTests&lt;TList&gt;
+    where TList : IList, new()
 {
     private IList _list = null!;
 
@@ -248,6 +249,8 @@ following example, this leads to some obvious duplication...</li>
 <pre><code class="lang-csharp" name="GenericTestFixtureWithParameters">[TestFixture(typeof(double), typeof(int), 100.0, 42)]
 [TestFixture(typeof(int), typeof(double), 42, 100.0)]
 public class SpecifyBothSetsOfArgs&lt;T1, T2&gt;
+    where T1 : notnull
+    where T2 : notnull
 {
     private readonly T1 _t1;
     private readonly T2 _t2;
@@ -278,6 +281,8 @@ it is at least more cleanly separated from the normal arguments...</li>
 <pre><code class="lang-csharp" name="SpecifyTypeArgsSeparately">[TestFixture(100.0, 42, TypeArgs = new[] { typeof(double), typeof(int) })]
 [TestFixture(42, 100.0, TypeArgs = new[] { typeof(int), typeof(double) })]
 public class SpecifyTypeArgsSeparately&lt;T1, T2&gt;
+    where T1 : notnull
+    where T2 : notnull
 {
     private readonly T1 _t1;
     private readonly T2 _t2;
@@ -308,6 +313,8 @@ write this example...</li>
 <pre><code class="lang-csharp" name="DeducedTypesFromArguments">[TestFixture(100.0, 42)]
 [TestFixture(42, 100.0)]
 public class DeduceTypeArgsFromArgs&lt;T1, T2&gt;
+    where T1 : notnull
+    where T2 : notnull
 {
     private readonly T1 _t1;
     private readonly T2 _t2;
@@ -336,12 +343,12 @@ public class DeduceTypeArgsFromArgs&lt;T1, T2&gt;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/testfixture.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/testfixture.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

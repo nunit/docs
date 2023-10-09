@@ -5,7 +5,7 @@
       <form class="toc-filter">
         <span class="glyphicon glyphicon-filter filter-icon"></span>
         <span class="glyphicon glyphicon-remove clear-icon" id="toc_filter_clear"></span>
-        <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+        <input type="text" id="toc_filter_input" placeholder="Filter by title" onkeypress="if(event.keyCode==13) {return false;}">
       </form>
     </div>
     <div class="sidetoc">
@@ -237,10 +237,13 @@
 
                                                   <ul class="nav level5">
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/assertion-models/classic.html" name="" title="Classic Model">Classic Model</a>
+                                                            <a href="nunit/writing-tests/assertions/assertion-models/constraint.html" name="" title="Constraint Model (Assert.That)">Constraint Model (Assert.That)</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/assertion-models/constraint.html" name="" title="Constraint Model (Assert.That)">Constraint Model (Assert.That)</a>
+                                                            <a href="nunit/writing-tests/assertions/assertion-models/special.html" name="" title="Special Asserts">Special Asserts</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="nunit/writing-tests/assertions/assertion-models/classic.html" name="" title="Classic Model">Classic Model</a>
                                                         </li>
                                                   </ul>
                                               </li>
@@ -249,80 +252,99 @@
                                               </li>
                                               <li>
                                                   <span class="expand-stub"></span>
+                                                  <a href="nunit/writing-tests/assertions/assertions.html" name="" title="Special Assertions">Special Assertions</a>
+
+                                                  <ul class="nav level5">
+                                                        <li>
+                                                            <a href="nunit/writing-tests/assertions/special-assertions/Assert.Pass.html" name="" title="Assert.Pass">Assert.Pass</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="nunit/writing-tests/assertions/special-assertions/Assert.Fail.html" name="" title="Assert.Fail">Assert.Fail</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="nunit/writing-tests/assertions/special-assertions/Assert.Ignore.html" name="" title="Assert.Ignore">Assert.Ignore</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="nunit/writing-tests/assertions/special-assertions/Assert.Inconclusive.html" name="" title="Assert.Inconclusive">Assert.Inconclusive</a>
+                                                        </li>
+                                                  </ul>
+                                              </li>
+                                              <li>
+                                                  <span class="expand-stub"></span>
                                                   <a href="nunit/writing-tests/assertions/assertions.html" name="" title="Classic Assertions">Classic Assertions</a>
 
                                                   <ul class="nav level5">
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.True.html" name="" title="Assert.True">Assert.True</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.True.html" name="" title="ClassicAssert.True">ClassicAssert.True</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.False.html" name="" title="Assert.False">Assert.False</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.False.html" name="" title="ClassicAssert.False">ClassicAssert.False</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Null.html" name="" title="Assert.Null">Assert.Null</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Null.html" name="" title="ClassicAssert.Null">ClassicAssert.Null</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.NotNull.html" name="" title="Assert.NotNull">Assert.NotNull</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.NotNull.html" name="" title="ClassicAssert.NotNull">ClassicAssert.NotNull</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Zero.html" name="" title="Assert.Zero">Assert.Zero</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Zero.html" name="" title="ClassicAssert.Zero">ClassicAssert.Zero</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.NotZero.html" name="" title="Assert.NotZero">Assert.NotZero</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.NotZero.html" name="" title="ClassicAssert.NotZero">ClassicAssert.NotZero</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsNaN.html" name="" title="Assert.IsNaN">Assert.IsNaN</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsNaN.html" name="" title="ClassicAssert.IsNaN">ClassicAssert.IsNaN</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsEmpty.html" name="" title="Assert.IsEmpty">Assert.IsEmpty</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsEmpty.html" name="" title="ClassicAssert.IsEmpty">ClassicAssert.IsEmpty</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsNotEmpty.html" name="" title="Assert.IsNotEmpty">Assert.IsNotEmpty</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsNotEmpty.html" name="" title="ClassicAssert.IsNotEmpty">ClassicAssert.IsNotEmpty</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.AreEqual.html" name="" title="Assert.AreEqual">Assert.AreEqual</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.AreEqual.html" name="" title="ClassicAssert.AreEqual">ClassicAssert.AreEqual</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.AreNotEqual.html" name="" title="Assert.AreNotEqual">Assert.AreNotEqual</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.AreNotEqual.html" name="" title="ClassicAssert.AreNotEqual">ClassicAssert.AreNotEqual</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.AreSame.html" name="" title="Assert.AreSame">Assert.AreSame</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.AreSame.html" name="" title="ClassicAssert.AreSame">ClassicAssert.AreSame</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.AreNotSame.html" name="" title="Assert.AreNotSame">Assert.AreNotSame</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.AreNotSame.html" name="" title="ClassicAssert.AreNotSame">ClassicAssert.AreNotSame</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Contains.html" name="" title="Assert.Contains">Assert.Contains</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Contains.html" name="" title="ClassicAssert.Contains">ClassicAssert.Contains</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Greater.html" name="" title="Assert.Greater">Assert.Greater</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Greater.html" name="" title="ClassicAssert.Greater">ClassicAssert.Greater</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.GreaterOrEqual.html" name="" title="Assert.GreaterOrEqual">Assert.GreaterOrEqual</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.GreaterOrEqual.html" name="" title="ClassicAssert.GreaterOrEqual">ClassicAssert.GreaterOrEqual</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Less.html" name="" title="Assert.Less">Assert.Less</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Less.html" name="" title="ClassicAssert.Less">ClassicAssert.Less</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.LessOrEqual.html" name="" title="Assert.LessOrEqual">Assert.LessOrEqual</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.LessOrEqual.html" name="" title="ClassicAssert.LessOrEqual">ClassicAssert.LessOrEqual</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Positive.html" name="" title="Assert.Positive">Assert.Positive</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Positive.html" name="" title="ClassicAssert.Positive">ClassicAssert.Positive</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Negative.html" name="" title="Assert.Negative">Assert.Negative</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Negative.html" name="" title="ClassicAssert.Negative">ClassicAssert.Negative</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsInstanceOf.html" name="" title="Assert.IsInstanceOf">Assert.IsInstanceOf</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsInstanceOf.html" name="" title="ClassicAssert.IsInstanceOf">ClassicAssert.IsInstanceOf</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsNotInstanceOf.html" name="" title="Assert.IsNotInstanceOf">Assert.IsNotInstanceOf</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsNotInstanceOf.html" name="" title="ClassicAssert.IsNotInstanceOf">ClassicAssert.IsNotInstanceOf</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsAssignableFrom.html" name="" title="Assert.IsAssignableFrom">Assert.IsAssignableFrom</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsAssignableFrom.html" name="" title="ClassicAssert.IsAssignableFrom">ClassicAssert.IsAssignableFrom</a>
                                                         </li>
                                                         <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsNotAssignableFrom.html" name="" title="Assert.IsNotAssignableFrom">Assert.IsNotAssignableFrom</a>
+                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.IsNotAssignableFrom.html" name="" title="ClassicAssert.IsNotAssignableFrom">ClassicAssert.IsNotAssignableFrom</a>
                                                         </li>
                                                         <li>
                                                             <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Throws.html" name="" title="Assert.Throws">Assert.Throws</a>
@@ -341,18 +363,6 @@
                                                         </li>
                                                         <li>
                                                             <a href="nunit/writing-tests/assertions/classic-assertions/Assert.CatchAsync.html" name="" title="Assert.CatchAsync">Assert.CatchAsync</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Pass.html" name="" title="Assert.Pass">Assert.Pass</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Fail.html" name="" title="Assert.Fail">Assert.Fail</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Ignore.html" name="" title="Assert.Ignore">Assert.Ignore</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="nunit/writing-tests/assertions/classic-assertions/Assert.Inconclusive.html" name="" title="Assert.Inconclusive">Assert.Inconclusive</a>
                                                         </li>
                                                         <li>
                                                             <a href="nunit/writing-tests/assertions/classic-assertions/String-Assert.html" name="" title="String Assert">String Assert</a>

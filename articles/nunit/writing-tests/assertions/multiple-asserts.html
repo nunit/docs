@@ -124,8 +124,8 @@ public void MultipleAssertsDemo()
     // Can also work with the classic assertion syntax
     Assert.Multiple(() =&gt;
     {
-        Assert.AreEqual(5.2, result.RealPart, &quot;Real Part&quot;);
-        Assert.AreEqual(3.9, result.ImaginaryPart, &quot;Imaginary Part&quot;);
+        ClassicAssert.AreEqual(5.2, result.RealPart, &quot;Real Part&quot;);
+        ClassicAssert.AreEqual(3.9, result.ImaginaryPart, &quot;Imaginary Part&quot;);
     });
 }
 </code></pre>
@@ -156,9 +156,8 @@ public void MultipleAssertsDemo()
 <h3 id="runner-support">Runner Support</h3>
 <p>Multiple assertion failures per test are stored in the representation of the test result using new XML elements, which are not recognized by older runners. The following runners are known to support display of the new elements:</p>
 <ul>
-<li>NUnit Console Runner 3.6</li>
-<li>NUnit 3 Visual Studio Adapter 3.7</li>
-<li>NUnit Gui Runner (under development)</li>
+<li>NUnit 3 Visual Studio Adapter 3.7++ (Used by Visual Studio and <code>dotnet test</code>)</li>
+<li>NUnit Console Runner 3.6++</li>
 </ul>
 <h4 id="compatibility">Compatibility</h4>
 <p>Older runners generally display a single failure message and stack trace for each test. For compatibility purposes, the framework creates a single message that lists all the failures. The stack trace in such a case will indicate the end of the assert multiple block.</p>
@@ -170,12 +169,12 @@ public void MultipleAssertsDemo()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/assertions/multiple-asserts.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/assertions/multiple-asserts.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
