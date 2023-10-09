@@ -47,6 +47,6 @@ You can freely mix the constraint model assertions and the classic asserts in th
 
 All assertions in the `ClassicAssert` class are rerouting to use the constraint model.
 
-As shown in the example in [Towards NUnit 4](xref:towards-nunit4), error message have been enhanced so that you see the Assert expression.  This also works for the ClassicAsserts, but what you will see there is the equivalent constraint expression.
+As shown in the example in [Towards NUnit 4](xref:towardsnunit4), error message have been enhanced so that you see the Assert expression.  This also works for the ClassicAsserts, but what you will see there is the equivalent constraint expression.
 
 ![Classic-Assert-Fails](../../../../images/nunit-classic-asserts-fails.png)
