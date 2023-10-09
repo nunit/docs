@@ -168,7 +168,7 @@ The lowest framework platforms support in Version 4 are **.net framework 4.6.2**
 
 ## Classic/Legacy asserts
 
-The classic/legacy asserts, like `Assert.AreEqual`, have now been moved into its own project, and will later be released as a separate package.  They are now in the namespace `NUnit.Framework.Legacy`, and the `Assert` have been renamed to `ClassicAssert`.
+The classic/legacy asserts, like `Assert.AreEqual`, have now been moved into their own project, and will later be released as a separate package.  They are now in the namespace `NUnit.Framework.Legacy`, and the `Assert` class has been renamed to `ClassicAssert`.
 In the early V4 versions they will be delivered in the standard NUnit package.
 
 This means that the default assertion syntax going forward will be the "constraint-based" asserts.
