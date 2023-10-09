@@ -44,9 +44,8 @@ Functionally, this results in NUnit storing any failures encountered in the bloc
 
 Multiple assertion failures per test are stored in the representation of the test result using new XML elements, which are not recognized by older runners. The following runners are known to support display of the new elements:
 
-* NUnit Console Runner 3.6
-* NUnit 3 Visual Studio Adapter 3.7
-* NUnit Gui Runner (under development)
+* NUnit 3 Visual Studio Adapter 3.7++ (Used by Visual Studio and `dotnet test`)
+* NUnit Console Runner 3.6++
 
 #### Compatibility
 

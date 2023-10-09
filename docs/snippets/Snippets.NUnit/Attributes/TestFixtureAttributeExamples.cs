@@ -59,7 +59,8 @@ public class TestFixtureAttributeExamples
     #region GenericTestFixtures
     [TestFixture(typeof(ArrayList))]
     [TestFixture(typeof(List<int>))]
-    public class GenericListTests<TList> where TList : IList, new()
+    public class GenericListTests<TList>
+        where TList : IList, new()
     {
         private IList _list = null!;
 
@@ -82,6 +83,8 @@ public class TestFixtureAttributeExamples
     [TestFixture(typeof(double), typeof(int), 100.0, 42)]
     [TestFixture(typeof(int), typeof(double), 42, 100.0)]
     public class SpecifyBothSetsOfArgs<T1, T2>
+        where T1 : notnull
+        where T2 : notnull
     {
         private readonly T1 _t1;
         private readonly T2 _t2;
@@ -108,6 +111,8 @@ public class TestFixtureAttributeExamples
     [TestFixture(100.0, 42, TypeArgs = new[] { typeof(double), typeof(int) })]
     [TestFixture(42, 100.0, TypeArgs = new[] { typeof(int), typeof(double) })]
     public class SpecifyTypeArgsSeparately<T1, T2>
+        where T1 : notnull
+        where T2 : notnull
     {
         private readonly T1 _t1;
         private readonly T2 _t2;
@@ -134,6 +139,8 @@ public class TestFixtureAttributeExamples
     [TestFixture(100.0, 42)]
     [TestFixture(42, 100.0)]
     public class DeduceTypeArgsFromArgs<T1, T2>
+        where T1 : notnull
+        where T2 : notnull
     {
         private readonly T1 _t1;
         private readonly T2 _t2;

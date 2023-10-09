@@ -1,10 +1,10 @@
-# Assert.AreNotSame
+# ClassicAssert.AreNotSame
 
-**Assert.AreNotSame** tests that the two arguments do not reference the same object.
+**ClassicAssert.AreNotSame** tests that the two arguments do not reference the same object.
 
 ```csharp
-Assert.AreNotSame(object expected, object actual);
-Assert.AreNotSame(object expected, object actual,
+ClassicAssert.AreNotSame(object expected, object actual);
+ClassicAssert.AreNotSame(object expected, object actual,
                   string message, params object[] params);
 ```
 

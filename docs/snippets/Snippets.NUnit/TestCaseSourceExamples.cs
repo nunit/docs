@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
+
 #pragma warning disable NUnit2046
 #pragma warning disable IDE0044
 #pragma warning disable CA2211
@@ -15,7 +17,7 @@ public class TestCaseSourceExamples
         [TestCaseSource(nameof(DivideCases))]
         public void DivideTest(int n, int d, int q)
         {
-            Assert.AreEqual(q, n / d);
+            ClassicAssert.AreEqual(q, n / d);
         }
 
         public static object[] DivideCases =
@@ -71,7 +73,7 @@ public class TestCaseSourceExamples
         [TestCaseSource(typeof(AnotherClassWithTestFixtures), nameof(AnotherClassWithTestFixtures.DivideCases))]
         public void DivideTest(int n, int d, int q)
         {
-            Assert.AreEqual(q, n / d);
+            ClassicAssert.AreEqual(q, n / d);
         }
     }
 
@@ -92,7 +94,7 @@ public class TestCaseSourceExamples
         [TestCaseSource(typeof(DivideCasesClass))]
         public void DivideTest(int n, int d, int q)
         {
-            Assert.AreEqual(q, n / d);
+            ClassicAssert.AreEqual(q, n / d);
         }
     }
 
