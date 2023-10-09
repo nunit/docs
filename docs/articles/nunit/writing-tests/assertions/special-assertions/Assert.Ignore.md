@@ -9,7 +9,7 @@ different assemblies.
 
 ```csharp
 Assert.Ignore();
-Assert.Ignore(string message, params object[] params);
+Assert.Ignore(string message);
 ```
 
 ## See Also

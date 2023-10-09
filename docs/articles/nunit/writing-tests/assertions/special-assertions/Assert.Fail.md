@@ -6,7 +6,8 @@ developing your own project-specific assertions.
 
 ```csharp
 Assert.Fail();
-Assert.Fail(string message, params object[] params);
+Assert.Fail(string message);
+
 ```
 
 Here's an example of its use to create a private assertion that tests whether a

@@ -10,7 +10,7 @@ result of immediately terminating test execution.
 
 ```csharp
 Assert.Pass();
-Assert.Pass(string message, params object[] params);
+Assert.Pass(string message);
 ```
 
 ## See Also

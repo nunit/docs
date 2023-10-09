@@ -7,7 +7,7 @@ success or failure outcome.
 
 ```csharp
 Assert.Inconclusive();
-Assert.Inconclusive(string message, params object[] params);
+Assert.Inconclusive(string message);
 ```
 
 ## See Also
