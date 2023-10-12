@@ -151,6 +151,21 @@ Gets a representation of the test result, with the following properties:
     * TearDown
     * Parent
     * Child
+* **Assertions** - A list of `AssertionResult` values generated up to this point in the test. Please note that **only failed assertions** will be stored in here to limit the size of the result tree and potential impact on performance. Each `AssertionResult` has the following properties:
+  * **Status** - An `AssertionStatus` with five possible values:
+    * Inconclusive
+    * Passed
+    * Warning
+    * Failed
+    * Error
+  * **Message** - A string containing the message produced by the assertion (possibly null).
+  * **StackTrace** - A string containing the stack trace associated with the assertion.
+* **PassCount** - An int representing the number of test cases that passed when running the test and all its children.
+* **FailCount** - An int representing the number of test cases that failed when running the test and all its children.
+* **SkipCount** - An int representing the number of test cases that were skipped when running the test and all its children.
+* **InconclusiveCount** - An int representing the number of test cases that were inconclusive when running the test and all its children.
+* **StackTrace** - A string containing the stack trace associated with an error or failure.
+* **Message** - A string containing the message associated with a test failure or with not running the test.
 
 Although the outcome of the test may be accessed during setup or test execution, it only has a useful value in the teardown stage.
 
