@@ -207,6 +207,27 @@ AddFormatter(ValueFormatterFactory formatterFactory);
 </li>
 </ul>
 </li>
+<li><strong>Assertions</strong> - A list of <code>AssertionResult</code> values generated up to this point in the test. Please note that <strong>only failed assertions</strong> will be stored in here to limit the size of the result tree and potential impact on performance. Each <code>AssertionResult</code> has the following properties:
+<ul>
+<li><strong>Status</strong> - An <code>AssertionStatus</code> with five possible values:
+<ul>
+<li>Inconclusive</li>
+<li>Passed</li>
+<li>Warning</li>
+<li>Failed</li>
+<li>Error</li>
+</ul>
+</li>
+<li><strong>Message</strong> - A string containing the message produced by the assertion (possibly null).</li>
+<li><strong>StackTrace</strong> - A string containing the stack trace associated with the assertion.</li>
+</ul>
+</li>
+<li><strong>PassCount</strong> - An int representing the number of test cases that passed when running the test and all its children.</li>
+<li><strong>FailCount</strong> - An int representing the number of test cases that failed when running the test and all its children.</li>
+<li><strong>SkipCount</strong> - An int representing the number of test cases that were skipped when running the test and all its children.</li>
+<li><strong>InconclusiveCount</strong> - An int representing the number of test cases that were inconclusive when running the test and all its children.</li>
+<li><strong>StackTrace</strong> - A string containing the stack trace associated with an error or failure.</li>
+<li><strong>Message</strong> - A string containing the message associated with a test failure or with not running the test.</li>
 </ul>
 <p>Although the outcome of the test may be accessed during setup or test execution, it only has a useful value in the teardown stage.</p>
 <h3 id="common-outcomes">Common Outcomes</h3>
