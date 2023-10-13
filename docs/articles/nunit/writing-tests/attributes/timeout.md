@@ -9,7 +9,7 @@ The **TimeoutAttribute** is used to specify a timeout value in milliseconds
 for a test case. If the test case runs longer than the time specified it
 is immediately cancelled and reported as a failure, with a message indicating that the timeout was exceeded.
 
-The specified timeout value covers the test setup and teardown as well as the test method itself. Before and after actions may also be included, depending on where they were specified. Since the timeout may occur during any of these execution phases, no guarantees can be made as to what will be run and any of these phases of execution may be incomplete. Specifically, once a test has timed out, no further attempt is made to execute its teardown methods.
+The specified timeout value covers the test setup and teardown as well as the test method itself. Before and after actions may also be included, depending on where they were specified. Since the timeout may occur during any of these execution phases, no guarantees can be made as to what will be run and any of these phases of execution may be incomplete. If only used on a test, once a test has timed out, its teardown methods are executed.
 
 The attribute may also be specified on a fixture or assembly, in which
 case it indicates the default timeout for any subordinate test cases. When using the console runner, it is also possible to specify a default timeout on the command-line.
@@ -29,4 +29,5 @@ public void PotentiallyLongRunningTest()
 
 ## See Also
 
-* [MaxTime Attribute](maxtime.md)
+* [MaxTime Attribute](./maxtime.md)
+* [CancelAfter Attribute](./cancelafter.md)
