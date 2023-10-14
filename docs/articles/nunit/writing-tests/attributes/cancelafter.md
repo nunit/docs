@@ -8,7 +8,7 @@ For all tests, one could use the `--blame-hang(-timeout)`  options of [`dotnet t
 
 To still be able to cancel tests, one has to move to cooperative cancellation. See [Cancellation in Managed Threads](https://learn.microsoft.com/en-us/dotnet/standard/threading/cancellation-in-managed-threads) using a [`CancellationToken``](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken?view=net-7.0).
 
-The **CancelAfterAttribute** is used to specify a timeout value in milliseconds for a test case.
+The `CancelAfterAttribute` is used to specify a timeout value in milliseconds for a test case.
 If the test case runs longer than the time specified, the supplied `CancellationToken` is set to canceled.
 It is however up to the test code to check this token, either directly or indirectly.
 
