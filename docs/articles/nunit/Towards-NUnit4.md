@@ -153,6 +153,14 @@ public async Task AssertMultipleAsyncSucceeds()
 }
 ```
 
+## Cooperative Cancellation
+
+For later versions of .NET it is not possible to abort a hanging thread -- and even though it's technically allowed in the classic .NET Framework, it prevents `finally` clauses and other cleanup routines from running.
+
+Cancellation is supposed to be done in a cooperative way.
+
+To achieve this in NUnit v4, we introduce a [CancelAfter Attribute](./writing-tests/attributes/cancelafter.md)
+
 ## Nullability
 
 Version 4 has implemented stricter nullability throughout the codebase. While there are still some areas that require fixing, overall, it should now conform to the nullability requirements.  See [3376](https://github.com/nunit/nunit/issues/3376) for details.
