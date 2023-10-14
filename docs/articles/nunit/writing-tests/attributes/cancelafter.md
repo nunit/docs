@@ -1,6 +1,6 @@
 # CancelAfter
 
-Normally, NUnit simply runs tests and waits for them to terminate—the test is allowed to run indefinitely. For certain kinds of tests, however, it may be desired to specify a timeout value.
+Normally, NUnit simply runs tests and waits for them to terminate -- the test is allowed to run indefinitely. For certain kinds of tests, however, it may be desirable to specify a timeout value.
 
 For .NET Core and later, [`Thread.Abort`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.abort?view=net-7.0) as used by the [`TimeoutAttribue`](./timeout.md) can no longer be used, and there is therefore no way to interrupt an endless loop.
 
