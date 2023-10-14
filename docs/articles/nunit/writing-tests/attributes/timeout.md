@@ -25,7 +25,7 @@ public void PotentiallyLongRunningTest()
 ```
 
 > [!NOTE]
-> When debugging a unit test - i.e. when a debugger is attached to the process - then the timeout is not enforced.
+> When debugging a unit test, i.e. when a debugger is attached to the process, then the timeout is not enforced.
 
 ## See Also
 

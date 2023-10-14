@@ -4,7 +4,7 @@ Normally, NUnit simply runs tests and waits for them to terminate—the test is 
 
 For .NET Core and later, [`Thread.Abort`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.abort?view=net-7.0) as used by the [`TimeoutAttribue`](./timeout.md) can no longer be used, and there is therefore no way to interrupt an endless loop.
 
-For all tests, one could use the `--blame-hang(-timeout)`  options of [`dotnet test`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test#options). However, this will stop any further exection of the remaining tests.
+For all tests, one could use the `--blame-hang(-timeout)`  options of [`dotnet test`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test#options). However, this will stop any further execution of the remaining tests.
 
 To still be able to cancel tests, one has to move to cooperative cancellation. See [Cancellation in Managed Threads](https://learn.microsoft.com/en-us/dotnet/standard/threading/cancellation-in-managed-threads) using a [`CancellationToken``](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken?view=net-7.0).
 
