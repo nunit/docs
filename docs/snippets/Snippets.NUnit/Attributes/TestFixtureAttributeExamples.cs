@@ -14,6 +14,8 @@ public class TestFixtureAttributeExamples
     [TestFixture("hello", "hello", "goodbye")]
     [TestFixture("zip", "zip")]
     [TestFixture(42, 42, 99)]
+    [TestFixture('a', 'a', 'b')]
+    [TestFixture('A', 'A')]
     public class ParameterizedTestFixture
     {
         private readonly string _eq1;
@@ -37,6 +39,17 @@ public class TestFixtureAttributeExamples
             _neq = neq.ToString();
         }
 
+        // Can use params arguments (but not yet optional arguments)
+        public ParameterizedTestFixture(params char[] eqArguments)
+        {
+            _eq1 = eqArguments[0].ToString();
+            _eq2 = eqArguments[1].ToString();
+            if (eqArgument.Length > 2)
+            {
+                _neq = eqArguments[2].ToString();
+            }
+        }
+        
         [Test]
         public void TestEquality()
         {
