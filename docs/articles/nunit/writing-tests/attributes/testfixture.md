@@ -95,10 +95,11 @@ list of categories.
 
 ### Example
 
-The following test fixture would be instantiated by NUnit three times,
+The following test fixture would be instantiated by NUnit five times,
 passing in each set of arguments to the appropriate constructor. Note
-that there are three different constructors, matching the data types
-provided as arguments.
+that there are four different constructors, matching the data types
+provided as arguments, and the params keyword can be used to allow 
+passing different numbers of arguments.
 
 [!code-csharp[MultipleParameterizedTestFixtures](~/snippets/Snippets.NUnit/Attributes/TestFixtureAttributeExamples.cs#MultipleParameterizedTestFixtures)]
 
