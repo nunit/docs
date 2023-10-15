@@ -44,10 +44,10 @@ public class TestFixtureAttributeExamples
         {
             _eq1 = eqArguments[0].ToString();
             _eq2 = eqArguments[1].ToString();
-            if (eqArgument.Length > 2)
-            {
+            if (eqArguments.Length > 2)
                 _neq = eqArguments[2].ToString();
-            }
+            else 
+                _new = null;
         }
         
         [Test]
