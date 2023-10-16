@@ -17,11 +17,11 @@ This page lists all the constraints available in NUnit.
 | ------------------------------------- | ------------- |
 | [AllItemsConstraint](AllItemsConstraint.md)               | `Assert.That(myEnumerable, Has.All.GreaterThan(32))`<br/>`Assert.That(myEnumerable, Is.All.InstanceOf<string>()` |
 | [AndConstraint](AndConstraint.md)                    | `Assert.That(2.3, Is.GreaterThan(2.0).And.LessThan(3.0))` |
+| [AnyOfConstraint](AnyOfConstraint.md)                  | |
 | [AssignableFromConstraint](AssignableFromConstraint.md)         | `Assert.That("Hello", Is.AssignableFrom(typeof(string)));`<br/>`Assert.That(5, Is.Not.AssignableFrom<string>());` |
 | [AssignableToConstraint](AssignableToConstraint.md)           | |
 | [AttributeConstraint](AttributeConstraint.md)              | |
 | [AttributeExistsConstraint](AttributeExistsConstraint.md)        | |
-| [AnyOfConstraint](AnyOfConstraint.md)                  | |
 | [BinarySerializableConstraint](BinarySerializableConstraint.md)     | |
 | [CollectionContainsConstraint](CollectionContainsConstraint.md)     | |
 | [CollectionEquivalentConstraint](CollectionEquivalentConstraint.md)   | |
