@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace Snippets.NUnit.Attributes
 {
-    public class AllItemsConstraintExamples
+    public class ConstraintExamples
     {
         #region AllItemsIsExample
         [Test]

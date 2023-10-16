@@ -14,6 +14,6 @@ You can use `Is.All` or `Has.All` to refer to all items in an `IEnumerable`.
 
 ## Examples of Use
 
-[!code-csharp[IsBasedFormat](~/snippets/Snippets.NUnit/Constraints/AllItemsConstraintExamples.cs#AllItemsIsExample)]
+[!code-csharp[IsBasedFormat](~/snippets/Snippets.NUnit/Constraints/ConstraintExamples.cs#AllItemsIsExample)]
 
-[!code-csharp[HasBasedFormat](~/snippets/Snippets.NUnit/Constraints/AllItemsConstraintExamples.cs#AllItemsHasExample)]
+[!code-csharp[HasBasedFormat](~/snippets/Snippets.NUnit/Constraints/ConstraintExamples.cs#AllItemsHasExample)]
