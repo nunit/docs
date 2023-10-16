@@ -38,6 +38,14 @@ namespace Snippets.NUnit.Attributes
             Assert.That(theInt, Is.Not.AssignableFrom<string>());
         }
         #endregion
+        #region AndExample
+        [Test]
+        public void UsingAndToCombineConstraints()
+        {
+            var testValue = 2.3;
+            Assert.That(testValue, Is.GreaterThan(2.0).And.LessThan(3.0));
+        }
+        #endregion
     }
 
 }

@@ -17,4 +17,4 @@ Is.AssignableFrom<T>()
 
 ## Examples of Use
 
-[!code-csharp[IsBasedFormat](~/snippets/Snippets.NUnit/Constraints/ConstraintExamples.cs#AssignableFromExample)]
+[!code-csharp[AssignableFromExample](~/snippets/Snippets.NUnit/Constraints/ConstraintExamples.cs#AssignableFromExample)]
