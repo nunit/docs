@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using NUnit.Framework;
 // ReSharper disable ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
 #pragma warning disable NUnit2045
@@ -20,7 +20,7 @@ public class TestFixtureAttributeExamples
     {
         private readonly string _eq1;
         private readonly string _eq2;
-        private readonly string _neq;
+        private readonly string? _neq;
 
         public ParameterizedTestFixture(string eq1, string eq2, string neq)
         {
