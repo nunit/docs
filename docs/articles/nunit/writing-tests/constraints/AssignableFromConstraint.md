@@ -17,4 +17,7 @@ Is.AssignableFrom<T>()
 
 ## Examples of Use
 
-[!code-csharp[AssignableFromExample](~/snippets/Snippets.NUnit/Constraints/ConstraintExamples.cs#AssignableFromExample)]
+```csharp
+Assert.That("Hello", Is.AssignableFrom(typeof(string)));
+Assert.That(5, Is.Not.AssignableFrom(typeof(string)));
+```
