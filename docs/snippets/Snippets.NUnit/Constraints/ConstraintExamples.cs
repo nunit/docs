@@ -27,6 +27,17 @@ namespace Snippets.NUnit.Attributes
             Assert.That(arrayOfIntegers, Has.All.GreaterThan(0));
         }
         #endregion
+        #region AssignableFromExample
+        [Test]
+        public void AssignableFromExample()
+        {
+            var theString = "Hello";
+            Assert.That(theString, Is.AssignableFrom(typeof(string)));
+
+            var theInt = 5;
+            Assert.That(theInt, Is.Not.AssignableFrom<string>());
+        }
+        #endregion
     }
 
 }
