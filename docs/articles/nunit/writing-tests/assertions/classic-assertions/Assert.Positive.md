@@ -1,44 +1,44 @@
-# Assert.Positive
+# ClassicAssert.Positive
 
 Asserts that a number is positive.
 
 ```csharp
 //false
-Assert.Positive(-1);
+ClassicAssert.Positive(-1);
 //true
-Assert.Positive(1);
+ClassicAssert.Positive(1);
 ```
 
 All the overloads of the method are
 
 ```csharp
-Assert.Positive(int actual);
-Assert.Positive(int actual, string message, params object[] args);
+ClassicAssert.Positive(int actual);
+ClassicAssert.Positive(int actual, string message, params object[] args);
 
-Assert.Positive(uint actual);
-Assert.Positive(uint actual, string message, params object[] args);
+ClassicAssert.Positive(uint actual);
+ClassicAssert.Positive(uint actual, string message, params object[] args);
 
-Assert.Positive(long actual);
-Assert.Positive(long actual, string message, params object[] args);
+ClassicAssert.Positive(long actual);
+ClassicAssert.Positive(long actual, string message, params object[] args);
 
-Assert.Positive(ulong actual);
-Assert.Positive(ulong actual, string message, params object[] args);
+ClassicAssert.Positive(ulong actual);
+ClassicAssert.Positive(ulong actual, string message, params object[] args);
 
-Assert.Positive(decimal actual);
-Assert.Positive(decimal actual, string message, params object[] args);
+ClassicAssert.Positive(decimal actual);
+ClassicAssert.Positive(decimal actual, string message, params object[] args);
 
-Assert.Positive(double actual);
-Assert.Positive(double actual, string message, params object[] args);
+ClassicAssert.Positive(double actual);
+ClassicAssert.Positive(double actual, string message, params object[] args);
 
-Assert.Positive(float actual);
-Assert.Positive(float actual, string message, params object[] args);
+ClassicAssert.Positive(float actual);
+ClassicAssert.Positive(float actual, string message, params object[] args);
 ```
 
-You may also use **Assert.That** with a **Is.Positive** constraint to achieve the same result.
+You may also use **ClassicAssert.That** with a **Is.Positive** constraint to achieve the same result.
 
 ## See Also
 
-* [Assert.Negative](Assert.Negative.md)
-* [Assert.Zero](Assert.Zero.md)
-* [Assert.NotZero](Assert.NotZero.md)
-* [Assert.IsNaN](Assert.IsNaN.md)
+* [ClassicAssert.Negative](Assert.Negative.md)
+* [ClassicAssert.Zero](Assert.Zero.md)
+* [ClassicAssert.NotZero](Assert.NotZero.md)
+* [ClassicAssert.IsNaN](Assert.IsNaN.md)

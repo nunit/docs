@@ -1,13 +1,13 @@
-# Assert.IsNotAssignableFrom
+# ClassicAssert.IsNotAssignableFrom
 
-**Assert.IsNotAssignableFrom** succeeds if the object provided may not be assigned a value of the expected type.
+**ClassicAssert.IsNotAssignableFrom** succeeds if the object provided may not be assigned a value of the expected type.
 
 ```csharp
-Assert.IsNotAssignableFrom(Type expected, object actual);
-Assert.IsNotAssignableFrom(Type expected, object actual,
+ClassicAssert.IsNotAssignableFrom(Type expected, object actual);
+ClassicAssert.IsNotAssignableFrom(Type expected, object actual,
                            string message, params object[] params);
-Assert.IsNotAssignableFrom<T>(object actual);
-Assert.IsNotAssignableFrom<T>(object actual,
+ClassicAssert.IsNotAssignableFrom<T>(object actual);
+ClassicAssert.IsNotAssignableFrom<T>(object actual,
                               string message, params object[] params);
 ```
 

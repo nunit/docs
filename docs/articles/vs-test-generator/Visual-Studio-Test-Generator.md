@@ -4,10 +4,10 @@ uid: vstestgenerator
 
 # Visual Studio Test Generator
 
-This is an extension for Visual Studio 2015 and 2017 that extends
+This is an extension for Visual Studio 2015, 2017/2019 and 2022 that extends
 the test functionality to allow you to create unit tests and IntelliTests.
 This extension extends the built in test generator functionality allowing
-developers to generate tests using NUnit 2.6.x or NUnit 3.X.
+developers to generate tests using NUnit 2.6.x (not for VS2022) or NUnit 3.X.
 
 Please note that IntelliTest is only available in Visual
 Studio Enterprise edition. Other versions of Visual Studio
@@ -31,4 +31,4 @@ see the [Microsoft documentation](https://learn.microsoft.com/en-us/previous-ver
 
 #### Select NUnit from the Test Framework dropdown
 
-![Selecting NUnit](~/images/right-click-create-tests.png)
+![Selecting NUnit](~/images/right-click-create-tests-select-nunit.png)

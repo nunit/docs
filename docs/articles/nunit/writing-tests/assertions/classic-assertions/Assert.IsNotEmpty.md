@@ -1,20 +1,20 @@
-# Assert.IsNotEmpty
+# ClassicAssert.IsNotEmpty
 
-**Assert.IsNotEmpty** may be used to test either a string or a collection or IEnumerable.
+**ClassicAssert.IsNotEmpty** may be used to test either a string or a collection or IEnumerable.
 When used with a string, it succeeds if the string is not the empty string.
 When used with a collection, it succeeds if the collection is not empty.
 
 ```csharp
-Assert.IsNotEmpty(string aString);
-Assert.IsNotEmpty(string aString, string message, params object[] args);
+ClassicAssert.IsNotEmpty(string aString);
+ClassicAssert.IsNotEmpty(string aString, string message, params object[] args);
 
-Assert.IsNotEmpty(IEnumerable collection);
-Assert.IsNotEmpty(IEnumerable collection, string message,
+ClassicAssert.IsNotEmpty(IEnumerable collection);
+ClassicAssert.IsNotEmpty(IEnumerable collection, string message,
                   params object[] args);
 ```
 
 > [!NOTE]
-> When used with an IEnumerable that is not also an ICollection, **Assert.IsEmpty** attempts to enumerate the contents. It should not be used in cases where this results in an unwanted side effect.
+> When used with an IEnumerable that is not also an ICollection, **ClassicAssert.IsEmpty** attempts to enumerate the contents. It should not be used in cases where this results in an unwanted side effect.
 
 ## See Also
 

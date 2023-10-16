@@ -8,6 +8,7 @@ This table lists all the attributes supported by NUnit.
 |-----------------------------------|-------------|
 | [Apartment Attribute](attributes/apartment.md)           | Indicates that the test should run in a particular apartment. |
 | [Author Attribute](attributes/author.md)              | Provides the name of the test author. |
+| [CancelAfter Attribute](attributes/cancelafter.md)            | Provides a timeout value in milliseconds for test cases. |
 | [Category Attribute](attributes/category.md)            | Specifies one or more categories for the test. |
 | [Combinatorial Attribute](attributes/combinatorial.md)       | Generates test cases for all possible combinations of the values provided. |
 | [Culture Attribute](attributes/culture.md)             | Specifies cultures for which a test or fixture should be run. |

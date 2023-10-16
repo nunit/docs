@@ -1,10 +1,10 @@
-# Assert.IsNaN
+# ClassicAssert.IsNaN
 
-**Assert.IsNaN** tests that the specified double value is NaN.
+**ClassicAssert.IsNaN** tests that the specified double value is NaN.
 
 ```csharp
-Assert.IsNaN(double aDouble);
-Assert.IsNaN(double aDouble, string message, params object[] params);
+ClassicAssert.IsNaN(double aDouble);
+ClassicAssert.IsNaN(double aDouble, string message, params object[] params);
 ```
 
 ## See Also

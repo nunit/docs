@@ -51,6 +51,10 @@ Rules which enforce structural requirements on the test code.
 | [NUnit1026](NUnit1026.md) | The test or setup/teardown method is not public | :white_check_mark: | :exclamation: | :white_check_mark: |
 | [NUnit1027](NUnit1027.md) | The test method has parameters, but no arguments are supplied by attributes | :white_check_mark: | :exclamation: | :x: |
 | [NUnit1028](NUnit1028.md) | The non-test method is public | :white_check_mark: | :information_source: | :white_check_mark: |
+| [NUnit1029](NUnit1029.md) | The number of parameters provided by the TestCaseSource does not match the number of parameters in the Test method | :white_check_mark: | :exclamation: | :x: |
+| [NUnit1030](NUnit1030.md) | The type of parameter provided by the TestCaseSource does not match the type of the parameter in the Test method | :white_check_mark: | :exclamation: | :x: |
+| [NUnit1031](NUnit1031.md) | The individual arguments provided by a ValuesAttribute must match the type of the corresponding parameter of the method | :white_check_mark: | :exclamation: | :x: |
+| [NUnit1032](NUnit1032.md) | An IDisposable field/property should be Disposed in a TearDown method | :white_check_mark: | :exclamation: | :x: |
 
 ## Assertion Rules (NUnit2001 - )
 
@@ -100,3 +104,19 @@ Rules which improve assertions in the test code.
 | [NUnit2040](NUnit2040.md) | Non-reference types for SameAs constraint | :white_check_mark: | :exclamation: | :white_check_mark: |
 | [NUnit2041](NUnit2041.md) | Incompatible types for comparison constraint | :white_check_mark: | :exclamation: | :x: |
 | [NUnit2042](NUnit2042.md) | Comparison constraint on object | :white_check_mark: | :information_source: | :x: |
+| [NUnit2043](NUnit2043.md) | Use ComparisonConstraint for better assertion messages in case of failure | :white_check_mark: | :information_source: | :white_check_mark: |
+| [NUnit2044](NUnit2044.md) | Non-delegate actual parameter | :white_check_mark: | :exclamation: | :white_check_mark: |
+| [NUnit2045](NUnit2045.md) | Use Assert.Multiple | :white_check_mark: | :information_source: | :white_check_mark: |
+| [NUnit2046](NUnit2046.md) | Use CollectionConstraint for better assertion messages in case of failure | :white_check_mark: | :information_source: | :white_check_mark: |
+| [NUnit2047](NUnit2047.md) | Incompatible types for Within constraint | :white_check_mark: | :warning: | :white_check_mark: |
+
+## Suppressor Rules (NUnit3001 - )
+
+Rules which suppress compiler errors based on context. Note that these rules are only available in the .NET Standard 2.0 builds (version 3.0.0 and above) which require Visual Studio 2019.
+
+| Id       | Title       | :mag: | :memo: | :bulb: |
+| :--      | :--         | :--:  | :--:   | :--:   |
+| [NUnit3001](NUnit3001.md) | Expression was checked in an Assert.NotNull, Assert.IsNotNull or Assert.That call | :white_check_mark: | :information_source: | :x: |
+| [NUnit3002](NUnit3002.md) | Field/Property is initialized in SetUp or OneTimeSetUp method | :white_check_mark: | :information_source: | :x: |
+| [NUnit3003](NUnit3003.md) | Class is an NUnit TestFixture and is instantiated using reflection | :white_check_mark: | :information_source: | :x: |
+| [NUnit3004](NUnit3004.md) | Field should be Disposed in TearDown or OneTimeTearDown method | :white_check_mark: | :information_source: | :x: |

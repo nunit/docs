@@ -46,6 +46,7 @@ The following options are available:
 |[IncludeStackTraceForSuites](#includestacktraceforsuites)|bool|Includes stack trace for failures in suites, like exceptions in OneTimeSetup|true|
 |[ExplicitMode](#explicitmode)|enum|Changes handling of explicit tests, options are `Strict` or `Relaxed`|Strict|
 |[SkipExecutionWhenNoTests](#skipexecutionwhennotests)|bool|Skip execution if no tests are found|false|
+|[AllowParallelWithDebugger](#allowparallelwithdebugger)|bool|Allow parallel execution when debugger is attached|false|
 
 ### Visual Studio templates for runsettings
 
@@ -197,7 +198,13 @@ When set to 1 or 2 (2 is default), will send Console standard output to the Visu
 
 Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.
 
-There seems to have been a change in `dotnet test` that causes `ConsoleOut=1` to no longer fully work; `ConsoleOut=2` reintroduces that, and is the new default value.
+The value 1 sends it out as Information, while 2 sends it out as Warning.  
+
+Using `dotnet test` with  `ConsoleOut=1` (Information)  (`dotnet test -- NUnit.ConsoleOut=1`), nothing will appear in the output.  
+
+Setting  `ConsoleOut=2` (Warning) the message will be shown.
+
+Adding the logger `dotnet test -l "console;verbosity=detailed" -- NUnit.Consoleout=1` the message will be shown.
 
 See [Issue 343](https://github.com/nunit/nunit3-vs-adapter/issues/343) for more information and discussion
 
@@ -300,6 +307,12 @@ If set, this setting will skip execution for an assembly if no tests are found d
 
 (From version 4.2.0)
 
+#### AllowParallelWithDebugger
+
+If set, this setting will allow parallel execution of tests even if the debugger is attached.  The default is `false`.
+
+(From version 4.5.0)
+
 ---
 
 ### Some further information on directories (From [comment on issue 575](https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421) by [Charlie](https://github.com/CharliePoole) )
@@ -319,7 +332,7 @@ The BasePath is a .NET thing. It's the base directory where assemblies are searc
 
 NUnit 2.X does not support runsettings.
 
-### Registry Settings
+### Registry Settings for NUnit 2.x
 
 Certain settings in the registry affect how the adapter runs. All these settings are added by using RegEdit under the key **HKCU\Software\nunit.org\VSAdapter**.
 
@@ -333,6 +346,6 @@ By default the NUnit adapter will "Kill" the Visual Studio Test Execution engine
 
 In some cases it can be useful to have the engine running, e.g. during debugging of the adapter itself. You can then set the adapter to follow the VS setting by setting the DWORD value UseVsKeepEngineRunning to 1.
 
-#### Verbosity
+#### Verbosity for NUnit 2.x
 
 Normally the adapter reports exceptions using a short format, consisting of the message only. You can change it to report a verbose format that includes the stack trace, by setting a the DWORD value Verbosity to 1.

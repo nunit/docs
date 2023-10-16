@@ -7,13 +7,14 @@ namespace Snippets.NUnit
     public class Assumptions
     {
         #region TestThatUsesAssume
-        [Test]
-        public void Number_Divided_By_Itself_Is1()
+        [TestCase(5)]
+        [TestCase(0)]
+        [TestCase(-5)]
+        public void Number_Divided_By_Itself_Is1(int numberToCheck)
         {
-            var numberToCheck = 5;
             var divisor = GetMatchingDivisor(numberToCheck);
 
-            Assume.That(divisor, Is.Not.EqualTo(0), () => "divisor must not zero in order for this test to be valid");
+            Assume.That(divisor, Is.Not.EqualTo(0), () => "divisor must not be zero in order for this test to be valid");
 
             var result = numberToCheck / divisor;
             Assert.That(result, Is.EqualTo(1));

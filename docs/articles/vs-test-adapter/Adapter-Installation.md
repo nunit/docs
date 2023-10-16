@@ -51,7 +51,7 @@ You should ensure you also reference `Microsoft.NET.Test.Sdk` as well; it is req
   </ItemGroup>
 ```
 
-Note: *You don't need to add any nunit.console or any other runner package*
+Note: *You don't need to, nor should you, add any nunit.console or any other runner package*
 
 ### Working with the Visual Studio Nuget manager
 

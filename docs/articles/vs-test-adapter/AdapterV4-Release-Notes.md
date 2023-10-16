@@ -1,5 +1,45 @@
 # Adapter V4 Release Notes
 
+## NUnit3 Test Adapter for Visual Studio and Dotnet - Version 4.5.0 - May 30, 2023
+
+This is a version supporting the upcoming NUnit version 4.  It uses a released version of the NUnit.Engine, version 3.15.4.
+
+* [1080](https://github.com/nunit/nunit3-vs-adapter/issues/1080) Allow the adapter to be used with NUnit version 4
+* [1100](https://github.com/nunit/nunit3-vs-adapter/issues/1100) Allow to debug parallel tests
+
+## NUnit3 Test Adapter for Visual Studio - Version 4.4.2 - Mar 1, 2023
+
+This is a hotfix for the 4.4.0 version.  The 4.4.0 included the NUnit.Engine 3.16.3, which uses an external package for loading assemblies.  It turns out the engine fails for certain types of loading, in particular when an assembly is loaded by reflection.
+
+In order to fix this, this version have reverted to a version of the NUnit.Engine based on 3.15.2, which does not have this way of loading assemblies. The included Engine is not available as a separate package, but if you use anything that needs the engine package (like the NUnit.Console), version 3.15.2 should work.
+
+The embedded engine handles the .net 8 the same way as with the 4.4.0 adapter.
+
+The following issues, all related to the same problem, are fixed in this release:
+
+* [1065](https://github.com/nunit/nunit3-vs-adapter/issues/1065) WebHostBuilder.ConfigureServices method not found when using version 4.4.0
+* [1066](https://github.com/nunit/nunit3-vs-adapter/issues/1066) Breaking change for TestAssemblyLoadContext
+* [1069](https://github.com/nunit/nunit3-vs-adapter/issues/1069) Any type loaded from assembly at runtime does not match compile-time type
+* [1070](https://github.com/nunit/nunit3-vs-adapter/issues/1070) NUnit failed to load test assembly after upgrading from 4.3.1 to 4.4.0
+
+Thanks to everyone that reported in, and special thanks to everyone that provided repro solutions for the problem.
+
+## NUnit3 Test Adapter for Visual Studio - Version 4.4.0 - Feb 26, 2023
+
+**:warning: This version has been unlisted on NuGet, please use version 4.4.2 instead.**
+
+The main focus is the support for .Net 8.  This version of the adapter will accept any higher version of the .net, also future higher versions than .net 8.
+
+The following issues are fixed in this release:
+
+* [1049](https://github.com/nunit/nunit3-vs-adapter/issues/1049) .Net Framework tests fails when .Net 8 is present on system
+
+* [1037](https://github.com/nunit/nunit3-vs-adapter/issues/1037) TestContext.Progress shows up as Warning in TFS/Azure Dev Ops. Thanks to [mharwig](https://github.com/mharwig) for the [PR](https://github.com/nunit/nunit3-vs-adapter/pull/1038).
+
+### Beta release
+
+A beta release, Version 4.4.0-beta.1, was released on Feb 23, 2023. There is no changes between this and the previous beta release, except for updates of packages for the test projects.
+
 ## NUnit3 Test Adapter for Visual Studio - Version 4.3.1 - Nov 19, 2022
 
 This is a hotfix release for three major and critical problems:

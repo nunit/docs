@@ -8,7 +8,7 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Structure
-| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/0.6.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs)
+| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs)
 
 ## Description
 
@@ -63,7 +63,7 @@ public static object[] MyTestSource()
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://msdn.microsoft.com/en-us/library/dd264949.aspx).
+Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

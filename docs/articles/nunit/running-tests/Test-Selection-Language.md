@@ -6,13 +6,15 @@ uid: testselectionlanguage
 
 The console command-line allows you to specify a filter, which will select which tests are executed. This is done using the --where option, followed by an expression in NUnit's Test Selection Language (TSL), a simple domain-specific language designed for this purpose.
 
+The --where option can be used with the `dotnet test` as `-- NUnit.Where` (note the space after the --). This will inject this into the runsettings. You can also add the same to a `.runsettings` file, see [Adapter options](https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html) and [this blog post](https://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/).
+
 Some of the characters used in the expression, such as space, | or &, may have a special meaning when entered on the command-line. In such a case, you should place the expression in quotation marks.
 
 ```cmd
+  dotnet test -- NUnit.Where="cat == Urgent or Priority == High"
   nunit3-console mytest.dll --where "cat == Urgent || Priority == High"
-```
 
-Note that TSL is handled by the NUnit engine but requires framework support to actually select the tests. The NUnit 3.0 framework supports it fully. See below for support limitations in NUnit V2 tests.
+```
 
 ## Simple Expressions
 
