@@ -87,7 +87,7 @@
 
 <p>The NUnit Test Engine API is our published API for discovering, exploring and executing tests programmatically. Third-party test runners should use the Engine API as the supported method to execute NUnit tests.</p>
 <h2 id="overview">Overview</h2>
-<p>The static class <a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/TestEngineActivator.cs">TestEngineActivator</a> is used to get an interface to the engine. Its <code>CreateInstance</code> member has two overloads, depending on whether a particular minimum version of the engine is required.</p>
+<p>The static class <a href="https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/TestEngineActivator.cs">TestEngineActivator</a> is used to get an interface to the engine. Its <code>CreateInstance</code> member has two overloads, depending on whether a particular minimum version of the engine is required.</p>
 <pre><code class="lang-csharp">public static ITestEngine CreateInstance(bool unused = false);
 public static ITestEngine CreateInstance(Version minVersion, bool unused = false);
 </code></pre>
@@ -270,32 +270,32 @@ engine.InternalTraceLevel = ...;    // Defaults to off
 <tbody>
 <tr>
 <td>ExtensionService</td>
-<td><a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/IExtensionService.cs">IExtensionService</a></td>
+<td><a href="https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/IExtensionService.cs">IExtensionService</a></td>
 <td>Manages engine extensions</td>
 </tr>
 <tr>
 <td>RecentFilesService</td>
-<td><a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/IRecentFiles.cs">IRecentFiles</a></td>
+<td><a href="https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/IRecentFiles.cs">IRecentFiles</a></td>
 <td>Provides information about recently opened files</td>
 </tr>
 <tr>
 <td>ResultService</td>
-<td><a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/IResultService.cs">IResultService</a></td>
+<td><a href="https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/IResultService.cs">IResultService</a></td>
 <td>Produces test result output in various formats</td>
 </tr>
 <tr>
 <td>SettingsService</td>
-<td><a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/ISettings.cs">ISettings</a></td>
+<td><a href="https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/ISettings.cs">ISettings</a></td>
 <td>Provides access to user settings</td>
 </tr>
 <tr>
 <td>TestFilterService</td>
-<td><a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/ITestFilterService.cs">ITestFilterService</a></td>
+<td><a href="https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/ITestFilterService.cs">ITestFilterService</a></td>
 <td>Creates properly formed test filters for use by runners</td>
 </tr>
 <tr>
 <td>LoggingService</td>
-<td><a href="https://github.com/nunit/nunit-console/blob/master/src/NUnitEngine/nunit.engine.api/ILogging.cs">ILogging</a></td>
+<td><a href="https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/ILogging.cs">ILogging</a></td>
 <td>Provides centralized internal trace logging for both the engine and runners (Not Yet Implemented)</td>
 </tr>
 </tbody>

@@ -115,7 +115,7 @@ A major bugfix is that the console output now is properly appearing.  There are 
 </ul>
 <hr>
 <h2 id="nunit3-test-adapter-for-visual-studio---version-3170-beta2---june-8-2020">NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.2 - June 8, 2020</h2>
-<p>This is the 2nd beta for 3.17, published on <a href="https://nuget.org">Nuget</a>.</p>
+<p>This is the 2nd beta for 3.17, published on <a href="https://www.nuget.org/">Nuget</a>.</p>
 <h3 id="features-and-enhancements-1">Features and Enhancements</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/758">758</a> Feature Request: Adapter to support NonTestAssemblyAttribute</li>
@@ -134,7 +134,7 @@ A major bugfix is that the console output now is properly appearing.  There are 
 </ul>
 <hr>
 <h2 id="nunit3-test-adapter-for-visual-studio---version-3170-beta1---april-19-2020">NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.1 - April 19, 2020</h2>
-<p>This is the first beta release published on <a href="https://nuget.org">Nuget</a>.</p>
+<p>This is the first beta release published on <a href="https://www.nuget.org/">Nuget</a>.</p>
 <p>It contains new features and some bugfixes.</p>
 <h3 id="features-and-enhancements-2">Features and Enhancements</h3>
 <ul>
@@ -245,7 +245,7 @@ and
 <h2 id="nunit3-test-adapter-for-visual-studio---version-313---february-20-2019">NUnit3 Test Adapter for Visual Studio - Version 3.13 - February 20, 2019</h2>
 <p>This release focuses on producing NUnit test result XML which can be useful when you need reports using tools that support the NUnit format.  This can be enabled using <a class="xref" href="Tips-And-Tricks.html#testoutputxml">a new setting</a> in the <a href="https://marketplace.visualstudio.com/items?itemName=OsirisTerje.Runsettings-19151">runsettings file</a>.</p>
 <p>The VSIX is also made compatible with the upcoming VS 2019. Please note support for the VSIX is being deprecated in Visual Studio, and we strongly recommend you to change your test projects to use the <a href="https://www.nuget.org/packages/NUnit3TestAdapter/">NuGet adapter version</a>.</p>
-<p>The <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs">NUnit internal properties</a> have been &quot;over-populating&quot; in the Test Explorer.  These are now filtered out, although you may still see these when you have <a href="https://docs.microsoft.com/en-us/visualstudio/test/test-explorer-faq?view=vs-2017">Source Based Discovery (SBD)</a> turned on (which is the default in VS).  Once you have run, they will be gone. We expect this part of the issue (SBD) to be fixed in VS.</p>
+<p>The <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs">NUnit internal properties</a> have been &quot;over-populating&quot; in the Test Explorer.  These are now filtered out, although you may still see these when you have <a href="https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2017/test/test-explorer-faq?view=vs-2017">Source Based Discovery (SBD)</a> turned on (which is the default in VS).  Once you have run, they will be gone. We expect this part of the issue (SBD) to be fixed in VS.</p>
 <p>If you still want to see the properties, you can enable that again setting a runsettings property <code>ShowInternalProperties</code> to true.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
@@ -295,7 +295,7 @@ and
 <h2 id="nunit3-test-adapter-for-visual-studio---version-311---october-28-2018">NUnit3 Test Adapter for Visual Studio - Version 3.11 - October 28, 2018</h2>
 <h3 id="features">Features</h3>
 <ul>
-<li><p><a href="https://github.com/nunit/nunit3-vs-adapter/pull/500">PR 500</a> NUnit3VsAdapter to support managed sources only based on <a href="https://github.com/Microsoft/vstest-docs/blob/master/RFCs/0020-Improving-Logic-To-Pass-Sources-To-Adapters.md">RFC</a>  (Thanks to <a href="https://github.com/mayankbansal018">mayankbansal018</a> for this PR)</p>
+<li><p><a href="https://github.com/nunit/nunit3-vs-adapter/pull/500">PR 500</a> NUnit3VsAdapter to support managed sources only based on <a href="https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0020-Improving-Logic-To-Pass-Sources-To-Adapters.md">RFC</a>  (Thanks to <a href="https://github.com/mayankbansal018">mayankbansal018</a> for this PR)</p>
 </li>
 <li><p><a href="https://github.com/nunit/nunit3-vs-adapter/issues/543">543</a> Adapter should pass <code>Error</code> and <code>Progress</code> messages to vstest engine as well as stdOut messages (Thanks to <a href="https://github.com/NikolayPianikov">NikolayPianikov</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/544">PR 544</a>). Also fixes this <a href="https://youtrack.jetbrains.com/issue/TW-55900">TeamCity issue</a></p>
 </li>
@@ -371,10 +371,10 @@ Exception thrown while loading tests if In-Proc VSTest DataCollector is used (Th
 <h2 id="nunit3-test-adapter-for-visual-studio---version-38---july-19-2017">NUnit3 Test Adapter for Visual Studio - Version 3.8 - July 19, 2017</h2>
 <h3 id="features-3">Features</h3>
 <ul>
-<li>The adapter now support running .net core projects. See <a href="https://www.alteridem.net/2017/05/04/test-net-core-nunit-vs2017/">this post</a> for details.  Note: Only supported by the nuget adapter, not the vsix.</li>
+<li>The adapter now support running .net core projects. See <a href="https://alteridem.net/2017/05/04/test-net-core-nunit-vs2017/">this post</a> for details.  Note: Only supported by the nuget adapter, not the vsix.</li>
 <li>The adapter now uses version 3.7 of the engine to run tests (<a href="https://github.com/nunit/nunit3-vs-adapter/issues/360">360</a>)</li>
 <li>Attachments can be added to tests (<a href="https://github.com/nunit/nunit3-vs-adapter/issues/358">358</a>)</li>
-<li>Prepared for new  upcoming Test Explorer functionality, as documented in this <a href="https://github.com/Microsoft/vstest-docs/blob/master/RFCs/0010-Source-Information-For-Discovered-Tests.md">RFC</a>  (<a href="https://github.com/nunit/nunit3-vs-adapter/issues/351">351</a>)</li>
+<li>Prepared for new  upcoming Test Explorer functionality, as documented in this <a href="https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0010-Source-Information-For-Discovered-Tests.md">RFC</a>  (<a href="https://github.com/nunit/nunit3-vs-adapter/issues/351">351</a>)</li>
 </ul>
 <h3 id="resolved-issues-10">Resolved Issues</h3>
 <ul>
