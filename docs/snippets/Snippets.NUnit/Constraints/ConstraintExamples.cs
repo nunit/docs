@@ -60,6 +60,9 @@ namespace Snippets.NUnit.Attributes
         public void AnyOfCanUseCustomComparisons()
         {
             var testValue = "NUnit";
+
+            // NOTE: Here we cast our comparison to IComparer, because StringComparer implements
+            // multiple interfaces that NUnit custom comparisons supports.
             Assert.That(testValue, Is.AnyOf("hello", "world", "nunit").Using((IComparer)StringComparer.InvariantCultureIgnoreCase));
         }
         #endregion
