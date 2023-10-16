@@ -47,7 +47,7 @@ public class TestFixtureAttributeExamples
             if (eqArguments.Length > 2)
                 _neq = eqArguments[2].ToString();
             else 
-                _new = null;
+                _neq = null;
         }
         
         [Test]
