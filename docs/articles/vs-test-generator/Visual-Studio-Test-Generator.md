@@ -17,13 +17,13 @@ only have the `Create Unit Tests` menu option.
 
 You can download this extension in Visual Studio using **Tools | Extensions and Updates...**
 and searching for **Test Generator NUnit Extension**. You can also download from the
-[Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/bd30bf3f-4183-4b00-a245-1875316b8cd3) for VS 2015 and [here for VS 2017](https://marketplace.visualstudio.com/items?itemName=NUnitDevelopers.TestGeneratorNUnitextension-18371),
+[Visual Studio Gallery](https://marketplace.visualstudio.com/items?itemName=NUnitDevelopers.TestGeneratorNUnitextension) for VS 2015 and [here for VS 2017](https://marketplace.visualstudio.com/items?itemName=NUnitDevelopers.TestGeneratorNUnitextension-18371),
 or from the [GitHub Releases Page](https://github.com/nunit/nunit-vs-testgenerator/releases).
 
 ### How to Use
 
 For more information on using IntelliTest and this extension, please
-see the [Microsoft documentation](https://msdn.microsoft.com/en-us/library/dn823749.aspx).
+see the [Microsoft documentation](https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/test/generate-unit-tests-for-your-code-with-intellitest?view=vs-2015&redirectedfrom=MSDN).
 
 #### Right-Click to Create Tests
 

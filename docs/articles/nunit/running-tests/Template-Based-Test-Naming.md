@@ -24,7 +24,7 @@ However, if you're out on your own, the naming *can* be overridden by the user i
 
 * `{a}` The full argument representation, enclosed in parentheses and separated by commas. Each argument is represented by the standard NUnit format for certain types, otherwise by the result of ToString().
 
-* `{p}` Same as `{a}` but with a parameter name before each argument in the same style as the [*named arguments* C# language feature](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#named-arguments).
+* `{p}` Same as `{a}` but with a parameter name before each argument in the same style as the [*named arguments* C# language feature](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#named-arguments).
 
 * `{0}`, `{1}`...`{9}`. An individual argument. This form is only useful when setting the name of an individual test case. If used in the default format string, any arguments not used will be ignored.
 

@@ -14,7 +14,7 @@ The actual engine itself is contained within the `nunit.engine` assembly, and it
 
 ## Packages
 
-The NUnit Engine can be found in the [NUnit.Engine NuGet Package](https://www.nuget.org/packages/NUnit.Engine/). It is also included within the .zip file found in [nunit-console repository](https://github.com/nunit/nunit-console/releases]) releases.
+The NUnit Engine can be found in the [NUnit.Engine NuGet Package](https://www.nuget.org/packages/NUnit.Engine/). It is also included within the .zip file found in [nunit-console repository](https://github.com/nunit/nunit-console/releases) releases.
 
 ## Using the API
 

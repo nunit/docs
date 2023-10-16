@@ -37,7 +37,7 @@ See [here for all details](/articles/vs-test-adapter/Tips-And-Tricks.html) on th
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.2 - June 8, 2020
 
-This is the 2nd beta for 3.17, published on [Nuget](https://nuget.org).
+This is the 2nd beta for 3.17, published on [Nuget](https://www.nuget.org/).
 
 ### Features and Enhancements
 
@@ -59,7 +59,7 @@ This is the 2nd beta for 3.17, published on [Nuget](https://nuget.org).
 
 ## NUnit3 Test Adapter for Visual Studio - Version 3.17.0-beta.1 - April 19, 2020
 
-This is the first beta release published on [Nuget](https://nuget.org).
+This is the first beta release published on [Nuget](https://www.nuget.org/).
 
 It contains new features and some bugfixes.
 
@@ -188,7 +188,7 @@ This release focuses on producing NUnit test result XML which can be useful when
 
 The VSIX is also made compatible with the upcoming VS 2019. Please note support for the VSIX is being deprecated in Visual Studio, and we strongly recommend you to change your test projects to use the [NuGet adapter version](https://www.nuget.org/packages/NUnit3TestAdapter/).
 
-The [NUnit internal properties](https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs) have been "over-populating" in the Test Explorer.  These are now filtered out, although you may still see these when you have [Source Based Discovery (SBD)](https://docs.microsoft.com/en-us/visualstudio/test/test-explorer-faq?view=vs-2017) turned on (which is the default in VS).  Once you have run, they will be gone. We expect this part of the issue (SBD) to be fixed in VS.
+The [NUnit internal properties](https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs) have been "over-populating" in the Test Explorer.  These are now filtered out, although you may still see these when you have [Source Based Discovery (SBD)](https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2017/test/test-explorer-faq?view=vs-2017) turned on (which is the default in VS).  Once you have run, they will be gone. We expect this part of the issue (SBD) to be fixed in VS.
 
 If you still want to see the properties, you can enable that again setting a runsettings property `ShowInternalProperties` to true.
 
@@ -252,7 +252,7 @@ This is a hotfix release to fix the duplicated traits issue.
 
 ### Features
 
-* [PR 500](https://github.com/nunit/nunit3-vs-adapter/pull/500) NUnit3VsAdapter to support managed sources only based on [RFC](https://github.com/Microsoft/vstest-docs/blob/master/RFCs/0020-Improving-Logic-To-Pass-Sources-To-Adapters.md)  (Thanks to [mayankbansal018](https://github.com/mayankbansal018) for this PR)
+* [PR 500](https://github.com/nunit/nunit3-vs-adapter/pull/500) NUnit3VsAdapter to support managed sources only based on [RFC](https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0020-Improving-Logic-To-Pass-Sources-To-Adapters.md)  (Thanks to [mayankbansal018](https://github.com/mayankbansal018) for this PR)
 
 * [543](https://github.com/nunit/nunit3-vs-adapter/issues/543) Adapter should pass `Error` and `Progress` messages to vstest engine as well as stdOut messages (Thanks to [NikolayPianikov](https://github.com/NikolayPianikov) for [PR 544](https://github.com/nunit/nunit3-vs-adapter/pull/544)). Also fixes this [TeamCity issue](https://youtrack.jetbrains.com/issue/TW-55900)  
 
@@ -338,10 +338,10 @@ This version supports Visual Studio from version 2012, Update 1 and upwards, and
 
 ### Features
 
-* The adapter now support running .net core projects. See [this post](https://www.alteridem.net/2017/05/04/test-net-core-nunit-vs2017/) for details.  Note: Only supported by the nuget adapter, not the vsix.
+* The adapter now support running .net core projects. See [this post](https://alteridem.net/2017/05/04/test-net-core-nunit-vs2017/) for details.  Note: Only supported by the nuget adapter, not the vsix.
 * The adapter now uses version 3.7 of the engine to run tests ([360](https://github.com/nunit/nunit3-vs-adapter/issues/360))
 * Attachments can be added to tests ([358](https://github.com/nunit/nunit3-vs-adapter/issues/358))
-* Prepared for new  upcoming Test Explorer functionality, as documented in this [RFC](https://github.com/Microsoft/vstest-docs/blob/master/RFCs/0010-Source-Information-For-Discovered-Tests.md)  ([351](https://github.com/nunit/nunit3-vs-adapter/issues/351))
+* Prepared for new  upcoming Test Explorer functionality, as documented in this [RFC](https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0010-Source-Information-For-Discovered-Tests.md)  ([351](https://github.com/nunit/nunit3-vs-adapter/issues/351))
 
 ### Resolved Issues
 

@@ -14,4 +14,4 @@ In this documentation, we refer to three different types of Framework extension:
 
 ### On Custom constraints
 
-[How to extend the NUnit constraints](http://hermit.no/how-to-extend-the-nunit-constraints/)
+[How to extend the NUnit constraints](https://hermit.no/how-to-extend-the-nunit-constraints/)

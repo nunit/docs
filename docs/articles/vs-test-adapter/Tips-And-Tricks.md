@@ -154,7 +154,7 @@ If you just need to add this, you can add a runsettings file (any filename, exte
 
 #### ShowInternalProperties
 
-The [NUnit internal properties](https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs) have been "over-populating" in the Test Explorer.  These are default filtered out, although you may still see these when you have [Source Based Discovery (SBD)](https://docs.microsoft.com/en-us/visualstudio/test/test-explorer-faq?view=vs-2017) turned on (which is the default in VS).  Once you have run test execution, they will be gone. We expect this part of the issue (SBD) to be fixed in VS.  If you still want to see them, set this property to true.
+The [NUnit internal properties](https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs) have been "over-populating" in the Test Explorer.  These are default filtered out, although you may still see these when you have [Source Based Discovery (SBD)](https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2017/test/test-explorer-faq?view=vs-2017) turned on (which is the default in VS).  Once you have run test execution, they will be gone. We expect this part of the issue (SBD) to be fixed in VS.  If you still want to see them, set this property to true.
 
 #### Where
 
