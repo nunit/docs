@@ -46,6 +46,22 @@ namespace Snippets.NUnit.Attributes
             Assert.That(testValue, Is.GreaterThan(2.0).And.LessThan(3.0));
         }
         #endregion
+        #region AnyOfExample
+        [Test]
+        public void AnyOfCanDetectIfAnItemMatchesAnArrayOfParams()
+        {
+            var testValue = 42;
+            Assert.That(testValue, Is.AnyOf(0, -1, 42, 100));
+        }
+        #endregion
+        #region AnyOfWithCustomComparison
+        [Test]
+        public void AnyOfCanUseCustomComparisons()
+        {
+            var testValue = "NUnit";
+            Assert.That(testValue, Is.AnyOf("hello", "world", "nunit").Using(StringComparer.InvariantCultureIgnoreCase));
+        }
+        #endregion
     }
 
 }
