@@ -15,8 +15,8 @@ This page lists all the constraints available in NUnit.
 
 | Constraint Name                       | Quick Example |
 | ------------------------------------- | ------------- |
-| [AllItemsConstraint](AllItemsConstraint.md)               | `myEnumerable.Has.All.GreaterThan(32)`<br/>`myEnumerable.Is.All.InstanceOf<string>()` |
-| [AndConstraint](AndConstraint.md)                    | |
+| [AllItemsConstraint](AllItemsConstraint.md)               | `Assert.That(myEnumerable, Has.All.GreaterThan(32))`<br/>`Assert.That(myEnumerable, Is.All.InstanceOf<string>()` |
+| [AndConstraint](AndConstraint.md)                    | `Assert.That(2.3, Is.GreaterThan(2.0).And.LessThan(3.0))` |
 | [AssignableFromConstraint](AssignableFromConstraint.md)         | |
 | [AssignableToConstraint](AssignableToConstraint.md)           | |
 | [AttributeConstraint](AttributeConstraint.md)              | |
