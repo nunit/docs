@@ -4,6 +4,8 @@ uid: constraints
 
 # Constraints
 
+<!-- markdownlint-disable MD033 -->
+
 This page lists all the constraints available in NUnit.
 
 * [Alphabetical List of Constraints](#alphabetical-list-of-constraints)
@@ -13,7 +15,7 @@ This page lists all the constraints available in NUnit.
 
 | Constraint Name                       | Quick Example |
 | ------------------------------------- | ------------- |
-| [AllItemsConstraint](AllItemsConstraint.md)               | |
+| [AllItemsConstraint](AllItemsConstraint.md)               | `myEnumerable.Has.All.GreaterThan(32)`<br/>`myEnumerable.Is.All.InstanceOf<string>()` |
 | [AndConstraint](AndConstraint.md)                    | |
 | [AssignableFromConstraint](AssignableFromConstraint.md)         | |
 | [AssignableToConstraint](AssignableToConstraint.md)           | |
