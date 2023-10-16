@@ -1,3 +1,4 @@
+using System.Collections;
 using NUnit.Framework;
 
 namespace Snippets.NUnit.Attributes
@@ -59,7 +60,7 @@ namespace Snippets.NUnit.Attributes
         public void AnyOfCanUseCustomComparisons()
         {
             var testValue = "NUnit";
-            Assert.That(testValue, Is.AnyOf("hello", "world", "nunit").Using(StringComparer.InvariantCultureIgnoreCase));
+            Assert.That(testValue, Is.AnyOf("hello", "world", "nunit").Using((IComparer)StringComparer.InvariantCultureIgnoreCase));
         }
         #endregion
     }
