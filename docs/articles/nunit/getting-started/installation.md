@@ -20,12 +20,12 @@ This will add a new project to your solution, containing a single test class and
 Ensure you have the [C# Dev Kit](https://code.visualstudio.com/docs/csharp/get-started) installed. Then `Shift+CTRL+P`, type `New` and select `New Project`. Select `NUnit 3 Test Project` and follow the prompts.
 The results will be exactly the same as if you had used Visual Studio.
 
-Rider has built-in support for NUnit, and is using the same template, so you'll achieve the same result.
-
 ## I'm using Rider as my development tool
 
 This is the same procedure as for Visual Studio: `Add New Project`, select the `NUnit Test Project` template, and follow the prompts.
 The results will be exactly the same as if you had used Visual Studio.
+
+Rider has built-in support for NUnit, and is using the same template, so you'll achieve the same result.
 
 ## I prefer to do this using the command line or any of the built-in terminals
 
