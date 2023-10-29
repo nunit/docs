@@ -80,7 +80,7 @@ Total number of issues fixed in this release is : 105
 * [3274](https://github.com/nunit/nunit/issues/3274) Overriden tests are not discovered in NUnit 3.12.0. Fixed by team [PR 4490](https://github.com/nunit/nunit/pull/4490)
 * [3215](https://github.com/nunit/nunit/issues/3215) Better error message for generic test where type parameter cannot be determined. Thanks to [Ove Bastiansen](https://github.com/ovebastiansen) for [PR 4382](https://github.com/nunit/nunit/pull/4382)
 * [2870](https://github.com/nunit/nunit/issues/2870) CollectionTally (EquivalentTo) should throw for non-transitive comparisons. Thanks to [Russell Smith](https://github.com/mr-russ) for [PR 4312](https://github.com/nunit/nunit/pull/4312)
-* [2841](https://github.com/nunit/nunit/issues/2841) DelayedConstraint calls delegate twice. 
+* [2841](https://github.com/nunit/nunit/issues/2841) DelayedConstraint calls delegate twice. Fixed by team [PR 4488](https://github.com/nunit/nunit/pull/4488)
 * [2436](https://github.com/nunit/nunit/issues/2436) Properties on System.Type cannot be used with either property constraint. Fixed by team [PR 4259](https://github.com/nunit/nunit/pull/4259)
 * [1428](https://github.com/nunit/nunit/issues/1428) NUnitLite package always installs both Program.cs and Program.vb. Fixed by team [PR 3952](https://github.com/nunit/nunit/pull/3952)
 
@@ -126,7 +126,7 @@ Total number of issues fixed in this release is : 105
 
 ### Others
 
-* [4504](https://github.com/nunit/nunit/issues/4504) Remove appveyor build. 
+* [4504](https://github.com/nunit/nunit/issues/4504) Remove appveyor build. Fixed by team [PR 4509](https://github.com/nunit/nunit/pull/4509)
 * [4112](https://github.com/nunit/nunit/issues/4112) Update documentation to clarify passing parameters to test cases. Thanks to [Aaron Franke](https://github.com/aaronfranke) for [PR 4114](https://github.com/nunit/nunit/pull/4114)
 * [3989](https://github.com/nunit/nunit/issues/3989) Revisit build documentation relating to IDEs. Fixed by team [PR 4050](https://github.com/nunit/nunit/pull/4050)
 * [3869](https://github.com/nunit/nunit/issues/3869) Copyright notices for third-party code. Thanks to [Lennart Brggemann](https://github.com/lennartb-) for [PR 4444](https://github.com/nunit/nunit/pull/4444)
