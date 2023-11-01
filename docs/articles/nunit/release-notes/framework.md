@@ -16,7 +16,7 @@ See the [planning notes](../Towards-NUnit4.md) for more information about the ch
 
 (The list below is work in progress, and includes issues that is fixed in the upcoming next release, beta.2 or final)
 
-Total number of issues fixed in this release is : 105
+There are 106 issues fixed in this release.
 
 ### Enhancements
 
@@ -48,6 +48,7 @@ Total number of issues fixed in this release is : 105
 
 ### Bug fixes
 
+* [4532](https://github.com/nunit/nunit/issues/4532) Assert.That no longer allows 'null' message. Fixed by team [PR 4533](https://github.com/nunit/nunit/pull/4533)
 * [4529](https://github.com/nunit/nunit/issues/4529) Forwardport: Missing stack trace when exception occurs during OneTimeSetUp #2466. Fixed by team [PR 4469](https://github.com/nunit/nunit/pull/4469)
 * [4528](https://github.com/nunit/nunit/issues/4528) Forwardport: Is.SupersetOf and Is.SubsetOf no longer work with IImmmutableDictionary&lt;TKey,TValue&gt; in NUnit 3.13.3 #4095. Fixed by team [PR 4098](https://github.com/nunit/nunit/pull/4098)
 * [4522](https://github.com/nunit/nunit/issues/4522) Missing stack trace when exception occurs during OneTimeSetUp #2466. Fixed by team [PR 4469](https://github.com/nunit/nunit/pull/4469)
@@ -139,6 +140,7 @@ Total number of issues fixed in this release is : 105
 
 * [4416](https://github.com/nunit/nunit/issues/4416) Move classic asserts into its own project . Fixed by team [PR 4417](https://github.com/nunit/nunit/pull/4417)
 * [4415](https://github.com/nunit/nunit/issues/4415) Remove use of params for messages. Fixed by team [PR 4419](https://github.com/nunit/nunit/pull/4419)
+
 
 ## NUnit 3.14.0 - TBA
 
