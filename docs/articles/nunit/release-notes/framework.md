@@ -141,7 +141,6 @@ There are 106 issues fixed in this release.
 * [4416](https://github.com/nunit/nunit/issues/4416) Move classic asserts into its own project . Fixed by team [PR 4417](https://github.com/nunit/nunit/pull/4417)
 * [4415](https://github.com/nunit/nunit/issues/4415) Remove use of params for messages. Fixed by team [PR 4419](https://github.com/nunit/nunit/pull/4419)
 
-
 ## NUnit 3.14.0 - TBA
 
 Total number of issues fixed in this release is : 16
