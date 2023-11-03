@@ -16,11 +16,11 @@ See the [planning notes](../Towards-NUnit4.md) for more information about the ch
 
 (The list below is work in progress, and includes issues that is fixed in the upcoming next release, beta.2 or final)
 
-There are 108 issues fixed in this release.  
-
-**Credits** 
+### Credits
 
 All issues marked "Fixed by team" has been done by [the guys in the frameworkteam](https://docs.nunit.org/articles/developer-info/The-Teams.html#current-team-memberships-listed-in-a-kind-of-chronological-order).  Issues marked "Thanks to" has been done by external contributors. We appreciate all the work all these people have been doing!
+
+There are 108 issues fixed in this release.
 
 ### Enhancements
 
