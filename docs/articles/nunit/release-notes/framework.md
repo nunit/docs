@@ -16,12 +16,17 @@ See the [planning notes](../Towards-NUnit4.md) for more information about the ch
 
 (The list below is work in progress, and includes issues that is fixed in the upcoming next release, beta.2 or final)
 
-There are 106 issues fixed in this release.
+There are 108 issues fixed in this release.  
+
+**Credits** 
+
+All issues marked "Fixed by team" has been done by [the guys in the frameworkteam](https://docs.nunit.org/articles/developer-info/The-Teams.html#current-team-memberships-listed-in-a-kind-of-chronological-order).  Issues marked "Thanks to" has been done by external contributors. We appreciate all the work all these people have been doing!
 
 ### Enhancements
 
 * [4521](https://github.com/nunit/nunit/issues/4521) Proposal: Async test case sources . Fixed by team [PR 4389](https://github.com/nunit/nunit/pull/4389)
 * [4489](https://github.com/nunit/nunit/issues/4489) Use buffer pooling when calculating partition filters. Fixed by team [PR 4500](https://github.com/nunit/nunit/pull/4500)
+* [4476](https://github.com/nunit/nunit/issues/4476) Add support to `StreamsComparer` for non-seekable streams. Thanks to [Michael Render](https://github.com/RenderMichael) for [PR 4483](https://github.com/nunit/nunit/pull/4483)
 * [4433](https://github.com/nunit/nunit/issues/4433) Add string syntax attributes (.NET 7+). Thanks to [Michael Render](https://github.com/RenderMichael) for [PR 4425](https://github.com/nunit/nunit/pull/4425)
 * [4431](https://github.com/nunit/nunit/issues/4431) Improving error message handling and performing assert consolidation. Fixed by team [PR 4430](https://github.com/nunit/nunit/pull/4430)
 * [4421](https://github.com/nunit/nunit/issues/4421) Add support for native .NET-6.0 target . Fixed by team [PR 4431](https://github.com/nunit/nunit/pull/4431)
