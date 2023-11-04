@@ -7,7 +7,7 @@ uid: breakingchanges
 ## NUnit 4.0
 
 * The [Classic Asserts](../writing-tests/assertions/assertion-models/classic.md) have been moved to a separate library and their namespace and their class name were renamed to: `NUnit.Framework.Legacy.ClassicAssert`.
-* The standalone assert classes have also been moved to the `Legacy` subnamespace. These classes are:
+* The standalone assert classes have also been moved to the `NUnit.Framework.Legacy` namespace. These classes are:
   * [CollectionAssert](../writing-tests/assertions/classic-assertions/Collection-Assert.md)
   * [StringAssert](../writing-tests/assertions/classic-assertions/String-Assert.md)
   * [DirectoryAssert](../writing-tests/assertions/classic-assertions/Directory-Assert.md)

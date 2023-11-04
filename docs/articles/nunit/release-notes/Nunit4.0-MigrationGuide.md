@@ -4,7 +4,7 @@ uid: nunit40migrationguide
 
 # NUnit 4.0 Migration Guide
 
-NUnit 4.0 has a few [breaking changes](../release-notes/breaking-changes.md#NUnit-40)
+NUnit 4.0 has a few [breaking changes](../release-notes/breaking-changes.md#nunit-40)
 making it neither binary nor source code compatible with NUnit 3.14.0
 
 * Change to [Classic Asserts](../writing-tests/assertions/assertion-models/classic.md)
@@ -99,10 +99,12 @@ depending on what version of `nunit` you are compiling with.
 
 If you _only_ use classic asserts, you can get away with a couple of global substitutes:
 
-1. Convert `using NUnit.Framework;` into _both_ `using NUnit.Framework;using NUnit.Framework.Legacy;`<br>
-Depending on your editor you can automatically insert a newline between the two `using` statements.
-1. Convert `Assert` into `ClassicAssert`.<br>
-This global substitute will also convert those asserts that have not changed.
+1. Convert `using NUnit.Framework;` into _both_ `using NUnit.Framework;using NUnit.Framework.Legacy;`
+
+   Depending on your editor you can automatically insert a newline between the two `using` statements.
+1. Convert `Assert` into `ClassicAssert`.
+
+   This global substitute will also convert those asserts that have not changed.
 You can narrow the scope of this substitute to do only the asserts that need converting, but there are quite a lot.
 
    1. Convert `Assert.AreEqual` into `ClassicAssert.AreEqual`.
@@ -136,7 +138,7 @@ Note that this doesn't mean you have to target .NET 6.0. This also works if targ
 ## Assert.That with _format_ specification and `params` overload conversion
 
 These overloads were removed to allow for better messages in case of failure.
-See [Towards-NUnit4.md](../Towards-NUnit4.md#Improved-Assert-Result-Messages)
+See [Towards-NUnit4.md](../Towards-NUnit4.md#improved-assert-result-messages)
 
 NUnit4 has been optimized such that these formattable strings only get formatted in case the test is failing.
 
