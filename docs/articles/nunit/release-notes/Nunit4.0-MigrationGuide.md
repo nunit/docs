@@ -160,7 +160,7 @@ To make this transition easy, the Nunit.Analyzer has been updated with a new rul
 
 ## Using NUnit Extension libraries
 
-If your code doesn't call `nunit` asserts directly but uses a local `NUnitExtension` library or a 3rd party one like [Shoudly](https://github.com/shouldly/shouldly) then that dependency needs to be upgraded _before_ you can upgrade your own code.
+If your code doesn't call `nunit` asserts directly but uses a local `NUnitExtension` library or a 3rd party one then that dependency needs to be upgraded _before_ you can upgrade your own code.
 
 If the library is not NUnit 4.0 compliant, you will get error messages like:
 
