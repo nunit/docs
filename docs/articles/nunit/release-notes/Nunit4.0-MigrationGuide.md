@@ -92,8 +92,8 @@ They could be added, but we don't expect these to be used too much.
 
 ### Convert Classic Assert into NUnit4 equivalent
 
-If you want to keep the Classic Asserts and not convert them to the constraint model,
-but do want to use the new NUnit4 naming you need to update the code manually.
+If you want to keep the Classic Asserts and not convert them to the constraint model --
+but do want to use the new NUnit4 naming -- you'll need to update the code manually.
 
 The NUnit.Analyzer can't help here as the code either doesn't compile before the change or after,
 depending on what version of `nunit` you are compiling with.
