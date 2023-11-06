@@ -88,7 +88,7 @@ Assert.That(actualText, Does.StartWith("42"), $"Expected '{actualText}' to start
 ```
 
 There are no code fixers for `FileAssert` and `DirectoryAssert`.
-They could be added, but we don't expect these to be used to much.
+They could be added, but we don't expect these to be used too much.
 
 ### Convert Classic Assert into NUnit4 equivalent
 
