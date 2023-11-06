@@ -80,7 +80,7 @@ string actualText = actual.ToString();
 StringAssert.StartsWith("42", actualText, "Expected '{0}' to start with '42'", actualText);
 ```
 
-Will get converted into:
+Will be converted into:
 
 ```csharp
 string actualText = actual.ToString();
