@@ -85,6 +85,21 @@
             <article class="content wrap" id="_content" data-uid="breakingchanges">
 <h1 id="breaking-changes">Breaking Changes</h1>
 
+<h2 id="nunit-40">NUnit 4.0</h2>
+<ul>
+<li>The <a href="../writing-tests/assertions/assertion-models/classic.html">Classic Asserts</a> have been moved to a separate library
+and their namespace and their class name were renamed to: <code>NUnit.Framework.Legacy.ClassicAssert</code>.</li>
+<li>The standalone assert classes have also been moved to the <code>NUnit.Framework.Legacy</code> namespace. These classes are:
+<ul>
+<li><a href="../writing-tests/assertions/classic-assertions/Collection-Assert.html">CollectionAssert</a></li>
+<li><a href="../writing-tests/assertions/classic-assertions/String-Assert.html">StringAssert</a></li>
+<li><a href="../writing-tests/assertions/classic-assertions/Directory-Assert.html">DirectoryAssert</a></li>
+<li><a href="../writing-tests/assertions/classic-assertions/File-Assert.html">FileAssert</a></li>
+</ul>
+</li>
+<li>Assert.That overloads with <em>format</em> specification and <code>params</code> have been removed in favor of an overload using
+<code>FormattableString</code>.</li>
+</ul>
 <h2 id="nunit-310">NUnit 3.10</h2>
 <ul>
 <li><code>NUnit.Framework.Constraints.NUnitEqualityComparer.Default</code> was deprecated in favor of <code>new NUnitEqualityComparer()</code>.</li>
