@@ -377,7 +377,10 @@ If set, this setting will allow parallel execution of tests even if the debugger
 
 ---
 
-### Some further information on directories (From [comment on issue 575](https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421) by [Charlie](https://github.com/CharliePoole) )
+### Some further information on directories
+
+(From [comment on issue 575](https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421) by
+[Charlie](https://github.com/CharliePoole) )
 
 NUnit also supports TestContext.TestDirectory, which is the directory where the current test assembly is located. Note
 that if you have several test assemblies in different directories, the value will be different when each one of them
