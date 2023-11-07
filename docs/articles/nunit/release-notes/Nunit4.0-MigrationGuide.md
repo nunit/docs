@@ -67,7 +67,7 @@ public class Tests
 
 The analyzer code fix supports _Batch Fixing_:
 
-![NUnit.Analyzer Classic Assert CodeFix](~/images/NUnit.Analyzer-ClassicAssert-CodeFix.png)
+![NUnit.Analyzer Classic Assert CodeFix](../../../images/NUnit.Analyzer-ClassicAssert-CodeFix.png)
 
 This allows changing all corresponding `Assert` usages for a document, project or a complete solution.
 
@@ -121,7 +121,7 @@ You can narrow the scope of this substitute to do only the asserts that need con
 
    Or if you use Visual Studio, it will raise an [IDE0002](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0002) with a code fix that can convert all of those that are not considered _classic_ back to assert in one swoop:
 
-   ![ClassicAssert to Assert](~/images/IDE0002-ClassicAssert-into-Assert.png)
+   ![ClassicAssert to Assert](../../../images/IDE0002-ClassicAssert-into-Assert.png)
 
 ### Use `global using` aliases
 
@@ -157,7 +157,7 @@ Assert.That(actual, Is.EqualTo(42), $"Expected {actual} to be 42");
 
 To make this transition easier, the Nunit.Analyzer has been updated with a new rule and corresponding code-fix:
 
-![Replace Format Specification with Formattable String](~/images/NUnit.Analyzer-ReplaceFormatSpecification.png)
+![Replace Format Specification with Formattable String](../../../images/NUnit.Analyzer-ReplaceFormatSpecification.png)
 
 ## Using NUnit Extension libraries
 
