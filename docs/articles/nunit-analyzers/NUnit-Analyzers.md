@@ -112,7 +112,8 @@ Rules which improve assertions in the test code.
 
 ## Suppressor Rules (NUnit3001 - )
 
-Rules which suppress compiler errors based on context. Note that these rules are only available in the .NET Standard 2.0 builds (version 3.0.0 and above) which require Visual Studio 2019.
+Rules which suppress compiler errors based on context. Note that these rules are only available in the .NET Standard 2.0
+builds (version 3.0.0 and above) which require Visual Studio 2019.
 
 | Id       | Title       | :mag: | :memo: | :bulb: |
 | :--      | :--         | :--:  | :--:   | :--:   |

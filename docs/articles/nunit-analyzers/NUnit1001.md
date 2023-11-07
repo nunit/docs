@@ -12,7 +12,8 @@
 
 ## Description
 
-The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method.
+The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the
+method.
 
 ## Motivation
 
@@ -32,7 +33,8 @@ public void SampleTest(int numberValue)
 
 ### Problem
 
-In the test case above, `true` in the test case indicates that `numberValue` should be a boolean. However, the test declares that `numberValue` is an integer. This will lead to a runtime failure.
+In the test case above, `true` in the test case indicates that `numberValue` should be a boolean. However, the test
+declares that `numberValue` is an integer. This will lead to a runtime failure.
 
 ### Fix
 
@@ -65,7 +67,8 @@ public void SampleTest(int numberValue)
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 
