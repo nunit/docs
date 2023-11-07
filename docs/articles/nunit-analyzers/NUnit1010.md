@@ -35,7 +35,8 @@ public void NUnit1010SampleTest()
 
 In the sample above, `ParallelScope.Fixtures` is specified.
 
-However, in the context of a test method, a scope of `Fixtures` does not make sense. This scope [only applies at the assembly or class level](xref:parallelizableattribute).
+However, in the context of a test method, a scope of `Fixtures` does not make sense. This scope [only applies at the
+assembly or class level](xref:parallelizableattribute).
 
 ### Fix
 
@@ -79,7 +80,8 @@ public void NUnit1010SampleTest()
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 
