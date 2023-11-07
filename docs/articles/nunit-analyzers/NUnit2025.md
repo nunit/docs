@@ -16,7 +16,8 @@ The ContainsConstraint requires the type of the actual value to be either a stri
 
 ## Motivation
 
-Using a ContainsConstraint with an actual argument, which is neither a string nor a collection of strings, leads to an assertion error.
+Using a ContainsConstraint with an actual argument, which is neither a string nor a collection of strings, leads to an
+assertion error.
 
 ## How to fix violations
 
@@ -27,7 +28,8 @@ Fix the actual value or use appropriate constraint.
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

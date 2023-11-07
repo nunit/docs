@@ -16,7 +16,8 @@ The same value has been provided as both the actual and the expected argument. T
 
 ## Motivation
 
-To bring developers' attention to a situation in which their code may not be operating as expected and their test may not be testing what they expect.
+To bring developers' attention to a situation in which their code may not be operating as expected and their test may
+not be testing what they expect.
 
 ## How to fix violations
 
@@ -33,7 +34,8 @@ public void NUnit2009SampleTest()
 
 ### Explanation
 
-In the above example, the test will always be correct, because we're comparing the same value. That is to say, we're not actually testing anything.
+In the above example, the test will always be correct, because we're comparing the same value. That is to say, we're not
+actually testing anything.
 
 ### Fix
 
@@ -53,7 +55,8 @@ public void NUnit2009SampleTest()
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 
