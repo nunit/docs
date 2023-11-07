@@ -12,11 +12,13 @@
 
 ## Description
 
-The `Within` modifier should only be used for numeric or Date/Time arguments or tuples containing only these element types. Using it on other types will not have any effect.
+The `Within` modifier should only be used for numeric or Date/Time arguments or tuples containing only these element
+types. Using it on other types will not have any effect.
 
 ## Motivation
 
-To bring developers' attention to a scenario in which their code is actually having no effect and may reveal that their test is not doing what they expect.
+To bring developers' attention to a scenario in which their code is actually having no effect and may reveal that their
+test is not doing what they expect.
 
 ## How to fix violations
 
@@ -37,7 +39,8 @@ private sealed record Data(int number, double Value);
 
 ### Explanation
 
-Using `Within` here doesn't make any sense, because NUnit cannot apply comparison with tolerance to the types we're comparing.
+Using `Within` here doesn't make any sense, because NUnit cannot apply comparison with tolerance to the types we're
+comparing.
 
 ### Fix
 
@@ -61,7 +64,8 @@ private sealed record Data(int number, double Value);
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

@@ -29,10 +29,10 @@ Historically, most xUnit frameworks incorporate the logic for loading and runnin
 assertions, attributes and other types referenced by the tests. NUnit started that way but the loading and test
 execution logic was extracted into a separate assembly in later versions.
 
-This approach had some benefit - most notably NUnit's ability to run tests built against older versions of the framework
-- but has proven less useful as more features were added. Essentially, the surface area that NUnit presents to a client
-program wanting to run tests grows each time a new feature is added. This has made it very difficult for third parties
-to keep up with NUnit's feature growth.
+This approach had some benefit -- most notably NUnit's ability to run tests built against older versions of the
+framework -- but has proven less useful as more features were added. Essentially, the surface area that NUnit presents
+to a client program wanting to run tests grows each time a new feature is added. This has made it very difficult for
+third parties to keep up with NUnit's feature growth.
 
 For NUnit 3.0, the boundary has been moved. Each version of the framework incorporates a test runner that knows how to
 load and execute the tests supported by that version.
