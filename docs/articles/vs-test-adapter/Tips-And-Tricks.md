@@ -10,42 +10,42 @@ uid: tipsandtricks
 
 Certain NUnit Test Adapter settings are configurable using a .runsettings file. The following options are available:
 
-|Key|Type|Options| Default|
-|---|----|-------|--------------|
-|[InternalTraceLevel](#internaltracelevel)| enum |  Off, Error, Warning, Info, Verbose,  Debug| Nothing => Off|
-|[NumberOfTestWorkers](#numberoftestworkers)| int | nr of workers | -1|
-|[ShadowCopyFiles](#shadowcopyfiles)| bool |True, False | False|
-|[Verbosity](#verbosity)| int | -1, 0-5 . -1 means quiet mode | 0|
-|[UseVsKeepEngineRunning](#usevskeepenginerunning)| bool | True, False| False|
-|BasePath| string | path| ?|
-|PrivateBinPath | string| directory1;directory2;etc |?|
-|RandomSeed | int | seed integer| random|
-|DefaultTimeout |int|timeout in mS, 0 means infinite|0|
-|[DefaultTestNamePattern](#defaulttestnamepattern)|string|Pattern for display name|{m}{a}|
-|[WorkDirectory](#workdirectory)|string|specify directory|Test assembly location|
-|[TestOutputXml](#testoutputxml)|string|specify directory|Test Result Xml output folder|
-|[OutputXmlFolderMode](#outputxmlfoldermode)|enum|UseResultDirectory,RelativeToResultDirectory,RelativeToWorkFolder,AsSpecified|RelativeToWorkFolder|
-|[DumpXmlTestDiscovery](#dumpxmltestdiscovery-and-dumpxmltestresults)|bool|Enable dumping of NUnit discovery response xml|false|
-|[DumpXmlTestResults](#dumpxmltestdiscovery-and-dumpxmltestresults)|bool|Enable dumping of NUnit execution response xml|false|
-|[PreFilter](#prefilter)|bool|Enable pre-filtering to increase performance for Visual Studio testing|false|
-|[ShowInternalProperties](#showinternalproperties)| bool | Turn on showing internal NUnit properties in Test Explorer| false|
-|[Where](#where)|string| NUnit Filter expression|
-|[UseParentFQNForParametrizedTests](#useparentfqnforparametrizedtests)|bool|Enable parent as FQN for parametrized tests|false|
-|[UseNUnitIdforTestCaseId](#usenunitidfortestcaseid) |bool|Uses NUnit test id as VSTest Testcase Id, instead of FullyQualifiedName|false|
-|[ConsoleOut](#consoleout)|int|Sends standard console output to the output window|2|
-|[UseTestNameInConsoleOutput](#usetestnameinconsoleoutput)|bool|Adds name of test as a prefix in the output window for console output|true|
-|[StopOnError](#stoponerror)|bool|Stops on first error|false|
-|[SkipNonTestAssemblies](#skipnontestassemblies)|bool|Adapter supports NonTestAssemblyAttribute|true|
-|[MapWarningTo](#mapwarningto)|enum|Map Assert.Warn to either Passed, Failed or Skipped|Skipped|
-|[DisplayName](#displayname)|enum|Set what a DisplayName is, options: Name, FullName or FullNameSep|Name|
-|[FullnameSeparator](#fullnameseparator)|string|FullNameSep separator|':'|
-|[DiscoveryMethod](#discoverymethod)|enum|How execution discovery is done, options are `Legacy` or `Current`|Current|
-|[AssemblySelectLimit](#assemblyselectlimit)|int|Number of tests accepted before filters are turned off|2000|
-|[NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)|bool|Creates a new file for each test run|false|
-|[IncludeStackTraceForSuites](#includestacktraceforsuites)|bool|Includes stack trace for failures in suites, like exceptions in OneTimeSetup|true|
-|[ExplicitMode](#explicitmode)|enum|Changes handling of explicit tests, options are `Strict` or `Relaxed`|Strict|
-|[SkipExecutionWhenNoTests](#skipexecutionwhennotests)|bool|Skip execution if no tests are found|false|
-|[AllowParallelWithDebugger](#allowparallelwithdebugger)|bool|Allow parallel execution when debugger is attached|false|
+|                                  Key                                  |  Type  |                                    Options                                    |            Default            |
+| --------------------------------------------------------------------- | ------ | ----------------------------------------------------------------------------- | ----------------------------- |
+| [InternalTraceLevel](#internaltracelevel)                             | enum   | Off, Error, Warning, Info, Verbose,  Debug                                    | Nothing => Off                |
+| [NumberOfTestWorkers](#numberoftestworkers)                           | int    | nr of workers                                                                 | -1                            |
+| [ShadowCopyFiles](#shadowcopyfiles)                                   | bool   | True, False                                                                   | False                         |
+| [Verbosity](#verbosity)                                               | int    | -1, 0-5 . -1 means quiet mode                                                 | 0                             |
+| [UseVsKeepEngineRunning](#usevskeepenginerunning)                     | bool   | True, False                                                                   | False                         |
+| BasePath                                                              | string | path                                                                          | ?                             |
+| PrivateBinPath                                                        | string | directory1;directory2;etc                                                     | ?                             |
+| RandomSeed                                                            | int    | seed integer                                                                  | random                        |
+| DefaultTimeout                                                        | int    | timeout in mS, 0 means infinite                                               | 0                             |
+| [DefaultTestNamePattern](#defaulttestnamepattern)                     | string | Pattern for display name                                                      | {m}{a}                        |
+| [WorkDirectory](#workdirectory)                                       | string | specify directory                                                             | Test assembly location        |
+| [TestOutputXml](#testoutputxml)                                       | string | specify directory                                                             | Test Result Xml output folder |
+| [OutputXmlFolderMode](#outputxmlfoldermode)                           | enum   | UseResultDirectory,RelativeToResultDirectory,RelativeToWorkFolder,AsSpecified | RelativeToWorkFolder          |
+| [DumpXmlTestDiscovery](#dumpxmltestdiscovery-and-dumpxmltestresults)  | bool   | Enable dumping of NUnit discovery response xml                                | false                         |
+| [DumpXmlTestResults](#dumpxmltestdiscovery-and-dumpxmltestresults)    | bool   | Enable dumping of NUnit execution response xml                                | false                         |
+| [PreFilter](#prefilter)                                               | bool   | Enable pre-filtering to increase performance for Visual Studio testing        | false                         |
+| [ShowInternalProperties](#showinternalproperties)                     | bool   | Turn on showing internal NUnit properties in Test Explorer                    | false                         |
+| [Where](#where)                                                       | string | NUnit Filter expression                                                       |                               |
+| [UseParentFQNForParametrizedTests](#useparentfqnforparametrizedtests) | bool   | Enable parent as FQN for parametrized tests                                   | false                         |
+| [UseNUnitIdforTestCaseId](#usenunitidfortestcaseid)                   | bool   | Uses NUnit test id as VSTest Testcase Id, instead of FullyQualifiedName       | false                         |
+| [ConsoleOut](#consoleout)                                             | int    | Sends standard console output to the output window                            | 2                             |
+| [UseTestNameInConsoleOutput](#usetestnameinconsoleoutput)             | bool   | Adds name of test as a prefix in the output window for console output         | true                          |
+| [StopOnError](#stoponerror)                                           | bool   | Stops on first error                                                          | false                         |
+| [SkipNonTestAssemblies](#skipnontestassemblies)                       | bool   | Adapter supports NonTestAssemblyAttribute                                     | true                          |
+| [MapWarningTo](#mapwarningto)                                         | enum   | Map Assert.Warn to either Passed, Failed or Skipped                           | Skipped                       |
+| [DisplayName](#displayname)                                           | enum   | Set what a DisplayName is, options: Name, FullName or FullNameSep             | Name                          |
+| [FullnameSeparator](#fullnameseparator)                               | string | FullNameSep separator                                                         | ':'                           |
+| [DiscoveryMethod](#discoverymethod)                                   | enum   | How execution discovery is done, options are `Legacy` or `Current`            | Current                       |
+| [AssemblySelectLimit](#assemblyselectlimit)                           | int    | Number of tests accepted before filters are turned off                        | 2000                          |
+| [NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)             | bool   | Creates a new file for each test run                                          | false                         |
+| [IncludeStackTraceForSuites](#includestacktraceforsuites)             | bool   | Includes stack trace for failures in suites, like exceptions in OneTimeSetup  | true                          |
+| [ExplicitMode](#explicitmode)                                         | enum   | Changes handling of explicit tests, options are `Strict` or `Relaxed`         | Strict                        |
+| [SkipExecutionWhenNoTests](#skipexecutionwhennotests)                 | bool   | Skip execution if no tests are found                                          | false                         |
+| [AllowParallelWithDebugger](#allowparallelwithdebugger)               | bool   | Allow parallel execution when debugger is attached                            | false                         |
 
 ### Visual Studio templates for runsettings
 
