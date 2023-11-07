@@ -1,9 +1,9 @@
 # Test Dependency Attribute Spec
 
-> [!WARNING]
-> This is a draft. The contents may be out of date.
+> [!WARNING] This is a draft. The contents may be out of date.
 
-This spec describes a proposed new attribute to be used to specify dependencies between tests within a test fixture, and between different test fixtures.
+This spec describes a proposed new attribute to be used to specify dependencies between tests within a test fixture, and
+between different test fixtures.
 
 Attribute
 
@@ -27,7 +27,8 @@ AfterAllSuccess
 
 This attribute would apply to Test's within a single TestFixture, or to TextFixture's within a single test assembly.
 
-Each dependency-specification is described in more detail below (in all cases, `<test-list>` should be replaced with a `<testfixture-list>` if the attribute is being applied to a TestFixture):
+Each dependency-specification is described in more detail below (in all cases, `<test-list>` should be replaced with a
+`<testfixture-list>` if the attribute is being applied to a TestFixture):
 
 ```none
 <test-list> is a string containing a comma separated list of Test's to
@@ -81,13 +82,21 @@ AfterAllSuccess
     Afterxxx dependency referencing this Test or TestFixture.
 ```
 
-Note that a single Test or TestFixture may have multiple `<dependency-specification>` elements as long as they do not conflict with each other.
+Note that a single Test or TestFixture may have multiple `<dependency-specification>` elements as long as they do not
+conflict with each other.
 
-Any loops or contradictory references in the dependencies will be discovered, and will result in the specified dependencies being ignored, and a warning being given.  For example, if TestA has Before="TestB" and TestB has Before="TestA", both will be ignored, and a warning given. (An alternative would be to use whichever was specified first  or last).
+Any loops or contradictory references in the dependencies will be discovered, and will result in the specified
+dependencies being ignored, and a warning being given.  For example, if TestA has Before="TestB" and TestB has
+Before="TestA", both will be ignored, and a warning given. (An alternative would be to use whichever was specified first
+or last).
 
-If multiple tests or test fixtures are in the same relative position in the dependency tree, the order in which they will be run will be the default order.  For example, if multiple tests have a BeforeAll dependency, they will run in the default order, but before all other tests not having that dependency specified.
+If multiple tests or test fixtures are in the same relative position in the dependency tree, the order in which they
+will be run will be the default order.  For example, if multiple tests have a BeforeAll dependency, they will run in the
+default order, but before all other tests not having that dependency specified.
 
 Items to consider:
 
-* Is the name in a `<test-list>` the name in the code, or the generated name for the test?  I would prefer to use the static name that is in the code, but there may be a case for using the generated name.
-* Should there be a simple dependency language to be used to specify the dependency rather then the static properties? e.g. `before("TestA") && afterFails ("TestB") || afterSuccess ("TestC")`
+* Is the name in a `<test-list>` the name in the code, or the generated name for the test?  I would prefer to use the
+  static name that is in the code, but there may be a case for using the generated name.
+* Should there be a simple dependency language to be used to specify the dependency rather then the static properties?
+  e.g. `before("TestA") && afterFails ("TestB") || afterSuccess ("TestC")`
