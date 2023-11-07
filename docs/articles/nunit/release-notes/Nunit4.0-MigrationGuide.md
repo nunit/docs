@@ -90,10 +90,10 @@ Assert.That(actualText, Does.StartWith("42"), $"Expected '{actualText}' to start
 There are no code fixers for `FileAssert` and `DirectoryAssert`.
 They could be added, but we don't expect these to be used too much.
 
-### Convert Classic Assert into NUnit4 equivalent
+### Convert Classic Assert into NUnit 4.x equivalent
 
 If you want to keep the Classic Asserts and not convert them to the constraint model --
-but do want to use the new NUnit4 naming -- you'll need to update the code manually.
+but do want to use the new NUnit 4.x naming -- you'll need to update the code manually.
 
 The NUnit.Analyzer can't help here as the code either doesn't compile before the change or after,
 depending on what version of `nunit` you are compiling with.
@@ -141,7 +141,7 @@ Note that this doesn't mean you have to target .NET 6.0. This also works if targ
 These overloads were removed to allow for better messages in case of failure.
 See [Towards-NUnit4.md](../Towards-NUnit4.md#improved-assert-result-messages)
 
-NUnit4 has been optimized such that these formattable strings only get formatted in case the test is failing.
+NUnit 4.x has been optimized such that these formattable strings only get formatted in case the test is failing.
 
 ```csharp
 int actual = SomeCalculation();
