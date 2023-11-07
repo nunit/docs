@@ -46,7 +46,8 @@ Version _3.10.0_ knows about the 2nd non-backward compatible change and will con
 > **Caveat**: The analyzers only run when the code compiles, so execute and act on the analyzer _before_ upgrading `nunit` to version `4.0.0`!
 
 In our example code, the analyzer will flag the `Assert.AreEqual` as shown below:
-![NUnit.Analyzer Classic Assert Warning](~/images/NUnit.Analyzer-ClassicAssert-Warning.png)
+
+![NUnit.Analyzer Classic Assert Warning](../../../images/NUnit.Analyzer-ClassicAssert-Warning.png)
 
 Running the associated `Transform to constraint model` code fix in Visual Studio will convert the code into:
 
