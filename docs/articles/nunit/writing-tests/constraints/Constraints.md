@@ -1,5 +1,5 @@
 ---
-uid: constraints
+uid:  constraints
 ---
 
 # Constraints
@@ -13,141 +13,141 @@ This page lists all the constraints available in NUnit.
 
 ## Alphabetical List of Constraints
 
-| Constraint Name                       | Quick Example |
-| ------------------------------------- | ------------- |
-| [AllItemsConstraint](AllItemsConstraint.md)               | `Assert.That(myEnumerable, Has.All.GreaterThan(32))`<br/>`Assert.That(myEnumerable, Is.All.InstanceOf<string>()` |
-| [AndConstraint](AndConstraint.md)                    | `Assert.That(2.3, Is.GreaterThan(2.0).And.LessThan(3.0))` |
-| [AnyOfConstraint](AnyOfConstraint.md)                  | `Assert.That(42, Is.AnyOf(0, -1, 42, 100));` |
-| [AssignableFromConstraint](AssignableFromConstraint.md)         | `Assert.That("Hello", Is.AssignableFrom(typeof(string)));`<br/>`Assert.That(5, Is.Not.AssignableFrom<string>());` |
-| [AssignableToConstraint](AssignableToConstraint.md)           | |
-| [AttributeConstraint](AttributeConstraint.md)              | |
-| [AttributeExistsConstraint](AttributeExistsConstraint.md)        | |
-| [BinarySerializableConstraint](BinarySerializableConstraint.md)     | |
-| [CollectionContainsConstraint](CollectionContainsConstraint.md)     | |
-| [CollectionEquivalentConstraint](CollectionEquivalentConstraint.md)   | |
-| [CollectionOrderedConstraint](CollectionOrderedConstraint.md)      | |
-| [CollectionSubsetConstraint](CollectionSubsetConstraint.md)       | |
-| [CollectionSupersetConstraint](CollectionSupersetConstraint.md)     | |
-| [DelayedConstraint](DelayedConstraint.md)                | |
-| [DictionaryContainsKeyConstraint](DictionaryContainsKeyConstraint.md)  | |
-| [DictionaryContainsKeyValuePairConstraint](DictionaryContainsKeyValuePairConstraint.md)  | |
-| [DictionaryContainsValueConstraint](DictionaryContainsValueConstraint.md)| |
-| [EmptyCollectionConstraint](EmptyCollectionConstraint.md)        | |
-| [EmptyConstraint](EmptyConstraint.md)                  | |
-| [EmptyDirectoryConstraint](EmptyDirectoryConstraint.md)         | |
-| [EmptyStringConstraint](EmptyStringConstraint.md)            | |
-| [EndsWithConstraint](EndsWithConstraint.md)               | |
-| [EqualConstraint](EqualConstraint.md)                  | |
-| [ExactCountConstraint](ExactCountConstraint.md)             | |
-| [ExactTypeConstraint](ExactTypeConstraint.md)              | |
-| [FalseConstraint](FalseConstraint.md)                  | |
-| [FileOrDirectoryExistsConstraint](FileOrDirectoryExistsConstraint.md)  | |
-| [GreaterThanConstraint](GreaterThanConstraint.md)            | |
-| [GreaterThanOrEqualConstraint](GreaterThanOrEqualConstraint.md)     | |
-| [InstanceOfTypeConstraint](InstanceOfTypeConstraint.md)         | |
-| [LessThanConstraint](LessThanConstraint.md)               | |
-| [LessThanOrEqualConstraint](LessThanOrEqualConstraint.md)        | |
-| [NaNConstraint](NaNConstraint.md)                    | |
-| [NoItemConstraint](NoItemConstraint.md)                 | |
-| [NotConstraint](NotConstraint.md)                    | |
-| [NullConstraint](NullConstraint.md)                   | |
-| [OrConstraint](OrConstraint.md)                     | |
-| [PropertyConstraint](PropertyConstraint.md)               | |
-| [PropertyExistsConstraint](PropertyExistsConstraint.md)         | |
-| [RangeConstraint](RangeConstraint.md)                  | |
-| [RegexConstraint](RegexConstraint.md)                  | |
-| [ReusableConstraint](ReusableConstraint.md)               | |
-| [SameAsConstraint](SameAsConstraint.md)                 | |
-| [SamePathConstraint](SamePathConstraint.md)               | |
-| [SamePathOrUnderConstraint](SamePathOrUnderConstraint.md)        | |
-| [SomeItemsConstraint](SomeItemsConstraint.md)              | |
-| [StartsWithConstraint](StartsWithConstraint.md)             | |
-| [SubPathConstraint](SubPathConstraint.md)                | |
-| [SubstringConstraint](SubstringConstraint.md)              | |
-| [ThrowsConstraint](ThrowsConstraint.md)                 | |
-| [ThrowsNothingConstraint](ThrowsNothingConstraint.md)          | |
-| [TrueConstraint](TrueConstraint.md)                   | |
-| [UniqueItemsConstraint](UniqueItemsConstraint.md)            | |
-| [XmlSerializableConstraint](XmlSerializableConstraint.md)        | |
+|                                     Constraint Name                                     |                                                   Quick Example                                                   |
+| --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| [AllItemsConstraint](AllItemsConstraint.md)                                             | `Assert.That(myEnumerable, Has.All.GreaterThan(32))`<br/>`Assert.That(myEnumerable, Is.All.InstanceOf<string>()`  |
+| [AndConstraint](AndConstraint.md)                                                       | `Assert.That(2.3, Is.GreaterThan(2.0).And.LessThan(3.0))`                                                         |
+| [AnyOfConstraint](AnyOfConstraint.md)                                                   | `Assert.That(42, Is.AnyOf(0, -1, 42, 100));`                                                                      |
+| [AssignableFromConstraint](AssignableFromConstraint.md)                                 | `Assert.That("Hello", Is.AssignableFrom(typeof(string)));`<br/>`Assert.That(5, Is.Not.AssignableFrom<string>());` |
+| [AssignableToConstraint](AssignableToConstraint.md)                                     |                                                                                                                   |
+| [AttributeConstraint](AttributeConstraint.md)                                           |                                                                                                                   |
+| [AttributeExistsConstraint](AttributeExistsConstraint.md)                               |                                                                                                                   |
+| [BinarySerializableConstraint](BinarySerializableConstraint.md)                         |                                                                                                                   |
+| [CollectionContainsConstraint](CollectionContainsConstraint.md)                         |                                                                                                                   |
+| [CollectionEquivalentConstraint](CollectionEquivalentConstraint.md)                     |                                                                                                                   |
+| [CollectionOrderedConstraint](CollectionOrderedConstraint.md)                           |                                                                                                                   |
+| [CollectionSubsetConstraint](CollectionSubsetConstraint.md)                             |                                                                                                                   |
+| [CollectionSupersetConstraint](CollectionSupersetConstraint.md)                         |                                                                                                                   |
+| [DelayedConstraint](DelayedConstraint.md)                                               |                                                                                                                   |
+| [DictionaryContainsKeyConstraint](DictionaryContainsKeyConstraint.md)                   |                                                                                                                   |
+| [DictionaryContainsKeyValuePairConstraint](DictionaryContainsKeyValuePairConstraint.md) |                                                                                                                   |
+| [DictionaryContainsValueConstraint](DictionaryContainsValueConstraint.md)               |                                                                                                                   |
+| [EmptyCollectionConstraint](EmptyCollectionConstraint.md)                               |                                                                                                                   |
+| [EmptyConstraint](EmptyConstraint.md)                                                   |                                                                                                                   |
+| [EmptyDirectoryConstraint](EmptyDirectoryConstraint.md)                                 |                                                                                                                   |
+| [EmptyStringConstraint](EmptyStringConstraint.md)                                       |                                                                                                                   |
+| [EndsWithConstraint](EndsWithConstraint.md)                                             |                                                                                                                   |
+| [EqualConstraint](EqualConstraint.md)                                                   |                                                                                                                   |
+| [ExactCountConstraint](ExactCountConstraint.md)                                         |                                                                                                                   |
+| [ExactTypeConstraint](ExactTypeConstraint.md)                                           |                                                                                                                   |
+| [FalseConstraint](FalseConstraint.md)                                                   |                                                                                                                   |
+| [FileOrDirectoryExistsConstraint](FileOrDirectoryExistsConstraint.md)                   |                                                                                                                   |
+| [GreaterThanConstraint](GreaterThanConstraint.md)                                       |                                                                                                                   |
+| [GreaterThanOrEqualConstraint](GreaterThanOrEqualConstraint.md)                         |                                                                                                                   |
+| [InstanceOfTypeConstraint](InstanceOfTypeConstraint.md)                                 |                                                                                                                   |
+| [LessThanConstraint](LessThanConstraint.md)                                             |                                                                                                                   |
+| [LessThanOrEqualConstraint](LessThanOrEqualConstraint.md)                               |                                                                                                                   |
+| [NaNConstraint](NaNConstraint.md)                                                       |                                                                                                                   |
+| [NoItemConstraint](NoItemConstraint.md)                                                 |                                                                                                                   |
+| [NotConstraint](NotConstraint.md)                                                       |                                                                                                                   |
+| [NullConstraint](NullConstraint.md)                                                     |                                                                                                                   |
+| [OrConstraint](OrConstraint.md)                                                         |                                                                                                                   |
+| [PropertyConstraint](PropertyConstraint.md)                                             |                                                                                                                   |
+| [PropertyExistsConstraint](PropertyExistsConstraint.md)                                 |                                                                                                                   |
+| [RangeConstraint](RangeConstraint.md)                                                   |                                                                                                                   |
+| [RegexConstraint](RegexConstraint.md)                                                   |                                                                                                                   |
+| [ReusableConstraint](ReusableConstraint.md)                                             |                                                                                                                   |
+| [SameAsConstraint](SameAsConstraint.md)                                                 |                                                                                                                   |
+| [SamePathConstraint](SamePathConstraint.md)                                             |                                                                                                                   |
+| [SamePathOrUnderConstraint](SamePathOrUnderConstraint.md)                               |                                                                                                                   |
+| [SomeItemsConstraint](SomeItemsConstraint.md)                                           |                                                                                                                   |
+| [StartsWithConstraint](StartsWithConstraint.md)                                         |                                                                                                                   |
+| [SubPathConstraint](SubPathConstraint.md)                                               |                                                                                                                   |
+| [SubstringConstraint](SubstringConstraint.md)                                           |                                                                                                                   |
+| [ThrowsConstraint](ThrowsConstraint.md)                                                 |                                                                                                                   |
+| [ThrowsNothingConstraint](ThrowsNothingConstraint.md)                                   |                                                                                                                   |
+| [TrueConstraint](TrueConstraint.md)                                                     |                                                                                                                   |
+| [UniqueItemsConstraint](UniqueItemsConstraint.md)                                       |                                                                                                                   |
+| [XmlSerializableConstraint](XmlSerializableConstraint.md)                               |                                                                                                                   |
 
 ## Constraints by Category
 
 ### Collection Constraints
 
-| Constraint Name                      | Quick Example |
-| -------------------------------------| ------------- |
-| [AllItemsConstraint](AllItemsConstraint.md)               | |
-| [AnyOfConstraint](AnyOfConstraint.md)                  | |
-| [CollectionContainsConstraint](CollectionContainsConstraint.md)     | |
-| [CollectionEquivalentConstraint](CollectionEquivalentConstraint.md)   | |
-| [CollectionOrderedConstraint](CollectionOrderedConstraint.md)      | |
-| [CollectionSubsetConstraint](CollectionSubsetConstraint.md)       | |
-| [CollectionSupersetConstraint](CollectionSupersetConstraint.md)     | |
-| [DictionaryContainsKeyConstraint](DictionaryContainsKeyConstraint.md)  | |
-| [DictionaryContainsKeyValuePairConstraint](DictionaryContainsKeyValuePairConstraint.md)  | |
-| [DictionaryContainsValueConstraint](DictionaryContainsValueConstraint.md)| |
-| [EmptyCollectionConstraint](EmptyCollectionConstraint.md)        | |
-| [ExactCountConstraint](ExactCountConstraint.md)             | |
-| [NoItemConstraint](NoItemConstraint.md)                 | |
-| [SomeItemsConstraint](SomeItemsConstraint.md)              | |
-| [UniqueItemsConstraint](UniqueItemsConstraint.md)            | |
+|                                     Constraint Name                                     | Quick Example |
+| --------------------------------------------------------------------------------------- | ------------- |
+| [AllItemsConstraint](AllItemsConstraint.md)                                             |               |
+| [AnyOfConstraint](AnyOfConstraint.md)                                                   |               |
+| [CollectionContainsConstraint](CollectionContainsConstraint.md)                         |               |
+| [CollectionEquivalentConstraint](CollectionEquivalentConstraint.md)                     |               |
+| [CollectionOrderedConstraint](CollectionOrderedConstraint.md)                           |               |
+| [CollectionSubsetConstraint](CollectionSubsetConstraint.md)                             |               |
+| [CollectionSupersetConstraint](CollectionSupersetConstraint.md)                         |               |
+| [DictionaryContainsKeyConstraint](DictionaryContainsKeyConstraint.md)                   |               |
+| [DictionaryContainsKeyValuePairConstraint](DictionaryContainsKeyValuePairConstraint.md) |               |
+| [DictionaryContainsValueConstraint](DictionaryContainsValueConstraint.md)               |               |
+| [EmptyCollectionConstraint](EmptyCollectionConstraint.md)                               |               |
+| [ExactCountConstraint](ExactCountConstraint.md)                                         |               |
+| [NoItemConstraint](NoItemConstraint.md)                                                 |               |
+| [SomeItemsConstraint](SomeItemsConstraint.md)                                           |               |
+| [UniqueItemsConstraint](UniqueItemsConstraint.md)                                       |               |
 
 ### Comparison Constraints
 
-| Constraint Name                      | Quick Example |
-| -------------------------------------| ------------- |
-| [GreaterThanConstraint](GreaterThanConstraint.md)            | |
-| [GreaterThanOrEqualConstraint](GreaterThanOrEqualConstraint.md)     | |
-| [LessThanConstraint](LessThanConstraint.md)               | |
-| [LessThanOrEqualConstraint](LessThanOrEqualConstraint.md)        | |
-| [RangeConstraint](RangeConstraint.md)                  | |
+|                         Constraint Name                         | Quick Example |
+| --------------------------------------------------------------- | ------------- |
+| [GreaterThanConstraint](GreaterThanConstraint.md)               |               |
+| [GreaterThanOrEqualConstraint](GreaterThanOrEqualConstraint.md) |               |
+| [LessThanConstraint](LessThanConstraint.md)                     |               |
+| [LessThanOrEqualConstraint](LessThanOrEqualConstraint.md)       |               |
+| [RangeConstraint](RangeConstraint.md)                           |               |
 
 ### Compound Constraints
 
-| Constraint Name                      | Quick Example |
-| -------------------------------------| ------------- |
-| [AndConstraint](AndConstraint.md)                    | |
-| [NotConstraint](NotConstraint.md)                    | |
-| [OrConstraint](OrConstraint.md)                     | |
+|          Constraint Name          | Quick Example |
+| --------------------------------- | ------------- |
+| [AndConstraint](AndConstraint.md) |               |
+| [NotConstraint](NotConstraint.md) |               |
+| [OrConstraint](OrConstraint.md)   |               |
 
 ### Condition Constraints
 
-| Constraint Name                      | Quick Example |
-| -------------------------------------| ------------- |
-| [EmptyConstraint](EmptyConstraint.md)                  | |
-| [FalseConstraint](FalseConstraint.md)                  | |
-| [NaNConstraint](NaNConstraint.md)                    | |
-| [NullConstraint](NullConstraint.md)                   | |
-| [TrueConstraint](TrueConstraint.md)                   | |
+|            Constraint Name            | Quick Example |
+| ------------------------------------- | ------------- |
+| [EmptyConstraint](EmptyConstraint.md) |               |
+| [FalseConstraint](FalseConstraint.md) |               |
+| [NaNConstraint](NaNConstraint.md)     |               |
+| [NullConstraint](NullConstraint.md)   |               |
+| [TrueConstraint](TrueConstraint.md)   |               |
 
 ### File and Directory Constraints
 
-| Constraint Name                      | Quick Example |
-| -------------------------------------| ------------- |
-| [EmptyDirectoryConstraint](EmptyDirectoryConstraint.md)         | |
-| [FileOrDirectoryExistsConstraint](FileOrDirectoryExistsConstraint.md)  | |
-| [SamePathConstraint](SamePathConstraint.md)               | |
-| [SamePathOrUnderConstraint](SamePathOrUnderConstraint.md)        | |
-| [SubPathConstraint](SubPathConstraint.md)                | |
+|                            Constraint Name                            | Quick Example |
+| --------------------------------------------------------------------- | ------------- |
+| [EmptyDirectoryConstraint](EmptyDirectoryConstraint.md)               |               |
+| [FileOrDirectoryExistsConstraint](FileOrDirectoryExistsConstraint.md) |               |
+| [SamePathConstraint](SamePathConstraint.md)                           |               |
+| [SamePathOrUnderConstraint](SamePathOrUnderConstraint.md)             |               |
+| [SubPathConstraint](SubPathConstraint.md)                             |               |
 
 ### String Constraints
 
-| Constraint Name                      | Quick Example |
-| -------------------------------------| ------------- |
-| [EmptyStringConstraint](EmptyStringConstraint.md)            | |
-| [EndsWithConstraint](EndsWithConstraint.md)               | |
-| [RegexConstraint](RegexConstraint.md)                  | |
-| [StartsWithConstraint](StartsWithConstraint.md)             | |
-| [SubstringConstraint](SubstringConstraint.md)              | |
+|                  Constraint Name                  | Quick Example |
+| ------------------------------------------------- | ------------- |
+| [EmptyStringConstraint](EmptyStringConstraint.md) |               |
+| [EndsWithConstraint](EndsWithConstraint.md)       |               |
+| [RegexConstraint](RegexConstraint.md)             |               |
+| [StartsWithConstraint](StartsWithConstraint.md)   |               |
+| [SubstringConstraint](SubstringConstraint.md)     |               |
 
 ### Type Constraints
 
-| Constraint Name                      | Quick Example |
-| -------------------------------------| ------------- |
-| [AssignableFromConstraint](AssignableFromConstraint.md)         | |
-| [AssignableToConstraint](AssignableToConstraint.md)           | |
-| [ExactTypeConstraint](ExactTypeConstraint.md)              | |
-| [InstanceOfTypeConstraint](InstanceOfTypeConstraint.md)         | |
+|                     Constraint Name                     | Quick Example |
+| ------------------------------------------------------- | ------------- |
+| [AssignableFromConstraint](AssignableFromConstraint.md) |               |
+| [AssignableToConstraint](AssignableToConstraint.md)     |               |
+| [ExactTypeConstraint](ExactTypeConstraint.md)           |               |
+| [InstanceOfTypeConstraint](InstanceOfTypeConstraint.md) |               |
 
 ## See also
 
