@@ -58,4 +58,5 @@ Additional assertions are provided by the following classes, which are also in t
 
 ## Notes
 
-* The exception-family of classic asserts have not yet been moved to the legacy namespace.  They have not yet full equivalents in the constraint model.
+* The exception-family of classic asserts have not yet been moved to the legacy namespace.  They have not yet full
+  equivalents in the constraint model.

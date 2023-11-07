@@ -10,23 +10,20 @@ The console interface runner is invoked by a command in the form
     NUNIT3-CONSOLE [inputfiles] [options]
 ```
 
-where **inputfiles** is one or more assemblies or test projects of
-a type that NUnit can process and **options** is zero or more options.
-Input files and options may be mixed in any order.
+where **inputfiles** is one or more assemblies or test projects of a type that NUnit can process and **options** is zero
+or more options. Input files and options may be mixed in any order.
 
 ## Input Files
 
-The console program must always have an assembly or project specified.
-Assemblies are specified by file name or path, which may be absolute or
-relative. Relative paths are interpreted based on the current directory.
+The console program must always have an assembly or project specified. Assemblies are specified by file name or path,
+which may be absolute or relative. Relative paths are interpreted based on the current directory.
 
-In addition to assemblies, you may specify any project type that is
-understood by NUnit. Out of the box, this includes various
-Visual Studio project types as well as NUnit (.nunit) test projects (see [NUnit Test Projects](xref:nunittestprojects) for a description of NUnit test projects).
+In addition to assemblies, you may specify any project type that is understood by NUnit. Out of the box, this includes
+various Visual Studio project types as well as NUnit (.nunit) test projects (see [NUnit Test
+Projects](xref:nunittestprojects) for a description of NUnit test projects).
 
-If the NUnit V2 framework driver is installed, test assemblies may
-be run based on any version of the NUnit framework beginning with 2.0.
-Without the V2 driver, only version 3.0 and higher tests may be run.
+If the NUnit V2 framework driver is installed, test assemblies may be run based on any version of the NUnit framework
+beginning with 2.0. Without the V2 driver, only version 3.0 and higher tests may be run.
 
 ## Options
 
@@ -75,13 +72,10 @@ Without the V2 driver, only version 3.0 and higher tests may be run.
 
 ### Description
 
-By default, this command runs the tests contained in the
-assemblies and projects specified. If the **--explore** option
-is used, no tests are executed but a description of the tests
-is saved in the specified or default format.
+By default, this command runs the tests contained in the assemblies and projects specified. If the **--explore** option
+is used, no tests are executed but a description of the tests is saved in the specified or default format.
 
-Several options that specify processing of XML output take
-an output specification as a value. A SPEC may take one of
+Several options that specify processing of XML output take an output specification as a value. A SPEC may take one of
 the following forms:
 
 * `--OPTION:filename`
@@ -98,10 +92,8 @@ The --explore option may use any of the following formats:
 * nunit3 - the native XML format for NUnit 3
 * cases  - a text file listing the full names of all test cases.
 
-If --explore is used without any specification following, a list of
-test cases is output to the console.
+If --explore is used without any specification following, a list of test cases is output to the console.
 
-If neither --result nor --explore is used,
-NUnit saves the results to TestResult.xml in nunit3 format.
+If neither --result nor --explore is used, NUnit saves the results to TestResult.xml in nunit3 format.
 
 Any transforms provided must handle input in the native nunit3 format.

@@ -36,23 +36,35 @@ uid: breakingchanges
 
 ## NUnit 3.7
 
-* The AssertionHelper class has now been deprecated. Users can use the [NUnit.StaticExpect](https://github.com/fluffynuts/NUnit.StaticExpect) library as a near drop-in replacement.
+* The AssertionHelper class has now been deprecated. Users can use the
+  [NUnit.StaticExpect](https://github.com/fluffynuts/NUnit.StaticExpect) library as a near drop-in replacement.
 
 ## NUnit 3.4
 
 Breaking changes introduced in NUnit 3.4
 
-* The `--teamcity` console command-line option now requires the TeamCityEventListener extension to be installed. This only affects users who install the extensions individually or copy them to another directory. If you install using the Windows installer or the NUnit.Console NuGet package the TeamCity extension is included.
+* The `--teamcity` console command-line option now requires the TeamCityEventListener extension to be installed. This
+  only affects users who install the extensions individually or copy them to another directory. If you install using the
+  Windows installer or the NUnit.Console NuGet package the TeamCity extension is included.
 
 * String arguments in the names of test cases are no longer truncated to 40 characters.
 
-* The .NET 2.0 build of the nunit framework uses a private implementation of System.Linq. NUnit installs the NUnit.System.Linq assembly alongside the nunit.framework assembly. If you copy the framework to another location, you must ensure that both are copied. The extra assembly is not used in other builds because System.Linq is already supported in those environments.
+* The .NET 2.0 build of the nunit framework uses a private implementation of System.Linq. NUnit installs the
+  NUnit.System.Linq assembly alongside the nunit.framework assembly. If you copy the framework to another location, you
+  must ensure that both are copied. The extra assembly is not used in other builds because System.Linq is already
+  supported in those environments.
 
 ## NUnit 3.0
 
-A relatively large number of features present in NUnit 2.6, were either removed in NUnit 3.0 or had their behavior modified in a way that will break existing code.
+A relatively large number of features present in NUnit 2.6, were either removed in NUnit 3.0 or had their behavior
+modified in a way that will break existing code.
 
-A key change is that the NUnit Test Engine will not recognize a test assembly that does not reference the NUnit framework directly. Normally, test assemblies use NUnit Asserts, attributes and other Types and methods. However, certain third-party frameworks are designed to completely isolate the user from the details of NUnit. They mediate between the test assembly and the NUnit framework in order to run tests. In such a case, NUnit will indicate that the assembly either contains no tests or the proper driver could not be found. To resolve this situation, simply add one NUnit attribute or other reference. An assembly-level `ParallelizableAttribute` is useful for this purpose.
+A key change is that the NUnit Test Engine will not recognize a test assembly that does not reference the NUnit
+framework directly. Normally, test assemblies use NUnit Asserts, attributes and other Types and methods. However,
+certain third-party frameworks are designed to completely isolate the user from the details of NUnit. They mediate
+between the test assembly and the NUnit framework in order to run tests. In such a case, NUnit will indicate that the
+assembly either contains no tests or the proper driver could not be found. To resolve this situation, simply add one
+NUnit attribute or other reference. An assembly-level `ParallelizableAttribute` is useful for this purpose.
 
 Other breaking changes are grouped in the following tables.
 
@@ -112,7 +124,8 @@ Other breaking changes are grouped in the following tables.
 
 ### Console Features
 
-The console runner is now called `nunit3-console`. The following breaking changes apply to the options that  the new runner supports.
+The console runner is now called `nunit3-console`. The following breaking changes apply to the options that  the new
+runner supports.
 
 |      Option       |     Function                            |     Notes                |
 |-------------------|-----------------------------------------|--------------------------|
