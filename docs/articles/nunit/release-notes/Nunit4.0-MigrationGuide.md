@@ -45,7 +45,8 @@ Luckily, the [NUnit.Analyzer](https://www.nuget.org/packages/NUnit.Analyzers) ha
 for a while now. Version _3.10.0_ knows about the 2nd non-backward compatible change and will convert the _format_
 specification and `params` into a `FormattableString`.
 
-> [!NOTE] **Caveat**: The analyzers only run when the code compiles, so execute and act on the analyzer _before_
+> [!NOTE]
+> **Caveat**: The analyzers only run when the code compiles, so execute and act on the analyzer _before_
 > upgrading `nunit` to version `4.0.0`!
 
 In our example code, the analyzer will flag the `Assert.AreEqual` as shown below:
