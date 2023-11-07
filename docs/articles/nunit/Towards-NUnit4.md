@@ -6,7 +6,12 @@ uid: towardsnunit4
 
 NUnit 4 has been long-awaited, and we are now starting to see its outline taking shape. With the introduction of NUnit 4, we are also making changes to the release cadence, shifting towards a [Semver](https://semver.org) based versioning scheme. This entails aiming to release version 4 as soon as possible and subsequently accelerating the pace of new major releases compared to previous versions.
 
-We'd like to bring your attention to several interesting aspects of NUnit 4. First and foremost, there is a crucial [NUnit 4 planning issue](https://github.com/nunit/nunit/issues/3325) that we want to highlight.  Additionally, we have an upcoming [release notes page](https://github.com/nunit/docs/blob/62c43cbbd32b8424c974d5ec50d5463a5c4cd621/docs/articles/nunit/release-notes/framework.md), currently in the form of a PR (Pull Request). If you're interested in changes related to supported frameworks and assert messages, we've compiled a [list of issues](https://github.com/nunit/nunit/issues/4431) for your reference.  
+We'd like to bring your attention to several interesting aspects of NUnit 4.
+
+* First and foremost, there is a crucial [NUnit 4 planning issue](https://github.com/nunit/nunit/issues/3325) that we want to highlight.
+* Additionally, we have an upcoming [release notes page](https://github.com/nunit/docs/blob/62c43cbbd32b8424c974d5ec50d5463a5c4cd621/docs/articles/nunit/release-notes/framework.md), currently in the form of a PR (Pull Request).
+* If you're interested in changes related to supported frameworks and assert messages, we've compiled a [list of issues](https://github.com/nunit/nunit/issues/4431) for your reference.  
+* We have also created a [Migration Guide](xref:migrationguidance) starting with 4.x that we hope will assist in navigating any breaking changes.
 
 Moreover, we have created a milestone for version 4, [which you can find a list of open issues for here](https://github.com/nunit/nunit/issues?q=is%3Aopen+is%3Aissue+milestone%3A4.0). This milestone could be useful in tracking the progress and development of version 4.
 
