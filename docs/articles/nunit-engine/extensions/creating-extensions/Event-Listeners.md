@@ -4,7 +4,9 @@ uid: eventlisteners
 
 # Event Listeners
 
-**Event Listeners** are extensions that respond to specific events occurring during the running of a test. They implement the `ITestEventListener` interface. NUnit itself makes extensive use of this interface when running tests. By creating an extension, user code may also respond to test events.
+**Event Listeners** are extensions that respond to specific events occurring during the running of a test. They
+implement the `ITestEventListener` interface. NUnit itself makes extensive use of this interface when running tests. By
+creating an extension, user code may also respond to test events.
 
 The definition of an Event Listener extension will look something like this:
 
@@ -16,8 +18,9 @@ public class MyEventListener : ITestEventListener
 }
 ```
 
-> [!NOTE]
-> The `EngineVersion` property is used to document the fact that the event listener extension point was only added to the engine with version 3.4. Its function here is purely documentary because the `EngineVersion` property itself was also added in version 3.4. Event listeners should not be installed with earlier versions.
+> [!NOTE] The `EngineVersion` property is used to document the fact that the event listener extension point was only
+> added to the engine with version 3.4. Its function here is purely documentary because the `EngineVersion` property
+> itself was also added in version 3.4. Event listeners should not be installed with earlier versions.
 
 The `ITestEventListener` interface is defined as follows:
 
@@ -51,4 +54,6 @@ The argument to `OnTestEvent` is an XML-formatted string, with a different top-l
 * Start of a test case - `<start-test...>`
 * End of a test case - `<test-case...>`
 
-The XML report signalling the end of a test case contains all available information, including the result. The start events only provide basic identifying information. See [XML Formats](xref:xmlformats) for a full description of each report
+The XML report signalling the end of a test case contains all available information, including the result. The start
+events only provide basic identifying information. See [XML Formats](xref:xmlformats) for a full description of each
+report
