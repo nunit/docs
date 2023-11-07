@@ -6,14 +6,18 @@
 
 Updates the NUnit framework to 2.7.1
 
-* [#186](https://github.com/nunit/nunit-vs-adapter/issues/186) How to change used NUnit 2 version of test adapter to e.g. v2.7.1 ?  
+* [#186](https://github.com/nunit/nunit-vs-adapter/issues/186) How to change used NUnit 2 version of test adapter to
+  e.g. v2.7.1 ?  
 * [#184](https://github.com/nunit/nunit-vs-adapter/issues/184) Update NUnit library to 2.7.1
 
-Thanks to [BobSilent](https://github.com/BobSilent) for [#188](https://github.com/nunit/nunit-vs-adapter/pull/188) solving [#184](https://github.com/nunit/nunit-vs-adapter/issues/184) and [#186](https://github.com/nunit/nunit-vs-adapter/issues/186).
+Thanks to [BobSilent](https://github.com/BobSilent) for [#188](https://github.com/nunit/nunit-vs-adapter/pull/188)
+solving [#184](https://github.com/nunit/nunit-vs-adapter/issues/184) and
+[#186](https://github.com/nunit/nunit-vs-adapter/issues/186).
 
 #### Bugs
 
-[189](https://github.com/nunit/nunit-vs-adapter/issues/189) NUnit adapter is failing when PropertyAttribute is used with NULL value
+[189](https://github.com/nunit/nunit-vs-adapter/issues/189) NUnit adapter is failing when PropertyAttribute is used with
+NULL value
 
 ---
 
@@ -22,12 +26,15 @@ Thanks to [BobSilent](https://github.com/BobSilent) for [#188](https://github.co
 ### Features
 
 * [#180](https://github.com/nunit/nunit-vs-adapter/issues/180) NUnit 2 test adapter does not support Visual Studio 2019
-* [#175](https://github.com/nunit/nunit-vs-adapter/issues/175) NuGet Package : Add `repository` metadata. Thanks to [MaximRouiller](https://github.com/MaximRouiller) for the PR
-* [#174](https://github.com/nunit/nunit-vs-adapter/issues/174)  NUnitTestAdapter 2.1.1 not working with Visual Studio 2017 15.8.0  
+* [#175](https://github.com/nunit/nunit-vs-adapter/issues/175) NuGet Package : Add `repository` metadata. Thanks to
+  [MaximRouiller](https://github.com/MaximRouiller) for the PR
+* [#174](https://github.com/nunit/nunit-vs-adapter/issues/174)  NUnitTestAdapter 2.1.1 not working with Visual Studio
+  2017 15.8.0  
 
 ### Bugfixes
 
-* [#147](https://github.com/nunit/nunit-vs-adapter/issues/147) Fails to resolve assembly for base type of TestFixture if placed in a different dll
+* [#147](https://github.com/nunit/nunit-vs-adapter/issues/147) Fails to resolve assembly for base type of TestFixture if
+  placed in a different dll
 * [#178](https://github.com/nunit/nunit-vs-adapter/issues/178) Test Explorer Picks up Zero Tests in VS 2017 for NUnit 2
 
 ---
@@ -58,8 +65,10 @@ Hotfix release
 
 ### Notes
 
-* The NUnit V2 adapter does not support the Live Unit Testing feature in VS 2017.  That support is only included with the NUnit V3 adapter.
-* The package including both the adapter and the framework are discontinued. Please install the separate packages instead when upgrading.
+* The NUnit V2 adapter does not support the Live Unit Testing feature in VS 2017.  That support is only included with
+  the NUnit V3 adapter.
+* The package including both the adapter and the framework are discontinued. Please install the separate packages
+  instead when upgrading.
 
 ---
 
@@ -222,7 +231,8 @@ Hotfix release
 ### Features
 
 * Works with Visual Studio 2012 RTM. Some features require the November CTP update.
-* The adapter now uses NUnit 2.6.2. Among other things, this allows us to support async test methods. See the NUnit Release Notes for more info.
+* The adapter now uses NUnit 2.6.2. Among other things, this allows us to support async test methods. See the NUnit
+  Release Notes for more info.
 * Source file and line number can now be found for test cases that have an alternate name set.
 * Console output from tests is now displayed in the Visual Studio Output window.
 * TestFixtureSetUp and TestFixtureTearDown errors are now displayed in the Output window.
