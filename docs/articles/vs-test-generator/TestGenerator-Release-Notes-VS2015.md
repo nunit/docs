@@ -11,4 +11,6 @@
 
 ### Notes
 
-* The TestGenerator extension is released as separate VSIXes for VS 2015 and VS 2017/2019.  See [Installation](TestGenerator-Installation.md) for details.  The Version 2.X is for VS2017/2019, the Version 1.X is for VS 2015.
+* The TestGenerator extension is released as separate VSIXes for VS 2015 and VS 2017/2019.  See
+  [Installation](TestGenerator-Installation.md) for details.  The Version 2.X is for VS2017/2019, the Version 1.X is for
+  VS 2015.
