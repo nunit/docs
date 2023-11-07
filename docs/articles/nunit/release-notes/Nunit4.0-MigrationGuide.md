@@ -138,8 +138,7 @@ Note that this doesn't mean you have to target .NET 6.0. This also works if targ
 
 ## Assert.That with _format_ specification and `params` overload conversion
 
-These overloads were removed to allow for better messages in case of failure.
-See [Towards-NUnit4.md](../Towards-NUnit4.md#improved-assert-result-messages)
+These overloads were removed to allow for better messages in case of failure. See [The "Towards NUnit 4" article](../Towards-NUnit4.md#improved-assert-result-messages) for more information.
 
 NUnit 4.x has been optimized such that these formattable strings only get formatted in case the test is failing.
 
