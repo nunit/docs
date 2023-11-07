@@ -1,6 +1,8 @@
 # Getting Started In Visual Studio For Mac
 
-If you're using Visual Studio for Mac the NUnit templates extension can't be used. This guide assumes that you have a solution with either a PCL or a Shared project and a number of platform specific projects. It doesn't matter if you're using Xamarin.Forms or Xamarin.iOS/Xamarin.Android directly. Your solution might look something like this:
+If you're using Visual Studio for Mac the NUnit templates extension can't be used. This guide assumes that you have a
+solution with either a PCL or a Shared project and a number of platform specific projects. It doesn't matter if you're
+using Xamarin.Forms or Xamarin.iOS/Xamarin.Android directly. Your solution might look something like this:
 
 ```none
 Project Solution
@@ -11,7 +13,9 @@ Project Solution
 
 ## Shared Test Project
 
-First, create a new PCL that holds your shared testing code, so the test code doesn't end up in production builds. Right Click on the Project Solution and Add a new project using the Cross-Platform Shared Library Template. Use Project.Tests as a name. Afterwards, your solution should look like this:
+First, create a new PCL that holds your shared testing code, so the test code doesn't end up in production builds. Right
+Click on the Project Solution and Add a new project using the Cross-Platform Shared Library Template. Use Project.Tests
+as a name. Afterwards, your solution should look like this:
 
 ```none
 Project Solution
@@ -21,14 +25,17 @@ Project Solution
 ...Project.Tests (Holds your testing code)
 ```
 
-Edit the references of the newly created test project so that it contains a reference to the standard PCL. Afterwards, add a NuGet dependency on NUnit by right-clicking on Project.Tests and selection Add -> Add NuGet Package.
+Edit the references of the newly created test project so that it contains a reference to the standard PCL. Afterwards,
+add a NuGet dependency on NUnit by right-clicking on Project.Tests and selection Add -> Add NuGet Package.
 
-> [!NOTE]
-> Ensure you reference the same version of NUnit as the version of nunit.xamarin you are using. e.g. If you are using nunit.xamarin 3.0.1, add the v3.0.1 NUnit NuGet package. Afterwards, your test project is ready.
+> [!NOTE] Ensure you reference the same version of NUnit as the version of nunit.xamarin you are using. e.g. If you are
+> using nunit.xamarin 3.0.1, add the v3.0.1 NUnit NuGet package. Afterwards, your test project is ready.
 
 ## Platform runners
 
-In order to run the tests it's necessary to create a project for each platform you'd like to support (iOS, Android and so on). Do so using the standard Xamarin templates for new platform projects. It's probably sensible to use a naming scheme like Project.Tests.iOS for the individual test projects do keep your solution structured.
+In order to run the tests it's necessary to create a project for each platform you'd like to support (iOS, Android and
+so on). Do so using the standard Xamarin templates for new platform projects. It's probably sensible to use a naming
+scheme like Project.Tests.iOS for the individual test projects do keep your solution structured.
 
 ```none
 Project Solution
@@ -40,9 +47,14 @@ Project Solution
 ...Project.Tests.Android
 ```
 
-The NUnit.Xamarin runners are built using Xamarin.Forms, so you need to add NUnit, NUnit.Xamarin and Xamarin.Forms as NuGet dependencies to the newly created projects. It's also necessary to add a reference to the shared test project containing the tests.
+The NUnit.Xamarin runners are built using Xamarin.Forms, so you need to add NUnit, NUnit.Xamarin and Xamarin.Forms as
+NuGet dependencies to the newly created projects. It's also necessary to add a reference to the shared test project
+containing the tests.
 
-If you've followed the steps above, you can now replace the AppDelegate.cs or MainActivity.cs with the code shown below. Since your tests are not in the same assembly as the runner it's a good idea to create a canary test class in the Shared Test Projects that you can use to reference the test assembly explicitly. In the example below, the name of this class is MyTest.cs.
+If you've followed the steps above, you can now replace the AppDelegate.cs or MainActivity.cs with the code shown below.
+Since your tests are not in the same assembly as the runner it's a good idea to create a canary test class in the Shared
+Test Projects that you can use to reference the test assembly explicitly. In the example below, the name of this class
+is MyTest.cs.
 
 ## Android
 
