@@ -1,6 +1,7 @@
 ---
 uid: frameworkreleasenotes
 ---
+<!-- markdownlint-disable MD013 -->
 
 # Framework Release
 
