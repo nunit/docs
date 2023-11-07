@@ -1,8 +1,10 @@
 ---
-uid: nunit40migrationguide
+uid: migrationguidance
 ---
 
-# NUnit 4.0 Migration Guide
+# Migration Guidance
+
+## 3.x -> 4.x
 
 NUnit 4.0 has a few [breaking changes](../release-notes/breaking-changes.md#nunit-40)
 making it neither binary nor source code compatible with NUnit 3.14.0
@@ -10,7 +12,7 @@ making it neither binary nor source code compatible with NUnit 3.14.0
 * Change to [Classic Asserts](../writing-tests/assertions/assertion-models/classic.md)
 * Removal of `Assert.That` overloads with _format_ specification and `params`.
 
-## Classic Assert migration
+### Classic Assert migration
 
 There are different ways to migrate these to NUnit 4.0
 
@@ -35,7 +37,7 @@ public class Tests
 }
 ```
 
-### Convert Classic Assert to Constraint Model
+#### Convert Classic Assert to Constraint Model
 
 Although the code can be converted manually, that is a lot of work.
 
@@ -91,7 +93,7 @@ Assert.That(actualText, Does.StartWith("42"), $"Expected '{actualText}' to start
 There are no code fixers for `FileAssert` and `DirectoryAssert`.
 They could be added, but we don't expect these to be used too much.
 
-### Convert Classic Assert into NUnit 4.x equivalent
+#### Convert Classic Assert into NUnit 4.x equivalent
 
 If you want to keep the Classic Asserts and not convert them to the constraint model --
 but do want to use the new NUnit 4.x naming -- you'll need to update the code manually.
@@ -123,7 +125,7 @@ You can narrow the scope of this substitute to do only the asserts that need con
 
    ![ClassicAssert to Assert](../../../images/IDE0002-ClassicAssert-into-Assert.png)
 
-### Use `global using` aliases
+#### Use `global using` aliases
 
 If you use SDK 6.0 or newer that supports C#10, you can upgrade without modifying any actual tests by adding the following aliases to `GlobalUsings.cs`
 
@@ -137,7 +139,7 @@ global using FileAssert = NUnit.Framework.Legacy.FileAssert;
 
 Note that this doesn't mean you have to target .NET 6.0. This also works if targeting .NET Framework as it is purely done on the source code level.
 
-## Assert.That with _format_ specification and `params` overload conversion
+### Assert.That with _format_ specification and `params` overload conversion
 
 These overloads were removed to allow for better messages in case of failure. See [The "Towards NUnit 4" article](../Towards-NUnit4.md#improved-assert-result-messages) for more information.
 
@@ -159,7 +161,7 @@ To make this transition easier, the Nunit.Analyzer has been updated with a new r
 
 ![Replace Format Specification with Formattable String](../../../images/NUnit.Analyzer-ReplaceFormatSpecification.png)
 
-## Using NUnit Extension libraries
+### Using NUnit Extension libraries
 
 If your code doesn't call `nunit` asserts directly but uses a local `NUnitExtension` library or a 3rd party one then that dependency needs to be upgraded _before_ you can upgrade your own code.
 
