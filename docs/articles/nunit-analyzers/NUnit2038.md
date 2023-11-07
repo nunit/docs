@@ -12,12 +12,13 @@
 
 ## Description
 
-Consider using the constraint model, `Assert.That(actual, Is.InstanceOf(expected))`, instead of the classic model, `Assert.IsInstanceOf(expected, actual)`.
+Consider using the constraint model, `Assert.That(actual, Is.InstanceOf(expected))`, instead of the classic model,
+`Assert.IsInstanceOf(expected, actual)`.
 
 ## Motivation
 
-The assert `Assert.IsInstanceOf` from the classic Assert model makes it easy to confuse the `expected` and the `actual` argument,
-so this analyzer marks usages of `Assert.IsInstanceOf`.
+The assert `Assert.IsInstanceOf` from the classic Assert model makes it easy to confuse the `expected` and the `actual`
+argument, so this analyzer marks usages of `Assert.IsInstanceOf`.
 
 ```csharp
 [Test]
@@ -29,8 +30,8 @@ public void Test()
 
 ## How to fix violations
 
-The analyzer comes with a code fix that will replace `Assert.IsInstanceOf(expected, actual)` with
-`Assert.That(actual, Is.InstanceOf(expected))`. So the code block above will be changed into.
+The analyzer comes with a code fix that will replace `Assert.IsInstanceOf(expected, actual)` with `Assert.That(actual,
+Is.InstanceOf(expected))`. So the code block above will be changed into.
 
 ```csharp
 [Test]
@@ -45,7 +46,8 @@ public void Test()
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

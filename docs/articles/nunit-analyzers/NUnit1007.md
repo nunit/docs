@@ -32,7 +32,8 @@ public string NUnit1007SampleTest(int inputValue)
 
 ### Explanation
 
-No `ExpectedResult` was defined, but the return type of the method in our sample is of type `string`, meaning it does indeed return a result and we should use the `ExpectedResult` syntax in order to capture it.
+No `ExpectedResult` was defined, but the return type of the method in our sample is of type `string`, meaning it does
+indeed return a result and we should use the `ExpectedResult` syntax in order to capture it.
 
 ### Fix
 
@@ -61,7 +62,8 @@ public void NUnit1007SampleTest(int inputValue)
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

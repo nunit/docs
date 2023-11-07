@@ -33,7 +33,9 @@ public async void NUnit1012SampleTest()
 
 ### Explanation
 
-`async` methods should generally not return `void` in C#. For example if an exception is thrown (as they are in the case of an assertion violation), the exception is actually a part of the task object. If the return type is `void`, no such object exists, to the exception is effectively swallowed.
+`async` methods should generally not return `void` in C#. For example if an exception is thrown (as they are in the case
+of an assertion violation), the exception is actually a part of the task object. If the return type is `void`, no such
+object exists, to the exception is effectively swallowed.
 
 ### Fix
 
@@ -64,7 +66,8 @@ public void NUnit1012SampleTest()
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

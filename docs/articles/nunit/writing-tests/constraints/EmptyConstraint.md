@@ -25,7 +25,7 @@ Assert.That(new List<string>(), Is.Empty);
 ## Notes
 
 * **EmptyConstraint** creates and uses either an [EmptyStringConstraint](EmptyStringConstraint.md),
-   [EmptyDirectoryConstraint](EmptyDirectoryConstraint.md) or [EmptyCollectionConstraint](EmptyCollectionConstraint.md) depending on the argument tested.
-* A `DirectoryInfo` argument is required in order to test for an empty directory.
-   To test whether a string represents a directory path, you must first construct
-   a `DirectoryInfo`.
+   [EmptyDirectoryConstraint](EmptyDirectoryConstraint.md) or [EmptyCollectionConstraint](EmptyCollectionConstraint.md)
+   depending on the argument tested.
+* A `DirectoryInfo` argument is required in order to test for an empty directory. To test whether a string represents a
+   directory path, you must first construct a `DirectoryInfo`.

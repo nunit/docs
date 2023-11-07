@@ -12,12 +12,13 @@
 
 ## Description
 
-Consider using the constraint model, `Assert.That(actual, Is.Not.SameAs(expected))`, instead of the classic model, `Assert.AreNotSame(expected, actual)`.
+Consider using the constraint model, `Assert.That(actual, Is.Not.SameAs(expected))`, instead of the classic model,
+`Assert.AreNotSame(expected, actual)`.
 
 ## Motivation
 
-The assert `Assert.AreNotSame` from the classic Assert model makes it easy to confuse the `expected` and the `actual` argument,
-so this analyzer marks usages of `Assert.AreNotSame`.
+The assert `Assert.AreNotSame` from the classic Assert model makes it easy to confuse the `expected` and the `actual`
+argument, so this analyzer marks usages of `Assert.AreNotSame`.
 
 ```csharp
 [Test]
@@ -29,8 +30,8 @@ public void Test()
 
 ## How to fix violations
 
-The analyzer comes with a code fix that will replace `Assert.AreNotSame(expected, actual)` with
-`Assert.That(actual, Is.Not.SameAs(expected))`. So the code block above will be changed into.
+The analyzer comes with a code fix that will replace `Assert.AreNotSame(expected, actual)` with `Assert.That(actual,
+Is.Not.SameAs(expected))`. So the code block above will be changed into.
 
 ```csharp
 [Test]
@@ -45,7 +46,8 @@ public void Test()
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

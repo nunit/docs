@@ -32,7 +32,8 @@ public void SampleTest([Values(0.0, 1.0)] int numberValue)
 
 ### Problem
 
-In the test above, `numberValue` is declared as an integer. However, `[Values(0.0, 1.0)]` provides values as doubles.  This will lead to a runtime failure.
+In the test above, `numberValue` is declared as an integer. However, `[Values(0.0, 1.0)]` provides values as doubles.
+This will lead to a runtime failure.
 
 ### Fix
 
@@ -65,7 +66,8 @@ public void SampleTest([Values(0.0, 1.0)] double numberValue)
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

@@ -42,7 +42,8 @@ public class MyTestClass
 
 ### Explanation
 
-In the sample above, `DivideCases` is a field, and as such does not accept any arguments, so the `TestCaseSource` should not supply any parameters.
+In the sample above, `DivideCases` is a field, and as such does not accept any arguments, so the `TestCaseSource` should
+not supply any parameters.
 
 ### Fix
 
@@ -74,7 +75,8 @@ public class MyTestClass
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

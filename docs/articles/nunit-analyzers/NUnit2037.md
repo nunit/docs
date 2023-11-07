@@ -12,12 +12,13 @@
 
 ## Description
 
-Consider using the constraint model, `Assert.That(collection, Does.Contain(instance))`, instead of the classic model, `Assert.Contains(instance, collection)`.
+Consider using the constraint model, `Assert.That(collection, Does.Contain(instance))`, instead of the classic model,
+`Assert.Contains(instance, collection)`.
 
 ## Motivation
 
-The assert `Assert.Contains` from the classic Assert model makes it easy to confuse the `instance` and the `collection` argument,
-so this analyzer marks usages of `Assert.Contains`.
+The assert `Assert.Contains` from the classic Assert model makes it easy to confuse the `instance` and the `collection`
+argument, so this analyzer marks usages of `Assert.Contains`.
 
 ```csharp
 [Test]
@@ -45,7 +46,8 @@ public void Test()
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 
