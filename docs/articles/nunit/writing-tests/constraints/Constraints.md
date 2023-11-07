@@ -13,7 +13,7 @@ This page lists all the constraints available in NUnit.
 
 ## Alphabetical List of Constraints
 
-|                                     Constraint Name                                     |                                                          Quick Example                                                          |
+|                                     Constraint Name                                     |                                                  Quick Example of Basic Usage                                                   |
 | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | [AllItemsConstraint](AllItemsConstraint.md)                                             | `Assert.That(myEnumerable, Has.All.GreaterThan(32))`<br/>`Assert.That(myEnumerable, Is.All.InstanceOf<string>()`                |
 | [AndConstraint](AndConstraint.md)                                                       | `Assert.That(2.3, Is.GreaterThan(2.0).And.LessThan(3.0))`                                                                       |
@@ -25,7 +25,7 @@ This page lists all the constraints available in NUnit.
 | [BinarySerializableConstraint](BinarySerializableConstraint.md)                         | `Assert.That(someObject, Is.BinarySerializable));`                                                                              |
 | [CollectionContainsConstraint](CollectionContainsConstraint.md)                         | `Assert.That(list, Has.Member("a"));`<br/>`Assert.That(list, Contains.Item("c"));`<br/>`Assert.That(list, Has.No.Member("x"));` |
 | [CollectionEquivalentConstraint](CollectionEquivalentConstraint.md)                     | `Assert.That(new string[] { "c", "a", "b" }, Is.EquivalentTo(myArray));`                                                        |
-| [CollectionOrderedConstraint](CollectionOrderedConstraint.md)                           |                                                                                                                                 |
+| [CollectionOrderedConstraint](CollectionOrderedConstraint.md)                           | `Assert.That(new int[] { 1, 2, 3 }, Is.Ordered)`<br/> `Assert.That(new int[] { 3, 2, 1 }, Is.Ordered);`                         |
 | [CollectionSubsetConstraint](CollectionSubsetConstraint.md)                             |                                                                                                                                 |
 | [CollectionSupersetConstraint](CollectionSupersetConstraint.md)                         |                                                                                                                                 |
 | [DelayedConstraint](DelayedConstraint.md)                                               |                                                                                                                                 |
