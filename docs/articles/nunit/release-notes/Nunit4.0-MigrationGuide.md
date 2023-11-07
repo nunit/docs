@@ -154,7 +154,7 @@ int actual = SomeCalculation();
 Assert.That(actual, Is.EqualTo(42), $"Expected {actual} to be 42");
 ```
 
-To make this transition easy, the Nunit.Analyzer has been updated with a new rule and corresponding code-fix:
+To make this transition easier, the Nunit.Analyzer has been updated with a new rule and corresponding code-fix:
 
 ![Replace Format Specification with Formattable String](~/images/NUnit.Analyzer-ReplaceFormatSpecification.png)
 
