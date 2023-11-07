@@ -1,6 +1,7 @@
 # Attribute Hierarchy
 
-> [!WARNING] This is a draft. The contents may be out of date.
+> [!WARNING]
+> This is a draft. The contents may be out of date.
 
 This technical note describes the inheritance hierarchy used for attributes in NUnit. It applies to the built-in
 attributes and may also be used as a guide for where to place custom attributes in the hierarchy. However, use of these

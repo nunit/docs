@@ -13,7 +13,8 @@ The NUnit adapter PDBs are source-linked and work with Visual Studio 2017 or lat
 
 * Turn **off** Debug > Options > ‘Enable Just My Code.’
 
-> [!NOTE] This is something you’ll want to leave on and only turn off when you want to step into source that isn’t
+> [!NOTE]
+> This is something you’ll want to leave on and only turn off when you want to step into source that isn’t
 > contained in your solution.
 
 ![Screenshot of how to disable just my code in Visual Studio](~/images/disable-just-my-code.png)

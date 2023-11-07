@@ -57,7 +57,8 @@ installed, the runner will give an error indicating the file type is unrecognize
 
 The VS Project Loader allows the engine to load tests from a Visual Studio project or solution.
 
-> [!NOTE] When used with a solution file, the extension tries to avoid loading assemblies that do not contain tests,
+> [!NOTE]
+> When used with a solution file, the extension tries to avoid loading assemblies that do not contain tests,
 > through the use of heuristics. This may fail in certain circumstances.
 
 ### Installation
@@ -81,7 +82,8 @@ able to interpret.
 * Chocolatey: `choco install nunit-extension-teamcity-event-listener`
 * Also bundled with the `NUnit.Console` NuGet and MSI packages.
 
-> [!WARNING] We plan to stop bundling the TeamCity extension with the release of NUnit 4.0. When that happens,
+> [!WARNING]
+> We plan to stop bundling the TeamCity extension with the release of NUnit 4.0. When that happens,
 > individual installation will be required in order to use it.
 
 ### Usage

@@ -1,6 +1,7 @@
 # Architectural Overview
 
-> [!WARNING] This is a draft. The contents may be out of date.
+> [!WARNING]
+> This is a draft. The contents may be out of date.
 
 This specification describes the overall layered architecture of the NUnit Platform. Details of individual components
 are covered only as they are relevant to the overall architecture.

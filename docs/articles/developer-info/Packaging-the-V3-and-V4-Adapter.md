@@ -94,7 +94,8 @@ too, down to VS 2012.
 4. Publicize the release, first announcing it on the nunit-developer and nunit-discuss lists and then more widely as
    appropriate. [We should develop a list of places.]
 
-> [!NOTE] Publishing the release requires access to various online accounts, which are mentioned above. For obvious
+> [!NOTE]
+> Publishing the release requires access to various online accounts, which are mentioned above. For obvious
 > reasons, the passwords are not provided. Contact Charlie or Terje if you need this access.
 
 ## Prerequisites

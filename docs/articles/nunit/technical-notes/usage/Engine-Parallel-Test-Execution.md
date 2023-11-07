@@ -14,7 +14,8 @@ one time, you may specify a value for the `--agents` option on the `nunit3-conso
 are running tests in 10 different processes, a setting of `--agents=3` will allow no more than three of them to execute
 simultaneously.
 
-> [!NOTE] This facility does not depend on the test framework used in any way. Test assemblies that use older versions
+> [!NOTE]
+> This facility does not depend on the test framework used in any way. Test assemblies that use older versions
 > of NUnit may be run in parallel processes just as easily as those using NUnit 3. If extensions are created to support
 > additional frameworks, the NUnit engine will run those assemblies in parallel as well.
 

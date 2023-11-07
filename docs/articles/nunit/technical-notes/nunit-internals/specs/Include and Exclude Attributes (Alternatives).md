@@ -19,7 +19,8 @@ properties. The following examples show how these attributes are currently used:
 
 ## Alternative Approaches
 
-> [!NOTE] Three alternative approaches were identified in March, 2014. This is the final update of the document prior to
+> [!NOTE]
+> Three alternative approaches were identified in March, 2014. This is the final update of the document prior to
 > choosing an alternative. Approach #3 seems to be the front-runner at this time.
 
 ### 1. Keep the current approach

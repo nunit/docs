@@ -1,6 +1,7 @@
 # Extended Constraint Syntax Spec
 
-> [!WARNING] This is a draft. The contents may be out of date.
+> [!WARNING]
+> This is a draft. The contents may be out of date.
 
 This specification is about a new syntax for expressing NUnit assertions using the features of .NET framework 3.5
 including language improvements.  There are two key features this enables: Extension methods permit a modular,

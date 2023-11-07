@@ -24,7 +24,8 @@ repo. Our standard set of pipeline columns are slightly different from the ZenHu
   what to choose to work on next. Most but not all of them will be scheduled for the next milestone. This is a good
   place to keep issues that are blocking other work, so as to encourage developers to get the issue done.
 
-> [!NOTE] Since the number of people actively working on a given project varies, we can't establish a fixed number of
+> [!NOTE]
+> Since the number of people actively working on a given project varies, we can't establish a fixed number of
 > items to keep in this column. The project lead should try to keep it to a reasonable size, generally no more than
 > twice the number of active developers. If it seems to be growing too rapidly, some of the issues should be moved to
 > the backlog.

@@ -4,7 +4,8 @@ uid: pre35releasenotes
 
 # Pre 3.5 Release Notes
 
-> [!NOTE] Combined Release Notes for the NUnit framework, console and engine, up to version 3.5. For later releases,
+> [!NOTE]
+> Combined Release Notes for the NUnit framework, console and engine, up to version 3.5. For later releases,
 > see:
 >
 > * [Framework Release Notes](framework.md)
@@ -302,7 +303,8 @@ framework, but a ZIP file with the binaries will also be available.
 * The engine now only sets the config file for project.nunit to project.config if project.config exists. Otherwise, each
   assembly uses its own config, provided it is run in a separate AppDomain by itself.
 
-> [!NOTE] It is not possible for multiple assemblies in the same AppDomain to use different configs. This is not an
+> [!NOTE]
+> It is not possible for multiple assemblies in the same AppDomain to use different configs. This is not an
 > NUnit limitation, it's just how configs work!
 
 ### Issues Resolved
@@ -337,7 +339,8 @@ framework, but a ZIP file with the binaries will also be available.
 
 * The portable build now supports ASP.NET 5 and the new Core CLR.
 
-> [!NOTE] The `nunit3-console` runner cannot run tests that reference the portable build. You may run such tests using
+> [!NOTE]
+> The `nunit3-console` runner cannot run tests that reference the portable build. You may run such tests using
 > NUnitLite or a platform-specific runner.
 
 * `TestCaseAttribute` and `TestCaseData` now allow modifying the test name without replacing it entirely.

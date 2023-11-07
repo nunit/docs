@@ -47,7 +47,8 @@ The `ExtensionAttribute` has four named properties, all optional:
   property if your extension will not work with all versions of the engine. If you don't use it and your extension
   requires engine services that are not present, then it might throw an exception or cause other errors.
 
-    > [!NOTE] Only engine versions 3.4 or later check the `EngineVersion` property. The only way to avoid errors in the
+    > [!NOTE]
+> Only engine versions 3.4 or later check the `EngineVersion` property. The only way to avoid errors in the
     > case of lower engine versions is to not install such extensions.
 
 ## ExtensionPropertyAttribute
@@ -70,5 +71,6 @@ By use of the `ExtensionPropertyAttribute` NUnit is able to postpone loading the
 a file of type `.nunit`. If the extension is never needed, then it won't be loaded at all. For information about what
 properties are used by each extension point, see the individual pages for each type of extension.
 
-> [!NOTE] Extensions are usually created each in their own assembly for efficiency. It's possible to have several
+> [!NOTE]
+> Extensions are usually created each in their own assembly for efficiency. It's possible to have several
 > related extensions in the same assembly, but they will all be loaded into memory as soon as one is used.

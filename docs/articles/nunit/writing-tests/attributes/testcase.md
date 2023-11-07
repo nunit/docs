@@ -10,7 +10,8 @@ of data:
 
 [!code-csharp[BasicTestCase](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#BasicTestCase)]
 
-> [!NOTE] Because arguments to .NET attributes are limited in terms of the Types that may be used, NUnit will make some
+> [!NOTE]
+> Because arguments to .NET attributes are limited in terms of the Types that may be used, NUnit will make some
 > attempt to convert the supplied values using `Convert.ChangeType()` before supplying it to the test.
 
 **TestCaseAttribute** may appear one or more times on a test method, which may also carry other attributes providing

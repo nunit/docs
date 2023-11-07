@@ -394,7 +394,8 @@ be the same thing.
 
 ### Registry Settings
 
-> [!NOTE] As of the 3.0 final release, the registry settings are no longer recognized. Instead, use settings in the
+> [!NOTE]
+> As of the 3.0 final release, the registry settings are no longer recognized. Instead, use settings in the
 > `.runsettings` file.
 
 ---

@@ -41,7 +41,8 @@ following exceptions are supported:
 Note that there is no constructor taking decimal values for min and max. This is because .NET does not support use of
 decimal in an attribute constructor.
 
-> [!NOTE] `Guid` support for `RandomAttribute` is available from version 4.0 onwards.
+> [!NOTE]
+> `Guid` support for `RandomAttribute` is available from version 4.0 onwards.
 
 ## Example
 

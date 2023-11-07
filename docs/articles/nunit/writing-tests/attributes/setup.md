@@ -43,7 +43,8 @@ will be called before each test method in the derived class.
 You may define a SetUp method in the base class and another in the derived class. NUnit will call base class SetUp
 methods before those in the derived classes.
 
-> [!WARNING] If a base class SetUp method is overridden in the derived class, NUnit will not call the base class SetUp
+> [!WARNING]
+> If a base class SetUp method is overridden in the derived class, NUnit will not call the base class SetUp
 > method; NUnit does not anticipate usage that includes hiding the base method. Note that you may have a different name
 > for each method; as long as both have the `[SetUp]` attribute present, each will be called in the correct order.
 

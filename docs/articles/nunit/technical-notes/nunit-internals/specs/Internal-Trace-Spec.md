@@ -4,7 +4,8 @@ uid: internaltracespec
 
 # Internal Trace Spec
 
-> [!WARNING] This is a draft. The contents may be out of date.
+> [!WARNING]
+> This is a draft. The contents may be out of date.
 
 NUnit traps text output directed to the Console, Trace or a logging subsystem. This makes it difficult to use text
 output when debugging the framework itself, particularly when working on the classes that redirect output. For that
@@ -44,7 +45,8 @@ absolute or relative path may be used as an argument. Relative paths are interpr
 assembly being tested. A programmer working on NUnit may call this method at any point in the code.
 **InternalTrace.Close()** is also provided.
 
-> [!NOTE] Since the path is saved as a static property, it must be specified separately within each AppDomain. Writing
+> [!NOTE]
+> Since the path is saved as a static property, it must be specified separately within each AppDomain. Writing
 > to the same file from two different AppDomains is not supported.
 
 ## Specifying Verbosity

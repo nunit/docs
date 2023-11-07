@@ -13,7 +13,8 @@ ClassicAssert.IsNotEmpty(IEnumerable collection, string message,
                   params object[] args);
 ```
 
-> [!NOTE] When used with an IEnumerable that is not also an ICollection, **ClassicAssert.IsEmpty** attempts to enumerate
+> [!NOTE]
+> When used with an IEnumerable that is not also an ICollection, **ClassicAssert.IsEmpty** attempts to enumerate
 > the contents. It should not be used in cases where this results in an unwanted side effect.
 
 ## See Also

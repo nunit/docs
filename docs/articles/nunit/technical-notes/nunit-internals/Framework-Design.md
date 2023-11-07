@@ -1,6 +1,7 @@
 # Framework Design
 
-> [!WARNING] This is a draft. The contents may be out of date.
+> [!WARNING]
+> This is a draft. The contents may be out of date.
 
 NUnit 3.0 is intentionally changing certain design decisions made in earlier versions. We document those changes here so
 that developers may find them all in one place.

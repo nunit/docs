@@ -246,7 +246,8 @@ For pre-release versions, a non-empty modifier is specified. This is a suffix ad
 suffixes are currently `-alpha-n`, `-beta-n` and `-rc-n` The build script adds an additional suffix of -dbg to any
 packages created using a Debug build.
 
-> [!NOTE] The first alpha, beta or rc release may omit the `-n`. In that case, any following alpha, beta or rc should
+> [!NOTE]
+> The first alpha, beta or rc release may omit the `-n`. In that case, any following alpha, beta or rc should
 > use `-2`.
 
 ### Create a PR to Merge to Master

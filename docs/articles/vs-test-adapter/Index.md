@@ -16,7 +16,8 @@ frameworks like NUnit.
 
 The adapter is delivered as a nuget package to be installed into all test projects.  
 
-> [!NOTE] Up to version 3.17 there is also a VSIX extension version, which was used earlier for Visual Studio up to
+> [!NOTE]
+> Up to version 3.17 there is also a VSIX extension version, which was used earlier for Visual Studio up to
 > version 2019. The support for this has been deprecated, and the existing VSIX version does not work for VS 2022. The
 > recommendation is to avoid this altogether and use the nuget version. It is not possible to run NUnit 2.x tests using
 > this adapter. Use the original adapter for that purpose. If you need to work with projects using NUnit 2.x and other

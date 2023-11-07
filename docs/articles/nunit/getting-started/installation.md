@@ -16,7 +16,8 @@ This will add a new project to your solution, containing a single test class and
 will have the necessary references to NUnit, the NUnit Test Adapter, the NUnit Analyzer, Microsoft Test SDK and the
 coverlet code coverage package.
 
-> [!NOTE] Be aware that the templates behind this may be out of date, so always go to the `Manage NuGet Packages` dialog
+> [!NOTE]
+> Be aware that the templates behind this may be out of date, so always go to the `Manage NuGet Packages` dialog
 > and update to the latest version of all packages there.
 
 ## I'm using Visual Studio Code as my development tool
@@ -150,7 +151,8 @@ GitHub Actions build agents) - and you're using Visual Studio 2012 or later, use
 
 See [the Visual Studio Test Adapter](xref:vstestadapterinstallation) for details.
 
-> [!NOTE] If you have used any of the above 4 approaches, you already have this package installed, and it will work on
+> [!NOTE]
+> If you have used any of the above 4 approaches, you already have this package installed, and it will work on
 > any CI build system.
 
 ### Using NuGet NUnitLite Package

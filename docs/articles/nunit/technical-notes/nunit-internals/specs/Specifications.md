@@ -4,7 +4,8 @@ uid: specifications
 
 # Specifications
 
-> [!NOTE] Some of these items are actually implemented in the latest release. We are in the process of reviewing all the
+> [!NOTE]
+> Some of these items are actually implemented in the latest release. We are in the process of reviewing all the
 > specs in this section to determine what needs to be converted into actual documentation pages.
 
 Specifications are descriptions of work we are doing or plan to do. They may vary in degree of specificity and the

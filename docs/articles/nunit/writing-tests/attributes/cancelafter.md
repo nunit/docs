@@ -56,6 +56,7 @@ public async Task PotentiallyLongRunningTest(string uri, CancellationToken token
 }
 ```
 
-> [!NOTE] When debugging a unit test, i.e. when a debugger is attached to the process, the timeout is not enforced.
+> [!NOTE]
+> When debugging a unit test, i.e. when a debugger is attached to the process, the timeout is not enforced.
 
 ## See Also

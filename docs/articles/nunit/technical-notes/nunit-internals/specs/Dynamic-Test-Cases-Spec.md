@@ -1,6 +1,7 @@
 # Dynamic Test Cases Spec
 
-> [!WARNING] This is a draft. The contents may be out of date.
+> [!WARNING]
+> This is a draft. The contents may be out of date.
 
 This specification describes changes in how test cases will be generated in NUnit 3.0
 
@@ -21,7 +22,8 @@ want our tests to reflect those changes, which is only possible using the dynami
 For all these reasons - and because users have requested it - we are introducing the notion of "dynamically generated"
 test cases in NUnit 3.0. Some existing attributes will be re-purposed and new attributes created to support it.
 
-> [!NOTE] Dynamic test case generation is also required for the proper implementation of **Theories**, which will be
+> [!NOTE]
+> Dynamic test case generation is also required for the proper implementation of **Theories**, which will be
 > described in a separate specification.
 
 ## Design

@@ -16,7 +16,8 @@ We can specify the test and its data using one of the forms of **TestCaseSourceA
 
 ### Form 1 - `[TestCaseSource(string sourceName)]`
 
-> [!NOTE] We use [the `nameof` operator](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/nameof)
+> [!NOTE]
+> We use [the `nameof` operator](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/nameof)
 > to avoid introducing [magic strings](https://wikipedia.org/wiki/Magic_string) into code, which offers better
 > resilience when refactoring. While `nameof` is recommended, you could also use the string "DivideCases" to achieve the
 > same outcome.

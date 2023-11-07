@@ -1,6 +1,7 @@
 # Include And Exclude Attributes Spec
 
-> [!WARNING] This is a draft. The contents may be out of date.
+> [!WARNING]
+> This is a draft. The contents may be out of date.
 
 This spec describes proposed new attributes to replace and extend the existing CultureAttribute and PlatformAttribute.
 We considered several alternative approaches to doing this and selected the approach described here. See [Include and
@@ -47,7 +48,8 @@ above does this. If the expression language included **not**, then we could do a
 
 ## Comparison of Options
 
-> [!NOTE] The following are Charlie's ratings. Feel free to disagree!
+> [!NOTE]
+> The following are Charlie's ratings. Feel free to disagree!
 
 ### Ease of implementation (easy to hard)
 

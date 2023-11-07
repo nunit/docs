@@ -14,7 +14,8 @@ message or - in the case of `Assert.Multiple` - messages.
 All of the overloads above also have a variant that accepts a function, `Func<string>`, that is used to build the
 message included with the Exception.
 
-> [!NOTE] The framework reports warnings by including information about them in the XML result that is sent to the
+> [!NOTE]
+> The framework reports warnings by including information about them in the XML result that is sent to the
 > runner in use. If you are using this facility, make sure the runner you use supports warnings. Generally, the runners
 > released by the NUnit team after the release of the 3.6 framework will have this support. Earlier releases will not.
 > Many third party runners will not know what to do with warnings either.

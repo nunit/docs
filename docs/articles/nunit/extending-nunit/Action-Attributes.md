@@ -4,7 +4,8 @@ uid: actionattributes
 
 # Action Attributes
 
-> [!NOTE] `Action Attributes` are a feature of NUnit V2, designed to better enable composability of test logic. They are
+> [!NOTE]
+> `Action Attributes` are a feature of NUnit V2, designed to better enable composability of test logic. They are
 > carried over to NUnit 3, but are not the recommended approach for most new work. Instead, for most problems of
 > extensibility, NUnit 3 [Custom Attributes](Custom-Attributes.md)  are a better approach and are more likely to be
 > supported in future releases. However, at this time, `Action Attributes` provide the only approach that allows placing

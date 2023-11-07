@@ -5,7 +5,8 @@ or fixtures may be identified as belonging to a particular category. Some runner
 specifying categories to be included in or excluded from the run. When categories are used, only the tests in the
 selected categories will be run. Those tests in categories that are not selected are not reported at all.
 
-> [!WARNING] While the C# syntax allows you to place a Category attribute on a SetUpFixture class, the attribute is
+> [!WARNING]
+> While the C# syntax allows you to place a Category attribute on a SetUpFixture class, the attribute is
 > ignored by NUnit and has no effect in current releases.
 
 ## Test Fixture Syntax

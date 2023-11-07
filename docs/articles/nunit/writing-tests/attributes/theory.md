@@ -31,7 +31,8 @@ guarantee that a specific test case is included.
 For **boolean** and **enum** arguments, NUnit can supply the data without any action by the user. All possible values
 are supplied to the argument. This feature is disabled if the user supplies any values for the argument.
 
-> [!NOTE] Because NUnit searches for datapoints based on the type of the argument, generic methods may not currently be
+> [!NOTE]
+> Because NUnit searches for datapoints based on the type of the argument, generic methods may not currently be
 > used as theories. This limitation may be removed in a future release. See below for a workaround using a generic
 > fixture.
 

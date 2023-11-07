@@ -42,7 +42,8 @@ it appears and any subordinate tests. The following values are available for use
 * `ParallelScope.Fixtures` indicates that test fixtures that are the descendants of the test may be run in parallel with
   one another.`
 
-> [!NOTE] Additional values of the enumerator are used internally. They do not show up in the Intellisense and are not
+> [!NOTE]
+> Additional values of the enumerator are used internally. They do not show up in the Intellisense and are not
 > documented here. The value `ParallelScope.None`, which was used before the creation of the
 > `NonParallelizableAttribute` is still accepted for the purpose of backward compatibility.
 

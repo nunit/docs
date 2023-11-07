@@ -21,5 +21,6 @@ Assert.That(string.Empty, Is.Empty);
 Assert.That("A String", Is.Not.Empty);
 ```
 
-> [!NOTE] `Is.Empty` actually creates an `EmptyConstraint`. Subsequently applying it to a `string` causes an
+> [!NOTE]
+> `Is.Empty` actually creates an `EmptyConstraint`. Subsequently applying it to a `string` causes an
 > `EmptyStringConstraint` to be created.

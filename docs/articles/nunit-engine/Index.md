@@ -8,7 +8,8 @@ The NUnit Engine is the component used as the foundation of any test runner. It 
 tests built against both NUnit 3.X and other frameworks, and exposes an API allowing test runners to interact with the
 engine and run tests as required.
 
-> [!NOTE] The NUnit Engine is a component targeted at advanced users of NUnit, who are building their own test runner,
+> [!NOTE]
+> The NUnit Engine is a component targeted at advanced users of NUnit, who are building their own test runner,
 > rather than using one of the many existing test runners in the ecosystem. If you are looking to simply run tests that
 > you have written, see the [running tests](xref:runningtests) section.
 

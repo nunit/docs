@@ -4,7 +4,8 @@ uid: xmlformats
 
 # XML Formats
 
-> [!WARNING] This is a draft. The contents may be out of date.
+> [!WARNING]
+> This is a draft. The contents may be out of date.
 
 Use of XML in NUnit 2.x is somewhat limited and is only used in external files. NUnit 3.0 uses XML in several of its
 interfaces for communicating between its three architectural layers.
