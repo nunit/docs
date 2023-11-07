@@ -1,17 +1,14 @@
 # Platform
 
-The Platform attribute is used to specify platforms for which a test or fixture
-should be run. Platforms are specified using case-insensitive string values
-and may be either included or excluded from the run by use of the Include or
-Exclude properties respectively. Platforms to be included may alternatively
-be specified as an argument to the PlatformAttribute constructor. In either
-case, multiple comma-separated values may be specified.
+The Platform attribute is used to specify platforms for which a test or fixture should be run. Platforms are specified
+using case-insensitive string values and may be either included or excluded from the run by use of the Include or
+Exclude properties respectively. Platforms to be included may alternatively be specified as an argument to the
+PlatformAttribute constructor. In either case, multiple comma-separated values may be specified.
 
-If a test or fixture with the Platform attribute does not satisfy the specified
-platform requirements it is skipped. The test does not affect the outcome of
-the run at all: it is not considered as ignored and is not even counted in
-the total number of tests. _[Ed.: Check this.]_ In the gui, the tree node for the test remains
-gray and the status bar color is not affected.
+If a test or fixture with the Platform attribute does not satisfy the specified platform requirements it is skipped. The
+test does not affect the outcome of the run at all: it is not considered as ignored and is not even counted in the total
+number of tests. _[Ed.: Check this.]_ In the gui, the tree node for the test remains gray and the status bar color is
+not affected.
 
 ## Test Fixture Syntax
 
@@ -50,8 +47,7 @@ namespace NUnit.Tests
 
 ## Platform Specifiers
 
-The following values are recognized as platform specifiers.
-They may be expressed in upper, lower or mixed case.
+The following values are recognized as platform specifiers. They may be expressed in upper, lower or mixed case.
 
 ### Operating System
 
@@ -86,7 +82,9 @@ They may be expressed in upper, lower or mixed case.
 * MacOsX
 * XBox
 
-A list of supported platform identifiers can also be obtained from the constant string `PlatformHelper.OSPlatforms` of the NUnit assembly you use. Note that this is for informational purposes only, because the `PlatformHelper` is considered an internal type and shall not be used in production.
+A list of supported platform identifiers can also be obtained from the constant string `PlatformHelper.OSPlatforms` of
+the NUnit assembly you use. Note that this is for informational purposes only, because the `PlatformHelper` is
+considered an internal type and shall not be used in production.
 
 ### Architecture
 

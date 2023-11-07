@@ -32,7 +32,8 @@ public void NUnit1006SampleTest(int inputValue)
 
 ### Explanation
 
-An `ExpectedResult` was defined, but the return type of the method in our sample is of type `void`, meaning it does not return a result.
+An `ExpectedResult` was defined, but the return type of the method in our sample is of type `void`, meaning it does not
+return a result.
 
 ### Fix
 
@@ -61,7 +62,8 @@ public string NUnit1006SampleTest(int inputValue)
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 
