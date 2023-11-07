@@ -47,9 +47,9 @@ The `ExtensionAttribute` has four named properties, all optional:
   property if your extension will not work with all versions of the engine. If you don't use it and your extension
   requires engine services that are not present, then it might throw an exception or cause other errors.
 
-    > [!NOTE]
+> [!NOTE]
 > Only engine versions 3.4 or later check the `EngineVersion` property. The only way to avoid errors in the
-    > case of lower engine versions is to not install such extensions.
+> case of lower engine versions is to not install such extensions.
 
 ## ExtensionPropertyAttribute
 
