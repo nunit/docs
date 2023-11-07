@@ -29,8 +29,8 @@ public void MyTest(
 For this test, NUnit currently calls the method six times, producing the following output:
 
 ```none
-a + y
 a - x
+a + y
 b - y
 b + x
 c - x
