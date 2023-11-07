@@ -13,6 +13,7 @@
         "Dogfood",
         "DWORD",
         "Enumerables",
+        "frameworkteam",
         "Guid",
         "Guids",
         "Hashtable",
@@ -35,6 +36,8 @@
         "Pluggable",
         "prefilter",
         "Randomizer",
+        "Refactorings",
+        "reimplementation",
         "Remoting",
         "ReSharper",
         "ruleset",
@@ -149,54 +152,57 @@
         "Ihor",
         "Sychevskyi",
         "Cropp",
-        "Maddock"
+        "Maddock",
+        "Frans",
+        "Bouma",
+        "yowko"
     ],
     "patterns": [
         {
-          "name": "Markdown links",
-          "pattern": "\\((.*)\\)",
-          "description": ""
+            "name": "Markdown links",
+            "pattern": "\\((.*)\\)",
+            "description": ""
         },
         {
-          "name": "Markdown code blocks",
-          "pattern": "/^(\\s*`{3,}).*[\\s\\S]*?^\\1/gmx",
-          "description": "Taken from the cSpell example at https://cspell.org/configuration/patterns/#verbose-regular-expressions"
+            "name": "Markdown code blocks",
+            "pattern": "/^(\\s*`{3,}).*[\\s\\S]*?^\\1/gmx",
+            "description": "Taken from the cSpell example at https://cspell.org/configuration/patterns/#verbose-regular-expressions"
         },
         {
-          "name": "Inline code blocks",
-          "pattern": "\\`([^\\`\\r\\n]+?)\\`",
-          "description": "https://stackoverflow.com/questions/41274241/how-to-capture-inline-markdown-code-but-not-a-markdown-code-fence-with-regex"
+            "name": "Inline code blocks",
+            "pattern": "\\`([^\\`\\r\\n]+?)\\`",
+            "description": "https://stackoverflow.com/questions/41274241/how-to-capture-inline-markdown-code-but-not-a-markdown-code-fence-with-regex"
         },
         {
-          "name": "Link contents",
-          "pattern": "\\<a(.*)\\>",
-          "description": ""
+            "name": "Link contents",
+            "pattern": "\\<a(.*)\\>",
+            "description": ""
         },
         {
-          "name": "Snippet references",
-          "pattern": "-- snippet:(.*)",
-          "description": ""
+            "name": "Snippet references",
+            "pattern": "-- snippet:(.*)",
+            "description": ""
         },
         {
-          "name": "Snippet references 2",
-          "pattern": "\\<\\[sample:(.*)",
-          "description": "another kind of snippet reference"
+            "name": "Snippet references 2",
+            "pattern": "\\<\\[sample:(.*)",
+            "description": "another kind of snippet reference"
         },
         {
-          "name": "Multi-line code blocks",
-          "pattern": "/^\\s*```[\\s\\S]*?^\\s*```/gm"
+            "name": "Multi-line code blocks",
+            "pattern": "/^\\s*```[\\s\\S]*?^\\s*```/gm"
         },
         {
-          "name": "HTML Tags",
-          "pattern": "<[^>]*>",
-          "description": "Reference: https://stackoverflow.com/questions/11229831/regular-expression-to-remove-html-tags-from-a-string"
+            "name": "HTML Tags",
+            "pattern": "<[^>]*>",
+            "description": "Reference: https://stackoverflow.com/questions/11229831/regular-expression-to-remove-html-tags-from-a-string"
         },
         {
             "name": "UID Lines",
             "pattern": "uid: (.*)"
         }
-      ],
-      "ignoreRegExpList": [
+    ],
+    "ignoreRegExpList": [
         "Markdown links",
         "Markdown code blocks",
         "Inline code blocks",
@@ -206,5 +212,10 @@
         "Multi-line code blocks",
         "HTML Tags",
         "UID Lines"
-      ]
+    ],
+    "ignorePaths": [
+        "**/articles/nunit-engine/release-notes.md",
+        "**/articles/nunit/release-notes/framework.md",
+        "**/articles/vs-test-adapter/AdapterV*-Release-Notes.md"
+    ]
 }

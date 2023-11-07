@@ -5,21 +5,21 @@ uid: pre35releasenotes
 # Pre 3.5 Release Notes
 
 > [!NOTE]
-> Combined Release Notes for the NUnit framework, console and engine, up to version 3.5. For later releases, see:
+> Combined Release Notes for the NUnit framework, console and engine, up to version 3.5. For later releases,
+> see:
 >
 > * [Framework Release Notes](framework.md)
 > * [Console Release Notes](xref:consoleenginereleasenotes)
 
 ## NUnit 3.5 -  October 3, 2016
 
-This is the last version of NUnit where the framework, console runner, engine and extensions are being
-released together. From this point forward, the NUnit Framework will be
-released on its own schedule that is not bound to that of any other NUnit project and version numbers
-may diverge over time.
+This is the last version of NUnit where the framework, console runner, engine and extensions are being released
+together. From this point forward, the NUnit Framework will be released on its own schedule that is not bound to that of
+any other NUnit project and version numbers may diverge over time.
 
-This is also the first release where the NUnit Framework will not be included in the installer. Only
-the console runner, engine and extensions will be available as an MSI installer. We recommend that you
-use the NUnit NuGet packages for the framework, but a ZIP file with the binaries will also be available.
+This is also the first release where the NUnit Framework will not be included in the installer. Only the console runner,
+engine and extensions will be available as an MSI installer. We recommend that you use the NUnit NuGet packages for the
+framework, but a ZIP file with the binaries will also be available.
 
 ### Framework
 
@@ -63,8 +63,7 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 ### Console Runner
 
-* A new option, --list-extensions, will display all the engine extensions that
-   have been installed by the engine.
+* A new option, --list-extensions, will display all the engine extensions that have been installed by the engine.
 
 ### Issues Resolved
 
@@ -78,10 +77,10 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 ### Framework
 
 * Improvements in comparing equality using `IEquatable<T>`
-* Test case names will only be truncated if the runner requests it or it is overridden on the command line
-   with the --test-name-format option
-* The .NET 2.0 version of the framework now includes LINQ. If your tests target .NET 2.0, you can now use
-   LINQ queries in your tests
+* Test case names will only be truncated if the runner requests it or it is overridden on the command line with the
+   --test-name-format option
+* The .NET 2.0 version of the framework now includes LINQ. If your tests target .NET 2.0, you can now use LINQ queries
+   in your tests
 
 ### Engine
 
@@ -92,10 +91,9 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 ### Console Runner
 
-* There is a new --params command line option that allows you to pass parameters to your tests
-   which can be retrieved using TestContext.Parameters
-* Another new command line option `--loaduserprofile` causes the User Profile to be loaded into the
-   NUnit Agent process.
+* There is a new --params command line option that allows you to pass parameters to your tests which can be retrieved
+   using TestContext.Parameters
+* Another new command line option `--loaduserprofile` causes the User Profile to be loaded into the NUnit Agent process.
 
 #### Issues Resolved
 
@@ -244,7 +242,8 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 1171 A bug when using Assert.That() with Is.Not.Empty
 * 1185 Engine finds .NET 4.0 Client Profile twice
 * 1187 ITestAssemblyRunner.StopRun as implemented by NUnitTestAssemblyRunner
-* 1195 name attribute in test-suite and test-results element of output xml is different to nunit 2.6.4 using nunit2-format
+* 1195 name attribute in test-suite and test-results element of output xml is different to nunit 2.6.4 using
+  nunit2-format
 * 1196 Custom value formatter for v3 via MsgUtils
 * 1210 Available runtimes issues
 * 1230 Add ability for `testcasedatasource` to have parameters passed to methods
@@ -266,7 +265,8 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 ### Console Runner
 
 * The NUnit.Runners NuGet package was updated to become a meta-package that pulls in the NUnit.Console package
-* Reinstated the --pause command line option that will display a message box allowing you to attach a debugger if the --debug option does not work
+* Reinstated the --pause command line option that will display a message box allowing you to attach a debugger if the
+  --debug option does not work
 
 ### Issues Resolved
 
@@ -286,7 +286,8 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 1055 nunit3 console runner --where option does not return error on invalid selection string
 * 1060 Remove "Version 3" from NUnit Nuget Package
 * 1061 Nunit30Settings.xml becomes corrupted
-* 1062 Console.WriteLine statements in "OneTimeSetUp" and "OneTimeTearDown" annotated methods are not directed to the console when using nunit3-console.exe runner
+* 1062 Console.WriteLine statements in "OneTimeSetUp" and "OneTimeTearDown" annotated methods are not directed to the
+  console when using nunit3-console.exe runner
 * 1063 Error in Random Test
 
 ## NUnit 3.0.0 Final Release (3.0.5797) - November 15, 2015
@@ -299,10 +300,12 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 ### Engine
 
-* The engine now only sets the config file for project.nunit to project.config if project.config exists. Otherwise, each assembly uses its own config, provided it is run in a separate AppDomain by itself.
+* The engine now only sets the config file for project.nunit to project.config if project.config exists. Otherwise, each
+  assembly uses its own config, provided it is run in a separate AppDomain by itself.
 
 > [!NOTE]
-> It is not possible for multiple assemblies in the same AppDomain to use different configs. This is not an NUnit limitation, it's just how configs work!
+> It is not possible for multiple assemblies in the same AppDomain to use different configs. This is not an
+> NUnit limitation, it's just how configs work!
 
 ### Issues Resolved
 
@@ -337,7 +340,8 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * The portable build now supports ASP.NET 5 and the new Core CLR.
 
 > [!NOTE]
-> The `nunit3-console` runner cannot run tests that reference the portable build. You may run such tests using NUnitLite or a platform-specific runner.
+> The `nunit3-console` runner cannot run tests that reference the portable build. You may run such tests using
+> NUnitLite or a platform-specific runner.
 
 * `TestCaseAttribute` and `TestCaseData` now allow modifying the test name without replacing it entirely.
 * The SilverLight packages for are now separate downloads.
@@ -391,20 +395,27 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 ### Framework
 
 * Parameterized test cases now support nullable arguments.
-* The NUnit framework may now be built for the .NET Core framework. Note that this is only available through building the source code. A binary will be available in the next release.
+* The NUnit framework may now be built for the .NET Core framework. Note that this is only available through building
+  the source code. A binary will be available in the next release.
 
 ### Engine
 
 * The engine now runs multiple test assemblies in parallel by default
-* The output XML now includes more information about the test run, including the text of the command used, any engine settings and the filter used to select tests.
-* Extensions may now specify data in an identifying attribute, for use by the engine in deciding whether to load that extension.
+* The output XML now includes more information about the test run, including the text of the command used, any engine
+  settings and the filter used to select tests.
+* Extensions may now specify data in an identifying attribute, for use by the engine in deciding whether to load that
+  extension.
 
 ### Console Runner
 
 * The console now displays all settings used by the engine to run tests as well as the filter used to select tests.
-* The console runner accepts a new option `--maxagents`. If multiple assemblies are run in separate processes, this value may be used to limit the number that are executed simultaneously in parallel.
-* The console runner no longer accepts the --include and --exclude options. Instead, the new --where option provides a more general way to express which tests will be executed, such as --where "cat==Fast && Priority==High". See the docs for details of the syntax.
-* The new --debug option causes NUnit to break in the debugger immediately before tests are run. This simplifies debugging, especially when the test is run in a separate process.
+* The console runner accepts a new option `--maxagents`. If multiple assemblies are run in separate processes, this
+  value may be used to limit the number that are executed simultaneously in parallel.
+* The console runner no longer accepts the --include and --exclude options. Instead, the new --where option provides a
+  more general way to express which tests will be executed, such as --where "cat==Fast && Priority==High". See the docs
+  for details of the syntax.
+* The new --debug option causes NUnit to break in the debugger immediately before tests are run. This simplifies
+  debugging, especially when the test is run in a separate process.
 
 ### Issues Resolved
 
@@ -418,7 +429,8 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * 669 TeamCity service message should have assembly name as a part of test name.
 * 689 The TeamCity service message "testFinished" should have an integer value in the "duration" attribute
 * 713 Include command information in XML
-* 719 We have no way to configure tests for several assemblies using NUnit project file and the common installation from msi file
+* 719 We have no way to configure tests for several assemblies using NUnit project file and the common installation from
+  msi file
 * 735 Workers number in xml report file cannot be found
 * 784 Build Portable Framework on Linux
 * 790 Allow Extensions to provide data through an attribute
@@ -493,24 +505,24 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 ### Framework
 
 * The RangeAttribute has been extended to support more data types including uint, long and ulong
-* Added platform support for Windows 10 and fixed issues with Windows 8 and
-   8.1 support
+* Added platform support for Windows 10 and fixed issues with Windows 8 and 8.1 support
 * Added async support to the portable version of NUnit Framework
-* The named members of the TestCaseSource and ValueSource attributes must now be
-   static.
-* RandomAttribute has been extended to add support for new data types including uint, long, ulong, short, ushort, float, byte and sbyte
-* TestContext.Random has also been extended to add support for new data types including uint, long, ulong, short, ushort, float, byte, sbyte and decimal
-* Removed the dependency on Microsoft.Bcl.Async from the NUnit Framework assembly
-   targeting .NET 4.0. If you want to write async tests in .NET 4.0, you will need
-   to reference the NuGet package yourself.
-* Added a new TestFixtureSource attribute which is the equivalent to TestCaseSource
-   but provides for instantiation of fixtures.
-* Significant improvements have been made in how NUnit deduces the type arguments of generic methods based on the arguments provided.
+* The named members of the TestCaseSource and ValueSource attributes must now be static.
+* RandomAttribute has been extended to add support for new data types including uint, long, ulong, short, ushort, float,
+  byte and sbyte
+* TestContext.Random has also been extended to add support for new data types including uint, long, ulong, short,
+  ushort, float, byte, sbyte and decimal
+* Removed the dependency on Microsoft.Bcl.Async from the NUnit Framework assembly targeting .NET 4.0. If you want to
+   write async tests in .NET 4.0, you will need to reference the NuGet package yourself.
+* Added a new TestFixtureSource attribute which is the equivalent to TestCaseSource but provides for instantiation of
+   fixtures.
+* Significant improvements have been made in how NUnit deduces the type arguments of generic methods based on the
+  arguments provided.
 
 ### Engine
 
-* If the target framework is not specified, test assemblies that are compiled
-   to target .NET 4.5 will no longer run in .NET 4.0 compatibility mode
+* If the target framework is not specified, test assemblies that are compiled to target .NET 4.5 will no longer run in
+   .NET 4.0 compatibility mode
 
 ### Console
 
@@ -550,19 +562,19 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 ### Framework
 
-* The Compact Framework version of the framework is now packaged separately
-   and will be distributed as a ZIP file and as a NuGet package.
+* The Compact Framework version of the framework is now packaged separately and will be distributed as a ZIP file and as
+   a NuGet package.
 * The NUnit 2.x RepeatAttribute was added back into the framework.
 * Added Throws.ArgumentNullException
 * Added GetString methods to NUnit.Framework.Internal.RandomGenerator to create repeatable random strings for testing
 * When checking the equality of DateTimeOffset, you can now use the WithSameOffset modifier
-* Some classes intended for internal usage that were public for testing
-   have now been made internal. Additional classes will be made internal
-   for the final 3.0 release.
+* Some classes intended for internal usage that were public for testing have now been made internal. Additional classes
+   will be made internal for the final 3.0 release.
 
 ### Engine
 
-* Added a core engine which is a non-extensible, minimal engine for use by devices and similar situations where reduced functionality is compensated for by reduced size and simplicity of usage.
+* Added a core engine which is a non-extensible, minimal engine for use by devices and similar situations where reduced
+  functionality is compensated for by reduced size and simplicity of usage.
 
 ### Issues Resolved
 
@@ -613,8 +625,10 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 ### Framework
 
-* We no longer create a separate framework build for .NET 3.5. The 2.0 and 3.5 builds were essentially the same, so the former should now be used under both runtimes.
-* A new Constraint, **DictionaryContainsKeyConstraint**, may be used to test that a specified key is present in a dictionary.
+* We no longer create a separate framework build for .NET 3.5. The 2.0 and 3.5 builds were essentially the same, so the
+  former should now be used under both runtimes.
+* A new Constraint, **DictionaryContainsKeyConstraint**, may be used to test that a specified key is present in a
+  dictionary.
 * **LevelOfParallelizationAttribute** has been renamed to **LevelOfParallelismAttribute**.
 * The SilverLight runner now displays output in color and includes any text output created by the tests.
 * The class and method names of each test are included in the output xml where applicable.
@@ -622,8 +636,12 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 ### Engine
 
-* The engine API has now been finalized. It permits specifying a minimum version of the engine that a runner is able to use. The best installed version of the engine will be loaded. Third-party runners may override the selection process by including a copy of the engine in their installation directory and specifying that it must be used.
-* The V2 framework driver now uses the event listener and test listener passed to it by the runner. This corrects several outstanding issues  caused by events not being received and allows selecting V2 tests to  be run from the command-line, in the same way that V3 tests are selected.
+* The engine API has now been finalized. It permits specifying a minimum version of the engine that a runner is able to
+  use. The best installed version of the engine will be loaded. Third-party runners may override the selection process
+  by including a copy of the engine in their installation directory and specifying that it must be used.
+* The V2 framework driver now uses the event listener and test listener passed to it by the runner. This corrects
+  several outstanding issues  caused by events not being received and allows selecting V2 tests to  be run from the
+  command-line, in the same way that V3 tests are selected.
 
 ### Console
 
@@ -664,14 +682,17 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 ### Framework
 
-* TestCaseAttribute now allows arguments with default values to be omitted. Additionally, it accepts IncludePlatform and ExcludePlatform properties to specify the platforms on which the test case should be run.
-* TestFixture and TestCase attributes now enforce the requirement that a reason needs to be provided when ignoring a test.
+* TestCaseAttribute now allows arguments with default values to be omitted. Additionally, it accepts IncludePlatform and
+  ExcludePlatform properties to specify the platforms on which the test case should be run.
+* TestFixture and TestCase attributes now enforce the requirement that a reason needs to be provided when ignoring a
+  test.
 * SetUp, TearDown, OneTimeSetUp and OneTimeTearDown methods may now be async.
 * String arguments over 20 characters in length are truncated when used as part of a test name.
 
 ### Engine
 
-* The engine is now extensible using Mono.Addins. In this release, extension points are provided for FrameworkDrivers, ProjectLoaders and OutputWriters. The following addins are bundled as a part of NUnit:
+* The engine is now extensible using Mono.Addins. In this release, extension points are provided for FrameworkDrivers,
+  ProjectLoaders and OutputWriters. The following addins are bundled as a part of NUnit:
   * A FrameworkDriver that allows running NUnit V2 tests under NUnit 3.0.
   * ProjectLoaders for NUnit and Visual Studio projects.
   * An OutputWriter that creates XML output in NUnit V2 format.
@@ -723,8 +744,8 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
   * Visual Studio solutions (.sln)
   * Legacy C++ and Visual JScript projects (.csproj and .vjsproj) are also supported
   * Support for the current C++ format (.csxproj) is not yet available
-* Creation of output files like TestResult.xml in various formats is now a
-   service of the engine, available to any runner.
+* Creation of output files like TestResult.xml in various formats is now a service of the engine, available to any
+   runner.
 
 ### Console
 
@@ -761,11 +782,11 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 ### Framework
 
-* The NUnit and NUnitLite frameworks have now been merged. There is no longer any distinction
-   between them in terms of features, although some features are not available on all platforms.
-* The release includes two new framework builds: compact framework 3.5 and portable. The portable
-   library is compatible with .NET 4.5, SilverLight 5.0, Windows 8, Windows Phone 8.1,
-   Windows Phone SilverLight 8, Mono for Android and MonoTouch.
+* The NUnit and NUnitLite frameworks have now been merged. There is no longer any distinction between them in terms of
+   features, although some features are not available on all platforms.
+* The release includes two new framework builds: compact framework 3.5 and portable. The portable library is compatible
+   with .NET 4.5, SilverLight 5.0, Windows 8, Windows Phone 8.1, Windows Phone SilverLight 8, Mono for Android and
+   MonoTouch.
 * A number of previously unsupported features are available for the Compact Framework:
   * Generic methods as tests
   * RegexConstraint
@@ -774,17 +795,17 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 ### Engine
 
-* The logic of runtime selection has now changed so that each assembly runs by default
-   in a separate process using the runtime for which it was built.
-* On 64-bit systems, each test process is automatically created as 32-bit or 64-bit,
-   depending on the platform specified for the test assembly.
+* The logic of runtime selection has now changed so that each assembly runs by default in a separate process using the
+   runtime for which it was built.
+* On 64-bit systems, each test process is automatically created as 32-bit or 64-bit, depending on the platform specified
+   for the test assembly.
 
 ### Console
 
-* The console runner now runs tests in a separate process per assembly by default. They may
-   still be run in process or in a single separate process by use of command-line options.
-* The console runner now starts in the highest version of the .NET runtime available, making
-   it simpler to debug tests by specifying that they should run in-process on the command-line.
+* The console runner now runs tests in a separate process per assembly by default. They may still be run in process or
+   in a single separate process by use of command-line options.
+* The console runner now starts in the highest version of the .NET runtime available, making it simpler to debug tests
+   by specifying that they should run in-process on the command-line.
 * The -x86 command-line option is provided to force execution in a 32-bit process on a 64-bit system.
 * A writability check is performed for each output result file before trying to run the tests.
 * The -teamcity option is now supported.
@@ -826,7 +847,8 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 * The console runner no longer displays test results in the debugger.
 * The NUnitLite compact framework 2.0 build has been removed.
-* All addin support has been removed from the framework. Documentation of NUnit 3.0 extensibility features will be published in time for the beta release. In the interim, please ask for support on the nunit-discuss list.
+* All addin support has been removed from the framework. Documentation of NUnit 3.0 extensibility features will be
+  published in time for the beta release. In the interim, please ask for support on the nunit-discuss list.
 
 ### General
 
@@ -840,9 +862,12 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 * The NUnitLite report output has been standardized to match that of nunit-console.
 * The NUnitLite command-line has been standardized to match that of nunit-console where they share the same options.
 * Both nunit-console and NUnitLite now display output in color.
-* ActionAttributes now allow specification of multiple targets on the attribute as designed. This didn't work in the first alpha.
-* OneTimeSetUp and OneTimeTearDown failures are now shown on the test report. Individual test failures after OneTimeSetUp failure are no longer shown.
-* The console runner refuses to run tests build with older versions of NUnit. A plugin will be available to run older tests in the future.
+* ActionAttributes now allow specification of multiple targets on the attribute as designed. This didn't work in the
+  first alpha.
+* OneTimeSetUp and OneTimeTearDown failures are now shown on the test report. Individual test failures after
+  OneTimeSetUp failure are no longer shown.
+* The console runner refuses to run tests build with older versions of NUnit. A plugin will be available to run older
+  tests in the future.
 
 ### Issues Resolved
 
@@ -930,16 +955,20 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 ### Breaking Changes
 
 * NUnit no longer supports void async test methods. You should use a Task return Type instead.
-* The ExpectedExceptionAttribute is no longer supported. Use Assert.Throws() or Assert.That(..., Throws) instead for a more precise specification of where the exception is expected to be thrown.
+* The ExpectedExceptionAttribute is no longer supported. Use Assert.Throws() or Assert.That(..., Throws) instead for a
+  more precise specification of where the exception is expected to be thrown.
 
 ### New Features
 
-* Parallel test execution is supported down to the Fixture level. Use ParallelizableAttribute to indicate types that may be run in parallel.
+* Parallel test execution is supported down to the Fixture level. Use ParallelizableAttribute to indicate types that may
+  be run in parallel.
 * Async tests are supported for .NET 4.0 if the user has installed support for them.
 * A new FileExistsConstraint has been added along with FileAssert.Exists and FileAssert.DoesNotExist
 * ExpectedResult is now supported on simple (non-TestCase) tests.
-* The Ignore attribute now takes a named parameter Until, which allows specifying a date after which the test is no longer ignored.
-* The following new values are now recognized by PlatformAttribute: Win7, Win8, Win8.1, Win2012Server, Win2012ServerR2, NT6.1, NT6.2, 32-bit, 64-bit
+* The Ignore attribute now takes a named parameter Until, which allows specifying a date after which the test is no
+  longer ignored.
+* The following new values are now recognized by PlatformAttribute: Win7, Win8, Win8.1, Win2012Server, Win2012ServerR2,
+  NT6.1, NT6.2, 32-bit, 64-bit
 * TimeoutAttribute is now supported under SilverLight
 * ValuesAttribute may be used without any values on an enum or boolean argument. All possible values are used.
 * You may now specify a tolerance using Within when testing equality of DateTimeOffset values.
@@ -986,7 +1015,8 @@ use the NUnit NuGet packages for the framework, but a ZIP file with the binaries
 
 * Separate projects for nunit-console and nunit.engine
 * New builds for .NET 4.5 and SilverLight
-* TestContext is now supported and includes an additional property, **Random**, which may be used to generate repeatable random values for use in a test.
+* TestContext is now supported and includes an additional property, **Random**, which may be used to generate repeatable
+  random values for use in a test.
 * The external framework API is now stable; internal interfaces are separate from API
 * Tests may be run in parallel on separate threads
 * Solutions and projects now use VS2012 (except for Compact framework)

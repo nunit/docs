@@ -4,24 +4,31 @@ uid: testengineapi
 
 # Test Engine API
 
-The NUnit Test Engine API is our published API for discovering, exploring and executing tests programmatically. Third-party test runners should use the Engine API as the supported method to execute NUnit tests.
+The NUnit Test Engine API is our published API for discovering, exploring and executing tests programmatically.
+Third-party test runners should use the Engine API as the supported method to execute NUnit tests.
 
 ## Overview
 
-The static class [TestEngineActivator](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/TestEngineActivator.cs) is used to get an interface to the engine. Its `CreateInstance` member has two overloads, depending on whether a particular minimum version of the engine is required.
+The static class
+[TestEngineActivator](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/TestEngineActivator.cs)
+is used to get an interface to the engine. Its `CreateInstance` member has two overloads, depending on whether a
+particular minimum version of the engine is required.
 
 ```csharp
 public static ITestEngine CreateInstance(bool unused = false);
 public static ITestEngine CreateInstance(Version minVersion, bool unused = false);
 ```
 
-(The `unused` bool parameter previously allowed users to indicate if wished to restrict usage of global NUnit Engine installations. The latter functionality is no longer available.)
+(The `unused` bool parameter previously allowed users to indicate if wished to restrict usage of global NUnit Engine
+installations. The latter functionality is no longer available.)
 
-The TestEngineActivator searches for an engine to load in two places. First, the current App Domain Base Directory is searched, and then any path set as the App Domain's `RelativeSearchPath`.
+The TestEngineActivator searches for an engine to load in two places. First, the current App Domain Base Directory is
+searched, and then any path set as the App Domain's `RelativeSearchPath`.
 
 ### Key Interfaces
 
-The runner deals with the engine through a set of interfaces. These are quite general because we hope to avoid many changes to this API.
+The runner deals with the engine through a set of interfaces. These are quite general because we hope to avoid many
+changes to this API.
 
 #### ITestEngine
 
@@ -86,9 +93,11 @@ engine.WorkDirectory = ...;         // Defaults to the current directory
 engine.InternalTraceLevel = ...;    // Defaults to off
 ```
 
-The engine provides a number of services, some internal and some public. Public services are those for which the interface is publicly defined in the nunit.engine.api assembly, listed later in this document.
+The engine provides a number of services, some internal and some public. Public services are those for which the
+interface is publicly defined in the nunit.engine.api assembly, listed later in this document.
 
-The final and probably most frequently used method on the interface is `GetRunner`. It takes a `TestPackage` and returns an `ITestRunner` that is appropriate for the options specified.
+The final and probably most frequently used method on the interface is `GetRunner`. It takes a `TestPackage` and returns
+an `ITestRunner` that is appropriate for the options specified.
 
 #### ITestRunner
 
@@ -172,15 +181,22 @@ namespace NUnit.Engine
 }
 ```
 
-For the most common use cases, it isn't necessary to call `Load`, `Unload` or `Reload`. Calling either `Explore`, `Run` or `RunAsync` will cause the tests to be loaded automatically.
+For the most common use cases, it isn't necessary to call `Load`, `Unload` or `Reload`. Calling either `Explore`, `Run`
+or `RunAsync` will cause the tests to be loaded automatically.
 
-The `Explore` methods returns an `XmlNode` containing the description of all tests found. The `Run` method returns an `XmlNode` containing the results of every test. The XML format for results is the same as that for the exploration of tests, with additional nodes added to indicate the outcome of the test. `RunAsync` returns an `ITestRun` interface, which allows retrieving the XML result when it is complete.
+The `Explore` methods returns an `XmlNode` containing the description of all tests found. The `Run` method returns an
+`XmlNode` containing the results of every test. The XML format for results is the same as that for the exploration of
+tests, with additional nodes added to indicate the outcome of the test. `RunAsync` returns an `ITestRun` interface,
+which allows retrieving the XML result when it is complete.
 
-The progress of a run is reported to the `ITestEventListener` passed to the run methods. Notifications received on this interface are strings in XML format, rather than XmlNodes, so that they may be passed directly across a Remoting interface.
+The progress of a run is reported to the `ITestEventListener` passed to the run methods. Notifications received on this
+interface are strings in XML format, rather than XmlNodes, so that they may be passed directly across a Remoting
+interface.
 
 #### Engine Services
 
-The engine `Services` property exposes the `IServiceLocator` interface, which allows the runner to use public services of the engine.
+The engine `Services` property exposes the `IServiceLocator` interface, which allows the runner to use public services
+of the engine.
 
 ```csharp
 namespace NUnit.Engine
@@ -217,7 +233,8 @@ The following services are available publicly.
 | TestFilterService  | [ITestFilterService](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/ITestFilterService.cs) | Creates properly formed test filters for use by runners |
 | LoggingService     | [ILogging](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/ILogging.cs) | Provides centralized internal trace logging for both the engine and runners (Not Yet Implemented) |
 
-The following services are used internally by the engine but are not currently exposed publicly. They potentially could be in the future:
+The following services are used internally by the engine but are not currently exposed publicly. They potentially could
+be in the future:
 
 | Service                  | Function  |
 |--------------------------|-----------|
@@ -230,4 +247,5 @@ The following services are used internally by the engine but are not currently e
 
 #### Extensibility Interfaces
 
-The API also contains various interfaces used by engine extensions. More information on these can be found in the [Engine Extensions](xref:engineextensionsindex) section.
+The API also contains various interfaces used by engine extensions. More information on these can be found in the
+[Engine Extensions](xref:engineextensionsindex) section.

@@ -1,11 +1,13 @@
 # Packaging the Installer
 
-Before packaging the installer, you must first package and release the Console and Engine. See [Packaging the Console and Engine](Packaging-the-Console-and-Engine.md)
+Before packaging the installer, you must first package and release the Console and Engine. See [Packaging the Console
+and Engine](Packaging-the-Console-and-Engine.md)
 
 ## Prepare the Release
 
 1. Get latest from master
-1. Update CHANGES.TXT. Set the date of the release, and list any packages which have been upgraded since the last release.
+1. Update CHANGES.TXT. Set the date of the release, and list any packages which have been upgraded since the last
+   release.
 1. Check the `version` and `displayVersion` in `build.cake`. They should have been updated at the last release.
 1. Package the release, `.\build.ps1` or `.\build.cmd`
 1. Check the `distribution` directory for `NUnit.{VERSION}.msi` and `NUnit.{VERSION}.zip`
@@ -31,7 +33,8 @@ Before packaging the installer, you must first package and release the Console a
 
 ## Archiving the Release
 
-Packages are archived on nunit.org in the downloads directory. Add the MSI and ZIP to the existing downloads/nunit/v3 for the Console/Engine release.
+Packages are archived on nunit.org in the downloads directory. Add the MSI and ZIP to the existing downloads/nunit/v3
+for the Console/Engine release.
 
 ## Publishing the Release
 
@@ -54,4 +57,7 @@ Packages are archived on nunit.org in the downloads directory. Add the MSI and Z
 5. Close the milestone if one exists
 
 > [!NOTE]
-> The release branch in this project is not like the release branches in other projects, we don't save it. If we need to go back and do hotfixes, we will branch off the tag that was created for the release. We do this because there are usually no changes required to this repository for a release except incrementing the version post release. Any larger changes to this repository should be done and tested prior to a release using the normal Pull Request workflow
+> The release branch in this project is not like the release branches in other projects, we don't save it. If we
+> need to go back and do hotfixes, we will branch off the tag that was created for the release. We do this because there
+> are usually no changes required to this repository for a release except incrementing the version post release. Any
+> larger changes to this repository should be done and tested prior to a release using the normal Pull Request workflow

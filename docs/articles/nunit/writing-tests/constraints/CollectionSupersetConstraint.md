@@ -1,6 +1,7 @@
 # CollectionSuperset Constraint
 
-`CollectionSupersetConstraint` tests that one `IEnumerable` is a superset of another. If the actual value passed does not implement `IEnumerable`, an exception is thrown.
+`CollectionSupersetConstraint` tests that one `IEnumerable` is a superset of another. If the actual value passed does
+not implement `IEnumerable`, an exception is thrown.
 
 ## Constructor
 

@@ -1,6 +1,7 @@
 # SomeItems Constraint
 
-`SomeItemsConstraint` applies a constraint to each item in an `IEnumerable`, succeeding if at least one of them succeeds. An exception is thrown if the actual value passed does not implement `IEnumerable`.
+`SomeItemsConstraint` applies a constraint to each item in an `IEnumerable`, succeeding if at least one of them
+succeeds. An exception is thrown if the actual value passed does not implement `IEnumerable`.
 
 ## Constructor
 

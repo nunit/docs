@@ -6,15 +6,22 @@ uid: installingextensions
 
 Extensions are located by the engine by use of an `.addins` file.
 
-For certain package managers, default `.addins` have been created such that when both engine and extensions are installed from the same package manager, all extensions are installed automatically. Currently, this includes NuGet and Chocolatey.
+For certain package managers, default `.addins` have been created such that when both engine and extensions are
+installed from the same package manager, all extensions are installed automatically. Currently, this includes NuGet and
+Chocolatey.
 
-In other cases, the user may need to create a new `.addins` file, or edit an existing one. The behavior of the `.addins` file is covered below.
+In other cases, the user may need to create a new `.addins` file, or edit an existing one. The behavior of the `.addins`
+file is covered below.
 
 ## The .addins file
 
-`.addins` files are used to locate engine extensions. Either a single `.addins` file can be used to list all extensions and directories to be searched, or multiple files. `.addins` files can also be chained together -- allowing multiple levels of redirection.
+`.addins` files are used to locate engine extensions. Either a single `.addins` file can be used to list all extensions
+and directories to be searched, or multiple files. `.addins` files can also be chained together -- allowing multiple
+levels of redirection.
 
-Each line of the `.addins` file contains the path of an extension assembly or a directory containing assemblies. Wildcards may be used for assembly entries and relative paths are interpreted based on the location of the `.addins` file.
+Each line of the `.addins` file contains the path of an extension assembly or a directory containing assemblies.
+Wildcards may be used for assembly entries and relative paths are interpreted based on the location of the `.addins`
+file.
 
 The following is an example of a possible `.addins` file, with comments indicating what each line does:
 
@@ -29,6 +36,11 @@ special/myassembly.dll  # include a specific dll in a special directory
                         # in most cases
 ```
 
-Any assemblies specified in a `.addins` file will be scanned fully, looking for addins and extensions. Any directories specified will be browsed, first looking for any `.addins` files. If one or more files are found, the content of the files will direct all further browsing. If no such file is found, then all `.dll` files in the directory will be scanned, just as if a `.addins` file contained "*.dll."
+Any assemblies specified in a `.addins` file will be scanned fully, looking for addins and extensions. Any directories
+specified will be browsed, first looking for any `.addins` files. If one or more files are found, the content of the
+files will direct all further browsing. If no such file is found, then all `.dll` files in the directory will be
+scanned, just as if a `.addins` file contained "*.dll."
 
-Note that if a specific assembly is listed in the `.addins` file which is found not to be a valid extension, an exception will be thrown by the engine. This exception is suppressed in the cases of wildcard paths, where it is considered valid to find no extensions under the path.
+Note that if a specific assembly is listed in the `.addins` file which is found not to be a valid extension, an
+exception will be thrown by the engine. This exception is suppressed in the cases of wildcard paths, where it is
+considered valid to find no extensions under the path.

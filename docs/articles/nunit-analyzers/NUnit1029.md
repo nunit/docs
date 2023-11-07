@@ -18,7 +18,8 @@ Note that the current implementation only works for single parameters.
 
 ## Motivation
 
-A `TestCaseSourceAttribute` is used to pass parameters to a test method, but the test method does not expect any or more parameters than supplied.
+A `TestCaseSourceAttribute` is used to pass parameters to a test method, but the test method does not expect any or more
+parameters than supplied.
 
 ```charp
 private static readonly IEnumerable<string> NUnitNameSpaces = new[] { ".NUnit", ".NUnitExtensions" };
@@ -38,7 +39,8 @@ Match the number of parameters between the test data and the test method.
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

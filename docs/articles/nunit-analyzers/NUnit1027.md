@@ -32,11 +32,13 @@ public void SampleTest(int numberValue)
 
 ### Problem
 
-In the test case above, the declares that it expects one integer parameter, but no argument is supplied by the attributes. This will lead to a runtime failure.
+In the test case above, the declares that it expects one integer parameter, but no argument is supplied by the
+attributes. This will lead to a runtime failure.
 
 ### Fix
 
-Ensure that the correct number of arguments - and of the correct type - is supplied to test methods that expect parameters.
+Ensure that the correct number of arguments - and of the correct type - is supplied to test methods that expect
+parameters.
 
 One possible fix to this problem would be to supply the argument using a `TestCase`:
 
@@ -63,7 +65,8 @@ public void SampleTest([Range(1, 10)] int numberValue)
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

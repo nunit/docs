@@ -4,7 +4,9 @@ uid: resultwriters
 
 # Result Writers
 
-**Result Writers** take the result of a test run, in NUnit 3 XML format, and use it to create a result file in some other format. The NUnit Organization itself provides a two result writers, one to create output in NUnit V2 format and another to write test cases to the console. The definition of a result writer extension might look something like this:
+**Result Writers** take the result of a test run, in NUnit 3 XML format, and use it to create a result file in some
+other format. The NUnit Organization itself provides a two result writers, one to create output in NUnit V2 format and
+another to write test cases to the console. The definition of a result writer extension might look something like this:
 
 ```csharp
 [Extension]
@@ -15,7 +17,8 @@ public class CustomResultWriterFactory : IResultWriter
 }
 ```
 
-An `ExtensionPropertyAttribute` must be provided giving the name of the format you support. Users would access the format from the NUnit Console command-line by using that name in a result specification, such as:
+An `ExtensionPropertyAttribute` must be provided giving the name of the format you support. Users would access the
+format from the NUnit Console command-line by using that name in a result specification, such as:
 
 ```cmd
    nunit-console test.dll --result=CustomResult.xml;format=custom
@@ -54,4 +57,6 @@ public interface IResultWriter
 }
 ```
 
-The engine calls the `CheckWritability` method at the start of the run, before executing any tests. The `WriteResultFile` method is called after the run is complete. The writer may check writability in any way desired, including writing an abbreviated output file, which it will later overwrite.
+The engine calls the `CheckWritability` method at the start of the run, before executing any tests. The
+`WriteResultFile` method is called after the run is complete. The writer may check writability in any way desired,
+including writing an abbreviated output file, which it will later overwrite.
