@@ -85,7 +85,9 @@
             <article class="content wrap" id="_content" data-uid="testcasedata">
 <h1 id="testcasedata">TestCaseData</h1>
 
-<p>The <code>TestCaseData</code> class provides extended test case information for a parameterized test, although any object deriving from <code>TestCaseParameters</code> may be used. Unlike NUnit 2, you cannot implement <code>ITestCaseData</code>, you must derive from <code>TestCaseParameters</code>.</p>
+<p>The <code>TestCaseData</code> class provides extended test case information for a parameterized test, although any object deriving
+from <code>TestCaseParameters</code> may be used. Unlike NUnit 2, you cannot implement <code>ITestCaseData</code>, you must derive from
+<code>TestCaseParameters</code>.</p>
 <pre><code class="lang-csharp" name="TestCaseDataExample">[TestFixture]
 public class MyTests
 {
@@ -109,18 +111,19 @@ public class MyDataClass
     }
 }
 </code></pre>
-<p>This example uses the fluent interface supported by <strong>TestCaseData</strong>
-to make the program more readable.</p>
-<p><strong>TestCaseData</strong> supports the following properties
-and methods, which may be appended to an instance in any order.</p>
+<p>This example uses the fluent interface supported by <strong>TestCaseData</strong> to make the program more readable.</p>
+<p><strong>TestCaseData</strong> supports the following properties and methods, which may be appended to an instance in any order.</p>
 <ul>
-<li><strong>Explicit()</strong> or <strong>Explicit(string)</strong> causes the test case to be marked explicit, optionally specifying the reason for doing so.</li>
+<li><strong>Explicit()</strong> or <strong>Explicit(string)</strong> causes the test case to be marked explicit, optionally specifying the reason
+for doing so.</li>
 <li><strong>Ignore(string)</strong> causes the test case to be ignored and specifies the reason, which is required.</li>
 <li><strong>Returns</strong> specifies the expected result to be returned from the method, which must have a compatible return type.</li>
 <li><strong>SetCategory(string)</strong> applies a category to the test.</li>
 <li><strong>SetDescription(string)</strong> sets the description property of the test.</li>
-<li><strong>SetName(string)</strong> provides a name for the test. If not specified, a name is generated based on the method name and the arguments provided. See <a class="xref" href="../running-tests/Template-Based-Test-Naming.html">Template Based Test Naming</a>.</li>
-<li><strong>SetProperty(string, string)</strong>, <strong>SetProperty(string, int)</strong> and <strong>SetProperty(string, double)</strong> apply a named property and value to the test.</li>
+<li><strong>SetName(string)</strong> provides a name for the test. If not specified, a name is generated based on the method name and
+the arguments provided. See <a class="xref" href="../running-tests/Template-Based-Test-Naming.html">Template Based Test Naming</a>.</li>
+<li><strong>SetProperty(string, string)</strong>, <strong>SetProperty(string, int)</strong> and <strong>SetProperty(string, double)</strong> apply a named
+property and value to the test.</li>
 </ul>
 </article>
           </div>

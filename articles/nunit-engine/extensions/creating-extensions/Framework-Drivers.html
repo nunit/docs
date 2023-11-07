@@ -85,12 +85,20 @@
             <article class="content wrap" id="_content" data-uid="frameworkdrivers">
 <h1 id="framework-drivers">Framework Drivers</h1>
 
-<p><strong>Framework Drivers</strong> are extensions that know how to create a driver for a particular framework. These allow the NUnit Engine to run tests for multiple different test frameworks. The NUnit engine provides drivers for both NUnit 3.x, whilst a separate extension can be installed to run NUnit 2.x frameworks. Third parties may provide drivers for other frameworks by creating extensions.</p>
+<p><strong>Framework Drivers</strong> are extensions that know how to create a driver for a particular framework. These allow the NUnit
+Engine to run tests for multiple different test frameworks. The NUnit engine provides drivers for both NUnit 3.x, whilst
+a separate extension can be installed to run NUnit 2.x frameworks. Third parties may provide drivers for other
+frameworks by creating extensions.</p>
 <h2 id="implementation-details">Implementation Details</h2>
-<p>The framework driver API is encapsulated in the <code>IDriverFactory</code> and <code>IFrameworkDriver</code> interfaces, which must be implemented by all framework driver extensions to the engine.</p>
+<p>The framework driver API is encapsulated in the <code>IDriverFactory</code> and <code>IFrameworkDriver</code> interfaces, which must be
+implemented by all framework driver extensions to the engine.</p>
 <h3 id="idriverfactory">IDriverFactory</h3>
-<p>The <code>IDriverFactory</code> interface is called by the engine to determine if a particular extension is able to create a driver for a particular framework assembly. The engine passes the AssemblyName of each assembly referenced by the test assembly to the factory to see if it is a supported framework. If it finds one, then it uses that driver. If not, it goes on to check the next driver extension.</p>
-<p>The <code>ExtensionPoint</code> for framework drivers uses the Path &quot;NUnit.Engine.DriverService&quot; and accepts an extension of Type <code>NUnit.Engine.Extensibility.IDriverFactory</code>. The definition of a driver factory might look like this:</p>
+<p>The <code>IDriverFactory</code> interface is called by the engine to determine if a particular extension is able to create a driver
+for a particular framework assembly. The engine passes the AssemblyName of each assembly referenced by the test assembly
+to the factory to see if it is a supported framework. If it finds one, then it uses that driver. If not, it goes on to
+check the next driver extension.</p>
+<p>The <code>ExtensionPoint</code> for framework drivers uses the Path &quot;NUnit.Engine.DriverService&quot; and accepts an extension of Type
+<code>NUnit.Engine.Extensibility.IDriverFactory</code>. The definition of a driver factory might look like this:</p>
 <pre><code class="lang-csharp">[Extension]
 public class MyOwnFrameworkDriverFactory : IDriverFactory
 {
@@ -109,8 +117,11 @@ public class MyOwnFrameworkDriverFactory : IDriverFactory
 }
 </code></pre>
 <h3 id="iframeworkdriver">IFrameworkDriver</h3>
-<p>The <code>IFrameworkDriver</code> interface is returned from <code>IDriverFactory</code> and is the key interface for actually loading, exploring and running the tests in the test assembly. In theory, a single driver factory could return different drivers in different situations, but we expect a one-to-one mapping of factories to drivers to be most commonly used.</p>
-<p>As designed, the <code>IFrameworkDriver</code> interface maps most directly to the requirements of the NUnit 3 framework. Drivers for other frameworks need to function as an adapter to run tests and return understandable results to the engine.</p>
+<p>The <code>IFrameworkDriver</code> interface is returned from <code>IDriverFactory</code> and is the key interface for actually loading,
+exploring and running the tests in the test assembly. In theory, a single driver factory could return different drivers
+in different situations, but we expect a one-to-one mapping of factories to drivers to be most commonly used.</p>
+<p>As designed, the <code>IFrameworkDriver</code> interface maps most directly to the requirements of the NUnit 3 framework. Drivers
+for other frameworks need to function as an adapter to run tests and return understandable results to the engine.</p>
 <p>The <code>IFrameworkDriver</code> interface is defined as follows:</p>
 <pre><code class="lang-csharp">public interface IFrameworkDriver
 {
@@ -132,10 +143,14 @@ public class MyOwnFrameworkDriverFactory : IDriverFactory
     // Cancels an ongoing test run.
     void StopRun(bool force);
 </code></pre>
-<p>The strings returned by Run and Explore are XML representations and the filter is also in XML format. See the source code for NUnit3FrameworkDriver and NUnit2FrameworkDriver for sample code.</p>
-<p>The filter argument passed to several of the interface methods is an XML string representing the filter. See <a class="xref" href="../../../nunit/technical-notes/usage/Test-Filters.html">Test Filters</a> for a description of the format, which is directly understood by the NUnit 3 framework, but which must be converted by the driver to something that is understood by other frameworks.</p>
+<p>The strings returned by Run and Explore are XML representations and the filter is also in XML format. See the source
+code for NUnit3FrameworkDriver and NUnit2FrameworkDriver for sample code.</p>
+<p>The filter argument passed to several of the interface methods is an XML string representing the filter. See <a class="xref" href="../../../nunit/technical-notes/usage/Test-Filters.html">Test
+Filters</a> for a description of the format, which is directly understood by the NUnit 3 framework, but
+which must be converted by the driver to something that is understood by other frameworks.</p>
 <h3 id="itesteventlistener">ITestEventListener</h3>
-<p>The <code>ITestEventListener</code> interface is implemented by the Engine and used by each driver to report significant events during the execution of tests.</p>
+<p>The <code>ITestEventListener</code> interface is implemented by the Engine and used by each driver to report significant events
+during the execution of tests.</p>
 <pre><code class="lang-csharp">namespace NUnit.Engine
 {
     /// &lt;summary&gt;

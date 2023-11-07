@@ -129,7 +129,8 @@ public async Task NUnit1014SampleTest(int numberValue)
 }
 </code></pre>
 <h3 id="explanation">Explanation</h3>
-<p>The NUnit <code>ExpectedResult</code> syntax is used, so this method needs to return a type that matches the type of expected result you're looking for.</p>
+<p>The NUnit <code>ExpectedResult</code> syntax is used, so this method needs to return a type that matches the type of expected
+result you're looking for.</p>
 <h3 id="fix">Fix</h3>
 <p>Remove the <code>ExpectedResult</code> syntax:</p>
 <pre><code class="lang-csharp">[TestCase(1)]
@@ -148,7 +149,8 @@ public async Task&lt;bool&gt; NUnit1014SampleTest(int numberValue)
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit1014: The async test method must have a Task&lt;T&gt; return type when a result is expected
 dotnet_diagnostic.NUnit1014.severity = chosenSeverity

@@ -134,7 +134,8 @@ public static object[] MyTestSource()
 }
 </code></pre>
 <h3 id="explanation">Explanation</h3>
-<p>In the example above, the test case source is named <code>MyIncorrectTestCaseSource</code>, but the test case source is actually named <code>MyTestSource</code>. Because the names don't match, this will be an error.</p>
+<p>In the example above, the test case source is named <code>MyIncorrectTestCaseSource</code>, but the test case source is actually
+named <code>MyTestSource</code>. Because the names don't match, this will be an error.</p>
 <h3 id="fix">Fix</h3>
 <p>Rename the <code>TestCaseSource</code> to match:</p>
 <pre><code class="lang-csharp">[TestCaseSource(&quot;MyTestSource&quot;)]
@@ -163,7 +164,8 @@ public static object[] MyTestSource()
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit1011: The TestCaseSource argument does not specify an existing member
 dotnet_diagnostic.NUnit1011.severity = chosenSeverity

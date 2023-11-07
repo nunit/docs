@@ -86,11 +86,18 @@
 <h1 id="installing-engine-extensions">Installing Engine Extensions</h1>
 
 <p>Extensions are located by the engine by use of an <code>.addins</code> file.</p>
-<p>For certain package managers, default <code>.addins</code> have been created such that when both engine and extensions are installed from the same package manager, all extensions are installed automatically. Currently, this includes NuGet and Chocolatey.</p>
-<p>In other cases, the user may need to create a new <code>.addins</code> file, or edit an existing one. The behavior of the <code>.addins</code> file is covered below.</p>
+<p>For certain package managers, default <code>.addins</code> have been created such that when both engine and extensions are
+installed from the same package manager, all extensions are installed automatically. Currently, this includes NuGet and
+Chocolatey.</p>
+<p>In other cases, the user may need to create a new <code>.addins</code> file, or edit an existing one. The behavior of the <code>.addins</code>
+file is covered below.</p>
 <h2 id="the-addins-file">The .addins file</h2>
-<p><code>.addins</code> files are used to locate engine extensions. Either a single <code>.addins</code> file can be used to list all extensions and directories to be searched, or multiple files. <code>.addins</code> files can also be chained together -- allowing multiple levels of redirection.</p>
-<p>Each line of the <code>.addins</code> file contains the path of an extension assembly or a directory containing assemblies. Wildcards may be used for assembly entries and relative paths are interpreted based on the location of the <code>.addins</code> file.</p>
+<p><code>.addins</code> files are used to locate engine extensions. Either a single <code>.addins</code> file can be used to list all extensions
+and directories to be searched, or multiple files. <code>.addins</code> files can also be chained together -- allowing multiple
+levels of redirection.</p>
+<p>Each line of the <code>.addins</code> file contains the path of an extension assembly or a directory containing assemblies.
+Wildcards may be used for assembly entries and relative paths are interpreted based on the location of the <code>.addins</code>
+file.</p>
 <p>The following is an example of a possible <code>.addins</code> file, with comments indicating what each line does:</p>
 <pre><code class="lang-none"># This line is a comment and is ignored. The next (blank) line is ignored as well.
 
@@ -101,8 +108,13 @@ special/myassembly.dll  # include a specific dll in a special directory
                         # note that an absolute path is allowed, but is probably not a good idea
                         # in most cases
 </code></pre>
-<p>Any assemblies specified in a <code>.addins</code> file will be scanned fully, looking for addins and extensions. Any directories specified will be browsed, first looking for any <code>.addins</code> files. If one or more files are found, the content of the files will direct all further browsing. If no such file is found, then all <code>.dll</code> files in the directory will be scanned, just as if a <code>.addins</code> file contained &quot;*.dll.&quot;</p>
-<p>Note that if a specific assembly is listed in the <code>.addins</code> file which is found not to be a valid extension, an exception will be thrown by the engine. This exception is suppressed in the cases of wildcard paths, where it is considered valid to find no extensions under the path.</p>
+<p>Any assemblies specified in a <code>.addins</code> file will be scanned fully, looking for addins and extensions. Any directories
+specified will be browsed, first looking for any <code>.addins</code> files. If one or more files are found, the content of the
+files will direct all further browsing. If no such file is found, then all <code>.dll</code> files in the directory will be
+scanned, just as if a <code>.addins</code> file contained &quot;*.dll.&quot;</p>
+<p>Note that if a specific assembly is listed in the <code>.addins</code> file which is found not to be a valid extension, an
+exception will be thrown by the engine. This exception is suppressed in the cases of wildcard paths, where it is
+considered valid to find no extensions under the path.</p>
 </article>
           </div>
 

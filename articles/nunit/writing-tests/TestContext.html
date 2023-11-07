@@ -85,16 +85,20 @@
             <article class="content wrap" id="_content" data-uid="testcontext">
 <h1 id="testcontext">TestContext</h1>
 
-<p>Each NUnit test runs in an execution context, which includes information about the environment as well as the test itself. The <code>TestContext</code> class allows tests to access certain information about the execution context.</p>
+<p>Each NUnit test runs in an execution context, which includes information about the environment as well as the test
+itself. The <code>TestContext</code> class allows tests to access certain information about the execution context.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>It's important to remember that &quot;test&quot; in NUnit may refer to an individual test cases or a suite such as a <code>TestFixture</code>. Within a test method, <code>SetUp</code> method or <code>TearDown</code> method, the context is that of the individual test case. Within a <code>OneTimeSetUp</code> or <code>OneTimeTearDown</code> method, the context refers to the fixture as a whole. This can lead to confusion, since most runners display information about fixtures differently from test cases. In fact, some runners may not display information about fixtures at all!</p>
+<p>It's important to remember that &quot;test&quot; in NUnit may refer to an individual test cases or a suite such as a
+<code>TestFixture</code>. Within a test method, <code>SetUp</code> method or <code>TearDown</code> method, the context is that of the individual test
+case. Within a <code>OneTimeSetUp</code> or <code>OneTimeTearDown</code> method, the context refers to the fixture as a whole. This can lead
+to confusion, since most runners display information about fixtures differently from test cases. In fact, some runners
+may not display information about fixtures at all!</p>
 </div>
 <h2 id="static-properties">Static Properties</h2>
 <h3 id="currentcontext">CurrentContext</h3>
-<p>Gets the context of the currently executing test. This context
-is created separately for each test before it begins execution.
-See below for properties of the current context.</p>
+<p>Gets the context of the currently executing test. This context is created separately for each test before it begins
+execution. See below for properties of the current context.</p>
 <h3 id="out">Out</h3>
 <p>Gets a TextWriter used for sending output to the current test result.</p>
 <h3 id="error">Error</h3>
@@ -102,7 +106,9 @@ See below for properties of the current context.</p>
 <h3 id="progress">Progress</h3>
 <p>Gets a TextWriter used for  sending normal (non-error) output intended for immediate display.</p>
 <h3 id="testparameters">TestParameters</h3>
-<p>Test parameters may be supplied to a run in various ways, depending on the runner used. For example, the console runner provides a command-line argument and v3.4 of the NUnit 3 VS Adapter will supports specifying them in a .runsettings file. The static TestParameters property returns an object representing those passed-in parameters.</p>
+<p>Test parameters may be supplied to a run in various ways, depending on the runner used. For example, the console runner
+provides a command-line argument and v3.4 of the NUnit 3 VS Adapter will supports specifying them in a .runsettings
+file. The static TestParameters property returns an object representing those passed-in parameters.</p>
 <p>The TestParameters object supports the following properties:</p>
 <ul>
 <li><code>Count</code> - The number of parameters.</li>
@@ -113,9 +119,11 @@ See below for properties of the current context.</p>
 <ul>
 <li><code>Exists(string name)</code> - Returns true if a parameter of that name exists.</li>
 <li><code>Get(string name)</code>- Returns the same value as the indexer.</li>
-<li><code>Get&lt;T&gt;(string name, T defaultValue)</code> - Returns the value of the parameter converted from a string to type T or the specified default if the parameter doesn't exist. Throws an exception if conversion fails.</li>
+<li><code>Get&lt;T&gt;(string name, T defaultValue)</code> - Returns the value of the parameter converted from a string to type T or the
+specified default if the parameter doesn't exist. Throws an exception if conversion fails.</li>
 </ul>
-<p><strong>Note</strong> that all parameter values are strings. You may convert them to other Types using the generic <code>Get</code> method listed above or using your own code. An exception may be thrown if the supplied value cannot be converted correctly.</p>
+<p><strong>Note</strong> that all parameter values are strings. You may convert them to other Types using the generic <code>Get</code> method
+listed above or using your own code. An exception may be thrown if the supplied value cannot be converted correctly.</p>
 <h2 id="static-methods">Static Methods</h2>
 <h3 id="write">Write</h3>
 <p>Writes text to the current test result.</p>
@@ -157,20 +165,25 @@ Write(string format, params object[] args)
   WriteLine(string format, params object[] args)
 </code></pre>
 <h3 id="addformatter-32">AddFormatter (3.2+)</h3>
-<p>Adds a formatter for values based on some criterion, such as the Type of the value. The provided formatter will be used when an expected or actual value needs to be displayed as part of a message from a constraint.</p>
+<p>Adds a formatter for values based on some criterion, such as the Type of the value. The provided formatter will be used
+when an expected or actual value needs to be displayed as part of a message from a constraint.</p>
 <pre><code class="lang-csharp">AddFormatter(ValueFormatter formatter);
 AddFormatter(ValueFormatterFactory formatterFactory);
 </code></pre>
-<p>Both <code>ValueFormatter</code> and <code>ValueFormatterFactory</code> are delegates. <code>ValueFormatter</code> takes a single object as an argument and returns its string representation. The <code>AddFormatter</code> overload that takes a ValueFormatter is intended for use in most cases that arise.</p>
+<p>Both <code>ValueFormatter</code> and <code>ValueFormatterFactory</code> are delegates. <code>ValueFormatter</code> takes a single object as an argument
+and returns its string representation. The <code>AddFormatter</code> overload that takes a ValueFormatter is intended for use in
+most cases that arise.</p>
 <h3 id="addtestattachment-37">AddTestAttachment (3.7+)</h3>
 <p>Attaches a file, with optional description, to the current test.</p>
 <pre><code class="lang-csharp">AddTestAttachment(string filePath, string description = null);
 </code></pre>
-<p>The file will be attached to the test result in the xml report. Test runners, such as the NUnit 3 VS Adapter, may also present the file to the user.</p>
+<p>The file will be attached to the test result in the xml report. Test runners, such as the NUnit 3 VS Adapter, may also
+present the file to the user.</p>
 <p>Notes:</p>
 <ol>
 <li>The file must exist at the time of attachment.</li>
-<li>File paths will be resolved as fully rooted paths, relative to <code>TestContext.CurrentContext.WorkDirectory</code>, which can be set by the user.</li>
+<li>File paths will be resolved as fully rooted paths, relative to <code>TestContext.CurrentContext.WorkDirectory</code>, which can
+be set by the user.</li>
 </ol>
 <h2 id="properties-of-the-currentcontext">Properties of the CurrentContext</h2>
 <h3 id="test">Test</h3>
@@ -195,8 +208,10 @@ AddFormatter(ValueFormatterFactory formatterFactory);
 <li>Failed</li>
 </ul>
 </li>
-<li><strong>Label</strong> - An optional string value, which can provide sub-categories for each Status. See below for a list of common outcomes supported internally by NUnit.</li>
-<li><strong>Site</strong> - A <code>FailureSite</code> value, indicating the stage of execution in which the test generated its result. Possible values are
+<li><strong>Label</strong> - An optional string value, which can provide sub-categories for each Status. See below for a list of
+common outcomes supported internally by NUnit.</li>
+<li><strong>Site</strong> - A <code>FailureSite</code> value, indicating the stage of execution in which the test generated its result. Possible
+values are
 <ul>
 <li>Test</li>
 <li>SetUp</li>
@@ -207,7 +222,9 @@ AddFormatter(ValueFormatterFactory formatterFactory);
 </li>
 </ul>
 </li>
-<li><strong>Assertions</strong> - A list of <code>AssertionResult</code> values generated up to this point in the test. Please note that <strong>only failed assertions</strong> will be stored in here to limit the size of the result tree and potential impact on performance. Each <code>AssertionResult</code> has the following properties:
+<li><strong>Assertions</strong> - A list of <code>AssertionResult</code> values generated up to this point in the test. Please note that <strong>only
+failed assertions</strong> will be stored in here to limit the size of the result tree and potential impact on performance.
+Each <code>AssertionResult</code> has the following properties:
 <ul>
 <li><strong>Status</strong> - An <code>AssertionStatus</code> with five possible values:
 <ul>
@@ -224,12 +241,15 @@ AddFormatter(ValueFormatterFactory formatterFactory);
 </li>
 <li><strong>PassCount</strong> - An int representing the number of test cases that passed when running the test and all its children.</li>
 <li><strong>FailCount</strong> - An int representing the number of test cases that failed when running the test and all its children.</li>
-<li><strong>SkipCount</strong> - An int representing the number of test cases that were skipped when running the test and all its children.</li>
-<li><strong>InconclusiveCount</strong> - An int representing the number of test cases that were inconclusive when running the test and all its children.</li>
+<li><strong>SkipCount</strong> - An int representing the number of test cases that were skipped when running the test and all its
+children.</li>
+<li><strong>InconclusiveCount</strong> - An int representing the number of test cases that were inconclusive when running the test and
+all its children.</li>
 <li><strong>StackTrace</strong> - A string containing the stack trace associated with an error or failure.</li>
 <li><strong>Message</strong> - A string containing the message associated with a test failure or with not running the test.</li>
 </ul>
-<p>Although the outcome of the test may be accessed during setup or test execution, it only has a useful value in the teardown stage.</p>
+<p>Although the outcome of the test may be accessed during setup or test execution, it only has a useful value in the
+teardown stage.</p>
 <h3 id="common-outcomes">Common Outcomes</h3>
 <p>The following is a list of outcomes currently produced by NUnit. Others may be added in the future.</p>
 <ul>
@@ -246,10 +266,14 @@ AddFormatter(ValueFormatterFactory formatterFactory);
 <h3 id="testdirectory">TestDirectory</h3>
 <p>Gets the full path of the directory containing the current test assembly.</p>
 <h3 id="workdirectory">WorkDirectory</h3>
-<p>Gets the full path of the directory to be used for output from this test run. The XML result file and any redirected output files are located under this directory. This is normally the directory that was current when execution of
-NUnit began but may be changed by use of the <strong>--work</strong> option of nunit-console.</p>
+<p>Gets the full path of the directory to be used for output from this test run. The XML result file and any redirected
+output files are located under this directory. This is normally the directory that was current when execution of NUnit
+began but may be changed by use of the <strong>--work</strong> option of nunit-console.</p>
 <h3 id="random">Random</h3>
-<p>Returns a <code>Randomizer</code> object, which may be used in the test code to generate random values. These values are repeatable on reruns of the tests so long as (a) the test assembly is not changed and (b) the same seed is used. The initial random seed used in any test run may be found in the XML result file and may be provided to a subsequent run on the command line.</p>
+<p>Returns a <code>Randomizer</code> object, which may be used in the test code to generate random values. These values are repeatable
+on reruns of the tests so long as (a) the test assembly is not changed and (b) the same seed is used. The initial random
+seed used in any test run may be found in the XML result file and may be provided to a subsequent run on the command
+line.</p>
 <p>See <a href="Randomizer-Methods.html">Randomizer Methods</a> for details about each available random data type.</p>
 </article>
           </div>

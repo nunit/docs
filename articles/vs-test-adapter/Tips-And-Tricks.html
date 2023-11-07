@@ -87,8 +87,7 @@
 
 <h2 id="nunit-3">NUnit 3</h2>
 <h3 id="dotnet-test-and-vs-test-runsettings-configuration"><code>dotnet test</code> and VS Test <code>.runsettings</code> configuration</h3>
-<p>Certain NUnit Test Adapter settings are configurable using a .runsettings file.
-The following options are available:</p>
+<p>Certain NUnit Test Adapter settings are configurable using a .runsettings file. The following options are available:</p>
 <table>
 <thead>
 <tr>
@@ -306,7 +305,10 @@ The following options are available:</p>
 </tbody>
 </table>
 <h3 id="visual-studio-templates-for-runsettings">Visual Studio templates for runsettings</h3>
-<p>You can install <a href="https://marketplace.visualstudio.com/items?itemName=OsirisTerje.Runsettings-19151">item templates for runsettings</a> in Visual Studio (applies to version 2017, 2019 and upwards) which includes the NUnit settings mentioned here.  Note that there are available separate installs for earlier Visual Studio versions, links to these can be found in the above.</p>
+<p>You can install <a href="https://marketplace.visualstudio.com/items?itemName=OsirisTerje.Runsettings-19151">item templates for
+runsettings</a> in Visual Studio
+(applies to version 2017, 2019 and upwards) which includes the NUnit settings mentioned here.  Note that there are
+available separate installs for earlier Visual Studio versions, links to these can be found in the above.</p>
 <h3 id="example-implementation">Example implementation</h3>
 <p>See <a href="https://github.com/nunit/nunit3-vs-adapter/blob/8a9b8a38b7f808a4a78598542ddaf557950c6790/demo/demo.runsettings">https://github.com/nunit/nunit3-vs-adapter/blob/8a9b8a38b7f808a4a78598542ddaf557950c6790/demo/demo.runsettings</a></p>
 <h3 id="nunit-runsettings-implementation">NUnit .runsettings implementation</h3>
@@ -314,50 +316,68 @@ The following options are available:</p>
 <hr>
 <h3 id="details">Details</h3>
 <h4 id="defaulttestnamepattern">DefaultTestNamePattern</h4>
-<p>The default format used to provide test names, expressed as an NUnit <a class="xref" href="../nunit/running-tests/Template-Based-Test-Naming.html">Template Based Test Name Pattern</a>.</p>
+<p>The default format used to provide test names, expressed as an NUnit <a class="xref" href="../nunit/running-tests/Template-Based-Test-Naming.html">Template Based Test Name
+Pattern</a>.</p>
 <h4 id="workdirectory">WorkDirectory</h4>
-<p>Our WorkDirectory is the place where output files are intended to be saved for the run, whether created by NUnit or by the user, who can access the work directory using TestContext. It's different from TestDirectory, which is the directory containing the test assembly. For a run with multiple assemblies, there could be multiple TestDirectories, but only one WorkDirectory.
-User sets work directory to tell NUnit where to put stuff like the XML or any text output. User may also access it in the code and save other things there. Think of it as the directory for saving stuff.</p>
+<p>Our WorkDirectory is the place where output files are intended to be saved for the run, whether created by NUnit or by
+the user, who can access the work directory using TestContext. It's different from TestDirectory, which is the directory
+containing the test assembly. For a run with multiple assemblies, there could be multiple TestDirectories, but only one
+WorkDirectory. User sets work directory to tell NUnit where to put stuff like the XML or any text output. User may also
+access it in the code and save other things there. Think of it as the directory for saving stuff.</p>
 <h4 id="testoutputxml">TestOutputXml</h4>
-<p>If this is specified, the adapter will generate NUnit Test Result Xml data in the folder specified here.  If not specified, no such output will be generated.<br>
+<p>If this is specified, the adapter will generate NUnit Test Result Xml data in the folder specified here.  If not
+specified, no such output will be generated.<br>
 The folder can be</p>
 <ol>
 <li>An absolute path</li>
-<li>A relative path, which is then relative to either WorkDirectory, or if this is not specified, relative to the current directory, as defined by .net runtime.</li>
+<li>A relative path, which is then relative to either WorkDirectory, or if this is not specified, relative to the current
+directory, as defined by .net runtime.</li>
 </ol>
 <p>(From version 3.12)</p>
 <h4 id="outputxmlfoldermode">OutputXmlFolderMode</h4>
-<p>This setting sets which folder the <code>TestOutputXml</code> will be going to. The default is the <code>RelativeToWorkFolder</code> (see <a href="#workdirectory">WorkDirectory</a>) above.  The option <code>UseResultDirectory</code> will put the results in the same directory as the <code>Trx</code> files, the overall specified test result directory.  The last option is the <code>RelativeToResultDirectory</code>, which is normally some path below the result directory. The last option is <code>AsSpecified</code>, which should be used when <code>TestOutputXml</code> is an absolute path.</p>
+<p>This setting sets which folder the <code>TestOutputXml</code> will be going to. The default is the <code>RelativeToWorkFolder</code> (see
+<a href="#workdirectory">WorkDirectory</a>) above.  The option <code>UseResultDirectory</code> will put the results in the same directory as
+the <code>Trx</code> files, the overall specified test result directory.  The last option is the <code>RelativeToResultDirectory</code>, which
+is normally some path below the result directory. The last option is <code>AsSpecified</code>, which should be used when
+<code>TestOutputXml</code> is an absolute path.</p>
 <p>(From version 4.3.0)</p>
 <p>The last option <code>AsSpecified</code> is set automatically when <code>TestOutputXml</code> is an absolute path.</p>
 <p>(From version 4.3.1)</p>
 <h4 id="internaltracelevel">InternalTraceLevel</h4>
-<p>This setting is a diagnostic setting forwarded to NUnit, and not used by the adapter itself.  For further information see the <a class="xref" href="../nunit/technical-notes/nunit-internals/specs/Internal-Trace-Spec.html">NUnit Tracelevel documentation</a></p>
+<p>This setting is a diagnostic setting forwarded to NUnit, and not used by the adapter itself.  For further information
+see the <a class="xref" href="../nunit/technical-notes/nunit-internals/specs/Internal-Trace-Spec.html">NUnit Tracelevel documentation</a></p>
 <h4 id="numberoftestworkers">NumberOfTestWorkers</h4>
 <p>This  setting is sent to NUnit to determine how  <a class="xref" href="../nunit/writing-tests/attributes/parallelizable.html">parallelization</a> should be performed.<br>
-Note in particular that NUnit can either run directly or for parallel runs use queue of threads.  Set to 0, it will run directly, set to 1 it will use a queue with a single thread.</p>
+Note in particular that NUnit can either run directly or for parallel runs use queue of threads.  Set to 0, it will run
+directly, set to 1 it will use a queue with a single thread.</p>
 <h4 id="shadowcopyfiles">ShadowCopyFiles</h4>
 <p>This setting is sent to NUnit to enable/disable shadow-copying.</p>
 <h4 id="verbosity">Verbosity</h4>
-<p>This controls the outputs from the adapter to the Visual Studio Output/Tests window.
-A higher number includes the information from the lower numbers.
-It has the following actual levels:</p>
+<p>This controls the outputs from the adapter to the Visual Studio Output/Tests window. A higher number includes the
+information from the lower numbers. It has the following actual levels:</p>
 <p>-1 : Quiet mode.  Only shows errors and warnings.</p>
 <p>0 : Default, normal information verbosity</p>
 <p>1-3: Some more information from setting are output (in particular regarding parallelization)</p>
 <p>4: Outputs the values from the  runsettings it has discovered.</p>
 <p>5: Outputs all debug statements in the adapter</p>
 <h4 id="usevskeepenginerunning">UseVsKeepEngineRunning</h4>
-<p>This setting is used by the adapter to signal to the VSTest.Execution engine to keep running after the tests have finished running.  This can speed up execution of subsequent test runs, as the execution engine already is loaded, but running the risks of either holding onto test assemblies and having some tests not properly cleaned out.   The settings is the same as using the Visual Studio  Test/Test Settings/Keep Test Execution Engine running.</p>
+<p>This setting is used by the adapter to signal to the VSTest.Execution engine to keep running after the tests have
+finished running.  This can speed up execution of subsequent test runs, as the execution engine already is loaded, but
+running the risks of either holding onto test assemblies and having some tests not properly cleaned out.   The settings
+is the same as using the Visual Studio  Test/Test Settings/Keep Test Execution Engine running.</p>
 <h4 id="dumpxmltestdiscovery-and-dumpxmltestresults">DumpXmlTestDiscovery and DumpXmlTestResults</h4>
-<p>These settings are used to dump the output from NUnit, as it is received by the adapter, before any processing in the adapter is done, to disk.  It is part of the diagnostics tools for the adapter.
-You can find the files under your current output folder, in a sub-folder named Dump.
-(Note: This is not the same as the TestResults folder, this data is not test results, but diagnostics dumps)</p>
+<p>These settings are used to dump the output from NUnit, as it is received by the adapter, before any processing in the
+adapter is done, to disk.  It is part of the diagnostics tools for the adapter. You can find the files under your
+current output folder, in a sub-folder named Dump. (Note: This is not the same as the TestResults folder, this data is
+not test results, but diagnostics dumps)</p>
 <h4 id="prefilter">PreFilter</h4>
-<p>A pre-filter will improve performance when testing a selection of tests from the Test Explorer.  It is default off, because there are issues in certain cases, see below. If you <strong>don't</strong> have any of the cases below, you can turn PreFilter on.</p>
+<p>A pre-filter will improve performance when testing a selection of tests from the Test Explorer.  It is default off,
+because there are issues in certain cases, see below. If you <strong>don't</strong> have any of the cases below, you can turn
+PreFilter on.</p>
 <ul>
 <li>Your code contains a SetupFixture <a href="https://github.com/nunit/nunit3-vs-adapter/issues/649">#649</a></li>
-<li>Your code uses a TestCaseSource and uses SetName to set the display name instead of SetArgDisplayNames <a href="https://github.com/nunit/nunit3-vs-adapter/issues/650">#650</a></li>
+<li>Your code uses a TestCaseSource and uses SetName to set the display name instead of SetArgDisplayNames
+<a href="https://github.com/nunit/nunit3-vs-adapter/issues/650">#650</a></li>
 <li>You are using a version of NUnit lower than 3.11  <a href="https://github.com/nunit/nunit3-vs-adapter/issues/648">#648</a></li>
 </ul>
 <p>If you just need to add this, you can add a runsettings file (any filename, extension .runsettings) containing:</p>
@@ -369,9 +389,16 @@ You can find the files under your current output folder, in a sub-folder named D
 </code></pre>
 <p>(From version 3.15.1)</p>
 <h4 id="showinternalproperties">ShowInternalProperties</h4>
-<p>The <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs">NUnit internal properties</a> have been &quot;over-populating&quot; in the Test Explorer.  These are default filtered out, although you may still see these when you have <a href="https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2017/test/test-explorer-faq?view=vs-2017">Source Based Discovery (SBD)</a> turned on (which is the default in VS).  Once you have run test execution, they will be gone. We expect this part of the issue (SBD) to be fixed in VS.  If you still want to see them, set this property to true.</p>
+<p>The <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/PropertyNames.cs">NUnit internal
+properties</a> have been
+&quot;over-populating&quot; in the Test Explorer.  These are default filtered out, although you may still see these when you have
+<a href="https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2017/test/test-explorer-faq?view=vs-2017">Source Based Discovery
+(SBD)</a>
+turned on (which is the default in VS).  Once you have run test execution, they will be gone. We expect this part of the
+issue (SBD) to be fixed in VS.  If you still want to see them, set this property to true.</p>
 <h4 id="where">Where</h4>
-<p>A NUnit Test Selection Language filter can be added to the runsettings file.  The details are described in <strong><a href="https://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/">this blog post</a></strong></p>
+<p>A NUnit Test Selection Language filter can be added to the runsettings file.  The details are described in <strong><a href="https://blog.prokrams.com/2019/12/16/nunit3-filter-dotnet/">this blog
+post</a></strong></p>
 <p>Using the runsettings should be like:</p>
 <pre><code class="lang-xml">&lt;RunSettings&gt;
     &lt;NUnit&gt;
@@ -379,101 +406,151 @@ You can find the files under your current output folder, in a sub-folder named D
     &lt;/NUnit&gt;
 &lt;/RunSettings&gt;
 </code></pre>
-<p>Note that the <code>Where</code> statement does not work for the Visual Studio Test Explorer, as it would generate a conflict with the test list the adapter receives. It is intended for use with command line tools, <code>dotnet test</code> or <code>vstest.console</code>.</p>
+<p>Note that the <code>Where</code> statement does not work for the Visual Studio Test Explorer, as it would generate a conflict
+with the test list the adapter receives. It is intended for use with command line tools, <code>dotnet test</code> or
+<code>vstest.console</code>.</p>
 <p>(From version 3.16.0)</p>
 <h4 id="useparentfqnforparametrizedtests">UseParentFQNForParametrizedTests</h4>
-<p>Setting this may give more stable results when you have complex data driven/parametrized tests.  However, when this is set selecting a single test within such a group, means that <strong>all</strong> tests in that group is executed.</p>
+<p>Setting this may give more stable results when you have complex data driven/parametrized tests.  However, when this is
+set selecting a single test within such a group, means that <strong>all</strong> tests in that group is executed.</p>
 <p>Note that this often has to be set together with <a href="#usenunitidfortestcaseid">UseNUnitIdforTestCaseId</a></p>
 <p>(From version 3.16.1)</p>
 <h4 id="usenunitidfortestcaseid">UseNUnitIdforTestCaseId</h4>
-<p>The default setting is false, causes the VSTest Testcase ID to be based on the NUnit fullname property, which is nearly equal to a FullyQualifiedName.  The fullname is also set into the Testcase FullyQualifiedName property.</p>
-<p>By setting this property true, it shifts to using the NUnit id as the basis for the testcase id.  This may in certain cases give more stable results, and are more correct.</p>
+<p>The default setting is false, causes the VSTest Testcase ID to be based on the NUnit fullname property, which is nearly
+equal to a FullyQualifiedName.  The fullname is also set into the Testcase FullyQualifiedName property.</p>
+<p>By setting this property true, it shifts to using the NUnit id as the basis for the testcase id.  This may in certain
+cases give more stable results, and are more correct.</p>
 <p>However, it has been seen to also have adverse effects, so use with caution.</p>
 <p>(From version 3.16.1)</p>
 <h4 id="consoleout">ConsoleOut</h4>
-<p>When set to 1 or 2 (2 is default), will send Console standard output to the Visual Studio Output/Test window, and also with dotnet test, it will appear in the output.</p>
+<p>When set to 1 or 2 (2 is default), will send Console standard output to the Visual Studio Output/Test window, and also
+with dotnet test, it will appear in the output.</p>
 <p>Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.</p>
 <p>The value 1 sends it out as Information, while 2 sends it out as Warning.</p>
-<p>Using <code>dotnet test</code> with  <code>ConsoleOut=1</code> (Information)  (<code>dotnet test -- NUnit.ConsoleOut=1</code>), nothing will appear in the output.</p>
+<p>Using <code>dotnet test</code> with  <code>ConsoleOut=1</code> (Information)  (<code>dotnet test -- NUnit.ConsoleOut=1</code>), nothing will appear in
+the output.</p>
 <p>Setting  <code>ConsoleOut=2</code> (Warning) the message will be shown.</p>
 <p>Adding the logger <code>dotnet test -l &quot;console;verbosity=detailed&quot; -- NUnit.Consoleout=1</code> the message will be shown.</p>
 <p>See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/343">Issue 343</a> for more information and discussion</p>
-<p>In earlier versions you had to use <code>-v n</code>, but that is no longer required.  In order to silence it in <code>dotnet test</code> you have to do:</p>
+<p>In earlier versions you had to use <code>-v n</code>, but that is no longer required.  In order to silence it in <code>dotnet test</code> you
+have to do:</p>
 <pre><code class="lang-console">dotnet test -- NUnit.ConsoleOut=0
 </code></pre>
 <p>(Note the space after <code>--</code>. )</p>
 <p>(From version 3.17.0, Modified in 4.2.0)</p>
 <h4 id="usetestnameinconsoleoutput">UseTestNameInConsoleOutput</h4>
-<p>When set to <code>true</code>, the default, the name of the test is added as a prefix in front of each console line output.  This only applies to the output in the output window.</p>
+<p>When set to <code>true</code>, the default, the name of the test is added as a prefix in front of each console line output.  This
+only applies to the output in the output window.</p>
 <p>(From version 4.0.0)</p>
 <h4 id="stoponerror">StopOnError</h4>
-<p>When enabled (set to true), the tests will stop after the first test failed.  Useful when working with a system with many tests running for a long time, where a few fails.  It can then speed up by stopping at the first one.</p>
+<p>When enabled (set to true), the tests will stop after the first test failed.  Useful when working with a system with
+many tests running for a long time, where a few fails.  It can then speed up by stopping at the first one.</p>
 <p>See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/675">Issue 675</a> for more information and discussion</p>
 <p>(From version 3.17.0)</p>
 <h4 id="mapwarningto">MapWarningTo</h4>
-<p>Assert Warnings will default map to <code>Skipped</code>, but you can set this to any other state, using MapWarningTo.  The options are:
-<code>Passed</code>, <code>Failed</code> or <code>Skipped</code>.</p>
+<p>Assert Warnings will default map to <code>Skipped</code>, but you can set this to any other state, using MapWarningTo.  The options
+are: <code>Passed</code>, <code>Failed</code> or <code>Skipped</code>.</p>
 <p>(From version 3.17.0)</p>
 <h4 id="skipnontestassemblies">SkipNonTestAssemblies</h4>
-<p>If the attribute <code>NonTestAssembly</code> is added in an assembly, it will be skipped from further testing.  If <a href="https://devblogs.microsoft.com/dotnet/real-time-test-discovery/">RTD</a> is enabled in Visual Studio, the tests will be displayed, but running will skip them.<br>
-See explanation for the <a class="xref" href="../nunit/writing-tests/attributes/nontestassembly.html">NonTestAssembly Attribute</a>, and <a href="https://github.com/nunit/nunit3-vs-adapter/issues/758">Issue explanation here</a>.</p>
-<p>(From version 3.17.0)
-(Default changed to true from 4.0.0)</p>
+<p>If the attribute <code>NonTestAssembly</code> is added in an assembly, it will be skipped from further testing.  If
+<a href="https://devblogs.microsoft.com/dotnet/real-time-test-discovery/">RTD</a> is enabled in Visual Studio, the tests will be
+displayed, but running will skip them.<br>
+See explanation for the <a class="xref" href="../nunit/writing-tests/attributes/nontestassembly.html">NonTestAssembly Attribute</a>, and <a href="https://github.com/nunit/nunit3-vs-adapter/issues/758">Issue explanation
+here</a>.</p>
+<p>(From version 3.17.0) (Default changed to true from 4.0.0)</p>
 <h4 id="displayname">DisplayName</h4>
-<p>The default for Test Explorer <code>DisplayName</code> is to use the Name of the test, which normally is the method name.  Using DisplayName you can change between <code>Name</code>, <code>FullName</code> or <code>FullNameSep</code>.  The last one will then use the FullNameSeparator,which defaults to '<code>:</code>'.
-See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/640">Issue 640</a> for explanations of use and <a href="https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue640">sample code</a> here.</p>
+<p>The default for Test Explorer <code>DisplayName</code> is to use the Name of the test, which normally is the method name.  Using
+DisplayName you can change between <code>Name</code>, <code>FullName</code> or <code>FullNameSep</code>.  The last one will then use the
+FullNameSeparator,which defaults to '<code>:</code>'. See <a href="https://github.com/nunit/nunit3-vs-adapter/issues/640">Issue 640</a> for
+explanations of use and <a href="https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue640">sample code</a> here.</p>
 <p>(From version 3.17.0)</p>
 <h4 id="fullnameseparator">FullNameSeparator</h4>
 <p>The separator character used when DisplayName is FullNameSep.  It is default '<code>:</code>', but can be changed to anything.</p>
 <p>(From version 3.17.0)</p>
 <h4 id="discoverymethod">DiscoveryMethod</h4>
-<p>The 4.0 version of the NUnit3TestAdapter has a rewritten discovery mechanism and also other redesigns/refactoring done.  This setting let you switch back to the old form of discovery, using the setting <code>Legacy</code>.  The default value is <code>Current</code>.</p>
-<p>The <code>Current</code> setting enables the Explicit feature back.  It also performs better (approx 30% faster for large test sets).  It might affect certain special cases, so therefore you can switch back.</p>
+<p>The 4.0 version of the NUnit3TestAdapter has a rewritten discovery mechanism and also other redesigns/refactoring done.
+This setting let you switch back to the old form of discovery, using the setting <code>Legacy</code>.  The default value is
+<code>Current</code>.</p>
+<p>The <code>Current</code> setting enables the Explicit feature back.  It also performs better (approx 30% faster for large test
+sets).  It might affect certain special cases, so therefore you can switch back.</p>
 <p>(From version 4.0.0)</p>
 <h4 id="assemblyselectlimit">AssemblySelectLimit</h4>
-<p>If you run from the IDE (Visual Studio) the adapter will receive a list of tests to process.  This is heavy when the number of tests are large. If the number of tests exceeds this limit, the list will be skipped and all tests in the assembly will be run (except those tests that are Explicit or Ignored).</p>
-<p>This might have an adverse effect if you select a category and you have more than 2000 tests, the category setting will be ignored. In that case, just increase this limit to higher than your number of tests.</p>
-<p>You might also receive a list from the command line, and in that case it will also be skipped the same way.  Here the category will be honored since the category filter will be converted to a NUnit filter.</p>
+<p>If you run from the IDE (Visual Studio) the adapter will receive a list of tests to process.  This is heavy when the
+number of tests are large. If the number of tests exceeds this limit, the list will be skipped and all tests in the
+assembly will be run (except those tests that are Explicit or Ignored).</p>
+<p>This might have an adverse effect if you select a category and you have more than 2000 tests, the category setting will
+be ignored. In that case, just increase this limit to higher than your number of tests.</p>
+<p>You might also receive a list from the command line, and in that case it will also be skipped the same way.  Here the
+category will be honored since the category filter will be converted to a NUnit filter.</p>
 <p>(From version 4.0.0)</p>
 <h4 id="newoutputxmlfileforeachrun">NewOutputXmlFileForEachRun</h4>
-<p>Default behavior is to produce one test output file which is being overwritten for each run  Setting this to <code>true</code>, the adapter produces a new test output file for each run, numbering them sequentially.  Default is <code>false</code>.</p>
-<p>The background is the following scenario, as described by <a href="https://github.com/netcorefactory">netcorefactory</a> in <a href="https://github.com/nunit/nunit3-vs-adapter/issues/800">Issue 800</a>:</p>
-<p>&quot;<em>Running test in azure devops one can choose to rerun failed ( flaky ) tests. Mostly when running (selenium) e2e tests this becomes important. The .xml results file is currently overwritten each retry run. Other test coverage tooling dependent on this file receives only latest run results.
-Better to allow the possibility to deliver a results file per run.</em>&quot;</p>
+<p>Default behavior is to produce one test output file which is being overwritten for each run  Setting this to <code>true</code>, the
+adapter produces a new test output file for each run, numbering them sequentially.  Default is <code>false</code>.</p>
+<p>The background is the following scenario, as described by <a href="https://github.com/netcorefactory">netcorefactory</a> in <a href="https://github.com/nunit/nunit3-vs-adapter/issues/800">Issue
+800</a>:</p>
+<p>&quot;<em>Running test in azure devops one can choose to rerun failed ( flaky ) tests. Mostly when running (selenium) e2e tests
+this becomes important. The .xml results file is currently overwritten each retry run. Other test coverage tooling
+dependent on this file receives only latest run results. Better to allow the possibility to deliver a results file per
+run.</em>&quot;</p>
 <p>(From version 4.0.0)</p>
 <h4 id="includestacktraceforsuites">IncludeStackTraceForSuites</h4>
-<p>Exceptions outside test cases are reported with its stack trace included in the message.  One example here is exceptions in OneTimeSetUp and OneTimeTearDown. They belong to the outer suite, and their exceptions are reported as part of the message. This option includes the stack trace in that message.  If this becomes too much information, this option turns the stack trace reporting off.</p>
+<p>Exceptions outside test cases are reported with its stack trace included in the message.  One example here is exceptions
+in OneTimeSetUp and OneTimeTearDown. They belong to the outer suite, and their exceptions are reported as part of the
+message. This option includes the stack trace in that message.  If this becomes too much information, this option turns
+the stack trace reporting off.</p>
 <p>(From version 4.0.0)</p>
 <h4 id="explicitmode">ExplicitMode</h4>
-<p>This setting can be either <code>Strict</code> or <code>Relaxed</code>.  The default is <code>Strict</code>, which means that <code>Explicit</code> tests can only be run with other Explicit tests, and not mixed with non-Explicit tests.  The <code>Relaxed</code> mode is the original NUnit mode, where if you select a category, a class or a set of tests, both explicit and non-explicit tests will be run.  From Visual Studio Test Explorer there are no longer (since VS2019) any way of separating between a <code>Run-All</code> and <code>run selected tests</code>, so Relaxed mode doesn't work properly. It may or may not work for command line tests, dependent upon how your tests are set up and run.</p>
+<p>This setting can be either <code>Strict</code> or <code>Relaxed</code>.  The default is <code>Strict</code>, which means that <code>Explicit</code>
+tests can only be run with other Explicit tests, and not mixed with non-Explicit tests.  The <code>Relaxed</code> mode is the
+original NUnit mode, where if you select a category, a class or a set of tests, both explicit and non-explicit tests
+will be run.  From Visual Studio Test Explorer there are no longer (since VS2019) any way of separating between a
+<code>Run-All</code> and <code>run selected tests</code>, so Relaxed mode doesn't work properly. It may or may not work for command
+line tests, dependent upon how your tests are set up and run.</p>
 <p>(From version 4.2.0)</p>
 <h4 id="skipexecutionwhennotests">SkipExecutionWhenNoTests</h4>
-<p>If set, this setting will skip execution for an assembly if no tests are found during the pre-execution discovery phase.  It will give you a small performance boost, but if you skip the execution, this assembly will not generate any log files. The default is false.</p>
+<p>If set, this setting will skip execution for an assembly if no tests are found during the pre-execution discovery phase.
+It will give you a small performance boost, but if you skip the execution, this assembly will not generate any log
+files. The default is false.</p>
 <p>(From version 4.2.0)</p>
 <h4 id="allowparallelwithdebugger">AllowParallelWithDebugger</h4>
 <p>If set, this setting will allow parallel execution of tests even if the debugger is attached.  The default is <code>false</code>.</p>
 <p>(From version 4.5.0)</p>
 <hr>
-<h3 id="some-further-information-on-directories-from-comment-on-issue-575-by-charlie-">Some further information on directories (From <a href="https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421">comment on issue 575</a> by <a href="https://github.com/CharliePoole">Charlie</a> )</h3>
-<p>NUnit also supports TestContext.TestDirectory, which is the directory where the current test assembly is located. Note that if you have several test assemblies in different directories, the value will be different when each one of them accesses it. Note also that there is no way you can set the TestDirectory because it's always where the assembly is located.</p>
-<p>The BasePath is a .NET thing. It's the base directory where assemblies are searched for. You can also have subdirectories listed in the PrivateBinPath. NUnit takes care of all this automatically now, so the old console options are no longer supported. For finding things you want to read at runtime, the TestDirectory and the BasePath will usually be the same thing.</p>
+<h3 id="some-further-information-on-directories">Some further information on directories</h3>
+<p>(From <a href="https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421">comment on issue 575</a> by
+<a href="https://github.com/CharliePoole">Charlie</a> )</p>
+<p>NUnit also supports TestContext.TestDirectory, which is the directory where the current test assembly is located. Note
+that if you have several test assemblies in different directories, the value will be different when each one of them
+accesses it. Note also that there is no way you can set the TestDirectory because it's always where the assembly is
+located.</p>
+<p>The BasePath is a .NET thing. It's the base directory where assemblies are searched for. You can also have
+subdirectories listed in the PrivateBinPath. NUnit takes care of all this automatically now, so the old console options
+are no longer supported. For finding things you want to read at runtime, the TestDirectory and the BasePath will usually
+be the same thing.</p>
 <h3 id="registry-settings">Registry Settings</h3>
 <div class="NOTE">
 <h5>Note</h5>
-<p>As of the 3.0 final release, the registry settings are no longer recognized. Instead, use settings in the <code>.runsettings</code> file.</p>
+<p>As of the 3.0 final release, the registry settings are no longer recognized. Instead, use settings in the
+<code>.runsettings</code> file.</p>
 </div>
 <hr>
 <h2 id="nunit-2x">NUnit 2.x</h2>
 <p>NUnit 2.X does not support runsettings.</p>
 <h3 id="registry-settings-for-nunit-2x">Registry Settings for NUnit 2.x</h3>
-<p>Certain settings in the registry affect how the adapter runs. All these settings are added by using RegEdit under the key <strong>HKCU\Software\nunit.org\VSAdapter</strong>.</p>
+<p>Certain settings in the registry affect how the adapter runs. All these settings are added by using RegEdit under the
+key <strong>HKCU\Software\nunit.org\VSAdapter</strong>.</p>
 <h4 id="shadowcopy">ShadowCopy</h4>
-<p>By default NUnit no longer uses shadowcopy. If this causes an issue for you shadowcopy can be enabled by setting the DWORD value UseShadowCopy to 1.</p>
+<p>By default NUnit no longer uses shadowcopy. If this causes an issue for you shadowcopy can be enabled by setting the
+DWORD value UseShadowCopy to 1.</p>
 <h4 id="keepenginerunning">KeepEngineRunning</h4>
-<p>By default the NUnit adapter will &quot;Kill&quot; the Visual Studio Test Execution engine after each run. Visual Studio 2013 and later has a new setting under its top menu, <strong>Test | Test Settings | Keep Test Execution Engine Running</strong>. The adapter normally ignores this setting.</p>
-<p>In some cases it can be useful to have the engine running, e.g. during debugging of the adapter itself. You can then set the adapter to follow the VS setting by setting the DWORD value UseVsKeepEngineRunning to 1.</p>
+<p>By default the NUnit adapter will &quot;Kill&quot; the Visual Studio Test Execution engine after each run. Visual Studio 2013 and
+later has a new setting under its top menu, <strong>Test | Test Settings | Keep Test Execution Engine Running</strong>. The adapter
+normally ignores this setting.</p>
+<p>In some cases it can be useful to have the engine running, e.g. during debugging of the adapter itself. You can then set
+the adapter to follow the VS setting by setting the DWORD value UseVsKeepEngineRunning to 1.</p>
 <h4 id="verbosity-for-nunit-2x">Verbosity for NUnit 2.x</h4>
-<p>Normally the adapter reports exceptions using a short format, consisting of the message only. You can change it to report a verbose format that includes the stack trace, by setting a the DWORD value Verbosity to 1.</p>
+<p>Normally the adapter reports exceptions using a short format, consisting of the message only. You can change it to
+report a verbose format that includes the stack trace, by setting a the DWORD value Verbosity to 1.</p>
 </article>
           </div>
 

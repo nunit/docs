@@ -129,7 +129,8 @@ public void NUnit1006SampleTest(int inputValue)
 }
 </code></pre>
 <h3 id="explanation">Explanation</h3>
-<p>An <code>ExpectedResult</code> was defined, but the return type of the method in our sample is of type <code>void</code>, meaning it does not return a result.</p>
+<p>An <code>ExpectedResult</code> was defined, but the return type of the method in our sample is of type <code>void</code>, meaning it does not
+return a result.</p>
 <h3 id="fix">Fix</h3>
 <p>Either modify the <code>TestCase</code> to remove the <code>ExpectedResult</code>:</p>
 <pre><code class="lang-csharp">[TestCase(1)]
@@ -148,7 +149,8 @@ public string NUnit1006SampleTest(int inputValue)
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit1006: ExpectedResult must not be specified when the method returns void
 dotnet_diagnostic.NUnit1006.severity = chosenSeverity

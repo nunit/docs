@@ -85,8 +85,8 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="property-constraint">Property Constraint</h1>
 
-<p><code>PropertyConstraint</code> tests for the existence of a named property on an object and then
-applies a constraint test to the property value.</p>
+<p><code>PropertyConstraint</code> tests for the existence of a named property on an object and then applies a constraint test to the
+property value.</p>
 <h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">PropertyConstraint(string name, IConstraint baseConstraint)
 </code></pre>
@@ -98,7 +98,8 @@ applies a constraint test to the property value.</p>
 Assert.That(collection, Has.Property(&quot;Count&quot;).GreaterThan(10));
 Assert.That(collection, Has.Count.GreaterThan(10);
 </code></pre>
-<p>As shown in the example, certain common properties are known to NUnit and may be tested using a shorter form. The following properties are supported:</p>
+<p>As shown in the example, certain common properties are known to NUnit and may be tested using a shorter form. The
+following properties are supported:</p>
 <pre><code class="lang-csharp">Has.Length...
 Has.Count...
 Has.Message...

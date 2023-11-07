@@ -85,12 +85,11 @@
             <article class="content wrap" id="_content" data-uid="onetimeteardown-attribute">
 <h1 id="onetimeteardown">OneTimeTearDown</h1>
 
-<p>This attribute is to identify methods that are called once after executing all the tests
-in a fixture. It may appear on methods of a TestFixture or a SetUpFixture.</p>
-<p>OneTimeTearDown methods may be either static or
-instance methods and you may define more than one of them in a fixture.
-Normally, multiple OneTimeTearDown methods are only defined at different levels
-of an inheritance hierarchy, as explained below.</p>
+<p>This attribute is to identify methods that are called once after executing all the tests in a fixture. It may appear on
+methods of a TestFixture or a SetUpFixture.</p>
+<p>OneTimeTearDown methods may be either static or instance methods and you may define more than one of them in a fixture.
+Normally, multiple OneTimeTearDown methods are only defined at different levels of an inheritance hierarchy, as
+explained below.</p>
 <h2 id="example">Example</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
@@ -115,25 +114,32 @@ of an inheritance hierarchy, as explained below.</p>
 }
 </code></pre>
 <h2 id="inheritance">Inheritance</h2>
-<p>The OneTimeTearDown attribute is inherited from any base class. Therefore, if a base
-class has defined a OneTimeTearDown method, that method will be called
-after any test methods in the derived class.</p>
-<p>You may define a OneTimeTearDown method
-in the base class and another in the derived class. NUnit will call base
-class OneTimeTearDown methods after those in the derived classes.</p>
+<p>The OneTimeTearDown attribute is inherited from any base class. Therefore, if a base class has defined a OneTimeTearDown
+method, that method will be called after any test methods in the derived class.</p>
+<p>You may define a OneTimeTearDown method in the base class and another in the derived class. NUnit will call base class
+OneTimeTearDown methods after those in the derived classes.</p>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>If a base class OneTimeTearDown method is overridden in the derived class, NUnit will not call the base class OneTimeTearDown method; NUnit does not anticipate usage that includes hiding the base method. Note that you may have a different name for each method; as long as both have the <code>[OneTimeTearDown]</code> attribute present, each will be called in the correct order.</p>
+<p>If a base class OneTimeTearDown method is overridden in the derived class, NUnit will not call the base
+class OneTimeTearDown method; NUnit does not anticipate usage that includes hiding the base method. Note that you may
+have a different name for each method; as long as both have the <code>[OneTimeTearDown]</code> attribute present, each will be
+called in the correct order.</p>
 </div>
 <h2 id="notes">Notes</h2>
 <ul>
-<li><p>Although it is possible to define multiple <code>OneTimeTearDown</code> methods in the same class, you should rarely do so. Unlike methods defined in separate classes in the inheritance hierarchy, the order in which they are executed is not guaranteed.</p>
+<li><p>Although it is possible to define multiple <code>OneTimeTearDown</code> methods in the same class, you should rarely do so.
+Unlike methods defined in separate classes in the inheritance hierarchy, the order in which they are executed is not
+guaranteed.</p>
 </li>
 <li><p><code>OneTimeTearDown</code> methods may be async if running under .NET 4.0 or higher.</p>
 </li>
-<li><p><code>OneTimeTearDown</code> methods run in the context of the <a class="xref" href="testfixture.html"><code>TestFixture</code></a> or <a class="xref" href="setupfixture.html"><code>SetUpFixture</code></a>, which is separate from the context of any individual test cases. It's important to keep this in mind when using <a class="xref" href="../TestContext.html"><code>TestContext</code></a> methods and properties within the method.</p>
+<li><p><code>OneTimeTearDown</code> methods run in the context of the <a class="xref" href="testfixture.html"><code>TestFixture</code></a> or
+<a class="xref" href="setupfixture.html"><code>SetUpFixture</code></a>, which is separate from the context of any individual test cases. It's
+important to keep this in mind when using <a class="xref" href="../TestContext.html"><code>TestContext</code></a> methods and properties within the method.</p>
 </li>
-<li><p>When using  <a class="xref" href="fixturelifecycle.html"><code>FixtureLifeCycle</code></a> with <code>LifeCycle.InstancePerTestCase</code>, the <code>OneTimeTearDown</code> method must be static and is only called once. This is required so that the teardown method does not access instance fields or properties that are reset for every test.</p>
+<li><p>When using  <a class="xref" href="fixturelifecycle.html"><code>FixtureLifeCycle</code></a> with <code>LifeCycle.InstancePerTestCase</code>, the
+<code>OneTimeTearDown</code> method must be static and is only called once. This is required so that the teardown method does not
+access instance fields or properties that are reset for every test.</p>
 </li>
 </ul>
 <h2 id="see-also">See Also</h2>

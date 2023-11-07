@@ -85,7 +85,8 @@
             <article class="content wrap" id="_content" data-uid="collectioncontainsconstraint">
 <h1 id="collectioncontains-constraint">CollectionContains Constraint</h1>
 
-<p><code>CollectionContainsConstraint</code> tests that an <code>IEnumerable</code> contains an object. If the actual value passed does not implement <code>IEnumerable</code>, an exception is thrown.</p>
+<p><code>CollectionContainsConstraint</code> tests that an <code>IEnumerable</code> contains an object. If the actual value passed does not
+implement <code>IEnumerable</code>, an exception is thrown.</p>
 <h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">CollectionContainsConstraint(object)
 </code></pre>
@@ -109,7 +110,10 @@ Assert.That(sarray, Has.No.Member(&quot;x&quot;));
 Assert.That(iarray, Does.Contain(3));
 </code></pre>
 <h2 id="note">Note</h2>
-<p><code>Has.Member()</code>, <code>Contains.Item()</code> and <code>Does.Contain()</code> work the same as <code>Has.Some.EqualTo()</code>. The last statement generates a <a href="SomeItemsConstraint.html">SomeItemsConstraint</a> based on an <a href="EqualConstraint.html">EqualConstraint</a> and offers additional options such as ignoring case or specifying a tolerance. The syntax on this page may be viewed as a shortcut for specifying simpler cases.</p>
+<p><code>Has.Member()</code>, <code>Contains.Item()</code> and <code>Does.Contain()</code> work the same as <code>Has.Some.EqualTo()</code>. The last statement
+generates a <a href="SomeItemsConstraint.html">SomeItemsConstraint</a> based on an <a href="EqualConstraint.html">EqualConstraint</a> and offers
+additional options such as ignoring case or specifying a tolerance. The syntax on this page may be viewed as a shortcut
+for specifying simpler cases.</p>
 </article>
           </div>
 

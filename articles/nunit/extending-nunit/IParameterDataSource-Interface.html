@@ -85,15 +85,20 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="iparameterdatasource-interface">IParameterDataSource Interface</h1>
 
-<p>The <code>IParameterDataSource</code> interface is implemented by attributes that provide data for use as an argument to a single parameter. Other attributes and test builders combine the values in various ways to produce test cases.
-The interface is defined as follows:</p>
+<p>The <code>IParameterDataSource</code> interface is implemented by attributes that provide data for use as an argument to a single
+parameter. Other attributes and test builders combine the values in various ways to produce test cases. The interface is
+defined as follows:</p>
 <pre><code class="lang-csharp">public interface IParameterDataSource
 {
     IEnumerable GetData(IParameterInfo parameter);
 }
 </code></pre>
-<p><code>IParameterInfo</code> is an NUnit internal class used to wrap a <code>ParameterInfo</code>. See the <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Interfaces/IParameterInfo.cs">source code</a> for more info.</p>
-<p>A custom attribute implementing this interface should examine the <code>IParameterInfo</code> and return data values that are compatible with the parameter. The attribute has no control over how this data is combined with other arguments - that's up to other attributes and ultimately NUnit itself.</p>
+<p><code>IParameterInfo</code> is an NUnit internal class used to wrap a <code>ParameterInfo</code>. See the <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Interfaces/IParameterInfo.cs">source
+code</a> for more
+info.</p>
+<p>A custom attribute implementing this interface should examine the <code>IParameterInfo</code> and return data values that are
+compatible with the parameter. The attribute has no control over how this data is combined with other arguments - that's
+up to other attributes and ultimately NUnit itself.</p>
 <p>The following NUnit attributes currently implement <code>IParameterDataSource</code>:</p>
 <ul>
 <li><code>RandomAttribute</code></li>

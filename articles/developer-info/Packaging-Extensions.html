@@ -93,57 +93,69 @@
 <li>NUnit.Extension.NUnitV2Driver</li>
 <li>NUnit.Extension.TeamCityEventListener</li>
 </ul>
-<p>All but the TeamCityEventListener are built and shipped by the NUnit team. These extensions must be built and released before building and releasing the Console/Engine, but only if they are changed and a release is planned. For the 3.5 release, all extensions will be built and released with the console. Future releases of each extension will be on an as-needed basis and the version numbers of the extensions and the console/engine will diverge over time.</p>
+<p>All but the TeamCityEventListener are built and shipped by the NUnit team. These extensions must be built and released
+before building and releasing the Console/Engine, but only if they are changed and a release is planned. For the 3.5
+release, all extensions will be built and released with the console. Future releases of each extension will be on an
+as-needed basis and the version numbers of the extensions and the console/engine will diverge over time.</p>
 <h2 id="create-a-release-branch">Create a Release Branch</h2>
 <p>All work on releases should be done on a branch.</p>
 <ol>
 <li>Fetch and pull latest from master</li>
 <li>Create a branch in the form release-3.5</li>
-<li>As you make the changes below, push the branch to GitHub and create a Pull Request to allow other team members to review your changes.</li>
+<li>As you make the changes below, push the branch to GitHub and create a Pull Request to allow other team members to
+review your changes.</li>
 <li><strong>Do not merge this branch/PR</strong>, we will create a separate PR to merge the changes back into master.</li>
 </ol>
 <h2 id="make-sure-it-works">Make Sure it Works</h2>
 <ol>
 <li><p>Close all instances of Visual Studio or other IDE to ensure that no changes are left unsaved.</p>
 </li>
-<li><p>Do a clean build and run all the tests on Windows. You may use the command below or three separate commands if preferred. If you encounter errors at any stage, you're not actually ready to release!</p>
-<p><code>build.cmd -Target=Clean</code>
-<code>build.cmd -Target=Test</code></p>
+<li><p>Do a clean build and run all the tests on Windows. You may use the command below or three separate commands if
+preferred. If you encounter errors at any stage, you're not actually ready to release!</p>
+<p><code>build.cmd -Target=Clean</code> <code>build.cmd -Target=Test</code></p>
 </li>
-<li><p>Repeat the build on a Linux system, if available. If this is not possible, be sure to scrutinize the results from the Travis CI build carefully. On Linux, you may use the command</p>
+<li><p>Repeat the build on a Linux system, if available. If this is not possible, be sure to scrutinize the results from the
+Travis CI build carefully. On Linux, you may use the command</p>
 <p><code>./build -Target=Test</code></p>
 </li>
-<li><p>Make sure that the most recent commits of master passed all tests in the CI builds. Check the builds on both Travis and AppVeyor.</p>
+<li><p>Make sure that the most recent commits of master passed all tests in the CI builds. Check the builds on both Travis
+and AppVeyor.</p>
 </li>
 </ol>
 <h2 id="review-milestone-status">Review Milestone Status</h2>
 <ol>
-<li><p>Check the milestone for the current release to see that there are no open issues. Any issues that are not going to be in this release should be moved to a future milestone. This may be the time to create the next milestone.</p>
+<li><p>Check the milestone for the current release to see that there are no open issues. Any issues that are not going to be
+in this release should be moved to a future milestone. This may be the time to create the next milestone.</p>
 </li>
-<li><p>Make sure that completed issues are marked with the appropriate 'closed' label depending on disposition. The release notes will end up reflecting issues marked closed:done.</p>
+<li><p>Make sure that completed issues are marked with the appropriate 'closed' label depending on disposition. The release
+notes will end up reflecting issues marked closed:done.</p>
 </li>
-<li><p>Check all future open milestones for completed issues. Anything that is completed will be included in this release so change its milestone to the current release.</p>
+<li><p>Check all future open milestones for completed issues. Anything that is completed will be included in this release so
+change its milestone to the current release.</p>
 </li>
 </ol>
 <h2 id="check-versioning">Check Versioning</h2>
-<p><code>AssemblyVersion</code> and <code>AssemblyFileVersion</code> are set in <code>src\extension\Properties\AssemblyInfo.cs</code> and should match the version in <code>build.cake</code>. These values are normally incremented after a release, but should be checked.</p>
+<p><code>AssemblyVersion</code> and <code>AssemblyFileVersion</code> are set in <code>src\extension\Properties\AssemblyInfo.cs</code> and should match the
+version in <code>build.cake</code>. These values are normally incremented after a release, but should be checked.</p>
 <h2 id="update-copyright-year">Update Copyright Year</h2>
 <p>The copyright year in all the source files is only updated as they are changed, but the copyright in the <code>[assembly: AssemblyCopyright(&quot;...&quot;)]</code> should be updated to the year of the release.</p>
-<p>If necessary, update the year in the general copyright notice <code>LICENSE.txt</code>. The <code>.nuspec</code> files in solution root contains a copyright line, which should also be updated.</p>
-<p>Notices at the top of each source code file are only updated when copyrightable changes are made to the file, not at the time of release.</p>
+<p>If necessary, update the year in the general copyright notice <code>LICENSE.txt</code>. The <code>.nuspec</code> files in solution root
+contains a copyright line, which should also be updated.</p>
+<p>Notices at the top of each source code file are only updated when copyrightable changes are made to the file, not at the
+time of release.</p>
 <h2 id="push-all-changes">Push All Changes</h2>
 <p>Make sure the release branch and any changes are pushed to GitHub, reviewed in a PR and all CI servers are passing.</p>
 <h2 id="creating-the-release">Creating the Release</h2>
 <ol>
 <li><p>Clear the package directory to avoid confusion:</p>
 <p><code>erase package\*</code></p>
-<p>This is not absolutely required, but will be helpful if you have other release packages present
-in the directory.</p>
+<p>This is not absolutely required, but will be helpful if you have other release packages present in the directory.</p>
 </li>
-<li><p>You should be working on the release branch. Do a pull to make sure you have everything up to date. If changes of any significance were merged, you should test again before creating the release.</p>
+<li><p>You should be working on the release branch. Do a pull to make sure you have everything up to date. If changes of any
+significance were merged, you should test again before creating the release.</p>
 </li>
-<li><p>Ensure that the release build is up to date. If you have any doubt whether the latest code changes
-have actually been built, do a clean build. If the build is up to date you may skip this step.</p>
+<li><p>Ensure that the release build is up to date. If you have any doubt whether the latest code changes have actually been
+built, do a clean build. If the build is up to date you may skip this step.</p>
 <p><code>build -Target Build</code></p>
 </li>
 <li><p>Create the packages by running:</p>
@@ -156,10 +168,14 @@ have actually been built, do a clean build. If the build is up to date you may s
 <li>NUnit..Extension.{NAME}.{VERSION}.nupkg</li>
 </ul>
 <h2 id="testing-the-release">Testing the Release</h2>
-<p>Open the NuGet package from the <code>package</code> sub-directory using <a href="https://github.com/NuGetPackageExplorer/NuGetPackageExplorer">NuGet Package Explorer</a>. Inspect the package metadata for errors and check that the tools folder contains the extension dll and any dependent assemblies.</p>
-<p>Next install the extension into a project with the <code>NUnit.ConsoleRunner</code> package and make sure you can run tests. If you are releasing the V2 driver, run NUnit 2 tests. If you are releasing the V2 Result Writer, write out V2 results.</p>
+<p>Open the NuGet package from the <code>package</code> sub-directory using <a href="https://github.com/NuGetPackageExplorer/NuGetPackageExplorer">NuGet Package
+Explorer</a>. Inspect the package metadata for errors and
+check that the tools folder contains the extension dll and any dependent assemblies.</p>
+<p>Next install the extension into a project with the <code>NUnit.ConsoleRunner</code> package and make sure you can run tests. If you
+are releasing the V2 driver, run NUnit 2 tests. If you are releasing the V2 Result Writer, write out V2 results.</p>
 <h2 id="archiving-the-release">Archiving the Release</h2>
-<p>Packages are archived on nunit.org in the downloads directory. Create a new sub-folder under <code>downloads/extensions/v3/EXTENSION_NAME</code> for the release. Upload all the package files into that directory.</p>
+<p>Packages are archived on nunit.org in the downloads directory. Create a new sub-folder under
+<code>downloads/extensions/v3/EXTENSION_NAME</code> for the release. Upload all the package files into that directory.</p>
 <h2 id="publishing-the-release">Publishing the Release</h2>
 <h3 id="github">Github</h3>
 <ol>
@@ -169,7 +185,8 @@ have actually been built, do a clean build. If the build is up to date you may s
 </li>
 <li><p>Enter a tag to be used for the release in the format v3.x.y <strong>Select your release branch</strong> as the target for the tag.</p>
 </li>
-<li><p>Enter a title for the release, like NUnit Project Loader Extension 3.5 release. If you type 'N' you'll get some hints.</p>
+<li><p>Enter a title for the release, like NUnit Project Loader Extension 3.5 release. If you type 'N' you'll get some
+hints.</p>
 </li>
 <li><p>Add a description of the release. It will be easier if you have prepared this in advance and can just paste it in.</p>
 </li>
@@ -195,7 +212,8 @@ have actually been built, do a clean build. If the build is up to date you may s
 <ol>
 <li>Close your release Pull Request</li>
 <li>Create a new branch off of your release branch</li>
-<li>Increment the version in the various locations. For example 3.5 -&gt; 3.6. See the Update Package Versions section above.</li>
+<li>Increment the version in the various locations. For example 3.5 -&gt; 3.6. See the Update Package Versions section
+above.</li>
 <li>Push your changes to GitHub</li>
 <li>Create a pull request from your branch making sure it is based off master</li>
 </ol>

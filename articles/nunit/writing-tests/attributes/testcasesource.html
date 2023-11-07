@@ -85,18 +85,20 @@
             <article class="content wrap" id="_content" data-uid="testcasesourceattribute">
 <h1 id="testcasesource">TestCaseSource</h1>
 
-<p><code>TestCaseSourceAttribute</code> is used on a parameterized test method to
-identify the source from which the required arguments will be provided.
-The attribute additionally identifies the method as a test method.
-The data is kept separate from the test itself and may be used by multiple
-test methods. See <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a> for a general introduction to
-tests with arguments.</p>
+<p><code>TestCaseSourceAttribute</code> is used on a parameterized test method to identify the source from which the required
+arguments will be provided. The attribute additionally identifies the method as a test method. The data is kept separate
+from the test itself and may be used by multiple test methods. See <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a> for a
+general introduction to tests with arguments.</p>
 <h2 id="usage">Usage</h2>
-<p>Consider a test of the divide operation, taking three arguments: the numerator, the denominator and the expected result. We can specify the test and its data using one of the forms of <strong>TestCaseSourceAttribute</strong>:</p>
+<p>Consider a test of the divide operation, taking three arguments: the numerator, the denominator and the expected result.
+We can specify the test and its data using one of the forms of <strong>TestCaseSourceAttribute</strong>:</p>
 <h3 id="form-1---testcasesourcestring-sourcename">Form 1 - <code>[TestCaseSource(string sourceName)]</code></h3>
 <div class="NOTE">
 <h5>Note</h5>
-<p>We use <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/operators/nameof">the <code>nameof</code> operator</a> to avoid introducing <a href="https://wikipedia.org/wiki/Magic_string">magic strings</a> into code, which offers better resilience when refactoring. While <code>nameof</code> is recommended, you could also use the string &quot;DivideCases&quot; to achieve the same outcome.</p>
+<p>We use <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/operators/nameof">the <code>nameof</code> operator</a>
+to avoid introducing <a href="https://wikipedia.org/wiki/Magic_string">magic strings</a> into code, which offers better
+resilience when refactoring. While <code>nameof</code> is recommended, you could also use the string &quot;DivideCases&quot; to achieve the
+same outcome.</p>
 </div>
 <pre><code class="lang-csharp" name="BasicTestCaseSource">public class BasicTestCaseSourceFixture
 {
@@ -114,17 +116,19 @@ tests with arguments.</p>
     };
 }
 </code></pre>
-<p>The single attribute argument in this form is a string representing the name of the source used
-to provide test cases. It has the following characteristics:</p>
+<p>The single attribute argument in this form is a string representing the name of the source used to provide test cases.
+It has the following characteristics:</p>
 <ul>
 <li>It may be a field, property or method in the test class.</li>
 <li>It <strong>must</strong> be static. This is a change from NUnit 2.x.</li>
-<li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>. For fields an array is generally used. For properties and methods, you may return an array or implement your own iterator.</li>
-<li>The individual items returned by the enumerator must be compatible
-with the signature of the method on which the attribute appears.
-See the <strong>Test Case Construction</strong> section below for details.</li>
+<li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>. For fields an array is generally used. For
+properties and methods, you may return an array or implement your own iterator.</li>
+<li>The individual items returned by the enumerator must be compatible with the signature of the method on which the
+attribute appears. See the <strong>Test Case Construction</strong> section below for details.</li>
 </ul>
-<p>Sometimes we would like to parameterize the source, e.g. if we use the same source for multiple tests, to this end it is possible to pass parameters to the source, if the source is a method. The parameters are specified as an array of parameters that are passed to the source method.</p>
+<p>Sometimes we would like to parameterize the source, e.g. if we use the same source for multiple tests, to this end it is
+possible to pass parameters to the source, if the source is a method. The parameters are specified as an array of
+parameters that are passed to the source method.</p>
 <pre><code class="lang-csharp" name="ParameterizedSource">public class ParameterizedSourceExampleFixture
 {
     [TestCaseSource(nameof(TestStrings), new object[] { true })]
@@ -181,17 +185,16 @@ public class AnotherClassWithTestFixtures
     };
 }
 </code></pre>
-<p>The first argument of the attribute in this form is a Type representing the class that will provide
-the test cases.</p>
-<p>The second argument is a string representing the name of the source used
-to provide test cases. It has the following characteristics:</p>
+<p>The first argument of the attribute in this form is a Type representing the class that will provide the test cases.</p>
+<p>The second argument is a string representing the name of the source used to provide test cases. It has the following
+characteristics:</p>
 <ul>
 <li>It may be a field, property or method in the test class.</li>
 <li>It <strong>must</strong> be static. This is a change from NUnit 2.x.</li>
-<li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>. For fields an array is generally used. For properties and methods, you may return an array or implement your own iterator.</li>
-<li>The individual items returned by the enumerator must be compatible
-with the signature of the method on which the attribute appears.
-See the <strong>Test Case Construction</strong> section below for details.</li>
+<li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>. For fields an array is generally used. For
+properties and methods, you may return an array or implement your own iterator.</li>
+<li>The individual items returned by the enumerator must be compatible with the signature of the method on which the
+attribute appears. See the <strong>Test Case Construction</strong> section below for details.</li>
 </ul>
 <p>Similar to Form 1 it is possible to pass parameters to the source, if the source is a method.</p>
 <h3 id="form-3---testcasesourcetype-sourcetype">Form 3 - <code>[TestCaseSource(Type sourceType)]</code></h3>
@@ -214,13 +217,14 @@ public class DivideCasesClass : IEnumerable
     }
 }
 </code></pre>
-<p>The Type argument in this form represents the class that provides test cases.
-It must have a default constructor and implement <code>IEnumerable</code>. The enumerator
-should return test case data compatible with the signature of the test on which the attribute appears.
-See the <strong>Test Case Construction</strong> section below for details.</p>
+<p>The Type argument in this form represents the class that provides test cases. It must have a default constructor and
+implement <code>IEnumerable</code>. The enumerator should return test case data compatible with the signature of the test on which
+the attribute appears. See the <strong>Test Case Construction</strong> section below for details.</p>
 <p>Note that it is not possible to pass parameters to the source, even if the source is a method.</p>
 <h2 id="sources-with-expected-result-using-testcasedata">Sources with expected result using TestCaseData</h2>
-<p>As of NUnit 3.12, it is possible to use a typed source with an expected result. This is done by using the <code>TestCaseSource</code> attribute on a method that returns a <code>TestCaseData</code> object. The <code>TestCaseData</code> object can be constructed with the expected result as a parameter.</p>
+<p>As of NUnit 3.12, it is possible to use a typed source with an expected result. This is done by using the
+<code>TestCaseSource</code> attribute on a method that returns a <code>TestCaseData</code> object. The <code>TestCaseData</code> object can be
+constructed with the expected result as a parameter.</p>
 <pre><code class="lang-csharp" name="TypedSourceWithExpectedResult">[TestFixture]
 public class MyTests
 {
@@ -246,10 +250,12 @@ public class MyDataClass
 </code></pre>
 <p>See <a class="xref" href="../TestCaseData.html">TestCaseData</a> for more information on the <code>TestCaseData</code> class.</p>
 <h2 id="examples-using-testcasesource-with-typed-data-and-expected-results">Examples using TestCaseSource with Typed data and expected results</h2>
-<p>It may seem from the examples above that TestCaseSource can only be used with simple data types or the base Object type. This is not the case.
-TestCaseSource can be used with typed data and also including expected results, also without using TestCaseData.</p>
-<p>In the example below the test method takes a single argument of a an anonymous tuple type with <code>Person</code> and an expected value of type <code>bool</code>. It can of course be any type, if that makes sense for the test.
-The TestCaseSource method returns an <code>IEnumerable&lt;&gt;</code> of the anonymous tuple type.</p>
+<p>It may seem from the examples above that TestCaseSource can only be used with simple data types or the base Object type.
+This is not the case. TestCaseSource can be used with typed data and also including expected results, also without using
+TestCaseData.</p>
+<p>In the example below the test method takes a single argument of a an anonymous tuple type with <code>Person</code> and an expected
+value of type <code>bool</code>. It can of course be any type, if that makes sense for the test. The TestCaseSource method returns
+an <code>IEnumerable&lt;&gt;</code> of the anonymous tuple type.</p>
 <pre><code class="lang-csharp" name="TypedValuesWithExpectedAsAnonymousTuple">public class TypedValuesWithExpectedAsAnonymousTuple
 {
     [TestCaseSource(nameof(TestCases))]
@@ -277,7 +283,8 @@ public class Person
     }
 }
 </code></pre>
-<p>It is also possible to use a generic wrapper (or any custom wrapper) for the testcase data and the expected result, as shown in the example below.</p>
+<p>It is also possible to use a generic wrapper (or any custom wrapper) for the testcase data and the expected result, as
+shown in the example below.</p>
 <pre><code class="lang-csharp" name="TypedValuesWithExpectedInWrapperClass">public class TypedValuesWithExpectedInWrapperClass
 {
 
@@ -307,15 +314,12 @@ public class TestDataWrapper&lt;T, TExp&gt;
 <li><strong>Category</strong> is used to assign one or more categories to every test case returned from this source.</li>
 </ul>
 <h2 id="test-case-construction">Test Case Construction</h2>
-<p>In constructing tests, NUnit uses each item returned by
-the enumerator as follows:</p>
+<p>In constructing tests, NUnit uses each item returned by the enumerator as follows:</p>
 <ul>
-<li>If it is an object derived from the <code>TestCaseParameters</code> class,
-its properties are used to provide the test case. NUnit provides
-the <a class="xref" href="../TestCaseData.html">TestCaseData</a> type for this purpose.</li>
-<li>If the test has a single argument and the returned value matches the type of
-that argument it is used directly. This can eliminate a bit of extra typing by the programmer,
-as in this example:</li>
+<li>If it is an object derived from the <code>TestCaseParameters</code> class, its properties are used to provide the test case.
+NUnit provides the <a class="xref" href="../TestCaseData.html">TestCaseData</a> type for this purpose.</li>
+<li>If the test has a single argument and the returned value matches the type of that argument it is used directly. This
+can eliminate a bit of extra typing by the programmer, as in this example:</li>
 </ul>
 <pre><code class="lang-csharp" name="SingleArgumentMatchingValueShorthand">
 private static int[] _evenNumbers = { 2, 4, 6, 8 };
@@ -327,42 +331,35 @@ public void TestMethod(int num)
 }
 </code></pre>
 <ul>
-<li>If it is an <code>object[]</code>, its members are used to provide
-the arguments for the method. This is the approach taken in
+<li>If it is an <code>object[]</code>, its members are used to provide the arguments for the method. This is the approach taken in
 the three first examples above.</li>
-<li>If it is an array of some other type, NUnit can use it provided
-that the arguments to the method are all of that type. For example,
-the above examples could be modified to make the three nested arrays
-of type <code>int[]</code>.</li>
-<li>If anything else is returned, it is used directly as the sole
-argument to the method. Because every returned value is used,
-NUnit is able to give an error message in cases where the method
-requires a different number of arguments or
-an argument of a different type.</li>
+<li>If it is an array of some other type, NUnit can use it provided that the arguments to the method are all of that type.
+For example, the above examples could be modified to make the three nested arrays of type <code>int[]</code>.</li>
+<li>If anything else is returned, it is used directly as the sole argument to the method. Because every returned value is
+used, NUnit is able to give an error message in cases where the method requires a different number of arguments or an
+argument of a different type.</li>
 </ul>
 <h2 id="notes">Notes</h2>
 <ol>
-<li>It is recommended that the SourceType not be the same as the test fixture class. It may be a nested class, however, and probably should be if the data is only used within that fixture.</li>
-<li>A generic <code>IEnumerable</code> and <code>IEnumerator</code> may be used but NUnit will actually deal with the underlying <code>IEnumerator</code> in the current release.</li>
-<li>The GetEnumerator method may use yield statements or simply return the enumerator for an array or other collection held by the class.</li>
+<li>It is recommended that the SourceType not be the same as the test fixture class. It may be a nested class, however,
+and probably should be if the data is only used within that fixture.</li>
+<li>A generic <code>IEnumerable</code> and <code>IEnumerator</code> may be used but NUnit will actually deal with the underlying <code>IEnumerator</code>
+in the current release.</li>
+<li>The GetEnumerator method may use yield statements or simply return the enumerator for an array or other collection
+held by the class.</li>
 </ol>
 <h3 id="order-of-execution">Order of Execution</h3>
-<p>Individual test cases are executed in the order in which NUnit discovers them. This order does <strong>not</strong>
-follow the lexical order of the attributes and will often vary between different
-compilers or different versions of the CLR.</p>
-<p>As a result, when <strong>TestCaseSourceAttribute</strong> appears multiple times on a
-method or when other data-providing attributes are used in combination with
-<strong>TestCaseSourceAttribute</strong>, the order of the test cases is undefined.</p>
-<p>However, when a single <strong>TestCaseSourceAttribute</strong> is used by itself,
-the order of the tests follows exactly the order in which the test cases
-are returned from the source.</p>
+<p>Individual test cases are executed in the order in which NUnit discovers them. This order does <strong>not</strong> follow the
+lexical order of the attributes and will often vary between different compilers or different versions of the CLR.</p>
+<p>As a result, when <strong>TestCaseSourceAttribute</strong> appears multiple times on a method or when other data-providing attributes
+are used in combination with <strong>TestCaseSourceAttribute</strong>, the order of the test cases is undefined.</p>
+<p>However, when a single <strong>TestCaseSourceAttribute</strong> is used by itself, the order of the tests follows exactly the order
+in which the test cases are returned from the source.</p>
 <h3 id="object-construction">Object Construction</h3>
-<p>NUnit locates the test cases at the time the tests are loaded. It creates
-instances of each class used with the third form of the attribute and builds a list of
-tests to be executed. Each data source class is only created once at this
-time and is destroyed after all tests are loaded. By design, no communication is
-possible between the load and execution phases except through the tests that
-are created.</p>
+<p>NUnit locates the test cases at the time the tests are loaded. It creates instances of each class used with the third
+form of the attribute and builds a list of tests to be executed. Each data source class is only created once at this
+time and is destroyed after all tests are loaded. By design, no communication is possible between the load and execution
+phases except through the tests that are created.</p>
 </article>
           </div>
 

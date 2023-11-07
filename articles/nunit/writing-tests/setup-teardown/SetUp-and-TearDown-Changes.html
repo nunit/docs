@@ -94,21 +94,27 @@
 <li>TestFixtureTearDownAttribute</li>
 <li>SetUpFixtureAttribute</li>
 </ul>
-<p>Taken together, these attributes provided per-test setup and teardown at the fixture level and one-time setup and teardown at the fixture, namespace and assembly levels.</p>
+<p>Taken together, these attributes provided per-test setup and teardown at the fixture level and one-time setup and
+teardown at the fixture, namespace and assembly levels.</p>
 <p>These features were somewhat confusing:</p>
 <ul>
 <li>SetUpFixture seems not very well understood by users in general.</li>
 <li>TestFixtureSetUp and TestFixtureTearDown could do with better names.</li>
-<li>SetUp and TearDown designate per-test setup/teardown within a test fixture, one-time setup/teardown within a setup fixture</li>
+<li>SetUp and TearDown designate per-test setup/teardown within a test fixture, one-time setup/teardown within a setup
+fixture</li>
 </ul>
-<p>For NUnit 3.0 we standardized the use of attributes for setup and teardown and renamed some of them to make their function clearer.</p>
+<p>For NUnit 3.0 we standardized the use of attributes for setup and teardown and renamed some of them to make their
+function clearer.</p>
 <h2 id="attribute-usage">Attribute Usage</h2>
 <ul>
 <li><a class="xref" href="../attributes/setup.html">SetUpAttribute</a> is now used exclusively for per-test setup.</li>
 <li><a class="xref" href="../attributes/teardown.html">TearDownAttribute</a> is now used exclusively for per-test teardown.</li>
-<li><a class="xref" href="../attributes/onetimesetup.html">OneTimeSetUpAttribute</a> is used for one-time setup per test-run. If you run <em>n</em> tests, this event will only occur once.</li>
-<li><a class="xref" href="../attributes/onetimeteardown.html">OneTimeTearDownAttribute</a> is used for one-time teardown per test-run. If you run <em>n</em> tests, this event will only occur once</li>
-<li><a class="xref" href="../attributes/setupfixture.html">SetUpFixtureAttribute</a> continues to be used as at before, but with changed method attributes.</li>
+<li><a class="xref" href="../attributes/onetimesetup.html">OneTimeSetUpAttribute</a> is used for one-time setup per test-run. If you run <em>n</em> tests,
+this event will only occur once.</li>
+<li><a class="xref" href="../attributes/onetimeteardown.html">OneTimeTearDownAttribute</a> is used for one-time teardown per test-run. If you run <em>n</em>
+tests, this event will only occur once</li>
+<li><a class="xref" href="../attributes/setupfixture.html">SetUpFixtureAttribute</a> continues to be used as at before, but with changed method
+attributes.</li>
 </ul>
 <h3 id="attribute-usage-by-fixture-type">Attribute Usage by Fixture Type</h3>
 <table>
@@ -153,13 +159,22 @@
 </tbody>
 </table>
 <h2 id="backward-compatibility">Backward Compatibility</h2>
-<p><strong>TestFixtureSetUpAttribute</strong> and <strong>TestFixtureTearDownAttribute</strong> continue to be supported as synonyms for <strong>OneTimeSetUpAttribute</strong> and <strong>OneTimeTearDownAttribute</strong> in test fixtures, but are deprecated.</p>
-<p>Since <strong>SetUpAttribute</strong> and <strong>TearDownAttribute</strong> are used in two different ways, it's not possible to simply deprecate their usage in SetUpFixture. They have been disallowed in that context, which is a <a class="xref" href="../../release-notes/breaking-changes.html">breaking change</a>.</p>
+<p><strong>TestFixtureSetUpAttribute</strong> and <strong>TestFixtureTearDownAttribute</strong> continue to be supported as synonyms for
+<strong>OneTimeSetUpAttribute</strong> and <strong>OneTimeTearDownAttribute</strong> in test fixtures, but are deprecated.</p>
+<p>Since <strong>SetUpAttribute</strong> and <strong>TearDownAttribute</strong> are used in two different ways, it's not possible to simply deprecate
+their usage in SetUpFixture. They have been disallowed in that context, which is a <a class="xref" href="../../release-notes/breaking-changes.html">breaking
+change</a>.</p>
 <h2 id="how-setup-and-teardown-methods-are-called">How Setup and TearDown Methods Are Called</h2>
-<p>Multiple SetUp, OneTimeSetUp, TearDown and OneTimeTearDown methods may exist within a class. The rules for how the setup methods are called will be the same in NUnit 3.0 as in NUnit 2.6. However, there is a change in the calling of the teardown methods.</p>
-<p>Setup methods (both types) are called on base classes first, then on derived classes. If any setup method throws an exception, no further setups are called. This is the same as in NUnit 2.6.</p>
-<p>Teardown methods (again, both types) are called on derived classes first, then on the base class. In NUnit 2.6, all teardown methods were called so long as <strong>any</strong> setup method was called. It was entirely up to the teardown method to determine how much of the initialization took place.</p>
-<p>In NUnit 3.0, the teardown methods at any level in the inheritance hierarchy will be called only if a setup method <strong>at the same level</strong> was called. The following example is illustrates the difference.</p>
+<p>Multiple SetUp, OneTimeSetUp, TearDown and OneTimeTearDown methods may exist within a class. The rules for how the setup
+methods are called will be the same in NUnit 3.0 as in NUnit 2.6. However, there is a change in the calling of the
+teardown methods.</p>
+<p>Setup methods (both types) are called on base classes first, then on derived classes. If any setup method throws an
+exception, no further setups are called. This is the same as in NUnit 2.6.</p>
+<p>Teardown methods (again, both types) are called on derived classes first, then on the base class. In NUnit 2.6, all
+teardown methods were called so long as <strong>any</strong> setup method was called. It was entirely up to the teardown method to
+determine how much of the initialization took place.</p>
+<p>In NUnit 3.0, the teardown methods at any level in the inheritance hierarchy will be called only if a setup method <strong>at
+the same level</strong> was called. The following example is illustrates the difference.</p>
 <pre><code class="lang-csharp">public class BaseClass
 {
    [SetUp]
@@ -196,7 +211,8 @@ public class DerivedClass : BaseClass
 <p>This is potentially a <a class="xref" href="../../release-notes/breaking-changes.html">breaking change</a> for some users.</p>
 <h2 id="unresolved-issues">Unresolved Issues</h2>
 <ul>
-<li>We need to define how setup and teardown methods are ordered with respect to the newly introduced <a class="xref" href="../../extending-nunit/Action-Attributes.html">Action Attributes</a> and how they interact.</li>
+<li>We need to define how setup and teardown methods are ordered with respect to the newly introduced <a class="xref" href="../../extending-nunit/Action-Attributes.html">Action
+Attributes</a> and how they interact.</li>
 </ul>
 </article>
           </div>

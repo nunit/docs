@@ -88,9 +88,13 @@
 <p>RetryAttribute is used on a test method to specify that it should be rerun if it fails, up to a maximum number of times.</p>
 <p>Notes:</p>
 <ol>
-<li>The argument you specify is the total number of attempts and <strong>not</strong> the number of retries after an initial failure. So <code>[Retry(1)]</code> does nothing and should not be used.</li>
-<li>It is not currently possible to use <code>RetryAttribute</code> on a <code>TestFixture</code> or any other type of test suite. Only single tests may be repeated.</li>
-<li>If a test has an unexpected exception, an error result is returned and it is not retried. Only assertion failures can trigger a retry. To convert an unexpected exception into an assertion failure, see the <a class="xref" href="../constraints/ThrowsConstraint.html">ThrowsConstraint</a>.</li>
+<li>The argument you specify is the total number of attempts and <strong>not</strong> the number of retries after an initial failure.
+So <code>[Retry(1)]</code> does nothing and should not be used.</li>
+<li>It is not currently possible to use <code>RetryAttribute</code> on a <code>TestFixture</code> or any other type of test suite. Only single
+tests may be repeated.</li>
+<li>If a test has an unexpected exception, an error result is returned and it is not retried. Only assertion failures can
+trigger a retry. To convert an unexpected exception into an assertion failure, see the
+<a class="xref" href="../constraints/ThrowsConstraint.html">ThrowsConstraint</a>.</li>
 </ol>
 </article>
           </div>

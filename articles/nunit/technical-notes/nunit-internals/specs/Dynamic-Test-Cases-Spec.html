@@ -91,30 +91,26 @@
 </div>
 <p>This specification describes changes in how test cases will be generated in NUnit 3.0</p>
 <h2 id="rationale">Rationale</h2>
-<p>NUnit currently supports parameterized tests using the TestCase, TestCaseSource,
-Values, ValueSource, Random and Range attributes. All these data sources provide
-data that is used to generate test cases as the tests are loaded. We refer to these
-as &quot;pre-generated&quot; test cases.</p>
-<p>There is also a need for what we are calling &quot;dynamically generated&quot; test cases,
-which are not created until the test is about to run and which may be re-created
-each time the test is run.</p>
-<p>For example, it may be desirable to perform some initialization of the data in
-a OneTimeFixtureSetUp method. This is not possible using the pre-generated model,
-because the tests are generated before any execution.
-As another example, the data may consist of the names of files in a certain
-directory. If the directory content is changing dynamically, we may want our
-tests to reflect those changes, which is only possible using the dynamic model.</p>
-<p>For all these reasons - and because users have requested it - we are introducing
-the notion of &quot;dynamically generated&quot; test cases in NUnit 3.0. Some existing
-attributes will be re-purposed and new attributes created to support it.</p>
+<p>NUnit currently supports parameterized tests using the TestCase, TestCaseSource, Values, ValueSource, Random and Range
+attributes. All these data sources provide data that is used to generate test cases as the tests are loaded. We refer to
+these as &quot;pre-generated&quot; test cases.</p>
+<p>There is also a need for what we are calling &quot;dynamically generated&quot; test cases, which are not created until the test is
+about to run and which may be re-created each time the test is run.</p>
+<p>For example, it may be desirable to perform some initialization of the data in a OneTimeFixtureSetUp method. This is not
+possible using the pre-generated model, because the tests are generated before any execution. As another example, the
+data may consist of the names of files in a certain directory. If the directory content is changing dynamically, we may
+want our tests to reflect those changes, which is only possible using the dynamic model.</p>
+<p>For all these reasons - and because users have requested it - we are introducing the notion of &quot;dynamically generated&quot;
+test cases in NUnit 3.0. Some existing attributes will be re-purposed and new attributes created to support it.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Dynamic test case generation is also required for the proper implementation of <strong>Theories</strong>, which will be described in a separate specification.</p>
+<p>Dynamic test case generation is also required for the proper implementation of <strong>Theories</strong>, which will be
+described in a separate specification.</p>
 </div>
 <h2 id="design">Design</h2>
 <h3 id="key-tradeoffs">Key Tradeoffs</h3>
-<p>The two types of test cases have important differences in how they may
-be used by NUnit and each has certain advantages and limitations as well.</p>
+<p>The two types of test cases have important differences in how they may be used by NUnit and each has certain advantages
+and limitations as well.</p>
 <table>
 <thead>
 <tr>
@@ -165,34 +161,47 @@ be used by NUnit and each has certain advantages and limitations as well.</p>
 <ul>
 <li>Introduce dynamic test case generation, as described above.</li>
 <li>For ease of use, each data attribute should use either the pre-generated or dynamically generated model exclusively.</li>
-<li>Parameterized test methods may mix both types of attribute, allowing both pre-generated and dynamically generated test cases.</li>
-<li>Provided that external data sources such as files and databases are not changed, we will support repeatable test runs across different program sessions and within the same session.</li>
-<li>The Gui will display new test cases as they are generated and will provide a visual cue to distinguish the two types of test cases.</li>
+<li>Parameterized test methods may mix both types of attribute, allowing both pre-generated and dynamically generated test
+cases.</li>
+<li>Provided that external data sources such as files and databases are not changed, we will support repeatable test runs
+across different program sessions and within the same session.</li>
+<li>The Gui will display new test cases as they are generated and will provide a visual cue to distinguish the two types
+of test cases.</li>
 </ul>
 <h3 id="syntax">Syntax</h3>
-<p>As in NUnit 2.5, Attributes applied to test methods will provide or point to the data to be used as test arguments. Except as noted below, attributes will not change syntactically and will continue to operate as before even though many of them will now generate test cases dynamically. The following paragraphs describe the impact of the change on each attribute.</p>
+<p>As in NUnit 2.5, Attributes applied to test methods will provide or point to the data to be used as test arguments.
+Except as noted below, attributes will not change syntactically and will continue to operate as before even though many
+of them will now generate test cases dynamically. The following paragraphs describe the impact of the change on each
+attribute.</p>
 <p><strong>TestCaseAttribute</strong> will continue to work as it now does, producing pre-generated test cases.</p>
-<p><strong>TestCaseSourceAttribute</strong> and <strong>ValueSourceAttribute</strong> will continue to create pre-generated test cases, but will be more limited in their usage than before. The following data sources will be supported:</p>
+<p><strong>TestCaseSourceAttribute</strong> and <strong>ValueSourceAttribute</strong> will continue to create pre-generated test cases, but will be
+more limited in their usage than before. The following data sources will be supported:</p>
 <ul>
 <li>Static fields, properties or methods of the test fixture.</li>
 <li>Static or instance fields properties or methods of an external or nested class.</li>
 </ul>
 <blockquote>
-<p>It's likely that there will be ways to 'trick' NUnit into accepting an instance member for one of these attributes, leading to instantiation of the test class at load time. If that occurs, the results are undefined. Obviously, such trickery is not recommended and we'll try hard to detect and reject such attempts.</p>
+<p>It's likely that there will be ways to 'trick' NUnit into accepting an instance member for one of these attributes,
+leading to instantiation of the test class at load time. If that occurs, the results are undefined. Obviously, such
+trickery is not recommended and we'll try hard to detect and reject such attempts.</p>
 </blockquote>
-<p>A new <strong>DynamicDataSourceAttribute</strong> (the name is a placeholder) will supplant both <strong>TestCaseSourceAttribute</strong> and <strong>ValueSourceAttribute</strong> for dynamic generation of test cases and parameter values respectively. Suggestions are welcome for the final name of this attribute.</p>
-<p><strong>ValuesAttribute</strong>, <strong>RangeAttribute</strong>, <strong>RandomAttribute</strong>, <strong>CombinatorialAttribute</strong>, <strong>PairwiseAttribute</strong> and <strong>SequentialAttribute</strong> (that is, all other data attributes) will be used to produce test cases dynamically.</p>
-<p><strong>DatapointAttribute</strong> and <strong>DatapointsAttribute</strong> are only used for Theories, but for the sake of completeness it may be noted that they will also operate dynamically.</p>
-<p>Where necessary, additional properties may be added to some attributes in order to provide for repeatability of tests. At the moment, the only known requirement is for specification of a random seed for <strong>RandomAttribute</strong> but others may arise in implementation.</p>
+<p>A new <strong>DynamicDataSourceAttribute</strong> (the name is a placeholder) will supplant both <strong>TestCaseSourceAttribute</strong> and
+<strong>ValueSourceAttribute</strong> for dynamic generation of test cases and parameter values respectively. Suggestions are welcome
+for the final name of this attribute.</p>
+<p><strong>ValuesAttribute</strong>, <strong>RangeAttribute</strong>, <strong>RandomAttribute</strong>, <strong>CombinatorialAttribute</strong>, <strong>PairwiseAttribute</strong> and
+<strong>SequentialAttribute</strong> (that is, all other data attributes) will be used to produce test cases dynamically.</p>
+<p><strong>DatapointAttribute</strong> and <strong>DatapointsAttribute</strong> are only used for Theories, but for the sake of completeness it may
+be noted that they will also operate dynamically.</p>
+<p>Where necessary, additional properties may be added to some attributes in order to provide for repeatability of tests.
+At the moment, the only known requirement is for specification of a random seed for <strong>RandomAttribute</strong> but others may
+arise in implementation.</p>
 <h4 id="gui-design-notes">Gui Design Notes</h4>
 <p>Since we don't have an NUnit 3.0 Gui yet, these notes are for the future...</p>
-<p>When tests are run in batch mode using the console runner, the distinction
-between fixed and dynamic data is moot. In that environment, tests are loaded
-and executed in rapid sequence, after which the process is terminated.</p>
-<p>But when using the Gui, the affect of using dynamic data is quite visible.
-Dynamic tests are initially loaded without showing any subordinate test cases.
-After each run, test cases are repopulated and may even be different.
-This has several important consequences for the Gui...</p>
+<p>When tests are run in batch mode using the console runner, the distinction between fixed and dynamic data is moot. In
+that environment, tests are loaded and executed in rapid sequence, after which the process is terminated.</p>
+<p>But when using the Gui, the affect of using dynamic data is quite visible. Dynamic tests are initially loaded without
+showing any subordinate test cases. After each run, test cases are repopulated and may even be different. This has
+several important consequences for the Gui...</p>
 <ul>
 <li>It must be able to deal with test cases added during test execution.</li>
 <li>It must be able to trigger regeneration of test cases for a rerun.</li>
@@ -200,7 +209,10 @@ This has several important consequences for the Gui...</p>
 <li>It must give the user control over whether to run the tests repeatably or not.</li>
 </ul>
 <h3 id="implementation-notes">Implementation Notes</h3>
-<p>Interface changes will be required to identify the presence of either pre-generated or dynamic data for a method. NUnitTestCaseBuilder will accept a test method with arguments so long as either type is present but will only create pre-generated test cases. Dynamic test case generation will take place in the Run method of ParameterizedMethodSuite class using registered extensions that support dynamic data.</p>
+<p>Interface changes will be required to identify the presence of either pre-generated or dynamic data for a method.
+NUnitTestCaseBuilder will accept a test method with arguments so long as either type is present but will only create
+pre-generated test cases. Dynamic test case generation will take place in the Run method of ParameterizedMethodSuite
+class using registered extensions that support dynamic data.</p>
 <p>The result will be a new addition to the standard sequence of test execution, as follows:</p>
 <ul>
 <li>Create test fixture instance</li>

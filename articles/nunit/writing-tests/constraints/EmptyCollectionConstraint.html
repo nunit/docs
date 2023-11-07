@@ -85,7 +85,8 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="emptycollection-constraint">EmptyCollection Constraint</h1>
 
-<p>The <strong>EmptyCollectionConstraint</strong> tests if a Collection or other <code>IEnumerable</code> is empty. An <code>ArgumentException</code> is thrown if the actual value is not an <code>IEnumerable</code> or is null.</p>
+<p>The <strong>EmptyCollectionConstraint</strong> tests if a Collection or other <code>IEnumerable</code> is empty. An <code>ArgumentException</code> is
+thrown if the actual value is not an <code>IEnumerable</code> or is null.</p>
 <h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">EmptyCollectionConstraint()
 </code></pre>
@@ -98,7 +99,8 @@ Assert.That(new int[] { 1, 2, 3 }, Is.Not.Empty);
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p><code>Is.Empty</code> actually creates an <code>EmptyConstraint</code>. Subsequently applying it to an <code>IEnumerable</code> or <code>ICollection</code> causes an <code>EmptyCollectionConstraint</code> to be created.</p>
+<p><code>Is.Empty</code> actually creates an <code>EmptyConstraint</code>. Subsequently applying it to an <code>IEnumerable</code> or
+<code>ICollection</code> causes an <code>EmptyCollectionConstraint</code> to be created.</p>
 </div>
 </article>
           </div>

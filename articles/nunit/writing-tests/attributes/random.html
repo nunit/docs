@@ -85,15 +85,11 @@
             <article class="content wrap" id="_content" data-uid="randomattribute">
 <h1 id="random">Random</h1>
 
-<p>The <strong>RandomAttribute</strong> is used to specify a set of random values to be provided
-for an individual numeric parameter, or <code>Guid</code> of a parameterized test method. Since
-NUnit combines the data provided for each parameter into a set of
-test cases, data must be provided for all parameters if it is
-provided for any of them.</p>
-<p>By default, NUnit creates test cases from all possible combinations
-of the datapoints provided on parameters - the combinatorial approach.
-This default may be modified by use of specific attributes on the
-test method itself.</p>
+<p>The <strong>RandomAttribute</strong> is used to specify a set of random values to be provided for an individual numeric parameter, or
+<code>Guid</code> of a parameterized test method. Since NUnit combines the data provided for each parameter into a set of test
+cases, data must be provided for all parameters if it is provided for any of them.</p>
+<p>By default, NUnit creates test cases from all possible combinations of the datapoints provided on parameters - the
+combinatorial approach. This default may be modified by use of specific attributes on the test method itself.</p>
 <p>RandomAttribute supports the following constructors:</p>
 <pre><code class="lang-csharp">public Random(int count);
 public Random(int min, int max, int count);
@@ -107,22 +103,26 @@ public Random(sbyte min, sbyte max, int count);
 public Random(double min, double max, int count);
 public Random(float min, float max, int count);
 </code></pre>
-<p>In the first form, without minimum and maximum values, the attribute automatically generates values of the appropriate numeric Type or <code>Guid</code> for the argument provided, using the <code>Randomizer</code> object associated with the current context. See <a class="xref" href="../Randomizer-Methods.html">Randomizer Methods</a> for details.</p>
-<p>In general, the forms that specify a minimum and maximum should be used on arguments of the same type. However, the following exceptions are supported:</p>
+<p>In the first form, without minimum and maximum values, the attribute automatically generates values of the appropriate
+numeric Type or <code>Guid</code> for the argument provided, using the <code>Randomizer</code> object associated with the current context. See
+<a class="xref" href="../Randomizer-Methods.html">Randomizer Methods</a> for details.</p>
+<p>In general, the forms that specify a minimum and maximum should be used on arguments of the same type. However, the
+following exceptions are supported:</p>
 <ul>
 <li><p>You may use an int range on arguments of type short, ushort, byte, sbyte and decimal.</p>
 </li>
 <li><p>You may use a double range on arguments of type decimal.</p>
 </li>
 </ul>
-<p>Note that there is no constructor taking decimal values for min and max. This is because .NET does not support use of decimal in an attribute constructor.</p>
+<p>Note that there is no constructor taking decimal values for min and max. This is because .NET does not support use of
+decimal in an attribute constructor.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p><code>Guid</code> support for <code>RandomAttribute</code> is available from version 4.0 onwards.</p>
 </div>
 <h2 id="example">Example</h2>
-<p>The following test will be executed fifteen times, three times
-for each value of x, each combined with 5 random doubles from -1.0 to +1.0.</p>
+<p>The following test will be executed fifteen times, three times for each value of x, each combined with 5 random doubles
+from -1.0 to +1.0.</p>
 <pre><code class="lang-csharp">[Test]
 public void MyTest(
     [Values(1, 2, 3)] int x,

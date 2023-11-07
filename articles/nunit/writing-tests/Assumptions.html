@@ -85,7 +85,9 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="assumptions">Assumptions</h1>
 
-<p>Assumptions are intended to express the state a test must be in to provide a meaningful result. They are functionally similar to assertions, however an unmet assumption will produce an <code>Inconclusive</code> test result, as opposed to a <code>Failure</code>.</p>
+<p>Assumptions are intended to express the state a test must be in to provide a meaningful result. They are functionally
+similar to assertions, however an unmet assumption will produce an <code>Inconclusive</code> test result, as opposed to a
+<code>Failure</code>.</p>
 <p>Assumptions make use of the <code>Assume</code> static class.</p>
 <h2 id="syntax-example">Syntax Example</h2>
 <pre><code class="lang-csharp" name="AssumptionsTests">[TestCase(5)]
@@ -110,10 +112,13 @@ private int GetMatchingDivisor(int inputNumber)
     return inputNumber;
 }
 </code></pre>
-<p><code>Assume.That()</code> has the same set of overloads as <code>Assert.That()</code>. For further details, see the <a class="xref" href="assertions/assertion-models/constraint.html">Constraint Model</a> documentation.</p>
+<p><code>Assume.That()</code> has the same set of overloads as <code>Assert.That()</code>. For further details, see the <a class="xref" href="assertions/assertion-models/constraint.html">Constraint
+Model</a> documentation.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Failing assumptions indicate that running tests is invalid,  while <a class="xref" href="assertions/multiple-asserts.html">Multiple Asserts</a> allow testing to continue after a failure. For that reason, the two features are incompatible and assumptions may not be used within a <a class="xref" href="assertions/multiple-asserts.html">multiple assert</a> block.</p>
+<p>Failing assumptions indicate that running tests is invalid,  while <a class="xref" href="assertions/multiple-asserts.html">Multiple Asserts</a>
+allow testing to continue after a failure. For that reason, the two features are incompatible and assumptions may not
+be used within a <a class="xref" href="assertions/multiple-asserts.html">multiple assert</a> block.</p>
 </div>
 </article>
           </div>

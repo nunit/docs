@@ -85,11 +85,13 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="packaging-the-installer">Packaging the Installer</h1>
 
-<p>Before packaging the installer, you must first package and release the Console and Engine. See <a href="Packaging-the-Console-and-Engine.html">Packaging the Console and Engine</a></p>
+<p>Before packaging the installer, you must first package and release the Console and Engine. See <a href="Packaging-the-Console-and-Engine.html">Packaging the Console
+and Engine</a></p>
 <h2 id="prepare-the-release">Prepare the Release</h2>
 <ol>
 <li>Get latest from master</li>
-<li>Update CHANGES.TXT. Set the date of the release, and list any packages which have been upgraded since the last release.</li>
+<li>Update CHANGES.TXT. Set the date of the release, and list any packages which have been upgraded since the last
+release.</li>
 <li>Check the <code>version</code> and <code>displayVersion</code> in <code>build.cake</code>. They should have been updated at the last release.</li>
 <li>Package the release, <code>.\build.ps1</code> or <code>.\build.cmd</code></li>
 <li>Check the <code>distribution</code> directory for <code>NUnit.{VERSION}.msi</code> and <code>NUnit.{VERSION}.zip</code></li>
@@ -113,7 +115,8 @@
 <li>Check the version in the <code>nunit3-console.exe</code> output headers when running tests.</li>
 </ol>
 <h2 id="archiving-the-release">Archiving the Release</h2>
-<p>Packages are archived on nunit.org in the downloads directory. Add the MSI and ZIP to the existing downloads/nunit/v3 for the Console/Engine release.</p>
+<p>Packages are archived on nunit.org in the downloads directory. Add the MSI and ZIP to the existing downloads/nunit/v3
+for the Console/Engine release.</p>
 <h2 id="publishing-the-release">Publishing the Release</h2>
 <ol>
 <li>Log onto Github and go to the main nunit-console repository at <a href="https://github.com/nunit/nunit-console">https://github.com/nunit/nunit-console</a>.</li>
@@ -136,7 +139,10 @@
 </ol>
 <div class="NOTE">
 <h5>Note</h5>
-<p>The release branch in this project is not like the release branches in other projects, we don't save it. If we need to go back and do hotfixes, we will branch off the tag that was created for the release. We do this because there are usually no changes required to this repository for a release except incrementing the version post release. Any larger changes to this repository should be done and tested prior to a release using the normal Pull Request workflow</p>
+<p>The release branch in this project is not like the release branches in other projects, we don't save it. If we
+need to go back and do hotfixes, we will branch off the tag that was created for the release. We do this because there
+are usually no changes required to this repository for a release except incrementing the version post release. Any
+larger changes to this repository should be done and tested prior to a release using the normal Pull Request workflow</p>
 </div>
 </article>
           </div>

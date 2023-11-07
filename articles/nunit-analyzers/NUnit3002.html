@@ -118,10 +118,9 @@
 </table>
 <h2 id="description">Description</h2>
 <p>This rule check diagnostics reported by the CS8618 compiler error:</p>
-<p><code>CS8618: Non-nullable field '_name_' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.</code>
-<code>CS8618: Non-nullable property '_Name_' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.</code></p>
-<p>If the violating field/property is set in the <code>SetUp</code> or <code>OneTimeSetUp</code> method. The rule suppresses the error.
-This allows for non-nullable fields/properties to be used in a <code>TestFixture</code>.</p>
+<p><code>CS8618: Non-nullable field '_name_' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.</code> <code>CS8618: Non-nullable property '_Name_' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.</code></p>
+<p>If the violating field/property is set in the <code>SetUp</code> or <code>OneTimeSetUp</code> method. The rule suppresses the error. This
+allows for non-nullable fields/properties to be used in a <code>TestFixture</code>.</p>
 <p>The rule does detect indirect calls, when the field is set in a method called by the <code>SetUp</code> or <code>OneTimeSetUp</code> methods.</p>
 <h2 id="motivation">Motivation</h2>
 <pre><code class="lang-csharp">[TestFixture]
@@ -142,17 +141,17 @@ internal sealed class SomeClassFixture
     }
 }
 </code></pre>
-<p>In the above fixture the compiler would give a warning because <code>instance</code> is not set in the constructor.
-The suggestion to mark <code>instance</code> as nullable would mean that we have to test for null in all <code>Test</code> methods
-or use the null suppression operator (<code>!</code>) everywhere.</p>
+<p>In the above fixture the compiler would give a warning because <code>instance</code> is not set in the constructor. The suggestion
+to mark <code>instance</code> as nullable would mean that we have to test for null in all <code>Test</code> methods or use the null
+suppression operator (<code>!</code>) everywhere.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
 <p>Initialize the field in the <code>SetUp</code> or <code>OneTimeSetUp</code> methods.</p>
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <p>The rule has no severity, but can be disabled.</p>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>To disable the rule for a project, you need to add a
-<a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset">ruleset file</a></p>
+<p>To disable the rule for a project, you need to add a <a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset">ruleset
+file</a></p>
 <pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;RuleSet Name=&quot;NUnit.Analyzer Suppressions&quot; Description=&quot;DiagnosticSuppression Rules&quot; ToolsVersion=&quot;12.0&quot;&gt;
   &lt;Rules AnalyzerId=&quot;DiagnosticSuppressors&quot; RuleNamespace=&quot;NUnit.NUnitAnalyzers&quot;&gt;
@@ -166,7 +165,8 @@ or use the null suppression operator (<code>!</code>) everywhere.</p>
   &lt;CodeAnalysisRuleSet&gt;NUnit.Analyzers.Suppressions.ruleset&lt;/CodeAnalysisRuleSet&gt;
 &lt;/PropertyGroup&gt;
 </code></pre>
-<p>For more info about rulesets see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>For more info about rulesets see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <p>This is currently not working. Waiting for <a href="https://github.com/dotnet/roslyn/issues/49727">Roslyn</a></p>
 <pre><code class="lang-ini"># NUnit3002: Field/Property is initialized in SetUp or OneTimeSetUp method

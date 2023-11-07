@@ -85,8 +85,7 @@
             <article class="content wrap" id="_content" data-uid="equalconstraint">
 <h1 id="equal-constraint">Equal Constraint</h1>
 
-<p>An EqualConstraint is used to test whether an actual value
-is equal to the expected value supplied in its constructor,
+<p>An EqualConstraint is used to test whether an actual value is equal to the expected value supplied in its constructor,
 optionally within a specified tolerance.</p>
 <h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">EqualConstraint(object expected)
@@ -116,10 +115,8 @@ Is.Zero // Equivalent to Is.EqualTo(0)
 ...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 </code></pre>
 <h2 id="comparing-numerics">Comparing Numerics</h2>
-<p>Numerics are compared based on their values. Different types
-may be compared successfully if their values are equal.</p>
-<p>Using the <strong>Within</strong> modifier, numerics may be tested
-for equality within a fixed or percent tolerance.</p>
+<p>Numerics are compared based on their values. Different types may be compared successfully if their values are equal.</p>
+<p>Using the <strong>Within</strong> modifier, numerics may be tested for equality within a fixed or percent tolerance.</p>
 <pre><code class="lang-csharp">Assert.That(2 + 2, Is.EqualTo(4.0));
 Assert.That(2 + 2 == 4);
 Assert.That(2 + 2, Is.Not.EqualTo(5));
@@ -129,14 +126,11 @@ Assert.That(5.5, Is.EqualTo(5).Within(0.075));
 Assert.That(5.5, Is.EqualTo(5).Within(1.5).Percent);
 </code></pre>
 <h2 id="comparing-floating-point-values">Comparing Floating Point Values</h2>
-<p>Values of type float and double are normally compared using a tolerance
-specified by the <strong>Within</strong> modifier. The special values PositiveInfinity,
-NegativeInfinity and NaN compare
-as equal to themselves.</p>
-<p>Floating-point values may be compared using a tolerance
-in &quot;Units in the Last Place&quot; or ULPs. For certain types of numerical work,
-this is safer than a fixed tolerance because it automatically compensates
-for the added inaccuracy of larger numbers.</p>
+<p>Values of type float and double are normally compared using a tolerance specified by the <strong>Within</strong> modifier. The
+special values PositiveInfinity, NegativeInfinity and NaN compare as equal to themselves.</p>
+<p>Floating-point values may be compared using a tolerance in &quot;Units in the Last Place&quot; or ULPs. For certain types of
+numerical work, this is safer than a fixed tolerance because it automatically compensates for the added inaccuracy of
+larger numbers.</p>
 <pre><code class="lang-csharp">Assert.That(2.1 + 1.2, Is.EqualTo(3.3).Within(.0005));
 Assert.That(double.PositiveInfinity, Is.EqualTo(double.PositiveInfinity));
 Assert.That(double.NegativeInfinity, Is.EqualTo(double.NegativeInfinity));
@@ -144,9 +138,8 @@ Assert.That(double.NaN, Is.EqualTo(double.NaN));
 Assert.That(20000000000000004.0, Is.EqualTo(20000000000000000.0).Within(1).Ulps);
 </code></pre>
 <h2 id="comparing-strings">Comparing Strings</h2>
-<p>String comparisons normally respect case. The <code>IgnoreCase</code> modifier
-causes the comparison to be case-insensitive. It may also be used when
-comparing arrays or collections of strings.</p>
+<p>String comparisons normally respect case. The <code>IgnoreCase</code> modifier causes the comparison to be case-insensitive. It may
+also be used when comparing arrays or collections of strings.</p>
 <pre><code class="lang-csharp">Assert.That(&quot;Hello!&quot;, Is.Not.EqualTo(&quot;HELLO!&quot;));
 Assert.That(&quot;Hello!&quot;, Is.EqualTo(&quot;HELLO!&quot;).IgnoreCase);
 
@@ -154,13 +147,11 @@ string[] expected = new string[] { &quot;Hello&quot;, &quot;World&quot; };
 string[] actual = new string[] { &quot;HELLO&quot;, &quot;world&quot; };
 </code></pre>
 <h2 id="comparing-datetimes-and-timespans">Comparing DateTimes and TimeSpans</h2>
-<p><strong>DateTimes</strong> and <strong>TimeSpans</strong> may be compared either with or without
-a tolerance. A tolerance is specified using <strong>Within</strong> with either a
-<strong>TimeSpan</strong> as an argument or with a numeric value followed by a one of
-the time conversion modifiers: <strong>Days</strong>, <strong>Hours</strong>, <strong>Minutes</strong>,
-<strong>Seconds</strong>, <strong>Milliseconds</strong> or <strong>Ticks</strong>.</p>
-<p>When comparing <strong>DateTimeOffsets</strong> you can use the optional <strong>WithSameOffset</strong>
-modifier to check the offset along with the date and time.</p>
+<p><strong>DateTimes</strong> and <strong>TimeSpans</strong> may be compared either with or without a tolerance. A tolerance is specified using
+<strong>Within</strong> with either a <strong>TimeSpan</strong> as an argument or with a numeric value followed by a one of the time conversion
+modifiers: <strong>Days</strong>, <strong>Hours</strong>, <strong>Minutes</strong>, <strong>Seconds</strong>, <strong>Milliseconds</strong> or <strong>Ticks</strong>.</p>
+<p>When comparing <strong>DateTimeOffsets</strong> you can use the optional <strong>WithSameOffset</strong> modifier to check the offset along with
+the date and time.</p>
 <pre><code class="lang-csharp">DateTime now = DateTime.Now;
 DateTime later = now + TimeSpan.FromHours(1.0);
 
@@ -169,21 +160,17 @@ Assert.That(later, Is.EqualTo(now).Within(TimeSpan.FromHours(3.0));
 Assert.That(later, Is.EqualTo(now).Within(3).Hours);
 </code></pre>
 <h2 id="comparing-arrays-collections-and-ienumerables">Comparing Arrays, Collections and IEnumerables</h2>
-<p>Since version 2.2, NUnit has been able to compare two single-dimensioned arrays.
-Beginning with version 2.4, multi-dimensioned arrays, nested arrays (arrays of arrays)
-and collections may be compared. With version 2.5, any IEnumerable is supported.
-Two arrays, collections or IEnumerables are considered equal if they have the
-same dimensions and if each of the corresponding elements is equal.</p>
-<p>If you want to treat two arrays of different shapes as simple collections
-for purposes of comparison, use the <strong>AsCollection</strong> modifier, which causes
-the comparison to be made element by element, without regard for the rank or
-dimensions of the array. Note that jagged arrays (arrays of arrays) do not
-have a single underlying collection. The modifier would be applied
-to each array separately, which has no effect in most cases.</p>
-<p>The <code>AsCollection</code> modifier is also useful on classes implementing both <code>IEnumerable</code>
-and <code>IEquatable</code>. Without the modifier, the <code>IEquatable</code> implementation is used to
-test equality. With the modifier specified, <code>IEquatable</code> is ignored and the contents
-of the enumeration are compared one by one.</p>
+<p>Since version 2.2, NUnit has been able to compare two single-dimensioned arrays. Beginning with version 2.4,
+multi-dimensioned arrays, nested arrays (arrays of arrays) and collections may be compared. With version 2.5, any
+IEnumerable is supported. Two arrays, collections or IEnumerables are considered equal if they have the same dimensions
+and if each of the corresponding elements is equal.</p>
+<p>If you want to treat two arrays of different shapes as simple collections for purposes of comparison, use the
+<strong>AsCollection</strong> modifier, which causes the comparison to be made element by element, without regard for the rank or
+dimensions of the array. Note that jagged arrays (arrays of arrays) do not have a single underlying collection. The
+modifier would be applied to each array separately, which has no effect in most cases.</p>
+<p>The <code>AsCollection</code> modifier is also useful on classes implementing both <code>IEnumerable</code> and <code>IEquatable</code>. Without the
+modifier, the <code>IEquatable</code> implementation is used to test equality. With the modifier specified, <code>IEquatable</code> is ignored
+and the contents of the enumeration are compared one by one.</p>
 <pre><code class="lang-csharp">int[] i3 = new int[] { 1, 2, 3 };
 double[] d3 = new double[] { 1.0, 2.0, 3.0 };
 int[] iunequal = new int[] { 1, 3, 2 };
@@ -201,30 +188,23 @@ Assert.That(array2x2, Is.EqualTo(array4).AsCollection);
 <li>The list of keys is the same - without regard to ordering.</li>
 <li>The values associated with each key are equal.</li>
 </ol>
-<p>You can use this capability to compare any two objects implementing
-<strong>IDictionary</strong>. Generic and non-generic dictionaries (Hashtables)
-may be successfully compared.</p>
+<p>You can use this capability to compare any two objects implementing <strong>IDictionary</strong>. Generic and non-generic
+dictionaries (Hashtables) may be successfully compared.</p>
 <h2 id="comparing-directoryinfo">Comparing DirectoryInfo</h2>
-<p>Two DirectoryInfo objects are considered equal if
-both have the same path, creation time and last access time.</p>
+<p>Two DirectoryInfo objects are considered equal if both have the same path, creation time and last access time.</p>
 <pre><code class="lang-csharp">Assert.That(new DirectoryInfo(actual), Is.EqualTo(expected));
 </code></pre>
 <h2 id="user-specified-comparers">User-Specified Comparers</h2>
-<p>If the default NUnit or .NET behavior for testing equality doesn't
-meet your needs, you can supply a comparer of your own through the
-<code>Using</code> modifier. When used with <code>EqualConstraint</code>, you
-may supply an <code>IEqualityComparer</code>, <code>IEqualityComparer&lt;T&gt;</code>,
-<code>IComparer</code>, <code>IComparer&lt;T&gt;</code> or <code>Comparison&lt;T&gt;</code>
-as the argument to <code>Using</code>.</p>
+<p>If the default NUnit or .NET behavior for testing equality doesn't meet your needs, you can supply a comparer of your
+own through the <code>Using</code> modifier. When used with <code>EqualConstraint</code>, you may supply an <code>IEqualityComparer</code>,
+<code>IEqualityComparer&lt;T&gt;</code>, <code>IComparer</code>, <code>IComparer&lt;T&gt;</code> or <code>Comparison&lt;T&gt;</code> as the argument to <code>Using</code>.</p>
 <pre><code class="lang-csharp">Assert.That(myObj1, Is.EqualTo(myObj2).Using(myComparer));
 </code></pre>
-<p>Prior to NUnit 2.6, only one comparer could be used. If multiple
-comparers were specified, all but one was ignored. Beginning with NUnit 2.6,
-multiple generic comparers for different types may be specified. NUnit
-will use the appropriate comparer for any two types being compared. As a result,
-it is now possible to provide a comparer for an array, a collection type or
-a dictionary. The user-provided comparer will be used directly, bypassing the
-default NUnit logic for array, collection or dictionary equality.</p>
+<p>Prior to NUnit 2.6, only one comparer could be used. If multiple comparers were specified, all but one was ignored.
+Beginning with NUnit 2.6, multiple generic comparers for different types may be specified. NUnit will use the
+appropriate comparer for any two types being compared. As a result, it is now possible to provide a comparer for an
+array, a collection type or a dictionary. The user-provided comparer will be used directly, bypassing the default NUnit
+logic for array, collection or dictionary equality.</p>
 <pre><code class="lang-csharp">class ListOfIntComparer : IEqualityComparer&lt;List&lt;int&gt;&gt;
 {
     /* ... */
@@ -238,14 +218,31 @@ Assert.That(list1, Is.EqualTo(list2).Using(myComparer));
 </code></pre>
 <h2 id="notes">Notes</h2>
 <ol>
-<li>When checking the equality of user-defined classes, NUnit first examines each class to determine whether it implements <code>IEquatable&lt;T&gt;</code> (unless the <code>AsCollection</code> modifier is used). If either object implements the interface for the type of the other object, then that implementation is used in making the comparison. If neither class implements the appropriate interface, NUnit makes use of the <code>Equals</code> override on the expected object. If you neglect to either implement <code>IEquatable&lt;T&gt;</code> or to override <code>Equals</code>, you can expect failures comparing non-identical objects. In particular, overriding <code>operator ==</code> without overriding <code>Equals</code> or implementing the interface has no effect.</li>
-<li>The <strong>Within</strong> modifier was originally designed for use with floating point values only. Beginning with NUnit 2.4, comparisons of <strong>DateTime</strong> values may use a <strong>TimeSpan</strong> as a tolerance. Beginning with NUnit 2.4.2, non-float numeric comparisons may also specify a tolerance.</li>
-<li>Float and double comparisons for which no tolerance is specified use a default value, which can be specified with <strong>DefaultFloatingPointToleranceAttribute</strong>. If this is not in place, a tolerance of 0.0d is used. (Prior to NUnit 3.7, default tolerance was instead set via <code>GlobalSettings.DefaultFloatingPointTolerance</code>.)</li>
-<li>Prior to NUnit 2.2.3, comparison of two NaN values would always fail, as specified by IEEE floating point standards. The new behavior, was introduced after some discussion because it seems more useful in tests. To avoid confusion, consider using <strong>Is.NaN</strong> where appropriate.</li>
-<li>When an equality test between two strings fails, the relevant portion of both strings is displayed in the error message, clipping the strings to fit the length of the line as needed. Beginning with 2.4.4, this behavior may be modified by use of the <strong>NoClip</strong> modifier on the constraint. In addition, the maximum line length may be modified for all tests by setting the value of <strong>TextMessageWriter.MaximumLineLength</strong> in the appropriate level of setup.</li>
-<li>When used with arrays, collections or dictionaries, EqualConstraint operates recursively. Any modifiers are saved and used as they apply to individual items.</li>
-<li>A user-specified comparer will not be called by <strong>EqualConstraint</strong> if either or both arguments are null. If both are null, the Constraint succeeds. If only one is null, it fails.</li>
-<li>NUnit has special semantics for comparing <strong>Streams</strong> and <strong>DirectoryInfos</strong>. For a <strong>Stream</strong>, the contents are compared. For a <strong>DirectoryInfo</strong>, the first-level directory contents are compared.</li>
+<li>When checking the equality of user-defined classes, NUnit first examines each class to determine whether it
+implements <code>IEquatable&lt;T&gt;</code> (unless the <code>AsCollection</code> modifier is used). If either object implements the interface
+for the type of the other object, then that implementation is used in making the comparison. If neither class
+implements the appropriate interface, NUnit makes use of the <code>Equals</code> override on the expected object. If you neglect
+to either implement <code>IEquatable&lt;T&gt;</code> or to override <code>Equals</code>, you can expect failures comparing non-identical objects.
+In particular, overriding <code>operator ==</code> without overriding <code>Equals</code> or implementing the interface has no effect.</li>
+<li>The <strong>Within</strong> modifier was originally designed for use with floating point values only. Beginning with NUnit 2.4,
+comparisons of <strong>DateTime</strong> values may use a <strong>TimeSpan</strong> as a tolerance. Beginning with NUnit 2.4.2, non-float
+numeric comparisons may also specify a tolerance.</li>
+<li>Float and double comparisons for which no tolerance is specified use a default value, which can be specified with
+<strong>DefaultFloatingPointToleranceAttribute</strong>. If this is not in place, a tolerance of 0.0d is used. (Prior to NUnit
+3.7, default tolerance was instead set via <code>GlobalSettings.DefaultFloatingPointTolerance</code>.)</li>
+<li>Prior to NUnit 2.2.3, comparison of two NaN values would always fail, as specified by IEEE floating point standards.
+The new behavior, was introduced after some discussion because it seems more useful in tests. To avoid confusion,
+consider using <strong>Is.NaN</strong> where appropriate.</li>
+<li>When an equality test between two strings fails, the relevant portion of both strings is displayed in the error
+message, clipping the strings to fit the length of the line as needed. Beginning with 2.4.4, this behavior may be
+modified by use of the <strong>NoClip</strong> modifier on the constraint. In addition, the maximum line length may be modified
+for all tests by setting the value of <strong>TextMessageWriter.MaximumLineLength</strong> in the appropriate level of setup.</li>
+<li>When used with arrays, collections or dictionaries, EqualConstraint operates recursively. Any modifiers are saved and
+used as they apply to individual items.</li>
+<li>A user-specified comparer will not be called by <strong>EqualConstraint</strong> if either or both arguments are null. If both are
+null, the Constraint succeeds. If only one is null, it fails.</li>
+<li>NUnit has special semantics for comparing <strong>Streams</strong> and <strong>DirectoryInfos</strong>. For a <strong>Stream</strong>, the contents are
+compared. For a <strong>DirectoryInfo</strong>, the first-level directory contents are compared.</li>
 </ol>
 <h2 id="see-also">See also</h2>
 <ul>

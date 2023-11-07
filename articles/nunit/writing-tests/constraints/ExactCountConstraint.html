@@ -86,8 +86,10 @@
 <h1 id="exactcount-constraint">ExactCount Constraint</h1>
 
 <p><code>ExactCountConstraint</code> has two functions.</p>
-<p>In its simplest use, it simply verifies the number of items in an array, collection or <code>IEnumerable</code>, providing a way to count items that is independent of any <code>Length</code> or <code>Count</code> property.</p>
-<p>When used with another constraint, it applies that constraint to each item in the array, collection or  <code>IEnumerable</code>, succeeding if the specified number of items succeed.</p>
+<p>In its simplest use, it simply verifies the number of items in an array, collection or <code>IEnumerable</code>, providing a way to
+count items that is independent of any <code>Length</code> or <code>Count</code> property.</p>
+<p>When used with another constraint, it applies that constraint to each item in the array, collection or  <code>IEnumerable</code>,
+succeeding if the specified number of items succeed.</p>
 <p>An exception is thrown if the actual value passed does not implement <code>IEnumerable</code>.</p>
 <h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">ExactCountConstraint(int expectedCount)
@@ -107,11 +109,13 @@ Assert.That(array, Has.Exactly(1).EqualTo(1).And.Exactly(1).EqualTo(3));
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>The keyword <code>Items</code> is optional when used before a constraint but required when  merely counting items with no constraint specified.</p>
+<p>The keyword <code>Items</code> is optional when used before a constraint but required when  merely counting items with no
+constraint specified.</p>
 </div>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><a href="PropertyConstraint.html">PropertyConstraint</a> - For constraints on the <code>Count</code> or <code>Length</code> property, e.g. <code>Has.Count.GreaterThan(10)</code> or <code>Has.Length.EqualTo(6)</code>.</li>
+<li><a href="PropertyConstraint.html">PropertyConstraint</a> - For constraints on the <code>Count</code> or <code>Length</code> property, e.g.
+<code>Has.Count.GreaterThan(10)</code> or <code>Has.Length.EqualTo(6)</code>.</li>
 </ul>
 </article>
           </div>

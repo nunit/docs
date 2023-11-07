@@ -85,7 +85,9 @@
             <article class="content wrap" id="_content" data-uid="includeexcludeattributesalternatives">
 <h1 id="include-and-exclude-attributes-alternatives">Include And Exclude Attributes Alternatives</h1>
 
-<p>This spec describes proposed new attributes to replace and extend the existing CultureAttribute and PlatformAttribute. These attributes derive from the abstract IncludeExcludeAttribute, which provides <code>Include</code> and <code>Exclude</code> named properties. The following examples show how these attributes are currently used:</p>
+<p>This spec describes proposed new attributes to replace and extend the existing CultureAttribute and PlatformAttribute.
+These attributes derive from the abstract IncludeExcludeAttribute, which provides <code>Include</code> and <code>Exclude</code> named
+properties. The following examples show how these attributes are currently used:</p>
 <pre><code class="lang-csharp">[Culture(&quot;fr-FR&quot;)]
 [Culture(Include=&quot;fr-FR&quot;)]
 [Culture(Exclude=&quot;fr-FR&quot;)]
@@ -96,26 +98,39 @@
 <h2 id="alternative-approaches">Alternative Approaches</h2>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Three alternative approaches were identified in March, 2014. This is the final update of the document prior to choosing an alternative. Approach #3 seems to be the front-runner at this time.</p>
+<p>Three alternative approaches were identified in March, 2014. This is the final update of the document prior to
+choosing an alternative. Approach #3 seems to be the front-runner at this time.</p>
 </div>
 <h3 id="1-keep-the-current-approach">1. Keep the current approach</h3>
 <h4 id="how-it-works">How it Works</h4>
-<p>Exclude has priority. If any attribute excludes a test, it remains excluded, even if another attribute matches it for inclusion. The default constructor argument represents inclusion, so you should not use it along with the Include parameter. Comma-separated alternatives form a union, so that if any item is matched, the test is included (or excluded).</p>
+<p>Exclude has priority. If any attribute excludes a test, it remains excluded, even if another attribute matches it for
+inclusion. The default constructor argument represents inclusion, so you should not use it along with the Include
+parameter. Comma-separated alternatives form a union, so that if any item is matched, the test is included (or
+excluded).</p>
 <h4 id="pros">Pros</h4>
 <ul>
 <li>Having a separate attribute for each domain from which we are making a selection is easy for users to understand.</li>
-<li>With the new attribute-based framework extensibility model in NUnit 3.0, this is probably the easiest approach of all to extend.</li>
+<li>With the new attribute-based framework extensibility model in NUnit 3.0, this is probably the easiest approach of all
+to extend.</li>
 </ul>
 <h4 id="cons">Cons</h4>
 <ul>
-<li>The current Platform attribute actually works across three different domains: the OS, the runtime and the bit-ness of the process. It's very difficult to define criteria like Windows 7 or 8 running .NET 4.5 using a single attribute. <code>[Platform(&quot;Windows7,Windows8,Net-4.5)]</code> will include Win 7 or 8 with any runtime and .NET 4.5 with any OS. The best we can do is <code>[Platform(&quot;Windows7,Windows8&quot;,Exclude=&quot;Net-2.0,Net-3.0,Net-3.5&quot;)]</code>.</li>
-<li>Boolean expressions involving the accepted values would permit the above more cleanly. For example, we might write <code>Platform(&quot;(Windows7 | Windows8) &amp; !Net-4.5)&quot;)</code>. Such logic would have to be implemented for each attribute, most likely in the base class. However, any such logic would only apply within the single attribute: it would not be possible to include both OS and Culture (for example) in the same expression.</li>
+<li>The current Platform attribute actually works across three different domains: the OS, the runtime and the bit-ness of
+the process. It's very difficult to define criteria like Windows 7 or 8 running .NET 4.5 using a single attribute.
+<code>[Platform(&quot;Windows7,Windows8,Net-4.5)]</code> will include Win 7 or 8 with any runtime and .NET 4.5 with any OS. The best
+we can do is <code>[Platform(&quot;Windows7,Windows8&quot;,Exclude=&quot;Net-2.0,Net-3.0,Net-3.5&quot;)]</code>.</li>
+<li>Boolean expressions involving the accepted values would permit the above more cleanly. For example, we might write
+<code>Platform(&quot;(Windows7 | Windows8) &amp; !Net-4.5)&quot;)</code>. Such logic would have to be implemented for each attribute, most
+likely in the base class. However, any such logic would only apply within the single attribute: it would not be
+possible to include both OS and Culture (for example) in the same expression.</li>
 </ul>
 <h4 id="extensibility">Extensibility</h4>
-<p>Create a new attribute that inherits from IncludeExcludeAttribute and implement the necessary selection logic to decide whether a given string tag is supported.</p>
+<p>Create a new attribute that inherits from IncludeExcludeAttribute and implement the necessary selection logic to decide
+whether a given string tag is supported.</p>
 <h3 id="2-keep-current-approach-but-split-platformattribute">2. Keep Current Approach, but Split PlatformAttribute</h3>
 <h4 id="how-it-would-work">How It Would Work</h4>
-<p>As mentioned above, PlatformAttribute actually tests over three different domains. We would create a separate attribute for each domain, for example: PlatformAttribute, RuntimeAttribute and ProcessAttribute.</p>
+<p>As mentioned above, PlatformAttribute actually tests over three different domains. We would create a separate attribute
+for each domain, for example: PlatformAttribute, RuntimeAttribute and ProcessAttribute.</p>
 <h4 id="pros-1">Pros</h4>
 <ul>
 <li>All the same as for approach #1, plus...</li>
@@ -129,10 +144,12 @@
 <li>We would be proliferating attributes, although that may not be a serious issue.</li>
 </ul>
 <h4 id="extensibility-1">Extensibility</h4>
-<p>Create a new attribute that inherits from IncludeExcludeAttribute and implement the necessary selection logic to decide whether a given string tag is supported.</p>
+<p>Create a new attribute that inherits from IncludeExcludeAttribute and implement the necessary selection logic to decide
+whether a given string tag is supported.</p>
 <h3 id="3-create-replacement-attributes">3. Create Replacement Attributes</h3>
 <h4 id="how-it-would-work-1">How It Would Work</h4>
-<p>Invert the implied hierarchy by providing an IncludeAttribute and an ExcludeAttribute, which specify what is to be tested in one of several ways. For example:</p>
+<p>Invert the implied hierarchy by providing an IncludeAttribute and an ExcludeAttribute, which specify what is to be
+tested in one of several ways. For example:</p>
 <pre><code class="lang-csharp">[Include(Culture=&quot;fr-FR&quot;)]
 [Exclude(&quot;Runtime:Net-4.5&quot;)]
 </code></pre>
@@ -141,16 +158,21 @@
 </blockquote>
 <h4 id="pros-2">Pros</h4>
 <ul>
-<li>This seems to be at least as easy to understand as the current approach. In some cases it may be better, since use of <code>Include</code> as the attribute name makes it quite clear what is happening, whereas <code>Culture</code> may be misunderstood as <strong>changing</strong> the culture.</li>
+<li>This seems to be at least as easy to understand as the current approach. In some cases it may be better, since use of
+<code>Include</code> as the attribute name makes it quite clear what is happening, whereas <code>Culture</code> may be misunderstood as
+<strong>changing</strong> the culture.</li>
 <li>May be extended by the user, depending on which syntactic sub-option we select below.</li>
 </ul>
 <h4 id="cons-2">Cons</h4>
 <ul>
-<li>Allows future development of an expression syntax that would combine all selection elements, but again, depending on the syntax option chosen.</li>
+<li>Allows future development of an expression syntax that would combine all selection elements, but again, depending on
+the syntax option chosen.</li>
 <li>Some of the syntactic sub-options are not so easy to extend. See below.</li>
 </ul>
 <h4 id="syntax-options">Syntax Options</h4>
-<p>For this alternative we will want to use a separate namespace for each domain. There would be one set of unique names for the Operating System, one for Runtimes, one for Culture, etc. There are two options we might use to implement this, which are designated as alternatives 3A and 3B.</p>
+<p>For this alternative we will want to use a separate namespace for each domain. There would be one set of unique names
+for the Operating System, one for Runtimes, one for Culture, etc. There are two options we might use to implement this,
+which are designated as alternatives 3A and 3B.</p>
 <h3 id="3a-create-replacement-attributes-using-named-properties">3A. Create Replacement Attributes Using Named Properties</h3>
 <p>Map each domain to a separate named property. For example:</p>
 <pre><code class="lang-csharp">[Include(Culture=&quot;fr-FR&quot;)]
@@ -163,11 +185,13 @@
 </ul>
 <h4 id="cons-3">Cons</h4>
 <ul>
-<li>Need to decide how to combine tests across multiple domains. Does [Include(Culture=&quot;fr-FR&quot;, Runtime=&quot;Net-2.0&quot;)] mean both or either?</li>
+<li>Need to decide how to combine tests across multiple domains. Does [Include(Culture=&quot;fr-FR&quot;, Runtime=&quot;Net-2.0&quot;)] mean
+both or either?</li>
 <li>Not possible to have logical expressions that combine domains (but maybe they are not needed).</li>
 </ul>
 <h4 id="extensibility-2">Extensibility</h4>
-<p>We would need to provide a registration mechanism, whereby a program provided the name of the domain, the value and a function for evaluating whether the feature is supported or not. It would not be possible to add new domains.</p>
+<p>We would need to provide a registration mechanism, whereby a program provided the name of the domain, the value and a
+function for evaluating whether the feature is supported or not. It would not be possible to add new domains.</p>
 <h3 id="3b-create-replacement-attributes-using-prefixes">3B. Create Replacement Attributes Using Prefixes</h3>
 <p>Prefix each value with the domain name, thereby creating a unified namespace.</p>
 <pre><code class="lang-csharp">[Include(&quot;Culture:fr-FR&quot;)]
@@ -185,7 +209,8 @@
 <li>New syntax for many users</li>
 </ul>
 <h4 id="extensibility-3">Extensibility</h4>
-<p>We would need to provide a registration mechanism, whereby a program provided the name of the domain, the value and a function for evaluating whether the feature is supported or not. New domains could be added in addition to new values.</p>
+<p>We would need to provide a registration mechanism, whereby a program provided the name of the domain, the value and a
+function for evaluating whether the feature is supported or not. New domains could be added in addition to new values.</p>
 <h2 id="next-steps">Next Steps</h2>
 <p>We need to pick the general approach and then work can begin on the feature.</p>
 </article>

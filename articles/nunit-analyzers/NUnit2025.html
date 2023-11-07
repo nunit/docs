@@ -119,13 +119,15 @@
 <h2 id="description">Description</h2>
 <p>The ContainsConstraint requires the type of the actual value to be either a string or a collection of strings.</p>
 <h2 id="motivation">Motivation</h2>
-<p>Using a ContainsConstraint with an actual argument, which is neither a string nor a collection of strings, leads to an assertion error.</p>
+<p>Using a ContainsConstraint with an actual argument, which is neither a string nor a collection of strings, leads to an
+assertion error.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
 <p>Fix the actual value or use appropriate constraint.</p>
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit2025: Wrong actual type used with ContainsConstraint
 dotnet_diagnostic.NUnit2025.severity = chosenSeverity

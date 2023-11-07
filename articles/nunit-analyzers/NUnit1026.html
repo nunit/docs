@@ -143,11 +143,12 @@ private protected static void NUnit1026SampleTest2(int i)
 }
 </code></pre>
 <h3 id="explanation">Explanation</h3>
-<p>In the example above, the test named <code>NUnit1026SampleTest</code> is not <code>public</code> - it has the default access modifier for a method, i.e. <code>internal</code>.
-<code>NUnit1026SampleTest2</code> has the explicit access modifier <code>private protected</code>, which again is not <code>public</code>.
-NUnit only runs <code>public</code> methods, so neither test can be run.</p>
+<p>In the example above, the test named <code>NUnit1026SampleTest</code> is not <code>public</code> - it has the default access modifier for a
+method, i.e. <code>internal</code>. <code>NUnit1026SampleTest2</code> has the explicit access modifier <code>private protected</code>, which again is not
+<code>public</code>. NUnit only runs <code>public</code> methods, so neither test can be run.</p>
 <h3 id="fix">Fix</h3>
-<p>The analyzer comes with a code fix that will change the access modifier to <code>public</code>. So the tests above will be changed into.</p>
+<p>The analyzer comes with a code fix that will change the access modifier to <code>public</code>. So the tests above will be changed
+into.</p>
 <pre><code class="lang-csharp">private int Value;
 
 [SetUp]
@@ -171,7 +172,8 @@ public static void NUnit1026SampleTest2(int i)
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit1026: The test or setup/teardown method is not public
 dotnet_diagnostic.NUnit1026.severity = chosenSeverity

@@ -130,7 +130,9 @@ public async void NUnit1012SampleTest()
 }
 </code></pre>
 <h3 id="explanation">Explanation</h3>
-<p><code>async</code> methods should generally not return <code>void</code> in C#. For example if an exception is thrown (as they are in the case of an assertion violation), the exception is actually a part of the task object. If the return type is <code>void</code>, no such object exists, to the exception is effectively swallowed.</p>
+<p><code>async</code> methods should generally not return <code>void</code> in C#. For example if an exception is thrown (as they are in the case
+of an assertion violation), the exception is actually a part of the task object. If the return type is <code>void</code>, no such
+object exists, to the exception is effectively swallowed.</p>
 <h3 id="fix">Fix</h3>
 <p>Make the <code>async</code> test method return a <code>Task</code>:</p>
 <pre><code class="lang-csharp">[Test]
@@ -151,7 +153,8 @@ public void NUnit1012SampleTest()
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit1012: The async test method must have a non-void return type
 dotnet_diagnostic.NUnit1012.severity = chosenSeverity

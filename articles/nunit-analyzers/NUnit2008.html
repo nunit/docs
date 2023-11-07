@@ -117,9 +117,11 @@
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>The IgnoreCase modifier should only be used for string or char arguments. Using it on another type will not have any effect.</p>
+<p>The IgnoreCase modifier should only be used for string or char arguments. Using it on another type will not have any
+effect.</p>
 <h2 id="motivation">Motivation</h2>
-<p>To bring developers' attention to a scenario in which their code is actually having no effect and may reveal that their test is not doing what they expect.</p>
+<p>To bring developers' attention to a scenario in which their code is actually having no effect and may reveal that their
+test is not doing what they expect.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
 <h3 id="example-violation">Example Violation</h3>
 <pre><code class="lang-csharp">[Test]
@@ -130,7 +132,8 @@ public void NUnit2008SampleTest()
 }
 </code></pre>
 <h3 id="explanation">Explanation</h3>
-<p>Using IgnoreCase here doesn't make any sense, because the types we're comparing don't have the concept of case. Therefore, it's only suitable to use on textual primitives (e.g. <code>string</code> and <code>char</code>).</p>
+<p>Using IgnoreCase here doesn't make any sense, because the types we're comparing don't have the concept of case.
+Therefore, it's only suitable to use on textual primitives (e.g. <code>string</code> and <code>char</code>).</p>
 <h3 id="fix">Fix</h3>
 <p>Remove the errant call to <code>IgnoreCase</code>:</p>
 <pre><code class="lang-csharp">[Test]
@@ -151,7 +154,8 @@ public void NUnit2008SampleTest()
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit2008: Incorrect IgnoreCase usage
 dotnet_diagnostic.NUnit2008.severity = chosenSeverity

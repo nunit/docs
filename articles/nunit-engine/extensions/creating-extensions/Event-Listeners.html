@@ -85,7 +85,9 @@
             <article class="content wrap" id="_content" data-uid="eventlisteners">
 <h1 id="event-listeners">Event Listeners</h1>
 
-<p><strong>Event Listeners</strong> are extensions that respond to specific events occurring during the running of a test. They implement the <code>ITestEventListener</code> interface. NUnit itself makes extensive use of this interface when running tests. By creating an extension, user code may also respond to test events.</p>
+<p><strong>Event Listeners</strong> are extensions that respond to specific events occurring during the running of a test. They
+implement the <code>ITestEventListener</code> interface. NUnit itself makes extensive use of this interface when running tests. By
+creating an extension, user code may also respond to test events.</p>
 <p>The definition of an Event Listener extension will look something like this:</p>
 <pre><code class="lang-csharp">[Extension(EngineVersion=&quot;3.4&quot;)]
 public class MyEventListener : ITestEventListener
@@ -95,7 +97,9 @@ public class MyEventListener : ITestEventListener
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>The <code>EngineVersion</code> property is used to document the fact that the event listener extension point was only added to the engine with version 3.4. Its function here is purely documentary because the <code>EngineVersion</code> property itself was also added in version 3.4. Event listeners should not be installed with earlier versions.</p>
+<p>The <code>EngineVersion</code> property is used to document the fact that the event listener extension point was only
+added to the engine with version 3.4. Its function here is purely documentary because the <code>EngineVersion</code> property
+itself was also added in version 3.4. Event listeners should not be installed with earlier versions.</p>
 </div>
 <p>The <code>ITestEventListener</code> interface is defined as follows:</p>
 <pre><code class="lang-csharp">/// &lt;summary&gt;
@@ -126,7 +130,9 @@ public interface ITestEventListener
 <li>Start of a test case - <code>&lt;start-test...&gt;</code></li>
 <li>End of a test case - <code>&lt;test-case...&gt;</code></li>
 </ul>
-<p>The XML report signalling the end of a test case contains all available information, including the result. The start events only provide basic identifying information. See <a class="xref" href="../../../nunit/technical-notes/usage/XML-Formats.html">XML Formats</a> for a full description of each report</p>
+<p>The XML report signalling the end of a test case contains all available information, including the result. The start
+events only provide basic identifying information. See <a class="xref" href="../../../nunit/technical-notes/usage/XML-Formats.html">XML Formats</a> for a full description of each
+report</p>
 </article>
           </div>
 

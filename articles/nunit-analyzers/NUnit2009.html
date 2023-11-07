@@ -119,7 +119,8 @@
 <h2 id="description">Description</h2>
 <p>The same value has been provided as both the actual and the expected argument. This indicates a coding error.</p>
 <h2 id="motivation">Motivation</h2>
-<p>To bring developers' attention to a situation in which their code may not be operating as expected and their test may not be testing what they expect.</p>
+<p>To bring developers' attention to a situation in which their code may not be operating as expected and their test may
+not be testing what they expect.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
 <h3 id="sample-violation">Sample Violation</h3>
 <pre><code class="lang-csharp">[Test]
@@ -130,7 +131,8 @@ public void NUnit2009SampleTest()
 }
 </code></pre>
 <h3 id="explanation">Explanation</h3>
-<p>In the above example, the test will always be correct, because we're comparing the same value. That is to say, we're not actually testing anything.</p>
+<p>In the above example, the test will always be correct, because we're comparing the same value. That is to say, we're not
+actually testing anything.</p>
 <h3 id="fix">Fix</h3>
 <p>Ensure the <code>expected</code> and <code>actual</code> values come from different places.</p>
 <pre><code class="lang-csharp">[Test]
@@ -143,7 +145,8 @@ public void NUnit2009SampleTest()
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit2009: The same value has been provided as both the actual and the expected argument
 dotnet_diagnostic.NUnit2009.severity = chosenSeverity

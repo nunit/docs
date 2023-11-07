@@ -95,7 +95,8 @@
 <li><strong>id</strong> The unique ID of this test.</li>
 <li><strong>testcasecount</strong> The number of test cases contained in this test run.</li>
 <li><strong>result</strong> The basic result of the test. May be Passed, Failed, Inconclusive or Skipped.</li>
-<li><strong>total</strong> The total number of test cases executed in the run. This may be less than the testcasecount due to filtering of tests.</li>
+<li><strong>total</strong> The total number of test cases executed in the run. This may be less than the testcasecount due to
+filtering of tests.</li>
 <li><strong>passed</strong> The number of test cases that passed.</li>
 <li><strong>failed</strong> The number of test cases that failed.</li>
 <li><strong>inconclusive</strong> The number of test cases that were inconclusive.</li>
@@ -117,31 +118,39 @@
 <li><strong>Attributes:</strong> None</li>
 </ul>
 <h2 id="filter"><code>&lt;filter&gt;</code></h2>
-<p>The XML representation of the filter used to execute tests.  This element is also used as a fragment in passing the filter to a runner and by the NUnit 3.0 framework and driver.</p>
+<p>The XML representation of the filter used to execute tests.  This element is also used as a fragment in passing the
+filter to a runner and by the NUnit 3.0 framework and driver.</p>
 <ul>
 <li><strong>Containing Elements:</strong> <a href="#test-run"><code>&lt;test-run&gt;</code></a></li>
-<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>, <a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>,
+<a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a></li>
 <li><strong>Attributes:</strong> None</li>
 </ul>
 <h2 id="or"><code>&lt;or&gt;</code></h2>
-<p>Represents a composite filter that contains other filters. At least one of the contained filters must pass in order for this filter to pass.</p>
+<p>Represents a composite filter that contains other filters. At least one of the contained filters must pass in order for
+this filter to pass.</p>
 <ul>
 <li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
-<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>, <a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a>, <a href="#prop"><code>&lt;prop&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>,
+<a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a>, <a href="#prop"><code>&lt;prop&gt;</code></a></li>
 <li><strong>Attributes:</strong> None</li>
 </ul>
 <h2 id="and"><code>&lt;and&gt;</code></h2>
-<p>Represents a composite filter that contains other filters. All of the contained filters must pass in order for this filter to pass.</p>
+<p>Represents a composite filter that contains other filters. All of the contained filters must pass in order for this
+filter to pass.</p>
 <ul>
 <li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
-<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>, <a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a>, <a href="#prop"><code>&lt;prop&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>,
+<a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a>, <a href="#prop"><code>&lt;prop&gt;</code></a></li>
 <li><strong>Attributes:</strong> None</li>
 </ul>
 <h2 id="not"><code>&lt;not&gt;</code></h2>
-<p>Represents a composite filter that contains wraps a single base filters. The base filter must fail in order for this filter to pass.</p>
+<p>Represents a composite filter that contains wraps a single base filters. The base filter must fail in order for this
+filter to pass.</p>
 <ul>
 <li><strong>Containing Elements:</strong> <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a></li>
-<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>, <a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a>, <a href="#prop"><code>&lt;prop&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#or"><code>&lt;or&gt;</code></a>, <a href="#and"><code>&lt;and&gt;</code></a>, <a href="#not"><code>&lt;not&gt;</code></a>, <a href="#id"><code>&lt;id&gt;</code></a>, <a href="#test"><code>&lt;test&gt;</code></a>,
+<a href="#class"><code>&lt;class&gt;</code></a>, <a href="#method"><code>&lt;method&gt;</code></a>, <a href="#cat"><code>&lt;cat&gt;</code></a>, <a href="#prop"><code>&lt;prop&gt;</code></a></li>
 <li><strong>Attributes:</strong> None</li>
 </ul>
 <h2 id="id"><code>&lt;id&gt;</code></h2>
@@ -201,19 +210,32 @@
 <h2 id="test-suite"><code>&lt;test-suite&gt;</code></h2>
 <ul>
 <li><strong>Containing Elements:</strong> <a href="#test-run"><code>&lt;test-run&gt;</code></a>, <a href="#test-suite"><code>&lt;test-suite&gt;</code></a></li>
-<li><strong>Contained Elements:</strong> <a href="#environment"><code>&lt;environment&gt;</code></a>, <a href="#settings"><code>&lt;settings&gt;</code></a>, <a href="#properties"><code>&lt;properties&gt;</code></a>, <a href="#reason"><code>&lt;reason&gt;</code></a>, <a href="#failure"><code>&lt;failure&gt;</code></a>, <a href="#output"><code>&lt;output&gt;</code></a>, <a href="#attachments"><code>&lt;attachments&gt;</code></a>, <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#environment"><code>&lt;environment&gt;</code></a>, <a href="#settings"><code>&lt;settings&gt;</code></a>, <a href="#properties"><code>&lt;properties&gt;</code></a>,
+<a href="#reason"><code>&lt;reason&gt;</code></a>, <a href="#failure"><code>&lt;failure&gt;</code></a>, <a href="#output"><code>&lt;output&gt;</code></a>, <a href="#attachments"><code>&lt;attachments&gt;</code></a>,
+<a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
 <li><strong>Attributes</strong>
 <ul>
-<li><strong>type</strong> The type of suite represented by this element. Currently supported types are Project, Assembly, TestSuite, TestFixture, GenericFixture, ParameterizedFixture, SetUpFixture, GenericMethod, ParameterizedMethod, Theory.</li>
-<li><strong>id</strong> The unique id of this test. Coded as &quot;mmm-nnn&quot; where the part before the hyphen represents the assembly and the part after it represents a test in that assembly. Currently, mmm and nnn are ints, but that is merely an accident of the implementation and should not be relied on.</li>
+<li><strong>type</strong> The type of suite represented by this element. Currently supported types are Project, Assembly, TestSuite,
+TestFixture, GenericFixture, ParameterizedFixture, SetUpFixture, GenericMethod, ParameterizedMethod, Theory.</li>
+<li><strong>id</strong> The unique id of this test. Coded as &quot;mmm-nnn&quot; where the part before the hyphen represents the assembly and
+the part after it represents a test in that assembly. Currently, mmm and nnn are ints, but that is merely an
+accident of the implementation and should not be relied on.</li>
 <li><strong>name</strong> The display name of the test as generated by NUnit.</li>
 <li><strong>fullname</strong> The full name of the test as generated by NUnit.</li>
-<li><strong>classname</strong> The full name of the class (fixture) representing this test. Only present if <code>type</code> is equal to &quot;TestFixture&quot;.</li>
+<li><strong>classname</strong> The full name of the class (fixture) representing this test. Only present if <code>type</code> is equal to
+&quot;TestFixture&quot;.</li>
 <li><strong>testcasecount</strong> The number of test cases contained, directly or indirectly, in this suite.</li>
-<li><strong>runstate</strong> An indicator of whether the suite is runnable. Value may be NotRunnable, Runnable, Explicit, Skipped or Ignored. NotRunnable means there is an error in how the test is expressed in code, for example, the signature may be wrong. Explicit, Skipped and Ignored are set by attributes on the test.</li>
+<li><strong>runstate</strong> An indicator of whether the suite is runnable. Value may be NotRunnable, Runnable, Explicit, Skipped or
+Ignored. NotRunnable means there is an error in how the test is expressed in code, for example, the signature may be
+wrong. Explicit, Skipped and Ignored are set by attributes on the test.</li>
 <li><strong>result</strong> The basic result of the test. May be Passed, Failed, Inconclusive or Skipped.</li>
-<li><strong>label</strong> Additional labeling information about the result. In principle, this may be any string value and is combined with the result to give a more precise reason for failure. Currently, NUnit may use the following labels in combination with the Failure result: Error, Cancelled or Invalid. It may use the following labels in combination with a Skipped result: Ignored or Explicit. Additional values may be added in future releases or supplied by extensions, so code that processes a result file should be prepared to deal with any label or none at all.</li>
-<li><strong>site</strong> Optional element indicating where a failure occurred. Values are Test, SetUp, TearDown, Parent or Child. Default is Test and the attribute does not normally appear in that case.</li>
+<li><strong>label</strong> Additional labeling information about the result. In principle, this may be any string value and is
+combined with the result to give a more precise reason for failure. Currently, NUnit may use the following labels in
+combination with the Failure result: Error, Cancelled or Invalid. It may use the following labels in combination
+with a Skipped result: Ignored or Explicit. Additional values may be added in future releases or supplied by
+extensions, so code that processes a result file should be prepared to deal with any label or none at all.</li>
+<li><strong>site</strong> Optional element indicating where a failure occurred. Values are Test, SetUp, TearDown, Parent or Child.
+Default is Test and the attribute does not normally appear in that case.</li>
 <li><strong>start-time</strong> The UTC time that the suite started.</li>
 <li><strong>end-time</strong> The UTC time that the suite ended.</li>
 <li><strong>duration</strong> The duration of the suite in seconds, expressed as a real number.</li>
@@ -222,7 +244,9 @@
 <li><strong>failed</strong> The number of test cases that failed.</li>
 <li><strong>inconclusive</strong> The number of test cases that were inconclusive.</li>
 <li><strong>skipped</strong> The number of test cases that were skipped.</li>
-<li><strong>asserts</strong> The number of asserts executed by the suite, including any nested suites or test cases. Since asserts may be executed in OneTimeSetUp and in ActionAttributes, this number can be greater than the total of the asserts for the test cases.</li>
+<li><strong>asserts</strong> The number of asserts executed by the suite, including any nested suites or test cases. Since asserts
+may be executed in OneTimeSetUp and in ActionAttributes, this number can be greater than the total of the asserts
+for the test cases.</li>
 </ul>
 </li>
 </ul>
@@ -248,8 +272,8 @@
 </li>
 </ul>
 <h2 id="settings"><code>&lt;settings&gt;</code></h2>
-<p>Settings used by the engine for executing an assembly. These are taken from the supplied settings in the
-<code>TestPackage</code> supplemented by default settings created by the engine itself.</p>
+<p>Settings used by the engine for executing an assembly. These are taken from the supplied settings in the <code>TestPackage</code>
+supplemented by default settings created by the engine itself.</p>
 <ul>
 <li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a> <em>(Assembly level only)</em></li>
 <li><strong>Contained Elements:</strong> <a href="#setting"><code>&lt;setting&gt;</code></a></li>
@@ -270,19 +294,30 @@
 <h2 id="test-case"><code>&lt;test-case&gt;</code></h2>
 <ul>
 <li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a></li>
-<li><strong>Contained Elements:</strong> <a href="#properties"><code>&lt;properties&gt;</code></a>, <a href="#reason"><code>&lt;reason&gt;</code></a>, <a href="#failure"><code>&lt;failure&gt;</code></a>, <a href="#output"><code>&lt;output&gt;</code></a>, <a href="#attachments"><code>&lt;attachments&gt;</code></a></li>
+<li><strong>Contained Elements:</strong> <a href="#properties"><code>&lt;properties&gt;</code></a>, <a href="#reason"><code>&lt;reason&gt;</code></a>, <a href="#failure"><code>&lt;failure&gt;</code></a>,
+<a href="#output"><code>&lt;output&gt;</code></a>, <a href="#attachments"><code>&lt;attachments&gt;</code></a></li>
 <li><strong>Attributes</strong>
 <ul>
-<li><code>id</code> The unique id of this test. Coded as &quot;mmm-nnn&quot; where the part before the hyphen represents the assembly and the part after it represents a test in that assembly. Currently, mmm and nnn are ints, but that is merely an accident of the implementation and should not be relied on.</li>
-<li><code>name</code> The display name of the test as generated by NUnit or, in the case of some parameterized tests, specified by the user.</li>
+<li><code>id</code> The unique id of this test. Coded as &quot;mmm-nnn&quot; where the part before the hyphen represents the assembly and the
+part after it represents a test in that assembly. Currently, mmm and nnn are ints, but that is merely an accident of
+the implementation and should not be relied on.</li>
+<li><code>name</code> The display name of the test as generated by NUnit or, in the case of some parameterized tests, specified by
+the user.</li>
 <li><code>fullname</code> The full name of the test as generated by NUnit.</li>
 <li><code>methodname</code> The name of the method representing the test case.</li>
 <li><code>classname</code> The full name of the class in which this test case appears.</li>
-<li><code>runstate</code> An indicator of whether the suite is runnable. Value may be NotRunnable, Runnable, Explicit, Skipped or Ignored. NotRunnable means there is an error in how the test is expressed in code, for example, the signature may be wrong. Explicit, Skipped and Ignored are set by attributes on the test.</li>
+<li><code>runstate</code> An indicator of whether the suite is runnable. Value may be NotRunnable, Runnable, Explicit, Skipped or
+Ignored. NotRunnable means there is an error in how the test is expressed in code, for example, the signature may be
+wrong. Explicit, Skipped and Ignored are set by attributes on the test.</li>
 <li><code>seed</code> The seed used to generate random arguments and other values for this test.</li>
 <li><code>result</code> The basic result of the test. May be Passed, Failed, Inconclusive or Skipped.</li>
-<li><code>label</code> Additional labeling information about the result. In principle, this may be any string value and is combined with the result to give a more precise reason for failure. Currently, NUnit may use the following labels in combination with the Failure result: Error, Cancelled or Invalid. It may use the following labels in combination with a Skipped result: Ignored or Explicit. Additional values may be added in future releases or supplied by extensions, so code that processes a result file should be prepared to deal with any label or none at all.</li>
-<li><code>site</code> Optional element indicating where a failure occurred. Values are Test, SetUp, TearDown, Parent or Child. Default is Test and the attribute does not normally appear in that case.</li>
+<li><code>label</code> Additional labeling information about the result. In principle, this may be any string value and is combined
+with the result to give a more precise reason for failure. Currently, NUnit may use the following labels in
+combination with the Failure result: Error, Cancelled or Invalid. It may use the following labels in combination
+with a Skipped result: Ignored or Explicit. Additional values may be added in future releases or supplied by
+extensions, so code that processes a result file should be prepared to deal with any label or none at all.</li>
+<li><code>site</code> Optional element indicating where a failure occurred. Values are Test, SetUp, TearDown, Parent or Child.
+Default is Test and the attribute does not normally appear in that case.</li>
 <li><code>start-time</code> The UTC time that the test started.</li>
 <li><code>end-time</code> The UTC time that the test ended.</li>
 <li><code>duration</code> The duration of the test in seconds, expressed as a real number.</li>
@@ -310,14 +345,17 @@
 </li>
 </ul>
 <h2 id="reason"><code>&lt;reason&gt;</code></h2>
-<p>Optional element that may appear on tests or suites that were not executed. The element may also appear on tests that were short circuited using <code>Assert.Pass</code>. Contains a message giving the reason for skipping or short circuiting the test.</p>
+<p>Optional element that may appear on tests or suites that were not executed. The element may also appear on tests that
+were short circuited using <code>Assert.Pass</code>. Contains a message giving the reason for skipping or short circuiting the
+test.</p>
 <ul>
 <li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
 <li><strong>Contained Elements:</strong> <a href="#message"><code>&lt;message&gt;</code></a></li>
 <li><strong>Attributes</strong> None</li>
 </ul>
 <h2 id="failure"><code>&lt;failure&gt;</code></h2>
-<p>Optional element that appears on all tests or suites with a result of 'Failed'. Optionally contains the error message and/or a stack trace.</p>
+<p>Optional element that appears on all tests or suites with a result of 'Failed'. Optionally contains the error message
+and/or a stack trace.</p>
 <ul>
 <li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
 <li><strong>Contained Elements:</strong> <a href="#message"><code>&lt;message&gt;</code></a>, <a href="#stack-trace"><code>&lt;stack-trace&gt;</code></a></li>
@@ -354,7 +392,8 @@
 <li><strong>Attributes</strong> None</li>
 </ul>
 <h2 id="output"><code>&lt;output&gt;</code></h2>
-<p>Optional element that appears on tests or suites that produce text output. The output may be intercepted from writes to the console or captured directly when the test writes to the TestContext. It is contained in a CDATA section.</p>
+<p>Optional element that appears on tests or suites that produce text output. The output may be intercepted from writes to
+the console or captured directly when the test writes to the TestContext. It is contained in a CDATA section.</p>
 <ul>
 <li><strong>Containing Elements:</strong> <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
 <li><strong>Contained Elements:</strong> None</li>

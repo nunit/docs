@@ -85,10 +85,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="custom-attributes">Custom Attributes</h1>
 
-<p>NUnit 3 implements a great deal of its functionality in its attributes. This functionality is accessed through a number of standard interfaces, which are implemented by the attributes. Users may create their own attributes by implementing these interfaces.</p>
-<p>For ease of understanding, the interfaces are grouped according to the stage in the life-cycle of a test at which they are used. The two primary stages in the life of a test are Load-Time and Execution-Time.</p>
+<p>NUnit 3 implements a great deal of its functionality in its attributes. This functionality is accessed through a number
+of standard interfaces, which are implemented by the attributes. Users may create their own attributes by implementing
+these interfaces.</p>
+<p>For ease of understanding, the interfaces are grouped according to the stage in the life-cycle of a test at which they
+are used. The two primary stages in the life of a test are Load-Time and Execution-Time.</p>
 <h2 id="load-time-interfaces">Load-Time Interfaces</h2>
-<p><em>Loading</em> tests means loading the assembly into memory and examining its content to discover the classes and fixtures that represent tests. The internal structures that represent tests are built at this time. If requested by the application, information about the tests may be returned for display, as is done in the NUnit GUI runner.</p>
+<p><em>Loading</em> tests means loading the assembly into memory and examining its content to discover the classes and fixtures
+that represent tests. The internal structures that represent tests are built at this time. If requested by the
+application, information about the tests may be returned for display, as is done in the NUnit GUI runner.</p>
 <p>The following interfaces are called at load time.</p>
 <table>
 <thead>
@@ -125,7 +130,8 @@
 </tbody>
 </table>
 <h3 id="execution-time-interfaces">Execution-Time Interfaces</h3>
-<p>At execution-time, some or all of the tests that were previously loaded are actually run. Their results are returned and made available to the application.</p>
+<p>At execution-time, some or all of the tests that were previously loaded are actually run. Their results are returned and
+made available to the application.</p>
 <p>The following interfaces are called at execution time.</p>
 <table>
 <thead>

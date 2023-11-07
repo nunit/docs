@@ -85,16 +85,23 @@
             <article class="content wrap" id="_content" data-uid="testengineapi">
 <h1 id="test-engine-api">Test Engine API</h1>
 
-<p>The NUnit Test Engine API is our published API for discovering, exploring and executing tests programmatically. Third-party test runners should use the Engine API as the supported method to execute NUnit tests.</p>
+<p>The NUnit Test Engine API is our published API for discovering, exploring and executing tests programmatically.
+Third-party test runners should use the Engine API as the supported method to execute NUnit tests.</p>
 <h2 id="overview">Overview</h2>
-<p>The static class <a href="https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/TestEngineActivator.cs">TestEngineActivator</a> is used to get an interface to the engine. Its <code>CreateInstance</code> member has two overloads, depending on whether a particular minimum version of the engine is required.</p>
+<p>The static class
+<a href="https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/TestEngineActivator.cs">TestEngineActivator</a>
+is used to get an interface to the engine. Its <code>CreateInstance</code> member has two overloads, depending on whether a
+particular minimum version of the engine is required.</p>
 <pre><code class="lang-csharp">public static ITestEngine CreateInstance(bool unused = false);
 public static ITestEngine CreateInstance(Version minVersion, bool unused = false);
 </code></pre>
-<p>(The <code>unused</code> bool parameter previously allowed users to indicate if wished to restrict usage of global NUnit Engine installations. The latter functionality is no longer available.)</p>
-<p>The TestEngineActivator searches for an engine to load in two places. First, the current App Domain Base Directory is searched, and then any path set as the App Domain's <code>RelativeSearchPath</code>.</p>
+<p>(The <code>unused</code> bool parameter previously allowed users to indicate if wished to restrict usage of global NUnit Engine
+installations. The latter functionality is no longer available.)</p>
+<p>The TestEngineActivator searches for an engine to load in two places. First, the current App Domain Base Directory is
+searched, and then any path set as the App Domain's <code>RelativeSearchPath</code>.</p>
 <h3 id="key-interfaces">Key Interfaces</h3>
-<p>The runner deals with the engine through a set of interfaces. These are quite general because we hope to avoid many changes to this API.</p>
+<p>The runner deals with the engine through a set of interfaces. These are quite general because we hope to avoid many
+changes to this API.</p>
 <h4 id="itestengine">ITestEngine</h4>
 <p>This is the primary interface to the engine.</p>
 <pre><code class="lang-csharp">namespace NUnit.Engine
@@ -151,8 +158,10 @@ public static ITestEngine CreateInstance(Version minVersion, bool unused = false
 engine.WorkDirectory = ...;         // Defaults to the current directory
 engine.InternalTraceLevel = ...;    // Defaults to off
 </code></pre>
-<p>The engine provides a number of services, some internal and some public. Public services are those for which the interface is publicly defined in the nunit.engine.api assembly, listed later in this document.</p>
-<p>The final and probably most frequently used method on the interface is <code>GetRunner</code>. It takes a <code>TestPackage</code> and returns an <code>ITestRunner</code> that is appropriate for the options specified.</p>
+<p>The engine provides a number of services, some internal and some public. Public services are those for which the
+interface is publicly defined in the nunit.engine.api assembly, listed later in this document.</p>
+<p>The final and probably most frequently used method on the interface is <code>GetRunner</code>. It takes a <code>TestPackage</code> and returns
+an <code>ITestRunner</code> that is appropriate for the options specified.</p>
 <h4 id="itestrunner">ITestRunner</h4>
 <p>This interface allows loading test assemblies, exploring the tests contained in them and running the tests.</p>
 <pre><code class="lang-csharp">namespace NUnit.Engine
@@ -231,11 +240,18 @@ engine.InternalTraceLevel = ...;    // Defaults to off
     }
 }
 </code></pre>
-<p>For the most common use cases, it isn't necessary to call <code>Load</code>, <code>Unload</code> or <code>Reload</code>. Calling either <code>Explore</code>, <code>Run</code> or <code>RunAsync</code> will cause the tests to be loaded automatically.</p>
-<p>The <code>Explore</code> methods returns an <code>XmlNode</code> containing the description of all tests found. The <code>Run</code> method returns an <code>XmlNode</code> containing the results of every test. The XML format for results is the same as that for the exploration of tests, with additional nodes added to indicate the outcome of the test. <code>RunAsync</code> returns an <code>ITestRun</code> interface, which allows retrieving the XML result when it is complete.</p>
-<p>The progress of a run is reported to the <code>ITestEventListener</code> passed to the run methods. Notifications received on this interface are strings in XML format, rather than XmlNodes, so that they may be passed directly across a Remoting interface.</p>
+<p>For the most common use cases, it isn't necessary to call <code>Load</code>, <code>Unload</code> or <code>Reload</code>. Calling either <code>Explore</code>, <code>Run</code>
+or <code>RunAsync</code> will cause the tests to be loaded automatically.</p>
+<p>The <code>Explore</code> methods returns an <code>XmlNode</code> containing the description of all tests found. The <code>Run</code> method returns an
+<code>XmlNode</code> containing the results of every test. The XML format for results is the same as that for the exploration of
+tests, with additional nodes added to indicate the outcome of the test. <code>RunAsync</code> returns an <code>ITestRun</code> interface,
+which allows retrieving the XML result when it is complete.</p>
+<p>The progress of a run is reported to the <code>ITestEventListener</code> passed to the run methods. Notifications received on this
+interface are strings in XML format, rather than XmlNodes, so that they may be passed directly across a Remoting
+interface.</p>
 <h4 id="engine-services">Engine Services</h4>
-<p>The engine <code>Services</code> property exposes the <code>IServiceLocator</code> interface, which allows the runner to use public services of the engine.</p>
+<p>The engine <code>Services</code> property exposes the <code>IServiceLocator</code> interface, which allows the runner to use public services
+of the engine.</p>
 <pre><code class="lang-csharp">namespace NUnit.Engine
 {
     /// &lt;summary&gt;
@@ -300,7 +316,8 @@ engine.InternalTraceLevel = ...;    // Defaults to off
 </tr>
 </tbody>
 </table>
-<p>The following services are used internally by the engine but are not currently exposed publicly. They potentially could be in the future:</p>
+<p>The following services are used internally by the engine but are not currently exposed publicly. They potentially could
+be in the future:</p>
 <table>
 <thead>
 <tr>
@@ -336,7 +353,8 @@ engine.InternalTraceLevel = ...;    // Defaults to off
 </tbody>
 </table>
 <h4 id="extensibility-interfaces">Extensibility Interfaces</h4>
-<p>The API also contains various interfaces used by engine extensions. More information on these can be found in the <a class="xref" href="extensions/Index.html">Engine Extensions</a> section.</p>
+<p>The API also contains various interfaces used by engine extensions. More information on these can be found in the
+<a class="xref" href="extensions/Index.html">Engine Extensions</a> section.</p>
 </article>
           </div>
 

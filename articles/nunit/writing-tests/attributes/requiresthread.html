@@ -85,12 +85,12 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="requiresthread">RequiresThread</h1>
 
-<p>The <strong>RequiresThreadAttribute</strong> is used to indicate that a test method,
-class or assembly should be run on a separate thread. Optionally, the
-desired apartment for the thread may be specified in the constructor.</p>
+<p>The <strong>RequiresThreadAttribute</strong> is used to indicate that a test method, class or assembly should be run on a separate
+thread. Optionally, the desired apartment for the thread may be specified in the constructor.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>This attribute, used with or without an ApartmentState argument will <strong>always</strong> result in creation of a new thread. To create a thread <strong>only</strong> if the current ApartmentState is not appropriate, use the <strong>ApartmentAttribute</strong>.</p>
+<p>This attribute, used with or without an ApartmentState argument will <strong>always</strong> result in creation of a new
+thread. To create a thread <strong>only</strong> if the current ApartmentState is not appropriate, use the <strong>ApartmentAttribute</strong>.</p>
 </div>
 <h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp">// A thread will be created and used to run

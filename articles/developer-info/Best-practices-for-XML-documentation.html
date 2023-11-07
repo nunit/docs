@@ -85,30 +85,44 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="best-practices-for-xml-documentation">Best Practices for XML Documentation</h1>
 
-<p>XML documentation has a significant impact on the end user's experience. Unlike other parts of the code, XML comments (as well as exception messages) are user-facing and highly visible. They can save valuable time and even make the difference for an end user between a confusing debugging session and no debugging needed in the first place.</p>
+<p>XML documentation has a significant impact on the end user's experience. Unlike other parts of the code, XML comments
+(as well as exception messages) are user-facing and highly visible. They can save valuable time and even make the
+difference for an end user between a confusing debugging session and no debugging needed in the first place.</p>
 <p>Polished and informative XML documentation provides a noticeably positive experience.</p>
 <h2 id="sentences">Sentences</h2>
 <p>Always end sentences with proper punctuation, typically a period.</p>
-<p>If there aren't enough words to form a sentence, it's likely that they are redundant. Try to add enough context to make a sentence to avoid anemic documentation. Rather than <code>The comparer</code>, say <code>Used to compare the &lt;paramref name=&quot;items&quot;/&gt;.</code> The added clarity is desirable.</p>
+<p>If there aren't enough words to form a sentence, it's likely that they are redundant. Try to add enough context to make
+a sentence to avoid anemic documentation. Rather than <code>The comparer</code>, say <code>Used to compare the &lt;paramref name=&quot;items&quot;/&gt;.</code> The added clarity is desirable.</p>
 <h2 id="see-paramref-and-typeparamref"><code>&lt;see&gt;</code>, <code>&lt;paramref&gt;</code> and <code>&lt;typeparamref&gt;</code></h2>
 <p>Use <code>&lt;see cref=&quot;TypeOrMember&quot;/&gt;</code>, <code>&lt;paramref name=&quot;parameterName&quot;/&gt;</code> and <code>&lt;typeparamref name=&quot;T&quot;/&gt;</code> whenever possible.
-The compiler checks the validity of the names and overloads. Future refactoring can be done with confidence that you aren't leaving the docs out of date.</p>
-<p>This also provides a seamless experience by creating links in the Object Browser and intellisense and colorizes intellisense. Consider using <code>&lt;see langword=&quot;null&quot;/&gt;</code> for keywords to maintain the seamlessness.</p>
+The compiler checks the validity of the names and overloads. Future refactoring can be done with confidence that you
+aren't leaving the docs out of date.</p>
+<p>This also provides a seamless experience by creating links in the Object Browser and intellisense and colorizes
+intellisense. Consider using <code>&lt;see langword=&quot;null&quot;/&gt;</code> for keywords to maintain the seamlessness.</p>
 <h2 id="summary"><code>&lt;summary&gt;</code></h2>
 <p>Add a <code>&lt;summary&gt;</code> tag for each public type and member.</p>
-<p>However, prefer to give each type and member a really communicative name. If those names end up covering all the user could need to know, remove the <code>&lt;summary&gt;</code> tag (if this does not cause a build warning) to avoid super redundant documentation. If they do not, add relevant details.</p>
+<p>However, prefer to give each type and member a really communicative name. If those names end up covering all the user
+could need to know, remove the <code>&lt;summary&gt;</code> tag (if this does not cause a build warning) to avoid super redundant
+documentation. If they do not, add relevant details.</p>
 <h2 id="param-and-typeparam"><code>&lt;param&gt;</code> and <code>&lt;typeparam&gt;</code></h2>
 <p>Add a <code>&lt;param&gt;</code> tag for each parameter describing what <em>effect</em> it has (rather than what it <em>is</em>).</p>
-<p>However, prefer to give each parameter a really communicative name. If those names end up covering all the user could need to know about <em>all</em> the parameters, remove all the <code>&lt;param&gt;</code> tags to avoid super redundant documentation. If they do not, add relevant details to each <code>&lt;param&gt;</code> to the extent possible.</p>
-<p>The same applies to <code>&lt;typeparam&gt;</code> tags. They are shown by intellisense as the user enters type parameter lists exactly the way <code>&lt;param&gt;</code> descriptions are shown as the user enters method parameter lists. <code>&lt;typeparam&gt;</code> elements are just as important on generic methods as they are on generic type definitions.</p>
+<p>However, prefer to give each parameter a really communicative name. If those names end up covering all the user could
+need to know about <em>all</em> the parameters, remove all the <code>&lt;param&gt;</code> tags to avoid super redundant documentation. If they
+do not, add relevant details to each <code>&lt;param&gt;</code> to the extent possible.</p>
+<p>The same applies to <code>&lt;typeparam&gt;</code> tags. They are shown by intellisense as the user enters type parameter lists exactly
+the way <code>&lt;param&gt;</code> descriptions are shown as the user enters method parameter lists. <code>&lt;typeparam&gt;</code> elements are just as
+important on generic methods as they are on generic type definitions.</p>
 <h2 id="returns-and-value"><code>&lt;returns&gt;</code> and <code>&lt;value&gt;</code></h2>
-<p>Don't spend any time on the <code>&lt;returns&gt;</code> or <code>&lt;value&gt;</code> tags since the contents are not typically seen. Important details should all be in the <code>&lt;summary&gt;</code>. If the IDE auto-inserts them, just remove them.</p>
+<p>Don't spend any time on the <code>&lt;returns&gt;</code> or <code>&lt;value&gt;</code> tags since the contents are not typically seen. Important details
+should all be in the <code>&lt;summary&gt;</code>. If the IDE auto-inserts them, just remove them.</p>
 <h2 id="empty-tags">Empty tags</h2>
-<p>Do not leave any empty tags. Either remove them or fill them out. This includes the compiler's all-or-none <code>&lt;param&gt;</code> and <code>&lt;typeparam&gt;</code> tag enforcement.</p>
+<p>Do not leave any empty tags. Either remove them or fill them out. This includes the compiler's all-or-none <code>&lt;param&gt;</code> and
+<code>&lt;typeparam&gt;</code> tag enforcement.</p>
 <h2 id="exception"><code>&lt;exception&gt;</code></h2>
-<p>Consider documenting things that lead to exceptions being thrown using the <code>&lt;exception&gt;</code> tag.
-This can really get the end user up to speed on things that aren't immediately obvious from the method signature.</p>
-<p>Sadly intellisense will only show the <code>&lt;exception&gt;</code> type thrown, not the message, so for important messages it's good to also include the message a second time in the summary:</p>
+<p>Consider documenting things that lead to exceptions being thrown using the <code>&lt;exception&gt;</code> tag. This can really get the
+end user up to speed on things that aren't immediately obvious from the method signature.</p>
+<p>Sadly intellisense will only show the <code>&lt;exception&gt;</code> type thrown, not the message, so for important messages it's good to
+also include the message a second time in the summary:</p>
 <pre><code class="lang-csharp">/// &lt;summary&gt;
 /// Does foo. If &lt;see cref=&quot;OtherProperty&quot;/&gt; is not set, throws &lt;see cref=&quot;InvalidOperationException&quot;/&gt;.
 /// &lt;/summary&gt;

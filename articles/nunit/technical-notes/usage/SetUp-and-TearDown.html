@@ -89,9 +89,12 @@
 <ul>
 <li><a class="xref" href="../../writing-tests/attributes/setup.html">SetUpAttribute</a> is now used exclusively for per-test setup.</li>
 <li><a class="xref" href="../../writing-tests/attributes/teardown.html">TearDownAttribute</a> is now used exclusively for per-test teardown.</li>
-<li><a class="xref" href="../../writing-tests/attributes/onetimesetup.html">OneTimeSetUpAttribute</a> is used for one-time setup per test-run. If you run <em>n</em> tests, this event will only occur once.</li>
-<li><a class="xref" href="../../writing-tests/attributes/onetimeteardown.html">OneTimeTearDownAttribute</a> is used for one-time teardown per test-run. If you run <em>n</em> tests, this event will only occur once</li>
-<li><a class="xref" href="../../writing-tests/attributes/setupfixture.html">SetUpFixtureAttribute</a> continues to be used as at before, but with changed method attributes.</li>
+<li><a class="xref" href="../../writing-tests/attributes/onetimesetup.html">OneTimeSetUpAttribute</a> is used for one-time setup per test-run. If you run <em>n</em> tests,
+this event will only occur once.</li>
+<li><a class="xref" href="../../writing-tests/attributes/onetimeteardown.html">OneTimeTearDownAttribute</a> is used for one-time teardown per test-run. If you run <em>n</em>
+tests, this event will only occur once</li>
+<li><a class="xref" href="../../writing-tests/attributes/setupfixture.html">SetUpFixtureAttribute</a> continues to be used as at before, but with changed method
+attributes.</li>
 </ul>
 <h3 id="attribute-usage-by-fixture-type">Attribute Usage by Fixture Type</h3>
 <table>
@@ -137,8 +140,11 @@
 </table>
 <h2 id="how-setup-and-teardown-methods-are-called">How Setup and TearDown Methods Are Called</h2>
 <p>Multiple SetUp, OneTimeSetUp, TearDown and OneTimeTearDown methods may exist within a class.</p>
-<p>Setup methods (both types) are called on base classes first, then on derived classes. If any setup method throws an exception, no further setups are called.</p>
-<p>Teardown methods (again, both types) are called on derived classes first, then on the base class. The teardown methods at any level in the inheritance hierarchy will be called only if a setup method <strong>at the same level</strong> was called. The following example is illustrates the difference.</p>
+<p>Setup methods (both types) are called on base classes first, then on derived classes. If any setup method throws an
+exception, no further setups are called.</p>
+<p>Teardown methods (again, both types) are called on derived classes first, then on the base class. The teardown methods
+at any level in the inheritance hierarchy will be called only if a setup method <strong>at the same level</strong> was called. The
+following example is illustrates the difference.</p>
 <pre><code class="lang-csharp">public class BaseClass
 {
    [SetUp]

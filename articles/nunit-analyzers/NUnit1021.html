@@ -119,7 +119,8 @@
 <h2 id="description">Description</h2>
 <p>The ValueSource should use nameof operator to specify target.</p>
 <h2 id="motivation">Motivation</h2>
-<p>Prevent test rot by ensuring that future renames don't accidentally break tests in an unexpected way. <code>nameof</code> adds some compile-time support in these situations.</p>
+<p>Prevent test rot by ensuring that future renames don't accidentally break tests in an unexpected way. <code>nameof</code> adds some
+compile-time support in these situations.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
 <h3 id="example-violation">Example Violation</h3>
 <pre><code class="lang-csharp">[Test]
@@ -134,9 +135,11 @@ public static object[] MyTestSource()
 }
 </code></pre>
 <h3 id="problem">Problem</h3>
-<p>In this case, we're referring to <code>&quot;MyTestSource&quot;</code> as a string directly. This is brittle; should the name of the property change, the test case source would become invalid, and we would not know this until executing tests.</p>
+<p>In this case, we're referring to <code>&quot;MyTestSource&quot;</code> as a string directly. This is brittle; should the name of the property
+change, the test case source would become invalid, and we would not know this until executing tests.</p>
 <h3 id="fix">Fix</h3>
-<p>The fix is to use the C# <code>nameof</code> operator, which produces a string but references the field name. This way, when refactoring and changing the name of your test source, it would also update the name within the <code>nameof()</code> operator.</p>
+<p>The fix is to use the C# <code>nameof</code> operator, which produces a string but references the field name. This way, when
+refactoring and changing the name of your test source, it would also update the name within the <code>nameof()</code> operator.</p>
 <p>The fix in action:</p>
 <pre><code class="lang-csharp">[Test]
 public void SampleTest([ValueSource(nameof(MyTestSource))] string stringValue)
@@ -152,7 +155,8 @@ public static object[] MyTestSource()
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit1021: The ValueSource should use nameof operator to specify target
 dotnet_diagnostic.NUnit1021.severity = chosenSeverity

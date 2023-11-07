@@ -85,18 +85,13 @@
             <article class="content wrap" id="_content" data-uid="parameterizedtests">
 <h1 id="parameterized-tests">Parameterized Tests</h1>
 
-<p>NUnit supports parameterized tests. Test methods
-may have parameters and various attributes are available
-to indicate what arguments should be supplied by NUnit.</p>
-<p>Multiple sets of arguments cause the creation of multiple
-tests. All arguments are created at the point of loading the
-tests, so the individual test cases are available for
-display and selection in the Gui, if desired.</p>
-<p>Some attributes allow you to specify arguments inline - directly on
-the attribute - while others use a separate method, property or field
-to hold the arguments. In addition, some attributes identify complete test cases,
-including all the necessary arguments, while others only provide data
-for a single argument. This gives rise to four groups of attributes,
+<p>NUnit supports parameterized tests. Test methods may have parameters and various attributes are available to indicate
+what arguments should be supplied by NUnit.</p>
+<p>Multiple sets of arguments cause the creation of multiple tests. All arguments are created at the point of loading the
+tests, so the individual test cases are available for display and selection in the Gui, if desired.</p>
+<p>Some attributes allow you to specify arguments inline - directly on the attribute - while others use a separate method,
+property or field to hold the arguments. In addition, some attributes identify complete test cases, including all the
+necessary arguments, while others only provide data for a single argument. This gives rise to four groups of attributes,
 as shown in the following table.</p>
 <table>
 <thead>
@@ -119,24 +114,25 @@ as shown in the following table.</p>
 </tr>
 </tbody>
 </table>
-<p>In addition, when data is specified for individual arguments, special attributes
-may be added to the test method itself in order to tell NUnit how
-to go about combining the arguments. Currently, the following attributes
-are provided:</p>
+<p>In addition, when data is specified for individual arguments, special attributes may be added to the test method itself
+in order to tell NUnit how to go about combining the arguments. Currently, the following attributes are provided:</p>
 <ul>
 <li><a class="xref" href="../../writing-tests/attributes/combinatorial.html">Combinatorial Attribute</a> (default)</li>
 <li><a class="xref" href="../../writing-tests/attributes/pairwise.html">Pairwise Attribute</a></li>
 <li><a class="xref" href="../../writing-tests/attributes/sequential.html">Sequential Attribute</a></li>
 </ul>
 <h2 id="order-of-execution">Order of Execution</h2>
-<p>The individual test cases are executed in the order in which NUnit discovers them.
-This order does <strong>not</strong> necessarily follow the lexical order of the attributes
-and will often vary between different compilers or different versions of the CLR.</p>
+<p>The individual test cases are executed in the order in which NUnit discovers them. This order does <strong>not</strong> necessarily
+follow the lexical order of the attributes and will often vary between different compilers or different versions of the
+CLR.</p>
 <p>The following specific rules for ordering apply:</p>
 <ul>
-<li>If all arguments are specified in a <strong>single TestCaseSource</strong> attribute, the ordering of the cases provided will be maintained.</li>
-<li>If each parameter has a single <strong>Values</strong>, <strong>ValueSource</strong> or <strong>Range</strong> attribute and the <strong>Sequential</strong> combining strategy is used - or there is only one argument - the ordering will be maintained.</li>
-<li>In all other cases, including using multiple <strong>TestCase</strong> attributes or a combination of different types of attributes, the ordering of the test cases is undefined.</li>
+<li>If all arguments are specified in a <strong>single TestCaseSource</strong> attribute, the ordering of the cases provided will be
+maintained.</li>
+<li>If each parameter has a single <strong>Values</strong>, <strong>ValueSource</strong> or <strong>Range</strong> attribute and the <strong>Sequential</strong> combining
+strategy is used - or there is only one argument - the ordering will be maintained.</li>
+<li>In all other cases, including using multiple <strong>TestCase</strong> attributes or a combination of different types of
+attributes, the ordering of the test cases is undefined.</li>
 </ul>
 </article>
           </div>

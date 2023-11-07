@@ -89,43 +89,55 @@
 <h5>Warning</h5>
 <p>This is a draft. The contents may be out of date.</p>
 </div>
-<p>Use of XML in NUnit 2.x is somewhat limited and is only used in external files. NUnit 3.0 uses XML in several of its interfaces for communicating between its three architectural layers.</p>
-<p>The samples given here represent the current state of the application and are subject to change. Watch this page for new information as development continues.</p>
+<p>Use of XML in NUnit 2.x is somewhat limited and is only used in external files. NUnit 3.0 uses XML in several of its
+interfaces for communicating between its three architectural layers.</p>
+<p>The samples given here represent the current state of the application and are subject to change. Watch this page for new
+information as development continues.</p>
 <h2 id="nunit-projects">NUnit Projects</h2>
-<p>An NUnit project is stored as a file with the extension .nunit and describes one or more test assemblies to be executed, together with certain parameters used in running them. No schema is used for this file.</p>
+<p>An NUnit project is stored as a file with the extension .nunit and describes one or more test assemblies to be executed,
+together with certain parameters used in running them. No schema is used for this file.</p>
 <ul>
 <li><a href="https://nunit.org/files/nunit_project_25.txt">Sample NUnit Project</a></li>
 </ul>
-<p>Currently, the format is the same as for NUnit 2.x but it is likely to change as the project proceeds. Note that NUnitLite does not use or recognize NUnit projects, but only assemblies.</p>
+<p>Currently, the format is the same as for NUnit 2.x but it is likely to change as the project proceeds. Note that
+NUnitLite does not use or recognize NUnit projects, but only assemblies.</p>
 <p>For details of the file contents, see <a class="xref" href="NUnit-Project-XML-Format.html">NUnit Project XML Format</a></p>
 <h2 id="nunit-settings">NUnit Settings</h2>
-<p>The NUnitSettings30.xml file holds default settings for NUnit 3.0. No schema is used for this file. The format is the same as for 2.x but new settings may be added and the names of certain keys are likely to change.</p>
+<p>The NUnitSettings30.xml file holds default settings for NUnit 3.0. No schema is used for this file. The format is the
+same as for 2.x but new settings may be added and the names of certain keys are likely to change.</p>
 <ul>
 <li><a href="https://nunit.org/files/sample_nunitsettings_file.txt">Sample NUnit Settings File</a></li>
 </ul>
 <h2 id="test-results">Test Results</h2>
-<p>The results of an test run are saved in a file with the default name of TestResult.xml. The schema of this file is being modified substantially for NUnit 3.0.</p>
+<p>The results of an test run are saved in a file with the default name of TestResult.xml. The schema of this file is being
+modified substantially for NUnit 3.0.</p>
 <ul>
 <li><a href="https://nunit.org/files/testresult_30.txt">Sample</a></li>
 <li>Schema not yet available</li>
 </ul>
 <p>For details of the file layout see <a href="Test-Result-XML-Format.html">Test Result XML Format</a>.</p>
 <h2 id="v2-test-results">V2 Test Results</h2>
-<p>Optionally, NUnit 3.0 is able to save results in the NUnit 2.x format for use with CI servers that do not yet understand the new format.</p>
+<p>Optionally, NUnit 3.0 is able to save results in the NUnit 2.x format for use with CI servers that do not yet understand
+the new format.</p>
 <ul>
 <li><a href="https://nunit.org/files/testresult_25.txt">Sample</a></li>
 <li><a href="https://nunit.org/files/testresult_schema_25.txt">Schema</a></li>
 </ul>
 <h2 id="test-representation">Test Representation</h2>
-<p>When using the -explore option, a list of tests without results is returned. The format used is simply a subset of the test result format, without the result information.</p>
+<p>When using the -explore option, a list of tests without results is returned. The format used is simply a subset of the
+test result format, without the result information.</p>
 <p>See <a href="Test-Result-XML-Format.html">Test Result XML Format</a> for details.</p>
 <h2 id="test-filters">Test Filters</h2>
-<p>Information about which tests to run is provided to the framework using a test filter, represented as an XML fragment. See <a href="Test-Filters.html">Test Filters</a> for details.</p>
+<p>Information about which tests to run is provided to the framework using a test filter, represented as an XML fragment.
+See <a href="Test-Filters.html">Test Filters</a> for details.</p>
 <h2 id="test-packages">Test Packages</h2>
 <h2 id="progress-reports">Progress Reports</h2>
-<p>As a test run progresses, individual test run results are sent as xml fragments from the result file under construction. A runner can, in fact, construct a copy of the result file incrementally using these fragments if desired.</p>
+<p>As a test run progresses, individual test run results are sent as xml fragments from the result file under construction.
+A runner can, in fact, construct a copy of the result file incrementally using these fragments if desired.</p>
 <h2 id="visualstate">VisualState</h2>
-<p>The Gui runner uses a file with the suffix .VisualState.xml to save the current visual state of a project so that it may be restored upon re-opening. This file is private to the Gui but is included here for completeness. The current format is identical to that used in NUnit 2.x.</p>
+<p>The Gui runner uses a file with the suffix .VisualState.xml to save the current visual state of a project so that it may
+be restored upon re-opening. This file is private to the Gui but is included here for completeness. The current format
+is identical to that used in NUnit 2.x.</p>
 <ul>
 <li><a href="https://nunit.org/files/sample_visual_state_25.txt">Sample Visual State File</a></li>
 </ul>

@@ -85,13 +85,16 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="ifixturebuilder-interface">IFixtureBuilder Interface</h1>
 
-<p>This interface is used by attributes that know how to build a fixture from a user class. <code>IFixtureBuilder</code> is defined as follows:</p>
+<p>This interface is used by attributes that know how to build a fixture from a user class. <code>IFixtureBuilder</code> is defined as
+follows:</p>
 <pre><code class="lang-csharp">public interface IFixtureBuilder
 {
     TestSuite BuildFrom(ITypeInfo type);
 }
 </code></pre>
-<p>Custom fixture builders should examine the provided <code>ITypeInfo</code> and return an appropriate type of fixture based on it. If the fixture is intended to be an NUnit <code>TestFixture</code>, then the helper class <code>NUnitTestFixtureBuilder</code> may be used to create it.</p>
+<p>Custom fixture builders should examine the provided <code>ITypeInfo</code> and return an appropriate type of fixture based on it.
+If the fixture is intended to be an NUnit <code>TestFixture</code>, then the helper class <code>NUnitTestFixtureBuilder</code> may be used to
+create it.</p>
 <p>The following NUnit attributes currently implement this interface:</p>
 <ul>
 <li><code>TestFixtureAttribute</code></li>
@@ -100,9 +103,12 @@
 </ul>
 <p><strong>Notes:</strong></p>
 <ol>
-<li><p><code>ITypeInfo</code> is an internal interface used by NUnit to wrap a Type. See <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Interfaces/ITypeInfo.cs">source code</a> for details.</p>
+<li><p><code>ITypeInfo</code> is an internal interface used by NUnit to wrap a Type. See <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Interfaces/ITypeInfo.cs">source
+code</a> for details.</p>
 </li>
-<li><p>It would make more sense for this interface method to return <code>TestFixture</code> rather than <code>TestSuite</code>. We use <code>TestSuite</code> because it is the common base for both <code>TestFixture</code> and <code>SetupFixture</code>. In a future version, we will try to adjust the hierarchy so that all suites based on a class are derived from <code>TestFixture</code>.</p>
+<li><p>It would make more sense for this interface method to return <code>TestFixture</code> rather than <code>TestSuite</code>. We use
+<code>TestSuite</code> because it is the common base for both <code>TestFixture</code> and <code>SetupFixture</code>. In a future version, we will try
+to adjust the hierarchy so that all suites based on a class are derived from <code>TestFixture</code>.</p>
 </li>
 </ol>
 </article>

@@ -85,10 +85,9 @@
             <article class="content wrap" id="_content" data-uid="testcaseattribute">
 <h1 id="testcase">TestCase</h1>
 
-<p><code>TestCaseAttribute</code> serves the dual purpose of marking a method with
-parameters as a test method and providing inline data to be used when
-invoking that method. Here is an example of a test being run three
-times, with three different sets of data:</p>
+<p><code>TestCaseAttribute</code> serves the dual purpose of marking a method with parameters as a test method and providing inline
+data to be used when invoking that method. Here is an example of a test being run three times, with three different sets
+of data:</p>
 <pre><code class="lang-csharp" name="BasicTestCase">[TestCase(12, 3, 4)]
 [TestCase(12, 2, 6)]
 [TestCase(12, 4, 3)]
@@ -99,13 +98,12 @@ public void DivideTest(int n, int d, int q)
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Because arguments to .NET attributes are limited in terms of the Types that may be used, NUnit will make some attempt to convert the supplied values using <code>Convert.ChangeType()</code> before supplying it to the test.</p>
+<p>Because arguments to .NET attributes are limited in terms of the Types that may be used, NUnit will make some
+attempt to convert the supplied values using <code>Convert.ChangeType()</code> before supplying it to the test.</p>
 </div>
-<p><strong>TestCaseAttribute</strong> may appear one or more times on a test method,
-which may also carry other attributes providing test data.
-The method may optionally be marked with the <a href="test.html">Test Attribute</a> as well.</p>
-<p>By using the named parameter <code>ExpectedResult</code> this test set may be simplified
-further:</p>
+<p><strong>TestCaseAttribute</strong> may appear one or more times on a test method, which may also carry other attributes providing
+test data. The method may optionally be marked with the <a href="test.html">Test Attribute</a> as well.</p>
+<p>By using the named parameter <code>ExpectedResult</code> this test set may be simplified further:</p>
 <pre><code class="lang-csharp" name="TestCaseWithExpectedResult">[TestCase(12, 3, ExpectedResult = 4)]
 [TestCase(12, 2, ExpectedResult = 6)]
 [TestCase(12, 4, ExpectedResult = 3)]
@@ -114,8 +112,8 @@ public int DivideTest(int n, int d)
     return n / d;
 }
 </code></pre>
-<p>In the above example, NUnit checks that the return
-value of the method is equal to the expected result provided on the attribute.</p>
+<p>In the above example, NUnit checks that the return value of the method is equal to the expected result provided on the
+attribute.</p>
 <p>TestCaseAttribute supports a number of additional named parameters:</p>
 <ul>
 <li><strong>Author</strong> sets the author of the test.</li>
@@ -128,16 +126,16 @@ value of the method is equal to the expected result provided on the attribute.</
 <li><strong>IgnoreReason</strong> causes this test case to be ignored and specifies the reason.</li>
 <li><strong>IncludePlatform</strong> specifies a comma-delimited list of platforms on which the test should run.</li>
 <li><strong>Reason</strong> specifies the reason for not running this test case. Use in conjunction with <strong>Explicit</strong>.</li>
-<li><strong>TestName</strong> provides a name for the test. If not specified, a name is generated based on the method name and the arguments provided. See <a class="xref" href="../../running-tests/Template-Based-Test-Naming.html">Template Based Test Naming</a>.</li>
+<li><strong>TestName</strong> provides a name for the test. If not specified, a name is generated based on the method name and the
+arguments provided. See <a class="xref" href="../../running-tests/Template-Based-Test-Naming.html">Template Based Test Naming</a>.</li>
 <li><strong>TestOf</strong> specifies the Type that this test is testing</li>
 </ul>
 <h2 id="order-of-execution">Order of Execution</h2>
-<p>Individual test cases are executed in the order in which NUnit discovers them.
-This order does <strong>not</strong> necessarily follow the lexical order of the attributes
-and will often vary between different compilers or different versions of the CLR.</p>
-<p>As a result, when <strong>TestCaseAttribute</strong> appears multiple times on a method
-or when other data-providing attributes are used in combination with
-<strong>TestCaseAttribute</strong>, the order of the test cases is undefined.</p>
+<p>Individual test cases are executed in the order in which NUnit discovers them. This order does <strong>not</strong> necessarily
+follow the lexical order of the attributes and will often vary between different compilers or different versions of the
+CLR.</p>
+<p>As a result, when <strong>TestCaseAttribute</strong> appears multiple times on a method or when other data-providing attributes are
+used in combination with <strong>TestCaseAttribute</strong>, the order of the test cases is undefined.</p>
 </article>
           </div>
 

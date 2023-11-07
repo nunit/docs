@@ -85,10 +85,14 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="how-to-enable-trace-and-debug-output">How to enable Trace and Debug output</h1>
 
-<p>Trace and Debug output is by default not sent to the console output, or anywhere else.  If you want to have this output, you must add your own <code>TraceListener</code>.</p>
+<p>Trace and Debug output is by default not sent to the console output, or anywhere else.  If you want to have this output,
+you must add your own <code>TraceListener</code>.</p>
 <h2 id="implementing-the-tracelistener-in-your-code">Implementing the <code>TraceListener</code> in your code</h2>
-<p>This is easy to do, and you can do it per assembly, per namespace or per test.  All it takes is to add the necessary initialization of the <code>TraceListener</code>.</p>
-<p>To add it to a namespace, place the following class inside that namespace, and it will apply to all tests inside that namespace and below.  The code shown adds the output to console output.  If you like you can change that to another kind of listener.</p>
+<p>This is easy to do, and you can do it per assembly, per namespace or per test.  All it takes is to add the necessary
+initialization of the <code>TraceListener</code>.</p>
+<p>To add it to a namespace, place the following class inside that namespace, and it will apply to all tests inside that
+namespace and below.  The code shown adds the output to console output.  If you like you can change that to another kind
+of listener.</p>
 <pre><code class="lang-csharp">[SetUpFixture]
 public class SetupTrace
 {
@@ -106,7 +110,8 @@ public class SetupTrace
 }
 </code></pre>
 <p>If you place the code above outside of any namespace it will apply to the whole assembly.</p>
-<p>If you'd like to only apply to a given test fixture/class, you can add the <code>StartTest and EndTest</code> methods to the given test fixture/class.</p>
+<p>If you'd like to only apply to a given test fixture/class, you can add the <code>StartTest and EndTest</code> methods to the given
+test fixture/class.</p>
 <h2 id="example-outputs">Example outputs</h2>
 <p>Given the following verbose test:</p>
 <pre><code class="lang-csharp">        [Test]
@@ -128,8 +133,11 @@ public class SetupTrace
 <p>Running <code>dotnet test -v n</code>, the output will be:</p>
 <p><img src="../../images/TraceDebug2.png" alt="DotNet Trace Debug output showing the lines outputted by the TraceListener"></p>
 <h2 id="discussion-and-source">Discussion and source</h2>
-<p>This issue have been discussed at <a href="https://github.com/nunit/nunit3-vs-adapter/issues/718">Issue 718</a> and <a href="https://github.com/nunit/nunit3-vs-adapter/issues/301">Issue 301</a>. Use of <code>TraceListener</code> suggested by <a href="https://github.com/FransBouma">Frans Bouma</a>.</p>
-<p>The repro code for the issue can be found <a href="https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue718">here</a>.</p>
+<p>This issue have been discussed at <a href="https://github.com/nunit/nunit3-vs-adapter/issues/718">Issue 718</a> and <a href="https://github.com/nunit/nunit3-vs-adapter/issues/301">Issue
+301</a>. Use of <code>TraceListener</code> suggested by <a href="https://github.com/FransBouma">Frans
+Bouma</a>.</p>
+<p>The repro code for the issue can be found
+<a href="https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue718">here</a>.</p>
 </article>
           </div>
 

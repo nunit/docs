@@ -85,12 +85,15 @@
             <article class="content wrap" id="_content" data-uid="projectloaders">
 <h1 id="project-loaders">Project Loaders</h1>
 
-<p><strong>Project Loaders</strong> are extensions that know how to load a project in a particular format and create a package suitable for running tests under NUnit. The NUnit Organization itself provides two of them:</p>
+<p><strong>Project Loaders</strong> are extensions that know how to load a project in a particular format and create a package suitable
+for running tests under NUnit. The NUnit Organization itself provides two of them:</p>
 <ul>
 <li>NUnitProjectLoader</li>
 <li>VisualStudioProjectLoader</li>
 </ul>
-<p>The extension point for project loaders accepts extensions that implement the <code>NUnit.Engine.Extensibility.IProjectLoader</code> interface. The definition of a project loader extension might look something like the following...</p>
+<p>The extension point for project loaders accepts extensions that implement the
+<code>NUnit.Engine.Extensibility.IProjectLoader</code> interface. The definition of a project loader extension might look something
+like the following...</p>
 <pre><code class="lang-csharp">[Extension]
 [ExtensionProperty(&quot;FileExtension&quot;, &quot;.xxx&quot;)]
 [ExtensionProperty(&quot;FileExtension&quot;, &quot;.yyy&quot;)]
@@ -168,7 +171,8 @@ public interface IProject
     TestPackage GetTestPackage(string configName);
 }
 </code></pre>
-<p><code>TestPackage</code> is defined in the <code>nunit.engine.api</code> assembly and includes a list of assemblies together with a dictionary of settings used by the package.</p>
+<p><code>TestPackage</code> is defined in the <code>nunit.engine.api</code> assembly and includes a list of assemblies together with a dictionary
+of settings used by the package.</p>
 </article>
           </div>
 

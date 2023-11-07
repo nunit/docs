@@ -87,11 +87,15 @@
 
 <div class="NOTE">
 <h5>Note</h5>
-<p><strong>TODO:</strong> This documentation was copied from the original packaging info and needs to be updated for packaging just the Console and Engine.</p>
+<p><strong>TODO:</strong> This documentation was copied from the original packaging info and needs to be updated for packaging
+just the Console and Engine.</p>
 </div>
-<p>This note describes how to create release packages for the NUnit console runner and test engine. Currently, all the builds and packaging must be done on a single Windows machine. This is likely to change in the future as we add more platforms.</p>
+<p>This note describes how to create release packages for the NUnit console runner and test engine. Currently, all the
+builds and packaging must be done on a single Windows machine. This is likely to change in the future as we add more
+platforms.</p>
 <h2 id="software-prerequisites">Software Prerequisites</h2>
-<p>Various software combinations and environments may be used to build the NUnit 3 console runner and engine. Our standard environment is Visual Studio 2017 15.6+ Community Edition.</p>
+<p>Various software combinations and environments may be used to build the NUnit 3 console runner and engine. Our standard
+environment is Visual Studio 2017 15.6+ Community Edition.</p>
 <h2 id="preparing-for-release">Preparing for Release</h2>
 <h3 id="merge-latest-into-the-release-branch">Merge latest into the release branch</h3>
 <ol>
@@ -103,27 +107,34 @@
 <ol>
 <li><p>Close all instances of Visual Studio or other IDE to ensure that no changes are left unsaved.</p>
 </li>
-<li><p>Do a clean build and run all the tests on Windows. You may use the command below or three separate commands if preferred. If you encounter errors at any stage, you're not actually ready to release!</p>
-<p><code>build.cmd -Target=Clean</code>
-<code>build.cmd -Target=Test</code></p>
+<li><p>Do a clean build and run all the tests on Windows. You may use the command below or three separate commands if
+preferred. If you encounter errors at any stage, you're not actually ready to release!</p>
+<p><code>build.cmd -Target=Clean</code> <code>build.cmd -Target=Test</code></p>
 </li>
-<li><p>Repeat the build on a Linux system, if available. If this is not possible, be sure to scrutinize the results from the Travis CI build carefully. On Linux, you may use the command</p>
+<li><p>Repeat the build on a Linux system, if available. If this is not possible, be sure to scrutinize the results from the
+Travis CI build carefully. On Linux, you may use the command</p>
 <p><code>./build -Target=Test</code></p>
 </li>
-<li><p>Make sure that the most recent commits of master passed all tests in the CI builds. Check the builds on both Travis and AppVeyor. Check on TeamCity once we get that build working again.</p>
+<li><p>Make sure that the most recent commits of master passed all tests in the CI builds. Check the builds on both Travis
+and AppVeyor. Check on TeamCity once we get that build working again.</p>
 </li>
 </ol>
 <h3 id="review-milestone-status">Review Milestone Status</h3>
 <ol>
-<li><p>Check the milestone for the current release to see that there are no open issues. Any issues that are not going to be in this release should be moved to a future milestone. This may be the time to create the next milestone.</p>
+<li><p>Check the milestone for the current release to see that there are no open issues. Any issues that are not going to be
+in this release should be moved to a future milestone. This may be the time to create the next milestone.</p>
 </li>
-<li><p>Make sure that completed issues are marked with the appropriate 'closed' label depending on disposition. The release notes will end up reflecting issues marked closed:done.</p>
+<li><p>Make sure that completed issues are marked with the appropriate 'closed' label depending on disposition. The release
+notes will end up reflecting issues marked closed:done.</p>
 </li>
-<li><p>Check all future open milestones for completed issues. Anything that is completed will be included in this release so change its milestone to the current release.</p>
+<li><p>Check all future open milestones for completed issues. Anything that is completed will be included in this release so
+change its milestone to the current release.</p>
 </li>
 </ol>
 <h3 id="check-assembly-versioning">Check Assembly Versioning</h3>
-<p>AssemblyVersion and AssemblyFileVersion are set separately for the framework, engine, engine api and console runner. Each is kept in a separate file and they may be updated separately. Using the 3.4.1 release as an example, version information would be set as follows:</p>
+<p>AssemblyVersion and AssemblyFileVersion are set separately for the framework, engine, engine api and console runner.
+Each is kept in a separate file and they may be updated separately. Using the 3.4.1 release as an example, version
+information would be set as follows:</p>
 <pre><code>  Component             | File to Update      | AssemblyVersion | AssemblyFileVersion 
   --------------------- | ------------------- | --------------- | -------------------
   Engine                | EngineVersion.cs    |     3.4.1.0     |      3.4.1.0
@@ -132,48 +143,76 @@
 </code></pre>
 <h4 id="notes">Notes</h4>
 <ol>
-<li><p>The Engine API AssemblyVersion is fixed and will not be changed unless it becomes necessary to modify the API in a non-additive manner.</p>
+<li><p>The Engine API AssemblyVersion is fixed and will not be changed unless it becomes necessary to modify the API in a
+non-additive manner.</p>
 </li>
-<li><p>These values will normally already be correct for the release, since they should have been set immediately following the prior release.</p>
+<li><p>These values will normally already be correct for the release, since they should have been set immediately following
+the prior release.</p>
 </li>
 </ol>
 <h3 id="update-copyright-year">Update Copyright Year</h3>
-<p>The copyright year in all the source files is only updated as they are changed, but the copyright in the <code>[assembly: AssemblyCopyright(&quot;...&quot;)]</code> and the copyright text displayed by <code>nunit3-console</code> and <code>nunitlite</code> should be updated to the year of the release. Search for <code>AssemblyCopyright</code> in the solution and update it where needed, then check <code>Program.cs</code> in <code>nunit3-console</code> for default values used when no attribute is found.</p>
-<p>If necessary, update the year in the general copyright notice LICENSE.txt. Note that these copyright notices refer to each of the packages in their entirety. Each of the <code>.nuspec</code> files in the <code>nuget</code> subdirectory contains a copyright line, which should also be updated.</p>
-<p>Notices at the top of each source code file are only updated when copyrightable changes are made to the file, not at the time of release.</p>
+<p>The copyright year in all the source files is only updated as they are changed, but the copyright in the <code>[assembly: AssemblyCopyright(&quot;...&quot;)]</code> and the copyright text displayed by <code>nunit3-console</code> and <code>nunitlite</code> should be updated to the
+year of the release. Search for <code>AssemblyCopyright</code> in the solution and update it where needed, then check <code>Program.cs</code>
+in <code>nunit3-console</code> for default values used when no attribute is found.</p>
+<p>If necessary, update the year in the general copyright notice LICENSE.txt. Note that these copyright notices refer to
+each of the packages in their entirety. Each of the <code>.nuspec</code> files in the <code>nuget</code> subdirectory contains a copyright
+line, which should also be updated.</p>
+<p>Notices at the top of each source code file are only updated when copyrightable changes are made to the file, not at the
+time of release.</p>
 <h3 id="update-package-versions">Update Package Versions</h3>
-<p>The package version is updated in the <code>build.cake</code> file. The following lines appear near the beginning of the file. Update the versions and modifiers if necessary. Normally, they will already have been set correctly.</p>
+<p>The package version is updated in the <code>build.cake</code> file. The following lines appear near the beginning of the file.
+Update the versions and modifiers if necessary. Normally, they will already have been set correctly.</p>
 <pre><code class="lang-csharp">var version=&quot;3.4.1&quot;;
 var modifier=&quot;&quot;
 </code></pre>
-<p>The version variables are three-part version numbers that follow the basic principles of <a href="https://semver.org/">semantic versioning</a>. Since we publish a number of nuget packages, we use the nuget implementation of semantic versioning.</p>
-<p>For NUnit, the major version is updated only rarely. Normal releases will update the minor version and set the third component to zero. The third component is incremented when &quot;hot fixes&quot; are made to a production release or for builds created for a special purpose.</p>
-<p>For pre-release versions, a non-empty modifier is specified. This is a suffix added to the version. Our standard suffixes are currently <code>-alpha-n</code>, <code>-beta-n</code> and <code>-rc-n</code> The build script adds an additional suffix of -dbg to any packages created using a Debug build.</p>
+<p>The version variables are three-part version numbers that follow the basic principles of <a href="https://semver.org/">semantic versioning</a>. Since we
+publish a number of nuget packages, we use the nuget implementation of semantic versioning.</p>
+<p>For NUnit, the major version is updated only rarely. Normal releases will update the minor version and set the third
+component to zero. The third component is incremented when &quot;hot fixes&quot; are made to a production release or for builds
+created for a special purpose.</p>
+<p>For pre-release versions, a non-empty modifier is specified. This is a suffix added to the version. Our standard
+suffixes are currently <code>-alpha-n</code>, <code>-beta-n</code> and <code>-rc-n</code> The build script adds an additional suffix of -dbg to any
+packages created using a Debug build.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>The first alpha, beta or rc release may omit the <code>-n</code>. In that case, any following alpha, beta or rc should use <code>-2</code>.</p>
+<p>The first alpha, beta or rc release may omit the <code>-n</code>. In that case, any following alpha, beta or rc should
+use <code>-2</code>.</p>
 </div>
 <h3 id="update-changes-file">Update CHANGES File</h3>
-<p>The CHANGES.txt file in the project root contains all relevant changes for each release. It contains the same information as the release notes in the project documentation, in text format. Because the CHANGES file includes the <strong>date</strong> of the release, you must know when the release is coming out in order to edit it. Otherwise, it will be necessary to make a final change to the file at the point of making the release.</p>
-<p>Create new sections in the CHANGES file to match those for prior releases. To ensure that all changes are included, review closed issues in the current and any future milestones. If an issue for a previous milestone was actually completed and closed, move it to the current milestone, since that's where it is being released. Include all issues resolved as closed:done in the issues section of the file. Significant feature additions and changes should be documented, even if they are also listed with issue numbers. Reviewing commits and merged pull requests may help in catching additional changes.</p>
-<p>You should commit the CHANGES file separately from the version number changes since that commit will be merged back into master while the version changes will not.</p>
+<p>The CHANGES.txt file in the project root contains all relevant changes for each release. It contains the same
+information as the release notes in the project documentation, in text format. Because the CHANGES file includes the
+<strong>date</strong> of the release, you must know when the release is coming out in order to edit it. Otherwise, it will be
+necessary to make a final change to the file at the point of making the release.</p>
+<p>Create new sections in the CHANGES file to match those for prior releases. To ensure that all changes are included,
+review closed issues in the current and any future milestones. If an issue for a previous milestone was actually
+completed and closed, move it to the current milestone, since that's where it is being released. Include all issues
+resolved as closed:done in the issues section of the file. Significant feature additions and changes should be
+documented, even if they are also listed with issue numbers. Reviewing commits and merged pull requests may help in
+catching additional changes.</p>
+<p>You should commit the CHANGES file separately from the version number changes since that commit will be merged back into
+master while the version changes will not.</p>
 <h3 id="update-the-documentation">Update the Documentation</h3>
-<p>The <a class="xref" href="../nunit/release-notes/framework.html">Release Notes</a> section of the documentation site should match the content of the CHANGES.txt file except for any format differences.</p>
+<p>The <a class="xref" href="../nunit/release-notes/framework.html">Release Notes</a> section of the documentation site should match the content of the
+CHANGES.txt file except for any format differences.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Now that the documentation is being kept in a web site generated by github markdown, it may be possible to use the github markdown text directly in this file for future releases.</p>
+<p>Now that the documentation is being kept in a web site generated by github markdown, it may be possible to use
+the github markdown text directly in this file for future releases.</p>
 </div>
-<p>For any significant changes to how NUnit is used or what it does, the appropriate pages of the documentation should be updated or new pages created. If you do this in advance of the release (which is actually a good idea) you should do it in a way that the new documentation is not visible until the release is actually made.</p>
+<p>For any significant changes to how NUnit is used or what it does, the appropriate pages of the documentation should be
+updated or new pages created. If you do this in advance of the release (which is actually a good idea) you should do it
+in a way that the new documentation is not visible until the release is actually made.</p>
 <h3 id="push-all-changes">Push All Changes</h3>
-<p>If you made any changes to the files in git as part of the preceding steps. Make sure you have pushed them and they have been reviewed in the PR.</p>
+<p>If you made any changes to the files in git as part of the preceding steps. Make sure you have pushed them and they have
+been reviewed in the PR.</p>
 <h2 id="creating-the-release">Creating the Release</h2>
 <ol>
 <li><p>Clear the package directory to avoid confusion:</p>
 <p><code>erase package\*</code></p>
-<p>This is not absolutely required, but will be helpful if you have other release packages present
-in the directory.</p>
+<p>This is not absolutely required, but will be helpful if you have other release packages present in the directory.</p>
 </li>
-<li><p>You should be working on the release branch. Do a pull to make sure you have everything up to date. If changes of any significance were merged, you should test again before creating the release.</p>
+<li><p>You should be working on the release branch. Do a pull to make sure you have everything up to date. If changes of any
+significance were merged, you should test again before creating the release.</p>
 </li>
 <li><p>Create the packages by running:</p>
 <p><code>build -Target Package</code></p>
@@ -190,9 +229,11 @@ in the directory.</p>
 <li>NUnit.Runners.VERSION.nupkg</li>
 </ul>
 <h2 id="testing-the-release">Testing the Release</h2>
-<p>The degree to which each package needs testing may vary depending on what has been changed. Usually, you should install all the NuGet packages into a test project, verifying that the</p>
+<p>The degree to which each package needs testing may vary depending on what has been changed. Usually, you should install
+all the NuGet packages into a test project, verifying that the</p>
 <h2 id="archiving-the-release">Archiving the Release</h2>
-<p>Packages are archived on nunit.org in the downloads directory. Create a new sub-folder under downloads/nunit/v3 for the release. Upload all the package files into that directory.</p>
+<p>Packages are archived on nunit.org in the downloads directory. Create a new sub-folder under downloads/nunit/v3 for the
+release. Upload all the package files into that directory.</p>
 <h2 id="publishing-the-release">Publishing the Release</h2>
 <h3 id="github">Github</h3>
 <ol>
@@ -200,7 +241,9 @@ in the directory.</p>
 </li>
 <li><p>Select Releases and then click on the &quot;Draft a new release&quot; button.</p>
 </li>
-<li><p>Enter a tag to be used for the release. Currently our tags are simply the version of the release, like 3.0.0-alpha-5. If you start typing with '3' you'll get a list of earlier release tags so you can see the format. <strong>Select your release branch</strong> as the target for the tag.</p>
+<li><p>Enter a tag to be used for the release. Currently our tags are simply the version of the release, like 3.0.0-alpha-5.
+If you start typing with '3' you'll get a list of earlier release tags so you can see the format. <strong>Select your
+release branch</strong> as the target for the tag.</p>
 </li>
 <li><p>Enter a title for the release, like NUnit 3.0 RC release. If you type 'N' you'll get some hints.</p>
 </li>
@@ -208,7 +251,8 @@ in the directory.</p>
 </li>
 <li><p>If this is an Alpha or Beta release, check the box that indicates a pre-release.</p>
 </li>
-<li><p>Upload the packages you created earlier either directly from the package directory or from their archive location. Note that we upload all the packages, including those that are also published on NuGet.</p>
+<li><p>Upload the packages you created earlier either directly from the package directory or from their archive location.
+Note that we upload all the packages, including those that are also published on NuGet.</p>
 </li>
 <li><p>Click the &quot;Publish release&quot; button to publish the release on Github.</p>
 </li>
@@ -230,12 +274,14 @@ in the directory.</p>
 <ol>
 <li>Close your release Pull Request</li>
 <li>Create a new branch off of your release branch</li>
-<li>Increment the version in the various locations from the even release to the SemVer odd dev release number. For example 3.2 -&gt; 3.3. See the Update Package Versions section above.</li>
+<li>Increment the version in the various locations from the even release to the SemVer odd dev release number. For
+example 3.2 -&gt; 3.3. See the Update Package Versions section above.</li>
 <li>Push your changes to GitHub</li>
 <li>Create a pull request from your branch making sure it is based off master</li>
 </ol>
 <h3 id="website">Website</h3>
-<p>If changes to the website have been accumulated in a branch, now is the time to merge it and upload the pages to the site.</p>
+<p>If changes to the website have been accumulated in a branch, now is the time to merge it and upload the pages to the
+site.</p>
 <h3 id="notify-users">Notify Users</h3>
 <p>Send notifications to the mailing list and twitter.</p>
 <h3 id="close-the-milestone">Close the Milestone</h3>

@@ -86,11 +86,17 @@
 <h1 id="fixturelifecycle">FixtureLifeCycle</h1>
 
 <p>Added in <strong>NUnit 3.13</strong></p>
-<p>The <code>FixtureLifeCycleAttribute</code> is used to indicate that an instance for a test fixture or all test fixtures in an assembly should be constructed for each test within the fixture or assembly.</p>
-<p>This attribute may be applied to a test fixture (class) or to a test assembly. It is useful in combination with the <a href="parallelizable.html">Parallelizable Attribute</a> so that a new instance of a test fixture is constructed for every test within the test fixture. This allows tests to run in isolation without sharing instance fields and properties during parallel test runs. This make running parallel tests easier because it is easier to make your tests thread safe.</p>
-<p>This attribute can be applied to classes or to the entire test assembly. If applied to an assembly, it may be overridden at the class level.</p>
+<p>The <code>FixtureLifeCycleAttribute</code> is used to indicate that an instance for a test fixture or all test fixtures in an
+assembly should be constructed for each test within the fixture or assembly.</p>
+<p>This attribute may be applied to a test fixture (class) or to a test assembly. It is useful in combination with the
+<a href="parallelizable.html">Parallelizable Attribute</a> so that a new instance of a test fixture is constructed for every test
+within the test fixture. This allows tests to run in isolation without sharing instance fields and properties during
+parallel test runs. This make running parallel tests easier because it is easier to make your tests thread safe.</p>
+<p>This attribute can be applied to classes or to the entire test assembly. If applied to an assembly, it may be overridden
+at the class level.</p>
 <h2 id="lifecycle-enumeration">LifeCycle Enumeration</h2>
-<p>The constructor of <code>FixtureLifeCycleAttribute</code> takes a <code>LifeCycle</code> attribute to indicate if a single instance of a test fixture should be created for all tests or if a new instance should be created for each test.</p>
+<p>The constructor of <code>FixtureLifeCycleAttribute</code> takes a <code>LifeCycle</code> attribute to indicate if a single instance of a test
+fixture should be created for all tests or if a new instance should be created for each test.</p>
 <table>
 <thead>
 <tr>
@@ -111,11 +117,16 @@
 </table>
 <h2 id="notes">Notes</h2>
 <ul>
-<li><p>When using <code>LifeCycle.InstancePerTestCase</code>, the <a class="xref" href="onetimesetup.html"><code>OneTimeSetUp</code></a> and <a class="xref" href="onetimeteardown.html"><code>OneTimeTearDown</code></a> methods must be static, and each are only called once. This is required so that the setup or teardown methods do not access instance fields or properties that are reset for every test.</p>
+<li><p>When using <code>LifeCycle.InstancePerTestCase</code>, the <a class="xref" href="onetimesetup.html"><code>OneTimeSetUp</code></a> and
+<a class="xref" href="onetimeteardown.html"><code>OneTimeTearDown</code></a> methods must be static, and each are only called once. This is
+required so that the setup or teardown methods do not access instance fields or properties that are reset for every
+test.</p>
 </li>
-<li><p>When using <code>LifeCycle.InstancePerTestCase</code>, a class's constructor will be called before every test is executed and <code>IDisposable</code> test fixtures will be disposed after the test is finished.</p>
+<li><p>When using <code>LifeCycle.InstancePerTestCase</code>, a class's constructor will be called before every test is executed and
+<code>IDisposable</code> test fixtures will be disposed after the test is finished.</p>
 </li>
-<li><p><a class="xref" href="setup.html"><code>SetUp</code></a> and <a class="xref" href="teardown.html"><code>TearDown</code></a> methods are called before and after every test.</p>
+<li><p><a class="xref" href="setup.html"><code>SetUp</code></a> and <a class="xref" href="teardown.html"><code>TearDown</code></a> methods are called before and after every
+test.</p>
 </li>
 <li><p>The <code>Order</code> attribute is respected.</p>
 </li>

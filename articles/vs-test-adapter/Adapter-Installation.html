@@ -87,11 +87,13 @@
 
 <p>You'll need to install the adapter as a NuGet package for each of your test projects.</p>
 <h2 id="installing-the-nuget-package">Installing the NuGet Package</h2>
-<p>You will most likely want to add a new NUnit Test Project to your solution.  The easiest way is to use the <code>dotnet</code> command on the command line.</p>
+<p>You will most likely want to add a new NUnit Test Project to your solution.  The easiest way is to use the <code>dotnet</code>
+command on the command line.</p>
 <p>Go to your project root and where you want to add your project.</p>
 <p>Create a folder for the project with a name matching what your new test project should be named.</p>
 <p>Then run the command <code>dotnet new nunit</code>.</p>
-<p>You will now get a complete nunit test project with the same name as the folder.  You will also have a template unit test class there as a starter.</p>
+<p>You will now get a complete nunit test project with the same name as the folder.  You will also have a template unit
+test class there as a starter.</p>
 <p>If you have a Visual Studio solution file in the root folder, you can go there and add the new nunit csproj easily:</p>
 <p>Assume you are at a solution root, and you either have a solution file, or have just been adding it with <code>dotnet new sln</code>.</p>
 <pre><code class="lang-cmd">md Whatever.Test
@@ -102,11 +104,15 @@ dotnet sln add Whatever.Test\Whatever.Test.csproj
 </code></pre>
 <p>And you're ready to go !</p>
 <h3 id="manually-adding-the-adapter-as-a-package-reference-to-your-test-projects">Manually Adding the Adapter as a Package Reference to Your Test Projects</h3>
-<p>When adding packages manually, we recommended installing the framework, the adapter, and the analyzer for optimal out-of-the-box functionality.  The adapter and the framework are required. The analyzer will help during development, but is not strictly required to make your project work.  <code>coverlet.collector</code> is the recommended code coverage package you should go for.</p>
+<p>When adding packages manually, we recommended installing the framework, the adapter, and the analyzer for optimal
+out-of-the-box functionality.  The adapter and the framework are required. The analyzer will help during development,
+but is not strictly required to make your project work.  <code>coverlet.collector</code> is the recommended code coverage package
+you should go for.</p>
 <p>You should ensure you also reference <code>Microsoft.NET.Test.Sdk</code> as well; it is required for test discoverability.</p>
 <ol>
 <li>Open your test project <code>csproj</code> file</li>
-<li>Add the necessary package references as shown in the snippet example below (NOTE: these are the current versions at time of writing; you'll want to install the latest versions.)</li>
+<li>Add the necessary package references as shown in the snippet example below (NOTE: these are the current versions at
+time of writing; you'll want to install the latest versions.)</li>
 </ol>
 <pre><code class="lang-xml">  &lt;ItemGroup&gt;
     &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;17.4.0&quot; /&gt;
@@ -118,7 +124,9 @@ dotnet sln add Whatever.Test\Whatever.Test.csproj
 </code></pre>
 <p>Note: <em>You don't need to, nor should you, add any nunit.console or any other runner package</em></p>
 <h3 id="working-with-the-visual-studio-nuget-manager">Working with the Visual Studio Nuget manager</h3>
-<p>If you have a legacy project type, or prefer working outside of the command line, you can also use the Visual Studio 'Manage NuGet packages in the solution' menu option. It can also be used for the new SDK projects, but you may find it faster to open the <code>csproj</code> and copy/paste the references in.</p>
+<p>If you have a legacy project type, or prefer working outside of the command line, you can also use the Visual Studio
+'Manage NuGet packages in the solution' menu option. It can also be used for the new SDK projects, but you may find it
+faster to open the <code>csproj</code> and copy/paste the references in.</p>
 <p>With an active solution in Visual Studio, follow these steps:</p>
 <ol>
 <li>From the <code>Tools</code> menu, use Library Package Manager and select <code>Manage NuGet packages for solution</code></li>

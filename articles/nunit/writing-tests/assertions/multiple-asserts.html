@@ -85,7 +85,9 @@
             <article class="content wrap" id="_content" data-uid="multipleasserts">
 <h1 id="multiple-asserts">Multiple Asserts</h1>
 
-<p>Usually, once an assertion fails, we want the test to terminate. But sometimes, it's desirable to continue and accumulate any additional failures so they may all be fixed at once. This is particularly useful for testing things like object initialization and UI appearance as well as certain kinds of integration testing.</p>
+<p>Usually, once an assertion fails, we want the test to terminate. But sometimes, it's desirable to continue and
+accumulate any additional failures so they may all be fixed at once. This is particularly useful for testing things like
+object initialization and UI appearance as well as certain kinds of integration testing.</p>
 <h2 id="syntax--example">Syntax / Example</h2>
 <p>Multiple asserts are implemented using the <code>Assert.Multiple</code> method.</p>
 <p>Let's assume we have production code that looks like the following:</p>
@@ -129,7 +131,9 @@ public void MultipleAssertsDemo()
     });
 }
 </code></pre>
-<p>Functionally, this results in NUnit storing any failures encountered in the block and reporting all of them together upon exit from the block. If both asserts failed, then both would be reported. The test itself would terminate at the end of the block if any failures were encountered, but would continue otherwise.</p>
+<p>Functionally, this results in NUnit storing any failures encountered in the block and reporting all of them together
+upon exit from the block. If both asserts failed, then both would be reported. The test itself would terminate at the
+end of the block if any failures were encountered, but would continue otherwise.</p>
 <h2 id="notes">Notes</h2>
 <ol>
 <li><p>The multiple assert block may contain any arbitrary code, not just asserts.</p>
@@ -138,9 +142,13 @@ public void MultipleAssertsDemo()
 </li>
 <li><p>If the code in the block calls a method, that method may also contain multiple assert blocks.</p>
 </li>
-<li><p>The test will be terminated immediately if any exception is thrown that is not handled. An unexpected exception is often an indication that the test itself is in error, so it must be terminated. If the exception occurs after one or more assertion failures have been recorded, those failures will be reported along with the terminating exception itself.</p>
+<li><p>The test will be terminated immediately if any exception is thrown that is not handled. An unexpected exception is
+often an indication that the test itself is in error, so it must be terminated. If the exception occurs after one or
+more assertion failures have been recorded, those failures will be reported along with the terminating exception
+itself.</p>
 </li>
-<li><p>Assert.Fail is handled just as any other assert failure. The message and stack trace are recorded but the test continues to execute until the end of the block.</p>
+<li><p>Assert.Fail is handled just as any other assert failure. The message and stack trace are recorded but the test
+continues to execute until the end of the block.</p>
 </li>
 <li><p>An error is reported if any of the following are used inside a multiple assert block:</p>
 <ul>
@@ -150,17 +158,21 @@ public void MultipleAssertsDemo()
 <li>Assume.That</li>
 </ul>
 </li>
-<li><p>Use of Warnings (Assert.Warn, Warn.If, Warn.Unless) is permitted inside a multiple assert block. Warnings are reported normally along with any failures that occur inside the block.</p>
+<li><p>Use of Warnings (Assert.Warn, Warn.If, Warn.Unless) is permitted inside a multiple assert block. Warnings are
+reported normally along with any failures that occur inside the block.</p>
 </li>
 </ol>
 <h3 id="runner-support">Runner Support</h3>
-<p>Multiple assertion failures per test are stored in the representation of the test result using new XML elements, which are not recognized by older runners. The following runners are known to support display of the new elements:</p>
+<p>Multiple assertion failures per test are stored in the representation of the test result using new XML elements, which
+are not recognized by older runners. The following runners are known to support display of the new elements:</p>
 <ul>
 <li>NUnit 3 Visual Studio Adapter 3.7++ (Used by Visual Studio and <code>dotnet test</code>)</li>
 <li>NUnit Console Runner 3.6++</li>
 </ul>
 <h4 id="compatibility">Compatibility</h4>
-<p>Older runners generally display a single failure message and stack trace for each test. For compatibility purposes, the framework creates a single message that lists all the failures. The stack trace in such a case will indicate the end of the assert multiple block.</p>
+<p>Older runners generally display a single failure message and stack trace for each test. For compatibility purposes, the
+framework creates a single message that lists all the failures. The stack trace in such a case will indicate the end of
+the assert multiple block.</p>
 </article>
           </div>
 

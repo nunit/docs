@@ -89,7 +89,8 @@
 <h5>Warning</h5>
 <p>This is a draft. The contents may be out of date.</p>
 </div>
-<p>This spec describes a proposed new attribute to be used to specify dependencies between tests within a test fixture, and between different test fixtures.</p>
+<p>This spec describes a proposed new attribute to be used to specify dependencies between tests within a test fixture, and
+between different test fixtures.</p>
 <p>Attribute</p>
 <p>We would define a new attributes, Dependencies:</p>
 <p><code>[Dependencies (&lt;dependency-specification&gt; [, &lt;dependency-specification&gt; [, ...]])]</code></p>
@@ -105,7 +106,8 @@ AfterAll
 AfterAllSuccess
 </code></pre>
 <p>This attribute would apply to Test's within a single TestFixture, or to TextFixture's within a single test assembly.</p>
-<p>Each dependency-specification is described in more detail below (in all cases, <code>&lt;test-list&gt;</code> should be replaced with a <code>&lt;testfixture-list&gt;</code> if the attribute is being applied to a TestFixture):</p>
+<p>Each dependency-specification is described in more detail below (in all cases, <code>&lt;test-list&gt;</code> should be replaced with a
+<code>&lt;testfixture-list&gt;</code> if the attribute is being applied to a TestFixture):</p>
 <pre><code class="lang-none">&lt;test-list&gt; is a string containing a comma separated list of Test's to
     include in the dependency.
 &lt;testfixture-list&gt; is a string containing a comma separated list of
@@ -156,13 +158,21 @@ AfterAllSuccess
     TestFixture will not be run. This dependency can be overridden by a specific
     Afterxxx dependency referencing this Test or TestFixture.
 </code></pre>
-<p>Note that a single Test or TestFixture may have multiple <code>&lt;dependency-specification&gt;</code> elements as long as they do not conflict with each other.</p>
-<p>Any loops or contradictory references in the dependencies will be discovered, and will result in the specified dependencies being ignored, and a warning being given.  For example, if TestA has Before=&quot;TestB&quot; and TestB has Before=&quot;TestA&quot;, both will be ignored, and a warning given. (An alternative would be to use whichever was specified first  or last).</p>
-<p>If multiple tests or test fixtures are in the same relative position in the dependency tree, the order in which they will be run will be the default order.  For example, if multiple tests have a BeforeAll dependency, they will run in the default order, but before all other tests not having that dependency specified.</p>
+<p>Note that a single Test or TestFixture may have multiple <code>&lt;dependency-specification&gt;</code> elements as long as they do not
+conflict with each other.</p>
+<p>Any loops or contradictory references in the dependencies will be discovered, and will result in the specified
+dependencies being ignored, and a warning being given.  For example, if TestA has Before=&quot;TestB&quot; and TestB has
+Before=&quot;TestA&quot;, both will be ignored, and a warning given. (An alternative would be to use whichever was specified first
+or last).</p>
+<p>If multiple tests or test fixtures are in the same relative position in the dependency tree, the order in which they
+will be run will be the default order.  For example, if multiple tests have a BeforeAll dependency, they will run in the
+default order, but before all other tests not having that dependency specified.</p>
 <p>Items to consider:</p>
 <ul>
-<li>Is the name in a <code>&lt;test-list&gt;</code> the name in the code, or the generated name for the test?  I would prefer to use the static name that is in the code, but there may be a case for using the generated name.</li>
-<li>Should there be a simple dependency language to be used to specify the dependency rather then the static properties? e.g. <code>before(&quot;TestA&quot;) &amp;&amp; afterFails (&quot;TestB&quot;) || afterSuccess (&quot;TestC&quot;)</code></li>
+<li>Is the name in a <code>&lt;test-list&gt;</code> the name in the code, or the generated name for the test?  I would prefer to use the
+static name that is in the code, but there may be a case for using the generated name.</li>
+<li>Should there be a simple dependency language to be used to specify the dependency rather then the static properties?
+e.g. <code>before(&quot;TestA&quot;) &amp;&amp; afterFails (&quot;TestB&quot;) || afterSuccess (&quot;TestC&quot;)</code></li>
 </ul>
 </article>
           </div>

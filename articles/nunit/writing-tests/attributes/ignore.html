@@ -85,11 +85,12 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="ignore">Ignore</h1>
 
-<p><strong>IgnoreAttribute</strong> is used to indicate that a test should not be executed for
-some reason. Note that with NUnit 3, the reason must be specified. Ignored
-tests are displayed by the runners as warnings in order to provide a reminder
-that the test needs to be corrected or otherwise changed and re-instated.</p>
-<p>Note that the <strong>IgnoreAttribute</strong> is attached to a method. If you have multiple test cases using the same method, adding  it will ignore all the cases. To ignore individual test cases see <a href="#ignoring-individual-test-cases">Ignoring Individual Test Cases</a> below.</p>
+<p><strong>IgnoreAttribute</strong> is used to indicate that a test should not be executed for some reason. Note that with NUnit 3, the
+reason must be specified. Ignored tests are displayed by the runners as warnings in order to provide a reminder that the
+test needs to be corrected or otherwise changed and re-instated.</p>
+<p>Note that the <strong>IgnoreAttribute</strong> is attached to a method. If you have multiple test cases using the same method, adding
+it will ignore all the cases. To ignore individual test cases see <a href="#ignoring-individual-test-cases">Ignoring Individual Test
+Cases</a> below.</p>
 <h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
@@ -121,9 +122,8 @@ that the test needs to be corrected or otherwise changed and re-instated.</p>
 }
 </code></pre>
 <h2 id="ignore-until">Ignore Until</h2>
-<p>The <code>Until</code> named parameter allows you to ignore a test for a specific period of time,
-after which the test will run normally. The until date must be a string
-that can be parsed to a date.</p>
+<p>The <code>Until</code> named parameter allows you to ignore a test for a specific period of time, after which the test will run
+normally. The until date must be a string that can be parsed to a date.</p>
 <pre><code class="lang-csharp">[TestFixture]
 [Ignore(&quot;Waiting for Joe to fix his bugs&quot;, Until = &quot;2014-07-31 12:00:00Z&quot;)]
 public class MyTests
@@ -132,11 +132,11 @@ public class MyTests
  public void Test1() { /* ... */ }
 }
 </code></pre>
-<p>In the above example, it's assumed that the test would fail if run. With the
-IgnoreAttribute, it will give a warning until the specified date. After that
-time, it will run normally and either pass or fail.</p>
+<p>In the above example, it's assumed that the test would fail if run. With the IgnoreAttribute, it will give a warning
+until the specified date. After that time, it will run normally and either pass or fail.</p>
 <h2 id="ignoring-individual-test-cases">Ignoring Individual Test Cases</h2>
-<p>The <strong>IgnoreAttribute</strong> causes all the test cases using the method on which it is placed to be ignored. Ignoring individual test cases is possible, depending on how they are specified.</p>
+<p>The <strong>IgnoreAttribute</strong> causes all the test cases using the method on which it is placed to be ignored. Ignoring
+individual test cases is possible, depending on how they are specified.</p>
 <table>
 <thead>
 <tr>

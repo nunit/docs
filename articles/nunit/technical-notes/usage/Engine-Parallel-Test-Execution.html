@@ -85,22 +85,34 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="engine-parallel-test-execution">Engine Parallel Test Execution</h1>
 
-<p>The NUnit test engine is able to offer a certain degree of parallelization by running the tests in each test assembly in a different <code>Process</code>. This is a separate facility from <a href="Framework-Parallel-Test-Execution.html">Framework Parallel Test Execution</a> although the two may be used concurrently.</p>
-<p>If tests are already split across multiple assemblies, this is the simplest way to improve performance through parallel execution. By running in separate processes, the tests in each assembly are independent of one another so long as they do not use any common external resources such as files or databases. <strong>Parallel execution is the default behavior</strong> when running multiple assemblies together using the <code>nunit3-console</code> runner.</p>
-<p>Normally, <strong>all</strong> the test processes run simultaneously. If you need to reduce the number of processes allowed to run at one time, you may specify a value for the <code>--agents</code> option on the <code>nunit3-console</code> command-line. For example, if you are running tests in 10 different processes, a setting of <code>--agents=3</code> will allow no more than three of them to execute simultaneously.</p>
+<p>The NUnit test engine is able to offer a certain degree of parallelization by running the tests in each test assembly in
+a different <code>Process</code>. This is a separate facility from <a href="Framework-Parallel-Test-Execution.html">Framework Parallel Test
+Execution</a> although the two may be used concurrently.</p>
+<p>If tests are already split across multiple assemblies, this is the simplest way to improve performance through parallel
+execution. By running in separate processes, the tests in each assembly are independent of one another so long as they
+do not use any common external resources such as files or databases. <strong>Parallel execution is the default behavior</strong> when
+running multiple assemblies together using the <code>nunit3-console</code> runner.</p>
+<p>Normally, <strong>all</strong> the test processes run simultaneously. If you need to reduce the number of processes allowed to run at
+one time, you may specify a value for the <code>--agents</code> option on the <code>nunit3-console</code> command-line. For example, if you
+are running tests in 10 different processes, a setting of <code>--agents=3</code> will allow no more than three of them to execute
+simultaneously.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>This facility does not depend on the test framework used in any way. Test assemblies that use older versions of NUnit may be run in parallel processes just as easily as those using NUnit 3. If extensions are created to support additional frameworks, the NUnit engine will run those assemblies in parallel as well.</p>
+<p>This facility does not depend on the test framework used in any way. Test assemblies that use older versions
+of NUnit may be run in parallel processes just as easily as those using NUnit 3. If extensions are created to support
+additional frameworks, the NUnit engine will run those assemblies in parallel as well.</p>
 </div>
 <h2 id="process-model">Process Model</h2>
-<p>NUnit 3 uses the <code>ProcessModel</code> enumeration to specify how assemblies are split across processes. The <code>ProcessModel</code> for a run may specified either on the console command-line or in the NUnit project file.</p>
+<p>NUnit 3 uses the <code>ProcessModel</code> enumeration to specify how assemblies are split across processes. The <code>ProcessModel</code> for
+a run may specified either on the console command-line or in the NUnit project file.</p>
 <p>As in NUnit V2, three values are defined:</p>
 <ul>
 <li><code>ProcessModel.Single</code> causes all tests to be run within the NUnit process itself.</li>
 <li><code>ProcessModel.Separate</code> loads and runs all the tests in a single separate process.</li>
 <li><code>ProcessModel.Multiple</code> loads and runs each test assembly in a separate process.</li>
 </ul>
-<p>In NUnit 3, if <code>ProcessModel.Multiple</code> is used, the processes are executed in parallel. This is also the default if the <code>ProcessModel</code> is not specified.</p>
+<p>In NUnit 3, if <code>ProcessModel.Multiple</code> is used, the processes are executed in parallel. This is also the default if the
+<code>ProcessModel</code> is not specified.</p>
 </article>
           </div>
 

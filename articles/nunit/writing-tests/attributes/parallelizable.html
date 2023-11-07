@@ -86,17 +86,26 @@
 <h1 id="parallelizable">Parallelizable</h1>
 
 <p>Added in <strong>NUnit 3.7</strong></p>
-<p>The <code>ParallelizableAttribute</code> is used to indicate that a test and/or its descendants may be run in parallel with other tests. By default, no parallel execution takes place.</p>
-<p>When used without an argument, <code>Parallelizable</code> causes the test fixture or method on which it is placed to be queued for execution in parallel with other parallelizable tests. It may be used at the assembly, class or method level.</p>
+<p>The <code>ParallelizableAttribute</code> is used to indicate that a test and/or its descendants may be run in parallel with other
+tests. By default, no parallel execution takes place.</p>
+<p>When used without an argument, <code>Parallelizable</code> causes the test fixture or method on which it is placed to be queued for
+execution in parallel with other parallelizable tests. It may be used at the assembly, class or method level.</p>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>When tests are run in parallel, you are responsible for the thread safety of your tests. Tests that run at the same time and modify instance fields or properties without locks will cause unexpected behavior as they would in any multi-threaded program. If you are using fields or properties between parallel tests consider using the <a class="xref" href="fixturelifecycle.html"><code>FixtureLifeCycleAttribute</code></a> to construct a new instance of a test fixture (class) for each test that is run.</p>
+<p>When tests are run in parallel, you are responsible for the thread safety of your tests. Tests that run at
+the same time and modify instance fields or properties without locks will cause unexpected behavior as they would in
+any multi-threaded program. If you are using fields or properties between parallel tests consider using the
+<a class="xref" href="fixturelifecycle.html"><code>FixtureLifeCycleAttribute</code></a> to construct a new instance of a test fixture (class)
+for each test that is run.</p>
 </div>
-<p>The constructor takes an optional <code>ParallelScope</code> enumeration argument (see below), which indicates whether the attribute applies to the item itself, to its descendants or both. It defaults to <code>ParallelScope.Self</code>. The Scope may also be specified using the constructor argument <code>scope:</code>, for example;</p>
+<p>The constructor takes an optional <code>ParallelScope</code> enumeration argument (see below), which indicates whether the
+attribute applies to the item itself, to its descendants or both. It defaults to <code>ParallelScope.Self</code>. The Scope may
+also be specified using the constructor argument <code>scope:</code>, for example;</p>
 <pre><code class="lang-csharp">[Parallelizable(scope: ParallelScope.All)]
 </code></pre>
 <h2 id="parallelscope-enumeration">ParallelScope Enumeration</h2>
-<p>This is a <strong>[Flags]</strong> enumeration used to specify which tests may run in parallel. It applies to the test upon which it appears and any subordinate tests. The following values are available to users:</p>
+<p>This is a <strong>[Flags]</strong> enumeration used to specify which tests may run in parallel. It applies to the test upon which it
+appears and any subordinate tests. The following values are available to users:</p>
 <table>
 <thead>
 <tr>
@@ -130,11 +139,14 @@
 </table>
 <h2 id="notes">Notes</h2>
 <ul>
-<li><p>Some values are invalid on certain elements, although they will compile. NUnit will report any tests so marked as invalid and will produce an error message.</p>
+<li><p>Some values are invalid on certain elements, although they will compile. NUnit will report any tests so marked as
+invalid and will produce an error message.</p>
 </li>
-<li><p>The <code>ParallelScope</code> enum has additional values, which are used internally but are not visible to users through Intellisense.</p>
+<li><p>The <code>ParallelScope</code> enum has additional values, which are used internally but are not visible to users through
+Intellisense.</p>
 </li>
-<li><p>The <code>ParallelizableAttribute</code> may be specified on multiple levels of the tests. Settings at a higher level may affect lower level tests, unless those lower-level tests override the inherited settings.</p>
+<li><p>The <code>ParallelizableAttribute</code> may be specified on multiple levels of the tests. Settings at a higher level may affect
+lower level tests, unless those lower-level tests override the inherited settings.</p>
 </li>
 </ul>
 <h2 id="see-also">See Also</h2>

@@ -139,7 +139,8 @@
 }
 </code></pre>
 <h3 id="explanation">Explanation</h3>
-<p>In the sample above, <code>DivideCases</code> is a field, and as such does not accept any arguments, so the <code>TestCaseSource</code> should not supply any parameters.</p>
+<p>In the sample above, <code>DivideCases</code> is a field, and as such does not accept any arguments, so the <code>TestCaseSource</code> should
+not supply any parameters.</p>
 <h3 id="fix">Fix</h3>
 <p>Either remove the parameter from <code>TestCaseSource</code> or change the field into a method.:</p>
 <pre><code class="lang-csharp">public class MyTestClass
@@ -164,7 +165,8 @@
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit1020: The TestCaseSource provides parameters to a source - field or property - that expects no parameters
 dotnet_diagnostic.NUnit1020.severity = chosenSeverity

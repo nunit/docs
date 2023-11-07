@@ -85,13 +85,12 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="testfixturesource">TestFixtureSource</h1>
 
-<p><code>TestFixtureSourceAttribute</code> is used on a parameterized fixture to
-identify the source from which the required constructor arguments will be provided.
-The data is kept separate from the fixture itself and may be used by multiple
-fixtures. See <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a> for a general introduction to
-tests with arguments.</p>
+<p><code>TestFixtureSourceAttribute</code> is used on a parameterized fixture to identify the source from which the required
+constructor arguments will be provided. The data is kept separate from the fixture itself and may be used by multiple
+fixtures. See <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a> for a general introduction to tests with arguments.</p>
 <h2 id="usage">Usage</h2>
-<p>Consider a test fixture class taking two parameters in its constructor, a string and an int. We can specify the test and its data using one of the forms of <strong>TestFixtureSourceAttribute</strong>:</p>
+<p>Consider a test fixture class taking two parameters in its constructor, a string and an int. We can specify the test and
+its data using one of the forms of <strong>TestFixtureSourceAttribute</strong>:</p>
 <h3 id="form-1---testfixturesourcestring-sourcename">Form 1 - [TestFixtureSource(string sourceName)]</h3>
 <pre><code class="lang-csharp">[TestFixtureSource(nameof(FixtureArgs))]
 public class MyTestClass
@@ -106,13 +105,15 @@ public class MyTestClass
     };
 }
 </code></pre>
-<p>The single attribute argument in this form is a string representing the name of the source used
-to provide arguments for constructing the <code>TestFixture</code>. It has the following characteristics:</p>
+<p>The single attribute argument in this form is a string representing the name of the source used to provide arguments for
+constructing the <code>TestFixture</code>. It has the following characteristics:</p>
 <ul>
 <li>It may be a field, property or method in the test class.</li>
 <li>It <strong>must</strong> be static.</li>
-<li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>. For fields an array is generally used. For properties and methods, you may return an array or implement your own iterator.</li>
-<li>The individual items returned by the enumerator must either be object arrays or derive from the <code>TestFixtureParameters</code> class. Arguments must be consistent with the fixture constructor.</li>
+<li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>. For fields an array is generally used. For
+properties and methods, you may return an array or implement your own iterator.</li>
+<li>The individual items returned by the enumerator must either be object arrays or derive from the
+<code>TestFixtureParameters</code> class. Arguments must be consistent with the fixture constructor.</li>
 </ul>
 <h3 id="form-2---testfixturesourcetype-sourcetype-string-sourcename">Form 2 - [TestFixtureSource(Type sourceType, string sourceName)]</h3>
 <pre><code class="lang-csharp">[TestFixtureSource(typeof(AnotherClass), nameof(AnotherClass.FixtureArgs)]
@@ -131,15 +132,17 @@ class AnotherClass
     };
 }
 </code></pre>
-<p>The first argument of the attribute in this form is a Type representing the class that will provide
-the test fixture data.</p>
-<p>The second argument is a string representing the name of the source used
-to provide test fixtures. It has the following characteristics:</p>
+<p>The first argument of the attribute in this form is a Type representing the class that will provide the test fixture
+data.</p>
+<p>The second argument is a string representing the name of the source used to provide test fixtures. It has the following
+characteristics:</p>
 <ul>
 <li>It may be a field, property or method in the test class.</li>
 <li>It <strong>must</strong> be static.</li>
-<li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>. For fields an array is generally used. For properties and methods, you may return an array or implement your own iterator.</li>
-<li>The individual items returned by the enumerator must either be object arrays or derive from the <code>TestFixtureParameters</code> class. Arguments must be consistent with the fixture constructor.</li>
+<li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>. For fields an array is generally used. For
+properties and methods, you may return an array or implement your own iterator.</li>
+<li>The individual items returned by the enumerator must either be object arrays or derive from the
+<code>TestFixtureParameters</code> class. Arguments must be consistent with the fixture constructor.</li>
 </ul>
 <h3 id="form-3---testfixturesourcetype-sourcetype">Form 3 - [TestFixtureSource(Type sourceType)]</h3>
 <pre><code class="lang-csharp">[TestFixtureSource(typeof(FixtureArgs))]
@@ -159,26 +162,31 @@ class FixtureArgs: IEnumerable
     }
 }
 </code></pre>
-<p>The Type argument in this form represents the class that provides test cases.
-It must have a default constructor and implement <code>IEnumerable</code>.</p>
-<p>The individual items returned by the enumerator must either be object arrays or derive from the <code>TestFixtureParameters</code> class. Arguments must be consistent with the fixture constructor.</p>
+<p>The Type argument in this form represents the class that provides test cases. It must have a default constructor and
+implement <code>IEnumerable</code>.</p>
+<p>The individual items returned by the enumerator must either be object arrays or derive from the <code>TestFixtureParameters</code>
+class. Arguments must be consistent with the fixture constructor.</p>
 <h2 id="named-parameters">Named Parameters</h2>
 <p><code>TestCaseSourceAttribute</code> supports one named parameter:</p>
 <ul>
 <li><strong>Category</strong> is used to assign one or more categories to every test case returned from this source.</li>
 </ul>
 <h2 id="test-case-construction">Test Case Construction</h2>
-<p>In constructing tests, NUnit uses each item returned by
-the enumerator as follows:</p>
+<p>In constructing tests, NUnit uses each item returned by the enumerator as follows:</p>
 <ul>
-<li>If it is an object deriving from <code>TestFixtureParameters</code>, its properties are used to provide the test case. NUnit provides the <a class="xref" href="../TestFixtureData.html">TestFixtureData</a> class for this purpose.</li>
-<li>If it is an <code>object[]</code>, its members are used to provide the arguments for the method. This is the approach taken in the examples above.</li>
+<li>If it is an object deriving from <code>TestFixtureParameters</code>, its properties are used to provide the test case. NUnit
+provides the <a class="xref" href="../TestFixtureData.html">TestFixtureData</a> class for this purpose.</li>
+<li>If it is an <code>object[]</code>, its members are used to provide the arguments for the method. This is the approach taken in
+the examples above.</li>
 </ul>
 <h2 id="notes">Notes</h2>
 <ol>
-<li>It is recommended that the SourceType not be the same as the test fixture class. It may be a nested class, however, and probably should be if the data is only used within that fixture.</li>
-<li>A generic <code>IEnumerable</code> and <code>IEnumerator</code> may be used but NUnit will actually deal with the underlying <code>IEnumerator</code> in the current release.</li>
-<li>The GetEnumerator method may use yield statements or simply return the enumerator for an array or other collection held by the class.</li>
+<li>It is recommended that the SourceType not be the same as the test fixture class. It may be a nested class, however,
+and probably should be if the data is only used within that fixture.</li>
+<li>A generic <code>IEnumerable</code> and <code>IEnumerator</code> may be used but NUnit will actually deal with the underlying <code>IEnumerator</code>
+in the current release.</li>
+<li>The GetEnumerator method may use yield statements or simply return the enumerator for an array or other collection
+held by the class.</li>
 </ol>
 </article>
           </div>

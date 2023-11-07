@@ -85,19 +85,17 @@
             <article class="content wrap" id="_content" data-uid="constraintmodel">
 <h1 id="constraint-model-assertthat">Constraint Model (Assert.That)</h1>
 
-<p>The constraint-based Assert model uses a single method of the Assert class
-for all assertions. The logic necessary to carry out each assertion is
-embedded in the constraint object passed as the second parameter to that
-method.</p>
+<p>The constraint-based Assert model uses a single method of the Assert class for all assertions. The logic necessary to
+carry out each assertion is embedded in the constraint object passed as the second parameter to that method.</p>
 <p>Here's a very simple assert using the constraint model:</p>
 <pre><code class="lang-csharp">Assert.That(myString, Is.EqualTo(&quot;Hello&quot;));
 </code></pre>
-<p>The second argument in this assertion uses one of NUnit's <strong>syntax helpers</strong>
-to create an <strong>EqualConstraint</strong>. The same assertion could also be made in this form:</p>
+<p>The second argument in this assertion uses one of NUnit's <strong>syntax helpers</strong> to create an <strong>EqualConstraint</strong>. The same
+assertion could also be made in this form:</p>
 <pre><code class="lang-csharp">Assert.That(myString, new EqualConstraint(&quot;Hello&quot;));
 </code></pre>
-<p>Using this model, all assertions are made using one of the forms of the
-<code>Assert.That()</code> method, which has a number of overloads...</p>
+<p>Using this model, all assertions are made using one of the forms of the <code>Assert.That()</code> method, which has a number of
+overloads...</p>
 <pre><code class="lang-csharp">Assert.That(bool condition);
 Assert.That(bool condition, string message, params object[] params);
 Assert.That(bool condition, Func&lt;string&gt; getExceptionMessage);
@@ -124,14 +122,13 @@ Assert.That(TestDelegate code, IResolveConstraint constraint, string message,
 Assert.That(TestDelegate code, IResolveConstraint constraint,
     Func&lt;string&gt; getExceptionMessage)
 </code></pre>
-<p>The overloads that take a bool work exactly like <code>ClassicAssert.IsTrue</code>, except that <code>ClassicAssert.IsTrue</code> does not accept a <code>Func&lt;string&gt;</code> for the exception message.</p>
-<p>For overloads taking a constraint, the argument must be an object implementing
-the <strong>IResolveConstraint</strong> interface, which supports performing a test
-on an actual value and generating appropriate messages. This interface
-is described in more detail under <a class="xref" href="../../../extending-nunit/Custom-Constraints.html">Custom Constraints</a>.</p>
-<p>NUnit provides a number of constraint classes similar to the <strong>EqualConstraint</strong>
-used in the example above. Generally, these classes may be used directly or
-through a syntax helper. The valid forms are described on the pages related to
+<p>The overloads that take a bool work exactly like <code>ClassicAssert.IsTrue</code>, except that <code>ClassicAssert.IsTrue</code> does not
+accept a <code>Func&lt;string&gt;</code> for the exception message.</p>
+<p>For overloads taking a constraint, the argument must be an object implementing the <strong>IResolveConstraint</strong> interface,
+which supports performing a test on an actual value and generating appropriate messages. This interface is described in
+more detail under <a class="xref" href="../../../extending-nunit/Custom-Constraints.html">Custom Constraints</a>.</p>
+<p>NUnit provides a number of constraint classes similar to the <strong>EqualConstraint</strong> used in the example above. Generally,
+these classes may be used directly or through a syntax helper. The valid forms are described on the pages related to
 each constraint.</p>
 <h2 id="see-also">See also</h2>
 <ul>

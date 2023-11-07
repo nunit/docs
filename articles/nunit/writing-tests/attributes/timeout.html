@@ -89,13 +89,18 @@
 <h5>Note</h5>
 <p>From version 3.12 this is also available in the .NET Standard 2.0 builds of the framework.</p>
 </div>
-<p>Normally, NUnit simply runs tests and waits for them to terminate -- the test is allowed to run indefinitely. For certain kinds of tests, however, it may be desirable to specify a timeout value.</p>
-<p>The <strong>TimeoutAttribute</strong> is used to specify a timeout value in milliseconds
-for a test case. If the test case runs longer than the time specified it
-is immediately cancelled and reported as a failure, with a message indicating that the timeout was exceeded.</p>
-<p>The specified timeout value covers the test setup and teardown as well as the test method itself. Before and after actions may also be included, depending on where they were specified. Since the timeout may occur during any of these execution phases, no guarantees can be made as to what will be run and any of these phases of execution may be incomplete. If only used on a test, once a test has timed out, its teardown methods are executed.</p>
-<p>The attribute may also be specified on a fixture or assembly, in which
-case it indicates the default timeout for any subordinate test cases. When using the console runner, it is also possible to specify a default timeout on the command-line.</p>
+<p>Normally, NUnit simply runs tests and waits for them to terminate -- the test is allowed to run indefinitely. For
+certain kinds of tests, however, it may be desirable to specify a timeout value.</p>
+<p>The <strong>TimeoutAttribute</strong> is used to specify a timeout value in milliseconds for a test case. If the test case runs
+longer than the time specified it is immediately cancelled and reported as a failure, with a message indicating that the
+timeout was exceeded.</p>
+<p>The specified timeout value covers the test setup and teardown as well as the test method itself. Before and after
+actions may also be included, depending on where they were specified. Since the timeout may occur during any of these
+execution phases, no guarantees can be made as to what will be run and any of these phases of execution may be
+incomplete. If only used on a test, once a test has timed out, its teardown methods are executed.</p>
+<p>The attribute may also be specified on a fixture or assembly, in which case it indicates the default timeout for any
+subordinate test cases. When using the console runner, it is also possible to specify a default timeout on the
+command-line.</p>
 <h2 id="example">Example</h2>
 <pre><code class="lang-csharp">[Test, Timeout(2000)]
 public void PotentiallyLongRunningTest()

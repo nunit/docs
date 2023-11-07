@@ -85,15 +85,14 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="category">Category</h1>
 
-<p>The Category attribute provides an alternative to suites for dealing with groups
-of tests. Either individual test cases or fixtures may be identified as
-belonging to a particular category. Some runners, including the Console Runner,
-allow specifying categories to be included in or excluded from the run.
-When categories are used, only the tests in the selected categories will be
-run. Those tests in categories that are not selected are not reported at all.</p>
+<p>The Category attribute provides an alternative to suites for dealing with groups of tests. Either individual test cases
+or fixtures may be identified as belonging to a particular category. Some runners, including the Console Runner, allow
+specifying categories to be included in or excluded from the run. When categories are used, only the tests in the
+selected categories will be run. Those tests in categories that are not selected are not reported at all.</p>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>While the C# syntax allows you to place a Category attribute on a SetUpFixture class, the attribute is ignored by NUnit and has no effect in current releases.</p>
+<p>While the C# syntax allows you to place a Category attribute on a SetUpFixture class, the attribute is
+ignored by NUnit and has no effect in current releases.</p>
 </div>
 <h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
@@ -125,12 +124,10 @@ run. Those tests in categories that are not selected are not reported at all.</p
 }
 </code></pre>
 <h3 id="custom-category-attributes">Custom Category Attributes</h3>
-<p>Custom attributes that derive from <strong>CategoryAttribute</strong> will be recognized
-by NUnit. The default protected constructor of CategoryAttribute
-sets the category name to the name of your class.</p>
-<p>Here's an example that creates a category of Critical tests. It works
-just like any other category, but has a simpler syntax. A test reporting
-system might make use of the attribute to provide special reports.</p>
+<p>Custom attributes that derive from <strong>CategoryAttribute</strong> will be recognized by NUnit. The default protected constructor
+of CategoryAttribute sets the category name to the name of your class.</p>
+<p>Here's an example that creates a category of Critical tests. It works just like any other category, but has a simpler
+syntax. A test reporting system might make use of the attribute to provide special reports.</p>
 <pre><code class="lang-csharp">[AttributeUsage(AttributeTargets.Method, AllowMultiple=false)]
 public class CriticalAttribute : CategoryAttribute
 { }

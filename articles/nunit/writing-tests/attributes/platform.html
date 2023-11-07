@@ -85,17 +85,14 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="platform">Platform</h1>
 
-<p>The Platform attribute is used to specify platforms for which a test or fixture
-should be run. Platforms are specified using case-insensitive string values
-and may be either included or excluded from the run by use of the Include or
-Exclude properties respectively. Platforms to be included may alternatively
-be specified as an argument to the PlatformAttribute constructor. In either
-case, multiple comma-separated values may be specified.</p>
-<p>If a test or fixture with the Platform attribute does not satisfy the specified
-platform requirements it is skipped. The test does not affect the outcome of
-the run at all: it is not considered as ignored and is not even counted in
-the total number of tests. <em>[Ed.: Check this.]</em> In the gui, the tree node for the test remains
-gray and the status bar color is not affected.</p>
+<p>The Platform attribute is used to specify platforms for which a test or fixture should be run. Platforms are specified
+using case-insensitive string values and may be either included or excluded from the run by use of the Include or
+Exclude properties respectively. Platforms to be included may alternatively be specified as an argument to the
+PlatformAttribute constructor. In either case, multiple comma-separated values may be specified.</p>
+<p>If a test or fixture with the Platform attribute does not satisfy the specified platform requirements it is skipped. The
+test does not affect the outcome of the run at all: it is not considered as ignored and is not even counted in the total
+number of tests. <em>[Ed.: Check this.]</em> In the gui, the tree node for the test remains gray and the status bar color is
+not affected.</p>
 <h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
@@ -126,8 +123,7 @@ gray and the status bar color is not affected.</p>
 }
 </code></pre>
 <h2 id="platform-specifiers">Platform Specifiers</h2>
-<p>The following values are recognized as platform specifiers.
-They may be expressed in upper, lower or mixed case.</p>
+<p>The following values are recognized as platform specifiers. They may be expressed in upper, lower or mixed case.</p>
 <h3 id="operating-system">Operating System</h3>
 <ul>
 <li>Win</li>
@@ -161,7 +157,9 @@ They may be expressed in upper, lower or mixed case.</p>
 <li>MacOsX</li>
 <li>XBox</li>
 </ul>
-<p>A list of supported platform identifiers can also be obtained from the constant string <code>PlatformHelper.OSPlatforms</code> of the NUnit assembly you use. Note that this is for informational purposes only, because the <code>PlatformHelper</code> is considered an internal type and shall not be used in production.</p>
+<p>A list of supported platform identifiers can also be obtained from the constant string <code>PlatformHelper.OSPlatforms</code> of
+the NUnit assembly you use. Note that this is for informational purposes only, because the <code>PlatformHelper</code> is
+considered an internal type and shall not be used in production.</p>
 <h3 id="architecture">Architecture</h3>
 <ul>
 <li>32-Bit</li>

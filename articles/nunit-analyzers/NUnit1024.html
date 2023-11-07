@@ -133,9 +133,10 @@
 }
 </code></pre>
 <h3 id="explanation">Explanation</h3>
-<p>In the sample above, the source specified by <code>ValueSource</code> - the field <code>testCases</code> - does not return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>,
-instead it returns an <code>int</code>.</p>
-<p>However, sources specified by <code>ValueSource</code> <a class="xref" href="../nunit/writing-tests/attributes/valuesource.html">must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>.</a>.</p>
+<p>In the sample above, the source specified by <code>ValueSource</code> - the field <code>testCases</code> - does not return an <code>IEnumerable</code> or
+a type that implements <code>IEnumerable</code>, instead it returns an <code>int</code>.</p>
+<p>However, sources specified by <code>ValueSource</code> <a class="xref" href="../nunit/writing-tests/attributes/valuesource.html">must return an <code>IEnumerable</code> or a type that implements
+<code>IEnumerable</code>.</a>.</p>
 <h3 id="fix">Fix</h3>
 <p>Change <code>testCases</code> to return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>:</p>
 <pre><code class="lang-csharp">public class AnalyzeWhenSourceDoesProvideIEnumerable
@@ -151,7 +152,8 @@ instead it returns an <code>int</code>.</p>
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit1024: The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable
 dotnet_diagnostic.NUnit1024.severity = chosenSeverity

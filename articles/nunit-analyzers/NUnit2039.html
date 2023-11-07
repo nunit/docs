@@ -117,10 +117,11 @@
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>Consider using the constraint model, <code>Assert.That(actual, Is.Not.InstanceOf(expected))</code>, instead of the classic model, <code>Assert.IsNotInstanceOf(expected, actual)</code>.</p>
+<p>Consider using the constraint model, <code>Assert.That(actual, Is.Not.InstanceOf(expected))</code>, instead of the classic model,
+<code>Assert.IsNotInstanceOf(expected, actual)</code>.</p>
 <h2 id="motivation">Motivation</h2>
-<p>The assert <code>Assert.IsNotInstanceOf</code> from the classic Assert model makes it easy to confuse the <code>expected</code> and the <code>actual</code> argument,
-so this analyzer marks usages of <code>Assert.IsNotInstanceOf</code>.</p>
+<p>The assert <code>Assert.IsNotInstanceOf</code> from the classic Assert model makes it easy to confuse the <code>expected</code> and the
+<code>actual</code> argument, so this analyzer marks usages of <code>Assert.IsNotInstanceOf</code>.</p>
 <pre><code class="lang-csharp">[Test]
 public void Test()
 {
@@ -139,7 +140,8 @@ public void Test()
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit2039: Consider using Assert.That(actual, Is.Not.InstanceOf(expected)) instead of Assert.IsNotInstanceOf(expected, actual)
 dotnet_diagnostic.NUnit2039.severity = chosenSeverity

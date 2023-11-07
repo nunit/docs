@@ -85,68 +85,54 @@
             <article class="content wrap" id="_content" data-uid="theoryattribute">
 <h1 id="theory">Theory</h1>
 
-<p>A Theory is a special type of test, used to verify a general
-statement about the system under development. Normal tests are
-<em>example-based</em>. That is, the developer supplies one or
-more examples of inputs and expected outputs either within the
-code of the test or - in the case of <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a> -
-as arguments to the test method. A theory, on the other hand,
-makes a general statement that all of its assertions will pass
-for all arguments satisfying certain assumptions.</p>
-<p>Theories are implemented in NUnit as non-generic
-methods within a <strong>TestFixture</strong>, which are annotated
-with the <strong>TheoryAttribute</strong>. Theory methods must always have arguments and therefore appears quite similar to <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a>
-at first glance. However, a Theory incorporates additional data sources for its arguments and allows special processing for assumptions
-about that data. The key difference, though, is that theories
+<p>A Theory is a special type of test, used to verify a general statement about the system under development. Normal tests
+are <em>example-based</em>. That is, the developer supplies one or more examples of inputs and expected outputs either within
+the code of the test or - in the case of <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a> - as arguments to the test
+method. A theory, on the other hand, makes a general statement that all of its assertions will pass for all arguments
+satisfying certain assumptions.</p>
+<p>Theories are implemented in NUnit as non-generic methods within a <strong>TestFixture</strong>, which are annotated with the
+<strong>TheoryAttribute</strong>. Theory methods must always have arguments and therefore appears quite similar to <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized
+Tests</a> at first glance. However, a Theory incorporates additional data sources for its
+arguments and allows special processing for assumptions about that data. The key difference, though, is that theories
 make general statements and are more than just a set of examples.</p>
 <h2 id="data-for-theories">Data for Theories</h2>
-<p>The primary source of data for a <strong>Theory</strong> is the
-<a href="datapoint.html">Datapoint Attribute</a> or <a href="datapointsource.html">DatapointSource Attribute</a>.
-NUnit will use any class members of the required types, which are annotated
-with one of these attributes, to provide data for each parameter
-of the Theory. NUnit assembles the values for individual arguments
+<p>The primary source of data for a <strong>Theory</strong> is the <a href="datapoint.html">Datapoint Attribute</a> or <a href="datapointsource.html">DatapointSource
+Attribute</a>. NUnit will use any class members of the required types, which are annotated with one of
+these attributes, to provide data for each parameter of the Theory. NUnit assembles the values for individual arguments
 combinatorially to provide test cases for the theory.</p>
-<p>In addition to the Datapoint and Datapoints attributes, it
-is possible to use any of the approaches for supplying data
-that are recognized on normal parameterized tests. We suggest
-that this capability not be overused, since it runs counter
-to the distinction between a test based on examples and a
-theory. However, it may be useful in order to guarantee that
-a specific test case is included.</p>
-<p>For <strong>boolean</strong> and <strong>enum</strong> arguments, NUnit can supply the
-data without any action by the user. All possible values are supplied
-to the argument. This feature is disabled if the user supplies any
-values for the argument.</p>
+<p>In addition to the Datapoint and Datapoints attributes, it is possible to use any of the approaches for supplying data
+that are recognized on normal parameterized tests. We suggest that this capability not be overused, since it runs
+counter to the distinction between a test based on examples and a theory. However, it may be useful in order to
+guarantee that a specific test case is included.</p>
+<p>For <strong>boolean</strong> and <strong>enum</strong> arguments, NUnit can supply the data without any action by the user. All possible values
+are supplied to the argument. This feature is disabled if the user supplies any values for the argument.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Because NUnit searches for datapoints based on the type of the argument, generic methods may not currently be used as theories. This limitation may be removed in a future release. See below for a workaround using a generic fixture.</p>
+<p>Because NUnit searches for datapoints based on the type of the argument, generic methods may not currently be
+used as theories. This limitation may be removed in a future release. See below for a workaround using a generic
+fixture.</p>
 </div>
 <h2 id="assumptions">Assumptions</h2>
-<p>The theory itself is responsible for ensuring that all data supplied
-meets its assumptions. It does this by use of the
-<strong>Assume.That(...)</strong> construct, which works just like
-<strong>Assert.That(...)</strong> but does not cause a failure. If
-the assumption is not satisfied for a particular test case, that case
-returns an Inconclusive result, rather than a Success or Failure.</p>
-<p>The overall result of executing a Theory over a set of test cases is
-determined as follows:</p>
+<p>The theory itself is responsible for ensuring that all data supplied meets its assumptions. It does this by use of the
+<strong>Assume.That(...)</strong> construct, which works just like <strong>Assert.That(...)</strong> but does not cause a failure. If the
+assumption is not satisfied for a particular test case, that case returns an Inconclusive result, rather than a Success
+or Failure.</p>
+<p>The overall result of executing a Theory over a set of test cases is determined as follows:</p>
 <ul>
 <li>If the assumptions are violated for <strong>all</strong> test cases, then the Theory itself is marked as a failure.</li>
 <li>If any Assertion fails, the Theory itself fails.</li>
-<li>If at least <strong>some</strong> cases pass the stated assumptions, and there are <strong>no</strong> assertion failures or exceptions, then the Theory passes.</li>
+<li>If at least <strong>some</strong> cases pass the stated assumptions, and there are <strong>no</strong> assertion failures or exceptions, then
+the Theory passes.</li>
 </ul>
-<p>Since the user does not generally care about inconclusive cases under
-a theory, they are not normally displayed in the Gui. For situations
-where they are needed - such as debugging - the context menu for the
-theory provides an option to display them.</p>
+<p>Since the user does not generally care about inconclusive cases under a theory, they are not normally displayed in the
+Gui. For situations where they are needed - such as debugging - the context menu for the theory provides an option to
+display them.</p>
 <h2 id="example">Example</h2>
-<p>In the following example, the Theory SquareRootDefinition
-verifies that the implementation of square root satisfies
-the following definition:</p>
+<p>In the following example, the Theory SquareRootDefinition verifies that the implementation of square root satisfies the
+following definition:</p>
 <blockquote>
-<p>Given a non-negative number, the square root of that number
-is always non-negative and, when multiplied by itself, gives
-the original number.</p>
+<p>Given a non-negative number, the square root of that number is always non-negative and, when multiplied by itself,
+gives the original number.</p>
 </blockquote>
 <pre><code class="lang-csharp">public class SqrtTests
 {
@@ -166,10 +152,9 @@ the original number.</p>
 }
 </code></pre>
 <h2 id="theories-in-generic-fixtures">Theories in Generic Fixtures</h2>
-<p>In a generic fixture with Type parameter <code>T</code> individual methods using <code>T</code> as
-a parameter type or not generic, since <code>T</code> has been resolved to an actual
-Type in instantiating the fixture instance. You may use such methods as
-theories and any data of the appropriate type will be used.</p>
+<p>In a generic fixture with Type parameter <code>T</code> individual methods using <code>T</code> as a parameter type or not generic, since <code>T</code>
+has been resolved to an actual Type in instantiating the fixture instance. You may use such methods as theories and any
+data of the appropriate type will be used.</p>
 <pre><code class="lang-csharp">[TestFixture(typeof(int))]
 [TestFixture(typeof(double))]
 public class TheorySampleTestsGeneric&lt;T&gt;

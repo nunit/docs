@@ -129,9 +129,11 @@ public void SampleTest(int numberValue)
 }
 </code></pre>
 <h3 id="problem">Problem</h3>
-<p>In the test case above, the declares that it expects one integer parameter, but no argument is supplied by the attributes. This will lead to a runtime failure.</p>
+<p>In the test case above, the declares that it expects one integer parameter, but no argument is supplied by the
+attributes. This will lead to a runtime failure.</p>
 <h3 id="fix">Fix</h3>
-<p>Ensure that the correct number of arguments - and of the correct type - is supplied to test methods that expect parameters.</p>
+<p>Ensure that the correct number of arguments - and of the correct type - is supplied to test methods that expect
+parameters.</p>
 <p>One possible fix to this problem would be to supply the argument using a <code>TestCase</code>:</p>
 <pre><code class="lang-csharp">[TestCase(1)]
 public void SampleTest(int numberValue)
@@ -149,7 +151,8 @@ public void SampleTest([Range(1, 10)] int numberValue)
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit1027: The test method has parameters, but no arguments are supplied by attributes
 dotnet_diagnostic.NUnit1027.severity = chosenSeverity

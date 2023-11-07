@@ -96,8 +96,10 @@
 <pre><code class="lang-csharp">Assert.That(3, Is.LessThan(5).Or.GreaterThan(10));
 </code></pre>
 <h2 id="evaluation-order-and-precedence">Evaluation Order and Precedence</h2>
-<p>Note that the constraint evaluates the sub-constraints left to right, meaning that <code>Assert.That(i, Is.Null.Or.GreaterThan(9));</code> where <code>i</code> is a nullable <code>int</code> will work for both <code>12</code> and <code>null</code>. On the other hand,
-<code>Assert.That(i, Is.GreaterThan(9).Or.Null);</code> will only work for <code>12</code>, but throw an exception for <code>null</code>, as <code>null</code> cannot be compared to <code>9</code>.</p>
+<p>Note that the constraint evaluates the sub-constraints left to right, meaning that
+<code>Assert.That(i,Is.Null.Or.GreaterThan(9));</code> where <code>i</code> is a nullable <code>int</code> will work for both <code>12</code> and <code>null</code>. On the
+other hand, <code>Assert.That(i, Is.GreaterThan(9).Or.Null);</code> will only work for <code>12</code>, but throw an exception for <code>null</code>, as
+<code>null</code> cannot be compared to <code>9</code>.</p>
 <p>The <strong>OrConstraint</strong> has precedence over the <strong>AndConstraint</strong>.</p>
 <h2 id="see-also">See also</h2>
 <ul>

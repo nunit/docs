@@ -85,7 +85,9 @@
             <article class="content wrap" id="_content" data-uid="resultwriters">
 <h1 id="result-writers">Result Writers</h1>
 
-<p><strong>Result Writers</strong> take the result of a test run, in NUnit 3 XML format, and use it to create a result file in some other format. The NUnit Organization itself provides a two result writers, one to create output in NUnit V2 format and another to write test cases to the console. The definition of a result writer extension might look something like this:</p>
+<p><strong>Result Writers</strong> take the result of a test run, in NUnit 3 XML format, and use it to create a result file in some
+other format. The NUnit Organization itself provides a two result writers, one to create output in NUnit V2 format and
+another to write test cases to the console. The definition of a result writer extension might look something like this:</p>
 <pre><code class="lang-csharp">[Extension]
 [ExtensionProperty(&quot;Format&quot;, &quot;custom&quot;)]
 public class CustomResultWriterFactory : IResultWriter
@@ -93,7 +95,8 @@ public class CustomResultWriterFactory : IResultWriter
     /* ... */
 }
 </code></pre>
-<p>An <code>ExtensionPropertyAttribute</code> must be provided giving the name of the format you support. Users would access the format from the NUnit Console command-line by using that name in a result specification, such as:</p>
+<p>An <code>ExtensionPropertyAttribute</code> must be provided giving the name of the format you support. Users would access the
+format from the NUnit Console command-line by using that name in a result specification, such as:</p>
 <pre><code class="lang-cmd">   nunit-console test.dll --result=CustomResult.xml;format=custom
 </code></pre>
 <p>The <code>IResultWriter</code> interface which must be implemented, is defined as follows:</p>
@@ -126,7 +129,9 @@ public interface IResultWriter
     void WriteResultFile(XmlNode resultNode, TextWriter writer);
 }
 </code></pre>
-<p>The engine calls the <code>CheckWritability</code> method at the start of the run, before executing any tests. The <code>WriteResultFile</code> method is called after the run is complete. The writer may check writability in any way desired, including writing an abbreviated output file, which it will later overwrite.</p>
+<p>The engine calls the <code>CheckWritability</code> method at the start of the run, before executing any tests. The
+<code>WriteResultFile</code> method is called after the run is complete. The writer may check writability in any way desired,
+including writing an abbreviated output file, which it will later overwrite.</p>
 </article>
           </div>
 

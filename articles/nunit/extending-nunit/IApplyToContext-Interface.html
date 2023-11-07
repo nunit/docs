@@ -85,15 +85,24 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="iapplytocontext-interface">IApplyToContext Interface</h1>
 
-<p>NUnit tests run within a context, known as the <code>TestExecutionContext</code>. The context for a test case is nested within the context for its containing suite and so on, up to the assembly level. Attributes that implement <code>IApplyToContext</code> are called immediately after the context is created and before the test is run in order to make changes to the context. Once the test execution has completed, the context is discarded so that - effectively - any changes are reverted to their original values.</p>
+<p>NUnit tests run within a context, known as the <code>TestExecutionContext</code>. The context for a test case is nested within the
+context for its containing suite and so on, up to the assembly level. Attributes that implement <code>IApplyToContext</code> are
+called immediately after the context is created and before the test is run in order to make changes to the context. Once
+the test execution has completed, the context is discarded so that - effectively - any changes are reverted to their
+original values.</p>
 <p>The <code>IApplyToContext</code> interface is defined as follows:</p>
 <pre><code class="lang-csharp">public interface IApplyToContext
 {
     void ApplyToContext(TestExecutionContext context);
 }
 </code></pre>
-<p>An example of the use of the context may be helpful. One item in the <code>TestExecutionContext</code> is the default timeout value for test cases. When any test is marked with <code>[Timeout(nnn)]</code> the context value is replaced by the supplied argument. The new timeout applies for any test case it appears on and any test case that is contained in a suite that it appears on. When the test or suite completes, the new value is discarded and the value contained in the original context is once against used.</p>
-<p>Custom attributes that implement <code>IApplyToContext</code> should modify the TestExecutionContext in accordance with the arguments supplied to them. They are not called after the test is run and have no cleanup to perform.</p>
+<p>An example of the use of the context may be helpful. One item in the <code>TestExecutionContext</code> is the default timeout value
+for test cases. When any test is marked with <code>[Timeout(nnn)]</code> the context value is replaced by the supplied argument.
+The new timeout applies for any test case it appears on and any test case that is contained in a suite that it appears
+on. When the test or suite completes, the new value is discarded and the value contained in the original context is once
+against used.</p>
+<p>Custom attributes that implement <code>IApplyToContext</code> should modify the TestExecutionContext in accordance with the
+arguments supplied to them. They are not called after the test is run and have no cleanup to perform.</p>
 <p>The NUnit attributes that implement <code>IApplyToContext</code> are as follows:</p>
 <ul>
 <li><code>DefaultFloatingPointToleranceAttribute</code></li>

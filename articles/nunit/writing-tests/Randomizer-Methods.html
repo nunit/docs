@@ -85,11 +85,15 @@
             <article class="content wrap" id="_content" data-uid="randomizermethods">
 <h1 id="randomizer-methods">Randomizer Methods</h1>
 
-<p>The <strong>Randomizer</strong> object exposed by <code>TestContext.CurrentContext.Random</code> extends <code>System.Random</code> to provide random data for a wide range of numeric types as well as enums and strings. Each test context has access to its own <strong>Randomizer</strong> which is used to generate random values for the <code>RandomAttribute</code> as well as for use by the user calling its methods.</p>
+<p>The <strong>Randomizer</strong> object exposed by <code>TestContext.CurrentContext.Random</code> extends <code>System.Random</code> to provide random data
+for a wide range of numeric types as well as enums and strings. Each test context has access to its own <strong>Randomizer</strong>
+which is used to generate random values for the <code>RandomAttribute</code> as well as for use by the user calling its methods.</p>
 <p>The benefit of using <strong>Randomizer</strong> rather than <code>System.Random</code> directly is twofold:</p>
 <ol>
 <li>A wide range of types are provided in a uniform manner.</li>
-<li>Randomizer produces repeatable values for the test run so long as no tests are changed and the same seed is used to initialize the run. A future extension is planned, which would provide repeatability at the individual method level, even if other methods are changed.</li>
+<li>Randomizer produces repeatable values for the test run so long as no tests are changed and the same seed is used to
+initialize the run. A future extension is planned, which would provide repeatability at the individual method level,
+even if other methods are changed.</li>
 </ol>
 <h2 id="int-systemint32">Int (System.Int32)</h2>
 <h3 id="next"><code>Next()</code></h3>
@@ -170,29 +174,37 @@
 <p>Returns the next decimal in the range min to max, excluding max.</p>
 <h4 id="notes-on-decimal-implementation">Notes on Decimal Implementation</h4>
 <ol>
-<li>In the current implementation, the scale is always set to zero. That is, the values are all integral, with no decimal places. This may be enhanced in a future release by allowing the user to specify the scale.</li>
-<li>In the third form, an exception is currently thrown if the range is greater than <code>decimal.MaxValue</code>. This can only occur if min is negative and max is positive.</li>
+<li>In the current implementation, the scale is always set to zero. That is, the values are all integral, with no decimal
+places. This may be enhanced in a future release by allowing the user to specify the scale.</li>
+<li>In the third form, an exception is currently thrown if the range is greater than <code>decimal.MaxValue</code>. This can only
+occur if min is negative and max is positive.</li>
 </ol>
 <h2 id="bool-systemboolean">Bool (System.Boolean)</h2>
 <h3 id="nextbool"><code>NextBool()</code></h3>
 <p>Returns a random bool with equal probability of <code>true</code> or <code>false</code>.</p>
 <h3 id="nextbooldouble-probability"><code>NextBool(double probability)</code></h3>
-<p>Returns a random bool with the specified probability of being <code>true</code>. Probability argument must be in the range 0.0 to 1.0, inclusive.</p>
+<p>Returns a random bool with the specified probability of being <code>true</code>. Probability argument must be in the range 0.0 to
+1.0, inclusive.</p>
 <h2 id="enum-systemenum">Enum (System.Enum)</h2>
 <h3 id="nextenumt"><code>NextEnum&lt;T&gt;()</code></h3>
-<p>Returns a random enum value of type T. All the values of the enum are returned with equal probability. Note that this may not be useful in all cases for enums with the <code>FlagsAttribute</code> specified.</p>
+<p>Returns a random enum value of type T. All the values of the enum are returned with equal probability. Note that this
+may not be useful in all cases for enums with the <code>FlagsAttribute</code> specified.</p>
 <h3 id="nextenumtype-type"><code>NextEnum(Type type)</code></h3>
-<p>Returns a random enum value of the type specified as an object, which the caller will normally cast to the specified type.</p>
+<p>Returns a random enum value of the type specified as an object, which the caller will normally cast to the specified
+type.</p>
 <h2 id="string-systemstring">String (System.String)</h2>
 <h3 id="getstring"><code>GetString()</code></h3>
-<p>Returns a random string of default length, composed using a default set of characters. In the current implementation, the default length is hard-coded as 25 and the default characters are <code>abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789_</code>.</p>
+<p>Returns a random string of default length, composed using a default set of characters. In the current implementation,
+the default length is hard-coded as 25 and the default characters are
+<code>abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789_</code>.</p>
 <h3 id="getstringint-length"><code>GetString(int length)</code></h3>
 <p>Returns a random string of the specified length.</p>
 <h3 id="getstringint-outputlength-string-allowedchars"><code>GetString(int outputLength, string allowedChars)</code></h3>
 <p>Returns a random string of the specified length using the characters in the string given as the second argument.</p>
 <h2 id="guid-systemguid">Guid (System.Guid)</h2>
 <h3 id="nextguid-available-in-version-38"><code>NextGuid()</code> (available in version 3.8)</h3>
-<p>Generates a version 4 Guid conforming the <a href="https://www.rfc-editor.org/rfc/rfc4122#section-4.4">RFC 4122</a>. Version 4 Guids are made of random data.</p>
+<p>Generates a version 4 Guid conforming the <a href="https://www.rfc-editor.org/rfc/rfc4122#section-4.4">RFC 4122</a>. Version 4
+Guids are made of random data.</p>
 </article>
           </div>
 

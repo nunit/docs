@@ -130,7 +130,8 @@ public void NUnit1003SampleTest(string parameter1, string parameter2)
 }
 </code></pre>
 <h3 id="explanation">Explanation</h3>
-<p>In the sample above, the test expects two parameters (<code>(string parameter1, string parameter2)</code>), but only one argument is supplied by the test case (<code>TestCase(&quot;1&quot;)</code>).</p>
+<p>In the sample above, the test expects two parameters (<code>(string parameter1, string parameter2)</code>), but only one argument
+is supplied by the test case (<code>TestCase(&quot;1&quot;)</code>).</p>
 <h3 id="fix">Fix</h3>
 <p>Either add the additional argument:</p>
 <pre><code class="lang-csharp">[TestCase(&quot;1&quot;, &quot;2&quot;)]
@@ -150,7 +151,8 @@ public void NUnit1003SampleTest(string parameter1)
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit1003: The TestCaseAttribute provided too few arguments
 dotnet_diagnostic.NUnit1003.severity = chosenSeverity

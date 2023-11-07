@@ -85,11 +85,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="counting-tests">Counting Tests</h1>
 
-<p>Counting tests sounds simple but there are a few issues. This page documents how the framework counts tests in various categories.</p>
+<p>Counting tests sounds simple but there are a few issues. This page documents how the framework counts tests in various
+categories.</p>
 <ol>
-<li><p>In general, when counting tests, we are talking about test cases. In the case of non-parameterized test methods, that's the same as the number of methods. Where there are parameters, we count the number of individual cases.</p>
+<li><p>In general, when counting tests, we are talking about test cases. In the case of non-parameterized test methods,
+that's the same as the number of methods. Where there are parameters, we count the number of individual cases.</p>
 </li>
-<li><p>When all the tests in an assembly are run, the total number of tests is the number of tests present in the assembly. When selection is made - either via the command line or through a Gui - we count only tests that are actually selected. Non-selected tests don't appear at all in the XML result file and are not taken into account by the counts.</p>
+<li><p>When all the tests in an assembly are run, the total number of tests is the number of tests present in the assembly.
+When selection is made - either via the command line or through a Gui - we count only tests that are actually
+selected. Non-selected tests don't appear at all in the XML result file and are not taken into account by the counts.</p>
 </li>
 <li><p>Tests are categorized in one of four statuses: Passed, Failed, Inconclusive and Skipped.</p>
 <ol>
@@ -117,11 +121,14 @@
 </li>
 <li><p>Users may define new ResultStates in any of the four statuses.</p>
 </li>
-<li><p>Failures, errors, skipping or ignoring in the SetUp for a test counts the same as if the action happened in the test method itself.</p>
+<li><p>Failures, errors, skipping or ignoring in the SetUp for a test counts the same as if the action happened in the test
+method itself.</p>
 </li>
-<li><p>When fixtures are ignored or otherwise skipped using an attribute on the class, all tests within the fixture are given the corresponding result.</p>
+<li><p>When fixtures are ignored or otherwise skipped using an attribute on the class, all tests within the fixture are
+given the corresponding result.</p>
 </li>
-<li><p>Failures, errors, skipping or ignoring in the OneTimeSetUp for a fixture causes all the test cases in the fixture to get the corresponding result.</p>
+<li><p>Failures, errors, skipping or ignoring in the OneTimeSetUp for a fixture causes all the test cases in the fixture to
+get the corresponding result.</p>
 </li>
 <li><p>An invalid fixture causes all of its test cases to count as invalid.</p>
 </li>

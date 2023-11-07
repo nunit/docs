@@ -85,7 +85,8 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="collectionordered-constraint">CollectionOrdered Constraint</h1>
 
-<p><code>CollectionOrderedConstraint</code> tests that an <code>IEnumerable</code> is ordered. If the actual value passed does not implement <code>IEnumerable</code>, an exception is thrown.</p>
+<p><code>CollectionOrderedConstraint</code> tests that an <code>IEnumerable</code> is ordered. If the actual value passed does not implement
+<code>IEnumerable</code>, an exception is thrown.</p>
 <p>The constraint supports both simple and property-based ordering (Ordered.By).</p>
 <h2 id="simple-ordering">Simple Ordering</h2>
 <p>Simple ordering is based on the values of the items themselves. It is implied when the <code>By</code> modifier is not used.</p>
@@ -104,7 +105,8 @@ Assert.That(sarray, Is.Ordered.Descending);
 </code></pre>
 <p>By default, the order is expected to be ascending.</p>
 <h2 id="property-based-ordering">Property-Based Ordering</h2>
-<p>Property-based ordering uses one or more properties that are common to every item in the enumeration. It is used when one or more instances of the <code>By</code> modifier appears in the ordering expression.</p>
+<p>Property-based ordering uses one or more properties that are common to every item in the enumeration. It is used when
+one or more instances of the <code>By</code> modifier appears in the ordering expression.</p>
 <pre><code class="lang-csharp">string[] sarray = new string[] (&quot;a&quot;, &quot;aa&quot;, &quot;aaa&quot;);
 Assert.That(sarray, Is.Ordered.By(&quot;Length&quot;));
 
@@ -121,7 +123,8 @@ Assert.That(sarray2, Is.Ordered.Descending.By(&quot;Length&quot;));
 ...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 </code></pre>
 <h2 id="ordering-on-multiple-properties">Ordering on Multiple Properties</h2>
-<p>An ordering expression may use multiple <code>By</code> modifiers, each referring to a different property. The following examples assume a collection of items with properties named A and B.</p>
+<p>An ordering expression may use multiple <code>By</code> modifiers, each referring to a different property. The following examples
+assume a collection of items with properties named A and B.</p>
 <pre><code class="lang-csharp">Assert.That(collection, Is.Ordered.By(&quot;A&quot;).Then.By(&quot;B&quot;));
 Assert.That(collection, Is.Ordered.By(&quot;A&quot;).Then.By(&quot;B&quot;).Descending);
 Assert.That(collection, Is.Ordered.Ascending.By(&quot;A&quot;).Then.Descending.By(&quot;B&quot;));
@@ -130,8 +133,10 @@ Assert.That(collection, Is.Ordered.Ascending.By(&quot;A&quot;).Descending.By(&qu
 </code></pre>
 <h2 id="notes">Notes</h2>
 <ol>
-<li>The <code>Then</code> modifier divides the expression into ordering steps. Each step may optionally contain one <code>Ascending</code> or <code>Descending</code> modifier and one <code>Using</code> modifier.</li>
-<li>If <code>Then</code> is not used, each new <code>By</code> modifier marks the beginning of a step. The last example statement is illegal because the first group contains both Ascending and Descending. Use of <code>Then</code> is recommended for clarity.</li>
+<li>The <code>Then</code> modifier divides the expression into ordering steps. Each step may optionally contain one <code>Ascending</code> or
+<code>Descending</code> modifier and one <code>Using</code> modifier.</li>
+<li>If <code>Then</code> is not used, each new <code>By</code> modifier marks the beginning of a step. The last example statement is illegal
+because the first group contains both Ascending and Descending. Use of <code>Then</code> is recommended for clarity.</li>
 </ol>
 </article>
           </div>
