@@ -4,6 +4,18 @@ uid: breakingchanges
 
 # Breaking Changes
 
+## NUnit 4.0
+
+* The [Classic Asserts](../writing-tests/assertions/assertion-models/classic.md) have been moved to a separate library
+  and their namespace and their class name were renamed to: `NUnit.Framework.Legacy.ClassicAssert`.
+* The standalone assert classes have also been moved to the `NUnit.Framework.Legacy` namespace. These classes are:
+  * [CollectionAssert](../writing-tests/assertions/classic-assertions/Collection-Assert.md)
+  * [StringAssert](../writing-tests/assertions/classic-assertions/String-Assert.md)
+  * [DirectoryAssert](../writing-tests/assertions/classic-assertions/Directory-Assert.md)
+  * [FileAssert](../writing-tests/assertions/classic-assertions/File-Assert.md)
+* Assert.That overloads with _format_ specification and `params` have been removed in favor of an overload using
+  `FormattableString`.
+
 ## NUnit 3.10
 
 * `NUnit.Framework.Constraints.NUnitEqualityComparer.Default` was deprecated in favor of `new NUnitEqualityComparer()`.
