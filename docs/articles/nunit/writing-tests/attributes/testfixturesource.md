@@ -33,6 +33,8 @@ constructing the `TestFixture`. It has the following characteristics:
 * It **must** be static.
 * It must return an `IEnumerable` or a type that implements `IEnumerable`. For fields an array is generally used. For
   properties and methods, you may return an array or implement your own iterator.
+  * Methods may also return an `IAsyncEnumerable` or a type that implements `IAsyncEnumerable`. (_NUnit 4+_)
+  * Methods may be async by wrapping the return type in a `Task<T>`. (_NUnit 3.14+_)
 * The individual items returned by the enumerator must either be object arrays or derive from the
   `TestFixtureParameters` class. Arguments must be consistent with the fixture constructor.
 
@@ -66,6 +68,8 @@ characteristics:
 * It **must** be static.
 * It must return an `IEnumerable` or a type that implements `IEnumerable`. For fields an array is generally used. For
   properties and methods, you may return an array or implement your own iterator.
+  * Methods may also return an `IAsyncEnumerable` or a type that implements `IAsyncEnumerable`. (_NUnit 4+_)
+  * Methods may be async by wrapping the return type in a `Task<T>`. (_NUnit 3.14+_)
 * The individual items returned by the enumerator must either be object arrays or derive from the
   `TestFixtureParameters` class. Arguments must be consistent with the fixture constructor.
 
