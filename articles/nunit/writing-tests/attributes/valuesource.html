@@ -97,7 +97,12 @@ characteristics:</p>
 <ul>
 <li>It may be a field, a non-indexed property or a method taking no arguments.</li>
 <li>It must be a static member.</li>
-<li>It must return an IEnumerable or a type that implements IEnumerable.</li>
+<li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>.
+<ul>
+<li>Methods may also return an <code>IAsyncEnumerable</code> or a type that implements <code>IAsyncEnumerable</code>. (<em>NUnit 4+</em>)</li>
+<li>Methods may be async by wrapping the return type in a <code>Task&lt;T&gt;</code>. (<em>NUnit 3.14+</em>)</li>
+</ul>
+</li>
 <li>The individual items returned from the enumerator must be compatible with the type of the parameter on which the
 attribute appears.</li>
 </ul>

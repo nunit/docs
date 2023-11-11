@@ -122,7 +122,12 @@ It has the following characteristics:</p>
 <li>It may be a field, property or method in the test class.</li>
 <li>It <strong>must</strong> be static. This is a change from NUnit 2.x.</li>
 <li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>. For fields an array is generally used. For
-properties and methods, you may return an array or implement your own iterator.</li>
+properties and methods, you may return an array or implement your own iterator.
+<ul>
+<li>Methods may also return an <code>IAsyncEnumerable</code> or a type that implements <code>IAsyncEnumerable</code>. (<em>NUnit 4+</em>)</li>
+<li>Methods may be async by wrapping the return type in a <code>Task&lt;T&gt;</code>. (<em>NUnit 3.14+</em>)</li>
+</ul>
+</li>
 <li>The individual items returned by the enumerator must be compatible with the signature of the method on which the
 attribute appears. See the <strong>Test Case Construction</strong> section below for details.</li>
 </ul>
@@ -192,7 +197,12 @@ characteristics:</p>
 <li>It may be a field, property or method in the test class.</li>
 <li>It <strong>must</strong> be static. This is a change from NUnit 2.x.</li>
 <li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>. For fields an array is generally used. For
-properties and methods, you may return an array or implement your own iterator.</li>
+properties and methods, you may return an array or implement your own iterator.
+<ul>
+<li>Methods may also return an <code>IAsyncEnumerable</code> or a type that implements <code>IAsyncEnumerable</code>. (<em>NUnit 4+</em>)</li>
+<li>Methods may be async by wrapping the return type in a <code>Task&lt;T&gt;</code>. (<em>NUnit 3.14+</em>)</li>
+</ul>
+</li>
 <li>The individual items returned by the enumerator must be compatible with the signature of the method on which the
 attribute appears. See the <strong>Test Case Construction</strong> section below for details.</li>
 </ul>
