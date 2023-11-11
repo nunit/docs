@@ -21,7 +21,9 @@ characteristics:
 
 * It may be a field, a non-indexed property or a method taking no arguments.
 * It must be a static member.
-* It must return an IEnumerable or a type that implements IEnumerable.
+* It must return an `IEnumerable` or a type that implements `IEnumerable`.
+  * Methods may also return an `IAsyncEnumerable` or a type that implements `IAsyncEnumerable`. (_NUnit 4+_)
+  * Methods may be async by wrapping the return type in a `Task<T>`. (_NUnit 3.14+_)
 * The individual items returned from the enumerator must be compatible with the type of the parameter on which the
   attribute appears.
 
