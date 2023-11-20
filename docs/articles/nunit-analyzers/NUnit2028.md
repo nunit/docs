@@ -1,6 +1,6 @@
 # NUnit2028
 
-## Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of Assert.GreaterOrEqual(actual, expected)
+## Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of ClassicAssert.GreaterOrEqual(actual, expected)
 
 | Topic    | Value
 | :--      | :--
