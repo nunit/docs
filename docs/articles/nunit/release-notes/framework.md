@@ -119,7 +119,7 @@ There are 112 issues fixed in this release.
 * [4170](https://github.com/nunit/nunit/issues/4170) Add .NET7 as a build target for the test suite . Fixed by team [PR 4224](https://github.com/nunit/nunit/pull/4224)
 * [4078](https://github.com/nunit/nunit/issues/4078) THREAD_ABORT not properly set. Fixed by team [PR 4079](https://github.com/nunit/nunit/pull/4079)
 * [4075](https://github.com/nunit/nunit/issues/4075) Remove unnecessary allocations in NUnitEqualityComparer. Fixed by team [PR 4076](https://github.com/nunit/nunit/pull/4076)
-* [4072](https://github.com/nunit/nunit/issues/4072) Use pattern matching in Constraints to avoid unecessary casts. Fixed by team [PR 4073](https://github.com/nunit/nunit/pull/4073)
+* [4072](https://github.com/nunit/nunit/issues/4072) Use pattern matching in Constraints to avoid unnecessary casts. Fixed by team [PR 4073](https://github.com/nunit/nunit/pull/4073)
 * [4065](https://github.com/nunit/nunit/issues/4065) Use pattern matching in the comparers. Fixed by team [PR 4066](https://github.com/nunit/nunit/pull/4066)
 * [4055](https://github.com/nunit/nunit/issues/4055) Use static Regex.IsMatch in ValueMatchFilter to take advantage of caching. Fixed by team [PR 4056](https://github.com/nunit/nunit/pull/4056)
 * [4049](https://github.com/nunit/nunit/issues/4049) Simplify property retrieval in DefaultTestAssemblyBuilder.Build(). Thanks to [Scott Buchanan](https://github.com/Phyrik) for [PR 4054](https://github.com/nunit/nunit/pull/4054)
