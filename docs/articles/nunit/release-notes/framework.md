@@ -4,28 +4,30 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
-## NUnit 4.0.0-beta.1 - October 8. 2023
+## NUnit 4.0.0 - November 26. 2023
 
-This is the first beta release of version 4 of NUnit. This is an incremental improvement of version 3, and can be used
-with the same runners as before, although a minor upgrade might be needed for some. For the `NUnit3TestAdapter`, you
-will need version 4.5 to run tests with NUnit 4.
+This release is an incremental improvement of version 3, and can be used
+with the same runners as before, although a minor upgrade might be needed for some.
 
-This release has more than 50 fixes and improvements implemented.
+For the `NUnit3TestAdapter`, you
+will need version `4.5` to run tests with NUnit 4.
 
-The minimum target framework supported is now dotnet framework 4.6.2, and .net 6.0.
+If you use the `NUnit Console`, you will need version `3.15.3` or later (but not any 3.16.X versions)).
 
-See the [planning notes](../Towards-NUnit4.md) for more information about the changes, and also information on the
-breaking changes in this release.
+The minimum target framework supported is now dotnet framework `4.6.2`, and .net `6.0`.
 
-(The list below is work in progress, and includes issues that is fixed in the upcoming next release, beta.2 or final)
+See the [planning notes](../Towards-NUnit4.md) for more information about the changes.
+
+See the [migration guide](https://docs.nunit.org/articles/nunit/release-notes/Nunit4.0-MigrationGuide.html) for how to move your projects from NUnit 3 to NUnit 4.
 
 ### Credits
 
 All issues marked "Fixed by team" has been done by [the members of the framework team][TeamLink].
+
 Issues marked "Thanks to" has been done by external contributors. We appreciate all the work all these people have been
 doing!
 
-There are 112 issues fixed in this release.
+There are 112 issues fixed in this release.  
 
 ### Enhancements
 
