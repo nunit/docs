@@ -31,7 +31,7 @@ There are 112 issues fixed in this release.
 
 ### Enhancements
 
-* [4551](https://github.com/nunit/nunit/issues/4551) Make ConstraintExpression.AnyOf() accept IEnumerable. Thanks to [](https://github.com/ivan-gurin) for [PR 4552](https://github.com/nunit/nunit/pull/4552)
+* [4551](https://github.com/nunit/nunit/issues/4551) Make ConstraintExpression.AnyOf() accept IEnumerable. Thanks to [Ivan Gurin](https://github.com/ivan-gurin) for [PR 4552](https://github.com/nunit/nunit/pull/4552)
 * [4521](https://github.com/nunit/nunit/issues/4521) Proposal: Async test case sources . Fixed by team [PR 4389](https://github.com/nunit/nunit/pull/4389)
 * [4489](https://github.com/nunit/nunit/issues/4489) Use buffer pooling when calculating partition filters. Fixed by team [PR 4500](https://github.com/nunit/nunit/pull/4500)
 * [4476](https://github.com/nunit/nunit/issues/4476) Add support to `StreamsComparer` for non-seek able streams. Thanks to [Michael Render](https://github.com/RenderMichael) for [PR 4483](https://github.com/nunit/nunit/pull/4483)
@@ -88,7 +88,7 @@ There are 112 issues fixed in this release.
 * [4107](https://github.com/nunit/nunit/issues/4107) Incorrect type specified for Values attribute fails unrelated tests. Fixed by team [PR 4133](https://github.com/nunit/nunit/pull/4133)
 * [4096](https://github.com/nunit/nunit/issues/4096) NUnit.Framework 3.13.2 introduced a breaking change that conceals problems with tests. Fixed by team [PR 4133](https://github.com/nunit/nunit/pull/4133)
 * [3964](https://github.com/nunit/nunit/issues/3964) DictionaryContainsKeyValuePairConstraint doesn't work with `IDictionary&lt;TKey, TValue&gt;`. Thanks to [Louis Zanella](https://github.com/louis-z) for [PR 4014](https://github.com/nunit/nunit/pull/4014)
-* [3961](https://github.com/nunit/nunit/issues/3961) OneTimeTearDown runs on a new thread with mismatched Thread Name and Worker Id. Thanks to [](https://github.com/EraserKing) for [PR 4004](https://github.com/nunit/nunit/pull/4004)
+* [3961](https://github.com/nunit/nunit/issues/3961) OneTimeTearDown runs on a new thread with mismatched Thread Name and Worker Id. Thanks to [EraserKing](https://github.com/EraserKing) for [PR 4004](https://github.com/nunit/nunit/pull/4004)
 * [3953](https://github.com/nunit/nunit/issues/3953) Dispose is not called on test fixtures with LifeCycle.InstancePerTestCase without TearDown method. Fixed by team [PR 3963](https://github.com/nunit/nunit/pull/3963)
 * [3872](https://github.com/nunit/nunit/issues/3872) Add support for `ref bool`, `ref bool?`, `in bool`, and `in bool?` when using `NUnit.Framework.ValuesAttribute`. Thanks to [Samuel Delarosbil](https://github.com/sdelarosbil) for [PR 4304](https://github.com/nunit/nunit/pull/4304)
 * [3868](https://github.com/nunit/nunit/issues/3868) Order attribute skips classes with multiple test fixtures. Thanks to [Samuel Delarosbil](https://github.com/sdelarosbil) for [PR 4304](https://github.com/nunit/nunit/pull/4304)
