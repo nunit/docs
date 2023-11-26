@@ -15,6 +15,9 @@ uid: breakingchanges
   * [FileAssert](../writing-tests/assertions/classic-assertions/File-Assert.md)
 * Assert.That overloads with _format_ specification and `params` have been removed in favor of an overload using
   `FormattableString`.
+* The lowest framework version supported is now version 4.6.2 and .Net 6.0.
+
+See full list of [deprecated issues](https://docs.nunit.org/articles/nunit/release-notes/framework.html#deprecated-features) and [breaking changes](https://docs.nunit.org/articles/nunit/release-notes/framework.html#the-following-issues-are-marked-as-breaking-changes) in the framework.
 
 ## NUnit 3.10
 
