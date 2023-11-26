@@ -107,7 +107,7 @@ There are 112 issues fixed in this release.
 
 ### Refactorings
 
-* [4539](https://github.com/nunit/nunit/issues/4539) Upgrade to latest analyzers package and fix the warnings. 
+* [4539](https://github.com/nunit/nunit/issues/4539) Upgrade to latest analyzers package and fix the warnings.
 * [4434](https://github.com/nunit/nunit/issues/4434) Fixing the classic asserts. Fixed by team [PR 4438](https://github.com/nunit/nunit/pull/4438)
 * [4416](https://github.com/nunit/nunit/issues/4416) Move classic asserts into its own project . Fixed by team [PR 4417](https://github.com/nunit/nunit/pull/4417)
 * [4380](https://github.com/nunit/nunit/issues/4380) Consistently use _ prefix for field names. Fixed by team [PR 4387](https://github.com/nunit/nunit/pull/4387)
