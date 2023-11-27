@@ -55,5 +55,6 @@ repository.
 
 * We build the docs via the GitHub actions located in `./github/workflows`.
 * The workflow uses a container with docfx installed; the container builds the docs.
-* The workflow then uses another container to push the results to the `gh-pages` branch, using a personal access token that is stored in the repository's settings.
+* The workflow then uses another container to push the results to the `gh-pages` branch, using a personal access token
+that is stored in the repository's settings.
 * GitHub serves the outputted site from the `gh-pages` branch, and the DNS of `docs.nunit.org` points there.
