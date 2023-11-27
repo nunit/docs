@@ -37,6 +37,20 @@ We'll be working on follow-ups to make this more user-friendly, but it's now wor
 
 We'd love your contributions! See [The contributing guide](CONTRIBUTING.md) for how to get involved.
 
+## Building the API docs locally
+
+The NUnit source code is in a separate repository from the docs, so we typically generate this at build time by copying
+published code into a build-specific folder (`/code-output`). From there, `docfx` transforms the xmldoc comments that
+are alongside the DLLs into HTML files.
+
+Sometimes you may need/want to reproduce this locally. You can take the following steps to do so:
+
+* Go to the NUnit release you want in the GitHub Releases
+* Download & extract the `.zip` file of the release contents
+* Copy the contents of one of the release targets, e.g. `net6.0`, into a `code-outputs` folder in the root of the
+repository.
+* Run the `docfx` command as you normally would.
+
 ## How the Docs are Built and Deployed
 
 * We build the docs via the GitHub actions located in `./github/workflows`.
