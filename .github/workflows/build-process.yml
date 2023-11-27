@@ -56,7 +56,7 @@ jobs:
       - name: Unzip NUnit Asset zip file into its own directory
         run: unzip NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}.zip -d ./NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}
       - name: Copy NUnit Asset dir
-        run: mkdir ./docs/api && cp -r ./NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}/bin/net6.0/* ./docs/api/
+        run: mkdir ./code-output && cp -r ./NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}/bin/net6.0/* ./code-output
       - uses: "nunit/docfx-action@v2.10.0"
         name: Build with Docfx
         with:
