@@ -54,7 +54,7 @@ jobs:
           file: 'NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}.zip'
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Unzip NUnit Asset dir
-        run: unzip -v NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}.zip
+        run: unzip -v NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}.zip NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}/
       - name: Copy NUnit Asset dir
         run: cp -r NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}/bin/net6.0/* docs/api/
       - uses: "nunit/docfx-action@v2.10.0"
