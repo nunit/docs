@@ -96,7 +96,7 @@ Assert.That(actualText, Does.StartWith("42"), $"Expected '{actualText}' to start
 There are no code fixers for `FileAssert` and `DirectoryAssert`. They could be added, but we don't expect these to be
 used too much.
 
-#### Convert Classic Assert into NUnit 4.x equivalent
+#### Using Classic Asserts in NUnit 4.x
 
 If you want to keep the Classic Asserts and not convert them to the constraint model -- but do want to use the new NUnit
 4.x naming -- you'll need to update the code manually.
