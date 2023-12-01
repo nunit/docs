@@ -81,7 +81,7 @@ jobs:
         id: netlify
         with:
           # note that the --json flag has been passed so we can parse outputs
-          args: deploy --json --context deploy-preview --dir './docs/_site' --message 'preview [${{ github.sha }}]'
+          args: deploy --json --dir './docs/_site' --message 'preview [${{ github.sha }}]'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}          
