@@ -68,6 +68,31 @@ jobs:
         with:
           name: siteArtifact
           path: _site.zip
+      - name: Start deployment (PR only)
+        if: ${{ github.ref != 'refs/heads/master'}}
+        uses: bobheadxi/deployments@v1
+        id: deployment
+        with:
+          env: preview_${{github.event.number}}
+          step: start
+      - name: Deploy to Netlify
+        uses: South-Paw/action-netlify-cli@v2
+        id: netlify
+        with:
+          # note that the --json flag has been passed so we can parse outputs
+          args: deploy --json --context deploy-preview --dir './docs/_site' --message 'preview [${{ github.sha }}]'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}          
+      - name: Finish deployment
+        uses: bobheadxi/deployments@v1
+        if: always()
+        with:
+          env: ${{ steps.deployment.outputs.env }}
+          step: finish
+          status: ${{ job.status }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          env_url: ${{ fromJson(steps.netlify.outputs.NETLIFY_OUTPUT).url }}      
   snippets:
     name: "Build/Test Snippets"
     runs-on: ubuntu-latest
