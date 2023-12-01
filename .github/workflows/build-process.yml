@@ -75,7 +75,8 @@ jobs:
         with:
           env: preview_${{github.event.number}}
           step: start
-      - name: Deploy to Netlify
+      - name: Deploy to Netlify (PR only)
+        if: ${{ github.ref != 'refs/heads/master'}}
         uses: South-Paw/action-netlify-cli@v2
         id: netlify
         with:
