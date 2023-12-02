@@ -85,6 +85,13 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}          
+      - name: Update Preview link comment
+        if: ${{ github.ref != 'refs/heads/master'}}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: previewlink
+          message: |
+            Preview link: ${{ fromJson(steps.netlify.outputs.NETLIFY_OUTPUT).deploy_url }}          
       - name: Finish deployment
         uses: bobheadxi/deployments@v1
         if: ${{ github.ref != 'refs/heads/master'}}
