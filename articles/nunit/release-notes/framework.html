@@ -86,6 +86,15 @@
 <h1 id="framework-release">Framework Release</h1>
 <!-- markdownlint-disable-file MD013 -->
 
+<h2 id="nunit-401---december-2-2023">NUnit 4.0.1 - December 2. 2023</h2>
+<p>This is a hotfix release for three issues related to targeting windows targets, like <code>net6.0-windows</code>.  If you don't use these targets, you can safely ignore this release.</p>
+<p>For more details, see the information in the issues below:</p>
+<h3 id="bug-fixes">Bug fixes</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit/issues/4571">4571</a> NUnit 4: dotnet test behaving differently locally vs on GH Actions (failing). Fixed by team <a href="https://github.com/nunit/nunit/pull/4574">PR 4574</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4565">4565</a> Unable to test project targeting net8.0-windows and win-x64 . Fixed by team <a href="https://github.com/nunit/nunit/pull/4569">PR 4569</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4564">4564</a> Tests not discovered for .NET Windows-specific TFM without Windows build number. Fixed by team <a href="https://github.com/nunit/nunit/pull/4569">PR 4569</a></li>
+</ul>
 <h2 id="nunit-400---november-26-2023">NUnit 4.0.0 - November 26. 2023</h2>
 <p>This release is an incremental improvement of version 3, and can be used
 with the same runners as before, although a minor upgrade might be needed for some.</p>
@@ -135,7 +144,7 @@ doing!</p>
 <li><a href="https://github.com/nunit/nunit/issues/3936">3936</a> Is there any way we could make use of CallerArgumentExpressionAttribute?. Fixed by team <a href="https://github.com/nunit/nunit/pull/4419">PR 4419</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3798">3798</a> Support abstract methods marked as tests. Fixed by team <a href="https://github.com/nunit/nunit/pull/4490">PR 4490</a></li>
 </ul>
-<h3 id="bug-fixes">Bug fixes</h3>
+<h3 id="bug-fixes-1">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4554">4554</a> SetUpFixture has stopped working going from NUnit 3.13.3 to 3.14.0/4.0.0-beta.1. Fixed by team <a href="https://github.com/nunit/nunit/pull/4555">PR 4555</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4532">4532</a> Assert.That no longer allows 'null' message. Fixed by team <a href="https://github.com/nunit/nunit/pull/4533">PR 4533</a></li>
@@ -251,7 +260,7 @@ Lahma</a> for <a href="https://github.com/nunit/nunit/pull/4034">PR 4034</a></li
 <li><a href="https://github.com/nunit/nunit/issues/2729">2729</a> Proposal: Async test case sources. Fixed by team <a href="https://github.com/nunit/nunit/pull/4390">PR
 4390</a></li>
 </ul>
-<h3 id="bug-fixes-1">Bug fixes</h3>
+<h3 id="bug-fixes-2">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4527">4527</a> Backport: NUnit.Framework 3.13.2 introduced a breaking change that
 conceals problems with tests. Fixed by team <a href="https://github.com/nunit/nunit/pull/4104">PR 4104</a> ( backport of issue
