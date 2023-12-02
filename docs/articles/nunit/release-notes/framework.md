@@ -5,6 +5,18 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
+## NUnit 4.0.1 - December 2. 2023
+
+This is a hotfix release for three issues related to targeting windows targets, like `net6.0-windows`.  If you don't use these targets, you can safely ignore this release.
+
+For more details, see the information in the issues below:
+
+### Bug fixes
+
+* [4571](https://github.com/nunit/nunit/issues/4571) NUnit 4: dotnet test behaving differently locally vs on GH Actions (failing). Fixed by team [PR 4574](https://github.com/nunit/nunit/pull/4574)
+* [4565](https://github.com/nunit/nunit/issues/4565) Unable to test project targeting net8.0-windows and win-x64 . Fixed by team [PR 4569](https://github.com/nunit/nunit/pull/4569)
+* [4564](https://github.com/nunit/nunit/issues/4564) Tests not discovered for .NET Windows-specific TFM without Windows build number. Fixed by team [PR 4569](https://github.com/nunit/nunit/pull/4569)
+
 ## NUnit 4.0.0 - November 26. 2023
 
 This release is an incremental improvement of version 3, and can be used
