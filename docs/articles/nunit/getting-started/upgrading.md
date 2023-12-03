@@ -3,7 +3,7 @@
 
 ## Upgrading from NUnit 3.X to NUnit 4.X
 
-See the [Migration Guide](xref:migrationguidance) for information on upgrading from NUnit 3.X to NUnit 4.X.
+See the [Migration Guide](xref:migrationguidance) for information on upgrading from NUnit 3.x to NUnit 4.x.
 
 Also see the [Release Notes for version 4.0.0][def] for information on breaking and other changes to see if any of these may affect your tests.
 

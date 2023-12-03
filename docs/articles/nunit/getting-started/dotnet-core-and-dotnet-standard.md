@@ -102,7 +102,7 @@ This limitation is the same for all test adapters including xUnit and MSTest2.
 
 This was a limitation in earlier versions of  Visual Studio, but is fixed in Visual Studio 2022.
 
-IF you must run an earlier version and have this issue, you can run specific tests using the `--framework` command line option of [dotnet
+_If_ you must run an earlier version and have this issue, you can run specific tests using the `--framework` command line option of [dotnet
 test](https://docs.microsoft.com/en-ca/dotnet/core/tools/dotnet-test?tabs=netcore2x)
 
 ## How do I produce a test results file
