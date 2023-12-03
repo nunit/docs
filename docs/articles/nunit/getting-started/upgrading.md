@@ -1,4 +1,3 @@
-<!-- markdownlint-disable-file MD013 -->
 
 # Upgrading
 
@@ -6,7 +5,7 @@
 
 See the [Migration Guide](xref:migrationguidance) for information on upgrading from NUnit 3.X to NUnit 4.X.
 
-Also see the [Release Notes for version 4.0.0](https://docs.nunit.org/articles/nunit/release-notes/framework.html#nunit-400---november-26-2023) for information on breaking and other changes to see if any of these may affect your tests.
+Also see the [Release Notes for version 4.0.0][def] for information on breaking and other changes to see if any of these may affect your tests.
 
 ## Upgrading from NUnit 2.6.4 to NUnit 3.0
 
@@ -42,3 +41,5 @@ Make the necessary changes until it all works.
 Hopefully, you aren't converting tests that were not passing when you started! If all goes well, they will continue to
 pass under NUnit 3.0. If not, investigate each case and make necessary changes. If something isn't working as
 advertised, please let us know.
+
+[def]: https://docs.nunit.org/articles/nunit/release-notes/framework.html#nunit-400---november-26-2023
