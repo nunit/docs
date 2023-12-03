@@ -1,3 +1,5 @@
+<!-- markdownlint-disable-file MD013 -->
+
 # .NET Core
 
 More information and getting started tutorials are available for NUnit and .NET Core targeting
@@ -87,7 +89,10 @@ This limitation is the same for all test adapters including xUnit and MSTest2.
 * Do your tests target .NET Core or the full .NET Framework? (see above)
 * Have you added a Package Reference to `Microsoft.NET.Test.Sdk`?
 * Have you restarted Visual Studio? It is still a bit temperamental.
-* Are you doing integration testing with Asp.Net Core `WebApplicationFactory` and using minimal API, and it complains about missing `testhost.deps.json`?  Then you're accessing the wrong Program class in your WebApplicationFactory. Fix it by adding a code line at the end of the `Program.cs` file, and verify that your WebApplicationFactory is actually using this Program class:
+* Are you doing integration testing with Asp.Net Core `WebApplicationFactory` and using minimal API, and it complains
+ about missing `testhost.deps.json`?  Then you're accessing the wrong Program class in your WebApplicationFactory. Fix
+ it by adding a code line at the end of the `Program.cs` file, and verify that your WebApplicationFactory is actually
+ using this Program class:
 
 ```csharp
   public partial class Program { }
