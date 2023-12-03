@@ -1,5 +1,3 @@
-<!-- markdownlint-disable-file MD013 -->
-
 # .NET Core
 
 More information and getting started tutorials are available for NUnit and .NET Core targeting
