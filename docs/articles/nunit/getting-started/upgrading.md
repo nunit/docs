@@ -1,3 +1,5 @@
+<!-- markdownlint-disable-file MD013 -->
+
 # Upgrading
 
 ## Upgrading from NUnit 3.X to NUnit 4.X
