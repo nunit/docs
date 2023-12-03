@@ -6,7 +6,8 @@ uid: breakingchanges
 
 ## NUnit 4.0
 
-See the [Migration Guide](xref:migrationguidance) for moving your tests from NUnit 3.x to NUnit 4.0 if you are using any of the following features:
+See the [Migration Guide](xref:migrationguidance) for moving your tests from NUnit 3.x to NUnit 4.0 if you are using any
+of the following features:
 
 * The [Classic Asserts][def] have been moved to a separate library
   and their namespace and their class name were renamed to: `NUnit.Framework.Legacy.ClassicAssert`.
