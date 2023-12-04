@@ -1,14 +1,14 @@
-# .NET Core and .NET Standard
+# .NET Core
 
 More information and getting started tutorials are available for NUnit and .NET Core targeting
 [C#](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit),
 [F#](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-fsharp-with-nunit) and [Visual
 Basic](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-visual-basic-with-nunit) in the .NET Core
-documentation's [Unit Testing in .NET Core and .NET Standard](https://docs.microsoft.com/en-us/dotnet/core/testing/)
+documentation's [Unit Testing in .NET Core](https://docs.microsoft.com/en-us/dotnet/core/testing/)
 page.
 
 The other information on this page is older documentation. If you follow the instructions in the [Installation
-section](xref:installation) your project will work with .NET Core and .NET Standard.
+section](xref:installation) your project will work with .NET Core.
 
 The test projects have to be .NET (Core) or .NET Framework; .NET Standard can't be used as a test project, since it
 can't be run on its own, but any code in a .NET Standard library can be tested from a .NET (Core) or .NET Framework test
@@ -16,7 +16,7 @@ project.
 
 ## TL;DR
 
-Adding the adapter and `Microsoft.NET.Test.Sdk` version `17.0.0` or greater to your NUnit test projects will also enable
+Adding the adapter and `Microsoft.NET.Test.Sdk` version `17.8.0` or greater to your NUnit test projects will also enable
 the `dotnet test` command for .NET Core projects.
 
 Any tests using the new style CSPROJ format, either .NET Core or .NET 4.x, need to add a `PackageReference` to the NuGet
@@ -27,10 +27,10 @@ the necessary references.
 
 ```xml
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
-    <PackageReference Include="NUnit" Version="3.13.3" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
-    <PackageReference Include="NUnit.Analyzers" Version="3.6.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="NUnit" Version="4.0.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.10.0" />
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
   </ItemGroup>
 ```
@@ -80,20 +80,28 @@ Framework.
 
 This limitation is the same for all test adapters including xUnit and MSTest2.
 
-#### My tests aren't showing up in Visual Studio 2017 or later
+#### My tests aren't showing up in Visual Studio 2022 or later
 
 * Are you using the NuGet adapter package?
-* Are you using version 4.1.0 or newer of the NuGet package?
+* Are you using version 4.5.0 or newer of the NuGet package?
 * Do your tests target .NET Core or the full .NET Framework? (see above)
 * Have you added a Package Reference to `Microsoft.NET.Test.Sdk`?
 * Have you restarted Visual Studio? It is still a bit temperamental.
+* Are you doing integration testing with Asp.Net Core `WebApplicationFactory` and using minimal API, and it complains
+ about missing `testhost.deps.json`?  Then you're accessing the wrong Program class in your WebApplicationFactory. Fix
+ it by adding a code line at the end of the `Program.cs` file, and verify that your WebApplicationFactory is actually
+ using this Program class:
+
+```csharp
+  public partial class Program { }
+```
 
 #### My tests multi-target .NET Core and .NET Framework, why can't I run both in Visual Studio
 
-This is a limitation of Visual Studio, hopefully it will be fixed in a future release.
+This was a limitation in earlier versions of  Visual Studio, but is fixed in Visual Studio 2022.
 
-Meanwhile, you can run specific tests using the `--framework` command line option of [dotnet
-test](https://docs.microsoft.com/en-ca/dotnet/core/tools/dotnet-test?tabs=netcore2x)
+_If_ you must run an earlier version and have this issue, you can run specific tests using the `--framework` command
+line option of [dotnet test](https://docs.microsoft.com/en-ca/dotnet/core/tools/dotnet-test?tabs=netcore2x)
 
 ## How do I produce a test results file
 
