@@ -22,6 +22,9 @@ RUN node -v
 RUN npm -v
 RUN yarn -v
 
+COPY get-nunit-apidocs.sh .
+RUN chmod +x get-nunit-apidocs.sh
+
 ### Add the aliases
 # We get the first workspace, because there should only be one
 # This is so that when someone updates their devcontainer name, it doesn't get screwed up
@@ -30,3 +33,4 @@ RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias lint="mar
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias build="docfx /workspaces/$first_workspace/docs/docfx.json"' >> ~/.bashrc
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias serve="docfx /workspaces/$first_workspace/docs/docfx.json --serve"' >> ~/.bashrc
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias snippets="dotnet test /workspaces/$first_workspace/docs/snippets/Snippets.sln"' >> ~/.bashrc
+RUN echo 'bash /get-nunit-apidocs.sh' >> ~/.bashrc
