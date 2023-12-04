@@ -1,12 +1,12 @@
-echo "SEAN WAS HERE"
-
 NUNIT_VERSION_FOR_API_DOCS="4.0.0"
 
 first_workspace="$(cd /workspaces && ls | head -1)"
 
-wget "https://github.com/nunit/nunit/releases/download/v$NUNIT_VERSION_FOR_API_DOCS/NUnit.Framework-$NUNIT_VERSION_FOR_API_DOCS.zip" -O apidocs.zip
+wget "https://github.com/nunit/nunit/releases/download/v$NUNIT_VERSION_FOR_API_DOCS/NUnit.Framework-$NUNIT_VERSION_FOR_API_DOCS.zip" -O /apidocs.zip
 
 
-mkdir $first_workspace/code-output 
-unzip -o apidocs.zip -d /apidocs
-cp -r /apidocs/NUnit.Framework-$NUNIT_VERSION_FOR_API_DOCS/bin/net6.0/* $first_workspace/code-output
+mkdir -p /workspaces/$first_workspace/code-output 
+unzip -o /apidocs.zip -d /apidocs
+cp -r /apidocs/bin/net6.0/* /workspaces/$first_workspace/code-output
+rm -rf /apidocs.zip
+rm -rf /apidocs
