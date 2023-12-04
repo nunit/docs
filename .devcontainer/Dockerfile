@@ -10,7 +10,7 @@ RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg -
 
 RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
 RUN apt-get update
-RUN apt-get install nodejs -y
+RUN apt-get install nodejs unzip -y
 
 ### Installing Node Packages
 RUN npm install -g yarn
@@ -22,6 +22,10 @@ RUN node -v
 RUN npm -v
 RUN yarn -v
 
+# This script gets the api-docs from the latest NUnit release
+COPY get-nunit-apidocs.sh .
+RUN chmod +x get-nunit-apidocs.sh
+
 ### Add the aliases
 # We get the first workspace, because there should only be one
 # This is so that when someone updates their devcontainer name, it doesn't get screwed up
@@ -30,3 +34,7 @@ RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias lint="mar
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias build="docfx /workspaces/$first_workspace/docs/docfx.json"' >> ~/.bashrc
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias serve="docfx /workspaces/$first_workspace/docs/docfx.json --serve"' >> ~/.bashrc
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias snippets="dotnet test /workspaces/$first_workspace/docs/snippets/Snippets.sln"' >> ~/.bashrc
+
+# We load the latest NUnit apidocs at start in case they're needed later
+RUN echo 'alias apidocs="bash /get-nunit-apidocs.sh"' >> ~/.bashrc
+RUN echo 'apidocs' >> ~/.bashrc
