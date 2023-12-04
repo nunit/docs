@@ -11,5 +11,5 @@ jobs:
         uses: bobheadxi/deployments@v1
         with:
             step: delete-env
-            token: ${{ secrets.GITHUB_TOKEN }}
+            token: ${{ secrets.SEAN_PAT_TO_MANAGE_ENVIRONMENTS }}
             env: preview_${{github.event.number}}
