@@ -36,4 +36,5 @@ RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias serve="do
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias snippets="dotnet test /workspaces/$first_workspace/docs/snippets/Snippets.sln"' >> ~/.bashrc
 
 # We load the latest NUnit apidocs at start in case they're needed later
-RUN echo 'bash /get-nunit-apidocs.sh' >> ~/.bashrc
+RUN echo 'alias apidocs="bash /get-nunit-apidocs.sh"' >> ~/.bashrc
+RUN echo 'apidocs' >> ~/.bashrc
