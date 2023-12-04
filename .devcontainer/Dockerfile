@@ -22,6 +22,7 @@ RUN node -v
 RUN npm -v
 RUN yarn -v
 
+# This script gets the api-docs from the latest NUnit release
 COPY get-nunit-apidocs.sh .
 RUN chmod +x get-nunit-apidocs.sh
 
@@ -33,4 +34,6 @@ RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias lint="mar
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias build="docfx /workspaces/$first_workspace/docs/docfx.json"' >> ~/.bashrc
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias serve="docfx /workspaces/$first_workspace/docs/docfx.json --serve"' >> ~/.bashrc
 RUN echo 'first_workspace=\"$(cd /workspaces && ls | head -1)\"; alias snippets="dotnet test /workspaces/$first_workspace/docs/snippets/Snippets.sln"' >> ~/.bashrc
+
+# We load the latest NUnit apidocs at start in case they're needed later
 RUN echo 'bash /get-nunit-apidocs.sh' >> ~/.bashrc
