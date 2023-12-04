@@ -1,0 +1,680 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class Tolerance
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class Tolerance
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Constraints.Tolerance">
+
+
+
+  <h1 id="NUnit_Framework_Constraints_Tolerance" data-uid="NUnit.Framework.Constraints.Tolerance" class="text-break">Class Tolerance
+</h1>
+  <div class="markdown level0 summary"><p>The Tolerance class generalizes the notion of a tolerance
+within which an equality test succeeds. Normally, it is
+used with numeric types, but it can be used with any
+type that supports taking a difference between two
+objects and comparing that difference to a value.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Tolerance</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Constraints.html">Constraints</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_Constraints_Tolerance_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Tolerance</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance__ctor_" data-uid="NUnit.Framework.Constraints.Tolerance.#ctor*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance__ctor_System_Object_" data-uid="NUnit.Framework.Constraints.Tolerance.#ctor(System.Object)">Tolerance(object)</h4>
+  <div class="markdown level1 summary"><p>Constructs a linear tolerance of a specified amount</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance(object amount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">amount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Default" data-uid="NUnit.Framework.Constraints.Tolerance.Default">Default</h4>
+  <div class="markdown level1 summary"><p>Returns a default Tolerance object, equivalent to a default matching rules.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Tolerance Default</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Exact" data-uid="NUnit.Framework.Constraints.Tolerance.Exact">Exact</h4>
+  <div class="markdown level1 summary"><p>Returns an empty Tolerance object, equivalent to an exact match.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Tolerance Exact</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_Amount_" data-uid="NUnit.Framework.Constraints.Tolerance.Amount*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Amount" data-uid="NUnit.Framework.Constraints.Tolerance.Amount">Amount</h4>
+  <div class="markdown level1 summary"><p>Gets the magnitude of the current Tolerance instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object Amount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_Days_" data-uid="NUnit.Framework.Constraints.Tolerance.Days*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Days" data-uid="NUnit.Framework.Constraints.Tolerance.Days">Days</h4>
+  <div class="markdown level1 summary"><p>Returns a new tolerance with a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> as the amount, using
+the current amount as a number of days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance Days { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_HasVariance_" data-uid="NUnit.Framework.Constraints.Tolerance.HasVariance*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_HasVariance" data-uid="NUnit.Framework.Constraints.Tolerance.HasVariance">HasVariance</h4>
+  <div class="markdown level1 summary"><p>Returns true if the current tolerance varies from exact and default. Indicating tolerance needs processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasVariance { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_Hours_" data-uid="NUnit.Framework.Constraints.Tolerance.Hours*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Hours" data-uid="NUnit.Framework.Constraints.Tolerance.Hours">Hours</h4>
+  <div class="markdown level1 summary"><p>Returns a new tolerance with a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> as the amount, using
+the current amount as a number of hours.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance Hours { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_IsUnsetOrDefault_" data-uid="NUnit.Framework.Constraints.Tolerance.IsUnsetOrDefault*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_IsUnsetOrDefault" data-uid="NUnit.Framework.Constraints.Tolerance.IsUnsetOrDefault">IsUnsetOrDefault</h4>
+  <div class="markdown level1 summary"><p>Returns true if the current tolerance has not been set or is using the default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsUnsetOrDefault { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_Milliseconds_" data-uid="NUnit.Framework.Constraints.Tolerance.Milliseconds*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Milliseconds" data-uid="NUnit.Framework.Constraints.Tolerance.Milliseconds">Milliseconds</h4>
+  <div class="markdown level1 summary"><p>Returns a new tolerance with a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> as the amount, using
+the current amount as a number of milliseconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance Milliseconds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_Minutes_" data-uid="NUnit.Framework.Constraints.Tolerance.Minutes*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Minutes" data-uid="NUnit.Framework.Constraints.Tolerance.Minutes">Minutes</h4>
+  <div class="markdown level1 summary"><p>Returns a new tolerance with a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> as the amount, using
+the current amount as a number of minutes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance Minutes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_Mode_" data-uid="NUnit.Framework.Constraints.Tolerance.Mode*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Mode" data-uid="NUnit.Framework.Constraints.Tolerance.Mode">Mode</h4>
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="NUnit.Framework.Constraints.ToleranceMode.html">ToleranceMode</a> for the current Tolerance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ToleranceMode Mode { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ToleranceMode.html">ToleranceMode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_Percent_" data-uid="NUnit.Framework.Constraints.Tolerance.Percent*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Percent" data-uid="NUnit.Framework.Constraints.Tolerance.Percent">Percent</h4>
+  <div class="markdown level1 summary"><p>Returns a new tolerance, using the current amount as a percentage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance Percent { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_Seconds_" data-uid="NUnit.Framework.Constraints.Tolerance.Seconds*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Seconds" data-uid="NUnit.Framework.Constraints.Tolerance.Seconds">Seconds</h4>
+  <div class="markdown level1 summary"><p>Returns a new tolerance with a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> as the amount, using
+the current amount as a number of seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance Seconds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_Ticks_" data-uid="NUnit.Framework.Constraints.Tolerance.Ticks*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Ticks" data-uid="NUnit.Framework.Constraints.Tolerance.Ticks">Ticks</h4>
+  <div class="markdown level1 summary"><p>Returns a new tolerance with a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> as the amount, using
+the current amount as a number of clock ticks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance Ticks { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_Ulps_" data-uid="NUnit.Framework.Constraints.Tolerance.Ulps*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_Ulps" data-uid="NUnit.Framework.Constraints.Tolerance.Ulps">Ulps</h4>
+  <div class="markdown level1 summary"><p>Returns a new tolerance, using the current amount in Ulps</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance Ulps { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_ApplyToValue_" data-uid="NUnit.Framework.Constraints.Tolerance.ApplyToValue*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_ApplyToValue_System_Object_" data-uid="NUnit.Framework.Constraints.Tolerance.ApplyToValue(System.Object)">ApplyToValue(object)</h4>
+  <div class="markdown level1 summary"><p>Apply the tolerance to an expected value and return
+a Tolerance.Range that represents the acceptable values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance.Range ApplyToValue(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a>.<a class="xref" href="NUnit.Framework.Constraints.Tolerance.Range.html">Range</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Tolerance_ToString_" data-uid="NUnit.Framework.Constraints.Tolerance.ToString*"></a>
+  <h4 id="NUnit_Framework_Constraints_Tolerance_ToString" data-uid="NUnit.Framework.Constraints.Tolerance.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string? ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>A string that represents the current object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a></div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Tolerance.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

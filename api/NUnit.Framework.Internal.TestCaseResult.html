@@ -1,0 +1,566 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class TestCaseResult
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class TestCaseResult
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Internal.TestCaseResult">
+
+
+
+  <h1 id="NUnit_Framework_Internal_TestCaseResult" data-uid="NUnit.Framework.Internal.TestCaseResult" class="text-break">Class TestCaseResult
+</h1>
+  <div class="markdown level0 summary"><p>Represents the result of running a single test case.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject">MarshalByRefObject</a></div>
+    <div class="level2"><a class="xref" href="NUnit.Compatibility.LongLivedMarshalByRefObject.html">LongLivedMarshalByRefObject</a></div>
+    <div class="level3"><a class="xref" href="NUnit.Framework.Internal.TestResult.html">TestResult</a></div>
+    <div class="level4"><span class="xref">TestCaseResult</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="NUnit.Framework.Interfaces.ITestResult.html">ITestResult</a></div>
+    <div><a class="xref" href="NUnit.Framework.Interfaces.IXmlNodeBuilder.html">IXmlNodeBuilder</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_InternalAssertCount">TestResult.InternalAssertCount</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_RwLock">TestResult.RwLock</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_ToXml_System_Boolean_">TestResult.ToXml(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_AddToXml_NUnit_Framework_Interfaces_TNode_System_Boolean_">TestResult.AddToXml(TNode, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_SetResult_NUnit_Framework_Interfaces_ResultState_">TestResult.SetResult(ResultState)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_SetResult_NUnit_Framework_Interfaces_ResultState_System_String_">TestResult.SetResult(ResultState, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_SetResult_NUnit_Framework_Interfaces_ResultState_System_String_System_String_">TestResult.SetResult(ResultState, string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_RecordException_System_Exception_">TestResult.RecordException(Exception)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_RecordException_System_Exception_NUnit_Framework_Interfaces_FailureSite_">TestResult.RecordException(Exception, FailureSite)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_RecordTearDownException_System_Exception_">TestResult.RecordTearDownException(Exception)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_RecordTestCompletion">TestResult.RecordTestCompletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_RecordAssertion_NUnit_Framework_Interfaces_AssertionResult_">TestResult.RecordAssertion(AssertionResult)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_RecordAssertion_NUnit_Framework_Interfaces_AssertionStatus_System_String_System_String_">TestResult.RecordAssertion(AssertionStatus, string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_RecordAssertion_NUnit_Framework_Interfaces_AssertionStatus_System_String_">TestResult.RecordAssertion(AssertionStatus, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_Test">TestResult.Test</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_ResultState">TestResult.ResultState</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_Name">TestResult.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_FullName">TestResult.FullName</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_Duration">TestResult.Duration</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_StartTime">TestResult.StartTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_EndTime">TestResult.EndTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_TestAttachments">TestResult.TestAttachments</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_Message">TestResult.Message</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_StackTrace">TestResult.StackTrace</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_AssertCount">TestResult.AssertCount</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_OutWriter">TestResult.OutWriter</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_Output">TestResult.Output</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_AssertionResults">TestResult.AssertionResults</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_PendingFailures">TestResult.PendingFailures</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_WorstAssertionStatus">TestResult.WorstAssertionStatus</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Compatibility.LongLivedMarshalByRefObject.html#NUnit_Compatibility_LongLivedMarshalByRefObject_InitializeLifetimeService">LongLivedMarshalByRefObject.InitializeLifetimeService()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.getlifetimeservice">MarshalByRefObject.GetLifetimeService()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.memberwiseclone">MarshalByRefObject.MemberwiseClone(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Internal.html">Internal</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_Internal_TestCaseResult_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TestCaseResult : TestResult, ITestResult, IXmlNodeBuilder</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Results/TestCaseResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestCaseResult__ctor_" data-uid="NUnit.Framework.Internal.TestCaseResult.#ctor*"></a>
+  <h4 id="NUnit_Framework_Internal_TestCaseResult__ctor_NUnit_Framework_Internal_TestMethod_" data-uid="NUnit.Framework.Internal.TestCaseResult.#ctor(NUnit.Framework.Internal.TestMethod)">TestCaseResult(TestMethod)</h4>
+  <div class="markdown level1 summary"><p>Construct a TestCaseResult based on a TestMethod</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestCaseResult(TestMethod test)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.TestMethod.html">TestMethod</a></td>
+        <td><span class="parametername">test</span></td>
+        <td><p>A TestMethod to which the result applies.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Results/TestCaseResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestCaseResult_Children_" data-uid="NUnit.Framework.Internal.TestCaseResult.Children*"></a>
+  <h4 id="NUnit_Framework_Internal_TestCaseResult_Children" data-uid="NUnit.Framework.Internal.TestCaseResult.Children">Children</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of child results.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;ITestResult&gt; Children { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NUnit.Framework.Interfaces.ITestResult.html">ITestResult</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_Children">TestResult.Children</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Results/TestCaseResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestCaseResult_FailCount_" data-uid="NUnit.Framework.Internal.TestCaseResult.FailCount*"></a>
+  <h4 id="NUnit_Framework_Internal_TestCaseResult_FailCount" data-uid="NUnit.Framework.Internal.TestCaseResult.FailCount">FailCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of test cases that failed
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int FailCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_FailCount">TestResult.FailCount</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Results/TestCaseResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestCaseResult_HasChildren_" data-uid="NUnit.Framework.Internal.TestCaseResult.HasChildren*"></a>
+  <h4 id="NUnit_Framework_Internal_TestCaseResult_HasChildren" data-uid="NUnit.Framework.Internal.TestCaseResult.HasChildren">HasChildren</h4>
+  <div class="markdown level1 summary"><p>Indicates whether this result has any child results.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool HasChildren { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_HasChildren">TestResult.HasChildren</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Results/TestCaseResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestCaseResult_InconclusiveCount_" data-uid="NUnit.Framework.Internal.TestCaseResult.InconclusiveCount*"></a>
+  <h4 id="NUnit_Framework_Internal_TestCaseResult_InconclusiveCount" data-uid="NUnit.Framework.Internal.TestCaseResult.InconclusiveCount">InconclusiveCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of test cases that were inconclusive
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int InconclusiveCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_InconclusiveCount">TestResult.InconclusiveCount</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Results/TestCaseResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestCaseResult_PassCount_" data-uid="NUnit.Framework.Internal.TestCaseResult.PassCount*"></a>
+  <h4 id="NUnit_Framework_Internal_TestCaseResult_PassCount" data-uid="NUnit.Framework.Internal.TestCaseResult.PassCount">PassCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of test cases that passed
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int PassCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_PassCount">TestResult.PassCount</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Results/TestCaseResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestCaseResult_SkipCount_" data-uid="NUnit.Framework.Internal.TestCaseResult.SkipCount*"></a>
+  <h4 id="NUnit_Framework_Internal_TestCaseResult_SkipCount" data-uid="NUnit.Framework.Internal.TestCaseResult.SkipCount">SkipCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of test cases that were skipped
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int SkipCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_SkipCount">TestResult.SkipCount</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Results/TestCaseResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestCaseResult_TotalCount_" data-uid="NUnit.Framework.Internal.TestCaseResult.TotalCount*"></a>
+  <h4 id="NUnit_Framework_Internal_TestCaseResult_TotalCount" data-uid="NUnit.Framework.Internal.TestCaseResult.TotalCount">TotalCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of test cases that executed
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int TotalCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_TotalCount">TestResult.TotalCount</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Results/TestCaseResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestCaseResult_WarningCount_" data-uid="NUnit.Framework.Internal.TestCaseResult.WarningCount*"></a>
+  <h4 id="NUnit_Framework_Internal_TestCaseResult_WarningCount" data-uid="NUnit.Framework.Internal.TestCaseResult.WarningCount">WarningCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of test cases that had warnings
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int WarningCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.TestResult.html#NUnit_Framework_Internal_TestResult_WarningCount">TestResult.WarningCount</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="NUnit.Framework.Interfaces.ITestResult.html">ITestResult</a>
+  </div>
+  <div>
+      <a class="xref" href="NUnit.Framework.Interfaces.IXmlNodeBuilder.html">IXmlNodeBuilder</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Results/TestCaseResult.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

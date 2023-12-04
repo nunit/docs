@@ -1,0 +1,630 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class Reflect
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class Reflect
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Internal.Reflect">
+
+
+
+  <h1 id="NUnit_Framework_Internal_Reflect" data-uid="NUnit.Framework.Internal.Reflect" class="text-break">Class Reflect
+</h1>
+  <div class="markdown level0 summary"><p>Helper methods for inspecting a type by reflection.</p>
+<p>Many of these methods take ICustomAttributeProvider as an
+argument to avoid duplication, even though certain attributes can
+only appear on specific types of members, like MethodInfo or Type.</p>
+<p>In the case where a type is being examined for the presence of
+an attribute, interface or named member, the Reflect methods
+operate with the full name of the member being sought. This
+removes the necessity of the caller having a reference to the
+assembly that defines the item being sought and allows the
+NUnit core to inspect assemblies that reference an older
+version of the NUnit framework.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Reflect</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Internal.html">Internal</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_Internal_Reflect_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Reflect</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Reflect.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_Reflect_Construct_" data-uid="NUnit.Framework.Internal.Reflect.Construct*"></a>
+  <h4 id="NUnit_Framework_Internal_Reflect_Construct_System_Type_" data-uid="NUnit.Framework.Internal.Reflect.Construct(System.Type)">Construct(Type)</h4>
+  <div class="markdown level1 summary"><p>Invoke the default constructor on a Type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object Construct(Type type)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The Type to be constructed</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><p>An instance of the Type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Reflect.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_Reflect_Construct_" data-uid="NUnit.Framework.Internal.Reflect.Construct*"></a>
+  <h4 id="NUnit_Framework_Internal_Reflect_Construct_System_Type_System_Object___" data-uid="NUnit.Framework.Internal.Reflect.Construct(System.Type,System.Object[])">Construct(Type, object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Invoke a constructor on a Type with arguments</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object Construct(Type type, object?[]? arguments)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The Type to be constructed</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">arguments</span></td>
+        <td><p>Arguments to the constructor</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><p>An instance of the Type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Reflect.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_Reflect_GetDefaultIndexer_" data-uid="NUnit.Framework.Internal.Reflect.GetDefaultIndexer*"></a>
+  <h4 id="NUnit_Framework_Internal_Reflect_GetDefaultIndexer_System_Type_System_Type___" data-uid="NUnit.Framework.Internal.Reflect.GetDefaultIndexer(System.Type,System.Type[])">GetDefaultIndexer(Type, Type[])</h4>
+  <div class="markdown level1 summary"><p>Returns the get accessor for the indexer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MethodInfo? GetDefaultIndexer(Type type, Type[] indexerTypes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>Type to reflect on for the indexer.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</td>
+        <td><span class="parametername">indexerTypes</span></td>
+        <td><p>List of indexer types that matches the indexer type order.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
+        <td><p>The Get accessor</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Reflect.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_Reflect_GetMemberIncludingFromBase_" data-uid="NUnit.Framework.Internal.Reflect.GetMemberIncludingFromBase*"></a>
+  <h4 id="NUnit_Framework_Internal_Reflect_GetMemberIncludingFromBase_System_Type_System_String_System_Reflection_BindingFlags_" data-uid="NUnit.Framework.Internal.Reflect.GetMemberIncludingFromBase(System.Type,System.String,System.Reflection.BindingFlags)">GetMemberIncludingFromBase(Type, string, BindingFlags)</h4>
+  <div class="markdown level1 summary"><p>Searches for the specified members, using the specified binding constraints.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MemberInfo[] GetMemberIncludingFromBase(this Type type, string name, BindingFlags flags)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The type to find the members from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The string containing the name of the members to get.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags">BindingFlags</a></td>
+        <td><span class="parametername">flags</span></td>
+        <td><p>A bitwise combination of the enumeration values that specify how the search is conducted.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="NUnit_Framework_Internal_Reflect_GetMemberIncludingFromBase_System_Type_System_String_System_Reflection_BindingFlags__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Similar to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type.getmember#system-type-getmember(system-string-system-reflection-bindingflags)">GetMember(string, BindingFlags)</a> but also finds private static members from the base class.</p>
+</div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Reflect.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_Reflect_GetUltimateShadowingProperty_" data-uid="NUnit.Framework.Internal.Reflect.GetUltimateShadowingProperty*"></a>
+  <h4 id="NUnit_Framework_Internal_Reflect_GetUltimateShadowingProperty_System_Type_System_String_System_Reflection_BindingFlags_" data-uid="NUnit.Framework.Internal.Reflect.GetUltimateShadowingProperty(System.Type,System.String,System.Reflection.BindingFlags)">GetUltimateShadowingProperty(Type, string, BindingFlags)</h4>
+  <div class="markdown level1 summary"><p>
+Selects the ultimate shadowing property just like <code>dynamic</code> would,
+rather than throwing <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.ambiguousmatchexception">AmbiguousMatchException</a>
+for properties that shadow properties of a different property type
+which is what <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type.getproperty#system-type-getproperty(system-string-system-reflection-bindingflags)">GetProperty(string, BindingFlags)</a> does.
+</p>
+<p>
+If you request both public and nonpublic properties, every public property is preferred
+over every nonpublic property. It would violate the principle of least surprise for a
+derived class’s implementation detail to be chosen over the public API for a type.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PropertyInfo? GetUltimateShadowingProperty(Type type, string name, BindingFlags bindingFlags)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>See <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type.getproperty#system-type-getproperty(system-string-system-reflection-bindingflags)">GetProperty(string, BindingFlags)</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>See <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type.getproperty#system-type-getproperty(system-string-system-reflection-bindingflags)">GetProperty(string, BindingFlags)</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.bindingflags">BindingFlags</a></td>
+        <td><span class="parametername">bindingFlags</span></td>
+        <td><p>See <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type.getproperty#system-type-getproperty(system-string-system-reflection-bindingflags)">GetProperty(string, BindingFlags)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Reflect.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_Reflect_HasMethodWithAttribute_" data-uid="NUnit.Framework.Internal.Reflect.HasMethodWithAttribute*"></a>
+  <h4 id="NUnit_Framework_Internal_Reflect_HasMethodWithAttribute_System_Type_System_Type_" data-uid="NUnit.Framework.Internal.Reflect.HasMethodWithAttribute(System.Type,System.Type)">HasMethodWithAttribute(Type, Type)</h4>
+  <div class="markdown level1 summary"><p>Examine a fixture type and return true if it has a method with
+a particular attribute.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasMethodWithAttribute(Type fixtureType, Type attributeType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">fixtureType</span></td>
+        <td><p>The type to examine</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">attributeType</span></td>
+        <td><p>The attribute Type to look for</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True if found, otherwise false</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Reflect.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_Reflect_InvokeMethod_" data-uid="NUnit.Framework.Internal.Reflect.InvokeMethod*"></a>
+  <h4 id="NUnit_Framework_Internal_Reflect_InvokeMethod_System_Reflection_MethodInfo_System_Object_" data-uid="NUnit.Framework.Internal.Reflect.InvokeMethod(System.Reflection.MethodInfo,System.Object)">InvokeMethod(MethodInfo, object?)</h4>
+  <div class="markdown level1 summary"><p>Invoke a parameterless method returning void on an object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object? InvokeMethod(MethodInfo method, object? fixture)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
+        <td><span class="parametername">method</span></td>
+        <td><p>A MethodInfo for the method to be invoked</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">fixture</span></td>
+        <td><p>The object on which to invoke the method</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Reflect.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_Reflect_InvokeMethod_" data-uid="NUnit.Framework.Internal.Reflect.InvokeMethod*"></a>
+  <h4 id="NUnit_Framework_Internal_Reflect_InvokeMethod_System_Reflection_MethodInfo_System_Object_System_Object___" data-uid="NUnit.Framework.Internal.Reflect.InvokeMethod(System.Reflection.MethodInfo,System.Object,System.Object[])">InvokeMethod(MethodInfo, object?, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Invoke a method, converting any TargetInvocationException to an NUnitException.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object? InvokeMethod(MethodInfo method, object? fixture, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
+        <td><span class="parametername">method</span></td>
+        <td><p>A MethodInfo for the method to be invoked</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">fixture</span></td>
+        <td><p>The object on which to invoke the method</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>The argument list for the method</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><p>The return value from the invoked method</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Reflect.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

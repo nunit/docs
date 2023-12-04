@@ -1,0 +1,544 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class TestContext.TestAdapter
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class TestContext.TestAdapter
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.TestContext.TestAdapter">
+
+
+
+  <h1 id="NUnit_Framework_TestContext_TestAdapter" data-uid="NUnit.Framework.TestContext.TestAdapter" class="text-break">Class TestContext.TestAdapter
+</h1>
+  <div class="markdown level0 summary"><p>TestAdapter adapts a Test for consumption by
+the user test code.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">TestContext.TestAdapter</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_TestContext_TestAdapter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TestContext.TestAdapter</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter__ctor_" data-uid="NUnit.Framework.TestContext.TestAdapter.#ctor*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter__ctor_NUnit_Framework_Internal_Test_" data-uid="NUnit.Framework.TestContext.TestAdapter.#ctor(NUnit.Framework.Internal.Test)">TestAdapter(Test)</h4>
+  <div class="markdown level1 summary"><p>Construct a TestAdapter for a Test</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestAdapter(Test test)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.Test.html">Test</a></td>
+        <td><span class="parametername">test</span></td>
+        <td><p>The Test to be adapted</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_Arguments_" data-uid="NUnit.Framework.TestContext.TestAdapter.Arguments*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_Arguments" data-uid="NUnit.Framework.TestContext.TestAdapter.Arguments">Arguments</h4>
+  <div class="markdown level1 summary"><p>The arguments to use in creating the test or empty array if none are required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object?[] Arguments { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_ClassName_" data-uid="NUnit.Framework.TestContext.TestAdapter.ClassName*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_ClassName" data-uid="NUnit.Framework.TestContext.TestAdapter.ClassName">ClassName</h4>
+  <div class="markdown level1 summary"><p>The ClassName of the test</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ClassName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_DisplayName_" data-uid="NUnit.Framework.TestContext.TestAdapter.DisplayName*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_DisplayName" data-uid="NUnit.Framework.TestContext.TestAdapter.DisplayName">DisplayName</h4>
+  <div class="markdown level1 summary"><p>Get the display name of the test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? DisplayName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_ExpectedResult_" data-uid="NUnit.Framework.TestContext.TestAdapter.ExpectedResult*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_ExpectedResult" data-uid="NUnit.Framework.TestContext.TestAdapter.ExpectedResult">ExpectedResult</h4>
+  <div class="markdown level1 summary"><p>The expected result if there is one for the test</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object? ExpectedResult { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_FullName_" data-uid="NUnit.Framework.TestContext.TestAdapter.FullName*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_FullName" data-uid="NUnit.Framework.TestContext.TestAdapter.FullName">FullName</h4>
+  <div class="markdown level1 summary"><p>The FullName of the test</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FullName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_ID_" data-uid="NUnit.Framework.TestContext.TestAdapter.ID*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_ID" data-uid="NUnit.Framework.TestContext.TestAdapter.ID">ID</h4>
+  <div class="markdown level1 summary"><p>Gets the unique Id of a test</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_Method_" data-uid="NUnit.Framework.TestContext.TestAdapter.Method*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_Method" data-uid="NUnit.Framework.TestContext.TestAdapter.Method">Method</h4>
+  <div class="markdown level1 summary"><p>The method representing the test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMethodInfo? Method { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.IMethodInfo.html">IMethodInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_MethodName_" data-uid="NUnit.Framework.TestContext.TestAdapter.MethodName*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_MethodName" data-uid="NUnit.Framework.TestContext.TestAdapter.MethodName">MethodName</h4>
+  <div class="markdown level1 summary"><p>The name of the method representing the test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? MethodName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_Name_" data-uid="NUnit.Framework.TestContext.TestAdapter.Name*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_Name" data-uid="NUnit.Framework.TestContext.TestAdapter.Name">Name</h4>
+  <div class="markdown level1 summary"><p>The name of the test, which may or may not be
+the same as the method name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_Namespace_" data-uid="NUnit.Framework.TestContext.TestAdapter.Namespace*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_Namespace" data-uid="NUnit.Framework.TestContext.TestAdapter.Namespace">Namespace</h4>
+  <div class="markdown level1 summary"><p>Get the Namespace of the test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Namespace { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_Properties_" data-uid="NUnit.Framework.TestContext.TestAdapter.Properties*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_Properties" data-uid="NUnit.Framework.TestContext.TestAdapter.Properties">Properties</h4>
+  <div class="markdown level1 summary"><p>A shallow copy of the properties of the test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestContext.PropertyBagAdapter Properties { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.TestContext.html">TestContext</a>.<a class="xref" href="NUnit.Framework.TestContext.PropertyBagAdapter.html">PropertyBagAdapter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_Type_" data-uid="NUnit.Framework.TestContext.TestAdapter.Type*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_Type" data-uid="NUnit.Framework.TestContext.TestAdapter.Type">Type</h4>
+  <div class="markdown level1 summary"><p>Gets the underlying Type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type? Type { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

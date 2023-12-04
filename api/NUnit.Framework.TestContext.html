@@ -1,0 +1,1776 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class TestContext
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class TestContext
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.TestContext">
+
+
+
+  <h1 id="NUnit_Framework_TestContext" data-uid="NUnit.Framework.TestContext" class="text-break">Class TestContext
+</h1>
+  <div class="markdown level0 summary"><p>Provide the context information of the current test.
+This is an adapter for the internal ExecutionContext
+class, hiding the internals from the user test.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">TestContext</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_TestContext_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TestContext</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext__ctor_" data-uid="NUnit.Framework.TestContext.#ctor*"></a>
+  <h4 id="NUnit_Framework_TestContext__ctor_NUnit_Framework_Internal_TestExecutionContext_" data-uid="NUnit.Framework.TestContext.#ctor(NUnit.Framework.Internal.TestExecutionContext)">TestContext(TestExecutionContext)</h4>
+  <div class="markdown level1 summary"><p>Construct a TestContext for an ExecutionContext</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestContext(TestExecutionContext testExecutionContext)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.TestExecutionContext.html">TestExecutionContext</a></td>
+        <td><span class="parametername">testExecutionContext</span></td>
+        <td><p>The ExecutionContext to adapt</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <h4 id="NUnit_Framework_TestContext_Error" data-uid="NUnit.Framework.TestContext.Error">Error</h4>
+  <div class="markdown level1 summary"><p>Gets a TextWriter that will send output directly to Console.Error</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TextWriter Error</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <h4 id="NUnit_Framework_TestContext_Parameters" data-uid="NUnit.Framework.TestContext.Parameters">Parameters</h4>
+  <div class="markdown level1 summary"><p>TestParameters object holds parameters for the test run, if any are specified</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly TestParameters Parameters</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.TestParameters.html">TestParameters</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <h4 id="NUnit_Framework_TestContext_Progress" data-uid="NUnit.Framework.TestContext.Progress">Progress</h4>
+  <div class="markdown level1 summary"><p>Gets a TextWriter for use in displaying immediate progress messages</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly TextWriter Progress</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_AssertCount_" data-uid="NUnit.Framework.TestContext.AssertCount*"></a>
+  <h4 id="NUnit_Framework_TestContext_AssertCount" data-uid="NUnit.Framework.TestContext.AssertCount">AssertCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of assertions executed
+up to this point in the test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AssertCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_CancellationToken_" data-uid="NUnit.Framework.TestContext.CancellationToken*"></a>
+  <h4 id="NUnit_Framework_TestContext_CancellationToken" data-uid="NUnit.Framework.TestContext.CancellationToken">CancellationToken</h4>
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="NUnit.Framework.TestContext.html#NUnit_Framework_TestContext_CancellationToken">CancellationToken</a> for the test case.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CancellationToken CancellationToken { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_CurrentContext_" data-uid="NUnit.Framework.TestContext.CurrentContext*"></a>
+  <h4 id="NUnit_Framework_TestContext_CurrentContext" data-uid="NUnit.Framework.TestContext.CurrentContext">CurrentContext</h4>
+  <div class="markdown level1 summary"><p>Get the current test context. This is created
+as needed. The user may save the context for
+use within a test, but it should not be used
+outside the test for which it is created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TestContext CurrentContext { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.TestContext.html">TestContext</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_CurrentRepeatCount_" data-uid="NUnit.Framework.TestContext.CurrentRepeatCount*"></a>
+  <h4 id="NUnit_Framework_TestContext_CurrentRepeatCount" data-uid="NUnit.Framework.TestContext.CurrentRepeatCount">CurrentRepeatCount</h4>
+  <div class="markdown level1 summary"><p>Get the number of times the current Test has been repeated
+when using the <a class="xref" href="NUnit.Framework.RetryAttribute.html">RetryAttribute</a> or <a class="xref" href="NUnit.Framework.RepeatAttribute.html">RepeatAttribute</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CurrentRepeatCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Out_" data-uid="NUnit.Framework.TestContext.Out*"></a>
+  <h4 id="NUnit_Framework_TestContext_Out" data-uid="NUnit.Framework.TestContext.Out">Out</h4>
+  <div class="markdown level1 summary"><p>Gets a TextWriter that will send output to the current test result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TextWriter Out { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Random_" data-uid="NUnit.Framework.TestContext.Random*"></a>
+  <h4 id="NUnit_Framework_TestContext_Random" data-uid="NUnit.Framework.TestContext.Random">Random</h4>
+  <div class="markdown level1 summary"><p>Gets the random generator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Randomizer Random { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.Randomizer.html">Randomizer</a></td>
+        <td><p>The random generator.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Result_" data-uid="NUnit.Framework.TestContext.Result*"></a>
+  <h4 id="NUnit_Framework_TestContext_Result" data-uid="NUnit.Framework.TestContext.Result">Result</h4>
+  <div class="markdown level1 summary"><p>Gets a Representation of the TestResult for the current test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestContext.ResultAdapter Result { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.TestContext.html">TestContext</a>.<a class="xref" href="NUnit.Framework.TestContext.ResultAdapter.html">ResultAdapter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Test_" data-uid="NUnit.Framework.TestContext.Test*"></a>
+  <h4 id="NUnit_Framework_TestContext_Test" data-uid="NUnit.Framework.TestContext.Test">Test</h4>
+  <div class="markdown level1 summary"><p>Get a representation of the current test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestContext.TestAdapter Test { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.TestContext.html">TestContext</a>.<a class="xref" href="NUnit.Framework.TestContext.TestAdapter.html">TestAdapter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestDirectory_" data-uid="NUnit.Framework.TestContext.TestDirectory*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestDirectory" data-uid="NUnit.Framework.TestContext.TestDirectory">TestDirectory</h4>
+  <div class="markdown level1 summary"><p>Gets the directory containing the current test assembly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string TestDirectory { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WorkDirectory_" data-uid="NUnit.Framework.TestContext.WorkDirectory*"></a>
+  <h4 id="NUnit_Framework_TestContext_WorkDirectory" data-uid="NUnit.Framework.TestContext.WorkDirectory">WorkDirectory</h4>
+  <div class="markdown level1 summary"><p>Gets the directory to be used for outputting files created
+by this test run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string WorkDirectory { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WorkerId_" data-uid="NUnit.Framework.TestContext.WorkerId*"></a>
+  <h4 id="NUnit_Framework_TestContext_WorkerId" data-uid="NUnit.Framework.TestContext.WorkerId">WorkerId</h4>
+  <div class="markdown level1 summary"><p>Gets the unique name of the Worker that is executing this test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? WorkerId { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_AddFormatter_" data-uid="NUnit.Framework.TestContext.AddFormatter*"></a>
+  <h4 id="NUnit_Framework_TestContext_AddFormatter_NUnit_Framework_Constraints_ValueFormatterFactory_" data-uid="NUnit.Framework.TestContext.AddFormatter(NUnit.Framework.Constraints.ValueFormatterFactory)">AddFormatter(ValueFormatterFactory)</h4>
+  <div class="markdown level1 summary"><p>This method adds the a new ValueFormatterFactory to the
+chain of responsibility used for formatting values in messages.
+The scope of the change is the current TestContext.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddFormatter(ValueFormatterFactory formatterFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ValueFormatterFactory.html">ValueFormatterFactory</a></td>
+        <td><span class="parametername">formatterFactory</span></td>
+        <td><p>The factory delegate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_AddFormatter_" data-uid="NUnit.Framework.TestContext.AddFormatter*"></a>
+  <h4 id="NUnit_Framework_TestContext_AddFormatter__1_NUnit_Framework_Constraints_ValueFormatter_" data-uid="NUnit.Framework.TestContext.AddFormatter``1(NUnit.Framework.Constraints.ValueFormatter)">AddFormatter&lt;TSupported&gt;(ValueFormatter)</h4>
+  <div class="markdown level1 summary"><p>This method provides a simplified way to add a ValueFormatter
+delegate to the chain of responsibility, creating the factory
+delegate internally. It is useful when the Type of the object
+is the only criterion for selection of the formatter, since
+it can be used without getting involved with a compound function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddFormatter&lt;TSupported&gt;(ValueFormatter formatter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ValueFormatter.html">ValueFormatter</a></td>
+        <td><span class="parametername">formatter</span></td>
+        <td><p>The ValueFormatter delegate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSupported</span></td>
+        <td><p>The type supported by this formatter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_AddTestAttachment_" data-uid="NUnit.Framework.TestContext.AddTestAttachment*"></a>
+  <h4 id="NUnit_Framework_TestContext_AddTestAttachment_System_String_System_String_" data-uid="NUnit.Framework.TestContext.AddTestAttachment(System.String,System.String)">AddTestAttachment(string, string?)</h4>
+  <div class="markdown level1 summary"><p>Attach a file to the current test result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddTestAttachment(string filePath, string? description = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">filePath</span></td>
+        <td><p>Relative or absolute file path to attachment</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">description</span></td>
+        <td><p>Optional description of attachment</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_Boolean_" data-uid="NUnit.Framework.TestContext.Write(System.Boolean)">Write(bool)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a boolean value to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(bool value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_Char_" data-uid="NUnit.Framework.TestContext.Write(System.Char)">Write(char)</h4>
+  <div class="markdown level1 summary"><p>Write a char to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(char value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_Char___" data-uid="NUnit.Framework.TestContext.Write(System.Char[])">Write(char[]?)</h4>
+  <div class="markdown level1 summary"><p>Write a char array to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(char[]? value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_Decimal_" data-uid="NUnit.Framework.TestContext.Write(System.Decimal)">Write(decimal)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a decimal value to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(decimal value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_Double_" data-uid="NUnit.Framework.TestContext.Write(System.Double)">Write(double)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a double to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_Int32_" data-uid="NUnit.Framework.TestContext.Write(System.Int32)">Write(int)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of an Int32 value to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_Int64_" data-uid="NUnit.Framework.TestContext.Write(System.Int64)">Write(long)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of an Int64 value to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(long value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_Object_" data-uid="NUnit.Framework.TestContext.Write(System.Object)">Write(object?)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of an object to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(object? value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_Single_" data-uid="NUnit.Framework.TestContext.Write(System.Single)">Write(float)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a Single value to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(float value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_String_" data-uid="NUnit.Framework.TestContext.Write(System.String)">Write(string?)</h4>
+  <div class="markdown level1 summary"><p>Write a string to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(string? value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_String_System_Object_" data-uid="NUnit.Framework.TestContext.Write(System.String,System.Object)">Write(string, object?)</h4>
+  <div class="markdown level1 summary"><p>Write a formatted string to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(string format, object? arg1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg1</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_String_System_Object_System_Object_" data-uid="NUnit.Framework.TestContext.Write(System.String,System.Object,System.Object)">Write(string, object?, object?)</h4>
+  <div class="markdown level1 summary"><p>Write a formatted string to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(string format, object? arg1, object? arg2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_String_System_Object_System_Object_System_Object_" data-uid="NUnit.Framework.TestContext.Write(System.String,System.Object,System.Object,System.Object)">Write(string, object?, object?, object?)</h4>
+  <div class="markdown level1 summary"><p>Write a formatted string to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(string format, object? arg1, object? arg2, object? arg3)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg3</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_String_System_Object___" data-uid="NUnit.Framework.TestContext.Write(System.String,System.Object[])">Write(string, params object?[])</h4>
+  <div class="markdown level1 summary"><p>Write a formatted string to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(string format, params object?[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_UInt32_" data-uid="NUnit.Framework.TestContext.Write(System.UInt32)">Write(uint)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a UInt32 value to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static void Write(uint value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_Write_" data-uid="NUnit.Framework.TestContext.Write*"></a>
+  <h4 id="NUnit_Framework_TestContext_Write_System_UInt64_" data-uid="NUnit.Framework.TestContext.Write(System.UInt64)">Write(ulong)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a UInt64 value to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static void Write(ulong value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine" data-uid="NUnit.Framework.TestContext.WriteLine">WriteLine()</h4>
+  <div class="markdown level1 summary"><p>Write a line terminator to the current result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine()</code></pre>
+  </div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_Boolean_" data-uid="NUnit.Framework.TestContext.WriteLine(System.Boolean)">WriteLine(bool)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a boolean value to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(bool value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_Char_" data-uid="NUnit.Framework.TestContext.WriteLine(System.Char)">WriteLine(char)</h4>
+  <div class="markdown level1 summary"><p>Write a char to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(char value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_Char___" data-uid="NUnit.Framework.TestContext.WriteLine(System.Char[])">WriteLine(char[]?)</h4>
+  <div class="markdown level1 summary"><p>Write a char array to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(char[]? value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_Decimal_" data-uid="NUnit.Framework.TestContext.WriteLine(System.Decimal)">WriteLine(decimal)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a decimal value to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(decimal value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_Double_" data-uid="NUnit.Framework.TestContext.WriteLine(System.Double)">WriteLine(double)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a double to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_Int32_" data-uid="NUnit.Framework.TestContext.WriteLine(System.Int32)">WriteLine(int)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of an Int32 value to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_Int64_" data-uid="NUnit.Framework.TestContext.WriteLine(System.Int64)">WriteLine(long)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of an Int64 value to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(long value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_Object_" data-uid="NUnit.Framework.TestContext.WriteLine(System.Object)">WriteLine(object?)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of an object to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(object? value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_Single_" data-uid="NUnit.Framework.TestContext.WriteLine(System.Single)">WriteLine(float)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a Single value to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(float value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_String_" data-uid="NUnit.Framework.TestContext.WriteLine(System.String)">WriteLine(string?)</h4>
+  <div class="markdown level1 summary"><p>Write a string to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(string? value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_String_System_Object_" data-uid="NUnit.Framework.TestContext.WriteLine(System.String,System.Object)">WriteLine(string, object?)</h4>
+  <div class="markdown level1 summary"><p>Write a formatted string to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(string format, object? arg1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg1</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_String_System_Object_System_Object_" data-uid="NUnit.Framework.TestContext.WriteLine(System.String,System.Object,System.Object)">WriteLine(string, object?, object?)</h4>
+  <div class="markdown level1 summary"><p>Write a formatted string to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(string format, object? arg1, object? arg2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_String_System_Object_System_Object_System_Object_" data-uid="NUnit.Framework.TestContext.WriteLine(System.String,System.Object,System.Object,System.Object)">WriteLine(string, object?, object?, object?)</h4>
+  <div class="markdown level1 summary"><p>Write a formatted string to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(string format, object? arg1, object? arg2, object? arg3)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">arg3</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_String_System_Object___" data-uid="NUnit.Framework.TestContext.WriteLine(System.String,System.Object[])">WriteLine(string, params object?[])</h4>
+  <div class="markdown level1 summary"><p>Write a formatted string to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLine(string format, params object?[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_UInt32_" data-uid="NUnit.Framework.TestContext.WriteLine(System.UInt32)">WriteLine(uint)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a UInt32 value to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static void WriteLine(uint value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_WriteLine_" data-uid="NUnit.Framework.TestContext.WriteLine*"></a>
+  <h4 id="NUnit_Framework_TestContext_WriteLine_System_UInt64_" data-uid="NUnit.Framework.TestContext.WriteLine(System.UInt64)">WriteLine(ulong)</h4>
+  <div class="markdown level1 summary"><p>Write the string representation of a UInt64 value to the current result followed by a line terminator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static void WriteLine(ulong value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/TestContext.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Namespace NUnit.Framework.Api
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Namespace NUnit.Framework.Api
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Api">
+
+  <h1 id="NUnit_Framework_Api" data-uid="NUnit.Framework.Api" class="text-break">Namespace NUnit.Framework.Api
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">
+Classes
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Api.DefaultTestAssemblyBuilder.html">DefaultTestAssemblyBuilder</a></h4>
+      <section><p>DefaultTestAssemblyBuilder loads a single assembly and builds a TestSuite
+containing test fixtures present in the assembly.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Api.FrameworkController.html">FrameworkController</a></h4>
+      <section><p>FrameworkController provides a facade for use in loading, browsing
+and running tests without requiring a reference to the NUnit
+framework. All calls are encapsulated in constructors for
+this class and its nested classes, which only require the
+types of the Common Type System as arguments.</p>
+<p>The controller supports four actions: Load, Explore, Count and Run.
+They are intended to be called by a driver, which should allow for
+proper sequencing of calls. Load must be called before any of the
+other actions. The driver may support other actions, such as
+reload on run, by combining these calls.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Api.FrameworkController.CountTestsAction.html">FrameworkController.CountTestsAction</a></h4>
+      <section><p>CountTestsAction counts the number of test cases in the loaded TestSuite
+held by the FrameworkController.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Api.FrameworkController.ExploreTestsAction.html">FrameworkController.ExploreTestsAction</a></h4>
+      <section><p>ExploreTestsAction returns info about the tests in an assembly</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Api.FrameworkController.FrameworkControllerAction.html">FrameworkController.FrameworkControllerAction</a></h4>
+      <section><p>FrameworkControllerAction is the base class for all actions
+performed against a FrameworkController.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Api.FrameworkController.LoadTestsAction.html">FrameworkController.LoadTestsAction</a></h4>
+      <section><p>LoadTestsAction loads a test into the FrameworkController</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Api.FrameworkController.RunAsyncAction.html">FrameworkController.RunAsyncAction</a></h4>
+      <section><p>RunAsyncAction initiates an asynchronous test run, returning immediately</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Api.FrameworkController.RunTestsAction.html">FrameworkController.RunTestsAction</a></h4>
+      <section><p>RunTestsAction runs the loaded TestSuite held by the FrameworkController.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Api.FrameworkController.StopRunAction.html">FrameworkController.StopRunAction</a></h4>
+      <section><p>StopRunAction stops an ongoing run.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Api.NUnitTestAssemblyRunner.html">NUnitTestAssemblyRunner</a></h4>
+      <section><p>Implementation of ITestAssemblyRunner</p>
+</section>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Api.ITestAssemblyBuilder.html">ITestAssemblyBuilder</a></h4>
+      <section><p>The ITestAssemblyBuilder interface is implemented by a class
+that is able to build a suite of tests given an assembly or
+an assembly filename.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Api.ITestAssemblyRunner.html">ITestAssemblyRunner</a></h4>
+      <section><p>The ITestAssemblyRunner interface is implemented by classes
+that are able to execute a suite of tests loaded
+from an assembly.</p>
+</section>
+
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

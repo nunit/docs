@@ -1,0 +1,1082 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class TestExecutionContext
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class TestExecutionContext
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Internal.TestExecutionContext">
+
+
+
+  <h1 id="NUnit_Framework_Internal_TestExecutionContext" data-uid="NUnit.Framework.Internal.TestExecutionContext" class="text-break">Class TestExecutionContext
+</h1>
+  <div class="markdown level0 summary"><p>Helper class used to save and restore certain static or
+singleton settings in the environment that affect tests
+or which might be changed by the user tests.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject">MarshalByRefObject</a></div>
+    <div class="level2"><a class="xref" href="NUnit.Compatibility.LongLivedMarshalByRefObject.html">LongLivedMarshalByRefObject</a></div>
+    <div class="level3"><span class="xref">TestExecutionContext</span></div>
+      <div class="level4"><a class="xref" href="NUnit.Framework.Internal.TestExecutionContext.AdhocContext.html">TestExecutionContext.AdhocContext</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Compatibility.LongLivedMarshalByRefObject.html#NUnit_Compatibility_LongLivedMarshalByRefObject_InitializeLifetimeService">LongLivedMarshalByRefObject.InitializeLifetimeService()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.getlifetimeservice">MarshalByRefObject.GetLifetimeService()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.memberwiseclone">MarshalByRefObject.MemberwiseClone(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Internal.html">Internal</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_Internal_TestExecutionContext_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TestExecutionContext : LongLivedMarshalByRefObject</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext__ctor_" data-uid="NUnit.Framework.Internal.TestExecutionContext.#ctor*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext__ctor" data-uid="NUnit.Framework.Internal.TestExecutionContext.#ctor">TestExecutionContext()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NUnit.Framework.Internal.TestExecutionContext.html">TestExecutionContext</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestExecutionContext()</code></pre>
+  </div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext__ctor_" data-uid="NUnit.Framework.Internal.TestExecutionContext.#ctor*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext__ctor_NUnit_Framework_Internal_TestExecutionContext_" data-uid="NUnit.Framework.Internal.TestExecutionContext.#ctor(NUnit.Framework.Internal.TestExecutionContext)">TestExecutionContext(TestExecutionContext)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NUnit.Framework.Internal.TestExecutionContext.html">TestExecutionContext</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestExecutionContext(TestExecutionContext other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.TestExecutionContext.html">TestExecutionContext</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>An existing instance of TestExecutionContext.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_CancellationToken_" data-uid="NUnit.Framework.Internal.TestExecutionContext.CancellationToken*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_CancellationToken" data-uid="NUnit.Framework.Internal.TestExecutionContext.CancellationToken">CancellationToken</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the <a class="xref" href="NUnit.Framework.Internal.TestExecutionContext.html#NUnit_Framework_Internal_TestExecutionContext_CancellationToken">CancellationToken</a> for the test case.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CancellationToken CancellationToken { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_CurrentContext_" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentContext*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_CurrentContext" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentContext">CurrentContext</h4>
+  <div class="markdown level1 summary"><p>Gets and sets the current context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TestExecutionContext CurrentContext { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.TestExecutionContext.html">TestExecutionContext</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_CurrentCulture_" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentCulture*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_CurrentCulture" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentCulture">CurrentCulture</h4>
+  <div class="markdown level1 summary"><p>Saves or restores the CurrentCulture</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CultureInfo CurrentCulture { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_CurrentPrincipal_" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentPrincipal*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_CurrentPrincipal" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentPrincipal">CurrentPrincipal</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the current <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.principal.iprincipal">IPrincipal</a> for the Thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPrincipal? CurrentPrincipal { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.principal.iprincipal">IPrincipal</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_CurrentRepeatCount_" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentRepeatCount*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_CurrentRepeatCount" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentRepeatCount">CurrentRepeatCount</h4>
+  <div class="markdown level1 summary"><p>The number of times the current test has been scheduled for execution.
+Currently only being executed in a test using the <a class="xref" href="NUnit.Framework.RetryAttribute.html">RetryAttribute</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CurrentRepeatCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_CurrentResult_" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentResult*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_CurrentResult" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentResult">CurrentResult</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the current test result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestResult CurrentResult { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.TestResult.html">TestResult</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_CurrentTest_" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentTest*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_CurrentTest" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentTest">CurrentTest</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the current test</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Test CurrentTest { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.Test.html">Test</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_CurrentUICulture_" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentUICulture*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_CurrentUICulture" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentUICulture">CurrentUICulture</h4>
+  <div class="markdown level1 summary"><p>Saves or restores the CurrentUICulture</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CultureInfo CurrentUICulture { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_CurrentValueFormatter_" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentValueFormatter*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_CurrentValueFormatter" data-uid="NUnit.Framework.Internal.TestExecutionContext.CurrentValueFormatter">CurrentValueFormatter</h4>
+  <div class="markdown level1 summary"><p>The current head of the ValueFormatter chain, copied from MsgUtils.ValueFormatter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueFormatter CurrentValueFormatter { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ValueFormatter.html">ValueFormatter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_DefaultFloatingPointTolerance_" data-uid="NUnit.Framework.Internal.TestExecutionContext.DefaultFloatingPointTolerance*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_DefaultFloatingPointTolerance" data-uid="NUnit.Framework.Internal.TestExecutionContext.DefaultFloatingPointTolerance">DefaultFloatingPointTolerance</h4>
+  <div class="markdown level1 summary"><p>Default tolerance value used for floating point equality
+when no other tolerance is specified.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance DefaultFloatingPointTolerance { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_Dispatcher_" data-uid="NUnit.Framework.Internal.TestExecutionContext.Dispatcher*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_Dispatcher" data-uid="NUnit.Framework.Internal.TestExecutionContext.Dispatcher">Dispatcher</h4>
+  <div class="markdown level1 summary"><p>The current WorkItemDispatcher. Made public for
+use by nunitlite.tests</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IWorkItemDispatcher Dispatcher { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.Execution.IWorkItemDispatcher.html">IWorkItemDispatcher</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_Duration_" data-uid="NUnit.Framework.Internal.TestExecutionContext.Duration*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_Duration" data-uid="NUnit.Framework.Internal.TestExecutionContext.Duration">Duration</h4>
+  <div class="markdown level1 summary"><p>Gets the elapsed time for running the test in seconds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Duration { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_ExecutionStatus_" data-uid="NUnit.Framework.Internal.TestExecutionContext.ExecutionStatus*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_ExecutionStatus" data-uid="NUnit.Framework.Internal.TestExecutionContext.ExecutionStatus">ExecutionStatus</h4>
+  <div class="markdown level1 summary"><p>Gets an enum indicating whether a stop has been requested.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestExecutionStatus ExecutionStatus { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.TestExecutionStatus.html">TestExecutionStatus</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_IsSingleThreaded_" data-uid="NUnit.Framework.Internal.TestExecutionContext.IsSingleThreaded*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_IsSingleThreaded" data-uid="NUnit.Framework.Internal.TestExecutionContext.IsSingleThreaded">IsSingleThreaded</h4>
+  <div class="markdown level1 summary"><p>If true, all tests must run on the same thread. No new thread may be spawned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSingleThreaded { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_OutWriter_" data-uid="NUnit.Framework.Internal.TestExecutionContext.OutWriter*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_OutWriter" data-uid="NUnit.Framework.Internal.TestExecutionContext.OutWriter">OutWriter</h4>
+  <div class="markdown level1 summary"><p>Gets a TextWriter that will send output to the current test result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextWriter OutWriter { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_ParallelScope_" data-uid="NUnit.Framework.Internal.TestExecutionContext.ParallelScope*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_ParallelScope" data-uid="NUnit.Framework.Internal.TestExecutionContext.ParallelScope">ParallelScope</h4>
+  <div class="markdown level1 summary"><p>The ParallelScope to be used by tests running in this context.
+For builds with out the parallel feature, it has no effect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParallelScope ParallelScope { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.ParallelScope.html">ParallelScope</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_RandomGenerator_" data-uid="NUnit.Framework.Internal.TestExecutionContext.RandomGenerator*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_RandomGenerator" data-uid="NUnit.Framework.Internal.TestExecutionContext.RandomGenerator">RandomGenerator</h4>
+  <div class="markdown level1 summary"><p>Gets the RandomGenerator specific to this Test</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Randomizer RandomGenerator { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.Randomizer.html">Randomizer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_StartTicks_" data-uid="NUnit.Framework.Internal.TestExecutionContext.StartTicks*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_StartTicks" data-uid="NUnit.Framework.Internal.TestExecutionContext.StartTicks">StartTicks</h4>
+  <div class="markdown level1 summary"><p>The time the current test started in Ticks</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long StartTicks { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_StartTime_" data-uid="NUnit.Framework.Internal.TestExecutionContext.StartTime*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_StartTime" data-uid="NUnit.Framework.Internal.TestExecutionContext.StartTime">StartTime</h4>
+  <div class="markdown level1 summary"><p>The time the current test started execution</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime StartTime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_StopOnError_" data-uid="NUnit.Framework.Internal.TestExecutionContext.StopOnError*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_StopOnError" data-uid="NUnit.Framework.Internal.TestExecutionContext.StopOnError">StopOnError</h4>
+  <div class="markdown level1 summary"><p>Get or set indicator that run should stop on the first error</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StopOnError { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_TestCaseTimeout_" data-uid="NUnit.Framework.Internal.TestExecutionContext.TestCaseTimeout*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_TestCaseTimeout" data-uid="NUnit.Framework.Internal.TestExecutionContext.TestCaseTimeout">TestCaseTimeout</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the test case timeout value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TestCaseTimeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_TestObject_" data-uid="NUnit.Framework.Internal.TestExecutionContext.TestObject*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_TestObject" data-uid="NUnit.Framework.Internal.TestExecutionContext.TestObject">TestObject</h4>
+  <div class="markdown level1 summary"><p>The current test object - that is the user fixture
+object on which tests are being executed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object? TestObject { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_TestWorker_" data-uid="NUnit.Framework.Internal.TestExecutionContext.TestWorker*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_TestWorker" data-uid="NUnit.Framework.Internal.TestExecutionContext.TestWorker">TestWorker</h4>
+  <div class="markdown level1 summary"><p>The worker that spawned the context.
+For builds without the parallel feature, it is null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestWorker? TestWorker { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.Execution.TestWorker.html">TestWorker</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_UpstreamActions_" data-uid="NUnit.Framework.Internal.TestExecutionContext.UpstreamActions*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_UpstreamActions" data-uid="NUnit.Framework.Internal.TestExecutionContext.UpstreamActions">UpstreamActions</h4>
+  <div class="markdown level1 summary"><p>Gets a list of ITestActions set by upstream tests</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ITestAction&gt; UpstreamActions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NUnit.Framework.ITestAction.html">ITestAction</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_UseCancellation_" data-uid="NUnit.Framework.Internal.TestExecutionContext.UseCancellation*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_UseCancellation" data-uid="NUnit.Framework.Internal.TestExecutionContext.UseCancellation">UseCancellation</h4>
+  <div class="markdown level1 summary"><p>Gets or sets whether the test case should use a <a class="xref" href="NUnit.Framework.Internal.TestExecutionContext.html#NUnit_Framework_Internal_TestExecutionContext_CancellationToken">CancellationToken</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UseCancellation { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_AddFormatter_" data-uid="NUnit.Framework.Internal.TestExecutionContext.AddFormatter*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_AddFormatter_NUnit_Framework_Constraints_ValueFormatterFactory_" data-uid="NUnit.Framework.Internal.TestExecutionContext.AddFormatter(NUnit.Framework.Constraints.ValueFormatterFactory)">AddFormatter(ValueFormatterFactory)</h4>
+  <div class="markdown level1 summary"><p>Adds a new ValueFormatterFactory to the chain of formatters</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddFormatter(ValueFormatterFactory formatterFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ValueFormatterFactory.html">ValueFormatterFactory</a></td>
+        <td><span class="parametername">formatterFactory</span></td>
+        <td><p>The new factory</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_EstablishExecutionEnvironment_" data-uid="NUnit.Framework.Internal.TestExecutionContext.EstablishExecutionEnvironment*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_EstablishExecutionEnvironment" data-uid="NUnit.Framework.Internal.TestExecutionContext.EstablishExecutionEnvironment">EstablishExecutionEnvironment()</h4>
+  <div class="markdown level1 summary"><p>Set up the execution environment to match a context.
+Note that we may be running on the same thread where the
+context was initially created or on a different thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EstablishExecutionEnvironment()</code></pre>
+  </div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_IncrementAssertCount_" data-uid="NUnit.Framework.Internal.TestExecutionContext.IncrementAssertCount*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_IncrementAssertCount" data-uid="NUnit.Framework.Internal.TestExecutionContext.IncrementAssertCount">IncrementAssertCount()</h4>
+  <div class="markdown level1 summary"><p>Increments the assert count by one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void IncrementAssertCount()</code></pre>
+  </div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_IncrementAssertCount_" data-uid="NUnit.Framework.Internal.TestExecutionContext.IncrementAssertCount*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_IncrementAssertCount_System_Int32_" data-uid="NUnit.Framework.Internal.TestExecutionContext.IncrementAssertCount(System.Int32)">IncrementAssertCount(int)</h4>
+  <div class="markdown level1 summary"><p>Increments the assert count by a specified amount.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void IncrementAssertCount(int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_SendMessage_" data-uid="NUnit.Framework.Internal.TestExecutionContext.SendMessage*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_SendMessage_System_String_System_String_" data-uid="NUnit.Framework.Internal.TestExecutionContext.SendMessage(System.String,System.String)">SendMessage(string, string)</h4>
+  <div class="markdown level1 summary"><p>Sends a message from test to listeners. This message is not kind of test output and doesn't go to test result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SendMessage(string destination, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">destination</span></td>
+        <td><p>A name recognized by the intended listeners.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>A message to be sent</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestExecutionContext_UpdateContextFromEnvironment_" data-uid="NUnit.Framework.Internal.TestExecutionContext.UpdateContextFromEnvironment*"></a>
+  <h4 id="NUnit_Framework_Internal_TestExecutionContext_UpdateContextFromEnvironment" data-uid="NUnit.Framework.Internal.TestExecutionContext.UpdateContextFromEnvironment">UpdateContextFromEnvironment()</h4>
+  <div class="markdown level1 summary"><p>Record any changes in the environment made by
+the test code in the execution context so it
+will be passed on to lower level tests.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateContextFromEnvironment()</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/TestExecutionContext.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,837 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class FrameworkController
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class FrameworkController
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Api.FrameworkController">
+
+
+
+  <h1 id="NUnit_Framework_Api_FrameworkController" data-uid="NUnit.Framework.Api.FrameworkController" class="text-break">Class FrameworkController
+</h1>
+  <div class="markdown level0 summary"><p>FrameworkController provides a facade for use in loading, browsing
+and running tests without requiring a reference to the NUnit
+framework. All calls are encapsulated in constructors for
+this class and its nested classes, which only require the
+types of the Common Type System as arguments.</p>
+<p>The controller supports four actions: Load, Explore, Count and Run.
+They are intended to be called by a driver, which should allow for
+proper sequencing of calls. Load must be called before any of the
+other actions. The driver may support other actions, such as
+reload on run, by combining these calls.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject">MarshalByRefObject</a></div>
+    <div class="level2"><a class="xref" href="NUnit.Compatibility.LongLivedMarshalByRefObject.html">LongLivedMarshalByRefObject</a></div>
+    <div class="level3"><span class="xref">FrameworkController</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Compatibility.LongLivedMarshalByRefObject.html#NUnit_Compatibility_LongLivedMarshalByRefObject_InitializeLifetimeService">LongLivedMarshalByRefObject.InitializeLifetimeService()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.getlifetimeservice">MarshalByRefObject.GetLifetimeService()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.memberwiseclone">MarshalByRefObject.MemberwiseClone(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Api.html">Api</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_Api_FrameworkController_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FrameworkController : LongLivedMarshalByRefObject</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController__ctor_" data-uid="NUnit.Framework.Api.FrameworkController.#ctor*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController__ctor_System_Reflection_Assembly_System_String_System_Collections_IDictionary_" data-uid="NUnit.Framework.Api.FrameworkController.#ctor(System.Reflection.Assembly,System.String,System.Collections.IDictionary)">FrameworkController(Assembly, string, IDictionary)</h4>
+  <div class="markdown level1 summary"><p>Construct a FrameworkController using the default builder and runner.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkController(Assembly assembly, string idPrefix, IDictionary settings)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></td>
+        <td><span class="parametername">assembly</span></td>
+        <td><p>The test assembly</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">idPrefix</span></td>
+        <td><p>A prefix used for all test ids created under this controller.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.idictionary">IDictionary</a></td>
+        <td><span class="parametername">settings</span></td>
+        <td><p>A Dictionary of settings to use in loading and running the tests</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController__ctor_" data-uid="NUnit.Framework.Api.FrameworkController.#ctor*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController__ctor_System_Reflection_Assembly_System_String_System_Collections_IDictionary_System_String_System_String_" data-uid="NUnit.Framework.Api.FrameworkController.#ctor(System.Reflection.Assembly,System.String,System.Collections.IDictionary,System.String,System.String)">FrameworkController(Assembly, string, IDictionary, string, string)</h4>
+  <div class="markdown level1 summary"><p>Construct a FrameworkController, specifying the types to be used
+for the runner and builder. This constructor is provided for
+purposes of development.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkController(Assembly assembly, string idPrefix, IDictionary settings, string runnerType, string builderType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></td>
+        <td><span class="parametername">assembly</span></td>
+        <td><p>The test assembly</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">idPrefix</span></td>
+        <td><p>A prefix used for all test ids created under this controller.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.idictionary">IDictionary</a></td>
+        <td><span class="parametername">settings</span></td>
+        <td><p>A Dictionary of settings to use in loading and running the tests</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">runnerType</span></td>
+        <td><p>The Type of the test runner</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">builderType</span></td>
+        <td><p>The Type of the test builder</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController__ctor_" data-uid="NUnit.Framework.Api.FrameworkController.#ctor*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController__ctor_System_String_System_String_System_Collections_IDictionary_" data-uid="NUnit.Framework.Api.FrameworkController.#ctor(System.String,System.String,System.Collections.IDictionary)">FrameworkController(string, string?, IDictionary)</h4>
+  <div class="markdown level1 summary"><p>Construct a FrameworkController using the default builder and runner.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkController(string assemblyNameOrPath, string? idPrefix, IDictionary settings)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">assemblyNameOrPath</span></td>
+        <td><p>The AssemblyName or path to the test assembly</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">idPrefix</span></td>
+        <td><p>A prefix used for all test ids created under this controller.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.idictionary">IDictionary</a></td>
+        <td><span class="parametername">settings</span></td>
+        <td><p>A Dictionary of settings to use in loading and running the tests</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController__ctor_" data-uid="NUnit.Framework.Api.FrameworkController.#ctor*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController__ctor_System_String_System_String_System_Collections_IDictionary_System_String_System_String_" data-uid="NUnit.Framework.Api.FrameworkController.#ctor(System.String,System.String,System.Collections.IDictionary,System.String,System.String)">FrameworkController(string, string?, IDictionary, string, string)</h4>
+  <div class="markdown level1 summary"><p>Construct a FrameworkController, specifying the types to be used
+for the runner and builder. This constructor is provided for
+purposes of development.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkController(string assemblyNameOrPath, string? idPrefix, IDictionary settings, string runnerType, string builderType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">assemblyNameOrPath</span></td>
+        <td><p>The full AssemblyName or the path to the test assembly</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">idPrefix</span></td>
+        <td><p>A prefix used for all test ids created under this controller.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.idictionary">IDictionary</a></td>
+        <td><span class="parametername">settings</span></td>
+        <td><p>A Dictionary of settings to use in loading and running the tests</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">runnerType</span></td>
+        <td><p>The Type of the test runner</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">builderType</span></td>
+        <td><p>The Type of the test builder</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController_AssemblyNameOrPath_" data-uid="NUnit.Framework.Api.FrameworkController.AssemblyNameOrPath*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController_AssemblyNameOrPath" data-uid="NUnit.Framework.Api.FrameworkController.AssemblyNameOrPath">AssemblyNameOrPath</h4>
+  <div class="markdown level1 summary"><p>Gets the AssemblyName or the path for which this FrameworkController was created</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string AssemblyNameOrPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController_Builder_" data-uid="NUnit.Framework.Api.FrameworkController.Builder*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController_Builder" data-uid="NUnit.Framework.Api.FrameworkController.Builder">Builder</h4>
+  <div class="markdown level1 summary"><p>Gets the ITestAssemblyBuilder used by this controller instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITestAssemblyBuilder Builder { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Api.ITestAssemblyBuilder.html">ITestAssemblyBuilder</a></td>
+        <td><p>The builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController_Runner_" data-uid="NUnit.Framework.Api.FrameworkController.Runner*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController_Runner" data-uid="NUnit.Framework.Api.FrameworkController.Runner">Runner</h4>
+  <div class="markdown level1 summary"><p>Gets the ITestAssemblyRunner used by this controller instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITestAssemblyRunner Runner { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Api.ITestAssemblyRunner.html">ITestAssemblyRunner</a></td>
+        <td><p>The runner.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController_CountTests_" data-uid="NUnit.Framework.Api.FrameworkController.CountTests*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController_CountTests_System_String_" data-uid="NUnit.Framework.Api.FrameworkController.CountTests(System.String)">CountTests(string?)</h4>
+  <div class="markdown level1 summary"><p>Counts the number of test cases in the loaded TestSuite</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CountTests(string? filter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>A string containing the XML representation of the filter to use</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>The number of tests</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController_ExploreTests_" data-uid="NUnit.Framework.Api.FrameworkController.ExploreTests*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController_ExploreTests_System_String_" data-uid="NUnit.Framework.Api.FrameworkController.ExploreTests(System.String)">ExploreTests(string?)</h4>
+  <div class="markdown level1 summary"><p>Returns info about the tests in an assembly</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ExploreTests(string? filter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>A string containing the XML representation of the filter to use</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The XML result of exploring the tests</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController_InsertEnvironmentElement_" data-uid="NUnit.Framework.Api.FrameworkController.InsertEnvironmentElement*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController_InsertEnvironmentElement_NUnit_Framework_Interfaces_TNode_" data-uid="NUnit.Framework.Api.FrameworkController.InsertEnvironmentElement(NUnit.Framework.Interfaces.TNode)">InsertEnvironmentElement(TNode)</h4>
+  <div class="markdown level1 summary"><p>Inserts environment element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TNode InsertEnvironmentElement(TNode targetNode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.TNode.html">TNode</a></td>
+        <td><span class="parametername">targetNode</span></td>
+        <td><p>Target node</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.TNode.html">TNode</a></td>
+        <td><p>The new node</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController_InsertSettingsElement_" data-uid="NUnit.Framework.Api.FrameworkController.InsertSettingsElement*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController_InsertSettingsElement_NUnit_Framework_Interfaces_TNode_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="NUnit.Framework.Api.FrameworkController.InsertSettingsElement(NUnit.Framework.Interfaces.TNode,System.Collections.Generic.IDictionary{System.String,System.Object})">InsertSettingsElement(TNode, IDictionary&lt;string, object&gt;)</h4>
+  <div class="markdown level1 summary"><p>Inserts settings element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TNode InsertSettingsElement(TNode targetNode, IDictionary&lt;string, object&gt; settings)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.TNode.html">TNode</a></td>
+        <td><span class="parametername">targetNode</span></td>
+        <td><p>Target node</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
+        <td><span class="parametername">settings</span></td>
+        <td><p>Settings dictionary</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.TNode.html">TNode</a></td>
+        <td><p>The new node</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController_LoadTests_" data-uid="NUnit.Framework.Api.FrameworkController.LoadTests*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController_LoadTests" data-uid="NUnit.Framework.Api.FrameworkController.LoadTests">LoadTests()</h4>
+  <div class="markdown level1 summary"><p>Loads the tests in the assembly</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string LoadTests()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController_RunTests_" data-uid="NUnit.Framework.Api.FrameworkController.RunTests*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController_RunTests_System_Action_System_String__System_String_" data-uid="NUnit.Framework.Api.FrameworkController.RunTests(System.Action{System.String},System.String)">RunTests(Action&lt;string&gt;, string)</h4>
+  <div class="markdown level1 summary"><p>Runs the tests in an assembly synchronously reporting back the test results through the callback
+or through the return value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string RunTests(Action&lt;string&gt; callback, string filter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td><p>The callback that receives the test results</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>A string containing the XML representation of the filter to use</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The XML result of the test run</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController_RunTests_" data-uid="NUnit.Framework.Api.FrameworkController.RunTests*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController_RunTests_System_String_" data-uid="NUnit.Framework.Api.FrameworkController.RunTests(System.String)">RunTests(string?)</h4>
+  <div class="markdown level1 summary"><p>Runs the tests in an assembly</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string RunTests(string? filter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>A string containing the XML representation of the filter to use</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The XML result of the test run</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_FrameworkController_StopRun_" data-uid="NUnit.Framework.Api.FrameworkController.StopRun*"></a>
+  <h4 id="NUnit_Framework_Api_FrameworkController_StopRun_System_Boolean_" data-uid="NUnit.Framework.Api.FrameworkController.StopRun(System.Boolean)">StopRun(bool)</h4>
+  <div class="markdown level1 summary"><p>Stops the test run</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StopRun(bool force)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">force</span></td>
+        <td><p>True to force the stop, false for a cooperative stop</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/FrameworkController.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

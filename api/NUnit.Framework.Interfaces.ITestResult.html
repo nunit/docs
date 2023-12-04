@@ -1,0 +1,753 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Interface ITestResult
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Interface ITestResult
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Interfaces.ITestResult">
+
+
+
+  <h1 id="NUnit_Framework_Interfaces_ITestResult" data-uid="NUnit.Framework.Interfaces.ITestResult" class="text-break">Interface ITestResult
+</h1>
+  <div class="markdown level0 summary"><p>The ITestResult interface represents the result of a test.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Framework.Interfaces.IXmlNodeBuilder.html#NUnit_Framework_Interfaces_IXmlNodeBuilder_ToXml_System_Boolean_">IXmlNodeBuilder.ToXml(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Interfaces.IXmlNodeBuilder.html#NUnit_Framework_Interfaces_IXmlNodeBuilder_AddToXml_NUnit_Framework_Interfaces_TNode_System_Boolean_">IXmlNodeBuilder.AddToXml(TNode, bool)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Interfaces.html">Interfaces</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_Interfaces_ITestResult_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ITestResult : IXmlNodeBuilder</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_AssertCount_" data-uid="NUnit.Framework.Interfaces.ITestResult.AssertCount*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_AssertCount" data-uid="NUnit.Framework.Interfaces.ITestResult.AssertCount">AssertCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of asserts executed
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int AssertCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_AssertionResults_" data-uid="NUnit.Framework.Interfaces.ITestResult.AssertionResults*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_AssertionResults" data-uid="NUnit.Framework.Interfaces.ITestResult.AssertionResults">AssertionResults</h4>
+  <div class="markdown level1 summary"><p>Gets a list of AssertionResults associated with the test</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList&lt;AssertionResult&gt; AssertionResults { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="NUnit.Framework.Interfaces.AssertionResult.html">AssertionResult</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_Children_" data-uid="NUnit.Framework.Interfaces.ITestResult.Children*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_Children" data-uid="NUnit.Framework.Interfaces.ITestResult.Children">Children</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of child results.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;ITestResult&gt; Children { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NUnit.Framework.Interfaces.ITestResult.html">ITestResult</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_Duration_" data-uid="NUnit.Framework.Interfaces.ITestResult.Duration*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_Duration" data-uid="NUnit.Framework.Interfaces.ITestResult.Duration">Duration</h4>
+  <div class="markdown level1 summary"><p>Gets the elapsed time for running the test in seconds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double Duration { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_EndTime_" data-uid="NUnit.Framework.Interfaces.ITestResult.EndTime*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_EndTime" data-uid="NUnit.Framework.Interfaces.ITestResult.EndTime">EndTime</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the time the test finished running.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DateTime EndTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_FailCount_" data-uid="NUnit.Framework.Interfaces.ITestResult.FailCount*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_FailCount" data-uid="NUnit.Framework.Interfaces.ITestResult.FailCount">FailCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of test cases that failed
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int FailCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_FullName_" data-uid="NUnit.Framework.Interfaces.ITestResult.FullName*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_FullName" data-uid="NUnit.Framework.Interfaces.ITestResult.FullName">FullName</h4>
+  <div class="markdown level1 summary"><p>Gets the full name of the test result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string FullName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_HasChildren_" data-uid="NUnit.Framework.Interfaces.ITestResult.HasChildren*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_HasChildren" data-uid="NUnit.Framework.Interfaces.ITestResult.HasChildren">HasChildren</h4>
+  <div class="markdown level1 summary"><p>Indicates whether this result has any child results.
+Accessing HasChildren should not force creation of the
+Children collection in classes implementing this interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool HasChildren { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_InconclusiveCount_" data-uid="NUnit.Framework.Interfaces.ITestResult.InconclusiveCount*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_InconclusiveCount" data-uid="NUnit.Framework.Interfaces.ITestResult.InconclusiveCount">InconclusiveCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of test cases that were inconclusive
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int InconclusiveCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_Message_" data-uid="NUnit.Framework.Interfaces.ITestResult.Message*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_Message" data-uid="NUnit.Framework.Interfaces.ITestResult.Message">Message</h4>
+  <div class="markdown level1 summary"><p>Gets the message associated with a test
+failure or with not running the test</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Message { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_Name_" data-uid="NUnit.Framework.Interfaces.ITestResult.Name*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_Name" data-uid="NUnit.Framework.Interfaces.ITestResult.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets the name of the test result</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_Output_" data-uid="NUnit.Framework.Interfaces.ITestResult.Output*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_Output" data-uid="NUnit.Framework.Interfaces.ITestResult.Output">Output</h4>
+  <div class="markdown level1 summary"><p>Gets any text output written to this result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Output { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_PassCount_" data-uid="NUnit.Framework.Interfaces.ITestResult.PassCount*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_PassCount" data-uid="NUnit.Framework.Interfaces.ITestResult.PassCount">PassCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of test cases that passed
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int PassCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_ResultState_" data-uid="NUnit.Framework.Interfaces.ITestResult.ResultState*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_ResultState" data-uid="NUnit.Framework.Interfaces.ITestResult.ResultState">ResultState</h4>
+  <div class="markdown level1 summary"><p>Gets the ResultState of the test result, which
+indicates the success or failure of the test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ResultState ResultState { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ResultState.html">ResultState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_SkipCount_" data-uid="NUnit.Framework.Interfaces.ITestResult.SkipCount*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_SkipCount" data-uid="NUnit.Framework.Interfaces.ITestResult.SkipCount">SkipCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of test cases that were skipped
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int SkipCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_StackTrace_" data-uid="NUnit.Framework.Interfaces.ITestResult.StackTrace*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_StackTrace" data-uid="NUnit.Framework.Interfaces.ITestResult.StackTrace">StackTrace</h4>
+  <div class="markdown level1 summary"><p>Gets any stack trace associated with an
+error or failure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string? StackTrace { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_StartTime_" data-uid="NUnit.Framework.Interfaces.ITestResult.StartTime*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_StartTime" data-uid="NUnit.Framework.Interfaces.ITestResult.StartTime">StartTime</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the time the test started running.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DateTime StartTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_Test_" data-uid="NUnit.Framework.Interfaces.ITestResult.Test*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_Test" data-uid="NUnit.Framework.Interfaces.ITestResult.Test">Test</h4>
+  <div class="markdown level1 summary"><p>Gets the Test to which this result applies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ITest Test { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITest.html">ITest</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_TestAttachments_" data-uid="NUnit.Framework.Interfaces.ITestResult.TestAttachments*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_TestAttachments" data-uid="NUnit.Framework.Interfaces.ITestResult.TestAttachments">TestAttachments</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of files attached to the test</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollection&lt;TestAttachment&gt; TestAttachments { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="NUnit.Framework.Interfaces.TestAttachment.html">TestAttachment</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_TotalCount_" data-uid="NUnit.Framework.Interfaces.ITestResult.TotalCount*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_TotalCount" data-uid="NUnit.Framework.Interfaces.ITestResult.TotalCount">TotalCount</h4>
+  <div class="markdown level1 summary"><p>Gets the total number of tests executed
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int TotalCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Interfaces_ITestResult_WarningCount_" data-uid="NUnit.Framework.Interfaces.ITestResult.WarningCount*"></a>
+  <h4 id="NUnit_Framework_Interfaces_ITestResult_WarningCount" data-uid="NUnit.Framework.Interfaces.ITestResult.WarningCount">WarningCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of test cases that had warnings
+when running the test and all its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int WarningCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Interfaces/ITestResult.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

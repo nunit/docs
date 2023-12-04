@@ -1,0 +1,1060 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class Constraint
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class Constraint
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Constraints.Constraint">
+
+
+
+  <h1 id="NUnit_Framework_Constraints_Constraint" data-uid="NUnit.Framework.Constraints.Constraint" class="text-break">Class Constraint
+</h1>
+  <div class="markdown level0 summary"><p>The Constraint class is the base of all built-in constraints
+within NUnit. It provides the operator overloads used to combine
+constraints.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">Constraint</span></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.AnyOfConstraint.html">AnyOfConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.AttributeExistsConstraint.html">AttributeExistsConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.BinaryConstraint.html">BinaryConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.CollectionConstraint.html">CollectionConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.ComparisonConstraint.html">ComparisonConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.ContainsConstraint.html">ContainsConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.CountZeroConstraint.html">CountZeroConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.DefaultConstraint.html">DefaultConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EmptyConstraint.html">EmptyConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EmptyDirectoryConstraint.html">EmptyDirectoryConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EmptyGuidConstraint.html">EmptyGuidConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.ExactCountConstraint.html">ExactCountConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.FalseConstraint.html">FalseConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.FileOrDirectoryExistsConstraint.html">FileOrDirectoryExistsConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.NaNConstraint.html">NaNConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.NullConstraint.html">NullConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.PredicateConstraint-1.html">PredicateConstraint&lt;T&gt;</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.PrefixConstraint.html">PrefixConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.PropertyExistsConstraint.html">PropertyExistsConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.RangeConstraint.html">RangeConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.RegexConstraint.html">RegexConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.SameAsConstraint.html">SameAsConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html">StringConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.ThrowsExceptionConstraint.html">ThrowsExceptionConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.ThrowsNothingConstraint.html">ThrowsNothingConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.TrueConstraint.html">TrueConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.TypeConstraint.html">TypeConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.XmlSerializableConstraint.html">XmlSerializableConstraint</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a></div>
+    <div><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Constraints.html">Constraints</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_Constraints_Constraint_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Constraint : IConstraint, IResolveConstraint</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint__ctor_" data-uid="NUnit.Framework.Constraints.Constraint.#ctor*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint__ctor_System_Object___" data-uid="NUnit.Framework.Constraints.Constraint.#ctor(System.Object[])">Constraint(params object?[])</h4>
+  <div class="markdown level1 summary"><p>Construct a constraint with optional arguments</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Constraint(params object?[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be saved</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_And_" data-uid="NUnit.Framework.Constraints.Constraint.And*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_And" data-uid="NUnit.Framework.Constraints.Constraint.And">And</h4>
+  <div class="markdown level1 summary"><p>Returns a ConstraintExpression by appending And
+to the current constraint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConstraintExpression And { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintExpression.html">ConstraintExpression</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_Arguments_" data-uid="NUnit.Framework.Constraints.Constraint.Arguments*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_Arguments" data-uid="NUnit.Framework.Constraints.Constraint.Arguments">Arguments</h4>
+  <div class="markdown level1 summary"><p>Arguments provided to this Constraint, for use in
+formatting the description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object?[] Arguments { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_Builder_" data-uid="NUnit.Framework.Constraints.Constraint.Builder*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_Builder" data-uid="NUnit.Framework.Constraints.Constraint.Builder">Builder</h4>
+  <div class="markdown level1 summary"><p>The ConstraintBuilder holding this constraint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConstraintBuilder? Builder { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintBuilder.html">ConstraintBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_Description_" data-uid="NUnit.Framework.Constraints.Constraint.Description*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_Description" data-uid="NUnit.Framework.Constraints.Constraint.Description">Description</h4>
+  <div class="markdown level1 summary"><p>The Description of what this constraint tests, for
+use in messages and in the ConstraintResult.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string Description { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_DisplayName_" data-uid="NUnit.Framework.Constraints.Constraint.DisplayName*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_DisplayName" data-uid="NUnit.Framework.Constraints.Constraint.DisplayName">DisplayName</h4>
+  <div class="markdown level1 summary"><p>The display name of this Constraint for use by ToString().
+The default value is the name of the constraint with
+trailing &quot;Constraint&quot; removed. Derived classes may set
+this to another name in their constructors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string DisplayName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_Or_" data-uid="NUnit.Framework.Constraints.Constraint.Or*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_Or" data-uid="NUnit.Framework.Constraints.Constraint.Or">Or</h4>
+  <div class="markdown level1 summary"><p>Returns a ConstraintExpression by appending Or
+to the current constraint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConstraintExpression Or { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintExpression.html">ConstraintExpression</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_With_" data-uid="NUnit.Framework.Constraints.Constraint.With*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_With" data-uid="NUnit.Framework.Constraints.Constraint.With">With</h4>
+  <div class="markdown level1 summary"><p>Returns a ConstraintExpression by appending And
+to the current constraint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConstraintExpression With { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintExpression.html">ConstraintExpression</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_After_" data-uid="NUnit.Framework.Constraints.Constraint.After*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_After_System_Int32_" data-uid="NUnit.Framework.Constraints.Constraint.After(System.Int32)">After(int)</h4>
+  <div class="markdown level1 summary"><p>Returns a DelayedConstraint.WithRawDelayInterval with the specified delay time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DelayedConstraint.WithRawDelayInterval After(int delay)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">delay</span></td>
+        <td><p>The delay, which defaults to milliseconds.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.DelayedConstraint.html">DelayedConstraint</a>.<a class="xref" href="NUnit.Framework.Constraints.DelayedConstraint.WithRawDelayInterval.html">WithRawDelayInterval</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_After_" data-uid="NUnit.Framework.Constraints.Constraint.After*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_After_System_Int32_System_Int32_" data-uid="NUnit.Framework.Constraints.Constraint.After(System.Int32,System.Int32)">After(int, int)</h4>
+  <div class="markdown level1 summary"><p>Returns a DelayedConstraint with the specified delay time
+and polling interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DelayedConstraint After(int delayInMilliseconds, int pollingInterval)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">delayInMilliseconds</span></td>
+        <td><p>The delay in milliseconds.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">pollingInterval</span></td>
+        <td><p>The interval at which to test the constraint.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.DelayedConstraint.html">DelayedConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_ApplyTo_" data-uid="NUnit.Framework.Constraints.Constraint.ApplyTo*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_ApplyTo__1_NUnit_Framework_Constraints_ActualValueDelegate___0__" data-uid="NUnit.Framework.Constraints.Constraint.ApplyTo``1(NUnit.Framework.Constraints.ActualValueDelegate{``0})">ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt;)</h4>
+  <div class="markdown level1 summary"><p>Applies the constraint to an ActualValueDelegate that returns
+the value to be tested. The default implementation simply evaluates
+the delegate but derived classes may override it to provide for
+delayed processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ConstraintResult ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ActualValueDelegate-1.html">ActualValueDelegate</a>&lt;TActual&gt;</td>
+        <td><span class="parametername">del</span></td>
+        <td><p>An ActualValueDelegate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
+        <td><p>A ConstraintResult</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_ApplyTo_" data-uid="NUnit.Framework.Constraints.Constraint.ApplyTo*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_ApplyTo__1___0_" data-uid="NUnit.Framework.Constraints.Constraint.ApplyTo``1(``0)">ApplyTo&lt;TActual&gt;(TActual)</h4>
+  <div class="markdown level1 summary"><p>Applies the constraint to an actual value, returning a ConstraintResult.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ConstraintResult ApplyTo&lt;TActual&gt;(TActual actual)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TActual</span></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The value to be tested</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
+        <td><p>A ConstraintResult</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_ApplyTo_" data-uid="NUnit.Framework.Constraints.Constraint.ApplyTo*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_ApplyTo__1___0__" data-uid="NUnit.Framework.Constraints.Constraint.ApplyTo``1(``0@)">ApplyTo&lt;TActual&gt;(ref TActual)</h4>
+  <div class="markdown level1 summary"><p>Test whether the constraint is satisfied by a given reference.
+The default implementation simply dereferences the value but
+derived classes may override it to provide for delayed processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ConstraintResult ApplyTo&lt;TActual&gt;(ref TActual actual)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TActual</span></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>A reference to the value to be tested</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
+        <td><p>A ConstraintResult</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_GetStringRepresentation_" data-uid="NUnit.Framework.Constraints.Constraint.GetStringRepresentation*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_GetStringRepresentation" data-uid="NUnit.Framework.Constraints.Constraint.GetStringRepresentation">GetStringRepresentation()</h4>
+  <div class="markdown level1 summary"><p>Returns the string representation of this constraint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string GetStringRepresentation()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_GetStringRepresentation_" data-uid="NUnit.Framework.Constraints.Constraint.GetStringRepresentation*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_GetStringRepresentation_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Constraints.Constraint.GetStringRepresentation(System.Collections.IEnumerable)">GetStringRepresentation(IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Returns the string representation of this constraint and the passed in arguments</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string GetStringRepresentation(IEnumerable arguments)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">arguments</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_GetTestObject_" data-uid="NUnit.Framework.Constraints.Constraint.GetTestObject*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_GetTestObject__1_NUnit_Framework_Constraints_ActualValueDelegate___0__" data-uid="NUnit.Framework.Constraints.Constraint.GetTestObject``1(NUnit.Framework.Constraints.ActualValueDelegate{``0})">GetTestObject&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt;)</h4>
+  <div class="markdown level1 summary"><p>Retrieves the value to be tested from an ActualValueDelegate.
+The default implementation simply evaluates the delegate but derived
+classes may override it to provide for delayed processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual object? GetTestObject&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ActualValueDelegate-1.html">ActualValueDelegate</a>&lt;TActual&gt;</td>
+        <td><span class="parametername">del</span></td>
+        <td><p>An ActualValueDelegate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><p>Delegate evaluation result</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_ToString_" data-uid="NUnit.Framework.Constraints.Constraint.ToString*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_ToString" data-uid="NUnit.Framework.Constraints.Constraint.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Default override of ToString returns the constraint DisplayName
+followed by any arguments within angle brackets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a></div>
+  <h3 id="operators">Operators
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_op_BitwiseAnd_" data-uid="NUnit.Framework.Constraints.Constraint.op_BitwiseAnd*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_op_BitwiseAnd_NUnit_Framework_Constraints_Constraint_NUnit_Framework_Constraints_Constraint_" data-uid="NUnit.Framework.Constraints.Constraint.op_BitwiseAnd(NUnit.Framework.Constraints.Constraint,NUnit.Framework.Constraints.Constraint)">operator &amp;(Constraint, Constraint)</h4>
+  <div class="markdown level1 summary"><p>This operator creates a constraint that is satisfied only if both
+argument constraints are satisfied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Constraint operator &amp;(Constraint left, Constraint right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Constraint.html">Constraint</a></td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Constraint.html">Constraint</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Constraint.html">Constraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_op_BitwiseOr_" data-uid="NUnit.Framework.Constraints.Constraint.op_BitwiseOr*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_op_BitwiseOr_NUnit_Framework_Constraints_Constraint_NUnit_Framework_Constraints_Constraint_" data-uid="NUnit.Framework.Constraints.Constraint.op_BitwiseOr(NUnit.Framework.Constraints.Constraint,NUnit.Framework.Constraints.Constraint)">operator |(Constraint, Constraint)</h4>
+  <div class="markdown level1 summary"><p>This operator creates a constraint that is satisfied if either
+of the argument constraints is satisfied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Constraint operator |(Constraint left, Constraint right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Constraint.html">Constraint</a></td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Constraint.html">Constraint</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Constraint.html">Constraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_op_LogicalNot_" data-uid="NUnit.Framework.Constraints.Constraint.op_LogicalNot*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_op_LogicalNot_NUnit_Framework_Constraints_Constraint_" data-uid="NUnit.Framework.Constraints.Constraint.op_LogicalNot(NUnit.Framework.Constraints.Constraint)">operator !(Constraint)</h4>
+  <div class="markdown level1 summary"><p>This operator creates a constraint that is satisfied if the
+argument constraint is not satisfied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Constraint operator !(Constraint constraint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Constraint.html">Constraint</a></td>
+        <td><span class="parametername">constraint</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Constraint.html">Constraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a>
+  </div>
+  <div>
+      <a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/Constraint.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

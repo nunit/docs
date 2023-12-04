@@ -1,0 +1,1292 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class EqualConstraint
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class EqualConstraint
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Constraints.EqualConstraint">
+
+
+
+  <h1 id="NUnit_Framework_Constraints_EqualConstraint" data-uid="NUnit.Framework.Constraints.EqualConstraint" class="text-break">Class EqualConstraint
+</h1>
+  <div class="markdown level0 summary"><p>EqualConstraint is able to compare an actual value with the
+expected value provided in its constructor. Two objects are
+considered equal if both are null, or if both have the same
+value. NUnit has special semantics for some object types.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="NUnit.Framework.Constraints.Constraint.html">Constraint</a></div>
+    <div class="level2"><span class="xref">EqualConstraint</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a></div>
+    <div><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1_NUnit_Framework_Constraints_ActualValueDelegate___0__">Constraint.ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1___0__">Constraint.ApplyTo&lt;TActual&gt;(ref TActual)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_GetTestObject__1_NUnit_Framework_Constraints_ActualValueDelegate___0__">Constraint.GetTestObject&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ToString">Constraint.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_GetStringRepresentation_System_Collections_IEnumerable_">Constraint.GetStringRepresentation(IEnumerable)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_GetStringRepresentation">Constraint.GetStringRepresentation()</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_After_System_Int32_">Constraint.After(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_After_System_Int32_System_Int32_">Constraint.After(int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_DisplayName">Constraint.DisplayName</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_Arguments">Constraint.Arguments</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_Builder">Constraint.Builder</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_And">Constraint.And</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_With">Constraint.With</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_Or">Constraint.Or</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Constraints.html">Constraints</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_Constraints_EqualConstraint_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class EqualConstraint : Constraint, IConstraint, IResolveConstraint</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint__ctor_" data-uid="NUnit.Framework.Constraints.EqualConstraint.#ctor*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint__ctor_System_Object_" data-uid="NUnit.Framework.Constraints.EqualConstraint.#ctor(System.Object)">EqualConstraint(object?)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint(object? expected)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The expected value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_AsCollection_" data-uid="NUnit.Framework.Constraints.EqualConstraint.AsCollection*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_AsCollection" data-uid="NUnit.Framework.Constraints.EqualConstraint.AsCollection">AsCollection</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to compare arrays as collections
+and return self.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint AsCollection { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_CaseInsensitive_" data-uid="NUnit.Framework.Constraints.EqualConstraint.CaseInsensitive*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_CaseInsensitive" data-uid="NUnit.Framework.Constraints.EqualConstraint.CaseInsensitive">CaseInsensitive</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether to compare case insensitive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CaseInsensitive { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if comparing case insensitive; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_ClipStrings_" data-uid="NUnit.Framework.Constraints.EqualConstraint.ClipStrings*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_ClipStrings" data-uid="NUnit.Framework.Constraints.EqualConstraint.ClipStrings">ClipStrings</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not to clip strings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ClipStrings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if set to clip strings otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Days_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Days*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Days" data-uid="NUnit.Framework.Constraints.EqualConstraint.Days">Days</h4>
+  <div class="markdown level1 summary"><p>Causes the tolerance to be interpreted as a TimeSpan in days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Days { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Description_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Description*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Description" data-uid="NUnit.Framework.Constraints.EqualConstraint.Description">Description</h4>
+  <div class="markdown level1 summary"><p>The Description of what this constraint tests, for
+use in messages and in the ConstraintResult.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string Description { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_Description">Constraint.Description</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_FailurePoints_" data-uid="NUnit.Framework.Constraints.EqualConstraint.FailurePoints*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_FailurePoints" data-uid="NUnit.Framework.Constraints.EqualConstraint.FailurePoints">FailurePoints</h4>
+  <div class="markdown level1 summary"><p>Gets the failure points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList&lt;NUnitEqualityComparer.FailurePoint&gt; FailurePoints { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="NUnit.Framework.Constraints.NUnitEqualityComparer.html">NUnitEqualityComparer</a>.<a class="xref" href="NUnit.Framework.Constraints.NUnitEqualityComparer.FailurePoint.html">FailurePoint</a>&gt;</td>
+        <td><p>The failure points.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Hours_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Hours*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Hours" data-uid="NUnit.Framework.Constraints.EqualConstraint.Hours">Hours</h4>
+  <div class="markdown level1 summary"><p>Causes the tolerance to be interpreted as a TimeSpan in hours.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Hours { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_IgnoreCase_" data-uid="NUnit.Framework.Constraints.EqualConstraint.IgnoreCase*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_IgnoreCase" data-uid="NUnit.Framework.Constraints.EqualConstraint.IgnoreCase">IgnoreCase</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to ignore case and return self.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint IgnoreCase { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Milliseconds_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Milliseconds*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Milliseconds" data-uid="NUnit.Framework.Constraints.EqualConstraint.Milliseconds">Milliseconds</h4>
+  <div class="markdown level1 summary"><p>Causes the tolerance to be interpreted as a TimeSpan in milliseconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Milliseconds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Minutes_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Minutes*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Minutes" data-uid="NUnit.Framework.Constraints.EqualConstraint.Minutes">Minutes</h4>
+  <div class="markdown level1 summary"><p>Causes the tolerance to be interpreted as a TimeSpan in minutes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Minutes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_NoClip_" data-uid="NUnit.Framework.Constraints.EqualConstraint.NoClip*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_NoClip" data-uid="NUnit.Framework.Constraints.EqualConstraint.NoClip">NoClip</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to suppress string clipping
+and return self.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint NoClip { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Percent_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Percent*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Percent" data-uid="NUnit.Framework.Constraints.EqualConstraint.Percent">Percent</h4>
+  <div class="markdown level1 summary"><p>Switches the .Within() modifier to interpret its tolerance as
+a percentage that the actual values is allowed to deviate from
+the expected value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Percent { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Seconds_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Seconds*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Seconds" data-uid="NUnit.Framework.Constraints.EqualConstraint.Seconds">Seconds</h4>
+  <div class="markdown level1 summary"><p>Causes the tolerance to be interpreted as a TimeSpan in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Seconds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Ticks_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Ticks*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Ticks" data-uid="NUnit.Framework.Constraints.EqualConstraint.Ticks">Ticks</h4>
+  <div class="markdown level1 summary"><p>Causes the tolerance to be interpreted as a TimeSpan in clock ticks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Ticks { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Tolerance_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Tolerance*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Tolerance" data-uid="NUnit.Framework.Constraints.EqualConstraint.Tolerance">Tolerance</h4>
+  <div class="markdown level1 summary"><p>Gets the tolerance for this comparison.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tolerance Tolerance { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.Tolerance.html">Tolerance</a></td>
+        <td><p>The tolerance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Ulps_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Ulps*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Ulps" data-uid="NUnit.Framework.Constraints.EqualConstraint.Ulps">Ulps</h4>
+  <div class="markdown level1 summary"><p>Switches the .Within() modifier to interpret its tolerance as
+a distance in representable values (see remarks).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Ulps { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="NUnit_Framework_Constraints_EqualConstraint_Ulps_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Ulp stands for &quot;unit in the last place&quot; and describes the minimum
+amount a given value can change. For any integers, an ulp is 1 whole
+digit. For floating point values, the accuracy of which is better
+for smaller numbers and worse for larger numbers, an ulp depends
+on the size of the number. Using ulps for comparison of floating
+point results instead of fixed tolerances is safer because it will
+automatically compensate for the added inaccuracy of larger numbers.</p>
+</div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_WithSameOffset_" data-uid="NUnit.Framework.Constraints.EqualConstraint.WithSameOffset*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_WithSameOffset" data-uid="NUnit.Framework.Constraints.EqualConstraint.WithSameOffset">WithSameOffset</h4>
+  <div class="markdown level1 summary"><p>Flags the constraint to include <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset.offset">Offset</a>
+property in comparison of two <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a> values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint WithSameOffset { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="NUnit_Framework_Constraints_EqualConstraint_WithSameOffset_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Using this modifier does not allow to use the <a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html#NUnit_Framework_Constraints_EqualConstraint_Within_System_Object_">Within(object)</a>
+constraint modifier.</p>
+</div>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_ApplyTo_" data-uid="NUnit.Framework.Constraints.EqualConstraint.ApplyTo*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_ApplyTo__1___0_" data-uid="NUnit.Framework.Constraints.EqualConstraint.ApplyTo``1(``0)">ApplyTo&lt;TActual&gt;(TActual)</h4>
+  <div class="markdown level1 summary"><p>Test whether the constraint is satisfied by a given value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ConstraintResult ApplyTo&lt;TActual&gt;(TActual actual)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TActual</span></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The value to be tested</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
+        <td><p>True for success, false for failure</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1___0_">Constraint.ApplyTo&lt;TActual&gt;(TActual)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Using_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Using_System_Collections_IComparer_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using(System.Collections.IComparer)">Using(IComparer)</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to use the supplied IComparer object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Using(IComparer comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icomparer">IComparer</a></td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>The IComparer object to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Using_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Using_System_Collections_IEqualityComparer_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using(System.Collections.IEqualityComparer)">Using(IEqualityComparer)</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to use the supplied IEqualityComparer object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Using(IEqualityComparer comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.iequalitycomparer">IEqualityComparer</a></td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>The IComparer object to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Using_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Using__1_System_Collections_Generic_IComparer___0__" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using``1(System.Collections.Generic.IComparer{``0})">Using&lt;T&gt;(IComparer&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to use the supplied IComparer object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Using&lt;T&gt;(IComparer&lt;T&gt; comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;T&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>The IComparer object to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Using_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Using__1_System_Collections_Generic_IEqualityComparer___0__" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using``1(System.Collections.Generic.IEqualityComparer{``0})">Using&lt;T&gt;(IEqualityComparer&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to use the supplied IEqualityComparer object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;T&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>The IComparer object to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Using_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Using__1_System_Comparison___0__" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using``1(System.Comparison{``0})">Using&lt;T&gt;(Comparison&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to use the supplied Comparison object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Using&lt;T&gt;(Comparison&lt;T&gt; comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.comparison-1">Comparison</a>&lt;T&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>The IComparer object to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Using_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Using__1_System_Func___0___0_System_Boolean__" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using``1(System.Func{``0,``0,System.Boolean})">Using&lt;T&gt;(Func&lt;T, T, bool&gt;)</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to use the supplied boolean-returning delegate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T, T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>The boolean-returning delegate to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Using_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Using__2_System_Func___0___1_System_Boolean__" data-uid="NUnit.Framework.Constraints.EqualConstraint.Using``2(System.Func{``0,``1,System.Boolean})">Using&lt;TCollectionType, TMemberType&gt;(Func&lt;TCollectionType, TMemberType, bool&gt;)</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to use the supplied predicate function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Using&lt;TCollectionType, TMemberType&gt;(Func&lt;TCollectionType, TMemberType, bool&gt; comparison)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TCollectionType, TMemberType, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><span class="parametername">comparison</span></td>
+        <td><p>The comparison function to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TCollectionType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TMemberType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_EqualConstraint_Within_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Within*"></a>
+  <h4 id="NUnit_Framework_Constraints_EqualConstraint_Within_System_Object_" data-uid="NUnit.Framework.Constraints.EqualConstraint.Within(System.Object)">Within(object)</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to use a tolerance when determining equality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualConstraint Within(object amount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">amount</span></td>
+        <td><p>Tolerance value to be used</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><p>Self.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a>
+  </div>
+  <div>
+      <a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Constraints/EqualConstraint.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Namespace NUnit.Framework.Internal.Execution
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Namespace NUnit.Framework.Internal.Execution
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Internal.Execution">
+
+  <h1 id="NUnit_Framework_Internal_Execution" data-uid="NUnit.Framework.Internal.Execution" class="text-break">Namespace NUnit.Framework.Internal.Execution
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">
+Classes
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.CompositeWorkItem.html">CompositeWorkItem</a></h4>
+      <section><p>A CompositeWorkItem represents a test suite and
+encapsulates the execution of the suite as well
+as all its child tests.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.CompositeWorkItem.OneTimeTearDownWorkItem.html">CompositeWorkItem.OneTimeTearDownWorkItem</a></h4>
+      <section><p>OneTimeTearDownWorkItem represents the cleanup
+and one-time teardown phase of a CompositeWorkItem</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.Event.html">Event</a></h4>
+      <section><p>NUnit.Core.Event is the abstract base for all stored events.
+An Event is the stored representation of a call to the
+ITestListener interface and is used to record such calls
+or to queue them for forwarding on another thread or at
+a later time.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.EventListenerTextWriter.html">EventListenerTextWriter</a></h4>
+      <section><p>EventListenerTextWriter sends text output to the currently active
+ITestEventListener in the form of a TestOutput object. If no event
+listener is active in the context, or if there is no context,
+the output is forwarded to the supplied default writer.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.EventPump.html">EventPump</a></h4>
+      <section><p>EventPump pulls events out of an EventQueue and sends
+them to a listener. It is used to send events back to
+the client without using the CallContext of the test
+runner thread.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.EventQueue.html">EventQueue</a></h4>
+      <section><p>Implements a queue of work items each of which
+is queued as a WaitCallback.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.MainThreadWorkItemDispatcher.html">MainThreadWorkItemDispatcher</a></h4>
+      <section><p>MainThreadWorkItemDispatcher handles execution of WorkItems by
+directly executing them on the main thread. This is different
+from the SimpleWorkItemDispatcher where the work item is dispatched
+onto its own thread.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.ParallelWorkItemDispatcher.html">ParallelWorkItemDispatcher</a></h4>
+      <section><p>ParallelWorkItemDispatcher handles execution of work items by
+queuing them for worker threads to process.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.QueuingEventListener.html">QueuingEventListener</a></h4>
+      <section><p>QueuingEventListener uses an EventQueue to store any
+events received on its EventListener interface.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.SimpleWorkItem.html">SimpleWorkItem</a></h4>
+      <section><p>A SimpleWorkItem represents a single test case and is
+marked as completed immediately upon execution. This
+class is also used for skipped or ignored test suites.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.SimpleWorkItemDispatcher.html">SimpleWorkItemDispatcher</a></h4>
+      <section><p>SimpleWorkItemDispatcher handles execution of WorkItems by
+directly executing them. It is provided so that a dispatcher
+is always available in the context, thereby simplifying the
+code needed to run child tests.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.StaticMethodValidator.html">StaticMethodValidator</a></h4>
+      <section><p>Checks whether the method to execute is static.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.TestFinishedEvent.html">TestFinishedEvent</a></h4>
+      <section><p>TestFinishedEvent holds information needed to call the TestFinished method.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.TestMessageEvent.html">TestMessageEvent</a></h4>
+      <section><p>TestMessageEvent holds information needed to call the SendMessage method.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.TestOutputEvent.html">TestOutputEvent</a></h4>
+      <section><p>TestOutputEvent holds information needed to call the TestOutput method.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.TestStartedEvent.html">TestStartedEvent</a></h4>
+      <section><p>TestStartedEvent holds information needed to call the TestStarted method.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.TestWorker.html">TestWorker</a></h4>
+      <section><p>A TestWorker pulls work items from a queue
+and executes them.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.TextCapture.html">TextCapture</a></h4>
+      <section><p>The TextCapture class intercepts console output and writes it
+to the current execution context, if one is present on the thread.
+If no execution context is found, the output is written to a
+default destination, normally the original destination of the
+intercepted output.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.WorkItem.html">WorkItem</a></h4>
+      <section><p>A WorkItem may be an individual test case, a fixture or
+a higher level grouping of tests. All WorkItems inherit
+from the abstract WorkItem class, which uses the template
+pattern to allow derived classes to perform work in
+whatever way is needed.</p>
+<p>A WorkItem is created with a particular TestExecutionContext
+and is responsible for re-establishing that context in the
+current thread before it begins or resumes execution.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.WorkItemBuilder.html">WorkItemBuilder</a></h4>
+      <section><p>WorkItemBuilder class knows how to build a tree of work items from a tree of tests</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.WorkItemQueue.html">WorkItemQueue</a></h4>
+      <section><p>A WorkItemQueue holds work items that are ready to
+be run, either initially or after some dependency
+has been satisfied.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.WorkShift.html">WorkShift</a></h4>
+      <section><p>The dispatcher needs to do different things at different,
+non-overlapped times. For example, non-parallel tests may
+not be run at the same time as parallel tests. We model
+this using the metaphor of a working shift. The WorkShift
+class associates one or more WorkItemQueues with one or
+more TestWorkers.</p>
+<p>Work in the queues is processed until all queues are empty
+and all workers are idle. Both tests are needed because a
+worker that is busy may end up adding more work to one of
+the queues. At that point, the shift is over and another
+shift may begin. This cycle continues until all the tests
+have been run.</p>
+</section>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.IMethodValidator.html">IMethodValidator</a></h4>
+      <section><p>Validates method to execute.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.IWorkItemDispatcher.html">IWorkItemDispatcher</a></h4>
+      <section><p>An IWorkItemDispatcher handles execution of work items.</p>
+</section>
+    <h3 id="enums">
+Enums
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.EventPumpState.html">EventPumpState</a></h4>
+      <section><p>The EventPumpState enum represents the state of an
+EventPump.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.ParallelExecutionStrategy.html">ParallelExecutionStrategy</a></h4>
+      <section><p>Enumeration representing the strategy to follow in executing a work item.
+The value is only relevant when running under the parallel dispatcher.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.WorkItemQueueState.html">WorkItemQueueState</a></h4>
+      <section><p>WorkItemQueueState indicates the current state of a WorkItemQueue</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.WorkItemState.html">WorkItemState</a></h4>
+      <section><p>The current state of a work item</p>
+</section>
+    <h3 id="delegates">
+Delegates
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.ShiftChangeEventHandler.html">ShiftChangeEventHandler</a></h4>
+      <section><p>Handler for ShiftChange events.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Execution.TestWorker.TestWorkerEventHandler.html">TestWorker.TestWorkerEventHandler</a></h4>
+      <section><p>Event handler for TestWorker events</p>
+</section>
+
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

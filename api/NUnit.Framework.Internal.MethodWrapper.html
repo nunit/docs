@@ -1,0 +1,960 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class MethodWrapper
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class MethodWrapper
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Internal.MethodWrapper">
+
+
+
+  <h1 id="NUnit_Framework_Internal_MethodWrapper" data-uid="NUnit.Framework.Internal.MethodWrapper" class="text-break">Class MethodWrapper
+</h1>
+  <div class="markdown level0 summary"><p>The MethodWrapper class wraps a MethodInfo so that it may
+be used in a platform-independent manner.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">MethodWrapper</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="NUnit.Framework.Interfaces.IMethodInfo.html">IMethodInfo</a></div>
+    <div><a class="xref" href="NUnit.Framework.Interfaces.IReflectionInfo.html">IReflectionInfo</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NUnit.Framework.Internal.MethodWrapper.html">MethodWrapper</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Internal.html">Internal</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_Internal_MethodWrapper_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MethodWrapper : IMethodInfo, IReflectionInfo, IEquatable&lt;MethodWrapper&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper__ctor_" data-uid="NUnit.Framework.Internal.MethodWrapper.#ctor*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper__ctor_System_Type_System_Reflection_MethodInfo_" data-uid="NUnit.Framework.Internal.MethodWrapper.#ctor(System.Type,System.Reflection.MethodInfo)">MethodWrapper(Type, MethodInfo)</h4>
+  <div class="markdown level1 summary"><p>Construct a MethodWrapper for a Type and a MethodInfo.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MethodWrapper(Type type, MethodInfo method)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
+        <td><span class="parametername">method</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper__ctor_" data-uid="NUnit.Framework.Internal.MethodWrapper.#ctor*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper__ctor_System_Type_System_String_" data-uid="NUnit.Framework.Internal.MethodWrapper.#ctor(System.Type,System.String)">MethodWrapper(Type, string)</h4>
+  <div class="markdown level1 summary"><p>Construct a MethodInfo for a given Type and method name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MethodWrapper(Type type, string methodName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">methodName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_ContainsGenericParameters_" data-uid="NUnit.Framework.Internal.MethodWrapper.ContainsGenericParameters*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_ContainsGenericParameters" data-uid="NUnit.Framework.Internal.MethodWrapper.ContainsGenericParameters">ContainsGenericParameters</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the method contains unassigned generic type parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsGenericParameters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_IsAbstract_" data-uid="NUnit.Framework.Internal.MethodWrapper.IsAbstract*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_IsAbstract" data-uid="NUnit.Framework.Internal.MethodWrapper.IsAbstract">IsAbstract</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the method is abstract.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsAbstract { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_IsGenericMethod_" data-uid="NUnit.Framework.Internal.MethodWrapper.IsGenericMethod*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_IsGenericMethod" data-uid="NUnit.Framework.Internal.MethodWrapper.IsGenericMethod">IsGenericMethod</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the method is a generic method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsGenericMethod { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_IsGenericMethodDefinition_" data-uid="NUnit.Framework.Internal.MethodWrapper.IsGenericMethodDefinition*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_IsGenericMethodDefinition" data-uid="NUnit.Framework.Internal.MethodWrapper.IsGenericMethodDefinition">IsGenericMethodDefinition</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the MethodInfo represents the definition of a generic method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsGenericMethodDefinition { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_IsPublic_" data-uid="NUnit.Framework.Internal.MethodWrapper.IsPublic*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_IsPublic" data-uid="NUnit.Framework.Internal.MethodWrapper.IsPublic">IsPublic</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the method is public.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPublic { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_IsStatic_" data-uid="NUnit.Framework.Internal.MethodWrapper.IsStatic*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_IsStatic" data-uid="NUnit.Framework.Internal.MethodWrapper.IsStatic">IsStatic</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the method is static.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsStatic { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_MethodInfo_" data-uid="NUnit.Framework.Internal.MethodWrapper.MethodInfo*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_MethodInfo" data-uid="NUnit.Framework.Internal.MethodWrapper.MethodInfo">MethodInfo</h4>
+  <div class="markdown level1 summary"><p>Gets the MethodInfo for this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MethodInfo MethodInfo { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_Name_" data-uid="NUnit.Framework.Internal.MethodWrapper.Name*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_Name" data-uid="NUnit.Framework.Internal.MethodWrapper.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets the name of the method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_ReturnType_" data-uid="NUnit.Framework.Internal.MethodWrapper.ReturnType*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_ReturnType" data-uid="NUnit.Framework.Internal.MethodWrapper.ReturnType">ReturnType</h4>
+  <div class="markdown level1 summary"><p>Gets the return Type of the method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITypeInfo ReturnType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITypeInfo.html">ITypeInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_TypeInfo_" data-uid="NUnit.Framework.Internal.MethodWrapper.TypeInfo*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_TypeInfo" data-uid="NUnit.Framework.Internal.MethodWrapper.TypeInfo">TypeInfo</h4>
+  <div class="markdown level1 summary"><p>Gets the Type from which this method was reflected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITypeInfo TypeInfo { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITypeInfo.html">ITypeInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_Equals_" data-uid="NUnit.Framework.Internal.MethodWrapper.Equals*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_Equals_NUnit_Framework_Internal_MethodWrapper_" data-uid="NUnit.Framework.Internal.MethodWrapper.Equals(NUnit.Framework.Internal.MethodWrapper)">Equals(MethodWrapper?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(MethodWrapper? other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.MethodWrapper.html">MethodWrapper</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_Equals_" data-uid="NUnit.Framework.Internal.MethodWrapper.Equals*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_Equals_System_Object_" data-uid="NUnit.Framework.Internal.MethodWrapper.Equals(System.Object)">Equals(object?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_GetCustomAttributes_" data-uid="NUnit.Framework.Internal.MethodWrapper.GetCustomAttributes*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_GetCustomAttributes__1_System_Boolean_" data-uid="NUnit.Framework.Internal.MethodWrapper.GetCustomAttributes``1(System.Boolean)">GetCustomAttributes&lt;T&gt;(bool)</h4>
+  <div class="markdown level1 summary"><p>Returns an array of custom attributes of the specified type applied to this method</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T[] GetCustomAttributes&lt;T&gt;(bool inherit) where T : class</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">inherit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>T[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_GetGenericArguments_" data-uid="NUnit.Framework.Internal.MethodWrapper.GetGenericArguments*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_GetGenericArguments" data-uid="NUnit.Framework.Internal.MethodWrapper.GetGenericArguments">GetGenericArguments()</h4>
+  <div class="markdown level1 summary"><p>Returns the Type arguments of a generic method or the Type parameters of a generic method definition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type[] GetGenericArguments()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_GetHashCode_" data-uid="NUnit.Framework.Internal.MethodWrapper.GetHashCode*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_GetHashCode" data-uid="NUnit.Framework.Internal.MethodWrapper.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_GetParameters_" data-uid="NUnit.Framework.Internal.MethodWrapper.GetParameters*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_GetParameters" data-uid="NUnit.Framework.Internal.MethodWrapper.GetParameters">GetParameters()</h4>
+  <div class="markdown level1 summary"><p>Gets the parameters of the method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IParameterInfo[] GetParameters()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.IParameterInfo.html">IParameterInfo</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_Invoke_" data-uid="NUnit.Framework.Internal.MethodWrapper.Invoke*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_Invoke_System_Object_System_Object___" data-uid="NUnit.Framework.Internal.MethodWrapper.Invoke(System.Object,System.Object[])">Invoke(object?, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Invokes the method, converting any TargetInvocationException to an NUnitException.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object? Invoke(object? fixture, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">fixture</span></td>
+        <td><p>The object on which to invoke the method</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>The argument list for the method</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><p>The return value from the invoked method</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_IsDefined_" data-uid="NUnit.Framework.Internal.MethodWrapper.IsDefined*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_IsDefined__1_System_Boolean_" data-uid="NUnit.Framework.Internal.MethodWrapper.IsDefined``1(System.Boolean)">IsDefined&lt;T&gt;(bool)</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether one or more attributes of the specified type are defined on the method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDefined&lt;T&gt;(bool inherit) where T : class</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">inherit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_MakeGenericMethod_" data-uid="NUnit.Framework.Internal.MethodWrapper.MakeGenericMethod*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_MakeGenericMethod_System_Type___" data-uid="NUnit.Framework.Internal.MethodWrapper.MakeGenericMethod(System.Type[])">MakeGenericMethod(params Type[])</h4>
+  <div class="markdown level1 summary"><p>Replaces the type parameters of the method with the array of types provided and returns a new IMethodInfo.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMethodInfo MakeGenericMethod(params Type[] typeArguments)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</td>
+        <td><span class="parametername">typeArguments</span></td>
+        <td><p>The type arguments to be used</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.IMethodInfo.html">IMethodInfo</a></td>
+        <td><p>A new IMethodInfo with the type arguments replaced</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_MethodWrapper_ToString_" data-uid="NUnit.Framework.Internal.MethodWrapper.ToString*"></a>
+  <h4 id="NUnit_Framework_Internal_MethodWrapper_ToString" data-uid="NUnit.Framework.Internal.MethodWrapper.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Override ToString() so that error messages in NUnit's own tests make sense</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="NUnit.Framework.Interfaces.IMethodInfo.html">IMethodInfo</a>
+  </div>
+  <div>
+      <a class="xref" href="NUnit.Framework.Interfaces.IReflectionInfo.html">IReflectionInfo</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/MethodWrapper.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

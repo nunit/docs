@@ -1,0 +1,660 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Interface ITestAssemblyRunner
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Interface ITestAssemblyRunner
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Api.ITestAssemblyRunner">
+
+
+
+  <h1 id="NUnit_Framework_Api_ITestAssemblyRunner" data-uid="NUnit.Framework.Api.ITestAssemblyRunner" class="text-break">Interface ITestAssemblyRunner
+</h1>
+  <div class="markdown level0 summary"><p>The ITestAssemblyRunner interface is implemented by classes
+that are able to execute a suite of tests loaded
+from an assembly.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Api.html">Api</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_Api_ITestAssemblyRunner_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ITestAssemblyRunner</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_IsTestComplete_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.IsTestComplete*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_IsTestComplete" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.IsTestComplete">IsTestComplete</h4>
+  <div class="markdown level1 summary"><p>Indicates whether a test run is complete</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsTestComplete { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_IsTestLoaded_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.IsTestLoaded*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_IsTestLoaded" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.IsTestLoaded">IsTestLoaded</h4>
+  <div class="markdown level1 summary"><p>Indicates whether a test has been loaded</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsTestLoaded { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_IsTestRunning_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.IsTestRunning*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_IsTestRunning" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.IsTestRunning">IsTestRunning</h4>
+  <div class="markdown level1 summary"><p>Indicates whether a test is currently running</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsTestRunning { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_LoadedTest_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.LoadedTest*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_LoadedTest" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.LoadedTest">LoadedTest</h4>
+  <div class="markdown level1 summary"><p>Gets the tree of loaded tests, or null if
+no tests have been loaded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ITest? LoadedTest { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITest.html">ITest</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_Result_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.Result*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_Result" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.Result">Result</h4>
+  <div class="markdown level1 summary"><p>Gets the tree of test results, if the test
+run is completed, otherwise null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ITestResult? Result { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITestResult.html">ITestResult</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_CountTestCases_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.CountTestCases*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_CountTestCases_NUnit_Framework_Interfaces_ITestFilter_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.CountTestCases(NUnit.Framework.Interfaces.ITestFilter)">CountTestCases(ITestFilter)</h4>
+  <div class="markdown level1 summary"><p>Count Test Cases using a filter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int CountTestCases(ITestFilter filter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITestFilter.html">ITestFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter to apply</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>The number of test cases found</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_ExploreTests_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.ExploreTests*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_ExploreTests_NUnit_Framework_Interfaces_ITestFilter_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.ExploreTests(NUnit.Framework.Interfaces.ITestFilter)">ExploreTests(ITestFilter)</h4>
+  <div class="markdown level1 summary"><p>Explore the test cases using a filter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ITest ExploreTests(ITestFilter filter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITestFilter.html">ITestFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter to apply</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITest.html">ITest</a></td>
+        <td><p>Test Assembly with test cases that matches the filter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_Load_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.Load*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_Load_System_Reflection_Assembly_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.Load(System.Reflection.Assembly,System.Collections.Generic.IDictionary{System.String,System.Object})">Load(Assembly, IDictionary&lt;string, object&gt;)</h4>
+  <div class="markdown level1 summary"><p>Loads the tests found in an Assembly, returning an
+indication of whether or not the load succeeded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ITest Load(Assembly assembly, IDictionary&lt;string, object&gt; settings)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></td>
+        <td><span class="parametername">assembly</span></td>
+        <td><p>The assembly to load</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
+        <td><span class="parametername">settings</span></td>
+        <td><p>Dictionary of options to use in loading the test</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITest.html">ITest</a></td>
+        <td><p>An ITest representing the loaded tests</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_Load_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.Load*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_Load_System_String_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.Load(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">Load(string, IDictionary&lt;string, object&gt;)</h4>
+  <div class="markdown level1 summary"><p>Loads the tests found in an Assembly, returning an
+indication of whether or not the load succeeded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ITest Load(string assemblyName, IDictionary&lt;string, object&gt; settings)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">assemblyName</span></td>
+        <td><p>File name of the assembly to load</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
+        <td><span class="parametername">settings</span></td>
+        <td><p>Dictionary of options to use in loading the test</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITest.html">ITest</a></td>
+        <td><p>An ITest representing the loaded tests</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_Run_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.Run*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_Run_NUnit_Framework_Interfaces_ITestListener_NUnit_Framework_Interfaces_ITestFilter_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.Run(NUnit.Framework.Interfaces.ITestListener,NUnit.Framework.Interfaces.ITestFilter)">Run(ITestListener, ITestFilter)</h4>
+  <div class="markdown level1 summary"><p>Run selected tests and return a test result. The test is run synchronously,
+and the listener interface is notified as it progresses.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ITestResult Run(ITestListener listener, ITestFilter filter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITestListener.html">ITestListener</a></td>
+        <td><span class="parametername">listener</span></td>
+        <td><p>Interface to receive ITestListener notifications.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITestFilter.html">ITestFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>A test filter used to select tests to be run</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITestResult.html">ITestResult</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_RunAsync_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.RunAsync*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_RunAsync_NUnit_Framework_Interfaces_ITestListener_NUnit_Framework_Interfaces_ITestFilter_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.RunAsync(NUnit.Framework.Interfaces.ITestListener,NUnit.Framework.Interfaces.ITestFilter)">RunAsync(ITestListener, ITestFilter)</h4>
+  <div class="markdown level1 summary"><p>Run selected tests asynchronously, notifying the listener interface as it progresses.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RunAsync(ITestListener listener, ITestFilter filter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITestListener.html">ITestListener</a></td>
+        <td><span class="parametername">listener</span></td>
+        <td><p>Interface to receive EventListener notifications.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITestFilter.html">ITestFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>A test filter used to select tests to be run</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_StopRun_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.StopRun*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_StopRun_System_Boolean_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.StopRun(System.Boolean)">StopRun(bool)</h4>
+  <div class="markdown level1 summary"><p>Signal any test run that is in process to stop. Return without error if no test is running.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void StopRun(bool force)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">force</span></td>
+        <td><p>If true, kill any test-running threads</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Api_ITestAssemblyRunner_WaitForCompletion_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.WaitForCompletion*"></a>
+  <h4 id="NUnit_Framework_Api_ITestAssemblyRunner_WaitForCompletion_System_Int32_" data-uid="NUnit.Framework.Api.ITestAssemblyRunner.WaitForCompletion(System.Int32)">WaitForCompletion(int)</h4>
+  <div class="markdown level1 summary"><p>Wait for the ongoing run to complete.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool WaitForCompletion(int timeout)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Time to wait in milliseconds</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True if the run completed, otherwise false</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Api/ITestAssemblyRunner.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,686 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class ColorConsoleWriter
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class ColorConsoleWriter
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Common.ColorConsoleWriter">
+
+
+
+  <h1 id="NUnit_Common_ColorConsoleWriter" data-uid="NUnit.Common.ColorConsoleWriter" class="text-break">Class ColorConsoleWriter
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject">MarshalByRefObject</a></div>
+    <div class="level2"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></div>
+    <div class="level3"><a class="xref" href="NUnit.Common.ExtendedTextWriter.html">ExtendedTextWriter</a></div>
+    <div class="level4"><a class="xref" href="NUnit.Common.ExtendedTextWrapper.html">ExtendedTextWrapper</a></div>
+    <div class="level5"><span class="xref">ColorConsoleWriter</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Common.ExtendedTextWrapper.html#NUnit_Common_ExtendedTextWrapper_Write_System_Char_">ExtendedTextWrapper.Write(char)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Common.ExtendedTextWrapper.html#NUnit_Common_ExtendedTextWrapper_Write_System_String_">ExtendedTextWrapper.Write(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Common.ExtendedTextWrapper.html#NUnit_Common_ExtendedTextWrapper_WriteLine_System_String_">ExtendedTextWrapper.WriteLine(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Common.ExtendedTextWrapper.html#NUnit_Common_ExtendedTextWrapper_Dispose_System_Boolean_">ExtendedTextWrapper.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Common.ExtendedTextWrapper.html#NUnit_Common_ExtendedTextWrapper_Encoding">ExtendedTextWrapper.Encoding</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.null">TextWriter.Null</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.corenewline">TextWriter.CoreNewLine</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.close">TextWriter.Close()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.dispose#system-io-textwriter-dispose">TextWriter.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.disposeasync">TextWriter.DisposeAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.flush">TextWriter.Flush()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-char())">TextWriter.Write(char[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-char()-system-int32-system-int32)">TextWriter.Write(char[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-readonlyspan((system-char)))">TextWriter.Write(ReadOnlySpan&lt;char&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-boolean)">TextWriter.Write(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-int32)">TextWriter.Write(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-uint32)">TextWriter.Write(uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-int64)">TextWriter.Write(long)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-uint64)">TextWriter.Write(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-single)">TextWriter.Write(float)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-double)">TextWriter.Write(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-decimal)">TextWriter.Write(decimal)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-object)">TextWriter.Write(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-text-stringbuilder)">TextWriter.Write(StringBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-string-system-object)">TextWriter.Write(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-string-system-object-system-object)">TextWriter.Write(string, object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-string-system-object-system-object-system-object)">TextWriter.Write(string, object, object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.write#system-io-textwriter-write(system-string-system-object())">TextWriter.Write(string, params object[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline">TextWriter.WriteLine()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-char)">TextWriter.WriteLine(char)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-char())">TextWriter.WriteLine(char[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-char()-system-int32-system-int32)">TextWriter.WriteLine(char[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-readonlyspan((system-char)))">TextWriter.WriteLine(ReadOnlySpan&lt;char&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-boolean)">TextWriter.WriteLine(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-int32)">TextWriter.WriteLine(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-uint32)">TextWriter.WriteLine(uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-int64)">TextWriter.WriteLine(long)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-uint64)">TextWriter.WriteLine(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-single)">TextWriter.WriteLine(float)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-double)">TextWriter.WriteLine(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-decimal)">TextWriter.WriteLine(decimal)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-text-stringbuilder)">TextWriter.WriteLine(StringBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-object)">TextWriter.WriteLine(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-string-system-object)">TextWriter.WriteLine(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-string-system-object-system-object)">TextWriter.WriteLine(string, object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-string-system-object-system-object-system-object)">TextWriter.WriteLine(string, object, object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeline#system-io-textwriter-writeline(system-string-system-object())">TextWriter.WriteLine(string, params object[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeasync#system-io-textwriter-writeasync(system-char)">TextWriter.WriteAsync(char)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeasync#system-io-textwriter-writeasync(system-string)">TextWriter.WriteAsync(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeasync#system-io-textwriter-writeasync(system-text-stringbuilder-system-threading-cancellationtoken)">TextWriter.WriteAsync(StringBuilder, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeasync#system-io-textwriter-writeasync(system-char())">TextWriter.WriteAsync(char[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeasync#system-io-textwriter-writeasync(system-char()-system-int32-system-int32)">TextWriter.WriteAsync(char[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writeasync#system-io-textwriter-writeasync(system-readonlymemory((system-char))-system-threading-cancellationtoken)">TextWriter.WriteAsync(ReadOnlyMemory&lt;char&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writelineasync#system-io-textwriter-writelineasync(system-char)">TextWriter.WriteLineAsync(char)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writelineasync#system-io-textwriter-writelineasync(system-string)">TextWriter.WriteLineAsync(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writelineasync#system-io-textwriter-writelineasync(system-text-stringbuilder-system-threading-cancellationtoken)">TextWriter.WriteLineAsync(StringBuilder, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writelineasync#system-io-textwriter-writelineasync(system-char())">TextWriter.WriteLineAsync(char[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writelineasync#system-io-textwriter-writelineasync(system-char()-system-int32-system-int32)">TextWriter.WriteLineAsync(char[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writelineasync#system-io-textwriter-writelineasync(system-readonlymemory((system-char))-system-threading-cancellationtoken)">TextWriter.WriteLineAsync(ReadOnlyMemory&lt;char&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.writelineasync#system-io-textwriter-writelineasync">TextWriter.WriteLineAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.flushasync">TextWriter.FlushAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.synchronized">TextWriter.Synchronized(TextWriter)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.formatprovider">TextWriter.FormatProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter.newline">TextWriter.NewLine</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.getlifetimeservice">MarshalByRefObject.GetLifetimeService()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.initializelifetimeservice">MarshalByRefObject.InitializeLifetimeService()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.memberwiseclone">MarshalByRefObject.MemberwiseClone(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Common.html">Common</a></h6>
+  <h6><strong>Assembly</strong>: nunitlite.dll</h6>
+  <h5 id="NUnit_Common_ColorConsoleWriter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ColorConsoleWriter : ExtendedTextWrapper, IDisposable, IAsyncDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/ColorConsoleWriter.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_ColorConsoleWriter__ctor_" data-uid="NUnit.Common.ColorConsoleWriter.#ctor*"></a>
+  <h4 id="NUnit_Common_ColorConsoleWriter__ctor" data-uid="NUnit.Common.ColorConsoleWriter.#ctor">ColorConsoleWriter()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorConsoleWriter()</code></pre>
+  </div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/ColorConsoleWriter.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_ColorConsoleWriter__ctor_" data-uid="NUnit.Common.ColorConsoleWriter.#ctor*"></a>
+  <h4 id="NUnit_Common_ColorConsoleWriter__ctor_System_Boolean_" data-uid="NUnit.Common.ColorConsoleWriter.#ctor(System.Boolean)">ColorConsoleWriter(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorConsoleWriter(bool colorEnabled)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">colorEnabled</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/ColorConsoleWriter.cs">View Source</a>
+  </span>
+  <h4 id="NUnit_Common_ColorConsoleWriter_ColorEnabled" data-uid="NUnit.Common.ColorConsoleWriter.ColorEnabled">ColorEnabled</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ColorEnabled</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/ColorConsoleWriter.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_ColorConsoleWriter_Write_" data-uid="NUnit.Common.ColorConsoleWriter.Write*"></a>
+  <h4 id="NUnit_Common_ColorConsoleWriter_Write_NUnit_Common_ColorStyle_System_String_" data-uid="NUnit.Common.ColorConsoleWriter.Write(NUnit.Common.ColorStyle,System.String)">Write(ColorStyle, string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Write(ColorStyle style, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Common.ColorStyle.html">ColorStyle</a></td>
+        <td><span class="parametername">style</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Common.ExtendedTextWrapper.html#NUnit_Common_ExtendedTextWrapper_Write_NUnit_Common_ColorStyle_System_String_">ExtendedTextWrapper.Write(ColorStyle, string)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/ColorConsoleWriter.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_ColorConsoleWriter_WriteLabel_" data-uid="NUnit.Common.ColorConsoleWriter.WriteLabel*"></a>
+  <h4 id="NUnit_Common_ColorConsoleWriter_WriteLabel_System_String_System_Object_" data-uid="NUnit.Common.ColorConsoleWriter.WriteLabel(System.String,System.Object)">WriteLabel(string, object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void WriteLabel(string label, object option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">label</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Common.ExtendedTextWrapper.html#NUnit_Common_ExtendedTextWrapper_WriteLabel_System_String_System_Object_">ExtendedTextWrapper.WriteLabel(string, object)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/ColorConsoleWriter.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_ColorConsoleWriter_WriteLabel_" data-uid="NUnit.Common.ColorConsoleWriter.WriteLabel*"></a>
+  <h4 id="NUnit_Common_ColorConsoleWriter_WriteLabel_System_String_System_Object_NUnit_Common_ColorStyle_" data-uid="NUnit.Common.ColorConsoleWriter.WriteLabel(System.String,System.Object,NUnit.Common.ColorStyle)">WriteLabel(string, object, ColorStyle)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void WriteLabel(string label, object option, ColorStyle valueStyle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">label</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Common.ColorStyle.html">ColorStyle</a></td>
+        <td><span class="parametername">valueStyle</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Common.ExtendedTextWrapper.html#NUnit_Common_ExtendedTextWrapper_WriteLabel_System_String_System_Object_NUnit_Common_ColorStyle_">ExtendedTextWrapper.WriteLabel(string, object, ColorStyle)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/ColorConsoleWriter.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_ColorConsoleWriter_WriteLabelLine_" data-uid="NUnit.Common.ColorConsoleWriter.WriteLabelLine*"></a>
+  <h4 id="NUnit_Common_ColorConsoleWriter_WriteLabelLine_System_String_System_Object_" data-uid="NUnit.Common.ColorConsoleWriter.WriteLabelLine(System.String,System.Object)">WriteLabelLine(string, object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void WriteLabelLine(string label, object option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">label</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Common.ExtendedTextWrapper.html#NUnit_Common_ExtendedTextWrapper_WriteLabelLine_System_String_System_Object_">ExtendedTextWrapper.WriteLabelLine(string, object)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/ColorConsoleWriter.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_ColorConsoleWriter_WriteLabelLine_" data-uid="NUnit.Common.ColorConsoleWriter.WriteLabelLine*"></a>
+  <h4 id="NUnit_Common_ColorConsoleWriter_WriteLabelLine_System_String_System_Object_NUnit_Common_ColorStyle_" data-uid="NUnit.Common.ColorConsoleWriter.WriteLabelLine(System.String,System.Object,NUnit.Common.ColorStyle)">WriteLabelLine(string, object, ColorStyle)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void WriteLabelLine(string label, object option, ColorStyle valueStyle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">label</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Common.ColorStyle.html">ColorStyle</a></td>
+        <td><span class="parametername">valueStyle</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Common.ExtendedTextWrapper.html#NUnit_Common_ExtendedTextWrapper_WriteLabelLine_System_String_System_Object_NUnit_Common_ColorStyle_">ExtendedTextWrapper.WriteLabelLine(string, object, ColorStyle)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/ColorConsoleWriter.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_ColorConsoleWriter_WriteLine_" data-uid="NUnit.Common.ColorConsoleWriter.WriteLine*"></a>
+  <h4 id="NUnit_Common_ColorConsoleWriter_WriteLine_NUnit_Common_ColorStyle_System_String_" data-uid="NUnit.Common.ColorConsoleWriter.WriteLine(NUnit.Common.ColorStyle,System.String)">WriteLine(ColorStyle, string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void WriteLine(ColorStyle style, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Common.ColorStyle.html">ColorStyle</a></td>
+        <td><span class="parametername">style</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Common.ExtendedTextWrapper.html#NUnit_Common_ExtendedTextWrapper_WriteLine_NUnit_Common_ColorStyle_System_String_">ExtendedTextWrapper.WriteLine(ColorStyle, string)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/ColorConsoleWriter.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

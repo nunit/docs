@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Namespace NUnit.Framework.Interfaces
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Namespace NUnit.Framework.Interfaces
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Interfaces">
+
+  <h1 id="NUnit_Framework_Interfaces" data-uid="NUnit.Framework.Interfaces" class="text-break">Namespace NUnit.Framework.Interfaces
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">
+Classes
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.AssertionResult.html">AssertionResult</a></h4>
+      <section><p>The AssertionResult class represents the result of a single assertion.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ResultState.html">ResultState</a></h4>
+      <section><p>The ResultState class represents the outcome of running a test.
+It contains two pieces of information. The Status of the test
+is an enum indicating whether the test passed, failed, was
+skipped or was inconclusive. The Label provides a more
+detailed breakdown for use by client runners.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.TNode.html">TNode</a></h4>
+      <section><p>TNode represents a single node in the XML representation
+of a Test or TestResult. It replaces System.Xml.XmlNode and
+System.Xml.Linq.XElement, providing a minimal set of methods
+for operating on the XML in a platform-independent manner.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.TestAttachment.html">TestAttachment</a></h4>
+      <section><p>The TestAttachment class represents a file attached to a TestResult,
+with an optional description.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.TestMessage.html">TestMessage</a></h4>
+      <section><p>The <a class="xref" href="NUnit.Framework.Interfaces.TestMessage.html">TestMessage</a> class holds a message sent by a test to all listeners</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.TestOutput.html">TestOutput</a></h4>
+      <section><p>The TestOutput class holds a unit of output from
+a test to a specific output stream</p>
+</section>
+    <h3 id="structs">
+Structs
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.TNode.AttributeDictionary.html">TNode.AttributeDictionary</a></h4>
+      <section><p>Class used to represent the attributes of a node</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.TNode.NodeList.html">TNode.NodeList</a></h4>
+      <section><p>Class used to represent a list of XmlResults</p>
+</section>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IApplyToContext.html">IApplyToContext</a></h4>
+      <section><p>The IApplyToContext interface is implemented by attributes
+that want to make changes to the execution context before
+a test is run.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IApplyToTest.html">IApplyToTest</a></h4>
+      <section><p>The IApplyToTest interface is implemented by self-applying
+attributes that modify the state of a test in some way.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IApplyToTestSuite.html">IApplyToTestSuite</a></h4>
+      <section><p>The IApplyToTestSuite interface is implemented by self-applying
+attributes that modify the state of a test suite in some way.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ICombiningStrategy.html">ICombiningStrategy</a></h4>
+      <section><p>CombiningStrategy is the abstract base for classes that
+know how to combine values provided for individual test
+parameters to create a set of test cases.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ICommandWrapper.html">ICommandWrapper</a></h4>
+      <section><p>ICommandWrapper is implemented by attributes and other
+objects able to wrap a TestCommand with another command.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IFixtureBuilder.html">IFixtureBuilder</a></h4>
+      <section><p>The IFixtureBuilder interface is exposed by a class that knows how to
+build test fixtures from a specified type. In general, it is exposed
+by an attribute, but it may be implemented in a helper class used by the
+attribute in some cases.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IFixtureBuilder2.html">IFixtureBuilder2</a></h4>
+      <section><p>The IFixtureBuilder2 interface extends IFixtureBuilder by allowing
+use of a PreFilter, which is used to select methods as test cases.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IImplyFixture.html">IImplyFixture</a></h4>
+      <section><p>IImplyFixture is an empty marker interface used by attributes like
+TestAttribute that cause the class where they are used to be treated
+as a TestFixture even without a TestFixtureAttribute.</p>
+<p>Marker interfaces are not usually considered a good practice, but
+we use it here to avoid cluttering the attribute hierarchy with
+classes that don't contain any extra implementation.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IMethodInfo.html">IMethodInfo</a></h4>
+      <section><p>The IMethodInfo class is used to encapsulate information
+about a method in a platform-independent manner.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IParameterDataProvider.html">IParameterDataProvider</a></h4>
+      <section><p>Provides data for a single test parameter.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IParameterDataSource.html">IParameterDataSource</a></h4>
+      <section><p>Provides data for a single test parameter.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IParameterInfo.html">IParameterInfo</a></h4>
+      <section><p>The IParameterInfo interface is an abstraction of a .NET parameter.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IPreFilter.html">IPreFilter</a></h4>
+      <section><p>Implemented by filters for use in deciding which
+Types and Methods should be used to generate tests.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IPropertyBag.html">IPropertyBag</a></h4>
+      <section><p>A PropertyBag represents a collection of name/value pairs
+that allows duplicate entries with the same key. Methods
+are provided for adding a new pair as well as for setting
+a key to a single value. All keys are strings but values
+may be of any type. Null values are not permitted, since
+a null entry represents the absence of the key.</p>
+<p>The entries in a PropertyBag are of two kinds: those that
+take a single value and those that take multiple values.
+However, the PropertyBag has no knowledge of which entries
+fall into each category and the distinction is entirely
+up to the code using the PropertyBag.</p>
+<p>When working with multi-valued properties, client code
+should use the Add method to add name/value pairs and
+indexing to retrieve a list of all values for a given
+key. For example:</p>
+<pre><code>bag.Add(&quot;Tag&quot;, &quot;one&quot;);
+bag.Add(&quot;Tag&quot;, &quot;two&quot;);
+Assert.That(bag[&quot;Tag&quot;],
+  Is.EqualTo(new string[] { &quot;one&quot;, &quot;two&quot; }));
+</code></pre>
+<p>When working with single-valued properties, client code
+should use the Set method to set the value and Get to
+retrieve the value. The GetSetting methods may also be
+used to retrieve the value in a type-safe manner while
+also providing default. For example:</p>
+<pre><code>bag.Set(&quot;Priority&quot;, &quot;low&quot;);
+bag.Set(&quot;Priority&quot;, &quot;high&quot;); // replaces value
+Assert.That(bag.Get(&quot;Priority&quot;),
+  Is.EqualTo(&quot;high&quot;));
+Assert.That(bag.GetSetting(&quot;Priority&quot;, &quot;low&quot;),
+  Is.EqualTo(&quot;high&quot;));
+</code></pre>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IReflectionInfo.html">IReflectionInfo</a></h4>
+      <section><p>The IReflectionInfo interface is implemented by NUnit wrapper objects that perform reflection.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IRepeatTest.html">IRepeatTest</a></h4>
+      <section><p>Objects implementing this interface are used to wrap
+tests that can repeat. The implementing command is run once,
+invoking the chained commands any number of times.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ISimpleTestBuilder.html">ISimpleTestBuilder</a></h4>
+      <section><p>The ISimpleTestBuilder interface is exposed by a class that knows how to
+build a single tests from a specified method. In general,
+it is exposed by an attribute, but it may be implemented in a helper class
+used by the attribute in some cases.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ISuiteBuilder.html">ISuiteBuilder</a></h4>
+      <section><p>The ISuiteBuilder interface is exposed by a class that knows how to
+build a single test suite from a specified type.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ITest.html">ITest</a></h4>
+      <section><p>Common interface supported by all representations
+of a test. Only includes informational fields.
+The Run method is specifically excluded to allow
+for data-only representations of a test.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ITestBuilder.html">ITestBuilder</a></h4>
+      <section><p>The ITestBuilder interface is exposed by a class that knows how to
+build tests from a specified method. In general, it is exposed
+by an attribute which has additional information available to provide
+the necessary test parameters to distinguish the test cases built.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ITestCaseBuilder.html">ITestCaseBuilder</a></h4>
+      <section><p>The ITestCaseBuilder interface is exposed by a class that knows how to
+build a test from a specified method, possibly containing child test cases.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ITestCaseData.html">ITestCaseData</a></h4>
+      <section><p>The ITestCaseData interface is implemented by a class
+that is able to return complete test cases for use by
+a parameterized test method.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ITestData.html">ITestData</a></h4>
+      <section><p>The ITestData interface is implemented by a class that
+represents a single instance of a parameterized test.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ITestFilter.html">ITestFilter</a></h4>
+      <section><p>Interface to be implemented by filters applied to tests.
+The filter applies when running the test, after it has been
+loaded, since this is the only time an ITest exists.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ITestFixtureData.html">ITestFixtureData</a></h4>
+      <section><p>The ITestCaseData interface is implemented by a class
+that is able to return the data required to create an
+instance of a parameterized test fixture.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ITestListener.html">ITestListener</a></h4>
+      <section><p>The ITestListener interface is used internally to receive
+notifications of significant events while a test is being
+run. The events are propagated to clients by means of an
+AsyncCallback. NUnit extensions may also monitor these events.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ITestResult.html">ITestResult</a></h4>
+      <section><p>The ITestResult interface represents the result of a test.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.ITypeInfo.html">ITypeInfo</a></h4>
+      <section><p>The ITypeInfo interface is an abstraction of a .NET Type</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IWrapSetUpTearDown.html">IWrapSetUpTearDown</a></h4>
+      <section><p>Objects implementing this interface are used to wrap
+the entire test, including SetUp and TearDown.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IWrapTestMethod.html">IWrapTestMethod</a></h4>
+      <section><p>Objects implementing this interface are used to wrap
+the TestMethodCommand itself. They apply after SetUp
+has been run and before TearDown.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.IXmlNodeBuilder.html">IXmlNodeBuilder</a></h4>
+      <section><p>An object implementing IXmlNodeBuilder is able to build
+an XML representation of itself and any children.</p>
+</section>
+    <h3 id="enums">
+Enums
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.AssertionStatus.html">AssertionStatus</a></h4>
+      <section><p>AssertionStatus enumeration represents the possible outcomes of an assertion.
+The order of definition is significant, higher level values override lower
+ones in determining the overall result of a test.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.FailureSite.html">FailureSite</a></h4>
+      <section><p>The FailureSite enum indicates the stage of a test
+in which an error or failure occurred.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.RunState.html">RunState</a></h4>
+      <section><p>The RunState enum indicates whether a test can be executed.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Interfaces.TestStatus.html">TestStatus</a></h4>
+      <section><p>The TestStatus enum indicates the result of running a test</p>
+</section>
+
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1833 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class CollectionAssert
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class CollectionAssert
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Legacy.CollectionAssert">
+
+
+
+  <h1 id="NUnit_Framework_Legacy_CollectionAssert" data-uid="NUnit.Framework.Legacy.CollectionAssert" class="text-break">Class CollectionAssert
+</h1>
+  <div class="markdown level0 summary"><p>A set of Assert methods operating on one or more collections</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="NUnit.Framework.AssertBase.html">AssertBase</a></div>
+    <div class="level2"><span class="xref">CollectionAssert</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Framework.AssertBase.html#NUnit_Framework_AssertBase_ConvertMessageWithArgs_System_String_System_Object___">AssertBase.ConvertMessageWithArgs(string, object[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Legacy.html">Legacy</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.legacy.dll</h6>
+  <h5 id="NUnit_Framework_Legacy_CollectionAssert_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class CollectionAssert : AssertBase</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert__ctor_" data-uid="NUnit.Framework.Legacy.CollectionAssert.#ctor*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert__ctor" data-uid="NUnit.Framework.Legacy.CollectionAssert.#ctor">CollectionAssert()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CollectionAssert()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreInstancesOfType_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreInstancesOfType*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreInstancesOfType_System_Collections_IEnumerable_System_Type_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreInstancesOfType(System.Collections.IEnumerable,System.Type)">AllItemsAreInstancesOfType(IEnumerable, Type)</h4>
+  <div class="markdown level1 summary"><p>Asserts that all items contained in collection are of the type specified by expectedType.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AllItemsAreInstancesOfType(IEnumerable collection, Type expectedType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>IEnumerable containing objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">expectedType</span></td>
+        <td><p>System.Type that all objects in collection must be instances of</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreInstancesOfType_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreInstancesOfType*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreInstancesOfType_System_Collections_IEnumerable_System_Type_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreInstancesOfType(System.Collections.IEnumerable,System.Type,System.String,System.Object[])">AllItemsAreInstancesOfType(IEnumerable, Type, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that all items contained in collection are of the type specified by expectedType.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AllItemsAreInstancesOfType(IEnumerable collection, Type expectedType, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>IEnumerable containing objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">expectedType</span></td>
+        <td><p>System.Type that all objects in collection must be instances of</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreNotNull_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreNotNull*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreNotNull_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreNotNull(System.Collections.IEnumerable)">AllItemsAreNotNull(IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Asserts that all items contained in collection are not equal to null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AllItemsAreNotNull(IEnumerable collection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>IEnumerable containing objects to be considered</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreNotNull_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreNotNull*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreNotNull_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreNotNull(System.Collections.IEnumerable,System.String,System.Object[])">AllItemsAreNotNull(IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that all items contained in collection are not equal to null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AllItemsAreNotNull(IEnumerable collection, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreUnique_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreUnique*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreUnique_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreUnique(System.Collections.IEnumerable)">AllItemsAreUnique(IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Ensures that every object contained in collection exists within the collection
+once and only once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AllItemsAreUnique(IEnumerable collection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreUnique_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreUnique*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AllItemsAreUnique_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.AllItemsAreUnique(System.Collections.IEnumerable,System.String,System.Object[])">AllItemsAreUnique(IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Ensures that every object contained in collection exists within the collection
+once and only once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AllItemsAreUnique(IEnumerable collection, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreEqual_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEqual*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreEqual_System_Collections_IEnumerable_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEqual(System.Collections.IEnumerable,System.Collections.IEnumerable)">AreEqual(IEnumerable, IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are exactly equal.  The collections must have the same count,
+and contain the exact same objects in the same order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreEqual(IEnumerable expected, IEnumerable actual)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreEqual_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEqual*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreEqual_System_Collections_IEnumerable_System_Collections_IEnumerable_System_Collections_IComparer_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEqual(System.Collections.IEnumerable,System.Collections.IEnumerable,System.Collections.IComparer)">AreEqual(IEnumerable, IEnumerable, IComparer)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are exactly equal.  The collections must have the same count,
+and contain the exact same objects in the same order.
+If comparer is not null then it will be used to compare the objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreEqual(IEnumerable expected, IEnumerable actual, IComparer comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icomparer">IComparer</a></td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>The IComparer to use in comparing objects from each IEnumerable</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreEqual_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEqual*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreEqual_System_Collections_IEnumerable_System_Collections_IEnumerable_System_Collections_IComparer_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEqual(System.Collections.IEnumerable,System.Collections.IEnumerable,System.Collections.IComparer,System.String,System.Object[])">AreEqual(IEnumerable, IEnumerable, IComparer, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are exactly equal.  The collections must have the same count,
+and contain the exact same objects in the same order.
+If comparer is not null then it will be used to compare the objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreEqual(IEnumerable expected, IEnumerable actual, IComparer comparer, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icomparer">IComparer</a></td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>The IComparer to use in comparing objects from each IEnumerable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreEqual_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEqual*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreEqual_System_Collections_IEnumerable_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEqual(System.Collections.IEnumerable,System.Collections.IEnumerable,System.String,System.Object[])">AreEqual(IEnumerable, IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are exactly equal.  The collections must have the same count,
+and contain the exact same objects in the same order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreEqual(IEnumerable expected, IEnumerable actual, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreEquivalent_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEquivalent*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreEquivalent_System_Collections_IEnumerable_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEquivalent(System.Collections.IEnumerable,System.Collections.IEnumerable)">AreEquivalent(IEnumerable, IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are equivalent, containing the same objects but the match may be in any order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreEquivalent(IEnumerable expected, IEnumerable actual)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreEquivalent_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEquivalent*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreEquivalent_System_Collections_IEnumerable_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreEquivalent(System.Collections.IEnumerable,System.Collections.IEnumerable,System.String,System.Object[])">AreEquivalent(IEnumerable, IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are equivalent, containing the same objects but the match may be in any order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreEquivalent(IEnumerable expected, IEnumerable actual, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreNotEqual_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEqual*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreNotEqual_System_Collections_IEnumerable_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEqual(System.Collections.IEnumerable,System.Collections.IEnumerable)">AreNotEqual(IEnumerable, IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are not exactly equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreNotEqual(IEnumerable expected, IEnumerable actual)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreNotEqual_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEqual*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreNotEqual_System_Collections_IEnumerable_System_Collections_IEnumerable_System_Collections_IComparer_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEqual(System.Collections.IEnumerable,System.Collections.IEnumerable,System.Collections.IComparer)">AreNotEqual(IEnumerable, IEnumerable, IComparer)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are not exactly equal.
+If comparer is not null then it will be used to compare the objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreNotEqual(IEnumerable expected, IEnumerable actual, IComparer comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icomparer">IComparer</a></td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>The IComparer to use in comparing objects from each IEnumerable</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreNotEqual_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEqual*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreNotEqual_System_Collections_IEnumerable_System_Collections_IEnumerable_System_Collections_IComparer_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEqual(System.Collections.IEnumerable,System.Collections.IEnumerable,System.Collections.IComparer,System.String,System.Object[])">AreNotEqual(IEnumerable, IEnumerable, IComparer, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are not exactly equal.
+If comparer is not null then it will be used to compare the objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreNotEqual(IEnumerable expected, IEnumerable actual, IComparer comparer, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icomparer">IComparer</a></td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>The IComparer to use in comparing objects from each IEnumerable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreNotEqual_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEqual*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreNotEqual_System_Collections_IEnumerable_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEqual(System.Collections.IEnumerable,System.Collections.IEnumerable,System.String,System.Object[])">AreNotEqual(IEnumerable, IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are not exactly equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreNotEqual(IEnumerable expected, IEnumerable actual, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreNotEquivalent_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEquivalent*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreNotEquivalent_System_Collections_IEnumerable_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEquivalent(System.Collections.IEnumerable,System.Collections.IEnumerable)">AreNotEquivalent(IEnumerable, IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are not equivalent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreNotEquivalent(IEnumerable expected, IEnumerable actual)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_AreNotEquivalent_" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEquivalent*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_AreNotEquivalent_System_Collections_IEnumerable_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.AreNotEquivalent(System.Collections.IEnumerable,System.Collections.IEnumerable,System.String,System.Object[])">AreNotEquivalent(IEnumerable, IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that expected and actual are not equivalent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreNotEquivalent(IEnumerable expected, IEnumerable actual, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The first IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The second IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_Contains_" data-uid="NUnit.Framework.Legacy.CollectionAssert.Contains*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_Contains_System_Collections_IEnumerable_System_Object_" data-uid="NUnit.Framework.Legacy.CollectionAssert.Contains(System.Collections.IEnumerable,System.Object)">Contains(IEnumerable, object?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that collection contains actual as an item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Contains(IEnumerable collection, object? actual)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>Object to be found within collection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_Contains_" data-uid="NUnit.Framework.Legacy.CollectionAssert.Contains*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_Contains_System_Collections_IEnumerable_System_Object_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.Contains(System.Collections.IEnumerable,System.Object,System.String,System.Object[])">Contains(IEnumerable, object?, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that collection contains actual as an item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Contains(IEnumerable collection, object? actual, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>Object to be found within collection</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_DoesNotContain_" data-uid="NUnit.Framework.Legacy.CollectionAssert.DoesNotContain*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_DoesNotContain_System_Collections_IEnumerable_System_Object_" data-uid="NUnit.Framework.Legacy.CollectionAssert.DoesNotContain(System.Collections.IEnumerable,System.Object)">DoesNotContain(IEnumerable, object)</h4>
+  <div class="markdown level1 summary"><p>Asserts that collection does not contain actual as an item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoesNotContain(IEnumerable collection, object actual)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>Object that cannot exist within collection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_DoesNotContain_" data-uid="NUnit.Framework.Legacy.CollectionAssert.DoesNotContain*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_DoesNotContain_System_Collections_IEnumerable_System_Object_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.DoesNotContain(System.Collections.IEnumerable,System.Object,System.String,System.Object[])">DoesNotContain(IEnumerable, object, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that collection does not contain actual as an item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoesNotContain(IEnumerable collection, object actual, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>IEnumerable of objects to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>Object that cannot exist within collection</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsEmpty_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsEmpty*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsEmpty_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsEmpty(System.Collections.IEnumerable)">IsEmpty(IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Assert that an array,list or other collection is empty</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsEmpty(IEnumerable collection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>An array, list or other collection implementing IEnumerable</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsEmpty_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsEmpty*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsEmpty_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsEmpty(System.Collections.IEnumerable,System.String,System.Object[])">IsEmpty(IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Assert that an array, list or other collection is empty</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsEmpty(IEnumerable collection, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>An array, list or other collection implementing IEnumerable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message to be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsNotEmpty_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotEmpty*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsNotEmpty_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotEmpty(System.Collections.IEnumerable)">IsNotEmpty(IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Assert that an array, list or other collection is not empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsNotEmpty(IEnumerable collection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>An array, list or other collection implementing IEnumerable</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsNotEmpty_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotEmpty*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsNotEmpty_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotEmpty(System.Collections.IEnumerable,System.String,System.Object[])">IsNotEmpty(IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Assert that an array, list or other collection is not empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsNotEmpty(IEnumerable collection, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>An array, list or other collection implementing IEnumerable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message to be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsNotSubsetOf_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotSubsetOf*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsNotSubsetOf_System_Collections_IEnumerable_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotSubsetOf(System.Collections.IEnumerable,System.Collections.IEnumerable)">IsNotSubsetOf(IEnumerable, IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Asserts that the superset does not contain the subset</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsNotSubsetOf(IEnumerable subset, IEnumerable superset)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">subset</span></td>
+        <td><p>The IEnumerable subset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">superset</span></td>
+        <td><p>The IEnumerable superset to be considered</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsNotSubsetOf_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotSubsetOf*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsNotSubsetOf_System_Collections_IEnumerable_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotSubsetOf(System.Collections.IEnumerable,System.Collections.IEnumerable,System.String,System.Object[])">IsNotSubsetOf(IEnumerable, IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that the superset does not contain the subset</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsNotSubsetOf(IEnumerable subset, IEnumerable superset, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">subset</span></td>
+        <td><p>The IEnumerable subset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">superset</span></td>
+        <td><p>The IEnumerable superset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsNotSupersetOf_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotSupersetOf*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsNotSupersetOf_System_Collections_IEnumerable_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotSupersetOf(System.Collections.IEnumerable,System.Collections.IEnumerable)">IsNotSupersetOf(IEnumerable, IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Asserts that the subset does not contain the superset</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsNotSupersetOf(IEnumerable superset, IEnumerable subset)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">superset</span></td>
+        <td><p>The IEnumerable superset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">subset</span></td>
+        <td><p>The IEnumerable subset to be considered</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsNotSupersetOf_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotSupersetOf*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsNotSupersetOf_System_Collections_IEnumerable_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsNotSupersetOf(System.Collections.IEnumerable,System.Collections.IEnumerable,System.String,System.Object[])">IsNotSupersetOf(IEnumerable, IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that the subset does not contain the superset</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsNotSupersetOf(IEnumerable superset, IEnumerable subset, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">superset</span></td>
+        <td><p>The IEnumerable superset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">subset</span></td>
+        <td><p>The IEnumerable subset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsOrdered_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsOrdered*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsOrdered_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsOrdered(System.Collections.IEnumerable)">IsOrdered(IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Assert that an array, list or other collection is ordered</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsOrdered(IEnumerable collection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>An array, list or other collection implementing IEnumerable</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsOrdered_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsOrdered*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsOrdered_System_Collections_IEnumerable_System_Collections_IComparer_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsOrdered(System.Collections.IEnumerable,System.Collections.IComparer)">IsOrdered(IEnumerable, IComparer)</h4>
+  <div class="markdown level1 summary"><p>Assert that an array, list or other collection is ordered</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsOrdered(IEnumerable collection, IComparer comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>An array, list or other collection implementing IEnumerable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icomparer">IComparer</a></td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>A custom comparer to perform the comparisons</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsOrdered_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsOrdered*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsOrdered_System_Collections_IEnumerable_System_Collections_IComparer_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsOrdered(System.Collections.IEnumerable,System.Collections.IComparer,System.String,System.Object[])">IsOrdered(IEnumerable, IComparer, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Assert that an array, list or other collection is ordered</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsOrdered(IEnumerable collection, IComparer comparer, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>An array, list or other collection implementing IEnumerable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icomparer">IComparer</a></td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>A custom comparer to perform the comparisons</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message to be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsOrdered_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsOrdered*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsOrdered_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsOrdered(System.Collections.IEnumerable,System.String,System.Object[])">IsOrdered(IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Assert that an array, list or other collection is ordered</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsOrdered(IEnumerable collection, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">collection</span></td>
+        <td><p>An array, list or other collection implementing IEnumerable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message to be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsSubsetOf_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsSubsetOf*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsSubsetOf_System_Collections_IEnumerable_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsSubsetOf(System.Collections.IEnumerable,System.Collections.IEnumerable)">IsSubsetOf(IEnumerable, IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Asserts that the superset contains the subset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsSubsetOf(IEnumerable subset, IEnumerable superset)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">subset</span></td>
+        <td><p>The IEnumerable subset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">superset</span></td>
+        <td><p>The IEnumerable superset to be considered</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsSubsetOf_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsSubsetOf*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsSubsetOf_System_Collections_IEnumerable_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsSubsetOf(System.Collections.IEnumerable,System.Collections.IEnumerable,System.String,System.Object[])">IsSubsetOf(IEnumerable, IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that the superset contains the subset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsSubsetOf(IEnumerable subset, IEnumerable superset, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">subset</span></td>
+        <td><p>The IEnumerable subset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">superset</span></td>
+        <td><p>The IEnumerable superset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsSupersetOf_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsSupersetOf*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsSupersetOf_System_Collections_IEnumerable_System_Collections_IEnumerable_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsSupersetOf(System.Collections.IEnumerable,System.Collections.IEnumerable)">IsSupersetOf(IEnumerable, IEnumerable)</h4>
+  <div class="markdown level1 summary"><p>Asserts that the subset contains the superset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsSupersetOf(IEnumerable superset, IEnumerable subset)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">superset</span></td>
+        <td><p>The IEnumerable superset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">subset</span></td>
+        <td><p>The IEnumerable subset to be considered</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_IsSupersetOf_" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsSupersetOf*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_IsSupersetOf_System_Collections_IEnumerable_System_Collections_IEnumerable_System_String_System_Object___" data-uid="NUnit.Framework.Legacy.CollectionAssert.IsSupersetOf(System.Collections.IEnumerable,System.Collections.IEnumerable,System.String,System.Object[])">IsSupersetOf(IEnumerable, IEnumerable, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Asserts that the subset contains the superset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsSupersetOf(IEnumerable superset, IEnumerable subset, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">superset</span></td>
+        <td><p>The IEnumerable superset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
+        <td><span class="parametername">subset</span></td>
+        <td><p>The IEnumerable subset to be considered</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Legacy_CollectionAssert_ReferenceEquals_" data-uid="NUnit.Framework.Legacy.CollectionAssert.ReferenceEquals*"></a>
+  <h4 id="NUnit_Framework_Legacy_CollectionAssert_ReferenceEquals_System_Object_System_Object_" data-uid="NUnit.Framework.Legacy.CollectionAssert.ReferenceEquals(System.Object,System.Object)">ReferenceEquals(object, object)</h4>
+  <div class="markdown level1 summary"><p>DO NOT USE!
+The ReferenceEquals method throws an InvalidOperationException. This is done
+to make sure there is no mistake by calling this function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ReferenceEquals(object a, object b)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">b</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunit.framework.legacy/CollectionAssert.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

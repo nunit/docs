@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Namespace NUnit.Framework.Internal
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Namespace NUnit.Framework.Internal
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Internal">
+
+  <h1 id="NUnit_Framework_Internal" data-uid="NUnit.Framework.Internal" class="text-break">Namespace NUnit.Framework.Internal
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">
+Classes
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Internal.AssemblyHelper.html">AssemblyHelper</a></h4>
+      <section><p>AssemblyHelper provides static methods for working
+with assemblies.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.CultureDetector.html">CultureDetector</a></h4>
+      <section><p>CultureDetector is a helper class used by NUnit to determine
+whether a test should be run based on the current culture.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.ExceptionHelper.html">ExceptionHelper</a></h4>
+      <section><p>ExceptionHelper provides static methods for working with exceptions</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.GenericMethodHelper.html">GenericMethodHelper</a></h4>
+      <section><p>GenericMethodHelper is able to deduce the Type arguments for
+a generic method from the actual arguments provided.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.InternalTrace.html">InternalTrace</a></h4>
+      <section><p>InternalTrace provides facilities for tracing the execution
+of the NUnit framework. Tests and classes under test may make use
+of Console writes, System.Diagnostics.Trace or various loggers and
+NUnit itself traps and processes each of them. For that reason, a
+separate internal trace is needed.</p>
+<p>Note:
+InternalTrace uses a global lock to allow multiple threads to write
+trace messages. This can easily make it a bottleneck so it must be
+used sparingly. Keep the trace Level as low as possible and only
+insert InternalTrace writes where they are needed.
+TODO: add some buffering and a separate writer thread as an option.
+TODO: figure out a way to turn on trace in specific classes only.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.InternalTraceWriter.html">InternalTraceWriter</a></h4>
+      <section><p>A trace listener that writes to a separate file per domain
+and process using it.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.InvalidDataSourceException.html">InvalidDataSourceException</a></h4>
+      <section><p>InvalidTestFixtureException is thrown when an appropriate test
+fixture constructor using the provided arguments cannot be found.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.InvalidTestFixtureException.html">InvalidTestFixtureException</a></h4>
+      <section><p>InvalidTestFixtureException is thrown when an appropriate test
+fixture constructor using the provided arguments cannot be found.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Logger.html">Logger</a></h4>
+      <section><p>Provides internal logging to the NUnit framework</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.MethodWrapper.html">MethodWrapper</a></h4>
+      <section><p>The MethodWrapper class wraps a MethodInfo so that it may
+be used in a platform-independent manner.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.NUnitException.html">NUnitException</a></h4>
+      <section><p>Thrown when an assertion failed. Here to preserve the inner
+exception and hence its stack trace.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.OSPlatform.html">OSPlatform</a></h4>
+      <section><p>OSPlatform represents a particular operating system platform</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.ParameterWrapper.html">ParameterWrapper</a></h4>
+      <section><p>The ParameterWrapper class wraps a ParameterInfo so that it may
+be used in a platform-independent manner.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.ParameterizedFixtureSuite.html">ParameterizedFixtureSuite</a></h4>
+      <section><p>ParameterizedFixtureSuite serves as a container for the set of test
+fixtures created from a given Type using various parameters.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.ParameterizedMethodSuite.html">ParameterizedMethodSuite</a></h4>
+      <section><p>ParameterizedMethodSuite holds a collection of individual
+TestMethods with their arguments applied.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.PlatformHelper.html">PlatformHelper</a></h4>
+      <section><p>PlatformHelper class is used by the PlatformAttribute class to
+determine whether a platform is supported.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.PropertyBag.html">PropertyBag</a></h4>
+      <section><p>A PropertyBag represents a collection of name value pairs
+that allows duplicate entries with the same key. Methods
+are provided for adding a new pair as well as for setting
+a key to a single value. All keys are strings but values
+may be of any type. Null values are not permitted, since
+a null entry represents the absence of the key.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.PropertyNames.html">PropertyNames</a></h4>
+      <section><p>The PropertyNames class provides static constants for the
+standard property ids that NUnit uses on tests.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Randomizer.html">Randomizer</a></h4>
+      <section><p>Randomizer returns a set of random values in a repeatable
+way, to allow re-running of tests if necessary. It extends
+the .NET Random class, providing random values for a much
+wider range of types.</p>
+<p>The class is used internally by the framework to generate
+test case data and is also exposed for use by users through
+the TestContext.Random property.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Reflect.html">Reflect</a></h4>
+      <section><p>Helper methods for inspecting a type by reflection.</p>
+<p>Many of these methods take ICustomAttributeProvider as an
+argument to avoid duplication, even though certain attributes can
+only appear on specific types of members, like MethodInfo or Type.</p>
+<p>In the case where a type is being examined for the presence of
+an attribute, interface or named member, the Reflect methods
+operate with the full name of the member being sought. This
+removes the necessity of the caller having a reference to the
+assembly that defines the item being sought and allows the
+NUnit core to inspect assemblies that reference an older
+version of the NUnit framework.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.RuntimeFramework.html">RuntimeFramework</a></h4>
+      <section><p>RuntimeFramework represents a particular version
+of a common language runtime implementation.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.SetUpFixture.html">SetUpFixture</a></h4>
+      <section><p>SetUpFixture extends TestSuite and supports
+Setup and TearDown methods.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.StackFilter.html">StackFilter</a></h4>
+      <section><p>StackFilter class is used to remove internal NUnit
+entries from a stack trace so that the resulting
+trace provides better information about the test.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.StringUtil.html">StringUtil</a></h4>
+      <section><p>Provides methods to support legacy string comparison methods.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.Test.html">Test</a></h4>
+      <section><p>The Test abstract class represents a test within the framework.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestAssembly.html">TestAssembly</a></h4>
+      <section><p>TestAssembly is a TestSuite that represents the execution
+of tests in a managed assembly.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestCaseParameters.html">TestCaseParameters</a></h4>
+      <section><p>The TestCaseParameters class encapsulates method arguments and
+other selected parameters needed for constructing
+a parameterized test case.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestCaseResult.html">TestCaseResult</a></h4>
+      <section><p>Represents the result of running a single test case.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestCaseTimeoutException.html">TestCaseTimeoutException</a></h4>
+      <section><p>TestCaseTimeoutException is thrown when a test running directly
+on a TestWorker thread is cancelled due to timeout.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestExecutionContext.html">TestExecutionContext</a></h4>
+      <section><p>Helper class used to save and restore certain static or
+singleton settings in the environment that affect tests
+or which might be changed by the user tests.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestExecutionContext.AdhocContext.html">TestExecutionContext.AdhocContext</a></h4>
+      <section><p>An AdhocTestExecutionContext is created whenever a context is needed
+but not available in CurrentContext. This happens when tests are run
+on an ad-hoc basis or Asserts are used outside of tests.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestExecutionContext.IsolatedContext.html">TestExecutionContext.IsolatedContext</a></h4>
+      <section><p>An IsolatedContext is used when running code
+that may effect the current result in ways that
+should not impact the final result of the test.
+A new TestExecutionContext is created with an
+initially clear result, which is discarded on
+exiting the context.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestFilter.html">TestFilter</a></h4>
+      <section><p>Interface to be implemented by filters applied to tests.
+The filter applies when running the test, after it has been
+loaded, since this is the only time an ITest exists.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestFixture.html">TestFixture</a></h4>
+      <section><p>TestFixture is a surrogate for a user test fixture class,
+containing one or more tests.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestFixtureParameters.html">TestFixtureParameters</a></h4>
+      <section><p>The TestCaseParameters class encapsulates method arguments and
+other selected parameters needed for constructing
+a parameterized test case.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestListener.html">TestListener</a></h4>
+      <section><p>TestListener provides an implementation of ITestListener that
+does nothing. It is used only through its NULL property.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestMethod.html">TestMethod</a></h4>
+      <section><p>The TestMethod class represents a Test implemented as a method.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestNameGenerator.html">TestNameGenerator</a></h4>
+      <section><p>TestNameGenerator is able to create test names according to
+a coded pattern.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestParameters.html">TestParameters</a></h4>
+      <section><p>TestParameters is the abstract base class for all classes
+that know how to provide data for constructing a test.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestProgressReporter.html">TestProgressReporter</a></h4>
+      <section><p>TestProgressReporter translates ITestListener events into
+the async callbacks that are used to inform the client
+software about the progress of a test run.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestResult.html">TestResult</a></h4>
+      <section><p>The TestResult class represents the result of a test.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestSuite.html">TestSuite</a></h4>
+      <section><p>TestSuite represents a composite test, which contains other tests.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestSuiteResult.html">TestSuiteResult</a></h4>
+      <section><p>Represents the result of running a test suite</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TextMessageWriter.html">TextMessageWriter</a></h4>
+      <section><p>TextMessageWriter writes constraint descriptions and messages
+in displayable form as a text stream. It tailors the display
+of individual message components to form the standard message
+format of NUnit assertion failure messages.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.ThreadUtility.html">ThreadUtility</a></h4>
+      <section><p>ThreadUtility provides a set of static methods convenient
+for working with threads.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TypeHelper.html">TypeHelper</a></h4>
+      <section><p>TypeHelper provides static methods that operate on Types.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TypeNameDifferenceResolver.html">TypeNameDifferenceResolver</a></h4>
+      <section><p>Used for resolving the type difference between objects.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TypeWrapper.html">TypeWrapper</a></h4>
+      <section><p>The TypeWrapper class wraps a Type so it may be used in
+a platform-independent manner.</p>
+</section>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Internal.ILogger.html">ILogger</a></h4>
+      <section><p>Interface for logging within the engine</p>
+</section>
+    <h3 id="enums">
+Enums
+</h3>
+      <h4><a class="xref" href="NUnit.Framework.Internal.InternalTraceLevel.html">InternalTraceLevel</a></h4>
+      <section><p>InternalTraceLevel is an enumeration controlling the
+level of detailed presented in the internal log.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.OSPlatform.ProductType.html">OSPlatform.ProductType</a></h4>
+      <section><p>Product Type Enumeration used for Windows</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.RuntimeType.html">RuntimeType</a></h4>
+      <section><p>Enumeration identifying a common language
+runtime implementation.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Internal.TestExecutionStatus.html">TestExecutionStatus</a></h4>
+      <section><p>Enumeration indicating whether the tests are
+running normally or being cancelled.</p>
+</section>
+
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

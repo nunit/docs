@@ -1,0 +1,934 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class TestSuite
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class TestSuite
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Internal.TestSuite">
+
+
+
+  <h1 id="NUnit_Framework_Internal_TestSuite" data-uid="NUnit.Framework.Internal.TestSuite" class="text-break">Class TestSuite
+</h1>
+  <div class="markdown level0 summary"><p>TestSuite represents a composite test, which contains other tests.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="NUnit.Framework.Internal.Test.html">Test</a></div>
+    <div class="level2"><span class="xref">TestSuite</span></div>
+      <div class="level3"><a class="xref" href="NUnit.Framework.Internal.ParameterizedFixtureSuite.html">ParameterizedFixtureSuite</a></div>
+      <div class="level3"><a class="xref" href="NUnit.Framework.Internal.ParameterizedMethodSuite.html">ParameterizedMethodSuite</a></div>
+      <div class="level3"><a class="xref" href="NUnit.Framework.Internal.SetUpFixture.html">SetUpFixture</a></div>
+      <div class="level3"><a class="xref" href="NUnit.Framework.Internal.TestAssembly.html">TestAssembly</a></div>
+      <div class="level3"><a class="xref" href="NUnit.Framework.Internal.TestFixture.html">TestFixture</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="NUnit.Framework.Interfaces.ITest.html">ITest</a></div>
+    <div><a class="xref" href="NUnit.Framework.Interfaces.IXmlNodeBuilder.html">IXmlNodeBuilder</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable">IComparable</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="NUnit.Framework.Internal.Test.html">Test</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_ApplyAttributesToTest_System_Reflection_ICustomAttributeProvider_">Test.ApplyAttributesToTest(ICustomAttributeProvider)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_ApplyAttributesToTest_System_Type_">Test.ApplyAttributesToTest(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_MakeInvalid_System_String_">Test.MakeInvalid(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_MakeInvalid_System_Exception_System_String_">Test.MakeInvalid(Exception, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_GetCustomAttributes__1_System_Boolean_">Test.GetCustomAttributes&lt;TAttr&gt;(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_PopulateTestNode_NUnit_Framework_Interfaces_TNode_System_Boolean_">Test.PopulateTestNode(TNode, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_GetNestedTypes_System_Type_">Test.GetNestedTypes(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_ToXml_System_Boolean_">Test.ToXml(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_CompareTo_System_Object_">Test.CompareTo(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_CompareTo_NUnit_Framework_Internal_Test_">Test.CompareTo(Test)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_Id">Test.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_Name">Test.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_FullName">Test.FullName</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_ClassName">Test.ClassName</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_MethodName">Test.MethodName</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_TypeInfo">Test.TypeInfo</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_Method">Test.Method</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_RunState">Test.RunState</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_TestType">Test.TestType</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_Properties">Test.Properties</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_IsSuite">Test.IsSuite</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_Parent">Test.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_Fixture">Test.Fixture</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_IdPrefix">Test.IdPrefix</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_Seed">Test.Seed</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_SetUpMethods">Test.SetUpMethods</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_TearDownMethods">Test.TearDownMethods</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Internal.html">Internal</a></h6>
+  <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
+  <h5 id="NUnit_Framework_Internal_TestSuite_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TestSuite : Test, ITest, IXmlNodeBuilder, IComparable, IComparable&lt;Test&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite__ctor_" data-uid="NUnit.Framework.Internal.TestSuite.#ctor*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite__ctor_NUnit_Framework_Interfaces_ITypeInfo_System_Object___" data-uid="NUnit.Framework.Internal.TestSuite.#ctor(NUnit.Framework.Interfaces.ITypeInfo,System.Object[])">TestSuite(ITypeInfo, object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NUnit.Framework.Internal.TestSuite.html">TestSuite</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestSuite(ITypeInfo fixtureType, object?[]? arguments = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITypeInfo.html">ITypeInfo</a></td>
+        <td><span class="parametername">fixtureType</span></td>
+        <td><p>Type of the fixture.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">arguments</span></td>
+        <td><p>Arguments used to instantiate the test fixture, or null if none used.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite__ctor_" data-uid="NUnit.Framework.Internal.TestSuite.#ctor*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite__ctor_NUnit_Framework_Internal_TestSuite_NUnit_Framework_Interfaces_ITestFilter_" data-uid="NUnit.Framework.Internal.TestSuite.#ctor(NUnit.Framework.Internal.TestSuite,NUnit.Framework.Interfaces.ITestFilter)">TestSuite(TestSuite, ITestFilter)</h4>
+  <div class="markdown level1 summary"><p>Creates a copy of the given suite with only the descendants that pass the specified filter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestSuite(TestSuite suite, ITestFilter filter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.TestSuite.html">TestSuite</a></td>
+        <td><span class="parametername">suite</span></td>
+        <td><p>The <a class="xref" href="NUnit.Framework.Internal.TestSuite.html">TestSuite</a> to copy.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITestFilter.html">ITestFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>Determines which descendants are copied.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite__ctor_" data-uid="NUnit.Framework.Internal.TestSuite.#ctor*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite__ctor_System_String_" data-uid="NUnit.Framework.Internal.TestSuite.#ctor(System.String)">TestSuite(string)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NUnit.Framework.Internal.TestSuite.html">TestSuite</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestSuite(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the suite.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite__ctor_" data-uid="NUnit.Framework.Internal.TestSuite.#ctor*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite__ctor_System_String_System_String_" data-uid="NUnit.Framework.Internal.TestSuite.#ctor(System.String,System.String)">TestSuite(string?, string)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NUnit.Framework.Internal.TestSuite.html">TestSuite</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestSuite(string? parentSuiteName, string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">parentSuiteName</span></td>
+        <td><p>Name of the parent suite.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the suite.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite__ctor_" data-uid="NUnit.Framework.Internal.TestSuite.#ctor*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite__ctor_System_Type_" data-uid="NUnit.Framework.Internal.TestSuite.#ctor(System.Type)">TestSuite(Type)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NUnit.Framework.Internal.TestSuite.html">TestSuite</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestSuite(Type fixtureType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">fixtureType</span></td>
+        <td><p>Type of the fixture.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_Arguments_" data-uid="NUnit.Framework.Internal.TestSuite.Arguments*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_Arguments" data-uid="NUnit.Framework.Internal.TestSuite.Arguments">Arguments</h4>
+  <div class="markdown level1 summary"><p>The arguments to use in creating the fixture, or empty array if none are provided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object?[] Arguments { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_Arguments">Test.Arguments</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_HasChildren_" data-uid="NUnit.Framework.Internal.TestSuite.HasChildren*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_HasChildren" data-uid="NUnit.Framework.Internal.TestSuite.HasChildren">HasChildren</h4>
+  <div class="markdown level1 summary"><p>Gets a bool indicating whether the current test
+has any descendant tests.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool HasChildren { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_HasChildren">Test.HasChildren</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_MaintainTestOrder_" data-uid="NUnit.Framework.Internal.TestSuite.MaintainTestOrder*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_MaintainTestOrder" data-uid="NUnit.Framework.Internal.TestSuite.MaintainTestOrder">MaintainTestOrder</h4>
+  <div class="markdown level1 summary"><p>Set to true to suppress sorting this suite's contents</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool MaintainTestOrder { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_OneTimeSetUpMethods_" data-uid="NUnit.Framework.Internal.TestSuite.OneTimeSetUpMethods*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_OneTimeSetUpMethods" data-uid="NUnit.Framework.Internal.TestSuite.OneTimeSetUpMethods">OneTimeSetUpMethods</h4>
+  <div class="markdown level1 summary"><p>OneTimeSetUp methods for this suite</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMethodInfo[] OneTimeSetUpMethods { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.IMethodInfo.html">IMethodInfo</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_OneTimeTearDownMethods_" data-uid="NUnit.Framework.Internal.TestSuite.OneTimeTearDownMethods*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_OneTimeTearDownMethods" data-uid="NUnit.Framework.Internal.TestSuite.OneTimeTearDownMethods">OneTimeTearDownMethods</h4>
+  <div class="markdown level1 summary"><p>OneTimeTearDown methods for this suite</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMethodInfo[] OneTimeTearDownMethods { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.IMethodInfo.html">IMethodInfo</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_TestCaseCount_" data-uid="NUnit.Framework.Internal.TestSuite.TestCaseCount*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_TestCaseCount" data-uid="NUnit.Framework.Internal.TestSuite.TestCaseCount">TestCaseCount</h4>
+  <div class="markdown level1 summary"><p>Gets a count of test cases represented by
+or contained under this test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int TestCaseCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_TestCaseCount">Test.TestCaseCount</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_Tests_" data-uid="NUnit.Framework.Internal.TestSuite.Tests*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_Tests" data-uid="NUnit.Framework.Internal.TestSuite.Tests">Tests</h4>
+  <div class="markdown level1 summary"><p>Gets this test's child tests</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IList&lt;ITest&gt; Tests { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="NUnit.Framework.Interfaces.ITest.html">ITest</a>&gt;</td>
+        <td><p>The list of child tests</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_Tests">Test.Tests</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_XmlElementName_" data-uid="NUnit.Framework.Internal.TestSuite.XmlElementName*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_XmlElementName" data-uid="NUnit.Framework.Internal.TestSuite.XmlElementName">XmlElementName</h4>
+  <div class="markdown level1 summary"><p>Gets the name used for the top-level element in the
+XML representation of this test</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string XmlElementName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_XmlElementName">Test.XmlElementName</a></div>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_Add_" data-uid="NUnit.Framework.Internal.TestSuite.Add*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_Add_NUnit_Framework_Internal_Test_" data-uid="NUnit.Framework.Internal.TestSuite.Add(NUnit.Framework.Internal.Test)">Add(Test)</h4>
+  <div class="markdown level1 summary"><p>Adds a test to the suite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(Test test)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.Test.html">Test</a></td>
+        <td><span class="parametername">test</span></td>
+        <td><p>The test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_AddToXml_" data-uid="NUnit.Framework.Internal.TestSuite.AddToXml*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_AddToXml_NUnit_Framework_Interfaces_TNode_System_Boolean_" data-uid="NUnit.Framework.Internal.TestSuite.AddToXml(NUnit.Framework.Interfaces.TNode,System.Boolean)">AddToXml(TNode, bool)</h4>
+  <div class="markdown level1 summary"><p>Returns an XmlNode representing the current result after
+adding it as a child of the supplied parent node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TNode AddToXml(TNode parentNode, bool recursive)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.TNode.html">TNode</a></td>
+        <td><span class="parametername">parentNode</span></td>
+        <td><p>The parent node.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">recursive</span></td>
+        <td><p>If true, descendant results are included</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.TNode.html">TNode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_AddToXml_NUnit_Framework_Interfaces_TNode_System_Boolean_">Test.AddToXml(TNode, bool)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_ApplyAttributesToTestSuite_" data-uid="NUnit.Framework.Internal.TestSuite.ApplyAttributesToTestSuite*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_ApplyAttributesToTestSuite_System_Type_" data-uid="NUnit.Framework.Internal.TestSuite.ApplyAttributesToTestSuite(System.Type)">ApplyAttributesToTestSuite(Type)</h4>
+  <div class="markdown level1 summary"><p>Recursively apply the attributes on <code class="paramref">type</code> to this test suite,
+including attributes on nesting types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ApplyAttributesToTestSuite(Type type)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_CheckSetUpTearDownMethods_" data-uid="NUnit.Framework.Internal.TestSuite.CheckSetUpTearDownMethods*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_CheckSetUpTearDownMethods_NUnit_Framework_Interfaces_IMethodInfo___" data-uid="NUnit.Framework.Internal.TestSuite.CheckSetUpTearDownMethods(NUnit.Framework.Interfaces.IMethodInfo[])">CheckSetUpTearDownMethods(IMethodInfo[])</h4>
+  <div class="markdown level1 summary"><p>Check that setup and teardown methods marked by certain attributes
+meet NUnit's requirements and mark the tests not runnable otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void CheckSetUpTearDownMethods(IMethodInfo[] methods)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.IMethodInfo.html">IMethodInfo</a>[]</td>
+        <td><span class="parametername">methods</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_Copy_" data-uid="NUnit.Framework.Internal.TestSuite.Copy*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_Copy_NUnit_Framework_Interfaces_ITestFilter_" data-uid="NUnit.Framework.Internal.TestSuite.Copy(NUnit.Framework.Interfaces.ITestFilter)">Copy(ITestFilter)</h4>
+  <div class="markdown level1 summary"><p>Creates a filtered copy of the test suite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TestSuite Copy(ITestFilter filter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITestFilter.html">ITestFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>Determines which descendants are copied.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.TestSuite.html">TestSuite</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_MakeTestResult_" data-uid="NUnit.Framework.Internal.TestSuite.MakeTestResult*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_MakeTestResult" data-uid="NUnit.Framework.Internal.TestSuite.MakeTestResult">MakeTestResult()</h4>
+  <div class="markdown level1 summary"><p>Overridden to return a TestSuiteResult.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TestResult MakeTestResult()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Internal.TestResult.html">TestResult</a></td>
+        <td><p>A TestResult for this test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Internal.Test.html#NUnit_Framework_Internal_Test_MakeTestResult">Test.MakeTestResult()</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Internal_TestSuite_Sort_" data-uid="NUnit.Framework.Internal.TestSuite.Sort*"></a>
+  <h4 id="NUnit_Framework_Internal_TestSuite_Sort" data-uid="NUnit.Framework.Internal.TestSuite.Sort">Sort()</h4>
+  <div class="markdown level1 summary"><p>Sorts tests under this suite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Sort()</code></pre>
+  </div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="NUnit.Framework.Interfaces.ITest.html">ITest</a>
+  </div>
+  <div>
+      <a class="xref" href="NUnit.Framework.Interfaces.IXmlNodeBuilder.html">IXmlNodeBuilder</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable">IComparable</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable&lt;T&gt;</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/framework/Internal/Tests/TestSuite.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

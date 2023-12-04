@@ -1,0 +1,1468 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class CommandLineOptions
+ | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class CommandLineOptions
+ | NUnit Docs ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="NUnit.Common.CommandLineOptions">
+
+
+
+  <h1 id="NUnit_Common_CommandLineOptions" data-uid="NUnit.Common.CommandLineOptions" class="text-break">Class CommandLineOptions
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="NUnit.Options.Option.html">Option</a>&gt;</div>
+    <div class="level2"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2">KeyedCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="NUnit.Options.Option.html">Option</a>&gt;</div>
+    <div class="level3"><a class="xref" href="NUnit.Options.OptionSet.html">OptionSet</a></div>
+    <div class="level4"><span class="xref">CommandLineOptions</span></div>
+      <div class="level5"><a class="xref" href="NUnitLite.NUnitLiteOptions.html">NUnitLiteOptions</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="NUnit.Options.Option.html">Option</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="NUnit.Options.Option.html">Option</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ilist">IList</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icollection">ICollection</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="NUnit.Options.Option.html">Option</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="NUnit.Options.Option.html">Option</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NUnit.Options.Option.html">Option</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_MessageLocalizer_System_String_">OptionSet.MessageLocalizer(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_GetKeyForItem_NUnit_Options_Option_">OptionSet.GetKeyForItem(Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_InsertItem_System_Int32_NUnit_Options_Option_">OptionSet.InsertItem(int, Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_RemoveItem_System_Int32_">OptionSet.RemoveItem(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_SetItem_System_Int32_NUnit_Options_Option_">OptionSet.SetItem(int, Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_Add_NUnit_Options_Option_">OptionSet.Add(Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_Add_System_String_System_Action_System_String__">OptionSet.Add(string, Action&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_Add_System_String_System_String_System_Action_System_String__">OptionSet.Add(string, string, Action&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_Add_System_String_NUnit_Options_OptionAction_System_String_System_String__">OptionSet.Add(string, OptionAction&lt;string, string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_Add_System_String_System_String_NUnit_Options_OptionAction_System_String_System_String__">OptionSet.Add(string, string, OptionAction&lt;string, string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_Add__1_System_String_System_Action___0__">OptionSet.Add&lt;T&gt;(string, Action&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_Add__1_System_String_System_String_System_Action___0__">OptionSet.Add&lt;T&gt;(string, string, Action&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_Add__2_System_String_NUnit_Options_OptionAction___0___1__">OptionSet.Add&lt;TKey, TValue&gt;(string, OptionAction&lt;TKey, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_Add__2_System_String_System_String_NUnit_Options_OptionAction___0___1__">OptionSet.Add&lt;TKey, TValue&gt;(string, string, OptionAction&lt;TKey, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_CreateOptionContext">OptionSet.CreateOptionContext()</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_Parse_System_Collections_Generic_IEnumerable_System_String__">OptionSet.Parse(IEnumerable&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_GetOptionParts_System_String_System_String__System_String__System_String__System_String__">OptionSet.GetOptionParts(string, out string, out string, out string, out string)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_Parse_System_String_NUnit_Options_OptionContext_">OptionSet.Parse(string, OptionContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Options.OptionSet.html#NUnit_Options_OptionSet_WriteOptionDescriptions_System_IO_TextWriter_">OptionSet.WriteOptionDescriptions(TextWriter)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.contains">KeyedCollection&lt;string, Option&gt;.Contains(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.trygetvalue">KeyedCollection&lt;string, Option&gt;.TryGetValue(string, out Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.remove">KeyedCollection&lt;string, Option&gt;.Remove(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.changeitemkey">KeyedCollection&lt;string, Option&gt;.ChangeItemKey(Option, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.clearitems">KeyedCollection&lt;string, Option&gt;.ClearItems()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.getkeyforitem">KeyedCollection&lt;string, Option&gt;.GetKeyForItem(Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.insertitem">KeyedCollection&lt;string, Option&gt;.InsertItem(int, Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.removeitem">KeyedCollection&lt;string, Option&gt;.RemoveItem(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.setitem">KeyedCollection&lt;string, Option&gt;.SetItem(int, Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.comparer">KeyedCollection&lt;string, Option&gt;.Comparer</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.item">KeyedCollection&lt;string, Option&gt;.this[string]</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection-2.dictionary">KeyedCollection&lt;string, Option&gt;.Dictionary</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clear">Collection&lt;Option&gt;.Clear()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.copyto">Collection&lt;Option&gt;.CopyTo(Option[], int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.contains">Collection&lt;Option&gt;.Contains(Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.getenumerator">Collection&lt;Option&gt;.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.indexof">Collection&lt;Option&gt;.IndexOf(Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.insert">Collection&lt;Option&gt;.Insert(int, Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.remove">Collection&lt;Option&gt;.Remove(Option)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.removeat">Collection&lt;Option&gt;.RemoveAt(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.clearitems">Collection&lt;Option&gt;.ClearItems()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.count">Collection&lt;Option&gt;.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1.items">Collection&lt;Option&gt;.Items</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Collection&lt;Option&gt;.this[int]</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Common.html">Common</a></h6>
+  <h6><strong>Assembly</strong>: nunitlite.dll</h6>
+  <h5 id="NUnit_Common_CommandLineOptions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CommandLineOptions : OptionSet, IList&lt;Option&gt;, ICollection&lt;Option&gt;, IList, ICollection, IReadOnlyList&lt;Option&gt;, IReadOnlyCollection&lt;Option&gt;, IEnumerable&lt;Option&gt;, IEnumerable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions__ctor_" data-uid="NUnit.Common.CommandLineOptions.#ctor*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions__ctor_System_Boolean_System_String___" data-uid="NUnit.Common.CommandLineOptions.#ctor(System.Boolean,System.String[])">CommandLineOptions(bool, params string[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandLineOptions(bool requireInputFile, params string[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">requireInputFile</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_DefaultTestNamePattern_" data-uid="NUnit.Common.CommandLineOptions.DefaultTestNamePattern*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_DefaultTestNamePattern" data-uid="NUnit.Common.CommandLineOptions.DefaultTestNamePattern">DefaultTestNamePattern</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DefaultTestNamePattern { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_DefaultTimeout_" data-uid="NUnit.Common.CommandLineOptions.DefaultTimeout*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_DefaultTimeout" data-uid="NUnit.Common.CommandLineOptions.DefaultTimeout">DefaultTimeout</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DefaultTimeout { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_DefaultTimeoutSpecified_" data-uid="NUnit.Common.CommandLineOptions.DefaultTimeoutSpecified*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_DefaultTimeoutSpecified" data-uid="NUnit.Common.CommandLineOptions.DefaultTimeoutSpecified">DefaultTimeoutSpecified</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DefaultTimeoutSpecified { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_DisplayTestLabels_" data-uid="NUnit.Common.CommandLineOptions.DisplayTestLabels*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_DisplayTestLabels" data-uid="NUnit.Common.CommandLineOptions.DisplayTestLabels">DisplayTestLabels</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DisplayTestLabels { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_ErrFile_" data-uid="NUnit.Common.CommandLineOptions.ErrFile*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_ErrFile" data-uid="NUnit.Common.CommandLineOptions.ErrFile">ErrFile</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ErrFile { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_ErrFileSpecified_" data-uid="NUnit.Common.CommandLineOptions.ErrFileSpecified*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_ErrFileSpecified" data-uid="NUnit.Common.CommandLineOptions.ErrFileSpecified">ErrFileSpecified</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ErrFileSpecified { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_ErrorMessages_" data-uid="NUnit.Common.CommandLineOptions.ErrorMessages*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_ErrorMessages" data-uid="NUnit.Common.CommandLineOptions.ErrorMessages">ErrorMessages</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList&lt;string&gt; ErrorMessages { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_Explore_" data-uid="NUnit.Common.CommandLineOptions.Explore*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_Explore" data-uid="NUnit.Common.CommandLineOptions.Explore">Explore</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Explore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_ExploreOutputSpecifications_" data-uid="NUnit.Common.CommandLineOptions.ExploreOutputSpecifications*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_ExploreOutputSpecifications" data-uid="NUnit.Common.CommandLineOptions.ExploreOutputSpecifications">ExploreOutputSpecifications</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList&lt;OutputSpecification&gt; ExploreOutputSpecifications { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="NUnit.Common.OutputSpecification.html">OutputSpecification</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_InputFile_" data-uid="NUnit.Common.CommandLineOptions.InputFile*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_InputFile" data-uid="NUnit.Common.CommandLineOptions.InputFile">InputFile</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string InputFile { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_InputFileRequired_" data-uid="NUnit.Common.CommandLineOptions.InputFileRequired*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_InputFileRequired" data-uid="NUnit.Common.CommandLineOptions.InputFileRequired">InputFileRequired</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool InputFileRequired { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_InternalTraceLevel_" data-uid="NUnit.Common.CommandLineOptions.InternalTraceLevel*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_InternalTraceLevel" data-uid="NUnit.Common.CommandLineOptions.InternalTraceLevel">InternalTraceLevel</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string InternalTraceLevel { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_InternalTraceLevelSpecified_" data-uid="NUnit.Common.CommandLineOptions.InternalTraceLevelSpecified*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_InternalTraceLevelSpecified" data-uid="NUnit.Common.CommandLineOptions.InternalTraceLevelSpecified">InternalTraceLevelSpecified</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool InternalTraceLevelSpecified { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_NoColor_" data-uid="NUnit.Common.CommandLineOptions.NoColor*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_NoColor" data-uid="NUnit.Common.CommandLineOptions.NoColor">NoColor</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool NoColor { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_NoHeader_" data-uid="NUnit.Common.CommandLineOptions.NoHeader*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_NoHeader" data-uid="NUnit.Common.CommandLineOptions.NoHeader">NoHeader</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool NoHeader { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_NumberOfTestWorkers_" data-uid="NUnit.Common.CommandLineOptions.NumberOfTestWorkers*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_NumberOfTestWorkers" data-uid="NUnit.Common.CommandLineOptions.NumberOfTestWorkers">NumberOfTestWorkers</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NumberOfTestWorkers { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_NumberOfTestWorkersSpecified_" data-uid="NUnit.Common.CommandLineOptions.NumberOfTestWorkersSpecified*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_NumberOfTestWorkersSpecified" data-uid="NUnit.Common.CommandLineOptions.NumberOfTestWorkersSpecified">NumberOfTestWorkersSpecified</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool NumberOfTestWorkersSpecified { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_OutFile_" data-uid="NUnit.Common.CommandLineOptions.OutFile*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_OutFile" data-uid="NUnit.Common.CommandLineOptions.OutFile">OutFile</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string OutFile { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_OutFileSpecified_" data-uid="NUnit.Common.CommandLineOptions.OutFileSpecified*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_OutFileSpecified" data-uid="NUnit.Common.CommandLineOptions.OutFileSpecified">OutFileSpecified</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool OutFileSpecified { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_PreFilters_" data-uid="NUnit.Common.CommandLineOptions.PreFilters*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_PreFilters" data-uid="NUnit.Common.CommandLineOptions.PreFilters">PreFilters</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList&lt;string&gt; PreFilters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_RandomSeed_" data-uid="NUnit.Common.CommandLineOptions.RandomSeed*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_RandomSeed" data-uid="NUnit.Common.CommandLineOptions.RandomSeed">RandomSeed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RandomSeed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_RandomSeedSpecified_" data-uid="NUnit.Common.CommandLineOptions.RandomSeedSpecified*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_RandomSeedSpecified" data-uid="NUnit.Common.CommandLineOptions.RandomSeedSpecified">RandomSeedSpecified</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RandomSeedSpecified { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_ResultOutputSpecifications_" data-uid="NUnit.Common.CommandLineOptions.ResultOutputSpecifications*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_ResultOutputSpecifications" data-uid="NUnit.Common.CommandLineOptions.ResultOutputSpecifications">ResultOutputSpecifications</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList&lt;OutputSpecification&gt; ResultOutputSpecifications { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="NUnit.Common.OutputSpecification.html">OutputSpecification</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_ShowHelp_" data-uid="NUnit.Common.CommandLineOptions.ShowHelp*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_ShowHelp" data-uid="NUnit.Common.CommandLineOptions.ShowHelp">ShowHelp</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowHelp { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_ShowVersion_" data-uid="NUnit.Common.CommandLineOptions.ShowVersion*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_ShowVersion" data-uid="NUnit.Common.CommandLineOptions.ShowVersion">ShowVersion</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowVersion { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_StopOnError_" data-uid="NUnit.Common.CommandLineOptions.StopOnError*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_StopOnError" data-uid="NUnit.Common.CommandLineOptions.StopOnError">StopOnError</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StopOnError { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_TeamCity_" data-uid="NUnit.Common.CommandLineOptions.TeamCity*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_TeamCity" data-uid="NUnit.Common.CommandLineOptions.TeamCity">TeamCity</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TeamCity { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_TestList_" data-uid="NUnit.Common.CommandLineOptions.TestList*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_TestList" data-uid="NUnit.Common.CommandLineOptions.TestList">TestList</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList&lt;string&gt; TestList { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_TestParameters_" data-uid="NUnit.Common.CommandLineOptions.TestParameters*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_TestParameters" data-uid="NUnit.Common.CommandLineOptions.TestParameters">TestParameters</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDictionary&lt;string, string&gt; TestParameters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_WaitBeforeExit_" data-uid="NUnit.Common.CommandLineOptions.WaitBeforeExit*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_WaitBeforeExit" data-uid="NUnit.Common.CommandLineOptions.WaitBeforeExit">WaitBeforeExit</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WaitBeforeExit { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_WhereClause_" data-uid="NUnit.Common.CommandLineOptions.WhereClause*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_WhereClause" data-uid="NUnit.Common.CommandLineOptions.WhereClause">WhereClause</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string WhereClause { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_WhereClauseSpecified_" data-uid="NUnit.Common.CommandLineOptions.WhereClauseSpecified*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_WhereClauseSpecified" data-uid="NUnit.Common.CommandLineOptions.WhereClauseSpecified">WhereClauseSpecified</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WhereClauseSpecified { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_WorkDirectory_" data-uid="NUnit.Common.CommandLineOptions.WorkDirectory*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_WorkDirectory" data-uid="NUnit.Common.CommandLineOptions.WorkDirectory">WorkDirectory</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string WorkDirectory { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_WorkDirectorySpecified_" data-uid="NUnit.Common.CommandLineOptions.WorkDirectorySpecified*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_WorkDirectorySpecified" data-uid="NUnit.Common.CommandLineOptions.WorkDirectorySpecified">WorkDirectorySpecified</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WorkDirectorySpecified { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_CheckOptionCombinations_" data-uid="NUnit.Common.CommandLineOptions.CheckOptionCombinations*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_CheckOptionCombinations" data-uid="NUnit.Common.CommandLineOptions.CheckOptionCombinations">CheckOptionCombinations()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void CheckOptionCombinations()</code></pre>
+  </div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_ConfigureOptions_" data-uid="NUnit.Common.CommandLineOptions.ConfigureOptions*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_ConfigureOptions_System_Boolean_" data-uid="NUnit.Common.CommandLineOptions.ConfigureOptions(System.Boolean)">ConfigureOptions(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void ConfigureOptions(bool allowInputFile)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">allowInputFile</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_RequiredInt_" data-uid="NUnit.Common.CommandLineOptions.RequiredInt*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_RequiredInt_System_String_System_String_" data-uid="NUnit.Common.CommandLineOptions.RequiredInt(System.String,System.String)">RequiredInt(string, string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int RequiredInt(string val, string option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">val</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_RequiredValue_" data-uid="NUnit.Common.CommandLineOptions.RequiredValue*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_RequiredValue_System_String_System_String_System_String___" data-uid="NUnit.Common.CommandLineOptions.RequiredValue(System.String,System.String,System.String[])">RequiredValue(string, string, params string[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string RequiredValue(string val, string option, params string[] validValues)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">val</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td><span class="parametername">validValues</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs">View Source</a>
+  </span>
+  <a id="NUnit_Common_CommandLineOptions_Validate_" data-uid="NUnit.Common.CommandLineOptions.Validate*"></a>
+  <h4 id="NUnit_Common_CommandLineOptions_Validate" data-uid="NUnit.Common.CommandLineOptions.Validate">Validate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Validate()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ilist">IList</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icollection">ICollection</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/nunit/blob/31b3786000bcd2e9a9418a5b08750ffecffd6d97/src/NUnitFramework/nunitlite/CommandLineOptions.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
