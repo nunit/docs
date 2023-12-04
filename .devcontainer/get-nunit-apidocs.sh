@@ -1,3 +1,5 @@
+# This script gets the 
+
 NUNIT_VERSION_FOR_API_DOCS="4.0.0"
 
 first_workspace="$(cd /workspaces && ls | head -1)"
