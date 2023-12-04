@@ -1,0 +1,14 @@
+on:
+    pull_request:
+      types: [ closed ]
+jobs:
+    prune:
+      runs-on: ubuntu-latest
+      steps:
+      - name: delete environment
+        uses: bobheadxi/deployments@v1
+        with:
+            step: delete-env
+            token: ${{ secrets.GITHUB_TOKEN }}
+            env: preview_${{github.event.number}}
+            desc: Environment Deleted
