@@ -83,7 +83,7 @@ This limitation is the same for all test adapters including xUnit and MSTest2.
 #### My tests aren't showing up in Visual Studio 2022 or later
 
 * Are you using the NuGet adapter package?
-* Are you using version 4.5.0 or newer of the NuGet package?
+* Are you using version 4.5.0 or newer of the NuGet adapter package?
 * Do your tests target .NET Core or the full .NET Framework? (see above)
 * Have you added a Package Reference to `Microsoft.NET.Test.Sdk`?
 * Have you restarted Visual Studio? It is still a bit temperamental.
@@ -95,6 +95,10 @@ This limitation is the same for all test adapters including xUnit and MSTest2.
 ```csharp
   public partial class Program { }
 ```
+
+The reason for this is that the generated/hidden Minimal API (Top Level statement) Program class is internal.
+By declaring the partial part, it is changed to public.
+See [Microsoft docs](https://learn.microsoft.com/en-us/aspnet/core/migration/50-to-60-samples?view=aspnetcore-8.0#project-file-csproj) for more info, and some alternatives.
 
 #### My tests multi-target .NET Core and .NET Framework, why can't I run both in Visual Studio
 
