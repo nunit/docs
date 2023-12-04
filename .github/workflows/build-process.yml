@@ -136,6 +136,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           commit_message: ${{ github.event.head_commit.message }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.SEAN_PAT_TO_MANAGE_ENVIRONMENTS }}
           publish_dir: ./docs/_site
           publish_branch: gh-pages
