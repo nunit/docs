@@ -149,17 +149,21 @@ the reason for ignoring the instance.</p>
 <p>Individual fixture instances may be given categories as well. Set the <strong>Category</strong> named parameter of the attribute to
 the name of the category or to a comma-separated list of categories.</p>
 <h3 id="example-1">Example</h3>
-<p>The following test fixture would be instantiated by NUnit three times, passing in each set of arguments to the
-appropriate constructor. Note that there are three different constructors, matching the data types provided as
-arguments.</p>
+<p>The following test fixture would be instantiated by NUnit five times,
+passing in each set of arguments to the appropriate constructor. Note
+that there are four different constructors, matching the data types
+provided as arguments, and the params keyword can be used to allow
+passing different numbers of arguments.</p>
 <pre><code class="lang-csharp" name="MultipleParameterizedTestFixtures">[TestFixture(&quot;hello&quot;, &quot;hello&quot;, &quot;goodbye&quot;)]
 [TestFixture(&quot;zip&quot;, &quot;zip&quot;)]
 [TestFixture(42, 42, 99)]
+[TestFixture('a', 'a', 'b')]
+[TestFixture('A', 'A')]
 public class ParameterizedTestFixture
 {
     private readonly string _eq1;
     private readonly string _eq2;
-    private readonly string _neq;
+    private readonly string? _neq;
 
     public ParameterizedTestFixture(string eq1, string eq2, string neq)
     {
@@ -178,6 +182,17 @@ public class ParameterizedTestFixture
         _neq = neq.ToString();
     }
 
+    // Can use params arguments (but not yet optional arguments)
+    public ParameterizedTestFixture(params char[] eqArguments)
+    {
+        _eq1 = eqArguments[0].ToString();
+        _eq2 = eqArguments[1].ToString();
+        if (eqArguments.Length &gt; 2)
+            _neq = eqArguments[2].ToString();
+        else 
+            _neq = null;
+    }
+    
     [Test]
     public void TestEquality()
     {
