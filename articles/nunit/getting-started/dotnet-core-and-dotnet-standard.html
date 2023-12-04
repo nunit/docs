@@ -12,9 +12,9 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>.NET Core and .NET Standard | NUnit Docs </title>
+      <title>.NET Core | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content=".NET Core and .NET Standard | NUnit Docs ">
+      <meta name="title" content=".NET Core | NUnit Docs ">
     
       <link rel="shortcut icon" href="../../../favicon.ico">
       <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
@@ -83,31 +83,31 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="net-core-and-net-standard">.NET Core and .NET Standard</h1>
+<h1 id="net-core">.NET Core</h1>
 
 <p>More information and getting started tutorials are available for NUnit and .NET Core targeting
 <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit">C#</a>,
 <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-fsharp-with-nunit">F#</a> and <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-visual-basic-with-nunit">Visual
 Basic</a> in the .NET Core
-documentation's <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/">Unit Testing in .NET Core and .NET Standard</a>
+documentation's <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/">Unit Testing in .NET Core</a>
 page.</p>
 <p>The other information on this page is older documentation. If you follow the instructions in the <a class="xref" href="installation.html">Installation
-section</a> your project will work with .NET Core and .NET Standard.</p>
+section</a> your project will work with .NET Core.</p>
 <p>The test projects have to be .NET (Core) or .NET Framework; .NET Standard can't be used as a test project, since it
 can't be run on its own, but any code in a .NET Standard library can be tested from a .NET (Core) or .NET Framework test
 project.</p>
 <h2 id="tldr">TL;DR</h2>
-<p>Adding the adapter and <code>Microsoft.NET.Test.Sdk</code> version <code>17.0.0</code> or greater to your NUnit test projects will also enable
+<p>Adding the adapter and <code>Microsoft.NET.Test.Sdk</code> version <code>17.8.0</code> or greater to your NUnit test projects will also enable
 the <code>dotnet test</code> command for .NET Core projects.</p>
 <p>Any tests using the new style CSPROJ format, either .NET Core or .NET 4.x, need to add a <code>PackageReference</code> to the NuGet
 package <code>Microsoft.NET.Test.Sdk</code>. Your test assemblies must also be .NET Core or .NET 4.x, not .NET Standard.</p>
 <p>You can create a new NUnit test project using <code>dotnet new nunit</code>. It will create an ItemGroup in the csproj file with
 the necessary references.</p>
 <pre><code class="lang-xml">  &lt;ItemGroup&gt;
-    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;17.6.0&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;3.13.3&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; Version=&quot;4.2.1&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit.Analyzers&quot; Version=&quot;3.6.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;17.8.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;4.0.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; Version=&quot;4.5.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;NUnit.Analyzers&quot; Version=&quot;3.10.0&quot; /&gt;
     &lt;PackageReference Include=&quot;coverlet.collector&quot; Version=&quot;6.0.0&quot; /&gt;
   &lt;/ItemGroup&gt;
 </code></pre>
@@ -137,18 +137,24 @@ on. I haven't tested 15.3 yet.</p>
 <p>It is similar to a console application, it cannot be .NET Standard, it must target a platform, .NET Core or .NET
 Framework.</p>
 <p>This limitation is the same for all test adapters including xUnit and MSTest2.</p>
-<h4 id="my-tests-arent-showing-up-in-visual-studio-2017-or-later">My tests aren't showing up in Visual Studio 2017 or later</h4>
+<h4 id="my-tests-arent-showing-up-in-visual-studio-2022-or-later">My tests aren't showing up in Visual Studio 2022 or later</h4>
 <ul>
 <li>Are you using the NuGet adapter package?</li>
-<li>Are you using version 4.1.0 or newer of the NuGet package?</li>
+<li>Are you using version 4.5.0 or newer of the NuGet package?</li>
 <li>Do your tests target .NET Core or the full .NET Framework? (see above)</li>
 <li>Have you added a Package Reference to <code>Microsoft.NET.Test.Sdk</code>?</li>
 <li>Have you restarted Visual Studio? It is still a bit temperamental.</li>
+<li>Are you doing integration testing with Asp.Net Core <code>WebApplicationFactory</code> and using minimal API, and it complains
+about missing <code>testhost.deps.json</code>?  Then you're accessing the wrong Program class in your WebApplicationFactory. Fix
+it by adding a code line at the end of the <code>Program.cs</code> file, and verify that your WebApplicationFactory is actually
+using this Program class:</li>
 </ul>
+<pre><code class="lang-csharp">  public partial class Program { }
+</code></pre>
 <h4 id="my-tests-multi-target-net-core-and-net-framework-why-cant-i-run-both-in-visual-studio">My tests multi-target .NET Core and .NET Framework, why can't I run both in Visual Studio</h4>
-<p>This is a limitation of Visual Studio, hopefully it will be fixed in a future release.</p>
-<p>Meanwhile, you can run specific tests using the <code>--framework</code> command line option of <a href="https://docs.microsoft.com/en-ca/dotnet/core/tools/dotnet-test?tabs=netcore2x">dotnet
-test</a></p>
+<p>This was a limitation in earlier versions of  Visual Studio, but is fixed in Visual Studio 2022.</p>
+<p><em>If</em> you must run an earlier version and have this issue, you can run specific tests using the <code>--framework</code> command
+line option of <a href="https://docs.microsoft.com/en-ca/dotnet/core/tools/dotnet-test?tabs=netcore2x">dotnet test</a></p>
 <h2 id="how-do-i-produce-a-test-results-file">How do I produce a test results file</h2>
 <p><code>dotnet test</code> can generate an NUnit3 test result file by adding a runsettings property. The property to add is
 <a href="/articles/vs-test-adapter/Tips-And-Tricks.html#testoutputxml">TestOutputXml</a>. This generation is done using the NUnit

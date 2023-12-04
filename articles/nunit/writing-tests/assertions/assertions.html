@@ -110,12 +110,11 @@ approach have all been implemented internally using constraints. For example...<
 Assert.That(2 + 2, Is.EqualTo(4));
 </code></pre><h3 id="some-notes-on-the-classiclegacy-asserts">Some notes on the Classic/Legacy asserts</h3>
 <p>The classic/legacy asserts, like <code>ClassicAssert.AreEqual</code>, have now been moved into its own project (namespace), and
-will later be released as a separate package.  They are now in the namespace <code>NUnit.Framework.Legacy</code>, and the <code>Assert</code>
+may later be released as a separate package.  They are now in the namespace <code>NUnit.Framework.Legacy</code>, and the <code>Assert</code>
 have been renamed to <code>ClassicAssert</code>.</p>
 <p>If you're upgrading from NUnit 3.X to NUnit 4, you need to add a using for <code>NUnit.Framework.Legacy</code> to your test
 classes, and rename all classic asserts from <code>Assert</code> to <code>ClassicAssert</code>.</p>
-<p>You <em>can</em> freely mix the constraint model assertions and the classic asserts in the same test class, but we don't
-recommend it.</p>
+<p>You <em>can</em> freely mix the constraint model assertions and the classic asserts in the same test class.</p>
 <p>All assertions in the <code>ClassicAssert</code> class are rerouting to use the constraint model.</p>
 <p>As shown in the example in <a class="xref" href="../../Towards-NUnit4.html">Towards NUnit 4</a>, error message have been enhanced so that you see the
 Assert expression.  This also works for the ClassicAsserts, but what you will see there is the equivalent constraint
