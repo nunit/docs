@@ -31,6 +31,8 @@ It has the following characteristics:
 * It **must** be static. This is a change from NUnit 2.x.
 * It must return an `IEnumerable` or a type that implements `IEnumerable`. For fields an array is generally used. For
   properties and methods, you may return an array or implement your own iterator.
+  * Methods may also return an `IAsyncEnumerable` or a type that implements `IAsyncEnumerable`. (_NUnit 4+_)
+  * Methods may be async by wrapping the return type in a `Task<T>`. (_NUnit 3.14+_)
 * The individual items returned by the enumerator must be compatible with the signature of the method on which the
    attribute appears. See the **Test Case Construction** section below for details.
 
@@ -53,6 +55,8 @@ characteristics:
 * It **must** be static. This is a change from NUnit 2.x.
 * It must return an `IEnumerable` or a type that implements `IEnumerable`. For fields an array is generally used. For
   properties and methods, you may return an array or implement your own iterator.
+  * Methods may also return an `IAsyncEnumerable` or a type that implements `IAsyncEnumerable`. (_NUnit 4+_)
+  * Methods may be async by wrapping the return type in a `Task<T>`. (_NUnit 3.14+_)
 * The individual items returned by the enumerator must be compatible with the signature of the method on which the
    attribute appears. See the **Test Case Construction** section below for details.
 

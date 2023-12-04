@@ -4,6 +4,27 @@ uid: breakingchanges
 
 # Breaking Changes
 
+## NUnit 4.0
+
+See the [Migration Guide](xref:migrationguidance) for moving your tests from NUnit 3.x to NUnit 4.0 if you are using any
+of the following features:
+
+* The [Classic Asserts][def] have been moved to a separate library
+  and their namespace and their class name were renamed to: `NUnit.Framework.Legacy.ClassicAssert`.
+* The standalone assert classes have also been moved to the `NUnit.Framework.Legacy` namespace. These classes are:
+  * [CollectionAssert](../writing-tests/assertions/classic-assertions/Collection-Assert.md)
+  * [StringAssert](../writing-tests/assertions/classic-assertions/String-Assert.md)
+  * [DirectoryAssert](../writing-tests/assertions/classic-assertions/Directory-Assert.md)
+  * [FileAssert](../writing-tests/assertions/classic-assertions/File-Assert.md)
+* Assert.That overloads with _format_ specification and `params` have been removed in favor of an overload using
+  `FormattableString`.
+* The lowest framework version supported is now version 4.6.2 and .Net 6.0.
+
+See full list of [deprecated
+issues](https://docs.nunit.org/articles/nunit/release-notes/framework.html#deprecated-features) and [breaking
+changes](https://docs.nunit.org/articles/nunit/release-notes/framework.html#the-following-issues-are-marked-as-breaking-changes)
+in the framework.
+
 ## NUnit 3.10
 
 * `NUnit.Framework.Constraints.NUnitEqualityComparer.Default` was deprecated in favor of `new NUnitEqualityComparer()`.
@@ -136,3 +157,5 @@ runner supports.
 | `--noshadow`       | Disable shadow copy                     | No longer supported. The console runner now disables shadow copy by default. use `--shadowcopy` on the command-line to turn it on. |
 | `--nothread`        | Disable use of a separate thread for tests  | No longer supported. |
 | `--nodots`          | Do not display dots as a progress indicator | No longer supported. |
+
+[def]: ../writing-tests/assertions/assertion-models/classic.md
