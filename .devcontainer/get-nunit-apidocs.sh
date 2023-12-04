@@ -1,5 +1,6 @@
-# This script gets the 
+# This script gets the the latest version of NUnit and extracts it. This is because docfx is capable of generating API docs, and this way the Codespace will be automatically enabled to do that.
 
+# This is hard-coded for now.
 NUNIT_VERSION_FOR_API_DOCS="4.0.0"
 
 first_workspace="$(cd /workspaces && ls | head -1)"
