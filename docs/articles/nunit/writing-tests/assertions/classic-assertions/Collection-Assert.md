@@ -1,10 +1,10 @@
 # CollectionAssert
 
-The CollectionAssert class provides a number of methods that are useful when examining collections and their contents or for comparing two collections. These methods may be used with any object implementing `IEnumerable`.
+The CollectionAssert class provides a number of methods that are useful when examining collections and their contents or
+for comparing two collections. These methods may be used with any object implementing `IEnumerable`.
 
-The **AreEqual** overloads succeed if the corresponding elements of the two
-collections are equal. **AreEquivalent** tests whether the collection contents
-are equal, but without regard to order. In both cases, elements are compared using
+The **AreEqual** overloads succeed if the corresponding elements of the two collections are equal. **AreEquivalent**
+tests whether the collection contents are equal, but without regard to order. In both cases, elements are compared using
 NUnit's default equality comparison.
 
 ```csharp

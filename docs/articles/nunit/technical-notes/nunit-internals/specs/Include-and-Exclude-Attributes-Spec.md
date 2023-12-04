@@ -3,7 +3,9 @@
 > [!WARNING]
 > This is a draft. The contents may be out of date.
 
-This spec describes proposed new attributes to replace and extend the existing CultureAttribute and PlatformAttribute. We considered several alternative approaches to doing this and selected the approach described here. See [Include and Exclude Attributes (Alternatives)](xref:includeexcludeattributesalternatives) for the original discussion of choices.
+This spec describes proposed new attributes to replace and extend the existing CultureAttribute and PlatformAttribute.
+We considered several alternative approaches to doing this and selected the approach described here. See [Include and
+Exclude Attributes (Alternatives)](xref:includeexcludeattributesalternatives) for the original discussion of choices.
 
 ## Attributes
 
@@ -19,23 +21,30 @@ We would define two new attributes, **IncludeAttribute** and **ExcludeAttribute*
 
 ## Syntax Options
 
-There are a number of possible alternatives for specifying when a test is to be included or excluded. Each of them is illustrated in the examples above, from which we need to select a subset.
+There are a number of possible alternatives for specifying when a test is to be included or excluded. Each of them is
+illustrated in the examples above, from which we need to select a subset.
 
 ### 1. Named Properties
 
-As illustrated in the first two examples, this approach allows us to clearly separate the namespaces for each selection domain. Comma-separated values are intended to be alternatives, so the second example would include the test under either Win7 or Win8. Separate properties (domains) would be "and-ed" together.
+As illustrated in the first two examples, this approach allows us to clearly separate the namespaces for each selection
+domain. Comma-separated values are intended to be alternatives, so the second example would include the test under
+either Win7 or Win8. Separate properties (domains) would be "and-ed" together.
 
 ### 2. Prefixes
 
-By prefixing each value with the domain name, we can create a unified namespace. The third example above uses this approach, making it clear that Net-4.5 represents a runtime and nothing else. As in #1, comma-separated values are alternatives. There is no other way to create logical combinations.
+By prefixing each value with the domain name, we can create a unified namespace. The third example above uses this
+approach, making it clear that Net-4.5 represents a runtime and nothing else. As in #1, comma-separated values are
+alternatives. There is no other way to create logical combinations.
 
 ### 3. Implied Domain
 
-To the extent that the accepted values are exclusive, it's possible to deduce the domain from the value. The fourth example above takes advantage of this. Note that this approach can be combined with #2 as a kind of shorthand.
+To the extent that the accepted values are exclusive, it's possible to deduce the domain from the value. The fourth
+example above takes advantage of this. Note that this approach can be combined with #2 as a kind of shorthand.
 
 ### 4. Logical Expression
 
-We can define a DSL that allows us to specify arbitrary expressions for including or excluding tests. The last example above does this. If the expression language included **not**, then we could do away with the ExcludeAttribute.
+We can define a DSL that allows us to specify arbitrary expressions for including or excluding tests. The last example
+above does this. If the expression language included **not**, then we could do away with the ExcludeAttribute.
 
 ## Comparison of Options
 

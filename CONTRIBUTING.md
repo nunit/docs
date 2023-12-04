@@ -59,7 +59,13 @@ You can open the repository in GitHub Codespaces. This will open an instance of 
 
 * Syntax highlighting for spelling and markdown issues
 * Auto-formatting on save according to our standards
-* Simple command aliases in the terminal: `spellcheck`, `lint`, `build`, `serve`, and `snippets` will cover most folks' workflow.
+* Simple command aliases in the terminal to cover most folks' workflows:
+  * `spellcheck`: Check for spelling errors in docs
+  * `lint`: Markdown linting
+  * `build`: Use docfx to build site
+  * `serve`: Build with docfx but also serve the generated site
+  * `apidocs`: If needed, downloads the latest NUnit release to extract it to the right place so that the API documentation can generate. (This happens automatically upon startup)
+  * `snippets`: Builds the snippets projects to ensure they work.
 
 ### Option 3a: A Container Within VS Code
 

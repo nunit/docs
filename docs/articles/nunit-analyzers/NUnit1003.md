@@ -33,7 +33,8 @@ public void NUnit1003SampleTest(string parameter1, string parameter2)
 
 ### Explanation
 
-In the sample above, the test expects two parameters (`(string parameter1, string parameter2)`), but only one argument is supplied by the test case (`TestCase("1")`).
+In the sample above, the test expects two parameters (`(string parameter1, string parameter2)`), but only one argument
+is supplied by the test case (`TestCase("1")`).
 
 ### Fix
 
@@ -63,7 +64,8 @@ public void NUnit1003SampleTest(string parameter1)
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

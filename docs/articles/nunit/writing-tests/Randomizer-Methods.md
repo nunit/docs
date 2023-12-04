@@ -4,12 +4,16 @@ uid: randomizermethods
 
 # Randomizer Methods
 
-The **Randomizer** object exposed by `TestContext.CurrentContext.Random` extends `System.Random` to provide random data for a wide range of numeric types as well as enums and strings. Each test context has access to its own **Randomizer** which is used to generate random values for the `RandomAttribute` as well as for use by the user calling its methods.
+The **Randomizer** object exposed by `TestContext.CurrentContext.Random` extends `System.Random` to provide random data
+for a wide range of numeric types as well as enums and strings. Each test context has access to its own **Randomizer**
+which is used to generate random values for the `RandomAttribute` as well as for use by the user calling its methods.
 
 The benefit of using **Randomizer** rather than `System.Random` directly is twofold:
 
 1. A wide range of types are provided in a uniform manner.
-2. Randomizer produces repeatable values for the test run so long as no tests are changed and the same seed is used to initialize the run. A future extension is planned, which would provide repeatability at the individual method level, even if other methods are changed.
+2. Randomizer produces repeatable values for the test run so long as no tests are changed and the same seed is used to
+   initialize the run. A future extension is planned, which would provide repeatability at the individual method level,
+   even if other methods are changed.
 
 ## Int (System.Int32)
 
@@ -167,8 +171,10 @@ Returns the next decimal in the range min to max, excluding max.
 
 #### Notes on Decimal Implementation
 
-1. In the current implementation, the scale is always set to zero. That is, the values are all integral, with no decimal places. This may be enhanced in a future release by allowing the user to specify the scale.
-2. In the third form, an exception is currently thrown if the range is greater than `decimal.MaxValue`. This can only occur if min is negative and max is positive.
+1. In the current implementation, the scale is always set to zero. That is, the values are all integral, with no decimal
+   places. This may be enhanced in a future release by allowing the user to specify the scale.
+2. In the third form, an exception is currently thrown if the range is greater than `decimal.MaxValue`. This can only
+   occur if min is negative and max is positive.
 
 ## Bool (System.Boolean)
 
@@ -178,23 +184,28 @@ Returns a random bool with equal probability of `true` or `false`.
 
 ### `NextBool(double probability)`
 
-Returns a random bool with the specified probability of being `true`. Probability argument must be in the range 0.0 to 1.0, inclusive.
+Returns a random bool with the specified probability of being `true`. Probability argument must be in the range 0.0 to
+1.0, inclusive.
 
 ## Enum (System.Enum)
 
 ### `NextEnum<T>()`
 
-Returns a random enum value of type T. All the values of the enum are returned with equal probability. Note that this may not be useful in all cases for enums with the `FlagsAttribute` specified.
+Returns a random enum value of type T. All the values of the enum are returned with equal probability. Note that this
+may not be useful in all cases for enums with the `FlagsAttribute` specified.
 
 ### `NextEnum(Type type)`
 
-Returns a random enum value of the type specified as an object, which the caller will normally cast to the specified type.
+Returns a random enum value of the type specified as an object, which the caller will normally cast to the specified
+type.
 
 ## String (System.String)
 
 ### `GetString()`
 
-Returns a random string of default length, composed using a default set of characters. In the current implementation, the default length is hard-coded as 25 and the default characters are `abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789_`.
+Returns a random string of default length, composed using a default set of characters. In the current implementation,
+the default length is hard-coded as 25 and the default characters are
+`abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789_`.
 
 ### `GetString(int length)`
 
@@ -208,4 +219,5 @@ Returns a random string of the specified length using the characters in the stri
 
 ### `NextGuid()` (available in version 3.8)
 
-Generates a version 4 Guid conforming the [RFC 4122](https://tools.ietf.org/html/rfc4122#section-4.4). Version 4 Guids are made of random data.
+Generates a version 4 Guid conforming the [RFC 4122](https://www.rfc-editor.org/rfc/rfc4122#section-4.4). Version 4
+Guids are made of random data.

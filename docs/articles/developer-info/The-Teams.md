@@ -1,14 +1,18 @@
 # The Teams in the NUnit Project
 
-The NUnit project is made up of several teams, each with its own focus and responsibilities, and with a set of team members.
+The NUnit project is made up of several teams, each with its own focus and responsibilities, and with a set of team
+members.
 
-The team members are a bunch of dedicated people from all over the globe, who are passionate about NUnit and want to make it better. They are all volunteers, and they do this in their spare time.
+The team members are a bunch of dedicated people from all over the globe, who are passionate about NUnit and want to
+make it better. They are all volunteers, and they do this in their spare time.
 
 ## The current teams
 
 ### Core Team
 
-This team has overall responsibility for the NUnit organization. It defines the vision for NUnit, decides what projects should be included, appoints leads for other teams and maintainers for projects, sets standards and ensures we follow them.
+This team has overall responsibility for the NUnit organization. It defines the vision for NUnit, decides what projects
+should be included, appoints leads for other teams and maintainers for projects, sets standards and ensures we follow
+them.
 
 Team Lead: [Terje Sandstrom](https://github.com/osiristerje)
 

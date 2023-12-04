@@ -1,7 +1,7 @@
 # Description
 
-The Description attribute is used to apply descriptive text to a Test,
-TestFixture or Assembly. The text appears in the XML output file.
+The Description attribute is used to apply descriptive text to a Test, TestFixture or Assembly. The text appears in the
+XML output file.
 
 ## Example
 
@@ -24,4 +24,5 @@ namespace NUnit.Tests
 ```
 
 > [!NOTE]
-> The Test and TestFixture attributes continue to support an optional Description property. The Description attribute should be used for new applications. If both are used, the Description attribute takes precedence.
+> The Test and TestFixture attributes continue to support an optional Description property. The Description
+> attribute should be used for new applications. If both are used, the Description attribute takes precedence.

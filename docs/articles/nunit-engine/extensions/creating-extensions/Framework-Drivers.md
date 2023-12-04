@@ -4,17 +4,25 @@ uid: frameworkdrivers
 
 # Framework Drivers
 
-**Framework Drivers** are extensions that know how to create a driver for a particular framework. These allow the NUnit Engine to run tests for multiple different test frameworks. The NUnit engine provides drivers for both NUnit 3.x, whilst a separate extension can be installed to run NUnit 2.x frameworks. Third parties may provide drivers for other frameworks by creating extensions.
+**Framework Drivers** are extensions that know how to create a driver for a particular framework. These allow the NUnit
+Engine to run tests for multiple different test frameworks. The NUnit engine provides drivers for both NUnit 3.x, whilst
+a separate extension can be installed to run NUnit 2.x frameworks. Third parties may provide drivers for other
+frameworks by creating extensions.
 
 ## Implementation Details
 
-The framework driver API is encapsulated in the `IDriverFactory` and `IFrameworkDriver` interfaces, which must be implemented by all framework driver extensions to the engine.
+The framework driver API is encapsulated in the `IDriverFactory` and `IFrameworkDriver` interfaces, which must be
+implemented by all framework driver extensions to the engine.
 
 ### IDriverFactory
 
-The `IDriverFactory` interface is called by the engine to determine if a particular extension is able to create a driver for a particular framework assembly. The engine passes the AssemblyName of each assembly referenced by the test assembly to the factory to see if it is a supported framework. If it finds one, then it uses that driver. If not, it goes on to check the next driver extension.
+The `IDriverFactory` interface is called by the engine to determine if a particular extension is able to create a driver
+for a particular framework assembly. The engine passes the AssemblyName of each assembly referenced by the test assembly
+to the factory to see if it is a supported framework. If it finds one, then it uses that driver. If not, it goes on to
+check the next driver extension.
 
-The `ExtensionPoint` for framework drivers uses the Path "NUnit.Engine.DriverService" and accepts an extension of Type `NUnit.Engine.Extensibility.IDriverFactory`. The definition of a driver factory might look like this:
+The `ExtensionPoint` for framework drivers uses the Path "NUnit.Engine.DriverService" and accepts an extension of Type
+`NUnit.Engine.Extensibility.IDriverFactory`. The definition of a driver factory might look like this:
 
 ```csharp
 [Extension]
@@ -40,9 +48,12 @@ public interface IDriverFactory
 
 ### IFrameworkDriver
 
-The `IFrameworkDriver` interface is returned from `IDriverFactory` and is the key interface for actually loading, exploring and running the tests in the test assembly. In theory, a single driver factory could return different drivers in different situations, but we expect a one-to-one mapping of factories to drivers to be most commonly used.
+The `IFrameworkDriver` interface is returned from `IDriverFactory` and is the key interface for actually loading,
+exploring and running the tests in the test assembly. In theory, a single driver factory could return different drivers
+in different situations, but we expect a one-to-one mapping of factories to drivers to be most commonly used.
 
-As designed, the `IFrameworkDriver` interface maps most directly to the requirements of the NUnit 3 framework. Drivers for other frameworks need to function as an adapter to run tests and return understandable results to the engine.
+As designed, the `IFrameworkDriver` interface maps most directly to the requirements of the NUnit 3 framework. Drivers
+for other frameworks need to function as an adapter to run tests and return understandable results to the engine.
 
 The `IFrameworkDriver` interface is defined as follows:
 
@@ -68,13 +79,17 @@ public interface IFrameworkDriver
     void StopRun(bool force);
 ```
 
-The strings returned by Run and Explore are XML representations and the filter is also in XML format. See the source code for NUnit3FrameworkDriver and NUnit2FrameworkDriver for sample code.
+The strings returned by Run and Explore are XML representations and the filter is also in XML format. See the source
+code for NUnit3FrameworkDriver and NUnit2FrameworkDriver for sample code.
 
-The filter argument passed to several of the interface methods is an XML string representing the filter. See [Test Filters](xref:testFilters) for a description of the format, which is directly understood by the NUnit 3 framework, but which must be converted by the driver to something that is understood by other frameworks.
+The filter argument passed to several of the interface methods is an XML string representing the filter. See [Test
+Filters](xref:testFilters) for a description of the format, which is directly understood by the NUnit 3 framework, but
+which must be converted by the driver to something that is understood by other frameworks.
 
 ### ITestEventListener
 
-The `ITestEventListener` interface is implemented by the Engine and used by each driver to report significant events during the execution of tests.
+The `ITestEventListener` interface is implemented by the Engine and used by each driver to report significant events
+during the execution of tests.
 
 ```csharp
 namespace NUnit.Engine

@@ -8,6 +8,9 @@ on:
     branches:
       - master
 
+env:
+  NUNIT_VERSION_FOR_API_DOCS: "4.0.0"
+
 jobs:
   linting:
     name: "Markdown linting"
@@ -15,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: Check out the code
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         name: Setup node
         with:
           node-version: "18"
@@ -29,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: Check out the code
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         name: Setup node
         with:
           node-version: "18"
@@ -43,6 +46,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: Check out the code
+      - name: Get latest NUnit Asset dir
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          repo: 'nunit/nunit'
+          version: 'tags/v${{ env.NUNIT_VERSION_FOR_API_DOCS }}'
+          file: 'NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}.zip'
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Unzip NUnit Asset zip file into its own directory
+        run: unzip NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}.zip -d ./NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}
+      - name: Copy NUnit Asset dir
+        run: mkdir ./code-output && cp -r ./NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}/bin/net6.0/* ./code-output
       - uses: "nunit/docfx-action@v2.10.0"
         name: Build with Docfx
         with:
@@ -54,6 +68,41 @@ jobs:
         with:
           name: siteArtifact
           path: _site.zip
+      - name: Start deployment (PR only)
+        if: ${{ github.ref != 'refs/heads/master'}}
+        uses: bobheadxi/deployments@v1
+        id: deployment
+        with:
+          env: preview_${{github.event.number}}
+          step: start
+          token: ${{ secrets.SEAN_PAT_TO_MANAGE_ENVIRONMENTS }}
+      - name: Deploy to Netlify (PR only)
+        if: ${{ github.ref != 'refs/heads/master'}}
+        uses: South-Paw/action-netlify-cli@v2
+        id: netlify
+        with:
+          # note that the --json flag has been passed so we can parse outputs
+          args: deploy --json --dir './docs/_site' --message 'preview [${{ github.sha }}]'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}          
+      - name: Update Preview link comment
+        if: ${{ github.ref != 'refs/heads/master'}}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: previewlink
+          message: |
+            Preview link: ${{ fromJson(steps.netlify.outputs.NETLIFY_OUTPUT).deploy_url }}          
+      - name: Finish deployment
+        uses: bobheadxi/deployments@v1
+        if: ${{ github.ref != 'refs/heads/master'}}
+        with:
+          env: ${{ steps.deployment.outputs.env }}
+          step: finish
+          status: ${{ job.status }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          env_url: ${{ fromJson(steps.netlify.outputs.NETLIFY_OUTPUT).deploy_url }}     
+          token: ${{ secrets.SEAN_PAT_TO_MANAGE_ENVIRONMENTS }} 
   snippets:
     name: "Build/Test Snippets"
     runs-on: ubuntu-latest

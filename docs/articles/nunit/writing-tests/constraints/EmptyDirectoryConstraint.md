@@ -22,4 +22,5 @@ Assert.That(new DirectoryInfo(actual), Is.Not.Empty);
 ```
 
 > [!NOTE]
-> `Is.Empty` actually creates an `EmptyConstraint`. Subsequently applying it to a `DirectoryInfo` causes an `EmptyDirectoryConstraint` to be created.
+> `Is.Empty` actually creates an `EmptyConstraint`. Subsequently applying it to a `DirectoryInfo` causes an
+> `EmptyDirectoryConstraint` to be created.

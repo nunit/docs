@@ -36,10 +36,11 @@ public class AnalyzeWhenSourceDoesProvideIEnumerable
 
 ### Explanation
 
-In the sample above, the source specified by `ValueSource` - the field `testCases` - does not return an `IEnumerable` or a type that implements `IEnumerable`,
-instead it returns an `int`.
+In the sample above, the source specified by `ValueSource` - the field `testCases` - does not return an `IEnumerable` or
+a type that implements `IEnumerable`, instead it returns an `int`.
 
-However, sources specified by `ValueSource` [must return an `IEnumerable` or a type that implements `IEnumerable`.](xref:valuesource).
+However, sources specified by `ValueSource` [must return an `IEnumerable` or a type that implements
+`IEnumerable`.](xref:valuesource).
 
 ### Fix
 
@@ -62,7 +63,8 @@ public class AnalyzeWhenSourceDoesProvideIEnumerable
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

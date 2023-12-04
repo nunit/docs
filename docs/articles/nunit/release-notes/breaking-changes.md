@@ -4,6 +4,27 @@ uid: breakingchanges
 
 # Breaking Changes
 
+## NUnit 4.0
+
+See the [Migration Guide](xref:migrationguidance) for moving your tests from NUnit 3.x to NUnit 4.0 if you are using any
+of the following features:
+
+* The [Classic Asserts][def] have been moved to a separate library
+  and their namespace and their class name were renamed to: `NUnit.Framework.Legacy.ClassicAssert`.
+* The standalone assert classes have also been moved to the `NUnit.Framework.Legacy` namespace. These classes are:
+  * [CollectionAssert](../writing-tests/assertions/classic-assertions/Collection-Assert.md)
+  * [StringAssert](../writing-tests/assertions/classic-assertions/String-Assert.md)
+  * [DirectoryAssert](../writing-tests/assertions/classic-assertions/Directory-Assert.md)
+  * [FileAssert](../writing-tests/assertions/classic-assertions/File-Assert.md)
+* Assert.That overloads with _format_ specification and `params` have been removed in favor of an overload using
+  `FormattableString`.
+* The lowest framework version supported is now version 4.6.2 and .Net 6.0.
+
+See full list of [deprecated
+issues](https://docs.nunit.org/articles/nunit/release-notes/framework.html#deprecated-features) and [breaking
+changes](https://docs.nunit.org/articles/nunit/release-notes/framework.html#the-following-issues-are-marked-as-breaking-changes)
+in the framework.
+
 ## NUnit 3.10
 
 * `NUnit.Framework.Constraints.NUnitEqualityComparer.Default` was deprecated in favor of `new NUnitEqualityComparer()`.
@@ -26,23 +47,35 @@ uid: breakingchanges
 
 ## NUnit 3.7
 
-* The AssertionHelper class has now been deprecated. Users can use the [NUnit.StaticExpect](https://github.com/fluffynuts/NUnit.StaticExpect) library as a near drop-in replacement.
+* The AssertionHelper class has now been deprecated. Users can use the
+  [NUnit.StaticExpect](https://github.com/fluffynuts/NUnit.StaticExpect) library as a near drop-in replacement.
 
 ## NUnit 3.4
 
 Breaking changes introduced in NUnit 3.4
 
-* The `--teamcity` console command-line option now requires the TeamCityEventListener extension to be installed. This only affects users who install the extensions individually or copy them to another directory. If you install using the Windows installer or the NUnit.Console NuGet package the TeamCity extension is included.
+* The `--teamcity` console command-line option now requires the TeamCityEventListener extension to be installed. This
+  only affects users who install the extensions individually or copy them to another directory. If you install using the
+  Windows installer or the NUnit.Console NuGet package the TeamCity extension is included.
 
 * String arguments in the names of test cases are no longer truncated to 40 characters.
 
-* The .NET 2.0 build of the nunit framework uses a private implementation of System.Linq. NUnit installs the NUnit.System.Linq assembly alongside the nunit.framework assembly. If you copy the framework to another location, you must ensure that both are copied. The extra assembly is not used in other builds because System.Linq is already supported in those environments.
+* The .NET 2.0 build of the nunit framework uses a private implementation of System.Linq. NUnit installs the
+  NUnit.System.Linq assembly alongside the nunit.framework assembly. If you copy the framework to another location, you
+  must ensure that both are copied. The extra assembly is not used in other builds because System.Linq is already
+  supported in those environments.
 
 ## NUnit 3.0
 
-A relatively large number of features present in NUnit 2.6, were either removed in NUnit 3.0 or had their behavior modified in a way that will break existing code.
+A relatively large number of features present in NUnit 2.6, were either removed in NUnit 3.0 or had their behavior
+modified in a way that will break existing code.
 
-A key change is that the NUnit Test Engine will not recognize a test assembly that does not reference the NUnit framework directly. Normally, test assemblies use NUnit Asserts, attributes and other Types and methods. However, certain third-party frameworks are designed to completely isolate the user from the details of NUnit. They mediate between the test assembly and the NUnit framework in order to run tests. In such a case, NUnit will indicate that the assembly either contains no tests or the proper driver could not be found. To resolve this situation, simply add one NUnit attribute or other reference. An assembly-level `ParallelizableAttribute` is useful for this purpose.
+A key change is that the NUnit Test Engine will not recognize a test assembly that does not reference the NUnit
+framework directly. Normally, test assemblies use NUnit Asserts, attributes and other Types and methods. However,
+certain third-party frameworks are designed to completely isolate the user from the details of NUnit. They mediate
+between the test assembly and the NUnit framework in order to run tests. In such a case, NUnit will indicate that the
+assembly either contains no tests or the proper driver could not be found. To resolve this situation, simply add one
+NUnit attribute or other reference. An assembly-level `ParallelizableAttribute` is useful for this purpose.
 
 Other breaking changes are grouped in the following tables.
 
@@ -102,7 +135,8 @@ Other breaking changes are grouped in the following tables.
 
 ### Console Features
 
-The console runner is now called `nunit3-console`. The following breaking changes apply to the options that  the new runner supports.
+The console runner is now called `nunit3-console`. The following breaking changes apply to the options that  the new
+runner supports.
 
 |      Option       |     Function                            |     Notes                |
 |-------------------|-----------------------------------------|--------------------------|
@@ -123,3 +157,5 @@ The console runner is now called `nunit3-console`. The following breaking change
 | `--noshadow`       | Disable shadow copy                     | No longer supported. The console runner now disables shadow copy by default. use `--shadowcopy` on the command-line to turn it on. |
 | `--nothread`        | Disable use of a separate thread for tests  | No longer supported. |
 | `--nodots`          | Do not display dots as a progress indicator | No longer supported. |
+
+[def]: ../writing-tests/assertions/assertion-models/classic.md

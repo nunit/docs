@@ -32,7 +32,8 @@ public async Task NUnit1014SampleTest(int numberValue)
 
 ### Explanation
 
-The NUnit `ExpectedResult` syntax is used, so this method needs to return a type that matches the type of expected result you're looking for.
+The NUnit `ExpectedResult` syntax is used, so this method needs to return a type that matches the type of expected
+result you're looking for.
 
 ### Fix
 
@@ -61,7 +62,8 @@ public async Task<bool> NUnit1014SampleTest(int numberValue)
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

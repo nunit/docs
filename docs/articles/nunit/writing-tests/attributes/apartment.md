@@ -4,19 +4,17 @@ uid: apartment-attribute
 
 # Apartment
 
-The `ApartmentAttribute` is used on a test method, class or assembly
-to specify that the tests should be run in a particular [apartment](https://docs.microsoft.com/en-us/windows/desktop/com/processes--threads--and-apartments), either
+The `ApartmentAttribute` is used on a test method, class or assembly to specify that the tests should be run in a
+particular [apartment](https://learn.microsoft.com/en-us/windows/win32/com/processes--threads--and-apartments), either
 the STA or the MTA.
 
-When running tests in parallel, the test is simply scheduled to execute
-from a queue that uses the apartment specified. When the parallel feature
-is not in use, it causes creation of a new thread if the parent test is
-not already running in the correct apartment.
+When running tests in parallel, the test is simply scheduled to execute from a queue that uses the apartment specified.
+When the parallel feature is not in use, it causes creation of a new thread if the parent test is not already running in
+the correct apartment.
 
 When this attribute is not specified, tests run in the MTA.
 
-This attribute replaces the RequiresMTA and RequiresSTA attributes, which
-are now considered obsolete.
+This attribute replaces the RequiresMTA and RequiresSTA attributes, which are now considered obsolete.
 
 ## Assembly Level Examples
 

@@ -12,11 +12,13 @@
 
 ## Description
 
-The SomeItemsConstraint with EqualConstraint requires the actual argument to be a collection where the element type can match the type of the expected argument.
+The SomeItemsConstraint with EqualConstraint requires the actual argument to be a collection where the element type can
+match the type of the expected argument.
 
 ## Motivation
 
-Using Does.Contain or Contains.Item constraints with actual argument, which is either not a collection, or has wrong element type, leads to assertion error.
+Using Does.Contain or Contains.Item constraints with actual argument, which is either not a collection, or has wrong
+element type, leads to assertion error.
 
 ## How to fix violations
 
@@ -27,7 +29,8 @@ Fix the actual value or use appropriate constraint.
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

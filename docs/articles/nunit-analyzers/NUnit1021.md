@@ -16,7 +16,8 @@ The ValueSource should use nameof operator to specify target.
 
 ## Motivation
 
-Prevent test rot by ensuring that future renames don't accidentally break tests in an unexpected way. `nameof` adds some compile-time support in these situations.
+Prevent test rot by ensuring that future renames don't accidentally break tests in an unexpected way. `nameof` adds some
+compile-time support in these situations.
 
 ## How to fix violations
 
@@ -37,11 +38,13 @@ public static object[] MyTestSource()
 
 ### Problem
 
-In this case, we're referring to `"MyTestSource"` as a string directly. This is brittle; should the name of the property change, the test case source would become invalid, and we would not know this until executing tests.
+In this case, we're referring to `"MyTestSource"` as a string directly. This is brittle; should the name of the property
+change, the test case source would become invalid, and we would not know this until executing tests.
 
 ### Fix
 
-The fix is to use the C# `nameof` operator, which produces a string but references the field name. This way, when refactoring and changing the name of your test source, it would also update the name within the `nameof()` operator.
+The fix is to use the C# `nameof` operator, which produces a string but references the field name. This way, when
+refactoring and changing the name of your test source, it would also update the name within the `nameof()` operator.
 
 The fix in action:
 
@@ -63,7 +66,8 @@ public static object[] MyTestSource()
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

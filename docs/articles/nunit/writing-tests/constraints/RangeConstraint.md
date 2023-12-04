@@ -25,7 +25,7 @@ Is.InRange(IComparable from, IComparable to)
 ## Examples of Use
 
 ```csharp
-int[] iarray = new int[] { 1, 2, 3 }
+int[] iarray = new int[] { 1, 2, 3 };
 
 Assert.That(42, Is.InRange(1, 100));
 Assert.That(iarray, Is.All.InRange(1, 3));
