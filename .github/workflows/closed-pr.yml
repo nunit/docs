@@ -3,6 +3,8 @@ on:
       types: [ closed ]
 jobs:
     prune:
+      permissions: 
+        deployments: write
       runs-on: ubuntu-latest
       steps:
       - name: delete environment
