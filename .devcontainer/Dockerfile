@@ -10,7 +10,7 @@ RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg -
 
 RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
 RUN apt-get update
-RUN apt-get install nodejs unzip -y
+RUN apt-get install nodejs unzip dos2unix -y
 
 ### Installing Node Packages
 RUN npm install -g yarn
@@ -24,6 +24,7 @@ RUN yarn -v
 
 # This script gets the api-docs from the latest NUnit release
 COPY get-nunit-apidocs.sh .
+RUN dos2unix ./get-nunit-apidocs.sh
 RUN chmod +x get-nunit-apidocs.sh
 
 ### Add the aliases
