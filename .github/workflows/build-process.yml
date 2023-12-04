@@ -75,6 +75,7 @@ jobs:
         with:
           env: preview_${{github.event.number}}
           step: start
+          token: ${{ secrets.SEAN_PAT_TO_MANAGE_ENVIRONMENTS }}
       - name: Deploy to Netlify (PR only)
         if: ${{ github.ref != 'refs/heads/master'}}
         uses: South-Paw/action-netlify-cli@v2
@@ -100,7 +101,8 @@ jobs:
           step: finish
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-          env_url: ${{ fromJson(steps.netlify.outputs.NETLIFY_OUTPUT).deploy_url }}      
+          env_url: ${{ fromJson(steps.netlify.outputs.NETLIFY_OUTPUT).deploy_url }}     
+          token: ${{ secrets.SEAN_PAT_TO_MANAGE_ENVIRONMENTS }} 
   snippets:
     name: "Build/Test Snippets"
     runs-on: ubuntu-latest
