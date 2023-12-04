@@ -140,7 +140,7 @@ Framework.</p>
 <h4 id="my-tests-arent-showing-up-in-visual-studio-2022-or-later">My tests aren't showing up in Visual Studio 2022 or later</h4>
 <ul>
 <li>Are you using the NuGet adapter package?</li>
-<li>Are you using version 4.5.0 or newer of the NuGet package?</li>
+<li>Are you using version 4.5.0 or newer of the NuGet adapter package?</li>
 <li>Do your tests target .NET Core or the full .NET Framework? (see above)</li>
 <li>Have you added a Package Reference to <code>Microsoft.NET.Test.Sdk</code>?</li>
 <li>Have you restarted Visual Studio? It is still a bit temperamental.</li>
@@ -151,6 +151,11 @@ using this Program class:</li>
 </ul>
 <pre><code class="lang-csharp">  public partial class Program { }
 </code></pre>
+<p>The reason for this is that the generated/hidden Minimal API (Top Level statement) Program class is internal.
+By declaring the partial part, it is changed to public.
+See
+<a href="https://learn.microsoft.com/en-us/aspnet/core/migration/50-to-60-samples?view=aspnetcore-8.0#project-file-csproj">Microsoft docs</a>
+for more info, and some alternatives.</p>
 <h4 id="my-tests-multi-target-net-core-and-net-framework-why-cant-i-run-both-in-visual-studio">My tests multi-target .NET Core and .NET Framework, why can't I run both in Visual Studio</h4>
 <p>This was a limitation in earlier versions of  Visual Studio, but is fixed in Visual Studio 2022.</p>
 <p><em>If</em> you must run an earlier version and have this issue, you can run specific tests using the <code>--framework</code> command
