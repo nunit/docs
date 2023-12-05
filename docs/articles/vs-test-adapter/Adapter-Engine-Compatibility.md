@@ -47,7 +47,7 @@ added, see [Tips&Tricks](https://docs.nunit.org/articles/vs-test-adapter/Tips-An
 >
 > Most likely you will see messages about "no tests found", or it may simply crash during test.
 
-<!-markdownlint-disable MD028-->
+<!-- markdownlint-disable MD028 -->
 
 > [!WARNING]
 > Version 4.4.1 use an engine version that is not released yet.  This is because the engine has a bug that prevents it
