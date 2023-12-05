@@ -170,16 +170,21 @@ reference instead of just installing it globally, you should use the exact same 
 table above.</p>
 <p>Note that most of what the console can do, can be done using the <code>dotnet test</code> command with the appropriate runsettings
 added, see <a href="https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html">Tips&amp;Tricks</a>.</p>
-<h2 id="-warning">⚠️ Warning</h2>
+<div class="WARNING">
+<h5>Warning</h5>
 <p>If you try to add another engine version package, it may seem that the adapter and test are still working.  That is just
 by luck, and it does so because the interfaces between the version you have added are the same as the embedded version.
 But if you try to use a feature that is not in the embedded version, it will fail.</p>
 <p>Most likely you will see messages about &quot;no tests found&quot;, or it may simply crash during test.</p>
-<h2 id="-warning-1">⚠️ Warning</h2>
+</div>
+<!-- markdownlint-disable MD028 -->
+<div class="WARNING">
+<h5>Warning</h5>
 <p>Version 4.4.1 use an engine version that is not released yet.  This is because the engine has a bug that prevents it
 from working with the adapter.  The bug is fixed in the engine, but the fix is not yet released.  The adapter will be
 updated to use the released engine version as soon as it is released. You may try to use 3.15.2, but we can currently
 not confirm that it works.</p>
+</div>
 </article>
           </div>
 
