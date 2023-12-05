@@ -85,6 +85,34 @@
             <article class="content wrap" id="_content" data-uid="migrationguidance">
 <h1 id="migration-guidance">Migration Guidance</h1>
 
+<h2 id="compatibility">Compatibility</h2>
+<p>Ensure you use a compatible runner for NUnit Version 4.</p>
+<table>
+<thead>
+<tr>
+<th>Runner</th>
+<th>Minimum Version</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NUnit3TestAdapter</td>
+<td>4.5.0</td>
+<td>Used by Visual Studio and dotnet test</td>
+</tr>
+<tr>
+<td>NUnit.Console</td>
+<td>3.15.5</td>
+<td>Note:  The 3.16.X series don't work with NUnit version 4</td>
+</tr>
+<tr>
+<td>Rider/Resharper</td>
+<td>2023.3</td>
+<td>Dec 5, 2023, is in EAP, due to release RSN</td>
+</tr>
+</tbody>
+</table>
 <h2 id="3x---4x">3.x -&gt; 4.x</h2>
 <p>NUnit 4.0 has a few <a href="breaking-changes.html#nunit-40">breaking changes</a> making it neither binary nor
 source code compatible with NUnit 3.14.0</p>
