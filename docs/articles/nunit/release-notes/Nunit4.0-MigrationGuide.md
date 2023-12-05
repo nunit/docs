@@ -4,6 +4,16 @@ uid: migrationguidance
 
 # Migration Guidance
 
+## Compatibility
+
+Ensure you use a compatible runner for NUnit Version 4.
+
+| Runner | Minimum Version | Comments |
+|------|---------------|--------|
+| NUnit3TestAdapter | 4.5.0 | Used by Visual Studio and dotnet test|
+| NUnit.Console | 3.15.5 | Note:  The 3.16.X series don't work with NUnit version 4|
+| Rider/Resharper | 2023.3| Dec 5, 2023, is in EAP, due to release RSN |
+
 ## 3.x -> 4.x
 
 NUnit 4.0 has a few [breaking changes](../release-notes/breaking-changes.md#nunit-40) making it neither binary nor
