@@ -62,7 +62,6 @@ The engine has been updated to version 3.15.5
 
 * [1144](https://github.com/nunit/nunit3-vs-adapter/issues/1144) Fixed by team.
 
-
 ## NUnit3 Test Adapter for Visual Studio - Version 4.3.1 - Nov 19, 2022
 
 This is a hotfix release for three major and critical problems:
