@@ -71,6 +71,7 @@ There are 112 issues fixed in this release.
 * [3432](https://github.com/nunit/nunit/issues/3432) Assert.That is blocking and might lead to deadlock when used with WCF.. Thanks to [Gavin Lambert](https://github.com/uecasm) for [PR 4322](https://github.com/nunit/nunit/pull/4322)
 * [3391](https://github.com/nunit/nunit/issues/3391) TestCaseSource to recognize new async streams. Fixed by team [PR 4538](https://github.com/nunit/nunit/pull/4538)
 * [3376](https://github.com/nunit/nunit/issues/3376) Nullable Reference Types annotations. Fixed by team through multiple PRs. . Fixed by team [PR 3488](https://github.com/nunit/nunit/pull/3488)
+* [3043](https://github.com/nunit/nunit/issues/3043) Add AsyncEnumerable support for TestCaseSource, ValueSource, and TestFixtureSource. Fixed by team [PR 4538](https://github.com/nunit/nunit/pull/4538)
 * [2843](https://github.com/nunit/nunit/issues/2843) Replacing ThrowsAsync with a composable async alternative. Thanks to [Gavin Lambert](https://github.com/uecasm) for [PR 4322](https://github.com/nunit/nunit/pull/4322)
 * [1459](https://github.com/nunit/nunit/issues/1459) Support for params keyword in parameterized test fixtures. Thanks to [Leo Shine](https://github.com/Shiney) for [PR 4478](https://github.com/nunit/nunit/pull/4478)
 * [4391](https://github.com/nunit/nunit/issues/4391) Hash/Partition based Test Filter. Thanks to [Andrew Armstrong](https://github.com/Plasma) for [PR 4392](https://github.com/nunit/nunit/pull/4392)
