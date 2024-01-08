@@ -62,6 +62,7 @@ There are 112 issues fixed in this release.
 * [4086](https://github.com/nunit/nunit/issues/4086) Perform case-insensitive string comparisons in-place. Fixed by team [PR 4088](https://github.com/nunit/nunit/pull/4088)
 * [4053](https://github.com/nunit/nunit/issues/4053) Cache method discovery by migrating PR 4034 to main. Fixed by team [PR 4208](https://github.com/nunit/nunit/pull/4208)
 * [3984](https://github.com/nunit/nunit/issues/3984) Add net6.0 targets. Fixed by team [PR 3988](https://github.com/nunit/nunit/pull/3988)
+* [3941](https://github.com/nunit/nunit/issues/3941) PlatformAttribute has AllowMultiple = true, but that doesn't work. Fixed by team [PR 3926](https://github.com/nunit/nunit/pull/3926)
 * [3936](https://github.com/nunit/nunit/issues/3936) Is there any way we could make use of CallerArgumentExpressionAttribute?. Fixed by team [PR 4419](https://github.com/nunit/nunit/pull/4419)
 * [3899](https://github.com/nunit/nunit/issues/3899) Allow randomizing 'Guid' test arguments with [Random]. Thanks to [Arnaud TAMAILLON](https://github.com/Greybird) for [PR 3951](https://github.com/nunit/nunit/pull/3951)
 * [3866](https://github.com/nunit/nunit/issues/3866) SupportedOSPlatform. Fixed by team [PR 3926](https://github.com/nunit/nunit/pull/3926)
