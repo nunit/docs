@@ -148,6 +148,7 @@ There are 112 issues fixed in this release.
 * [3935](https://github.com/nunit/nunit/issues/3935) `Numerics.IsFixedPointNumeric` should return false for decimals. Thanks to [Wellington Balbo](https://github.com/wbalbo) for [PR 3942](https://github.com/nunit/nunit/pull/3942)
 * [3789](https://github.com/nunit/nunit/issues/3789) Change copyright header on files. Fixed by team [PR 3795](https://github.com/nunit/nunit/pull/3795)
 * [3764](https://github.com/nunit/nunit/issues/3764) Switch to the dotnet tool version of Cake. Fixed by team [PR 3835](https://github.com/nunit/nunit/pull/3835)
+* [3588](https://github.com/nunit/nunit/issues/3588) Audit string equality comparisons and consider changes for v4. Fixed by team [PR 3770](https://github.com/nunit/nunit/pull/3770)
 * [2485](https://github.com/nunit/nunit/issues/2485) Remove\Trim copyright on individual files. Fixed by team [PR 3795](https://github.com/nunit/nunit/pull/3795)
 * [4504](https://github.com/nunit/nunit/issues/4504) Remove appveyor build. Fixed by team [PR 4509](https://github.com/nunit/nunit/pull/4509)
 * [4465](https://github.com/nunit/nunit/issues/4465) Update cake version in build scripts. Fixed by team [PR 4540](https://github.com/nunit/nunit/pull/4540)
