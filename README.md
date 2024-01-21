@@ -33,7 +33,7 @@ We'll be working on follow-ups to make this more user-friendly, but it's now wor
 
 * Install `markdownlint-cli2`: `npm install markdownlint-cli2 -g`
 * Open the root of the project (`/`, not `/docs`)
-* Run `markdownlint-cli2-config ".github/linters/.markdownlint.yml" "docs/**/*.md"`
+* Run `markdownlint-cli2 --config ".github/linters/.markdownlint.yml" "docs/**/*.md"`
 
 We'd love your contributions! See [The contributing guide](CONTRIBUTING.md) for how to get involved.
 
