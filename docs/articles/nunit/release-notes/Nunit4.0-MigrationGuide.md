@@ -176,7 +176,7 @@ file which will be used by all projects in a repository:
 ```
 
 The build process now automatically creates a `${Project}.GlobalUsings.g.cs` file
-for each project with a contents similar to shown above.
+for each project with a contents similar to the one shown above.
 
 ### Assert.That with _format_ specification and `params` overload conversion
 
