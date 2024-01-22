@@ -29,6 +29,8 @@ There are different ways to migrate these to NUnit 4.0
 * Convert Classic Assert to the [Constraint model](../writing-tests/assertions/assertion-models/constraint.md)
 * Update source code to new namespace and class name
 * Using `global using` aliases
+  * In own source file
+  * In project file or `Directory.Build.props`
 
 In the sections below we use the following simple test as an example:
 
@@ -128,7 +130,7 @@ substitute to do only the asserts that need converting, but there are quite a lo
    1. Convert `Assert.True` into `ClassicAssert.True`.
    1. Similar for `IsTrue`, `False`, `IsFalse`, `Greater`, `Less`, ...
 
-   Depending on what is less work, alternatively you can reverse the substitution of those that shouldn't be have been
+   Depending on what is less work, alternatively you can reverse the substitution of those that shouldn't have been
    changed:
    1. Convert `ClassicAssert.That` into `Assert.That`.
    1. Convert `ClassicAssert.Fail` into `Assert.Fail`.
@@ -156,6 +158,25 @@ global using FileAssert = NUnit.Framework.Legacy.FileAssert;
 
 Note that this doesn't mean you have to target .NET 6.0. This also works if targeting .NET Framework as it is purely
 done on the source code level.
+
+If you have to do this for multiple projects in a repository, this is not handy.
+It seems [somebody else thought of that](https://github.com/dotnet/msbuild/issues/6745) and
+it is now possible to add global usings in a
+[`Directory.Build.props`](https://learn.microsoft.com/en-us/visualstudio/msbuild/customize-by-directory?view=vs-2022#directorybuildprops-and-directorybuildtargets)
+file which will be used by all projects in a repository:
+
+```xml
+<ItemGroup>
+  <Using Include="NUnit.Framework.Legacy.ClassicAssert" Alias="Assert" />
+  <Using Include="NUnit.Framework.Legacy.CollectionAssert" Alias="CollectionAssert" />
+  <Using Include="NUnit.Framework.Legacy.StringAssert" Alias="StringAssert" />
+  <Using Include="NUnit.Framework.Legacy.DirectoryAssert" Alias="DirectoryAssert" />
+  <Using Include="NUnit.Framework.Legacy.FileAssert" Alias="FileAssert" />
+</ItemGroup>
+```
+
+The build process now automatically creates a `${Project}.GlobalUsings.g.cs` file
+for each project with a contents similar to the one shown above.
 
 ### Assert.That with _format_ specification and `params` overload conversion
 
