@@ -125,7 +125,12 @@ source code compatible with NUnit 3.14.0</p>
 <ul>
 <li>Convert Classic Assert to the <a href="../writing-tests/assertions/assertion-models/constraint.html">Constraint model</a></li>
 <li>Update source code to new namespace and class name</li>
-<li>Using <code>global using</code> aliases</li>
+<li>Using <code>global using</code> aliases
+<ul>
+<li>In own source file</li>
+<li>In project file or <code>Directory.Build.props</code></li>
+</ul>
+</li>
 </ul>
 <p>In the sections below we use the following simple test as an example:</p>
 <pre><code class="lang-csharp">public class Tests
@@ -200,7 +205,7 @@ substitute to do only the asserts that need converting, but there are quite a lo
 <li>Convert <code>Assert.True</code> into <code>ClassicAssert.True</code>.</li>
 <li>Similar for <code>IsTrue</code>, <code>False</code>, <code>IsFalse</code>, <code>Greater</code>, <code>Less</code>, ...</li>
 </ol>
-<p>Depending on what is less work, alternatively you can reverse the substitution of those that shouldn't be have been
+<p>Depending on what is less work, alternatively you can reverse the substitution of those that shouldn't have been
 changed:</p>
 <ol>
 <li>Convert <code>ClassicAssert.That</code> into <code>Assert.That</code>.</li>
@@ -225,6 +230,21 @@ global using FileAssert = NUnit.Framework.Legacy.FileAssert;
 </code></pre>
 <p>Note that this doesn't mean you have to target .NET 6.0. This also works if targeting .NET Framework as it is purely
 done on the source code level.</p>
+<p>If you have to do this for multiple projects in a repository, this is not handy.
+It seems <a href="https://github.com/dotnet/msbuild/issues/6745">somebody else thought of that</a> and
+it is now possible to add global usings in a
+<a href="https://learn.microsoft.com/en-us/visualstudio/msbuild/customize-by-directory?view=vs-2022#directorybuildprops-and-directorybuildtargets"><code>Directory.Build.props</code></a>
+file which will be used by all projects in a repository:</p>
+<pre><code class="lang-xml">&lt;ItemGroup&gt;
+  &lt;Using Include=&quot;NUnit.Framework.Legacy.ClassicAssert&quot; Alias=&quot;Assert&quot; /&gt;
+  &lt;Using Include=&quot;NUnit.Framework.Legacy.CollectionAssert&quot; Alias=&quot;CollectionAssert&quot; /&gt;
+  &lt;Using Include=&quot;NUnit.Framework.Legacy.StringAssert&quot; Alias=&quot;StringAssert&quot; /&gt;
+  &lt;Using Include=&quot;NUnit.Framework.Legacy.DirectoryAssert&quot; Alias=&quot;DirectoryAssert&quot; /&gt;
+  &lt;Using Include=&quot;NUnit.Framework.Legacy.FileAssert&quot; Alias=&quot;FileAssert&quot; /&gt;
+&lt;/ItemGroup&gt;
+</code></pre>
+<p>The build process now automatically creates a <code>${Project}.GlobalUsings.g.cs</code> file
+for each project with a contents similar to the one shown above.</p>
 <h3 id="assertthat-with-format-specification-and-params-overload-conversion">Assert.That with <em>format</em> specification and <code>params</code> overload conversion</h3>
 <p>These overloads were removed to allow for better messages in case of failure. See <a href="../Towards-NUnit4.html#improved-assert-result-messages">The &quot;Towards NUnit 4&quot;
 article</a> for more information.</p>
