@@ -159,8 +159,8 @@ global using FileAssert = NUnit.Framework.Legacy.FileAssert;
 Note that this doesn't mean you have to target .NET 6.0. This also works if targeting .NET Framework as it is purely
 done on the source code level.
 
-If you have to do this for multiple project in a repository, this is not handy.
-It seems somebody else thought of [that](https://github.com/dotnet/msbuild/issues/6745) and
+If you have to do this for multiple projects in a repository, this is not handy.
+It seems [somebody else thought of that](https://github.com/dotnet/msbuild/issues/6745) and
 it is now possible to add global usings in a
 [`Directory.Build.props`](https://learn.microsoft.com/en-us/visualstudio/msbuild/customize-by-directory?view=vs-2022#directorybuildprops-and-directorybuildtargets)
 file which will be used by all projects in a repository:
