@@ -16,21 +16,34 @@ With NUnit 3.0, the NUnitLite framework has been merged with the full NUnit fram
 
 To run tests under NUnitLite, proceed as follows:
 
-* Create a console application to use as your test assembly. If you have already placed tests in a dll, you can change
-  the project so that it produces a console application and reload it.
+* You can use your existing unit test project (created with the `dotnet new nunit` command or from Visual Studio) or create a new console application.  If you use an existing test project you will get a warning about duplicate entry points. This can be ignored.
+
+Using a standard test project has the benefit that you use both the standard `dotnet test` command, the Visual Studio Test Explorer and the NUnitLite runner to run your tests.
 
 * Make sure your test assembly references both **nunit.framework** and **nunitlite**.
 
-* The Main() for your console application should look something like this...
-
-```csharp
-public static int Main(string[] args)
-{
-  return new AutoRun().Execute(args);
-}
+```xml
+<PackageReference Include="NUnit" Version="4.0.1" />
+<PackageReference Include="NUnitLite" Version="4.0.1" />
 ```
 
+* Add a `Program.cs` containing a top level statements main routine like :
+
+```csharp
+using NUnitLite;
+
+return new AutoRun().Execute(args);
+```
+
+If you don't use top level statements, then just create a standard main routine with the same code.
+
+```csharp
+
 * Execute your test application in order to run the tests.
+
+```cmd
+dotnet run
+```
 
 If you install the NUnitLite runner via the NuGet package, steps 2 is handled automatically. Both assemblies are
 installed and referenced for you.
