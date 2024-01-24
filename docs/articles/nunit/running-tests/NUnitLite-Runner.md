@@ -19,7 +19,7 @@ To run tests under NUnitLite, proceed as follows:
 * You can use your existing unit test project (created with the `dotnet new nunit` command or from Visual Studio) or
  create a new console application.  If you use an existing test project you will get a warning about duplicate entry points. This can be ignored.
 
-Using a standard test project has the benefit that you use both the standard `dotnet test` command, the Visual Studio
+Using a standard test project has the benefit that you can use both the standard `dotnet test` command, the Visual Studio
  Test Explorer and the NUnitLite runner to run your tests.
 
 * Make sure your test assembly references both **nunit.framework** and **nunitlite**.
