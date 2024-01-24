@@ -37,7 +37,7 @@ using NUnitLite;
 return new AutoRun().Execute(args);
 ```
 
-If you don't use top level statements, then just create a standard main routine with the same code.
+If you don't use top-level statements, then just create a standard main routine with the same code.
 
 * Execute your test application in order to run the tests.
 
