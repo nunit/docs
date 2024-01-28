@@ -3,8 +3,24 @@ namespace Snippets.NUnitLite;
 public class Tests
 {
     [Test]
-    public void Test1()
+    public void PassingTest()
     {
         Assert.Pass();
     }
+
+    [Test]
+    [Ignore("Ignored test")]
+    public void IgnoredTest()
+    {
+        Assert.Fail();
+        Assert.Pass();
+    }
+
+    [Test]
+    public void FailingTest()
+    {
+        Assert.Fail();
+    }
+
+
 }
