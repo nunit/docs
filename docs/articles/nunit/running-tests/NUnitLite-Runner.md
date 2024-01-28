@@ -28,7 +28,7 @@ Using a standard test project has the benefit that you can use both the standard
 
 * Add a `Program.cs` containing a top level statements main routine like :
 
-[!code-xml[ProgramCS](~/snippets/Snippets.NUnitLite/Program.cs)]
+[!code-csharp[ProgramCS](~/snippets/Snippets.NUnitLite/Program.cs)]
 
 If you don't use top-level statements, then just create a standard main routine with the same code.
 
