@@ -94,22 +94,31 @@ of a full NUnit installation.</p>
 <h2 id="using-nunitlite">Using NUnitLite</h2>
 <p>To run tests under NUnitLite, proceed as follows:</p>
 <ul>
-<li><p>Create a console application to use as your test assembly. If you have already placed tests in a dll, you can change
-the project so that it produces a console application and reload it.</p>
-</li>
-<li><p>Make sure your test assembly references both <strong>nunit.framework</strong> and <strong>nunitlite</strong>.</p>
-</li>
-<li><p>The Main() for your console application should look something like this...</p>
-</li>
+<li>You can use your existing unit test project (created with the <code>dotnet new nunit</code> command or from Visual Studio) or
+create a new console application.  If you use an existing test project you will get a warning about duplicate entry
+points. This can be ignored.</li>
 </ul>
-<pre><code class="lang-csharp">public static int Main(string[] args)
-{
-  return new AutoRun().Execute(args);
-}
+<p>Using a standard test project has the benefit that you can use both the standard <code>dotnet test</code> command, the Visual
+Studio Test Explorer and the NUnitLite runner to run your tests.</p>
+<ul>
+<li>Make sure your test assembly references both <strong>nunit.framework</strong> and <strong>nunitlite</strong>.</li>
+</ul>
+<pre><code class="lang-xml">&lt;PackageReference Include=&quot;NUnitLite&quot; Version=&quot;4.0.1&quot; /&gt;
+&lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;4.0.1&quot; /&gt;
 </code></pre>
+<ul>
+<li>Add a <code>Program.cs</code> containing a top level statements main routine like:</li>
+</ul>
+<pre><code class="lang-csharp" name="ProgramCS">using NUnitLite;
+
+return new AutoRun().Execute(args);
+</code></pre>
+<p>If you don't use top-level statements, then just create a standard main routine with the same code.</p>
 <ul>
 <li>Execute your test application in order to run the tests.</li>
 </ul>
+<pre><code class="lang-cmd">dotnet run
+</code></pre>
 <p>If you install the NUnitLite runner via the NuGet package, steps 2 is handled automatically. Both assemblies are
 installed and referenced for you.</p>
 <h2 id="nunitlite-output">NUnitLite Output</h2>
