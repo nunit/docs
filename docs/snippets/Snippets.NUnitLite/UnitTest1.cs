@@ -19,7 +19,7 @@ public class Tests
     [Test]
     public void FailingTest()
     {
-        Assert.Fail();
+        Assert.That(()=>Assert.Fail(),Throws.TypeOf<AssertionException>());
     }
 
 
