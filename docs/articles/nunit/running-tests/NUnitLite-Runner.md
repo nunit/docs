@@ -26,7 +26,7 @@ Using a standard test project has the benefit that you can use both the standard
 
 [!code-xml[LibraryReferences](~/snippets/Snippets.NUnitLite/Snippets.NUnitLite.csproj#L14-19)]
 
-* Add a `Program.cs` containing a top level statements main routine like :
+* Add a `Program.cs` containing a top level statements main routine like:
 
 [!code-csharp[ProgramCS](~/snippets/Snippets.NUnitLite/Program.cs)]
 
