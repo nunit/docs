@@ -24,15 +24,11 @@ Using a standard test project has the benefit that you can use both the standard
 
 * Make sure your test assembly references both **nunit.framework** and **nunitlite**.
 
-[!code-xml[](~/snippets/Snippets.NUnitLite/Snippets.NUnitLite.csproj#L14-19)]
+[!code-xml[LibraryReferences](~/snippets/Snippets.NUnitLite/Snippets.NUnitLite.csproj#L14-19)]
 
 * Add a `Program.cs` containing a top level statements main routine like :
 
-```csharp
-using NUnitLite;
-
-return new AutoRun().Execute(args);
-```
+[!code-xml[ProgramCS](~/snippets/Snippets.NUnitLite/Program.cs)]
 
 If you don't use top-level statements, then just create a standard main routine with the same code.
 
