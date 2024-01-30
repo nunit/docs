@@ -106,6 +106,10 @@ Studio Test Explorer and the NUnitLite runner to run your tests.</p>
 <pre><code class="lang-xml">&lt;PackageReference Include=&quot;NUnitLite&quot; Version=&quot;4.0.1&quot; /&gt;
 &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;4.0.1&quot; /&gt;
 </code></pre>
+<p>Optionally you can set the <code>OutputType</code> in a <code>PropertyGroup</code> to <code>Exe</code>, which allows you to run the tests directly and
+without the <code>dotnet run</code>.</p>
+<pre><code class="lang-xml">  &lt;OutputType&gt;Exe&lt;/OutputType&gt;
+</code></pre>
 <ul>
 <li>Add a <code>Program.cs</code> containing a top level statements main routine like:</li>
 </ul>
