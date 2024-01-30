@@ -30,7 +30,7 @@ Using a standard test project has the benefit that you can use both the standard
 <PackageReference Include="NUnit" Version="4.0.1" />
 ```
 
-Optionally you can set the OutputType in a PropertyGroup to Exe, which allows you to run the tests directly and
+Optionally you can set the `OutputType` in a `PropertyGroup` to `Exe`, which allows you to run the tests directly and
  without the `dotnet run`.
 
 ```xml
