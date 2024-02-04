@@ -12,12 +12,11 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Interface IPropertyBag
- | NUnit Docs </title>
+      <title>Interface IPropertyBag | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Interface IPropertyBag
- | NUnit Docs ">
+      <meta name="title" content="Interface IPropertyBag | NUnit Docs ">
     
+    <meta name="description" content="A PropertyBag represents a collection of name/value pairs that allows duplicate entries with the same key. Methods are provided for adding a new pair as well as for setting a key to a single value. All keys are strings but values may be of any type. Null values are not permitted, since a null entry represents the absence of the key. The entries in a PropertyBag are of two kinds: those that take a single value and those that take multiple values. However, the PropertyBag has no knowledge of which entries fall into each category and the distinction is entirely up to the code using the PropertyBag. When working with multi-valued properties, client code should use the Add method to add name/value pairs and indexing to retrieve a list of all values for a given key. For example: bag.Add(&amp;quot;Tag&amp;quot;, &amp;quot;one&amp;quot;); bag.Add(&amp;quot;Tag&amp;quot;, &amp;quot;two&amp;quot;); Assert.That(bag[&amp;quot;Tag&amp;quot;],   Is.EqualTo(new string[] { &amp;quot;one&amp;quot;, &amp;quot;two&amp;quot; }));  When working with single-valued properties, client code should use the Set method to set the value and Get to retrieve the value. The GetSetting methods may also be used to retrieve the value in a type-safe manner while also providing default. For example: bag.Set(&amp;quot;Priority&amp;quot;, &amp;quot;low&amp;quot;); bag.Set(&amp;quot;Priority&amp;quot;, &amp;quot;high&amp;quot;); // replaces value Assert.That(bag.Get(&amp;quot;Priority&amp;quot;),   Is.EqualTo(&amp;quot;high&amp;quot;)); Assert.That(bag.GetSetting(&amp;quot;Priority&amp;quot;, &amp;quot;low&amp;quot;),   Is.EqualTo(&amp;quot;high&amp;quot;));">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -88,8 +87,7 @@
 
 
 
-  <h1 id="NUnit_Framework_Interfaces_IPropertyBag" data-uid="NUnit.Framework.Interfaces.IPropertyBag" class="text-break">Interface IPropertyBag
-</h1>
+  <h1 id="NUnit_Framework_Interfaces_IPropertyBag" data-uid="NUnit.Framework.Interfaces.IPropertyBag" class="text-break">Interface IPropertyBag</h1>
   <div class="markdown level0 summary"><p>A PropertyBag represents a collection of name/value pairs
 that allows duplicate entries with the same key. Methods
 are provided for adding a new pair as well as for setting
