@@ -1,4 +1,4 @@
-FROM ghcr.io/nunit/docfx-action:v3.0.0
+FROM ghcr.io/nunit/docfx-action:v3.1.0
 EXPOSE 8080
 ARG NODE_MAJOR=20
 
