@@ -84,7 +84,7 @@ See [TestCaseData](xref:testcasedata) for more information on the `TestCaseData`
 
 ## Sources for generic methods using TestCaseData
 
-As of NUnit 4.1, it is possible to expliticly specific the generic types to be used for a generic method. This
+As of NUnit 4.1, it is possible to explicitly specific the generic types to be used for a generic method. This
 may be useful when any of the test case arguments differ from the desired generic types. When omitted, NUnit will
 infer the generic type arguments based on the passed values from the `TestCaseSource`.
 

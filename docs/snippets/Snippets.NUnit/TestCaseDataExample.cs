@@ -33,7 +33,7 @@ public class TestCaseDataExample
 
     #region TestCaseDataTypeArgsExample
     [TestFixture]
-    public class MyTests
+    public class MyExplicitlyTypedTests
     {
         [TestCaseSource(nameof(ExplicitTypeArgsTestCases))]
         public void ExplicitTypeArgs<T>(T input)
