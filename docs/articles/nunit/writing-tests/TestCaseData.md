@@ -24,3 +24,4 @@ This example uses the fluent interface supported by **TestCaseData** to make the
   the arguments provided. See [Template Based Test Naming](xref:templatebasedtestnaming).
 * **SetProperty(string, string)**, **SetProperty(string, int)** and **SetProperty(string, double)** apply a named
   property and value to the test.
+* **TypeArgs** specifies the types to be used when targeting a generic test method. (_NUnit 4.1+_)

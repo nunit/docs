@@ -30,4 +30,22 @@ public class TestCaseDataExample
         }
     }
     #endregion
+
+    #region TestCaseDataTypeArgsExample
+    [TestFixture]
+    public class MyTests
+    {
+        [TestCaseSource(nameof(ExplicitTypeArgsTestCases))]
+        public void ExplicitTypeArgs<T>(T input)
+        {
+            Assert.That(typeof(T), Is.EqualTo(typeof(long)));
+        }
+
+        private static IEnumerable<TestCaseData> ExplicitTypeArgsTestCases()
+        {
+            yield return new TestCaseData(2) { TypeArgs = new[] { typeof(long) } };
+            yield return new TestCaseData(2L) { TypeArgs = new[] { typeof(long) } };
+        }
+    }
+    #endregion
 }
