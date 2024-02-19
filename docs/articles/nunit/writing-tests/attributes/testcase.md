@@ -39,6 +39,7 @@ TestCaseAttribute supports a number of additional named parameters:
 * **TestName** provides a name for the test. If not specified, a name is generated based on the method name and the
   arguments provided. See [Template Based Test Naming](xref:templatebasedtestnaming).
 * **TestOf** specifies the Type that this test is testing
+* **TypeArgs** specifies the `Type`s to be used when targeting a generic test method. (_NUnit 4.1+_)
 
 ## Order of Execution
 
