@@ -36,6 +36,7 @@ Is.Zero // Equivalent to Is.EqualTo(0)
       .Seconds
       .Milliseconds
       .Ticks
+...UsingPropertiesComparer()  // From version 4.1
 ...Using(IEqualityComparer comparer)
 ...Using(IEqualityComparer<T> comparer)
 ...Using(IComparer comparer)
