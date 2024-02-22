@@ -33,5 +33,4 @@ Assert.That(7, Is.GreaterThanOrEqualTo(7));
 Assert.That(7, Is.AtLeast(7));
 Assert.That(myOwnObject, Is.GreaterThanOrEqualTo(theExpected).Using(myComparer));
 Assert.That(myDateTime, Is.GreaterThanOrEqualTo(expectedDateTime).Within(TimeSpan.FromSeconds(1)))
-
 ```
