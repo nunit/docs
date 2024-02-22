@@ -107,6 +107,9 @@ Assert.That(dictionary, Does.Not.ContainKey(&quot;Hello&quot;).WithValue(&quot;N
 Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint(&quot;HI&quot;, &quot;UNIVERSE&quot;).IgnoreCase);
 Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint(&quot;HI&quot;, &quot;UNIVERSE&quot;).Using&lt;string&gt;((x, y) =&gt; StringUtil.Compare(x, y, true)));
 </code></pre>
+<h2 id="modifiers">Modifiers</h2>
+<pre><code class="lang-csharp">...UsingPropertiesComparer()  // From version 4.1
+</code></pre>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="DictionaryContainsValueConstraint.html">DictionaryContainsValueConstraint</a></li>

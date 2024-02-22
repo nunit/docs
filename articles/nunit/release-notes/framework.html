@@ -87,10 +87,40 @@
 <h1 id="framework-release">Framework Release</h1>
 <!-- markdownlint-disable-file MD013 -->
 
+<h2 id="nunit-41---february-23-2024">NUnit 4.1 - February 23. 2024</h2>
+<p>This release is a bugfix and smaller enhancement release.</p>
+<p>There are 8 issues fixed in this release.</p>
+<h3 id="enhancements">Enhancements</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit/issues/4600">4600</a> Add <code>DateTime</code>/<code>TimeSpan</code> support for inequality tolerance. Thanks to <a href="https://github.com/RenderMichael">Michael Render</a> for <a href="https://github.com/nunit/nunit/pull/4618">PR 4618</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4572">4572</a> Make new PropertiesComparer optional. Fixed by team <a href="https://github.com/nunit/nunit/pull/4608">PR 4608</a>  Adding modifier UsingPropertiesComparer() to AnyOf-, Equal-, SomeItems-, CollectionEquivalent-, CollectionSubset-, CollectionSuperSet-, DictionaryContainsKey-, DictionaryContainsKeyValuePair-, DictionaryContainsValue- and UniqueItemsConstraint.</li>
+<li><a href="https://github.com/nunit/nunit/issues/1215">1215</a> Explicit specification of generic method types on TestCase and TestCaseSource. Fixed by team <a href="https://github.com/nunit/nunit/pull/4620">PR 4620</a>  See <a href="https://docs.nunit.org/articles/nunit/writing-tests/attributes/testof.html">TestOf</a> documentation.</li>
+</ul>
+<h3 id="bug-fixes">Bug fixes</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit/issues/4602">4602</a> WpfMessagePumpStrategy - change from Dispatcher.Run to Dispatcher.PushFrame . Thanks to <a href="https://github.com/soerendd">soerendd</a> for <a href="https://github.com/nunit/nunit/pull/4603">PR 4603</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4591">4591</a> Parameter count mismatch with indexer. Fixed by team <a href="https://github.com/nunit/nunit/pull/4608">PR 4608</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4581">4581</a> NUnit 4 needs System.Threading.Tasks.Extensions for net472 tests. Fixed by team <a href="https://github.com/nunit/nunit/pull/4582">PR 4582</a></li>
+</ul>
+<h3 id="refactorings">Refactorings</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit/issues/4626">4626</a> Remove link in readme to the google discuss group, it's spammed.. Fixed by team <a href="https://github.com/nunit/nunit/pull/4627">PR 4627</a></li>
+</ul>
+<h3 id="internal-fixes">Internal fixes</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit/issues/4606">4606</a> GitHub Actions fail on <code>master</code> for Windows and Linux builds. Fixed by team <a href="https://github.com/nunit/nunit/pull/4607">PR 4607</a></li>
+</ul>
+<h3 id="deprecated-features">Deprecated features</h3>
+<p>None</p>
+<h3 id="the-following-issues-are-marked-as-breaking-changes">The following issues are marked as breaking changes</h3>
+<p>None.</p>
+<p>Be aware that in version 4.0 the different equality constraints included checking properties of objects.
+That was a breaking change from earlier versions, and has now been replaced with an UsingPropertiesComparer()
+modifier, making this optional.</p>
 <h2 id="nunit-401---december-2-2023">NUnit 4.0.1 - December 2. 2023</h2>
 <p>This is a hotfix release for three issues related to targeting windows targets, like <code>net6.0-windows</code>.  If you don't use these targets, you can safely ignore this release.</p>
 <p>For more details, see the information in the issues below:</p>
-<h3 id="bug-fixes">Bug fixes</h3>
+<h3 id="bug-fixes-1">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4571">4571</a> NUnit 4: dotnet test behaving differently locally vs on GH Actions (failing). Fixed by team <a href="https://github.com/nunit/nunit/pull/4574">PR 4574</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4565">4565</a> Unable to test project targeting net8.0-windows and win-x64 . Fixed by team <a href="https://github.com/nunit/nunit/pull/4569">PR 4569</a></li>
@@ -110,7 +140,7 @@ will need version <code>4.5</code> to run tests with NUnit 4.</p>
 <p>Issues marked &quot;Thanks to&quot; has been done by external contributors. We appreciate all the work all these people have been
 doing!</p>
 <p>There are 112 issues fixed in this release.</p>
-<h3 id="enhancements">Enhancements</h3>
+<h3 id="enhancements-1">Enhancements</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4551">4551</a> Make ConstraintExpression.AnyOf() accept IEnumerable. Thanks to <a href="https://github.com/ivan-gurin">Ivan Gurin</a> for <a href="https://github.com/nunit/nunit/pull/4552">PR 4552</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4521">4521</a> Proposal: Async test case sources . Fixed by team <a href="https://github.com/nunit/nunit/pull/4389">PR 4389</a></li>
@@ -147,7 +177,7 @@ doing!</p>
 <li><a href="https://github.com/nunit/nunit/issues/3936">3936</a> Is there any way we could make use of CallerArgumentExpressionAttribute?. Fixed by team <a href="https://github.com/nunit/nunit/pull/4419">PR 4419</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3798">3798</a> Support abstract methods marked as tests. Fixed by team <a href="https://github.com/nunit/nunit/pull/4490">PR 4490</a></li>
 </ul>
-<h3 id="bug-fixes-1">Bug fixes</h3>
+<h3 id="bug-fixes-2">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4554">4554</a> SetUpFixture has stopped working going from NUnit 3.13.3 to 3.14.0/4.0.0-beta.1. Fixed by team <a href="https://github.com/nunit/nunit/pull/4555">PR 4555</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4532">4532</a> Assert.That no longer allows 'null' message. Fixed by team <a href="https://github.com/nunit/nunit/pull/4533">PR 4533</a></li>
@@ -187,7 +217,7 @@ doing!</p>
 <li><a href="https://github.com/nunit/nunit/issues/2436">2436</a> Properties on System.Type cannot be used with either property constraint. Fixed by team <a href="https://github.com/nunit/nunit/pull/4259">PR 4259</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/1428">1428</a> NUnitLite package always installs both Program.cs and Program.vb. Fixed by team <a href="https://github.com/nunit/nunit/pull/3952">PR 3952</a></li>
 </ul>
-<h3 id="refactorings">Refactorings</h3>
+<h3 id="refactorings-1">Refactorings</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4539">4539</a> Upgrade to latest analyzers package and fix the warnings.</li>
 <li><a href="https://github.com/nunit/nunit/issues/4434">4434</a> Fixing the classic asserts. Fixed by team <a href="https://github.com/nunit/nunit/pull/4438">PR 4438</a></li>
@@ -200,7 +230,7 @@ doing!</p>
 <li><a href="https://github.com/nunit/nunit/issues/4051">4051</a> Update codebase to use Array.Empty&lt;T&gt;. Thanks to <a href="https://github.com/mjedrzejek">Marcin Jedrzejek</a> for <a href="https://github.com/nunit/nunit/pull/4127">PR 4127</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3932">3932</a> Make <code>Numerics</code> class internal. Thanks to <a href="https://github.com/x789">TillW</a> for <a href="https://github.com/nunit/nunit/pull/4205">PR 4205</a></li>
 </ul>
-<h3 id="internal-fixes">Internal fixes</h3>
+<h3 id="internal-fixes-1">Internal fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4503">4503</a> Add NET8 target for the framework tests. Thanks to <a href="https://github.com/ashishdawale20">Ashish Dawale</a> for <a href="https://github.com/nunit/nunit/pull/4511">PR 4511</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4432">4432</a> Fix null message in internal static string? ExtendedMessage(string methodName, string? message, string actualExpression, string constraintExpression). Fixed by team <a href="https://github.com/nunit/nunit/pull/4430">PR 4430</a></li>
@@ -228,7 +258,7 @@ doing!</p>
 <li><a href="https://github.com/nunit/nunit/issues/3758">3758</a> Drop .NET 3.5 Build Targets. Fixed by team <a href="https://github.com/nunit/nunit/pull/3760">PR 3760</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/2485">2485</a> Remove\Trim copyright on individual files. Fixed by team <a href="https://github.com/nunit/nunit/pull/3795">PR 3795</a></li>
 </ul>
-<h3 id="deprecated-features">Deprecated features</h3>
+<h3 id="deprecated-features-1">Deprecated features</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4415">4415</a> Remove use of params for messages. Fixed by team <a href="https://github.com/nunit/nunit/pull/4419">PR 4419</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4036">4036</a> Drop net45 build target in nunit4. Fixed by team <a href="https://github.com/nunit/nunit/pull/4050">PR 4050</a></li>
@@ -244,14 +274,14 @@ doing!</p>
 <li><a href="https://github.com/nunit/nunit/issues/3869">3869</a> Copyright notices for third-party code. Thanks to <a href="https://github.com/lennartb-">Lennart Brggemann</a> for <a href="https://github.com/nunit/nunit/pull/4444">PR 4444</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3301">3301</a> [HandleProcessCorruptedStateExceptions] has no effect unless we disable partial trust. Fixed by team <a href="https://github.com/nunit/nunit/pull/4398">PR 4398</a></li>
 </ul>
-<h3 id="the-following-issues-are-marked-as-breaking-changes">The following issues are marked as breaking changes</h3>
+<h3 id="the-following-issues-are-marked-as-breaking-changes-1">The following issues are marked as breaking changes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4416">4416</a> Move classic asserts into its own project . Fixed by team <a href="https://github.com/nunit/nunit/pull/4417">PR 4417</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4415">4415</a> Remove use of params for messages. Fixed by team <a href="https://github.com/nunit/nunit/pull/4419">PR 4419</a></li>
 </ul>
 <h2 id="nunit-3140---november-4-2023">NUnit 3.14.0 - November 4, 2023</h2>
 <p>Total number of issues fixed in this release is : 16</p>
-<h3 id="enhancements-1">Enhancements</h3>
+<h3 id="enhancements-2">Enhancements</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4046">4046</a> Backport .NET6 test infra + build improvements from #3984 onto
 v3.13 branch. Fixed by team <a href="https://github.com/nunit/nunit/pull/4077">PR 4077</a> ( backport of issue 3984)</li>
@@ -264,7 +294,7 @@ Lahma</a> for <a href="https://github.com/nunit/nunit/pull/4034">PR 4034</a></li
 <li><a href="https://github.com/nunit/nunit/issues/2729">2729</a> Proposal: Async test case sources. Fixed by team <a href="https://github.com/nunit/nunit/pull/4390">PR
 4390</a></li>
 </ul>
-<h3 id="bug-fixes-2">Bug fixes</h3>
+<h3 id="bug-fixes-3">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4527">4527</a> Backport: NUnit.Framework 3.13.2 introduced a breaking change that
 conceals problems with tests. Fixed by team <a href="https://github.com/nunit/nunit/pull/4104">PR 4104</a> ( backport of issue
@@ -287,9 +317,9 @@ to <a href="https://github.com/normj">Norm Johanson</a> for <a href="https://git
 <li><a href="https://github.com/nunit/nunit/issues/2466">2466</a> Missing stack trace when exception occurs during OneTimeSetUp.
 Fixed by team <a href="https://github.com/nunit/nunit/pull/4467">PR 4467</a></li>
 </ul>
-<h3 id="refactorings-1">Refactorings</h3>
+<h3 id="refactorings-2">Refactorings</h3>
 <p>None</p>
-<h3 id="internal-fixes-1">Internal fixes</h3>
+<h3 id="internal-fixes-2">Internal fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4524">4524</a> Backport: Add .NET7 as a build target for the test suite #4170.
 Fixed by team <a href="https://github.com/nunit/nunit/pull/4302">PR 4302</a> ( backport of issue 4170 by pr 4224)</li>
@@ -298,9 +328,9 @@ team <a href="https://github.com/nunit/nunit/pull/4296">PR 4296</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/2973">2973</a> Write up recommended way to test and link it from the readme.
 Thanks to <a href="https://github.com/BrunoJuchli">Bruno Juchli</a> for <a href="https://github.com/nunit/nunit/pull/2971">PR 2971</a></li>
 </ul>
-<h3 id="deprecated-features-1">Deprecated features</h3>
+<h3 id="deprecated-features-2">Deprecated features</h3>
 <p>None</p>
-<h3 id="the-following-issues-are-marked-as-breaking-changes-1">The following issues are marked as breaking changes</h3>
+<h3 id="the-following-issues-are-marked-as-breaking-changes-2">The following issues are marked as breaking changes</h3>
 <p>None</p>
 <h2 id="nunit-3133---march-20-2022">NUnit 3.13.3 - March 20, 2022</h2>
 <p>This release includes several performance enhancements. <a href="https://github.com/lahma">@lahma</a> provided a massive speed

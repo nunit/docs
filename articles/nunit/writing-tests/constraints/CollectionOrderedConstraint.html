@@ -97,7 +97,7 @@ Assert.That(iarray, Is.Ordered);
 string[] sarray = new string[] { &quot;c&quot;, &quot;b&quot;, &quot;a&quot; };
 Assert.That(sarray, Is.Ordered.Descending);
 </code></pre>
-<p>The following modifiers are supported:</p>
+<h3 id="ordering-modifiers">Ordering Modifiers</h3>
 <pre><code class="lang-csharp">...Ascending
 ...Descending
 ...Using(IComparer comparer)
@@ -114,7 +114,7 @@ Assert.That(sarray, Is.Ordered.By(&quot;Length&quot;));
 string[] sarray2 = new string[] (&quot;aaa&quot;, &quot;aa&quot;, &quot;a&quot;);
 Assert.That(sarray2, Is.Ordered.Descending.By(&quot;Length&quot;));
 </code></pre>
-<p>The following Modifiers are supported:</p>
+<h3 id="property-based-modifiers">Property-based Modifiers</h3>
 <pre><code class="lang-csharp">...Then
 ...Ascending
 ...Descending
