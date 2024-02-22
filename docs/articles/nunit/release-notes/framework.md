@@ -5,6 +5,44 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
+## NUnit 4.1 - February 23. 2024
+
+This release is a bugfix and smaller enhancement release.
+
+There are 8 issues fixed in this release.
+
+### Enhancements
+
+* [4600](https://github.com/nunit/nunit/issues/4600) Add `DateTime`/`TimeSpan` support for inequality tolerance. Thanks to [Michael Render](https://github.com/RenderMichael) for [PR 4618](https://github.com/nunit/nunit/pull/4618)
+* [4572](https://github.com/nunit/nunit/issues/4572) Make new PropertiesComparer optional. Fixed by team [PR 4608](https://github.com/nunit/nunit/pull/4608)  Adding modifier UsingPropertiesComparer() to AnyOf-, Equal-, SomeItems-, CollectionEquivalent-, CollectionSubset-, CollectionSuperSet-, DictionaryContainsKey-, DictionaryContainsKeyValuePair-, DictionaryContainsValue- and UniqueItemsConstraint.
+* [1215](https://github.com/nunit/nunit/issues/1215) Explicit specification of generic method types on TestCase and TestCaseSource. Fixed by team [PR 4620](https://github.com/nunit/nunit/pull/4620)  See [TestOf](https://docs.nunit.org/articles/nunit/writing-tests/attributes/testof.html) documentation.
+
+### Bug fixes
+
+* [4602](https://github.com/nunit/nunit/issues/4602) WpfMessagePumpStrategy - change from Dispatcher.Run to Dispatcher.PushFrame . Thanks to [soerendd](https://github.com/soerendd) for [PR 4603](https://github.com/nunit/nunit/pull/4603)
+* [4591](https://github.com/nunit/nunit/issues/4591) Parameter count mismatch with indexer. Fixed by team [PR 4608](https://github.com/nunit/nunit/pull/4608)
+* [4581](https://github.com/nunit/nunit/issues/4581) NUnit 4 needs System.Threading.Tasks.Extensions for net472 tests. Fixed by team [PR 4582](https://github.com/nunit/nunit/pull/4582)
+
+### Refactorings
+
+* [4626](https://github.com/nunit/nunit/issues/4626) Remove link in readme to the google discuss group, it's spammed.. Fixed by team [PR 4627](https://github.com/nunit/nunit/pull/4627)
+
+### Internal fixes
+
+* [4606](https://github.com/nunit/nunit/issues/4606) GitHub Actions fail on `master` for Windows and Linux builds. Fixed by team [PR 4607](https://github.com/nunit/nunit/pull/4607)
+
+### Deprecated features
+
+None
+
+### The following issues are marked as breaking changes
+
+None.
+
+Be aware that in version 4.0 the different equality constraints included checking properties of objects.
+That was a breaking change from earlier versions, and has now been replaced with an UsingPropertiesComparer()
+ modifier, making this optional.
+
 ## NUnit 4.0.1 - December 2. 2023
 
 This is a hotfix release for three issues related to targeting windows targets, like `net6.0-windows`.  If you don't use these targets, you can safely ignore this release.

@@ -15,6 +15,12 @@ CollectionSubsetConstraint(IEnumerable)
 Is.SubsetOf(IEnumerable)
 ```
 
+## Modifiers
+
+```csharp
+...UsingPropertiesComparer()  // From version 4.1
+```
+
 ## Example of Use
 
 ```csharp

@@ -17,7 +17,7 @@ string[] sarray = new string[] { "c", "b", "a" };
 Assert.That(sarray, Is.Ordered.Descending);
 ```
 
-The following modifiers are supported:
+### Ordering Modifiers
 
 ```csharp
 ...Ascending
@@ -42,7 +42,7 @@ string[] sarray2 = new string[] ("aaa", "aa", "a");
 Assert.That(sarray2, Is.Ordered.Descending.By("Length"));
 ```
 
-The following Modifiers are supported:
+### Property-based Modifiers
 
 ```csharp
 ...Then
