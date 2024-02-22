@@ -15,6 +15,12 @@ SomeItemsConstraint(Constraint itemConstraint)
 Has.Some...
 ```
 
+## Modifiers
+
+```csharp
+...UsingPropertiesComparer()  // From version 4.1
+```
+
 ## Examples of Use
 
 ```csharp

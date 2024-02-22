@@ -53,6 +53,15 @@ The following issues are fixed in this release:
 A beta release, Version 4.4.0-beta.1, was released on Feb 23, 2023. There is no changes between this and the previous
 beta release, except for updates of packages for the test projects.
 
+## NUnit3 Test Adapter for Visual Studio - Version 4.3.2 - Des 9, 2023
+
+A hotfix release for issue [#1144](https://github.com/nunit/nunit3-vs-adapter/issues/1144).
+
+The adapter could not work running under .net 8 due to the use of an older NUnit.Engine.
+The engine has been updated to version 3.15.5
+
+* [1144](https://github.com/nunit/nunit3-vs-adapter/issues/1144) Fixed by team.
+
 ## NUnit3 Test Adapter for Visual Studio - Version 4.3.1 - Nov 19, 2022
 
 This is a hotfix release for three major and critical problems:

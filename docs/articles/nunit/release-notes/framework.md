@@ -5,6 +5,56 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
+## NUnit 4.1 - February 23. 2024
+
+This release is a bugfix and smaller enhancement release.
+
+There are 8 issues fixed in this release.
+
+### Enhancements
+
+* [4600](https://github.com/nunit/nunit/issues/4600) Add `DateTime`/`TimeSpan` support for inequality tolerance. Thanks to [Michael Render](https://github.com/RenderMichael) for [PR 4618](https://github.com/nunit/nunit/pull/4618)
+* [4572](https://github.com/nunit/nunit/issues/4572) Make new PropertiesComparer optional. Fixed by team [PR 4608](https://github.com/nunit/nunit/pull/4608)  Adding modifier UsingPropertiesComparer() to AnyOf-, Equal-, SomeItems-, CollectionEquivalent-, CollectionSubset-, CollectionSuperSet-, DictionaryContainsKey-, DictionaryContainsKeyValuePair-, DictionaryContainsValue- and UniqueItemsConstraint.
+* [1215](https://github.com/nunit/nunit/issues/1215) Explicit specification of generic method types on TestCase and TestCaseSource. Fixed by team [PR 4620](https://github.com/nunit/nunit/pull/4620)  See [TestOf](https://docs.nunit.org/articles/nunit/writing-tests/attributes/testof.html) documentation.
+
+### Bug fixes
+
+* [4602](https://github.com/nunit/nunit/issues/4602) WpfMessagePumpStrategy - change from Dispatcher.Run to Dispatcher.PushFrame . Thanks to [soerendd](https://github.com/soerendd) for [PR 4603](https://github.com/nunit/nunit/pull/4603)
+* [4591](https://github.com/nunit/nunit/issues/4591) Parameter count mismatch with indexer. Fixed by team [PR 4608](https://github.com/nunit/nunit/pull/4608)
+* [4581](https://github.com/nunit/nunit/issues/4581) NUnit 4 needs System.Threading.Tasks.Extensions for net472 tests. Fixed by team [PR 4582](https://github.com/nunit/nunit/pull/4582)
+
+### Refactorings
+
+* [4626](https://github.com/nunit/nunit/issues/4626) Remove link in readme to the google discuss group, it's spammed.. Fixed by team [PR 4627](https://github.com/nunit/nunit/pull/4627)
+
+### Internal fixes
+
+* [4606](https://github.com/nunit/nunit/issues/4606) GitHub Actions fail on `master` for Windows and Linux builds. Fixed by team [PR 4607](https://github.com/nunit/nunit/pull/4607)
+
+### Deprecated features
+
+None
+
+### The following issues are marked as breaking changes
+
+None.
+
+Be aware that in version 4.0 the different equality constraints included checking properties of objects.
+That was a breaking change from earlier versions, and has now been replaced with an UsingPropertiesComparer()
+ modifier, making this optional.
+
+## NUnit 4.0.1 - December 2. 2023
+
+This is a hotfix release for three issues related to targeting windows targets, like `net6.0-windows`.  If you don't use these targets, you can safely ignore this release.
+
+For more details, see the information in the issues below:
+
+### Bug fixes
+
+* [4571](https://github.com/nunit/nunit/issues/4571) NUnit 4: dotnet test behaving differently locally vs on GH Actions (failing). Fixed by team [PR 4574](https://github.com/nunit/nunit/pull/4574)
+* [4565](https://github.com/nunit/nunit/issues/4565) Unable to test project targeting net8.0-windows and win-x64 . Fixed by team [PR 4569](https://github.com/nunit/nunit/pull/4569)
+* [4564](https://github.com/nunit/nunit/issues/4564) Tests not discovered for .NET Windows-specific TFM without Windows build number. Fixed by team [PR 4569](https://github.com/nunit/nunit/pull/4569)
+
 ## NUnit 4.0.0 - November 26. 2023
 
 This release is an incremental improvement of version 3, and can be used
@@ -50,6 +100,7 @@ There are 112 issues fixed in this release.
 * [4086](https://github.com/nunit/nunit/issues/4086) Perform case-insensitive string comparisons in-place. Fixed by team [PR 4088](https://github.com/nunit/nunit/pull/4088)
 * [4053](https://github.com/nunit/nunit/issues/4053) Cache method discovery by migrating PR 4034 to main. Fixed by team [PR 4208](https://github.com/nunit/nunit/pull/4208)
 * [3984](https://github.com/nunit/nunit/issues/3984) Add net6.0 targets. Fixed by team [PR 3988](https://github.com/nunit/nunit/pull/3988)
+* [3941](https://github.com/nunit/nunit/issues/3941) PlatformAttribute has AllowMultiple = true, but that doesn't work. Fixed by team [PR 3926](https://github.com/nunit/nunit/pull/3926)
 * [3936](https://github.com/nunit/nunit/issues/3936) Is there any way we could make use of CallerArgumentExpressionAttribute?. Fixed by team [PR 4419](https://github.com/nunit/nunit/pull/4419)
 * [3899](https://github.com/nunit/nunit/issues/3899) Allow randomizing 'Guid' test arguments with [Random]. Thanks to [Arnaud TAMAILLON](https://github.com/Greybird) for [PR 3951](https://github.com/nunit/nunit/pull/3951)
 * [3866](https://github.com/nunit/nunit/issues/3866) SupportedOSPlatform. Fixed by team [PR 3926](https://github.com/nunit/nunit/pull/3926)
@@ -59,6 +110,7 @@ There are 112 issues fixed in this release.
 * [3432](https://github.com/nunit/nunit/issues/3432) Assert.That is blocking and might lead to deadlock when used with WCF.. Thanks to [Gavin Lambert](https://github.com/uecasm) for [PR 4322](https://github.com/nunit/nunit/pull/4322)
 * [3391](https://github.com/nunit/nunit/issues/3391) TestCaseSource to recognize new async streams. Fixed by team [PR 4538](https://github.com/nunit/nunit/pull/4538)
 * [3376](https://github.com/nunit/nunit/issues/3376) Nullable Reference Types annotations. Fixed by team through multiple PRs. . Fixed by team [PR 3488](https://github.com/nunit/nunit/pull/3488)
+* [3043](https://github.com/nunit/nunit/issues/3043) Add AsyncEnumerable support for TestCaseSource, ValueSource, and TestFixtureSource. Fixed by team [PR 4538](https://github.com/nunit/nunit/pull/4538)
 * [2843](https://github.com/nunit/nunit/issues/2843) Replacing ThrowsAsync with a composable async alternative. Thanks to [Gavin Lambert](https://github.com/uecasm) for [PR 4322](https://github.com/nunit/nunit/pull/4322)
 * [1459](https://github.com/nunit/nunit/issues/1459) Support for params keyword in parameterized test fixtures. Thanks to [Leo Shine](https://github.com/Shiney) for [PR 4478](https://github.com/nunit/nunit/pull/4478)
 * [4391](https://github.com/nunit/nunit/issues/4391) Hash/Partition based Test Filter. Thanks to [Andrew Armstrong](https://github.com/Plasma) for [PR 4392](https://github.com/nunit/nunit/pull/4392)
@@ -134,6 +186,7 @@ There are 112 issues fixed in this release.
 * [3935](https://github.com/nunit/nunit/issues/3935) `Numerics.IsFixedPointNumeric` should return false for decimals. Thanks to [Wellington Balbo](https://github.com/wbalbo) for [PR 3942](https://github.com/nunit/nunit/pull/3942)
 * [3789](https://github.com/nunit/nunit/issues/3789) Change copyright header on files. Fixed by team [PR 3795](https://github.com/nunit/nunit/pull/3795)
 * [3764](https://github.com/nunit/nunit/issues/3764) Switch to the dotnet tool version of Cake. Fixed by team [PR 3835](https://github.com/nunit/nunit/pull/3835)
+* [3588](https://github.com/nunit/nunit/issues/3588) Audit string equality comparisons and consider changes for v4. Fixed by team [PR 3770](https://github.com/nunit/nunit/pull/3770)
 * [2485](https://github.com/nunit/nunit/issues/2485) Remove\Trim copyright on individual files. Fixed by team [PR 3795](https://github.com/nunit/nunit/pull/3795)
 * [4504](https://github.com/nunit/nunit/issues/4504) Remove appveyor build. Fixed by team [PR 4509](https://github.com/nunit/nunit/pull/4509)
 * [4465](https://github.com/nunit/nunit/issues/4465) Update cake version in build scripts. Fixed by team [PR 4540](https://github.com/nunit/nunit/pull/4540)

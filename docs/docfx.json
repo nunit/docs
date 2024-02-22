@@ -1,17 +1,36 @@
 {
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "code-output/**/**.dll"
+          ],
+          "src": "../"
+        }
+      ],
+      "dest": "api",
+      "filter": "filterConfig.yml"
+    }
+  ],
   "build": {
     "content": [
       {
         "files": [
-          "articles/**.md", 
-          "articles/**/toc.yml", 
-          "toc.yml", 
+          "api/*.yml",
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
           "*.md"
         ]
       }
     ],
     "resource": [
-      { "files": "**/**", "src": "legacy", "dest": ""},
+      {
+        "files": "**/**",
+        "src": "legacy",
+        "dest": ""
+      },
       {
         "files": [
           "CNAME",
@@ -35,8 +54,13 @@
     },
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
-    "template": ["default", "custom_template"],
-    "postProcessors": [ "ExtractSearchIndex" ],
+    "template": [
+      "default",
+      "custom_template"
+    ],
+    "postProcessors": [
+      "ExtractSearchIndex"
+    ],
     "markdownEngineName": "markdig",
     "noLangKeyword": false,
     "keepFileLink": false,

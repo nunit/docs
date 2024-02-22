@@ -22,11 +22,13 @@ Is.AnyOf(object[] expected)
 
 ```csharp
 ...Using(IComparer comparer)
+...UsingPropertiesComparer()  // From version 4.1
 ...Using<T>(IEqualityComparer comparer)
 ...Using<T>(Func<T, T, bool>)
 ...Using<T>(IComparer<T> comparer)
 ...Using<T>(Comparison<T> comparer)
 ...Using<T>(IEqualityComparer<T> comparer)
+
 ```
 
 ## Examples of Use

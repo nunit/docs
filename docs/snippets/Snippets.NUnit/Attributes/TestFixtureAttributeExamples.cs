@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using NUnit.Framework;
 // ReSharper disable ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
 #pragma warning disable NUnit2045
@@ -14,11 +14,13 @@ public class TestFixtureAttributeExamples
     [TestFixture("hello", "hello", "goodbye")]
     [TestFixture("zip", "zip")]
     [TestFixture(42, 42, 99)]
+    [TestFixture('a', 'a', 'b')]
+    [TestFixture('A', 'A')]
     public class ParameterizedTestFixture
     {
         private readonly string _eq1;
         private readonly string _eq2;
-        private readonly string _neq;
+        private readonly string? _neq;
 
         public ParameterizedTestFixture(string eq1, string eq2, string neq)
         {
@@ -37,6 +39,17 @@ public class TestFixtureAttributeExamples
             _neq = neq.ToString();
         }
 
+        // Can use params arguments (but not yet optional arguments)
+        public ParameterizedTestFixture(params char[] eqArguments)
+        {
+            _eq1 = eqArguments[0].ToString();
+            _eq2 = eqArguments[1].ToString();
+            if (eqArguments.Length > 2)
+                _neq = eqArguments[2].ToString();
+            else 
+                _neq = null;
+        }
+        
         [Test]
         public void TestEquality()
         {

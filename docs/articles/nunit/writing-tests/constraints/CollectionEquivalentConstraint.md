@@ -15,6 +15,12 @@ CollectionEquivalentConstraint(IEnumerable other)
 Is.EquivalentTo(IEnumerable other)
 ```
 
+## Modifiers
+
+```csharp
+...UsingPropertiesComparer()  // From version 4.1
+```
+
 ## Examples of Use
 
 ```csharp

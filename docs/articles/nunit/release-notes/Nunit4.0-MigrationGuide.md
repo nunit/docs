@@ -4,6 +4,16 @@ uid: migrationguidance
 
 # Migration Guidance
 
+## Compatibility
+
+Ensure you use a compatible runner for NUnit Version 4.
+
+| Runner | Minimum Version | Comments |
+|------|---------------|--------|
+| NUnit3TestAdapter | 4.5.0 | Used by Visual Studio and dotnet test|
+| NUnit.Console | 3.15.5 | Note:  The 3.16.X series don't work with NUnit version 4|
+| Rider/Resharper | 2023.3| Dec 5, 2023, is in EAP, due to release RSN |
+
 ## 3.x -> 4.x
 
 NUnit 4.0 has a few [breaking changes](../release-notes/breaking-changes.md#nunit-40) making it neither binary nor
@@ -19,6 +29,8 @@ There are different ways to migrate these to NUnit 4.0
 * Convert Classic Assert to the [Constraint model](../writing-tests/assertions/assertion-models/constraint.md)
 * Update source code to new namespace and class name
 * Using `global using` aliases
+  * In own source file
+  * In project file or `Directory.Build.props`
 
 In the sections below we use the following simple test as an example:
 
@@ -96,7 +108,7 @@ Assert.That(actualText, Does.StartWith("42"), $"Expected '{actualText}' to start
 There are no code fixers for `FileAssert` and `DirectoryAssert`. They could be added, but we don't expect these to be
 used too much.
 
-#### Convert Classic Assert into NUnit 4.x equivalent
+#### Updating from Classic Asserts in NUnit 4.x
 
 If you want to keep the Classic Asserts and not convert them to the constraint model -- but do want to use the new NUnit
 4.x naming -- you'll need to update the code manually.
@@ -118,7 +130,7 @@ substitute to do only the asserts that need converting, but there are quite a lo
    1. Convert `Assert.True` into `ClassicAssert.True`.
    1. Similar for `IsTrue`, `False`, `IsFalse`, `Greater`, `Less`, ...
 
-   Depending on what is less work, alternatively you can reverse the substitution of those that shouldn't be have been
+   Depending on what is less work, alternatively you can reverse the substitution of those that shouldn't have been
    changed:
    1. Convert `ClassicAssert.That` into `Assert.That`.
    1. Convert `ClassicAssert.Fail` into `Assert.Fail`.
@@ -146,6 +158,25 @@ global using FileAssert = NUnit.Framework.Legacy.FileAssert;
 
 Note that this doesn't mean you have to target .NET 6.0. This also works if targeting .NET Framework as it is purely
 done on the source code level.
+
+If you have to do this for multiple projects in a repository, this is not handy.
+It seems [somebody else thought of that](https://github.com/dotnet/msbuild/issues/6745) and
+it is now possible to add global usings in a
+[`Directory.Build.props`](https://learn.microsoft.com/en-us/visualstudio/msbuild/customize-by-directory?view=vs-2022#directorybuildprops-and-directorybuildtargets)
+file which will be used by all projects in a repository:
+
+```xml
+<ItemGroup>
+  <Using Include="NUnit.Framework.Legacy.ClassicAssert" Alias="Assert" />
+  <Using Include="NUnit.Framework.Legacy.CollectionAssert" Alias="CollectionAssert" />
+  <Using Include="NUnit.Framework.Legacy.StringAssert" Alias="StringAssert" />
+  <Using Include="NUnit.Framework.Legacy.DirectoryAssert" Alias="DirectoryAssert" />
+  <Using Include="NUnit.Framework.Legacy.FileAssert" Alias="FileAssert" />
+</ItemGroup>
+```
+
+The build process now automatically creates a `${Project}.GlobalUsings.g.cs` file
+for each project with a contents similar to the one shown above.
 
 ### Assert.That with _format_ specification and `params` overload conversion
 
