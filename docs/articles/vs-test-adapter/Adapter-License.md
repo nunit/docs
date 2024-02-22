@@ -2,7 +2,7 @@
 
 ## MIT License
 
-Copyright (c) 2011-2021 Charlie Poole, 2014-2022 Terje Sandstrom
+Copyright (c) 2011-2021 Charlie Poole, 2014-2023 Terje Sandstrom
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

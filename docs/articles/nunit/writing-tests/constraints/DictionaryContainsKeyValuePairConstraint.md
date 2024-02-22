@@ -28,6 +28,12 @@ Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("HI", "UNIV
 Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("HI", "UNIVERSE").Using<string>((x, y) => StringUtil.Compare(x, y, true)));
 ```
 
+## Modifiers
+
+```csharp
+...UsingPropertiesComparer()  // From version 4.1
+```
+
 ## See also
 
 * [DictionaryContainsValueConstraint](DictionaryContainsValueConstraint.md)

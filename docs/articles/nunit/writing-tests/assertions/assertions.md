@@ -35,14 +35,13 @@ approach have all been implemented internally using constraints. For example...
 ### Some notes on the Classic/Legacy asserts
 
 The classic/legacy asserts, like `ClassicAssert.AreEqual`, have now been moved into its own project (namespace), and
-will later be released as a separate package.  They are now in the namespace `NUnit.Framework.Legacy`, and the `Assert`
+may later be released as a separate package.  They are now in the namespace `NUnit.Framework.Legacy`, and the `Assert`
 have been renamed to `ClassicAssert`.
 
 If you're upgrading from NUnit 3.X to NUnit 4, you need to add a using for `NUnit.Framework.Legacy` to your test
 classes, and rename all classic asserts from `Assert` to `ClassicAssert`.
 
-You *can* freely mix the constraint model assertions and the classic asserts in the same test class, but we don't
-recommend it.
+You *can* freely mix the constraint model assertions and the classic asserts in the same test class.
 
 All assertions in the `ClassicAssert` class are rerouting to use the constraint model.
 
