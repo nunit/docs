@@ -21,6 +21,7 @@ Is.AtMost(object expected)
 ...Using(IComparer comparer)
 ...Using<T>(IComparer<T> comparer)
 ...Using<T>(Comparison<T> comparer)
+...Within(object tolerance)
 ```
 
 ## Examples of Use
@@ -31,4 +32,5 @@ Assert.That(3, Is.AtMost(7));
 Assert.That(3, Is.LessThanOrEqualTo(3));
 Assert.That(3, Is.AtMost(3));
 Assert.That(myOwnObject, Is.LessThanOrEqualTo(theExpected).Using(myComparer));
+Assert.That(myDateTime, Is.LessThanOrEqualTo(expectedDateTime).Within(TimeSpan.FromSeconds(1)))
 ```
