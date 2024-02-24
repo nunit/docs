@@ -196,6 +196,42 @@ dictionaries (Hashtables) may be successfully compared.</p>
 <p>Two DirectoryInfo objects are considered equal if both have the same path, creation time and last access time.</p>
 <pre><code class="lang-csharp">Assert.That(new DirectoryInfo(actual), Is.EqualTo(expected));
 </code></pre>
+<h2 id="comparing-classesstructures">Comparing Classes/Structures</h2>
+<p>If a class/structure implements <code>IEquatable&lt;T&gt;</code> then it is up to the class to define equality.
+If not, then the standard .NET <code>Equals</code> is called which means for classes,
+it is reference equality and for structures it is value equality.</p>
+<pre><code class="lang-csharp">private sealed class Person
+{
+    public Person(string name) =&gt; Name = name;
+
+    public string Name { get; }
+}
+
+[Test]
+public void ComparePersons()
+{
+    var person1 = new Person(&quot;Charlie&quot;);
+    var person2 = new Person(&quot;Charlie&quot;);
+
+    Assert.That(person2, Is.EqualTo(person1));
+}
+</code></pre>
+<p>The above test fails because even though <em>person1</em> and <em>person2</em> have the same property values,
+they are different instances.
+If we want to have value equality there are three options:</p>
+<ol>
+<li>Implement <code>IEquality&lt;Person&gt;</code> on the <code>Person</code> class<br>
+This is not always wanted, we may require reference comparison
+in most code, but need value equality for NUnit tests.</li>
+<li>Specify a specific comparer. See <a href="#user-specified-comparers">User-Specified Comparers</a> below.<br>
+This does require writing separate comparers each time one wants
+to compare a class for value equality.</li>
+<li>Add the <code>.UsingPropertiesComparer()</code> suffix.<br>
+This is a special built-in comparer which iterates over all <em>public</em> properties of a class and
+compares them one by one. It is useful to get value equality for nunit test, e.g. when
+serializing/deserializing instances, but when value equality is not wanted in normal code.
+Even if two persons are called <em>Charlie</em> that doesn't mean they are one and the same person.</li>
+</ol>
 <h2 id="user-specified-comparers">User-Specified Comparers</h2>
 <p>If the default NUnit or .NET behavior for testing equality doesn't meet your needs, you can supply a comparer of your
 own through the <code>Using</code> modifier. When used with <code>EqualConstraint</code>, you may supply an <code>IEqualityComparer</code>,
@@ -218,6 +254,16 @@ var myComparer = new ListOfIntComparer();
 /* ... */
 Assert.That(list1, Is.EqualTo(list2).Using(myComparer));
 </code></pre>
+<h2 id="properties-comparer">Properties Comparer</h2>
+<p>The properties comparer is enabled when suffixing the constraint with <code>.UsingPropertiesComparer()</code>.
+It is only called for instances of the same type which do not implement <code>IEquatable&lt;T&gt;</code></p>
+<p>This comparer iterates over all public properties of a class.
+For each property, it gets the value for both instances and compares them for equality.
+This can be recursive, e.g. if one has a class <code>Group</code> holding a collection of <code>Persons</code>.</p>
+<p>The comparer will use the specified tolerance as specified using <code>.WithIn(amount)</code> if possible.
+This can be useful when comparing floating point numbers of calculation results.</p>
+<p>The comparer can deal with recursive data structures,
+it will stop comparing if it already previously has compared two the same instances.</p>
 <h2 id="notes">Notes</h2>
 <ol>
 <li>When checking the equality of user-defined classes, NUnit first examines each class to determine whether it
