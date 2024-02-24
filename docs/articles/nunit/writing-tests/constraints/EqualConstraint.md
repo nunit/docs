@@ -155,6 +155,46 @@ Two DirectoryInfo objects are considered equal if both have the same path, creat
 Assert.That(new DirectoryInfo(actual), Is.EqualTo(expected));
 ```
 
+## Comparing Classes/Structures
+
+If a class/structure implements `IEquatable<T>` then it is up to the class to define equality.
+If not, then the standard .NET `Equals` is called which means for classes,
+it is reference equality and for structures it is value equality.
+
+```csharp
+private sealed class Person
+{
+    public Person(string name) => Name = name;
+
+    public string Name { get; }
+}
+
+[Test]
+public void ComparePersons()
+{
+    var person1 = new Person("Charlie");
+    var person2 = new Person("Charlie");
+
+    Assert.That(person2, Is.EqualTo(person1));
+}
+```
+
+The above test fails because even though _person1_ and _person2_ have the same property values,
+they are different instances.
+If we want to have value equality there are three options:
+
+1. Implement `IEquality<Person>` on the `Person` class\
+   This is not always wanted, we may require reference comparison
+   in most code, but need value equality for NUnit tests.
+1. Specify a specific comparer. See [User-Specified Comparers](#user-specified-comparers) below.\
+   This does require writing separate comparers each time one wants
+   to compare a class for value equality.
+1. Add the `.UsingPropertiesComparer()` suffix.\
+   This is a special built-in comparer which iterates over all _public_ properties of a class and
+   compares them one by one. It is useful to get value equality for nunit test, e.g. when
+   serializing/deserializing instances, but when value equality is not wanted in normal code.
+   Even if two persons are called _Charlie_ that doesn't mean they are one and the same person.
+
 ## User-Specified Comparers
 
 If the default NUnit or .NET behavior for testing equality doesn't meet your needs, you can supply a comparer of your
@@ -183,6 +223,21 @@ var myComparer = new ListOfIntComparer();
 /* ... */
 Assert.That(list1, Is.EqualTo(list2).Using(myComparer));
 ```
+
+## Properties Comparer
+
+The properties comparer is enabled when suffixing the constraint with `.UsingPropertiesComparer()`.
+It is only called for instances of the same type which do not implement `IEquatable<T>`
+
+This comparer iterates over all public properties of a class.
+For each property, it gets the value for both instances and compares them for equality.
+This can be recursive, e.g. if one has a class `Group` holding a collection of `Persons`.
+
+The comparer will use the specified tolerance as specified using `.WithIn(amount)` if possible.
+This can be useful when comparing floating point numbers of calculation results.
+
+The comparer can deal with recursive data structures,
+it will stop comparing if it already previously has compared two the same instances.
 
 ## Notes
 
