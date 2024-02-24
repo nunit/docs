@@ -260,6 +260,27 @@ public class MyDataClass
 }
 </code></pre>
 <p>See <a class="xref" href="../TestCaseData.html">TestCaseData</a> for more information on the <code>TestCaseData</code> class.</p>
+<h2 id="sources-for-generic-methods-using-testcasedata">Sources for generic methods using TestCaseData</h2>
+<p>As of NUnit 4.1, it is possible to explicitly specify the generic types to be used for a generic method. This
+may be useful when any of the test case arguments differ from the desired generic types. When omitted, NUnit will
+infer the generic type arguments based on the passed values from the <code>TestCaseSource</code>.</p>
+<pre><code class="lang-csharp" name="TypedSourceWithExplicitGenericTypes">[TestFixture]
+public class MyExplicitlyTypedTests
+{
+    [TestCaseSource(nameof(ExplicitTypeArgsTestCases))]
+    public void ExplicitTypeArgs&lt;T&gt;(T input)
+    {
+        Assert.That(typeof(T), Is.EqualTo(typeof(long)));
+    }
+
+    private static IEnumerable&lt;TestCaseData&gt; ExplicitTypeArgsTestCases()
+    {
+        yield return new TestCaseData(2) { TypeArgs = new[] { typeof(long) } };
+        yield return new TestCaseData(2L) { TypeArgs = new[] { typeof(long) } };
+    }
+}
+</code></pre>
+<p>See <a class="xref" href="../TestCaseData.html">TestCaseData</a> for more information on the <code>TestCaseData</code> class.</p>
 <h2 id="examples-using-testcasesource-with-typed-data-and-expected-results">Examples using TestCaseSource with Typed data and expected results</h2>
 <p>It may seem from the examples above that TestCaseSource can only be used with simple data types or the base Object type.
 This is not the case. TestCaseSource can be used with typed data and also including expected results, also without using
