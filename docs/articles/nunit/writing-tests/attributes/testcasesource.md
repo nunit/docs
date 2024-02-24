@@ -82,6 +82,16 @@ constructed with the expected result as a parameter.
 
 See [TestCaseData](xref:testcasedata) for more information on the `TestCaseData` class.
 
+## Sources for generic methods using TestCaseData
+
+As of NUnit 4.1, it is possible to explicitly specify the generic types to be used for a generic method. This
+may be useful when any of the test case arguments differ from the desired generic types. When omitted, NUnit will
+infer the generic type arguments based on the passed values from the `TestCaseSource`.
+
+[!code-csharp[TypedSourceWithExplicitGenericTypes](~/snippets/Snippets.NUnit/TestCaseDataExample.cs#TestCaseDataTypeArgsExample)]
+
+See [TestCaseData](xref:testcasedata) for more information on the `TestCaseData` class.
+
 ## Examples using TestCaseSource with Typed data and expected results
 
 It may seem from the examples above that TestCaseSource can only be used with simple data types or the base Object type.
