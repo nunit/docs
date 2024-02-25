@@ -85,10 +85,47 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="consoleenginereleasenotes">
 <h1 id="console-and-engine-release-notes">Console and Engine Release Notes</h1>
+<!-- markdownlint-disable-file MD013 -->
 
+<h2 id="nunit-console--engine-3170---january-4-2024">NUnit Console &amp; Engine 3.17.0 - January 4, 2024</h2>
+<p>This release adds support for .net 8 by adding a missing agent.</p>
+<h3 id="enhancement">Enhancement</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/1374">#1374</a> Add .NET 8 build for nunit-agent</li>
+</ul>
+<p>Note that the release is based on the 3.15.5 version.</p>
+<h2 id="nunit-console-and-engine-3155---september-26-2023">NUnit Console and Engine 3.15.5 - September 26, 2023</h2>
+<h3 id="enhancement-1">Enhancement</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/1362">#1362</a> Updating Testcentric.Metadata</li>
+</ul>
+<h2 id="nunit-console-and-engine-3154---may-27-2023">NUnit Console and Engine 3.15.4 - May 27, 2023</h2>
+<p>A version of the 3.15 series supporting NUnit 4.
+This is also required for having an engine for a corresponding adapter release.</p>
+<h3 id="enhancement-2">Enhancement</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/1339">#1339</a> Support NUnit 4</li>
+</ul>
+<h2 id="nunit-console--engine-3163---february-21-2023">NUnit Console &amp; Engine 3.16.3 - February 21, 2023</h2>
+<h3 id="bugs">Bugs</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/1307">#1307</a> NUnit3TestAdapter integration: Exception when using NUnit.Engine 3.16.2</li>
+<li><a href="https://github.com/nunit/nunit-console/pull/1317">#1317</a> Fix assembly dependencies resolver for .NET Core</li>
+<li><a href="https://github.com/nunit/nunit-console/pull/1320">#1320</a> Add support for .Net 8.0</li>
+</ul>
+<h2 id="nunit-console--engine-3162---january-11-2023">NUnit Console &amp; Engine 3.16.2 - January 11, 2023</h2>
+<h3 id="bug">Bug</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/1300">#1300</a> Error when running x86 test test under .NET Core</li>
+</ul>
+<h3 id="build">Build</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/1294">#1294</a> Use pre-installed .NET 7.0 on AppVeyor</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1296">#1296</a> Use NUNIT prefix for API_KEY environment variables</li>
+</ul>
 <h2 id="nunit-console--engine-3161---january-4-2023">NUnit Console &amp; Engine 3.16.1 - January 4, 2023</h2>
 <p>This release fixes several critical or high-priority bugs in the 3.16.0 release.</p>
-<h3 id="bugs">Bugs</h3>
+<h3 id="bugs-1">Bugs</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit-console/issues/1271"><strong>#1271</strong></a> Install dotnet tool failed</li>
 <li><a href="https://github.com/nunit/nunit-console/issues/1274"><strong>#1274</strong></a> NUnit Console won't run unless .NET Desktop and
@@ -96,7 +133,7 @@ ASP.NET Runtimes are installed</li>
 <li><a href="https://github.com/nunit/nunit-console/issues/1275"><strong>#1275</strong></a> Missing assembly in NUnit.Engine nuget package</li>
 <li><a href="https://github.com/nunit/nunit-console/issues/1277"><strong>#1277</strong></a> NUnit does not work without .NET Core</li>
 </ul>
-<h3 id="build">Build</h3>
+<h3 id="build-1">Build</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit-console/pull/1284"><strong>#1284</strong></a> Restore ability to debug packages</li>
 </ul>
@@ -105,7 +142,7 @@ ASP.NET Runtimes are installed</li>
 enhancements have been implemented, we are releasing version 3.16 of the engine and console runner.</p>
 <p>This release incorporates support for executing tests under .NET 7.0. The runner itself is now built for .NET 4.6.2
 rather than .NET 2.0. Substantial changes have been made in the location of dependencies when running under .NET Core.</p>
-<h3 id="bugs-1">Bugs</h3>
+<h3 id="bugs-2">Bugs</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit-console/issues/291"><strong>#291</strong></a> Error running tests from assembly built using VS2017
 csproj file format</li>
@@ -133,7 +170,7 @@ project via Visual Studio</li>
 <li><a href="https://github.com/nunit/nunit-console/issues/1217"><strong>#1217</strong></a> Assembly loading deduplication</li>
 <li><a href="https://github.com/nunit/nunit-console/issues/1225"><strong>#1225</strong></a> Restore netcoreapp3.1 build to the engine package</li>
 </ul>
-<h3 id="build-1">Build</h3>
+<h3 id="build-2">Build</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit-console/issues/1118"><strong>#1118</strong></a> Reorganize build output (bin) directories</li>
 <li><a href="https://github.com/nunit/nunit-console/pull/1244"><strong>#1244</strong></a> Upgrade Cake.Tool to 2.3.0</li>
@@ -162,7 +199,7 @@ found on machine</li>
 <p>Release primarily to correct a critical bug arising when .NET 7.0 is installed.</p>
 <p><strong>Note:</strong> There is no 3.15.1 release because a 3.15.1 package identical to 3.15.0 was accidentally uploaded to NuGet.org
 when 3.15 was released.</p>
-<h3 id="bugs-2">Bugs</h3>
+<h3 id="bugs-3">Bugs</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit-console/issues/1178"><strong>#1178</strong></a> Running tests with nunit3-console version 3.15.0
 generates empty log files</li>
