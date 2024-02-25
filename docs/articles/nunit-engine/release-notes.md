@@ -48,7 +48,7 @@ This is also required for having an engine for a corresponding adapter release.
 ### Build
 
 * [#1294](https://github.com/nunit/nunit-console/issues/1294) Use pre-installed .NET 7.0 on AppVeyor
-* [#1296](https://github.com/nunit/nunit-console/issues/1296) Use NUNIT_ prefix for API_KEY environment variables
+* [#1296](https://github.com/nunit/nunit-console/issues/1296) Use NUNIT prefix for API_KEY environment variables
 
 ## NUnit Console & Engine 3.16.1 - January 4, 2023
 
