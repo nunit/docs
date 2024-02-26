@@ -15,7 +15,7 @@ There are 8 issues fixed in this release.
 
 * [4600](https://github.com/nunit/nunit/issues/4600) Add `DateTime`/`TimeSpan` support for inequality tolerance. Thanks to [Michael Render](https://github.com/RenderMichael) for [PR 4618](https://github.com/nunit/nunit/pull/4618)
 * [4572](https://github.com/nunit/nunit/issues/4572) Make new PropertiesComparer optional. Fixed by team [PR 4608](https://github.com/nunit/nunit/pull/4608)  Adding modifier UsingPropertiesComparer() to AnyOf-, Equal-, SomeItems-, CollectionEquivalent-, CollectionSubset-, CollectionSuperSet-, DictionaryContainsKey-, DictionaryContainsKeyValuePair-, DictionaryContainsValue- and UniqueItemsConstraint.
-* [1215](https://github.com/nunit/nunit/issues/1215) Explicit specification of generic method types on TestCase and TestCaseSource. Fixed by team [PR 4620](https://github.com/nunit/nunit/pull/4620)  See [TestOf](https://docs.nunit.org/articles/nunit/writing-tests/attributes/testof.html) documentation.
+* [1215](https://github.com/nunit/nunit/issues/1215) Explicit specification of generic method types on TestCase and TestCaseSource. Fixed by team [PR 4620](https://github.com/nunit/nunit/pull/4620)  See [TestCase](https://docs.nunit.org/articles/nunit/writing-tests/attributes/testcase.html) and [TestCaseSource](https://docs.nunit.org/articles/nunit/writing-tests/attributes/testcasesource.html) documentation.
 
 ### Bug fixes
 
