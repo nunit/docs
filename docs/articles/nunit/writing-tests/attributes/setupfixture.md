@@ -76,8 +76,8 @@ The defined order is as follows...
 > [!NOTE]
 > Filtering on SetUpFixtures
 
-A SetUpFixture is normally not used for filtering tests.  However, if that is done, one should be aware that a
- SetUpFixture encapsulates all tests to which it belongs.
+A `SetUpFixture` is normally not used for filtering tests.  However, if that is done, one should be aware that a
+ `SetUpFixture` encapsulates all tests to which it belongs.
  If placed in a namespace it will encapsulate all tests in that namespace and contained namespaces.
  If placed on the assembly level, it will encapsulate all tests in the assembly.
 
