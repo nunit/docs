@@ -279,6 +279,12 @@ doing!</p>
 <li><a href="https://github.com/nunit/nunit/issues/4416">4416</a> Move classic asserts into its own project . Fixed by team <a href="https://github.com/nunit/nunit/pull/4417">PR 4417</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4415">4415</a> Remove use of params for messages. Fixed by team <a href="https://github.com/nunit/nunit/pull/4419">PR 4419</a></li>
 </ul>
+<p>Also note that there are some breaking changes in the API for NUnit.</p>
+<p>Ref <a href="https://github.com/nunit/nunit/issues/4610">Issue 4610</a>.</p>
+<ul>
+<li>Constraint.Description:  It is now an abstract get property, earlier a virtual with protected setter.</li>
+<li>PrefixConstraint.DescriptionPrefix: It is now an abstract get property, earlier a virtual with protected setter.</li>
+</ul>
 <h2 id="nunit-3140---november-4-2023">NUnit 3.14.0 - November 4, 2023</h2>
 <p>Total number of issues fixed in this release is : 16</p>
 <h3 id="enhancements-2">Enhancements</h3>
