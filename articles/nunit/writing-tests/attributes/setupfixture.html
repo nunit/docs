@@ -88,7 +88,8 @@
 
 <p>This is the attribute that marks a class that contains the one-time
 setup or teardown methods for all the test fixtures in a given
-namespace. The class may contain at most one method marked with the
+namespace including nested namespaces below.</p>
+<p>The class may contain at most one method marked with the
 OneTimeSetUpAttribute and one method marked with the OneTimeTearDownAttribute.</p>
 <p>There are a few restrictions on a class that is used as a setup fixture.</p>
 <ul>
@@ -106,7 +107,7 @@ of such fixtures is indeterminate.</p>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>A SetUpFixture outside of any namespace provides SetUp and TearDown for the entire assembly.</li>
-<li>A SetUpFixture in a namespace will apply tests to that exact namespace only, and not to any namespaces below it.</li>
+<li>A SetUpFixture in a namespace will apply tests to that namespace and all contained namespaces.</li>
 </ul>
 <h2 id="example">Example</h2>
 <pre><code class="lang-csharp">using System;
@@ -131,9 +132,34 @@ namespace NUnit.Tests
   }
 }
 </code></pre>
+<h2 id="detailed-explanation">Detailed explanation</h2>
+<p>With respect to the order of execution of setup (also one-time setup) it's deterministic between namespaces (including
+nested namespaces) but non-deterministic if you have two setups at the same level, e.g. two methods in the same class
+marked [SetUp]. That's, however, a usage that should only come up in limited situations and is easy to avoid.</p>
+<p>The defined order is as follows...</p>
+<ol>
+<li>Setup starts at the assembly level SetUpFixture, outside of any namespace.</li>
+<li>It continues with the top level of any SetUpFixtures in a namespace , proceeds downward into any nested namespaces.</li>
+<li>Setup code in a TestFixture comes after any SetUpFixtures that control the namespace of the fixture.</li>
+<li>At each of the above levels, inheritance may also come into play. Base class setups are run before those of the
+derived class.</li>
+<li>Teardown for any of the above executes in the reverse order.</li>
+<li>Ordering of TestFixtures or SetUpFixtures within the same namespace is indeterminate.</li>
+<li>Ordering of multiple setup methods within the same class is indeterminate.</li>
+</ol>
+<p>[Items 6 and 7 rarely come into play but the features are available for situations like code generation, where it may
+be more convenient to have multiple setup fixtures and/or methods.]</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Prior to NUnit 3.0, SetUpFixture used the SetUp and TearDown attributes rather than OneTimeSetUp and OneTimeTearDown.
+<p>Filtering on <code>SetUpFixture</code>s</p>
+</div>
+<p>A <code>SetUpFixture</code> is normally not used for filtering tests.  However, if that is done, one should be aware that a
+<code>SetUpFixture</code> encapsulates all tests to which it belongs.
+If placed in a namespace it will encapsulate all tests in that namespace and contained namespaces.
+If placed on the assembly level, it will encapsulate all tests in the assembly.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Prior to NUnit 3.0, <code>SetUpFixture</code> used the <code>SetUp</code> and <code>TearDown</code> attributes rather than <code>OneTimeSetUp</code> and <code>OneTimeTearDown</code>.
 The older attributes are no longer supported in SetUpFixtures in NUnit 3.0 and later.</p>
 </div>
 <h2 id="see-also">See also</h2>
