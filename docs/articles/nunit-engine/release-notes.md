@@ -2,7 +2,53 @@
 uid: consoleenginereleasenotes
 ---
 
+<!-- markdownlint-disable-file MD013 -->
+
 # Console and Engine Release Notes
+
+## NUnit Console & Engine 3.17.0 - January 4, 2024
+
+This release adds support for .net 8 by adding a missing agent.
+
+### Enhancement
+
+* [#1374](https://github.com/nunit/nunit-console/issues/1374) Add .NET 8 build for nunit-agent
+
+Note that the release is based on the 3.15.5 version.
+
+## NUnit Console and Engine 3.15.5 - September 26, 2023
+
+### Enhancement
+
+* [#1362](https://github.com/nunit/nunit-console/issues/1362) Updating Testcentric.Metadata
+
+## NUnit Console and Engine 3.15.4 - May 27, 2023
+
+A version of the 3.15 series supporting NUnit 4.
+This is also required for having an engine for a corresponding adapter release.
+
+### Enhancement
+
+* [#1339](https://github.com/nunit/nunit-console/issues/1339) Support NUnit 4
+
+## NUnit Console & Engine 3.16.3 - February 21, 2023
+
+### Bugs
+
+* [#1307](https://github.com/nunit/nunit-console/issues/1307) NUnit3TestAdapter integration: Exception when using NUnit.Engine 3.16.2
+* [#1317](https://github.com/nunit/nunit-console/pull/1317) Fix assembly dependencies resolver for .NET Core
+* [#1320](https://github.com/nunit/nunit-console/pull/1320) Add support for .Net 8.0
+
+## NUnit Console & Engine 3.16.2 - January 11, 2023
+
+### Bug
+
+* [#1300](https://github.com/nunit/nunit-console/issues/1300) Error when running x86 test test under .NET Core
+
+### Build
+
+* [#1294](https://github.com/nunit/nunit-console/issues/1294) Use pre-installed .NET 7.0 on AppVeyor
+* [#1296](https://github.com/nunit/nunit-console/issues/1296) Use NUNIT prefix for API_KEY environment variables
 
 ## NUnit Console & Engine 3.16.1 - January 4, 2023
 
