@@ -82,7 +82,7 @@ A `SetUpFixture` is normally not used for filtering tests.  However, if that is 
  If placed on the assembly level, it will encapsulate all tests in the assembly.
 
 > [!NOTE]
-> Prior to NUnit 3.0, SetUpFixture used the SetUp and TearDown attributes rather than OneTimeSetUp and OneTimeTearDown.
+> Prior to NUnit 3.0, `SetUpFixture` used the `SetUp` and `TearDown` attributes rather than `OneTimeSetUp` and `OneTimeTearDown`.
 The older attributes are no longer supported in SetUpFixtures in NUnit 3.0 and later.
 
 ## See also
