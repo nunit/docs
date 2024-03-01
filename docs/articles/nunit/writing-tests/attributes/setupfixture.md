@@ -59,19 +59,23 @@ namespace NUnit.Tests
 
 ## Detailed explanation
 
-With respect to the order of execution of setup (also one-time setup) it's deterministic between namespaces (including nested namespaces) but non-deterministic if you have two setups at the same level, e.g. two methods in the same class marked [SetUp]. That's, however, a usage that should only come up in limited situations and is easy to avoid.
+With respect to the order of execution of setup (also one-time setup) it's deterministic between namespaces (including
+ nested namespaces) but non-deterministic if you have two setups at the same level, e.g. two methods in the same class
+ marked [SetUp]. That's, however, a usage that should only come up in limited situations and is easy to avoid.
 
 The defined order is as follows...
 
 1. Setup starts at the assembly level SetUpFixture, outside of any namespace.
 2. It continues with the top level of any SetUpFixtures in a namespace , proceeds downward into any nested namespaces.
 3. Setup code in a TestFixture comes after any SetUpFixtures that control the namespace of the fixture.
-4. At each of the above levels, inheritance may also come into play. Base class setups are run before those of the derived class.
+4. At each of the above levels, inheritance may also come into play. Base class setups are run before those of the
+ derived class.
 5. Teardown for any of the above executes in the reverse order.
 6. Ordering of TestFixtures or SetUpFixtures within the same namespace is indeterminate.
 7. Ordering of multiple setup methods within the same class is indeterminate.
 
-[Items 6 and 7 rarely come into play but the features are available for situations like code generation, where it may be more convenient to have multiple setup fixtures and/or methods.]
+[Items 6 and 7 rarely come into play but the features are available for situations like code generation, where it may
+ be more convenient to have multiple setup fixtures and/or methods.]
 
 > [!NOTE]
 > Filtering on SetUpFixtures
