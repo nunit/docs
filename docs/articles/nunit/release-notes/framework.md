@@ -223,8 +223,8 @@ Also note that there are some breaking changes in the API for NUnit.
 
 Ref [Issue 4610](https://github.com/nunit/nunit/issues/4610).
 
-* Constraint.Description:  It is now an abstract property, earlier a virtual.  
-* PrefixConstraint.DescriptionPrefix: It is now an abstract property, earlier a virtual.
+* Constraint.Description:  It is now an abstract get property, earlier a virtual with protected setter.  
+* PrefixConstraint.DescriptionPrefix: It is now an abstract get property, earlier a virtual with protected setter.
 
 ## NUnit 3.14.0 - November 4, 2023
 
