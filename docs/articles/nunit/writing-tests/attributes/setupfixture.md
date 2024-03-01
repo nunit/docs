@@ -74,7 +74,7 @@ The defined order is as follows...
 [Items 6 and 7 rarely come into play but the features are available for situations like code generation, where it may be more convenient to have multiple setup fixtures and/or methods.]
 
 > [!NOTE]
-> Filtering on SetUpFixtures
+> Filtering on `SetUpFixture`s
 
 A `SetUpFixture` is normally not used for filtering tests.  However, if that is done, one should be aware that a
  `SetUpFixture` encapsulates all tests to which it belongs.
