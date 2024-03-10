@@ -66,6 +66,8 @@ the following forms:
 * `--OPTION:filename`
 * `--OPTION:filename;format=formatname`
 
+Be aware that the semicolon (;) might need escaping in some terminals.
+
 The `--result` option may use any of the following formats:
 
 * `nunit3` - the native XML format for NUnit 3.0
