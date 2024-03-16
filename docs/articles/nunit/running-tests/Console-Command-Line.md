@@ -82,6 +82,8 @@ the following forms:
 * `--OPTION:filename;format=formatname`
 * `--OPTION:filename;transform=xsltfile`
 
+Be aware that the semicolon (;) might need escaping in some terminals.
+
 The --result option may use any of the following formats:
 
 * nunit3 - the native XML format for NUnit 3
