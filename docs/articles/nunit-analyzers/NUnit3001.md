@@ -1,6 +1,6 @@
 # NUnit3001
 
-## Expression was checked in an Assert.NotNull, Assert.IsNotNull or Assert.That call
+## Expression was checked in an ClassicAssert.NotNull, ClassicAssert.IsNotNull or Assert.That call
 
 | Topic    | Value
 | :--      | :--
@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Suppressor
-| Code     | [DereferencePossiblyNullReferenceSuppressor](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/DereferencePossiblyNullReferenceSuppressor.cs)
+| Code     | [DereferencePossiblyNullReferenceSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/DereferencePossiblyNullReferenceSuppressor.cs)
 
 ## Description
 
@@ -18,8 +18,8 @@ This rule check diagnostics reported by the CS8601-CS8607 and CS8629 compiler er
 
 It then checks the previous statements for one of:
 
-* `Assert.NotNull(...)`
-* `Assert.IsNotNull(...)`
+* `ClassicAssert.NotNull(...)`
+* `ClassicAssert.IsNotNull(...)`
 * `Assert.That(..., Is.Not.Null)`
 
 For the same expression as the one that raised the original compiler error.
@@ -31,8 +31,8 @@ In this case, the previous statement is allowed to be one of:
 
 * `Assert.That(...HasValue)`
 * `Assert.That(...HasValue, Is.True)`
-* `Assert.True(...HasValue)`
-* `Assert.IsTrue(...HasValue)`
+* `ClassicAssert.True(...HasValue)`
+* `ClassicAssert.IsTrue(...HasValue)`
 
 The exception is that if the statement is part of an `Assert.Multiple`
 it is not suppressed, as in this case the statement containing the compiler error will be executed.
@@ -90,7 +90,7 @@ The rule has no severity, but can be disabled.
 ### Via ruleset file
 
 To disable the rule for a project, you need to add a
-[ruleset file](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
+[ruleset file](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -98,6 +98,8 @@ To disable the rule for a project, you need to add a
   <Rules AnalyzerId="DiagnosticSuppressors" RuleNamespace="NUnit.NUnitAnalyzers">
     <Rule Id="NUnit3001" Action="Info" /> <!-- Possible Null Reference -->
     <Rule Id="NUnit3002" Action="Info" /> <!-- NonNullableField/Property is Uninitialized -->
+    <Rule Id="NUnit3003" Action="Info" /> <!-- Avoid Uninstantiated Internal Classes -->
+    <Rule Id="NUnit3004" Action="Info" /> <!-- Types that own disposable fields should be disposable -->
   </Rules>
 </RuleSet>
 ```
@@ -117,7 +119,7 @@ For more info about rulesets see [MSDN](https://learn.microsoft.com/en-us/visual
 This is currently not working. Waiting for [Roslyn](https://github.com/dotnet/roslyn/issues/49727)
 
 ```ini
-# NUnit3001: Expression was checked in an Assert.NotNull, Assert.IsNotNull or Assert.That call
+# NUnit3001: Expression was checked in an ClassicAssert.NotNull, ClassicAssert.IsNotNull or Assert.That call
 dotnet_diagnostic.NUnit3001.severity = none
 ```
 <!-- end generated config severity -->

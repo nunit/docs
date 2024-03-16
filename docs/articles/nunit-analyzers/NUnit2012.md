@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [StringConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs)
+| Code     | [StringConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs)
 
 ## Description
 
@@ -26,13 +26,13 @@ public void Test()
 {
     string actual = "...";
     string expected = "...";
-    Assert.True(actual.StartsWith(expected));
+    ClassicAssert.True(actual.StartsWith(expected));
 }
 ```
 
 ## How to fix violations
 
-The analyzer comes with a code fix that will replace `Assert.True(actual.StartWith(expected))` with
+The analyzer comes with a code fix that will replace `ClassicAssert.True(actual.StartWith(expected))` with
 `Assert.That(actual, Does.StartWith(expected))`. So the code block above will be changed into
 
 ```csharp
@@ -50,7 +50,8 @@ public void Test()
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

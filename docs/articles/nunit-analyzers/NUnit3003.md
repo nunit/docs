@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Suppressor
-| Code     | [AvoidUninstantiatedInternalClassSuppressor](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/AvoidUninstantiatedInternalClassSuppressor.cs)
+| Code     | [AvoidUninstantiatedInternalClassSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/AvoidUninstantiatedInternalClassSuppressor.cs)
 
 ## Description
 
@@ -16,7 +16,8 @@ Class is a NUnit TestFixture and called by reflection
 
 ## Motivation
 
-The default roslyn analyzer has rule [CA1812](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1812)
+The default roslyn analyzer has rule
+[CA1812](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1812)
 which warns about internal classes not being used.
 That analyzer doesn't know about NUnit test classes.
 This suppressor catches the error, verifies the class is an NUnit TestFixture and if so suppresses the error.
@@ -29,7 +30,7 @@ The rule has no severity, but can be disabled.
 ### Via ruleset file
 
 To disable the rule for a project, you need to add a
-[ruleset file](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
+[ruleset file](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
