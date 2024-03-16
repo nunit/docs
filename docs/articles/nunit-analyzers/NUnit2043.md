@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [ComparisonConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ConstraintUsage/ComparisonConstraintUsageAnalyzer.cs)
+| Code     | [ComparisonConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/ConstraintUsage/ComparisonConstraintUsageAnalyzer.cs)
 
 ## Description
 
@@ -24,13 +24,13 @@ where it is possible to replace with the appropriate comparison constraint.
 [Test]
 public void Test()
 {
-    Assert.True(actual > expected);
+    ClassicAssert.True(actual > expected);
 }
 ```
 
 ## How to fix violations
 
-The analyzer comes with a code fix that will replace `Assert.True(actual > expected)` with
+The analyzer comes with a code fix that will replace `ClassicAssert.True(actual > expected)` with
 `Assert.That(actual, Is.GreaterThan(expected))`. So the code block above will be changed into
 
 ```csharp
@@ -46,7 +46,8 @@ public void Test()
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

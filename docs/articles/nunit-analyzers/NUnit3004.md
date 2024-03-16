@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Suppressor
-| Code     | [TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor.cs)
+| Code     | [TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor.cs)
 
 ## Description
 
@@ -17,7 +17,8 @@ Field/Property is Disposed in TearDown or OneTimeTearDown method
 ## Motivation
 
 The Roslyn analyzer fires
-[CA1001](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1001) for classes that have
+[CA1001](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1001)
+for classes that have
 [`IDisposable`](https://learn.microsoft.com/en-us/dotnet/api/system.idisposable) members, but itself is not
 `IDisposable`.
 
@@ -34,8 +35,8 @@ The rule has no severity, but can be disabled.
 
 ### Via ruleset file
 
-To disable the rule for a project, you need to add a [ruleset
-file](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
+To disable the rule for a project, you need to add a
+[ruleset file](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -57,8 +58,7 @@ and add it to the project like:
 </PropertyGroup>
 ```
 
-For more info about rulesets see
-[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+For more info about rulesets see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 

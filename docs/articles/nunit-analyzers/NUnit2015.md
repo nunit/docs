@@ -1,6 +1,6 @@
 # NUnit2015
 
-## Consider using Assert.That(actual, Is.SameAs(expected)) instead of Assert.AreSame(expected, actual)
+## Consider using Assert.That(actual, Is.SameAs(expected)) instead of ClassicAssert.AreSame(expected, actual)
 
 | Topic    | Value
 | :--      | :--
@@ -8,30 +8,30 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Assertion
-| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
+| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
 
 ## Description
 
 Consider using the constraint model, `Assert.That(actual, Is.SameAs(expected))`, instead of the classic model,
-`Assert.AreSame(expected, actual)`.
+`ClassicAssert.AreSame(expected, actual)`.
 
 ## Motivation
 
-The assert `Assert.AreSame` from the classic Assert model makes it easy to confuse the `expected` and the `actual`
-argument, so this analyzer marks usages of `Assert.AreSame`.
+The assert `ClassicAssert.AreSame` from the classic Assert model makes it easy to confuse the `expected` and the
+`actual` argument, so this analyzer marks usages of `ClassicAssert.AreSame`.
 
 ```csharp
 [Test]
 public void Test()
 {
-    Assert.AreSame(expected, actual);
+    ClassicAssert.AreSame(expected, actual);
 }
 ```
 
 ## How to fix violations
 
-The analyzer comes with a code fix that will replace `Assert.AreSame(expected, actual)` with `Assert.That(actual,
-Is.SameAs(expected))`. So the code block above will be changed into.
+The analyzer comes with a code fix that will replace `ClassicAssert.AreSame(expected, actual)` with
+`Assert.That(actual, Is.SameAs(expected))`. So the code block above will be changed into.
 
 ```csharp
 [Test]
@@ -52,7 +52,7 @@ Configure the severity per project, for more info see
 ### Via .editorconfig file
 
 ```ini
-# NUnit2015: Consider using Assert.That(actual, Is.SameAs(expected)) instead of Assert.AreSame(expected, actual)
+# NUnit2015: Consider using Assert.That(actual, Is.SameAs(expected)) instead of ClassicAssert.AreSame(expected, actual)
 dotnet_diagnostic.NUnit2015.severity = chosenSeverity
 ```
 
@@ -61,22 +61,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit2015 // Consider using Assert.That(actual, Is.SameAs(expected)) instead of Assert.AreSame(expected, actual)
+#pragma warning disable NUnit2015 // Consider using Assert.That(actual, Is.SameAs(expected)) instead of ClassicAssert.AreSame(expected, actual)
 Code violating the rule here
-#pragma warning restore NUnit2015 // Consider using Assert.That(actual, Is.SameAs(expected)) instead of Assert.AreSame(expected, actual)
+#pragma warning restore NUnit2015 // Consider using Assert.That(actual, Is.SameAs(expected)) instead of ClassicAssert.AreSame(expected, actual)
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2015 // Consider using Assert.That(actual, Is.SameAs(expected)) instead of Assert.AreSame(expected, actual)
+#pragma warning disable NUnit2015 // Consider using Assert.That(actual, Is.SameAs(expected)) instead of ClassicAssert.AreSame(expected, actual)
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2015:Consider using Assert.That(actual, Is.SameAs(expected)) instead of Assert.AreSame(expected, actual)",
+    "NUnit2015:Consider using Assert.That(actual, Is.SameAs(expected)) instead of ClassicAssert.AreSame(expected, actual)",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

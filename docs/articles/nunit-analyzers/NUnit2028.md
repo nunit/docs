@@ -1,6 +1,7 @@
 # NUnit2028
 
-## Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of Assert.GreaterOrEqual(actual, expected)
+<!-- markdownlint-disable-next-line MD013 -->
+## Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of ClassicAssert.GreaterOrEqual(actual, expected)
 
 | Topic    | Value
 | :--      | :--
@@ -8,30 +9,30 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
+| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
 
 ## Description
 
 Consider using the constraint model, `Assert.That(actual, Is.GreaterThanOrEqualTo(expected))`, instead of the classic
-model, `Assert.GreaterOrEqual(actual, expected)`.
+model, `ClassicAssert.GreaterOrEqual(actual, expected)`.
 
 ## Motivation
 
-The assert `Assert.GreaterOrEqual` from the classic Assert model makes it easy to confuse the `expected` and the
-`actual` argument, so this analyzer marks usages of `Assert.GreaterOrEqual`.
+The assert `ClassicAssert.GreaterOrEqual` from the classic Assert model makes it easy to confuse the `expected` and the
+`actual` argument, so this analyzer marks usages of `ClassicAssert.GreaterOrEqual`.
 
 ```csharp
 [Test]
 public void Test()
 {
-    Assert.GreaterOrEqual(actual, expected);
+    ClassicAssert.GreaterOrEqual(actual, expected);
 }
 ```
 
 ## How to fix violations
 
-The analyzer comes with a code fix that will replace `Assert.GreaterOrEqual(actual, expected)` with `Assert.That(actual,
-Is.GreaterThanOrEqualTo(expected))`. So the code block above will be changed into.
+The analyzer comes with a code fix that will replace `ClassicAssert.GreaterOrEqual(actual, expected)` with
+`Assert.That(actual, Is.GreaterThanOrEqualTo(expected))`. So the code block above will be changed into.
 
 ```csharp
 [Test]
@@ -52,7 +53,7 @@ Configure the severity per project, for more info see
 ### Via .editorconfig file
 
 ```ini
-# NUnit2028: Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of Assert.GreaterOrEqual(actual, expected)
+# NUnit2028: Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of ClassicAssert.GreaterOrEqual(actual, expected)
 dotnet_diagnostic.NUnit2028.severity = chosenSeverity
 ```
 
@@ -61,22 +62,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit2028 // Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of Assert.GreaterOrEqual(actual, expected)
+#pragma warning disable NUnit2028 // Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of ClassicAssert.GreaterOrEqual(actual, expected)
 Code violating the rule here
-#pragma warning restore NUnit2028 // Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of Assert.GreaterOrEqual(actual, expected)
+#pragma warning restore NUnit2028 // Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of ClassicAssert.GreaterOrEqual(actual, expected)
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit2028 // Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of Assert.GreaterOrEqual(actual, expected)
+#pragma warning disable NUnit2028 // Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of ClassicAssert.GreaterOrEqual(actual, expected)
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion",
-    "NUnit2028:Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of Assert.GreaterOrEqual(actual, expected)",
+    "NUnit2028:Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of ClassicAssert.GreaterOrEqual(actual, expected)",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

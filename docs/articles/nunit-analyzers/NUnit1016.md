@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
 
 ## Description
 
@@ -28,7 +28,7 @@ public class MyTestClass
     [TestCaseSource(typeof(DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
-        Assert.AreEqual(q, n / d);
+        ClassicAssert.AreEqual(q, n / d);
     }
 }
 
@@ -49,7 +49,8 @@ class DivideCases : IEnumerable
 
 In the sample above, the class `DivideCases` does not have a default constructor - i.e. a constructor with no parameters.
 
-However, source types specified by `TestCaseSource` [must have a default constructor](xref:testcasesourceattribute).
+However, source types specified by `TestCaseSource`
+[must have a default constructor](xref:testcasesourceattribute).
 
 ### Fix
 
@@ -61,7 +62,7 @@ public class MyTestClass
     [TestCaseSource(typeof(DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
-        Assert.AreEqual(q, n / d);
+        ClassicAssert.AreEqual(q, n / d);
     }
 }
 
@@ -85,7 +86,8 @@ class DivideCases : IEnumerable
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 
