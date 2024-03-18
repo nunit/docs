@@ -66,6 +66,7 @@ Constraint Name                      |
 [ThrowsNothingConstraint](ThrowsNothingConstraint.md)          |
 [TrueConstraint](TrueConstraint.md)                   |
 [UniqueItemsConstraint](UniqueItemsConstraint.md)            |
+[WhiteSpaceConstraint](WhiteSpaceConstraint.md)             |
 [XmlSerializableConstraint](XmlSerializableConstraint.md)        |
 
 ## Constraints by Category
@@ -117,6 +118,7 @@ Constraint Name                      |
 [NaNConstraint](NaNConstraint.md)                    |
 [NullConstraint](NullConstraint.md)                   |
 [TrueConstraint](TrueConstraint.md)                   |
+[WhiteSpaceConstraint](WhiteSpaceConstraint.md)             |
 
 ### File and Directory Constraints
 
