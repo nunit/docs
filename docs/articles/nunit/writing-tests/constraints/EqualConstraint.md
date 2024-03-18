@@ -37,12 +37,16 @@ Is.Zero // Equivalent to Is.EqualTo(0)
       .Seconds
       .Milliseconds
       .Ticks
-...UsingPropertiesComparer()  // From version 4.1
+...IgnoreCase
+...IgnoreWhiteSpace
 ...Using(IEqualityComparer comparer)
-...Using(IEqualityComparer<T> comparer)
 ...Using(IComparer comparer)
+...Using<T>(IEqualityComparer<T> comparer)
 ...Using<T>(IComparer<T> comparer)
 ...Using<T>(Comparison<T> comparer)
+...Using<T>(Func<T, T, bool> comparer)
+...Using<TActual, TExpected>(Func<TActual, TExpected, bool> comparer)
+...UsingPropertiesComparer()  // From version 4.1
 ```
 
 ## Comparing Numerics

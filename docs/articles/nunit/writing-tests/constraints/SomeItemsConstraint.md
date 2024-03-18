@@ -18,6 +18,14 @@ Has.Some...
 ## Modifiers
 
 ```csharp
+...IgnoreCase
+...IgnoreWhiteSpace
+...Using(IEqualityComparer comparer)
+...Using(IComparer comparer)
+...Using<T>(IEqualityComparer<T> comparer)
+...Using<T>(IComparer<T> comparer)
+...Using<T>(Comparison<T> comparer)
+...Using<TCollectionType, TMemberType>(Func<TCollectionType, TMemberType, bool> comparer)
 ...UsingPropertiesComparer()  // From version 4.1
 ```
 
