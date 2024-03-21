@@ -33,9 +33,6 @@ Is.AnyOf(object[] expected)
 
 ## Examples of Use
 
-```csharp
-Assert.That(42, Is.AnyOf(0, -1, 42, 100));
+[!code-csharp[AnyOfExample](~/snippets/Snippets.NUnit/Constraints/ConstraintExamples.cs#AnyOfExample)]
 
-// You can use a custom comparer as well
-Assert.That(myOwnObject, Is.AnyOf(myArray).Using(myComparer));
-```
+[!code-csharp[AnyOfWithCustomComparison](~/snippets/Snippets.NUnit/Constraints/ConstraintExamples.cs#AnyOfWithCustomComparison)]
