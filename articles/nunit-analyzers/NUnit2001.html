@@ -86,7 +86,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit2001">NUnit2001</h1>
 
-<h2 id="consider-using-assertthatexpr-isfalse-instead-of-assertfalseexpr">Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)</h2>
+<h2 id="consider-using-assertthatexpr-isfalse-instead-of-classicassertfalseexpr">Consider using Assert.That(expr, Is.False) instead of ClassicAssert.False(expr)</h2>
 <table>
 <thead>
 <tr>
@@ -113,23 +113,24 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs">ClassicModelAssertUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs">ClassicModelAssertUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>Consider using the constraint model, <code>Assert.That(expr, Is.False)</code>, instead of the classic model, <code>Assert.False(expr)</code>.</p>
+<p>Consider using the constraint model, <code>Assert.That(expr, Is.False)</code>, instead of the classic model,
+<code>ClassicAssert.False(expr)</code>.</p>
 <h2 id="motivation">Motivation</h2>
 <p>The classic Assert model contains less flexibility than the constraint model,
-so this analyzer marks usages of <code>Assert.False</code> from the classic Assert model.</p>
+so this analyzer marks usages of <code>ClassicAssert.False</code> from the classic Assert model.</p>
 <pre><code class="lang-csharp">[Test]
 public void Test()
 {
-    Assert.False(expression);
+    ClassicAssert.False(expression);
 }
 </code></pre>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
-<p>The analyzer comes with a code fix that will replace <code>Assert.False(expression)</code> with
+<p>The analyzer comes with a code fix that will replace <code>ClassicAssert.False(expression)</code> with
 <code>Assert.That(expression, Is.False)</code>. So the code block above will be changed into.</p>
 <pre><code class="lang-csharp">[Test]
 public void Test()
@@ -140,23 +141,24 @@ public void Test()
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit2001: Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)
+<pre><code class="lang-ini"># NUnit2001: Consider using Assert.That(expr, Is.False) instead of ClassicAssert.False(expr)
 dotnet_diagnostic.NUnit2001.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2001 // Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)
+<pre><code class="lang-csharp">#pragma warning disable NUnit2001 // Consider using Assert.That(expr, Is.False) instead of ClassicAssert.False(expr)
 Code violating the rule here
-#pragma warning restore NUnit2001 // Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)
+#pragma warning restore NUnit2001 // Consider using Assert.That(expr, Is.False) instead of ClassicAssert.False(expr)
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2001 // Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)
+<pre><code class="lang-csharp">#pragma warning disable NUnit2001 // Consider using Assert.That(expr, Is.False) instead of ClassicAssert.False(expr)
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2001:Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)&quot;,
+    &quot;NUnit2001:Consider using Assert.That(expr, Is.False) instead of ClassicAssert.False(expr)&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->

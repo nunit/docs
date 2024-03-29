@@ -12,9 +12,9 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>NUnit2023 | NUnit Docs </title>
+      <title>NUnit2049 | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="NUnit2023 | NUnit Docs ">
+      <meta name="title" content="NUnit2049 | NUnit Docs ">
     
     
       <link rel="shortcut icon" href="../../favicon.ico">
@@ -84,9 +84,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="nunit2023">NUnit2023</h1>
+<h1 id="nunit2049">NUnit2049</h1>
 
-<h2 id="invalid-nullconstraint-usage">Invalid NullConstraint usage</h2>
+<h2 id="consider-using-assertthat-instead-of-collectionassert">Consider using Assert.That(...) instead of CollectionAssert(...)</h2>
 <table>
 <thead>
 <tr>
@@ -97,11 +97,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Id</td>
-<td style="text-align: left;">NUnit2023</td>
+<td style="text-align: left;">NUnit2049</td>
 </tr>
 <tr>
 <td style="text-align: left;">Severity</td>
-<td style="text-align: left;">Error</td>
+<td style="text-align: left;">Warning</td>
 </tr>
 <tr>
 <td style="text-align: left;">Enabled</td>
@@ -113,38 +113,82 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/NullConstraintUsage/NullConstraintUsageAnalyzer.cs">NullConstraintUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/CollectionAssertUsage/CollectionAssertUsageAnalyzer.cs">CollectionAssertUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>NullConstraint is allowed only for reference types or nullable value types.</p>
+<p>Consider using the constraint model, <code>Assert.That(actual, {0}(expected))</code>, instead of the classic model,
+<code>CollectionAssert.{1}(expected, actual)</code>.</p>
 <h2 id="motivation">Motivation</h2>
-<p>Non-nullable value types cannot have <code>null</code> value, therefore <code>Is.Null</code> assertions will always fail (or will always pass
-for <code>Is.Not.Null</code>).</p>
+<p>The classic Assert model contains less flexibility than the constraint model and makes it easy to mix the order of the
+parameters, so this analyzer marks usages of all <code>CollectionAssert</code> methods from the classic Assert model.</p>
+<pre><code class="lang-csharp">[Test]
+public void Test()
+{
+    CollectionAssert.AllItemsAreInstancesOfType(collection, expected);
+    CollectionAssert.AllItemsAreNotNull(collection);
+    CollectionAssert.AllItemsAreUnique(collection);
+    CollectionAssert.AreEqual(expected, actual);
+    CollectionAssert.AreEquivalent(expected, actual);
+    CollectionAssert.AreNotEqual(expected, actual);
+    CollectionAssert.AreNotEquivalent(expected, actual);
+    CollectionAssert.Contains(collection, expected);
+    CollectionAssert.DoesNotContain(collection, expected);
+    CollectionAssert.IsNotSubsetOf(subset, superset);
+    CollectionAssert.IsSubsetOf(subset, superset);
+    CollectionAssert.IsNotSupersetOf(superset, subset);
+    CollectionAssert.IsSupersetOf(superset, subset);
+    CollectionAssert.IsEmpty(collection);
+    CollectionAssert.IsNotEmpty(collection);
+    CollectionAssert.IsOrdered(collection);
+}
+</code></pre>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
-<p>Use suitable constraint.</p>
+<p>The analyzer comes with a code fix that will replace <code>StringAssert.&lt;method&gt;(expected, actual)</code> with
+<code>Assert.That(actual, &lt;constraint&gt;(expected))</code>. So the code block above will be changed into.</p>
+<pre><code class="lang-csharp">[Test]
+public void Test()
+{
+    Assert.That(collection, Is.All.InstanceOf(expected));
+    Assert.That(collection, Is.All.Not.Null);
+    Assert.That(collection, Is.Unique);
+    Assert.That(actual, Is.EqualTo(expected).AsCollection);
+    Assert.That(actual, Is.EquivalentTo(expected));
+    Assert.That(actual, Is.Not.EqualTo(expected).AsCollection);
+    Assert.That(actual, Is.Not.EquivalentTo(expected));
+    Assert.That(collection, Has.Member(expected));
+    Assert.That(collection, Has.No.Member(expected));
+    Assert.That(subset, Is.Not.SubsetOf(superset));
+    Assert.That(subset, Is.SubsetOf(superset));
+    Assert.That(superset, Is.Not.SupersetOf(subset));
+    Assert.That(superset, Is.SupersetOf(subset));
+    Assert.That(collection, Is.Empty);
+    Assert.That(collection, Is.Not.Empty);
+    Assert.That(collection, Is.Ordered);
+}
+</code></pre>
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see
 <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit2023: Invalid NullConstraint usage
-dotnet_diagnostic.NUnit2023.severity = chosenSeverity
+<pre><code class="lang-ini"># NUnit2049: Consider using Assert.That(...) instead of CollectionAssert(...)
+dotnet_diagnostic.NUnit2049.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2023 // Invalid NullConstraint usage
+<pre><code class="lang-csharp">#pragma warning disable NUnit2049 // Consider using Assert.That(...) instead of CollectionAssert(...)
 Code violating the rule here
-#pragma warning restore NUnit2023 // Invalid NullConstraint usage
+#pragma warning restore NUnit2049 // Consider using Assert.That(...) instead of CollectionAssert(...)
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2023 // Invalid NullConstraint usage
+<pre><code class="lang-csharp">#pragma warning disable NUnit2049 // Consider using Assert.That(...) instead of CollectionAssert(...)
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2023:Invalid NullConstraint usage&quot;,
+    &quot;NUnit2049:Consider using Assert.That(...) instead of CollectionAssert(...)&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->
@@ -157,7 +201,7 @@ Code violating the rule here
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit2023.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit2049.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>

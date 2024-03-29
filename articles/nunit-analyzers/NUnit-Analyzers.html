@@ -212,7 +212,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit1015.html">NUnit1015</a></td>
-<td style="text-align: left;">The source type does not implement IEnumerable</td>
+<td style="text-align: left;">The source type does not implement I(Async)Enumerable</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">❗</td>
 <td style="text-align: center;">❌</td>
@@ -240,7 +240,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit1019.html">NUnit1019</a></td>
-<td style="text-align: left;">The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable</td>
+<td style="text-align: left;">The source specified by the TestCaseSource does not return an I(Async)Enumerable or a type that implements I(Async)Enumerable</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">❗</td>
 <td style="text-align: center;">❌</td>
@@ -275,7 +275,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit1024.html">NUnit1024</a></td>
-<td style="text-align: left;">The source specified by the ValueSource does not return an IEnumerable or a type that implements IEnumerable</td>
+<td style="text-align: left;">The source specified by the ValueSource does not return an I(Async)Enumerable or a type that implements I(Async)Enumerable</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">❗</td>
 <td style="text-align: center;">❌</td>
@@ -353,42 +353,42 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><a href="NUnit2001.html">NUnit2001</a></td>
-<td style="text-align: left;">Consider using Assert.That(expr, Is.False) instead of Assert.False(expr)</td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.False) instead of ClassicAssert.False(expr)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2002.html">NUnit2002</a></td>
-<td style="text-align: left;">Consider using Assert.That(expr, Is.False) instead of Assert.IsFalse(expr)</td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.False) instead of ClassicAssert.IsFalse(expr)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2003.html">NUnit2003</a></td>
-<td style="text-align: left;">Consider using Assert.That(expr, Is.True) instead of Assert.IsTrue(expr)</td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.True) instead of ClassicAssert.IsTrue(expr)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2004.html">NUnit2004</a></td>
-<td style="text-align: left;">Consider using Assert.That(expr, Is.True) instead of Assert.True(expr)</td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.True) instead of ClassicAssert.True(expr)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2005.html">NUnit2005</a></td>
-<td style="text-align: left;">Consider using Assert.That(actual, Is.EqualTo(expected)) instead of Assert.AreEqual(expected, actual)</td>
+<td style="text-align: left;">Consider using Assert.That(actual, Is.EqualTo(expected)) instead of ClassicAssert.AreEqual(expected, actual)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">⚠️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2006.html">NUnit2006</a></td>
-<td style="text-align: left;">Consider using Assert.That(actual, Is.Not.EqualTo(expected)) instead of Assert.AreNotEqual(expected, actual)</td>
+<td style="text-align: left;">Consider using Assert.That(actual, Is.Not.EqualTo(expected)) instead of ClassicAssert.AreNotEqual(expected, actual)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">⚠️</td>
 <td style="text-align: center;">✅</td>
@@ -451,35 +451,35 @@
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2015.html">NUnit2015</a></td>
-<td style="text-align: left;">Consider using Assert.That(actual, Is.SameAs(expected)) instead of Assert.AreSame(expected, actual)</td>
+<td style="text-align: left;">Consider using Assert.That(actual, Is.SameAs(expected)) instead of ClassicAssert.AreSame(expected, actual)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">⚠️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2016.html">NUnit2016</a></td>
-<td style="text-align: left;">Consider using Assert.That(expr, Is.Null) instead of Assert.Null(expr)</td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.Null) instead of ClassicAssert.Null(expr)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2017.html">NUnit2017</a></td>
-<td style="text-align: left;">Consider using Assert.That(expr, Is.Null) instead of Assert.IsNull(expr)</td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.Null) instead of ClassicAssert.IsNull(expr)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2018.html">NUnit2018</a></td>
-<td style="text-align: left;">Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)</td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.Not.Null) instead of ClassicAssert.NotNull(expr)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2019.html">NUnit2019</a></td>
-<td style="text-align: left;">Consider using Assert.That(expr, Is.Not.Null) instead of Assert.IsNotNull(expr)</td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.Not.Null) instead of ClassicAssert.IsNotNull(expr)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
@@ -522,8 +522,8 @@
 <tr>
 <td style="text-align: left;"><a href="NUnit2025.html">NUnit2025</a></td>
 <td style="text-align: left;">Wrong actual type used with ContainsConstraint</td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">❗</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">💭</td>
 <td style="text-align: center;">❌</td>
 </tr>
 <tr>
@@ -535,91 +535,91 @@
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2027.html">NUnit2027</a></td>
-<td style="text-align: left;">Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of Assert.Greater(actual, expected)</td>
+<td style="text-align: left;">Consider using Assert.That(actual, Is.GreaterThan(expected)) instead of ClassicAssert.Greater(actual, expected)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2028.html">NUnit2028</a></td>
-<td style="text-align: left;">Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of Assert.GreaterOrEqual(actual, expected)</td>
+<td style="text-align: left;">Consider using Assert.That(actual, Is.GreaterThanOrEqualTo(expected)) instead of ClassicAssert.GreaterOrEqual(actual, expected)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2029.html">NUnit2029</a></td>
-<td style="text-align: left;">Consider using Assert.That(actual, Is.LessThan(expected)) instead of Assert.Less(actual, expected)</td>
+<td style="text-align: left;">Consider using Assert.That(actual, Is.LessThan(expected)) instead of ClassicAssert.Less(actual, expected)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2030.html">NUnit2030</a></td>
-<td style="text-align: left;">Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of Assert.LessOrEqual(actual, expected)</td>
+<td style="text-align: left;">Consider using Assert.That(actual, Is.LessThanOrEqualTo(expected)) instead of ClassicAssert.LessOrEqual(actual, expected)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2031.html">NUnit2031</a></td>
-<td style="text-align: left;">Consider using Assert.That(actual, Is.Not.SameAs(expected)) instead of Assert.AreNotSame(expected, actual)</td>
+<td style="text-align: left;">Consider using Assert.That(actual, Is.Not.SameAs(expected)) instead of ClassicAssert.AreNotSame(expected, actual)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">⚠️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2032.html">NUnit2032</a></td>
-<td style="text-align: left;">Consider using Assert.That(expr, Is.Zero) instead of Assert.Zero(expr)</td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.Zero) instead of ClassicAssert.Zero(expr)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2033.html">NUnit2033</a></td>
-<td style="text-align: left;">Consider using Assert.That(expr, Is.Not.Zero) instead of Assert.NotZero(expr)</td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.Not.Zero) instead of ClassicAssert.NotZero(expr)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2034.html">NUnit2034</a></td>
-<td style="text-align: left;">Consider using Assert.That(expr, Is.NaN) instead of Assert.IsNaN(expr)</td>
+<td style="text-align: left;">Consider using Assert.That(expr, Is.NaN) instead of ClassicAssert.IsNaN(expr)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2035.html">NUnit2035</a></td>
-<td style="text-align: left;">Consider using Assert.That(collection, Is.Empty) instead of Assert.IsEmpty(collection)</td>
+<td style="text-align: left;">Consider using Assert.That(collection, Is.Empty) instead of ClassicAssert.IsEmpty(collection)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2036.html">NUnit2036</a></td>
-<td style="text-align: left;">Consider using Assert.That(collection, Is.Not.Empty) instead of Assert.IsNotEmpty(collection)</td>
+<td style="text-align: left;">Consider using Assert.That(collection, Is.Not.Empty) instead of ClassicAssert.IsNotEmpty(collection)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2037.html">NUnit2037</a></td>
-<td style="text-align: left;">Consider using Assert.That(collection, Does.Contain(instance)) instead of Assert.Contains(instance, collection)</td>
+<td style="text-align: left;">Consider using Assert.That(collection, Does.Contain(instance)) instead of ClassicAssert.Contains(instance, collection)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2038.html">NUnit2038</a></td>
-<td style="text-align: left;">Consider using Assert.That(actual, Is.InstanceOf(expected)) instead of Assert.IsInstanceOf(expected, actual)</td>
+<td style="text-align: left;">Consider using Assert.That(actual, Is.InstanceOf(expected)) instead of ClassicAssert.IsInstanceOf(expected, actual)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="NUnit2039.html">NUnit2039</a></td>
-<td style="text-align: left;">Consider using Assert.That(actual, Is.Not.InstanceOf(expected)) instead of Assert.IsNotInstanceOf(expected, actual)</td>
+<td style="text-align: left;">Consider using Assert.That(actual, Is.Not.InstanceOf(expected)) instead of ClassicAssert.IsNotInstanceOf(expected, actual)</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">✅</td>
@@ -680,11 +680,32 @@
 <td style="text-align: center;">⚠️</td>
 <td style="text-align: center;">✅</td>
 </tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2048.html">NUnit2048</a></td>
+<td style="text-align: left;">Consider using Assert.That(...) instead of StringAssert(...)</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2049.html">NUnit2049</a></td>
+<td style="text-align: left;">Consider using Assert.That(...) instead of CollectionAssert(...)</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="NUnit2050.html">NUnit2050</a></td>
+<td style="text-align: left;">NUnit 4 no longer supports string.Format specification</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❗</td>
+<td style="text-align: center;">✅</td>
+</tr>
 </tbody>
 </table>
 <h2 id="suppressor-rules-nunit3001---">Suppressor Rules (NUnit3001 - )</h2>
 <p>Rules which suppress compiler errors based on context. Note that these rules are only available in the .NET Standard 2.0
-builds (version 3.0.0 and above) which require Visual Studio 2019.</p>
+builds (version 3.0.0 and above) which require Visual Studio 2019 (version 16.3) or newer.</p>
 <table>
 <thead>
 <tr>
@@ -698,7 +719,7 @@ builds (version 3.0.0 and above) which require Visual Studio 2019.</p>
 <tbody>
 <tr>
 <td style="text-align: left;"><a href="NUnit3001.html">NUnit3001</a></td>
-<td style="text-align: left;">Expression was checked in an Assert.NotNull, Assert.IsNotNull or Assert.That call</td>
+<td style="text-align: left;">Expression was checked in an ClassicAssert.NotNull, ClassicAssert.IsNotNull or Assert.That call</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">ℹ️</td>
 <td style="text-align: center;">❌</td>

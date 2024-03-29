@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs">ParallelizableUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs">ParallelizableUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -128,7 +128,8 @@ are not and their efforts will have no effect.</p>
 <pre><code class="lang-csharp">[assembly: Parallelizable(ParallelScope.Self)]
 </code></pre>
 <h3 id="explanation">Explanation</h3>
-<p><code>ParallelScope.Self</code> <a class="xref" href="../nunit/writing-tests/attributes/parallelizable.html">only applies to classes and methods</a>, not to assemblies.</p>
+<p><code>ParallelScope.Self</code> <a class="xref" href="../nunit/writing-tests/attributes/parallelizable.html">only applies to classes and methods</a>,
+not to assemblies.</p>
 <h3 id="fix">Fix</h3>
 <p>Either remove it or change to a valid option, such as:</p>
 <pre><code class="lang-csharp">[assembly: Parallelizable(ParallelScope.Children)]

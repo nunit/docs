@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs">TestCaseSourceUsesStringAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs">TestCaseSourceUsesStringAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -128,7 +128,7 @@
     [TestCaseSource(typeof(DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
-        Assert.AreEqual(q, n / d);
+        ClassicAssert.AreEqual(q, n / d);
     }
 }
 
@@ -146,7 +146,8 @@ class DivideCases : IEnumerable
 </code></pre>
 <h3 id="explanation">Explanation</h3>
 <p>In the sample above, the class <code>DivideCases</code> does not have a default constructor - i.e. a constructor with no parameters.</p>
-<p>However, source types specified by <code>TestCaseSource</code> <a class="xref" href="../nunit/writing-tests/attributes/testcasesource.html">must have a default constructor</a>.</p>
+<p>However, source types specified by <code>TestCaseSource</code>
+<a class="xref" href="../nunit/writing-tests/attributes/testcasesource.html">must have a default constructor</a>.</p>
 <h3 id="fix">Fix</h3>
 <p>Add a default constructor to the source type (or remove the parameters from an existing constructor):</p>
 <pre><code class="lang-csharp">public class MyTestClass
@@ -154,7 +155,7 @@ class DivideCases : IEnumerable
     [TestCaseSource(typeof(DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
-        Assert.AreEqual(q, n / d);
+        ClassicAssert.AreEqual(q, n / d);
     }
 }
 
@@ -175,7 +176,8 @@ class DivideCases : IEnumerable
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit1016: The source type does not have a default constructor
 dotnet_diagnostic.NUnit1016.severity = chosenSeverity

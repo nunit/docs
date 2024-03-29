@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor.cs">TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor.cs">TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor</a></td>
 </tr>
 </tbody>
 </table>
@@ -121,7 +121,8 @@
 <p>Field/Property is Disposed in TearDown or OneTimeTearDown method</p>
 <h2 id="motivation">Motivation</h2>
 <p>The Roslyn analyzer fires
-<a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1001">CA1001</a> for classes that have
+<a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1001">CA1001</a>
+for classes that have
 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.idisposable"><code>IDisposable</code></a> members, but itself is not
 <code>IDisposable</code>.</p>
 <p>Many NUnit tests initialize fields in tests or a <code>SetUp</code> method and then <code>Dispose</code> them in the <code>TearDown</code> method.</p>
@@ -131,8 +132,8 @@
 <h2 id="configure-severity">Configure severity</h2>
 <p>The rule has no severity, but can be disabled.</p>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>To disable the rule for a project, you need to add a <a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset">ruleset
-file</a></p>
+<p>To disable the rule for a project, you need to add a
+<a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset">ruleset file</a></p>
 <pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;RuleSet Name=&quot;NUnit.Analyzer Suppressions&quot; Description=&quot;DiagnosticSuppression Rules&quot; ToolsVersion=&quot;12.0&quot;&gt;
   &lt;Rules AnalyzerId=&quot;DiagnosticSuppressors&quot; RuleNamespace=&quot;NUnit.NUnitAnalyzers&quot;&gt;
@@ -148,8 +149,7 @@ file</a></p>
   &lt;CodeAnalysisRuleSet&gt;NUnit.Analyzers.Suppressions.ruleset&lt;/CodeAnalysisRuleSet&gt;
 &lt;/PropertyGroup&gt;
 </code></pre>
-<p>For more info about rulesets see
-<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>For more info about rulesets see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <p>This is currently not working. Waiting for <a href="https://github.com/dotnet/roslyn/issues/49727">Roslyn</a></p>
 <pre><code class="lang-ini"># NUnit3004: Field should be Disposed in TearDown or OneTimeTearDown method

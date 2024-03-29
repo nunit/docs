@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ConstActualValueUsage/ConstActualValueUsageAnalyzer.cs">ConstActualValueUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/ConstActualValueUsage/ConstActualValueUsageAnalyzer.cs">ConstActualValueUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -130,7 +130,7 @@ public void NUnit2007SampleTest()
 {
     var x = 5;
     Assert.That(5, Is.EqualTo(x));
-    Assert.AreEqual(x, 5);
+    ClassicAssert.AreEqual(x, 5);
 }
 </code></pre>
 <h3 id="explanation">Explanation</h3>
@@ -148,7 +148,7 @@ public void NUnit2007SampleTest()
 {
     var x = 5;
     Assert.That(x, Is.EqualTo(5));
-    Assert.AreEqual(5, x);
+    ClassicAssert.AreEqual(5, x);
 }
 </code></pre>
 <!-- start generated config severity -->

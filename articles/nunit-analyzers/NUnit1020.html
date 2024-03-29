@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs">TestCaseSourceUsesStringAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs">TestCaseSourceUsesStringAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -128,7 +128,7 @@
     [TestCaseSource(nameof(DivideCases), new object[] { &quot;Testing&quot; })]
     public void DivideTest(int n, int d, int q)
     {
-        Assert.AreEqual(q, n / d);
+        ClassicAssert.AreEqual(q, n / d);
     }
 
     static object[] DivideCases =
@@ -149,7 +149,7 @@ not supply any parameters.</p>
     [TestCaseSource(nameof(DivideCases), new object[] { &quot;Testing&quot; })]
     public void DivideTest(int n, int d, int q)
     {
-        Assert.AreEqual(q, n / d);
+        ClassicAssert.AreEqual(q, n / d);
     }
 
     static object[] DivideCases(string input)

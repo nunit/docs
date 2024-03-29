@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs">StringConstraintUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs">StringConstraintUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -128,11 +128,11 @@ public void Test()
 {
     string actual = &quot;...&quot;;
     string expected = &quot;...&quot;;
-    Assert.True(actual.Contains(expected));
+    ClassicAssert.True(actual.Contains(expected));
 }
 </code></pre>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
-<p>The analyzer comes with a code fix that will replace <code>Assert.True(actual.Contains(expected))</code> with
+<p>The analyzer comes with a code fix that will replace <code>ClassicAssert.True(actual.Contains(expected))</code> with
 <code>Assert.That(actual, Does.Contain(expected))</code>. So the code block above will be changed into</p>
 <pre><code class="lang-csharp">[Test]
 public void Test()
@@ -145,7 +145,8 @@ public void Test()
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <pre><code class="lang-ini"># NUnit2011: Use ContainsConstraint for better assertion messages in case of failure
 dotnet_diagnostic.NUnit2011.severity = chosenSeverity

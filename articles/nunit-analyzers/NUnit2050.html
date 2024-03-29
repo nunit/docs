@@ -12,9 +12,9 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>NUnit2023 | NUnit Docs </title>
+      <title>NUnit2050 | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="NUnit2023 | NUnit Docs ">
+      <meta name="title" content="NUnit2050 | NUnit Docs ">
     
     
       <link rel="shortcut icon" href="../../favicon.ico">
@@ -84,9 +84,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="nunit2023">NUnit2023</h1>
+<h1 id="nunit2050">NUnit2050</h1>
 
-<h2 id="invalid-nullconstraint-usage">Invalid NullConstraint usage</h2>
+<h2 id="nunit-4-no-longer-supports-stringformat-specification">NUnit 4 no longer supports string.Format specification</h2>
 <table>
 <thead>
 <tr>
@@ -97,7 +97,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Id</td>
-<td style="text-align: left;">NUnit2023</td>
+<td style="text-align: left;">NUnit2050</td>
 </tr>
 <tr>
 <td style="text-align: left;">Severity</td>
@@ -113,38 +113,117 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/NullConstraintUsage/NullConstraintUsageAnalyzer.cs">NullConstraintUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/UpdateStringFormatToInterpolatableString/UpdateStringFormatToInterpolatableStringAnalyzer.cs">UpdateStringFormatToInterpolatableStringAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>NullConstraint is allowed only for reference types or nullable value types.</p>
+<p>Replace format specification with interpolated string.</p>
 <h2 id="motivation">Motivation</h2>
-<p>Non-nullable value types cannot have <code>null</code> value, therefore <code>Is.Null</code> assertions will always fail (or will always pass
-for <code>Is.Not.Null</code>).</p>
+<p>In order to get better failure messages, NUnit4 uses
+<a href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.callerargumentexpressionattribute?view=net-7.0"><code>CallerArgumentExpression</code></a>
+to include the expression passed in for the <em>actual</em> and <em>constraint</em> parameters.
+These are parameters automatically supplied by the compiler.</p>
+<p>To facilitate this, we needed to drop support for
+<a href="https://learn.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting">composite formatting</a>
+All NUnit4 asserts only allow a single <em>message</em> parameter which can be either a simple string literal
+or a <a href="https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation">interpolatable string</a></p>
+<p>This analyzer needs to be run when still building against NUnit3 as otherwise your code won't compile.
+When usages of the new methods with <code>params</code> are detected, the associated CodeFix will convert the format specification
+into an interpolated string.</p>
+<p>Once you moved to NUnit4 the analyzer has some limited functionality as there are a few
+cases where your NUnit3 code will compile on NUnit4, but not the way you want it.
+Here what you think are parameters to a format specification are actually interpreted as
+the <em>actual</em> and <em>constraint</em> expression strings.
+Unfortunately you only find that out when the test fails, which could be never.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
-<p>Use suitable constraint.</p>
+<p>The following code, valid in NUnit3:</p>
+<pre><code class="lang-csharp">[TestCase(4)]
+public void MustBeMultipleOf3(int value)
+{
+    Assert.That(value % 3, Is.Zero, &quot;Expected value ({0}) to be multiple of 3&quot;, value);
+}
+</code></pre>
+<p>Will fail with the following message:</p>
+<pre><code class="lang-plaintext">Expected value (4) to be multiple of 3
+Expected: 0
+But was:  1
+</code></pre>
+<p>The associated CodeFix for this Analyzer rule will convert the test into:</p>
+<pre><code class="lang-csharp">[TestCase(4)]
+public void MustBeMultipleOf3(int value)
+{
+    Assert.That(value % 3, Is.Zero, $&quot;Expected value ({value}) to be multiple of 3&quot;);
+}
+</code></pre>
+<p>The failure message for NUnit4 becomes:</p>
+<pre><code class="lang-csharp">Expected value (4) to be multiple of 3
+Assert.That(value % 3, Is.Zero)
+Expected: 0
+But was:  1
+</code></pre>
+<p>As the <code>[CallerMemberExpression]</code> parameters are <code>string</code>, some of NUnit 3.x code compiles, but when failing show the
+wrong message:</p>
+<pre><code class="lang-csharp">[TestCase(&quot;NUnit 4&quot;, &quot;NUnit 3&quot;)]
+public void TestMessage(string actual, string expected)
+{
+    Assert.That(actual, Is.EqualTo(expected), &quot;Expected '{0}', but got: '{1}'&quot;, expected, actual);
+}
+</code></pre>
+<p>When using NUnit3, this results in:</p>
+<pre><code class="lang-plaintext">  Expected 'NUnit 3', but got: 'NUnit 4'
+  String lengths are both 7. Strings differ at index 6.
+  Expected: &quot;NUnit 3&quot;
+  But was:  &quot;NUnit 4&quot;
+  -----------------^
+</code></pre>
+<p>But when using NUnit4, we get:</p>
+<pre><code class="lang-plaintext"> Message: 
+  Expected '{0}', but got: '{1}'
+Assert.That(NUnit 3, NUnit 4)
+  String lengths are both 7. Strings differ at index 6.
+  Expected: &quot;NUnit 3&quot;
+  But was:  &quot;NUnit 4&quot;
+  -----------------^
+</code></pre>
+<p>Where the format string is treated as the <em>message</em> and its arguments are interpreted as the <em>actual</em> and <em>expected</em>
+expressions! After applying the code fix the code looks like:</p>
+<pre><code class="lang-csharp">[TestCase(&quot;NUnit 4&quot;, &quot;NUnit 3&quot;)]
+public void TestMessage(string actual, string expected)
+{
+    Assert.That(actual, Is.EqualTo(expected), $&quot;Expected '{expected}', but got: '{actual}'&quot;);
+}
+</code></pre>
+<p>and the output:</p>
+<pre><code class="lang-plaintext"> Message: 
+  Expected 'NUnit 3', but got: 'NUnit 4'
+Assert.That(actual, Is.EqualTo(expected))
+  String lengths are both 7. Strings differ at index 6.
+  Expected: &quot;NUnit 3&quot;
+  But was:  &quot;NUnit 4&quot;
+  -----------------^
+</code></pre>
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>Configure the severity per project, for more info see
 <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit2023: Invalid NullConstraint usage
-dotnet_diagnostic.NUnit2023.severity = chosenSeverity
+<pre><code class="lang-ini"># NUnit2050: NUnit 4 no longer supports string.Format specification
+dotnet_diagnostic.NUnit2050.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2023 // Invalid NullConstraint usage
+<pre><code class="lang-csharp">#pragma warning disable NUnit2050 // NUnit 4 no longer supports string.Format specification
 Code violating the rule here
-#pragma warning restore NUnit2023 // Invalid NullConstraint usage
+#pragma warning restore NUnit2050 // NUnit 4 no longer supports string.Format specification
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2023 // Invalid NullConstraint usage
+<pre><code class="lang-csharp">#pragma warning disable NUnit2050 // NUnit 4 no longer supports string.Format specification
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2023:Invalid NullConstraint usage&quot;,
+    &quot;NUnit2050:NUnit 4 no longer supports string.Format specification&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->
@@ -157,7 +236,7 @@ Code violating the rule here
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit2023.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit-analyzers/NUnit2050.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>

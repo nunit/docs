@@ -86,7 +86,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit2018">NUnit2018</h1>
 
-<h2 id="consider-using-assertthatexpr-isnotnull-instead-of-assertnotnullexpr">Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)</h2>
+<h2 id="consider-using-assertthatexpr-isnotnull-instead-of-classicassertnotnullexpr">Consider using Assert.That(expr, Is.Not.Null) instead of ClassicAssert.NotNull(expr)</h2>
 <table>
 <thead>
 <tr>
@@ -113,24 +113,25 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs">ClassicModelAssertUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs">ClassicModelAssertUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>Consider using the constraint model, <code>Assert.That(expr, Is.Not.Null)</code>, instead of the classic model, <code>Assert.NotNull(expr)</code>.</p>
+<p>Consider using the constraint model, <code>Assert.That(expr, Is.Not.Null)</code>, instead of the classic model,
+<code>ClassicAssert.NotNull(expr)</code>.</p>
 <h2 id="motivation">Motivation</h2>
 <p>The classic Assert model contains less flexibility than the constraint model,
-so this analyzer marks usages of <code>Assert.NotNull</code> from the classic Assert model.</p>
+so this analyzer marks usages of <code>ClassicAssert.NotNull</code> from the classic Assert model.</p>
 <pre><code class="lang-csharp">[Test]
 public void Test()
 {
     object obj = null;
-    Assert.NotNull(obj);
+    ClassicAssert.NotNull(obj);
 }
 </code></pre>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
-<p>The analyzer comes with a code fix that will replace <code>Assert.NotNull(expression)</code> with
+<p>The analyzer comes with a code fix that will replace <code>ClassicAssert.NotNull(expression)</code> with
 <code>Assert.That(expression, Is.Not.Null)</code>. So the code block above will be changed into.</p>
 <pre><code class="lang-csharp">[Test]
 public void Test()
@@ -142,23 +143,24 @@ public void Test()
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
-<p>Configure the severity per project, for more info see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit2018: Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)
+<pre><code class="lang-ini"># NUnit2018: Consider using Assert.That(expr, Is.Not.Null) instead of ClassicAssert.NotNull(expr)
 dotnet_diagnostic.NUnit2018.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)
+<pre><code class="lang-csharp">#pragma warning disable NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of ClassicAssert.NotNull(expr)
 Code violating the rule here
-#pragma warning restore NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)
+#pragma warning restore NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of ClassicAssert.NotNull(expr)
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)
+<pre><code class="lang-csharp">#pragma warning disable NUnit2018 // Consider using Assert.That(expr, Is.Not.Null) instead of ClassicAssert.NotNull(expr)
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2018:Consider using Assert.That(expr, Is.Not.Null) instead of Assert.NotNull(expr)&quot;,
+    &quot;NUnit2018:Consider using Assert.That(expr, Is.Not.Null) instead of ClassicAssert.NotNull(expr)&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->

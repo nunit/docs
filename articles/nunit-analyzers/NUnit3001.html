@@ -86,7 +86,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit3001">NUnit3001</h1>
 
-<h2 id="expression-was-checked-in-an-assertnotnull-assertisnotnull-or-assertthat-call">Expression was checked in an Assert.NotNull, Assert.IsNotNull or Assert.That call</h2>
+<h2 id="expression-was-checked-in-an-classicassertnotnull-classicassertisnotnull-or-assertthat-call">Expression was checked in an ClassicAssert.NotNull, ClassicAssert.IsNotNull or Assert.That call</h2>
 <table>
 <thead>
 <tr>
@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/DereferencePossiblyNullReferenceSuppressor.cs">DereferencePossiblyNullReferenceSuppressor</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/DereferencePossiblyNullReferenceSuppressor.cs">DereferencePossiblyNullReferenceSuppressor</a></td>
 </tr>
 </tbody>
 </table>
@@ -122,8 +122,8 @@
 <p><code>CS8602: Dereference of a possibly null reference.</code></p>
 <p>It then checks the previous statements for one of:</p>
 <ul>
-<li><code>Assert.NotNull(...)</code></li>
-<li><code>Assert.IsNotNull(...)</code></li>
+<li><code>ClassicAssert.NotNull(...)</code></li>
+<li><code>ClassicAssert.IsNotNull(...)</code></li>
 <li><code>Assert.That(..., Is.Not.Null)</code></li>
 </ul>
 <p>For the same expression as the one that raised the original compiler error.
@@ -133,8 +133,8 @@ If found, the compiler error is suppressed.</p>
 <ul>
 <li><code>Assert.That(...HasValue)</code></li>
 <li><code>Assert.That(...HasValue, Is.True)</code></li>
-<li><code>Assert.True(...HasValue)</code></li>
-<li><code>Assert.IsTrue(...HasValue)</code></li>
+<li><code>ClassicAssert.True(...HasValue)</code></li>
+<li><code>ClassicAssert.IsTrue(...HasValue)</code></li>
 </ul>
 <p>The exception is that if the statement is part of an <code>Assert.Multiple</code>
 it is not suppressed, as in this case the statement containing the compiler error will be executed.</p>
@@ -181,12 +181,14 @@ This can be done using regular C# language constructs or NUnit assertions.</p>
 <p>The rule has no severity, but can be disabled.</p>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>To disable the rule for a project, you need to add a
-<a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset">ruleset file</a></p>
+<a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset">ruleset file</a></p>
 <pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;RuleSet Name=&quot;NUnit.Analyzer Suppressions&quot; Description=&quot;DiagnosticSuppression Rules&quot; ToolsVersion=&quot;12.0&quot;&gt;
   &lt;Rules AnalyzerId=&quot;DiagnosticSuppressors&quot; RuleNamespace=&quot;NUnit.NUnitAnalyzers&quot;&gt;
     &lt;Rule Id=&quot;NUnit3001&quot; Action=&quot;Info&quot; /&gt; &lt;!-- Possible Null Reference --&gt;
     &lt;Rule Id=&quot;NUnit3002&quot; Action=&quot;Info&quot; /&gt; &lt;!-- NonNullableField/Property is Uninitialized --&gt;
+    &lt;Rule Id=&quot;NUnit3003&quot; Action=&quot;Info&quot; /&gt; &lt;!-- Avoid Uninstantiated Internal Classes --&gt;
+    &lt;Rule Id=&quot;NUnit3004&quot; Action=&quot;Info&quot; /&gt; &lt;!-- Types that own disposable fields should be disposable --&gt;
   &lt;/Rules&gt;
 &lt;/RuleSet&gt;
 </code></pre>
@@ -198,7 +200,7 @@ This can be done using regular C# language constructs or NUnit assertions.</p>
 <p>For more info about rulesets see <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
 <p>This is currently not working. Waiting for <a href="https://github.com/dotnet/roslyn/issues/49727">Roslyn</a></p>
-<pre><code class="lang-ini"># NUnit3001: Expression was checked in an Assert.NotNull, Assert.IsNotNull or Assert.That call
+<pre><code class="lang-ini"># NUnit3001: Expression was checked in an ClassicAssert.NotNull, ClassicAssert.IsNotNull or Assert.That call
 dotnet_diagnostic.NUnit3001.severity = none
 </code></pre>
 <!-- end generated config severity -->

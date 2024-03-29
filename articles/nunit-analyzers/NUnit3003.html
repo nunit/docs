@@ -113,14 +113,15 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/AvoidUninstantiatedInternalClassSuppressor.cs">AvoidUninstantiatedInternalClassSuppressor</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/AvoidUninstantiatedInternalClassSuppressor.cs">AvoidUninstantiatedInternalClassSuppressor</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
 <p>Class is a NUnit TestFixture and called by reflection</p>
 <h2 id="motivation">Motivation</h2>
-<p>The default roslyn analyzer has rule <a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1812">CA1812</a>
+<p>The default roslyn analyzer has rule
+<a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1812">CA1812</a>
 which warns about internal classes not being used.
 That analyzer doesn't know about NUnit test classes.
 This suppressor catches the error, verifies the class is an NUnit TestFixture and if so suppresses the error.</p>
@@ -129,7 +130,7 @@ This suppressor catches the error, verifies the class is an NUnit TestFixture an
 <p>The rule has no severity, but can be disabled.</p>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
 <p>To disable the rule for a project, you need to add a
-<a href="https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset">ruleset file</a></p>
+<a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset">ruleset file</a></p>
 <pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;RuleSet Name=&quot;NUnit.Analyzer Suppressions&quot; Description=&quot;DiagnosticSuppression Rules&quot; ToolsVersion=&quot;12.0&quot;&gt;
   &lt;Rules AnalyzerId=&quot;DiagnosticSuppressors&quot; RuleNamespace=&quot;NUnit.NUnitAnalyzers&quot;&gt;
