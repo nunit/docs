@@ -21,14 +21,15 @@ Is.AnyOf(object[] expected)
 ## Modifiers
 
 ```csharp
+...IgnoreCase
+...IgnoreWhiteSpace  // From version 4.2
+...Using(IEqualityComparer comparer)
 ...Using(IComparer comparer)
-...UsingPropertiesComparer()  // From version 4.1
-...Using<T>(IEqualityComparer comparer)
-...Using<T>(Func<T, T, bool>)
+...Using<T>(IEqualityComparer<T> comparer)
 ...Using<T>(IComparer<T> comparer)
 ...Using<T>(Comparison<T> comparer)
-...Using<T>(IEqualityComparer<T> comparer)
-
+...Using<T>(Func<T, T, bool> comparer)
+...UsingPropertiesComparer()  // From version 4.1
 ```
 
 ## Examples of Use

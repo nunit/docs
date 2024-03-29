@@ -31,6 +31,14 @@ Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("HI", "UNIV
 ## Modifiers
 
 ```csharp
+...IgnoreCase
+...IgnoreWhiteSpace  // From version 4.2
+...Using(IComparer comparer)
+...Using(IEqualityComparer comparer)
+...Using<T>(IComparer<T> comparer)
+...Using<T>(Comparison<T> comparer)
+...Using<T>(Func<T, T, bool> comparer)
+...Using<T>(IEqualityComparer<T> comparer)
 ...UsingPropertiesComparer()  // From version 4.1
 ```
 

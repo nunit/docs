@@ -24,6 +24,7 @@ Is.Zero // Equivalent to Is.EqualTo(0)
 
 ```csharp
 ...IgnoreCase
+...IgnoreWhiteSpace  // From version 4.2
 ...AsCollection
 ...NoClip
 ...WithSameOffset
@@ -36,12 +37,16 @@ Is.Zero // Equivalent to Is.EqualTo(0)
       .Seconds
       .Milliseconds
       .Ticks
-...UsingPropertiesComparer()  // From version 4.1
+...IgnoreCase
+...IgnoreWhiteSpace
 ...Using(IEqualityComparer comparer)
-...Using(IEqualityComparer<T> comparer)
 ...Using(IComparer comparer)
+...Using<T>(IEqualityComparer<T> comparer)
 ...Using<T>(IComparer<T> comparer)
 ...Using<T>(Comparison<T> comparer)
+...Using<T>(Func<T, T, bool> comparer)
+...Using<TActual, TExpected>(Func<TActual, TExpected, bool> comparer)
+...UsingPropertiesComparer()  // From version 4.1
 ```
 
 ## Comparing Numerics
@@ -89,6 +94,46 @@ Assert.That("Hello!", Is.EqualTo("HELLO!").IgnoreCase);
 string[] expected = new string[] { "Hello", "World" };
 string[] actual = new string[] { "HELLO", "world" };
 ```
+
+Sometimes we need to compare strings irrespective of white space characters, e.g.: when comparing Json strings.
+This can be done with the `IgnoreWhiteSpace` modifier.
+It allows using pretty formatted Json in NUnit tests regardless
+whether the code under test uses different formatting or no white space at all.
+
+```csharp
+const string prettyJson = """
+    "persons":[
+      {
+        "name": "John",
+        "surname": "Smith"
+      },
+      {
+        "name": "Jane",
+        "surname": "Doe"
+      }
+    ]
+    """;
+    
+const string condensedJson = """
+    "persons":[{"name":"John","surname":"Smith",},{"name": "Jane","surname": "Doe"}]
+    """;
+
+Assert.That(condensedJson, Is.EqualTo(prettyJson).IgnoreWhiteSpace);
+```
+
+The above tests fails and the messages has been updated to include two carrets
+to indicate the mismatched location in both _expected_ and _actual_ values:
+
+```text
+ Assert.That(condensedJson, Is.EqualTo(prettyJson).IgnoreWhiteSpace)
+ Expected string length 122 but was 79. Strings differ at index 65.
+ Expected: "...,\r\n    "surname": "Smith"\r\n  },\r\n  {\r\n    "name": "Jane",\r...", ignoring white-space
+ -----------------------------------------------^
+ But was:  ""persons":[{"name":"John","surname":"Smith",},{"name": "Jane"..."
+ ------------------------------------------------------^
+ ```
+
+The `IgnoreWhiteSpace` can also be specified when comparing collections of strings.
 
 ## Comparing DateTimes and TimeSpans
 

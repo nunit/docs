@@ -20,14 +20,15 @@ Does.Not.ContainKey(object)
 ## Modifiers
 
 ```csharp
-...Using(IComparer comparer)
+...IgnoreCase
+...IgnoreWhiteSpace  // From version 4.2
 ...Using(IEqualityComparer comparer)
-...UsingPropertiesComparer()  // From version 4.1
+...Using(IComparer comparer)
+...Using<T>(IEqualityComparer<T> comparer)
 ...Using<T>(IComparer<T> comparer)
 ...Using<T>(Comparison<T> comparer)
 ...Using<T>(Func<T, T, bool> comparer)
-...Using<T>(IEqualityComparer<T> comparer)
-...Using<TCollectionType, TMemberType>(Func<TCollectionType, TMemberType, bool> comparison)
+...UsingPropertiesComparer()  // From version 4.1
 ...WithValue(object expectedValue)
 ```
 
