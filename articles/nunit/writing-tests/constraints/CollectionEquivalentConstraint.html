@@ -95,7 +95,15 @@ the same items, in any order. If the actual value passed does not implement <cod
 <pre><code class="lang-csharp">Is.EquivalentTo(IEnumerable other)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...UsingPropertiesComparer()  // From version 4.1
+<pre><code class="lang-csharp">...IgnoreCase
+...IgnoreWhiteSpace  // From version 4.2
+...Using(IEqualityComparer comparer)
+...Using(IComparer comparer)
+...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
+...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
+...UsingPropertiesComparer()  // From version 4.1
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };

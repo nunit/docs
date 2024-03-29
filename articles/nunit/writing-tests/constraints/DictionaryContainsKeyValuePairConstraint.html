@@ -108,7 +108,15 @@ Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint(&quot;HI&qu
 Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint(&quot;HI&quot;, &quot;UNIVERSE&quot;).Using&lt;string&gt;((x, y) =&gt; StringUtil.Compare(x, y, true)));
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...UsingPropertiesComparer()  // From version 4.1
+<pre><code class="lang-csharp">...IgnoreCase
+...IgnoreWhiteSpace  // From version 4.2
+...Using(IComparer comparer)
+...Using(IEqualityComparer comparer)
+...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
+...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
+...UsingPropertiesComparer()  // From version 4.1
 </code></pre>
 <h2 id="see-also">See also</h2>
 <ul>

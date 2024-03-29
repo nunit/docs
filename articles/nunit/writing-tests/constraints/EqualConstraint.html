@@ -97,6 +97,7 @@ Is.Zero // Equivalent to Is.EqualTo(0)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
 <pre><code class="lang-csharp">...IgnoreCase
+...IgnoreWhiteSpace  // From version 4.2
 ...AsCollection
 ...NoClip
 ...WithSameOffset
@@ -109,12 +110,16 @@ Is.Zero // Equivalent to Is.EqualTo(0)
       .Seconds
       .Milliseconds
       .Ticks
-...UsingPropertiesComparer()  // From version 4.1
+...IgnoreCase
+...IgnoreWhiteSpace
 ...Using(IEqualityComparer comparer)
-...Using(IEqualityComparer&lt;T&gt; comparer)
 ...Using(IComparer comparer)
+...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
 ...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
 ...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
+...Using&lt;TActual, TExpected&gt;(Func&lt;TActual, TExpected, bool&gt; comparer)
+...UsingPropertiesComparer()  // From version 4.1
 </code></pre>
 <h2 id="comparing-numerics">Comparing Numerics</h2>
 <p>Numerics are compared based on their values. Different types may be compared successfully if their values are equal.</p>
@@ -148,6 +153,39 @@ Assert.That(&quot;Hello!&quot;, Is.EqualTo(&quot;HELLO!&quot;).IgnoreCase);
 string[] expected = new string[] { &quot;Hello&quot;, &quot;World&quot; };
 string[] actual = new string[] { &quot;HELLO&quot;, &quot;world&quot; };
 </code></pre>
+<p>Sometimes we need to compare strings irrespective of white space characters, e.g.: when comparing Json strings.
+This can be done with the <code>IgnoreWhiteSpace</code> modifier.
+It allows using pretty formatted Json in NUnit tests regardless
+whether the code under test uses different formatting or no white space at all.</p>
+<pre><code class="lang-csharp">const string prettyJson = &quot;&quot;&quot;
+    &quot;persons&quot;:[
+      {
+        &quot;name&quot;: &quot;John&quot;,
+        &quot;surname&quot;: &quot;Smith&quot;
+      },
+      {
+        &quot;name&quot;: &quot;Jane&quot;,
+        &quot;surname&quot;: &quot;Doe&quot;
+      }
+    ]
+    &quot;&quot;&quot;;
+    
+const string condensedJson = &quot;&quot;&quot;
+    &quot;persons&quot;:[{&quot;name&quot;:&quot;John&quot;,&quot;surname&quot;:&quot;Smith&quot;,},{&quot;name&quot;: &quot;Jane&quot;,&quot;surname&quot;: &quot;Doe&quot;}]
+    &quot;&quot;&quot;;
+
+Assert.That(condensedJson, Is.EqualTo(prettyJson).IgnoreWhiteSpace);
+</code></pre>
+<p>The above tests fails and the messages has been updated to include two carrets
+to indicate the mismatched location in both <em>expected</em> and <em>actual</em> values:</p>
+<pre><code class="lang-text"> Assert.That(condensedJson, Is.EqualTo(prettyJson).IgnoreWhiteSpace)
+ Expected string length 122 but was 79. Strings differ at index 65.
+ Expected: &quot;...,\r\n    &quot;surname&quot;: &quot;Smith&quot;\r\n  },\r\n  {\r\n    &quot;name&quot;: &quot;Jane&quot;,\r...&quot;, ignoring white-space
+ -----------------------------------------------^
+ But was:  &quot;&quot;persons&quot;:[{&quot;name&quot;:&quot;John&quot;,&quot;surname&quot;:&quot;Smith&quot;,},{&quot;name&quot;: &quot;Jane&quot;...&quot;
+ ------------------------------------------------------^
+</code></pre>
+<p>The <code>IgnoreWhiteSpace</code> can also be specified when comparing collections of strings.</p>
 <h2 id="comparing-datetimes-and-timespans">Comparing DateTimes and TimeSpans</h2>
 <p><strong>DateTimes</strong> and <strong>TimeSpans</strong> may be compared either with or without a tolerance. A tolerance is specified using
 <strong>Within</strong> with either a <strong>TimeSpan</strong> as an argument or with a numeric value followed by a one of the time conversion

@@ -97,14 +97,15 @@ Does.ContainKey(object)
 Does.Not.ContainKey(object)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...Using(IComparer comparer)
+<pre><code class="lang-csharp">...IgnoreCase
+...IgnoreWhiteSpace  // From version 4.2
 ...Using(IEqualityComparer comparer)
-...UsingPropertiesComparer()  // From version 4.1
+...Using(IComparer comparer)
+...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
 ...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
 ...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 ...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
-...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
-...Using&lt;TCollectionType, TMemberType&gt;(Func&lt;TCollectionType, TMemberType, bool&gt; comparison)
+...UsingPropertiesComparer()  // From version 4.1
 ...WithValue(object expectedValue)
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
