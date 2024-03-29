@@ -19,7 +19,7 @@ Is.Unique
 
 ```csharp
 ...IgnoreCase
-...IgnoreWhiteSpace
+...IgnoreWhiteSpace  // From version 4.2
 ...Using(IEqualityComparer comparer)
 ...Using(IComparer comparer)
 ...Using<T>(IEqualityComparer<T> comparer)

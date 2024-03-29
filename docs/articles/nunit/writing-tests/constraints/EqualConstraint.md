@@ -24,7 +24,7 @@ Is.Zero // Equivalent to Is.EqualTo(0)
 
 ```csharp
 ...IgnoreCase
-...IgnoreWhiteSpace
+...IgnoreWhiteSpace  // From version 4.2
 ...AsCollection
 ...NoClip
 ...WithSameOffset

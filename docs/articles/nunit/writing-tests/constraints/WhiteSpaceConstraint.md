@@ -17,7 +17,7 @@ WhiteSpaceConstraint()
 ## Syntax
 
 ```csharp
-Is.WhiteSpace
+Is.WhiteSpace  // From version 4.2
 ```
 
 ## Examples of Use

@@ -32,7 +32,7 @@ Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("HI", "UNIV
 
 ```csharp
 ...IgnoreCase
-...IgnoreWhiteSpace
+...IgnoreWhiteSpace  // From version 4.2
 ...Using(IComparer comparer)
 ...Using(IEqualityComparer comparer)
 ...Using<T>(IComparer<T> comparer)
