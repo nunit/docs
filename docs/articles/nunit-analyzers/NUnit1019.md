@@ -1,6 +1,6 @@
 # NUnit1019
 
-## The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable
+## The source specified by the TestCaseSource does not return an I(Async)Enumerable or a type that implements I(Async)Enumerable
 
 | Topic    | Value
 | :--      | :--
@@ -8,11 +8,11 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
 
 ## Description
 
-The source specified by the TestCaseSource must return an IEnumerable or a type that implements IEnumerable.
+The source specified by the TestCaseSource must return an I(Async)Enumerable or a type that implements I(Async)Enumerable.
 
 ## Motivation
 
@@ -36,15 +36,15 @@ public class AnalyzeWhenSourceDoesProvideIEnumerable
 
 ### Explanation
 
-In the sample above, the source specified by `TestCaseSource` - the field `testCases` - does not return an `IEnumerable`
-or a type that implements `IEnumerable`, instead it returns an `int`.
+In the sample above, the source specified by `TestCaseSource` - the field `testCases` - does not return an
+`I(Async)Enumerable` or a type that implements `I(Async)Enumerable`, instead it returns an `int`.
 
-However, sources specified by `TestCaseSource` [must return an `IEnumerable` or a type that implements
-`IEnumerable`.](xref:testcasesourceattribute).
+However, sources specified by `TestCaseSource`
+[must return an `I(Async)Enumerable` or a type that implements `I(Async)Enumerable`.](xref:testcasesourceattribute).
 
 ### Fix
 
-Change `testCases` to return an `IEnumerable` or a type that implements `IEnumerable`:
+Change `testCases` to return an `I(Async)Enumerable` or a type that implements `I(Async)Enumerable`:
 
 ```csharp
 public class AnalyzeWhenSourceDoesProvideIEnumerable
@@ -69,7 +69,7 @@ Configure the severity per project, for more info see
 ### Via .editorconfig file
 
 ```ini
-# NUnit1019: The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable
+# NUnit1019: The source specified by the TestCaseSource does not return an I(Async)Enumerable or a type that implements I(Async)Enumerable
 dotnet_diagnostic.NUnit1019.severity = chosenSeverity
 ```
 
@@ -78,22 +78,22 @@ where `chosenSeverity` can be one of `none`, `silent`, `suggestion`, `warning`, 
 ### Via #pragma directive
 
 ```csharp
-#pragma warning disable NUnit1019 // The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable
+#pragma warning disable NUnit1019 // The source specified by the TestCaseSource does not return an I(Async)Enumerable or a type that implements I(Async)Enumerable
 Code violating the rule here
-#pragma warning restore NUnit1019 // The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable
+#pragma warning restore NUnit1019 // The source specified by the TestCaseSource does not return an I(Async)Enumerable or a type that implements I(Async)Enumerable
 ```
 
 Or put this at the top of the file to disable all instances.
 
 ```csharp
-#pragma warning disable NUnit1019 // The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable
+#pragma warning disable NUnit1019 // The source specified by the TestCaseSource does not return an I(Async)Enumerable or a type that implements I(Async)Enumerable
 ```
 
 ### Via attribute `[SuppressMessage]`
 
 ```csharp
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Structure",
-    "NUnit1019:The source specified by the TestCaseSource does not return an IEnumerable or a type that implements IEnumerable",
+    "NUnit1019:The source specified by the TestCaseSource does not return an I(Async)Enumerable or a type that implements I(Async)Enumerable",
     Justification = "Reason...")]
 ```
 <!-- end generated config severity -->

@@ -5,10 +5,10 @@
 | Topic    | Value
 | :--      | :--
 | Id       | NUnit2025
-| Severity | Error
-| Enabled  | True
+| Severity | Hidden
+| Enabled  | False
 | Category | Assertion
-| Code     | [ContainsConstraintWrongActualTypeAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ContainsConstraintWrongActualType/ContainsConstraintWrongActualTypeAnalyzer.cs)
+| Code     | [ContainsConstraintWrongActualTypeAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/ContainsConstraintWrongActualType/ContainsConstraintWrongActualTypeAnalyzer.cs)
 
 ## Description
 

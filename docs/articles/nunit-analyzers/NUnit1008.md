@@ -8,7 +8,7 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Structure
-| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
+| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
 
 ## Description
 
@@ -31,7 +31,8 @@ In `AssemblyInfo.cs`:
 
 ### Explanation
 
-`ParallelScope.Self` [only applies to classes and methods](xref:parallelizableattribute), not to assemblies.
+`ParallelScope.Self` [only applies to classes and methods](xref:parallelizableattribute),
+not to assemblies.
 
 ### Fix
 

@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/3.8.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
+| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
 
 ## Description
 
@@ -38,7 +38,8 @@ public Task<string> ConvertNumber(int numberValue)
 
 ### Explanation
 
-The NUnit `ExpectedResult` syntax is not used, so it's an error for this method to return something that isn't being checked.
+The NUnit `ExpectedResult` syntax is not used, so it's an error for this method to return something that isn't being
+checked.
 
 ### Fix
 
@@ -78,7 +79,8 @@ public Task<string> ConvertNumber(int numberValue)
 
 ### Via ruleset file
 
-Configure the severity per project, for more info see [MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
+Configure the severity per project, for more info see
+[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
 
 ### Via .editorconfig file
 
