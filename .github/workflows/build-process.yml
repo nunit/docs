@@ -135,7 +135,7 @@ jobs:
         run: unzip _site.zip
       - name: Push to gh-pages branch (master only)
         if: ${{ github.ref == 'refs/heads/master'}}
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           commit_message: ${{ github.event.head_commit.message }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
