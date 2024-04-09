@@ -255,8 +255,6 @@ dotnet test -- NUnit.ConsoleOut=0
 
 (From version 3.17.0, Modified in 4.2.0)
 
-
-
 #### UseTestNameInConsoleOutput
 
 When set to `true`, the default, the name of the test is added as a prefix in front of each console line output.  This
