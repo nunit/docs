@@ -78,9 +78,7 @@ The defined order is as follows...
  be more convenient to have multiple setup fixtures and/or methods.]
 
 > [!NOTE]
-> Filtering on `SetUpFixture`s
-
-A `SetUpFixture` is normally not used for filtering tests.  However, if that is done, one should be aware that a
+> About filtering on `SetUpFixture`s: A `SetUpFixture` is normally not used for filtering tests.  However, if that is done, one should be aware that a
  `SetUpFixture` encapsulates all tests to which it belongs.
  If placed in a namespace it will encapsulate all tests in that namespace and contained namespaces.
  If placed on the assembly level, it will encapsulate all tests in the assembly.
