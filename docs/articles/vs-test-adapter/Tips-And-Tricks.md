@@ -32,7 +32,7 @@ Certain NUnit Test Adapter settings are configurable using a .runsettings file. 
 | [Where](#where)                                                       | string | NUnit Filter expression                                                       |                               |
 | [UseParentFQNForParametrizedTests](#useparentfqnforparametrizedtests) | bool   | Enable parent as FQN for parametrized tests                                   | false                         |
 | [UseNUnitIdforTestCaseId](#usenunitidfortestcaseid)                   | bool   | Uses NUnit test id as VSTest Testcase Id, instead of FullyQualifiedName       | false                         |
-| [ConsoleOut](#consoleout)                                             | int    | Sends standard console output to the output window                            | 2                             |
+| [ConsoleOut](#consoleout)                                             | int    | Sends standard console output to the output window                            | 1                             |
 | [UseTestNameInConsoleOutput](#usetestnameinconsoleoutput)             | bool   | Adds name of test as a prefix in the output window for console output         | true                          |
 | [StopOnError](#stoponerror)                                           | bool   | Stops on first error                                                          | false                         |
 | [SkipNonTestAssemblies](#skipnontestassemblies)                       | bool   | Adapter supports NonTestAssemblyAttribute                                     | true                          |
@@ -226,8 +226,11 @@ However, it has been seen to also have adverse effects, so use with caution.
 
 #### ConsoleOut
 
-When set to 1 or 2 (2 is default), will send Console standard output to the Visual Studio Output/Test window, and also
+When set to 1 or 2 (1 is default), will send Console standard output to the Visual Studio Output/Test window, and also
 with dotnet test, it will appear in the output.
+
+> [!NOTE]
+> The `ConsoleOut` default changed from `2` to `1` in `v4.6.0`
 
 Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.
 
