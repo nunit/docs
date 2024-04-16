@@ -149,19 +149,18 @@ derived class.</li>
 </ol>
 <p>[Items 6 and 7 rarely come into play but the features are available for situations like code generation, where it may
 be more convenient to have multiple setup fixtures and/or methods.]</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Filtering on <code>SetUpFixture</code>s</p>
-</div>
-<p>A <code>SetUpFixture</code> is normally not used for filtering tests.  However, if that is done, one should be aware that a
+<h2 id="notes-1">Notes</h2>
+<ol>
+<li><p>About filtering on <code>SetUpFixture</code>s:
+A <code>SetUpFixture</code> is normally not used for filtering tests.  However, if that is done, one should be aware that a
 <code>SetUpFixture</code> encapsulates all tests to which it belongs.
 If placed in a namespace it will encapsulate all tests in that namespace and contained namespaces.
 If placed on the assembly level, it will encapsulate all tests in the assembly.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Prior to NUnit 3.0, <code>SetUpFixture</code> used the <code>SetUp</code> and <code>TearDown</code> attributes rather than <code>OneTimeSetUp</code> and <code>OneTimeTearDown</code>.
-The older attributes are no longer supported in SetUpFixtures in NUnit 3.0 and later.</p>
-</div>
+</li>
+<li><p>Prior to NUnit 3.0, <code>SetUpFixture</code> used the <code>SetUp</code> and <code>TearDown</code> attributes rather than <code>OneTimeSetUp</code> and
+<code>OneTimeTearDown</code>. The older attributes are no longer supported in SetUpFixtures in NUnit 3.0 and later.</p>
+</li>
+</ol>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="setup.html">SetUp Attribute</a></li>
