@@ -229,7 +229,8 @@ However, it has been seen to also have adverse effects, so use with caution.
 When set to 1 or 2 (1 is default), will send Console standard output to the Visual Studio Output/Test window, and also
 with dotnet test, it will appear in the output.
 
-Note: *(ConsoleOut default changed from 2 to 1 in 4.6.0)*
+> [!NOTE]
+> The `ConsoleOut` default changed from `2` to `1` in `v4.6.0`
 
 Disable this by setting it to 0, which is also the default for version earlier than 3.17.0.
 
