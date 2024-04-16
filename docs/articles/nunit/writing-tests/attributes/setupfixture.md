@@ -77,15 +77,16 @@ The defined order is as follows...
 [Items 6 and 7 rarely come into play but the features are available for situations like code generation, where it may
  be more convenient to have multiple setup fixtures and/or methods.]
 
-> [!NOTE]
-> About filtering on `SetUpFixture`s: A `SetUpFixture` is normally not used for filtering tests.  However, if that is done, one should be aware that a
- `SetUpFixture` encapsulates all tests to which it belongs.
- If placed in a namespace it will encapsulate all tests in that namespace and contained namespaces.
- If placed on the assembly level, it will encapsulate all tests in the assembly.
+## Notes
 
-> [!NOTE]
-> Prior to NUnit 3.0, `SetUpFixture` used the `SetUp` and `TearDown` attributes rather than `OneTimeSetUp` and `OneTimeTearDown`.
-The older attributes are no longer supported in SetUpFixtures in NUnit 3.0 and later.
+1. About filtering on `SetUpFixture`s:
+   A `SetUpFixture` is normally not used for filtering tests.  However, if that is done, one should be aware that a
+   `SetUpFixture` encapsulates all tests to which it belongs.
+   If placed in a namespace it will encapsulate all tests in that namespace and contained namespaces.
+   If placed on the assembly level, it will encapsulate all tests in the assembly.
+
+2. Prior to NUnit 3.0, `SetUpFixture` used the `SetUp` and `TearDown` attributes rather than `OneTimeSetUp` and
+   `OneTimeTearDown`. The older attributes are no longer supported in SetUpFixtures in NUnit 3.0 and later.
 
 ## See also
 
