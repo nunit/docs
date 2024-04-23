@@ -88,7 +88,7 @@
 
 <p>This is the attribute that marks a class that contains the one-time
 setup or teardown methods for all the test fixtures in a given
-namespace including nested namespaces below.</p>
+namespace including nested namespaces below, within an assembly.</p>
 <p>The class may contain at most one method marked with the
 OneTimeSetUpAttribute and one method marked with the OneTimeTearDownAttribute.</p>
 <p>There are a few restrictions on a class that is used as a setup fixture.</p>
@@ -106,8 +106,9 @@ individual or fixture teardowns have completed execution.</p>
 of such fixtures is indeterminate.</p>
 <h2 id="notes">Notes</h2>
 <ul>
+<li>The scope of a SetUpFixture is limited to an assembly.</li>
+<li>A SetUpFixture in a namespace will apply to all tests in that namespace and all contained namespaces within the assembly.</li>
 <li>A SetUpFixture outside of any namespace provides SetUp and TearDown for the entire assembly.</li>
-<li>A SetUpFixture in a namespace will apply tests to that namespace and all contained namespaces.</li>
 </ul>
 <h2 id="example">Example</h2>
 <pre><code class="lang-csharp">using System;
