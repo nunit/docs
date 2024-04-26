@@ -141,19 +141,14 @@ public void Test()
     string expected = &quot;...&quot;;
     Assert.That(actual, Does.EndWith(expected));
 }
-
-&lt;!-- start generated config severity --&gt;
-## Configure severity
-
-### Via ruleset file
-
-Configure the severity per project, for more info see
-[MSDN](https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022).
-
-### Via .editorconfig file
-
-```ini
-# NUnit2013: Use EndsWithConstraint for better assertion messages in case of failure
+</code></pre>
+<!-- start generated config severity -->
+<h2 id="configure-severity">Configure severity</h2>
+<h3 id="via-ruleset-file">Via ruleset file</h3>
+<p>Configure the severity per project, for more info see
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
+<h3 id="via-editorconfig-file">Via .editorconfig file</h3>
+<pre><code class="lang-ini"># NUnit2013: Use EndsWithConstraint for better assertion messages in case of failure
 dotnet_diagnostic.NUnit2013.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
