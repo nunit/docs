@@ -73,9 +73,9 @@ Running `dotnet test -v n`, the output will be:
 
 Opposed to the `ConsoleTraceListener`, the `ProgressTraceListener` will show Trace and Debug output immediately.
 
-Activating is equally easy to do, and you can also do it per assembly, per namespace or per test.  All it takes is to add the necessary
-initialization of the `ProgressTraceListener` and make sure it is only added once.  The final `Trace.Flush()` is not needed with
-the `ProgressTraceListener`.
+Activating is equally easy to do, and you can also do it per assembly, per namespace or per test.  All it takes is to
+add the necessary initialization of the `ProgressTraceListener` and make sure it is only added once.  The final
+`Trace.Flush()` is not needed with the `ProgressTraceListener`.
 
 To add it to a namespace, place the following class inside that namespace, and it will apply to all tests inside that
 namespace and below.  The code shown adds the output to progress output.
@@ -102,13 +102,13 @@ If you like you can change that to another kind of listener.
 
 ## Discussion and source
 
-This issue has been discussed at [Issue 718](https://github.com/nunit/nunit3-vs-adapter/issues/718) and [Issue
-301](https://github.com/nunit/nunit3-vs-adapter/issues/301).  Use of `TraceListener` suggested by [Frans
-Bouma](https://github.com/FransBouma).  This issue has also been discussed at [NUnit Issue 4686]
-(https://github.com/nunit/nunit/issues/4686) based on [TestCentric GUI Issue 1043]
-(https://github.com/TestCentric/testcentric-gui/issues/1043).  `ProgressTraceListener` suggested by [Charlie
-Poole](https://github.com/CharliePoole).
+This issue has been discussed at [Issue 718](https://github.com/nunit/nunit3-vs-adapter/issues/718) and
+[Issue 301](https://github.com/nunit/nunit3-vs-adapter/issues/301).  Use of `TraceListener` suggested by
+[Frans Bouma](https://github.com/FransBouma).  This issue has also been discussed at
+[NUnit Issue 4686](https://github.com/nunit/nunit/issues/4686) based on
+[TestCentric GUI Issue 1043](https://github.com/TestCentric/testcentric-gui/issues/1043).  `ProgressTraceListener`
+suggested by [Charlie Poole](https://github.com/CharliePoole).
 
-The repro code for the issue can be found [here]
-(https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue718) and [here]
-(https://github.com/TestCentric/testcentric-gui/issues/1043).
+The repro code for the issue can be found
+[here](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue718) and
+[here](https://github.com/TestCentric/testcentric-gui/issues/1043).
