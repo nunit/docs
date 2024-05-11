@@ -105,8 +105,8 @@ If you like you can change that to another kind of listener.
 This issue has been discussed at [Issue 718](https://github.com/nunit/nunit3-vs-adapter/issues/718) and [Issue
 301](https://github.com/nunit/nunit3-vs-adapter/issues/301).  Use of `TraceListener` suggested by [Frans
 Bouma](https://github.com/FransBouma).  This issue has also been discussed at [NUnit Issue 4686]
-https://github.com/nunit/nunit/issues/4686 based on [TestCentric GUI Issue 1043]
-https://github.com/TestCentric/testcentric-gui/issues/1043.  `ProgressTraceListener` suggested by [Charlie
+(https://github.com/nunit/nunit/issues/4686) based on [TestCentric GUI Issue 1043]
+(https://github.com/TestCentric/testcentric-gui/issues/1043).  `ProgressTraceListener` suggested by [Charlie
 Poole](https://github.com/CharliePoole).
 
 The repro code for the issue can be found [here]
