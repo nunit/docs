@@ -45,18 +45,18 @@ If you like you can change that to another kind of listener.
 Given the following verbose test:
 
 ```csharp
-        [Test]
-        public void Test1()
-        {
-            Debug.WriteLine("This is Debug.WriteLine");
-            Trace.WriteLine("This is Trace.WriteLine");
-            Console.WriteLine("This is Console.Writeline");
-            TestContext.WriteLine("This is TestContext.WriteLine");
-            TestContext.Out.WriteLine("This is TestContext.Out.WriteLine");
-            TestContext.Progress.WriteLine("This is TestContext.Progress.WriteLine");
-            TestContext.Error.WriteLine("This is TestContext.Error.WriteLine");
-            Assert.Pass();
-        }
+[Test]
+public void Test1()
+{
+    Debug.WriteLine("This is Debug.WriteLine");
+    Trace.WriteLine("This is Trace.WriteLine");
+    Console.WriteLine("This is Console.Writeline");
+    TestContext.WriteLine("This is TestContext.WriteLine");
+    TestContext.Out.WriteLine("This is TestContext.Out.WriteLine");
+    TestContext.Progress.WriteLine("This is TestContext.Progress.WriteLine");
+    TestContext.Error.WriteLine("This is TestContext.Error.WriteLine");
+    Assert.Pass();
+}
 ```
 
 With a `TraceListener`, the output in Visual Studio Test Explorer is:
