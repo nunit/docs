@@ -87,58 +87,7 @@
 <h1 id="how-to-enable-trace-and-debug-output">How to enable Trace and Debug output</h1>
 
 <p>Trace and Debug output is by default not sent to the console output, or anywhere else.  If you want to have this output,
-you must add your own <code>TraceListener</code>.</p>
-<h2 id="implementing-the-tracelistener-in-your-code">Implementing the <code>TraceListener</code> in your code</h2>
-<p>This is easy to do, and you can do it per assembly, per namespace or per test.  All it takes is to add the necessary
-initialization of the <code>TraceListener</code>.</p>
-<p>To add it to a namespace, place the following class inside that namespace, and it will apply to all tests inside that
-namespace and below.  The code shown adds the output to console output.  If you like you can change that to another kind
-of listener.</p>
-<pre><code class="lang-csharp">[SetUpFixture]
-public class SetupTrace
-{
-    [OneTimeSetUp]
-    public void StartTest()
-    {
-        Trace.Listeners.Add(new ConsoleTraceListener());
-    }
-
-    [OneTimeTearDown]
-    public void EndTest()
-    {
-        Trace.Flush();
-    }
-}
-</code></pre>
-<p>If you place the code above outside of any namespace it will apply to the whole assembly.</p>
-<p>If you'd like to only apply to a given test fixture/class, you can add the <code>StartTest and EndTest</code> methods to the given
-test fixture/class.</p>
-<h2 id="example-outputs">Example outputs</h2>
-<p>Given the following verbose test:</p>
-<pre><code class="lang-csharp">        [Test]
-        public void Test1()
-        {
-            Debug.WriteLine(&quot;This is Debug.WriteLine&quot;);
-            Trace.WriteLine(&quot;This is Trace.WriteLine&quot;);
-            Console.WriteLine(&quot;This is Console.Writeline&quot;);
-            TestContext.WriteLine(&quot;This is TestContext.WriteLine&quot;);
-            TestContext.Out.WriteLine(&quot;This is TestContext.Out.WriteLine&quot;);
-            TestContext.Progress.WriteLine(&quot;This is TestContext.Progress.WriteLine&quot;);
-            TestContext.Error.WriteLine(&quot;This is TestContext.Error.WriteLine&quot;);
-            Assert.Pass();
-        }
-</code></pre>
-<p>With a <code>TraceListener</code>, the output in Visual Studio Test Explorer is:</p>
-<p><img src="../../images/TraceDebug1.png" alt="Trace Debug output showing the lines outputted by the TraceListener"></p>
-<p>Without the <code>TraceListener</code>, the blocks in red will not be present.</p>
-<p>Running <code>dotnet test -v n</code>, the output will be:</p>
-<p><img src="../../images/TraceDebug2.png" alt="DotNet Trace Debug output showing the lines outputted by the TraceListener"></p>
-<h2 id="discussion-and-source">Discussion and source</h2>
-<p>This issue have been discussed at <a href="https://github.com/nunit/nunit3-vs-adapter/issues/718">Issue 718</a> and <a href="https://github.com/nunit/nunit3-vs-adapter/issues/301">Issue
-301</a>. Use of <code>TraceListener</code> suggested by <a href="https://github.com/FransBouma">Frans
-Bouma</a>.</p>
-<p>The repro code for the issue can be found
-<a href="https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue718">here</a>.</p>
+you must add a <code>TraceListener</code> as documented <a class="xref" href="../nunit/technical-notes/usage/Trace-and-Debug-Output.html">here</a>.</p>
 
 </article>
           </div>
