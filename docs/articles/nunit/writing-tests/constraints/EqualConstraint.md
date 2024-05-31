@@ -278,7 +278,7 @@ This comparer iterates over all public properties of a class.
 For each property, it gets the value for both instances and compares them for equality.
 This can be recursive, e.g. if one has a class `Group` holding a collection of `Persons`.
 
-The comparer will use the specified tolerance as specified using `.WithIn(amount)` if possible.
+The comparer will use the specified tolerance as specified using `.Within(amount)` if possible.
 This can be useful when comparing floating point numbers of calculation results.
 
 The comparer can deal with recursive data structures,
