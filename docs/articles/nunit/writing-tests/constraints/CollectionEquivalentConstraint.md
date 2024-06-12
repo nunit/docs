@@ -26,6 +26,7 @@ Is.EquivalentTo(IEnumerable other)
 ...Using<T>(IComparer<T> comparer)
 ...Using<T>(Comparison<T> comparer)
 ...Using<T>(Func<T, T, bool> comparer)
+...Using<TActualElement, TExpectedElement>(Func<TActualElement, TExpectedElement, bool> comparison)
 ...UsingPropertiesComparer()  // From version 4.1
 ```
 

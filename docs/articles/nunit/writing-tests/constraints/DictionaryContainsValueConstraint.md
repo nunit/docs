@@ -22,12 +22,12 @@ Does.Not.ContainValue(object)
 ```csharp
 ...Using(IComparer comparer)
 ...Using(IEqualityComparer comparer)
-...UsingPropertiesComparer()  // From version 4.1
 ...Using<T>(IComparer<T> comparer)
 ...Using<T>(Comparison<T> comparer)
 ...Using<T>(Func<T, T, bool> comparer)
 ...Using<T>(IEqualityComparer<T> comparer)
-...Using<TCollectionType, TMemberType>(Func<TCollectionType, TMemberType, bool> comparison)
+...Using<TActualValue, TExpected>(Func<TActualValue, TExpected, bool> comparison)
+...UsingPropertiesComparer()  // From version 4.1
 ```
 
 ## Examples of Use

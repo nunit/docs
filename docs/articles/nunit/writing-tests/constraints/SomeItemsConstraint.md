@@ -25,7 +25,7 @@ Has.Some...
 ...Using<T>(IEqualityComparer<T> comparer)
 ...Using<T>(IComparer<T> comparer)
 ...Using<T>(Comparison<T> comparer)
-...Using<TCollectionType, TMemberType>(Func<TCollectionType, TMemberType, bool> comparer)
+...Using<TActualCollectionElement, TExpectedElement>(Func<TActualCollectionElement, TExpectedElement, bool> comparer)
 ...UsingPropertiesComparer()  // From version 4.1
 ```
 
