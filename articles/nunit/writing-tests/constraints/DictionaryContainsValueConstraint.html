@@ -99,12 +99,12 @@ Does.Not.ContainValue(object)
 <h2 id="modifiers">Modifiers</h2>
 <pre><code class="lang-csharp">...Using(IComparer comparer)
 ...Using(IEqualityComparer comparer)
-...UsingPropertiesComparer()  // From version 4.1
 ...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
 ...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 ...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
 ...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
-...Using&lt;TCollectionType, TMemberType&gt;(Func&lt;TCollectionType, TMemberType, bool&gt; comparison)
+...Using&lt;TActualValueElement, TExpected&gt;(Func&lt;TActualValueElement, TExpected, bool&gt; comparison)
+...UsingPropertiesComparer()  // From version 4.1
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">IDictionary&lt;int, int&gt; idict = new IDictionary&lt;int, int&gt; { { 1, 4 }, { 2, 5 } };
