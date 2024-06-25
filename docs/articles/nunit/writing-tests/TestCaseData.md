@@ -18,6 +18,7 @@ This example uses the fluent interface supported by **TestCaseData** to make the
   for doing so.
 * **Ignore(string)** causes the test case to be ignored and specifies the reason, which is required.
 * **Returns** specifies the expected result to be returned from the method, which must have a compatible return type.
+* **SetArgDisplayNames(string[])** sets the list of display names to use as the parameters in the test name.
 * **SetCategory(string)** applies a category to the test.
 * **SetDescription(string)** sets the description property of the test.
 * **SetName(string)** provides a name for the test. If not specified, a name is generated based on the method name and
