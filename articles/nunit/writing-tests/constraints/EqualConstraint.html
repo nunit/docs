@@ -298,7 +298,7 @@ It is only called for instances of the same type which do not implement <code>IE
 <p>This comparer iterates over all public properties of a class.
 For each property, it gets the value for both instances and compares them for equality.
 This can be recursive, e.g. if one has a class <code>Group</code> holding a collection of <code>Persons</code>.</p>
-<p>The comparer will use the specified tolerance as specified using <code>.WithIn(amount)</code> if possible.
+<p>The comparer will use the specified tolerance as specified using <code>.Within(amount)</code> if possible.
 This can be useful when comparing floating point numbers of calculation results.</p>
 <p>The comparer can deal with recursive data structures,
 it will stop comparing if it already previously has compared two the same instances.</p>
