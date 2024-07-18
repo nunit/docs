@@ -154,6 +154,7 @@ There are 112 issues fixed in this release.
 * [3215](https://github.com/nunit/nunit/issues/3215) Better error message for generic test where type parameter cannot be determined. Thanks to [Ove Bastiansen](https://github.com/ovebastiansen) for [PR 4382](https://github.com/nunit/nunit/pull/4382)
 * [2870](https://github.com/nunit/nunit/issues/2870) CollectionTally (EquivalentTo) should throw for non-transitive comparisons. Thanks to [Russell Smith](https://github.com/mr-russ) for [PR 4312](https://github.com/nunit/nunit/pull/4312)
 * [2841](https://github.com/nunit/nunit/issues/2841) DelayedConstraint calls delegate twice. Fixed by team [PR 4488](https://github.com/nunit/nunit/pull/4488)
+* [2835](https://github.com/nunit/nunit/issues/2835) Control character encoding is inconsistent between TestCase[Source] and TestFixture[Source]. Fixed by team [PR 4498](https://github.com/nunit/nunit/pull/4498)
 * [2436](https://github.com/nunit/nunit/issues/2436) Properties on System.Type cannot be used with either property constraint. Fixed by team [PR 4259](https://github.com/nunit/nunit/pull/4259)
 * [1428](https://github.com/nunit/nunit/issues/1428) NUnitLite package always installs both Program.cs and Program.vb. Fixed by team [PR 3952](https://github.com/nunit/nunit/pull/3952)
 
