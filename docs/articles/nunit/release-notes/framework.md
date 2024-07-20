@@ -5,6 +5,56 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
+## NUnit 4.2 - To Be released very soon now
+
+There are 23 issues fixed in this release.
+
+### Enhancements
+
+* [4710](https://github.com/nunit/nunit/issues/4710) Improve PropertiesComparer diagnostics. Fixed by team [PR 4712](https://github.com/nunit/nunit/pull/4712)
+* [4353](https://github.com/nunit/nunit/issues/4353) TestContext.AddTestAttachment with long file paths. Thanks to [Rohit Aggarwal](https://github.com/Meet2rohit99) for [PR 4665](https://github.com/nunit/nunit/pull/4665)
+* [3981](https://github.com/nunit/nunit/issues/3981) Switch default branch to main. Fixed by team [PR 4753](https://github.com/nunit/nunit/pull/4753)
+* [3918](https://github.com/nunit/nunit/issues/3918) String comparison without whitespace. Fixed by team [PR 4664](https://github.com/nunit/nunit/pull/4664)
+* [3829](https://github.com/nunit/nunit/issues/3829) Consider optimizing `StreamsComparer` for happy path. Thanks to [Mithilesh Zavar](https://github.com/mithileshz) for [PR 4668](https://github.com/nunit/nunit/pull/4668)
+* [3767](https://github.com/nunit/nunit/issues/3767) Incorrect number of items listed in failure message. Thanks to [Dmitrij](https://github.com/iamdmitrij) for [PR 4702](https://github.com/nunit/nunit/pull/4702)
+* [4587](https://github.com/nunit/nunit/issues/4587) Feature request: Assert.Multiple() could return an IDisposable, avoiding passing an Action around.. Fixed by team [PR 4758](https://github.com/nunit/nunit/pull/4758)
+
+### Bug fixes
+
+* [4750](https://github.com/nunit/nunit/issues/4750) `DefaultFloatingPointTolerance` ignored for `TestCaseData`. Fixed by team [PR 4754](https://github.com/nunit/nunit/pull/4754)
+* [4723](https://github.com/nunit/nunit/issues/4723) CurrentContext.Result.Outcome.Status is inconclusive in TearDown if Timeout attribute is used in 4.x. Fixed by team [PR 4727](https://github.com/nunit/nunit/pull/4727)
+* [4705](https://github.com/nunit/nunit/issues/4705) The dll's in the release 4.1 has version 4.0.1. Fixed by team [PR 4706](https://github.com/nunit/nunit/pull/4706)
+* [4670](https://github.com/nunit/nunit/issues/4670) `.ContainKey().WithValue()` and `.Or`/`.And` interact incorrectly. Fixed by team [PR 4672](https://github.com/nunit/nunit/pull/4672)
+* [4659](https://github.com/nunit/nunit/issues/4659) TestCaseSource that contains Exception with InnerException - not running tests. Fixed by team [PR 4663](https://github.com/nunit/nunit/pull/4663)
+* [4651](https://github.com/nunit/nunit/issues/4651) After upgrade from version 3.14.0 to 4.* running multiple test categories in parentheses separated with 'OR' stopped working. Fixed by team [PR 4760](https://github.com/nunit/nunit/pull/4760)
+* [4639](https://github.com/nunit/nunit/issues/4639) `ValueTask` is not being properly consumed by the `AwaitAdapter`. Fixed by team [PR 4640](https://github.com/nunit/nunit/pull/4640)
+* [4598](https://github.com/nunit/nunit/issues/4598) DefaultTimeout in .runsettings + TearDown method seems to break test output. Fixed by team [PR 4692](https://github.com/nunit/nunit/pull/4692)
+* [4589](https://github.com/nunit/nunit/issues/4589) Exception when using test filters from .runsettings or --filter argument from dotnet test. Fixed by team [PR 4760](https://github.com/nunit/nunit/pull/4760)
+
+### Refactorings
+
+* [4577](https://github.com/nunit/nunit/issues/4577) Remove some version hard-coding in the OSPlatformTranslator. Fixed by team [PR 4756](https://github.com/nunit/nunit/pull/4756)
+
+### Internal fixes
+
+* [4735](https://github.com/nunit/nunit/issues/4735) StreamComparer - Pool allocating the byte array reduces memory allocation by 96%. Thanks to [Mithilesh Zavar](https://github.com/mithileshz) for [PR 4737](https://github.com/nunit/nunit/pull/4737)
+* [4733](https://github.com/nunit/nunit/issues/4733) Improve speed of Randomizer.GetString. Fixed by team [PR 4512](https://github.com/nunit/nunit/pull/4512)
+* [4649](https://github.com/nunit/nunit/issues/4649) Switch to using MacOS 14 in GitHub Actions. Fixed by team [PR 4648](https://github.com/nunit/nunit/pull/4648)
+
+### Deprecated features
+
+None
+
+### Others
+
+* [4730](https://github.com/nunit/nunit/issues/4730) Remove reference to the mailing list from CONTRIBUTING.md. Fixed by team [PR 4752](https://github.com/nunit/nunit/pull/4752)
+* [4726](https://github.com/nunit/nunit/issues/4726) `Using&lt;TCollectionType, TMemberType&gt;` is unclear. Thanks to [Michael Render](https://github.com/RenderMichael) for [PR 4729](https://github.com/nunit/nunit/pull/4729)
+* [4684](https://github.com/nunit/nunit/issues/4684) Increment StreamsComparer by 'Actual bytes read' rather than the buffer size. Fixed by team [PR 4671](https://github.com/nunit/nunit/pull/4671)
+
+### The following issues are marked as breaking changes
+
+None
+
 ## NUnit 4.1 - February 23. 2024
 
 This release is a bugfix and smaller enhancement release.
