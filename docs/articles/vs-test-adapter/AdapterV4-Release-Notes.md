@@ -7,11 +7,13 @@ There are 10 issues fixed in this release.
 ### Enhancements
 
 * [1138](https://github.com/nunit/nunit3-vs-adapter/issues/1138) Add partition filter parsing to the adapter.
-* [1114](https://github.com/nunit/nunit3-vs-adapter/issues/1114) Is test result file creation now supported by NUnit using dotnet test?.
+* [1114](https://github.com/nunit/nunit3-vs-adapter/issues/1114) Is test result file creation now supported by NUnit
+* using dotnet test?.
 
 ### Bug fixes
 
-* [1186](https://github.com/nunit/nunit3-vs-adapter/issues/1186) Failure during unit test discovery doesn't cause entire test suite to fail.
+* [1186](https://github.com/nunit/nunit3-vs-adapter/issues/1186) Failure during unit test discovery doesn't cause
+entire test suite to fail.
 * [1110](https://github.com/nunit/nunit3-vs-adapter/issues/1110) ConsoleOut=1 should be default.
 * [1109](https://github.com/nunit/nunit3-vs-adapter/issues/1109) ConsoleOut=0 should turn off console output but doesn't.
 
@@ -35,7 +37,8 @@ None
 
 ### The following issues are marked as breaking changes
 
-* [1110](https://github.com/nunit/nunit3-vs-adapter/issues/1110) ConsoleOut=1 should be default. Change from former where ConsoleOut=2 was default.
+* [1110](https://github.com/nunit/nunit3-vs-adapter/issues/1110) ConsoleOut=1 should be default. Change from former
+where ConsoleOut=2 was default.
 
 ## NUnit3 Test Adapter for Visual Studio and Dotnet - Version 4.5.0 - May 30, 2023
 
