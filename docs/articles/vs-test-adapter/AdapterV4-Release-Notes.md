@@ -9,6 +9,7 @@ There are 10 issues fixed in this release.
 * [1138](https://github.com/nunit/nunit3-vs-adapter/issues/1138) Add partition filter parsing to the adapter.
 * [1114](https://github.com/nunit/nunit3-vs-adapter/issues/1114) Is test result file creation now supported by NUnit
 * using dotnet test?.
+* [1188] Add support for ThrowOnEachFailureUnderDebugger setting
 
 ### Bug fixes
 
