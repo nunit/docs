@@ -8,10 +8,12 @@ This document describes framework functionality for debugging support of tests a
 
 Setting name defined by `FrameworkPackageSettings.ThrowOnEachFailureUnderDebugger` constant.
 
-This boolean framework setting enables throwing of immediately catched assertion exception from `Assert.Multiple`
-block on each failed assertion. This allows user to break execution on exception and inspect tested code state
-at time of failure. In contrast default behavior of `Assert.Multiple` is to throw assertion exception only after
-whole block executed. In this situation tested code state could change or be unavailable.
+
+It may sometimes be necessary to debug the current state of a test during an `Assertion.Multiple` block. Typically, assertion exceptions are thrown only after the block is completed.
+
+This boolean framework setting will cause the debugger to throw on a failed assertion during an `Assert.Multiple`
+block. This allows user to break execution on exception and inspect tested code state
+at time of failure.
 
 Because this behavior is useful only for debugging, it is not active without attached debugger
 (`Debugger.IsAttached = true`).
