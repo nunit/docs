@@ -381,7 +381,7 @@ If set, this setting will allow parallel execution of tests even if the debugger
 
 #### ThrowOnEachFailureUnderDebugger
 
-If set, this setting will allow handled assert exception for each failue in `Assert.Multiple` block if the debugger
+If set, this setting will surface an assertion exception for each failure in an `Assert.Multiple` block if the debugger
 is attached. The default is `false`.
 
 (From version 4.6.0)
