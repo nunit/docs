@@ -15,5 +15,5 @@ This boolean framework setting will cause the debugger to throw on a failed asse
 block. This allows user to break execution on exception and inspect tested code state
 at time of failure.
 
-Because this behavior is useful only for debugging, it is not active without attached debugger
+Because this behavior is useful only for debugging, it is not activated without an attached debugger
 (`Debugger.IsAttached = true`).
