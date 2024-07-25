@@ -86,6 +86,43 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="adapter-v4-release-notes">Adapter V4 Release Notes</h1>
 
+<h2 id="nunit3-test-adapter-for-visual-studio-and-dotnet---version-460---july-26-2024">NUnit3 Test Adapter for Visual Studio and Dotnet - Version 4.6.0 - July 26, 2024</h2>
+<p>There are 10 issues fixed in this release.</p>
+<h3 id="enhancements">Enhancements</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1138">1138</a> Add partition filter parsing to the adapter.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1114">1114</a> Is test result file creation now supported by NUnit</li>
+<li>using dotnet test?.</li>
+<li>[1188] Add support for ThrowOnEachFailureUnderDebugger setting</li>
+</ul>
+<h3 id="bug-fixes">Bug fixes</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1186">1186</a> Failure during unit test discovery doesn't cause
+entire test suite to fail.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1110">1110</a> ConsoleOut=1 should be default.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1109">1109</a> ConsoleOut=0 should turn off console output but doesn't.</li>
+</ul>
+<h3 id="refactorings">Refactorings</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1115">1115</a> Use mutex for file determination in TestOutputXml.</li>
+</ul>
+<h3 id="internal-fixes">Internal fixes</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1163">1163</a> Update packages and clean up new warnings.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1159">1159</a> Remove azure pipeline and appveyor builds.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1158">1158</a> Acceptance tests not working after NUnit 4 was released.</li>
+</ul>
+<h3 id="deprecated-features">Deprecated features</h3>
+<p>None</p>
+<h3 id="others">Others</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1122">1122</a> testcentric.engine.metadata (vulnerable dependency).</li>
+</ul>
+<h3 id="the-following-issues-are-marked-as-breaking-changes">The following issues are marked as breaking changes</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1110">1110</a> ConsoleOut=1 should be default. Change from former
+where ConsoleOut=2 was default.</li>
+</ul>
 <h2 id="nunit3-test-adapter-for-visual-studio-and-dotnet---version-450---may-30-2023">NUnit3 Test Adapter for Visual Studio and Dotnet - Version 4.5.0 - May 30, 2023</h2>
 <p>This is a version supporting the upcoming NUnit version 4.  It uses a released version of the NUnit.Engine, version
 3.15.4.</p>
