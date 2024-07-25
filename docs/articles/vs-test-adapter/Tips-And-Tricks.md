@@ -381,6 +381,10 @@ If set, this setting will allow parallel execution of tests even if the debugger
 
 #### ThrowOnEachFailureUnderDebugger
 
+If set, this setting will surface an assertion exception for each failure in an `Assert.Multiple` block if the debugger
+is attached. The default is `false`.  
+[See docs for more info](https://docs.nunit.org/articles/nunit/technical-notes/usage/Debugging-Support.html#throwoneachfailureunderdebugger-setting).
+
 (From version 4.6, require NUnit from 4.2)
 
 ---
