@@ -153,7 +153,7 @@ Gets a representation of the current test, with the following properties:
 * **FullName** - The fully qualified name of the test
 * **MethodName** - The name of the method representing the test, if any
 * **Method** - The IMethodInfo of the test method
-* **Type** - The Typeinfo of the test
+* **Type** - The `TypeInfo` of the test
 * **ClassName** - The classname of the test
 * **Arguments** - The arguments as a list of objects, if any.
 * **ExpectedResult** - The expected result, if that is set for the test
