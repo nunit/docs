@@ -59,7 +59,9 @@ listed above or using your own code. An exception may be thrown if the supplied 
 
 ### Write
 
-Writes text to the current test result.
+Writes text to the current test result, that is the Out writer.  Prefer to use the Out writer directly for better clarity.
+
+Note: *These methods will be deprecated in the future*
 
 ```csharp
 Write(bool value)
@@ -82,7 +84,10 @@ Write(string format, params object[] args)
 
 ### WriteLine
 
-Writes text to the current test result, followed by a newline.
+Writes text to the current test result, followed by a newline, that is the Out writer.  
+Prefer to use the Out writer directly for better clarity.
+
+Note: *These methods will be deprecated in the future*
 
 ```csharp
   WriteLine()
@@ -143,9 +148,25 @@ Gets a representation of the current test, with the following properties:
 
 * **ID** - The unique Id of the test
 * **Name** - The name of the test, whether set by the user or generated automatically
+* **Namespace** - The namespace of the test
+* **DisplayName** - The display name of the test
 * **FullName** - The fully qualified name of the test
 * **MethodName** - The name of the method representing the test, if any
-* **Properties** - An `IPropertyBag` of the test properties
+* **Method** - The IMethodInfo of the test method
+* **Type** - The `TypeInfo` of the test
+* **ClassName** - The classname of the test
+* **Arguments** - The arguments as a list of objects, if any.
+* **ExpectedResult** - The expected result, if that is set for the test
+* **Properties** - An `IPropertyBag` of the test properties. Note: The `Get` method ONLY returns the first property
+(with a given key) for the current level.
+
+The following properties are in version 4.2 and above.
+
+* **Parent** - The parent of the given test.
+* **AllPropertyValues** - Returns a list of values (as objects) for a given property across the complete test hierarchy
+* **AllCategories** - Returns a list of all categories (as strings) across the complete test hierarchy
+* **PropertyHierarchy** - A utility method which returns the complete hierarchy of all properties including the name,
+  value and level where they are found.
 
 ### Result
 
@@ -156,6 +177,7 @@ Gets a representation of the test result, with the following properties:
     * Inconclusive
     * Skipped
     * Passed
+    * Warning
     * Failed
   * **Label** - An optional string value, which can provide sub-categories for each Status. See below for a list of
     common outcomes supported internally by NUnit.
