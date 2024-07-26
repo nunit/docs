@@ -127,7 +127,8 @@ specified default if the parameter doesn't exist. Throws an exception if convers
 listed above or using your own code. An exception may be thrown if the supplied value cannot be converted correctly.</p>
 <h2 id="static-methods">Static Methods</h2>
 <h3 id="write">Write</h3>
-<p>Writes text to the current test result.</p>
+<p>Writes text to the current test result, that is the Out writer.  Prefer to use the Out writer directly for better clarity.</p>
+<p>Note: <em>These methods will be deprecated in the future</em></p>
 <pre><code class="lang-csharp">Write(bool value)
 Write(char value)
 Write(char[] value)
@@ -146,7 +147,9 @@ Write(string format, object arg1, object arg2, object arg3)
 Write(string format, params object[] args)
 </code></pre>
 <h3 id="writeline">WriteLine</h3>
-<p>Writes text to the current test result, followed by a newline.</p>
+<p>Writes text to the current test result, followed by a newline, that is the Out writer.<br>
+Prefer to use the Out writer directly for better clarity.</p>
+<p>Note: <em>These methods will be deprecated in the future</em></p>
 <pre><code class="lang-csharp">  WriteLine()
   WriteLine(bool value)
   WriteLine(char value)
@@ -192,9 +195,25 @@ be set by the user.</li>
 <ul>
 <li><strong>ID</strong> - The unique Id of the test</li>
 <li><strong>Name</strong> - The name of the test, whether set by the user or generated automatically</li>
+<li><strong>Namespace</strong> - The namespace of the test</li>
+<li><strong>DisplayName</strong> - The display name of the test</li>
 <li><strong>FullName</strong> - The fully qualified name of the test</li>
 <li><strong>MethodName</strong> - The name of the method representing the test, if any</li>
-<li><strong>Properties</strong> - An <code>IPropertyBag</code> of the test properties</li>
+<li><strong>Method</strong> - The IMethodInfo of the test method</li>
+<li><strong>Type</strong> - The <code>TypeInfo</code> of the test</li>
+<li><strong>ClassName</strong> - The classname of the test</li>
+<li><strong>Arguments</strong> - The arguments as a list of objects, if any.</li>
+<li><strong>ExpectedResult</strong> - The expected result, if that is set for the test</li>
+<li><strong>Properties</strong> - An <code>IPropertyBag</code> of the test properties. Note: The <code>Get</code> method ONLY returns the first property
+(with a given key) for the current level.</li>
+</ul>
+<p>The following properties are in version 4.2 and above.</p>
+<ul>
+<li><strong>Parent</strong> - The parent of the given test.</li>
+<li><strong>AllPropertyValues</strong> - Returns a list of values (as objects) for a given property across the complete test hierarchy</li>
+<li><strong>AllCategories</strong> - Returns a list of all categories (as strings) across the complete test hierarchy</li>
+<li><strong>PropertyHierarchy</strong> - A utility method which returns the complete hierarchy of all properties including the name,
+value and level where they are found.</li>
 </ul>
 <h3 id="result">Result</h3>
 <p>Gets a representation of the test result, with the following properties:</p>
@@ -206,6 +225,7 @@ be set by the user.</li>
 <li>Inconclusive</li>
 <li>Skipped</li>
 <li>Passed</li>
+<li>Warning</li>
 <li>Failed</li>
 </ul>
 </li>
