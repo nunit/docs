@@ -88,15 +88,17 @@
 <!-- markdownlint-disable-file MD013 -->
 
 <h2 id="nunit-42---to-be-released-very-soon-now">NUnit 4.2 - To Be released very soon now</h2>
-<p>There are 23 issues fixed in this release.</p>
+<p>There are 28 issues fixed in this release.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4710">4710</a> Improve PropertiesComparer diagnostics. Fixed by team <a href="https://github.com/nunit/nunit/pull/4712">PR 4712</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4353">4353</a> TestContext.AddTestAttachment with long file paths. Thanks to <a href="https://github.com/Meet2rohit99">Rohit Aggarwal</a> for <a href="https://github.com/nunit/nunit/pull/4665">PR 4665</a></li>
-<li><a href="https://github.com/nunit/nunit/issues/3981">3981</a> Switch default branch to main. Fixed by team <a href="https://github.com/nunit/nunit/pull/4753">PR 4753</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3918">3918</a> String comparison without whitespace. Fixed by team <a href="https://github.com/nunit/nunit/pull/4664">PR 4664</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3829">3829</a> Consider optimizing <code>StreamsComparer</code> for happy path. Thanks to <a href="https://github.com/mithileshz">Mithilesh Zavar</a> for <a href="https://github.com/nunit/nunit/pull/4668">PR 4668</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3767">3767</a> Incorrect number of items listed in failure message. Thanks to <a href="https://github.com/iamdmitrij">Dmitrij</a> for <a href="https://github.com/nunit/nunit/pull/4702">PR 4702</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/1396">1396</a> Class Level Category Missing from TestContext. Fixed by team <a href="https://github.com/nunit/nunit/pull/4757">PR 4757</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/796">796</a> <code>TestContext.CurrentContext.Test.Properties</code> from TestFixture should be available from <code>TestContext</code> for Test. Fixed by team <a href="https://github.com/nunit/nunit/pull/4757">PR 4757</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/548">548</a> Properties set on a parameterized method are not accessible to TestContext. Fixed by team <a href="https://github.com/nunit/nunit/pull/4757">PR 4757</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4587">4587</a> Feature request: Assert.Multiple() could return an IDisposable, avoiding passing an Action around.. Fixed by team <a href="https://github.com/nunit/nunit/pull/4758">PR 4758</a></li>
 </ul>
 <h3 id="bug-fixes">Bug fixes</h3>
@@ -110,6 +112,7 @@
 <li><a href="https://github.com/nunit/nunit/issues/4639">4639</a> <code>ValueTask</code> is not being properly consumed by the <code>AwaitAdapter</code>. Fixed by team <a href="https://github.com/nunit/nunit/pull/4640">PR 4640</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4598">4598</a> DefaultTimeout in .runsettings + TearDown method seems to break test output. Fixed by team <a href="https://github.com/nunit/nunit/pull/4692">PR 4692</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4589">4589</a> Exception when using test filters from .runsettings or --filter argument from dotnet test. Fixed by team <a href="https://github.com/nunit/nunit/pull/4760">PR 4760</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/1358">1358</a> TestContext.CurrentContext.Test.Properties does not contain value(s) from PropertyAttribute when using TestCaseAttribute. Fixed by team <a href="https://github.com/nunit/nunit/pull/4757">PR 4757</a></li>
 </ul>
 <h3 id="refactorings">Refactorings</h3>
 <ul>
@@ -119,12 +122,14 @@
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4735">4735</a> StreamComparer - Pool allocating the byte array reduces memory allocation by 96%. Thanks to <a href="https://github.com/mithileshz">Mithilesh Zavar</a> for <a href="https://github.com/nunit/nunit/pull/4737">PR 4737</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4733">4733</a> Improve speed of Randomizer.GetString. Fixed by team <a href="https://github.com/nunit/nunit/pull/4512">PR 4512</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/3981">3981</a> Switch default branch to main. Fixed by team <a href="https://github.com/nunit/nunit/pull/4753">PR 4753</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4649">4649</a> Switch to using MacOS 14 in GitHub Actions. Fixed by team <a href="https://github.com/nunit/nunit/pull/4648">PR 4648</a></li>
 </ul>
 <h3 id="deprecated-features">Deprecated features</h3>
 <p>None</p>
 <h3 id="others">Others</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/4765">4765</a> Document ThrowOnEachFailurUnderDebugger.</li>
 <li><a href="https://github.com/nunit/nunit/issues/4730">4730</a> Remove reference to the mailing list from CONTRIBUTING.md. Fixed by team <a href="https://github.com/nunit/nunit/pull/4752">PR 4752</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4726">4726</a> <code>Using&amp;lt;TCollectionType, TMemberType&amp;gt;</code> is unclear. Thanks to <a href="https://github.com/RenderMichael">Michael Render</a> for <a href="https://github.com/nunit/nunit/pull/4729">PR 4729</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4684">4684</a> Increment StreamsComparer by 'Actual bytes read' rather than the buffer size. Fixed by team <a href="https://github.com/nunit/nunit/pull/4671">PR 4671</a></li>
