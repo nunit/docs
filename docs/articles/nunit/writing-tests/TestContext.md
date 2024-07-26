@@ -84,7 +84,8 @@ Write(string format, params object[] args)
 
 ### WriteLine
 
-Writes text to the current test result, followed by a newline, that is the Out writer.  Prefer to use the Out writer directly for better clarity.
+Writes text to the current test result, followed by a newline, that is the Out writer.  
+Prefer to use the Out writer directly for better clarity.
 
 Note: *These methods will be deprecated in the future*
 
@@ -156,14 +157,16 @@ Gets a representation of the current test, with the following properties:
 * **ClassName** - The classname of the test
 * **Arguments** - The arguments as a list of objects, if any.
 * **ExpectedResult** - The expected result, if that is set for the test
-* **Properties** - An `IPropertyBag` of the test properties. Note: This ONLY returns the first property (with a given key) for the current level.
+* **Properties** - An `IPropertyBag` of the test properties. Note: This ONLY returns the first property
+(with a given key) for the current level.
 
 The following properties are in version 4.2 and above.
 
 * **Parent** - The parent of the given test.
 * **AllPropertyValues** - Returns a list of values (as objects) for a given property across the complete test hierarchy
 * **AllCategories** - Returns a list of all categories (as strings) across the complete test hierarchy
-* **PropertyHierarchy** - A utility method which returns the complete hierarchy of all properties including the name, value and level where they are found.
+* **PropertyHierarchy** - A utility method which returns the complete hierarchy of all properties including the name,
+  value and level where they are found.
 
 ### Result
 
