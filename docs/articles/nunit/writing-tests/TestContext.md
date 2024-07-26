@@ -157,7 +157,7 @@ Gets a representation of the current test, with the following properties:
 * **ClassName** - The classname of the test
 * **Arguments** - The arguments as a list of objects, if any.
 * **ExpectedResult** - The expected result, if that is set for the test
-* **Properties** - An `IPropertyBag` of the test properties. Note: This ONLY returns the first property
+* **Properties** - An `IPropertyBag` of the test properties. Note: The Get method ONLY returns the first property
 (with a given key) for the current level.
 
 The following properties are in version 4.2 and above.
