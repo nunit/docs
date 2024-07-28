@@ -50,7 +50,7 @@ jobs:
         uses: dsaltares/fetch-gh-release-asset@master
         with:
           repo: 'nunit/nunit'
-          version: 'tags/v${{ env.NUNIT_VERSION_FOR_API_DOCS }}'
+          version: 'tags/${{ env.NUNIT_VERSION_FOR_API_DOCS }}'
           file: 'NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}.zip'
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Unzip NUnit Asset zip file into its own directory
