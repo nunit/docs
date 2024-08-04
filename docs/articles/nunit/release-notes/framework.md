@@ -54,7 +54,7 @@ None
 
 ### Others
 
-* [4765](https://github.com/nunit/nunit/issues/4765) Document ThrowOnEachFailurUnderDebugger. 
+* [4765](https://github.com/nunit/nunit/issues/4765) Document ThrowOnEachFailurUnderDebugger.
 * [4730](https://github.com/nunit/nunit/issues/4730) Remove reference to the mailing list from CONTRIBUTING.md. Fixed by team [PR 4752](https://github.com/nunit/nunit/pull/4751)
 * [4726](https://github.com/nunit/nunit/issues/4726) `Using&lt;TCollectionType, TMemberType&gt;` is unclear. Thanks to [Michael Render](https://github.com/RenderMichael) for [PR 4729](https://github.com/nunit/nunit/pull/4729)
 * [4684](https://github.com/nunit/nunit/issues/4684) Increment StreamsComparer by 'Actual bytes read' rather than the buffer size. Thanks to [Mithilesh Zavar](https://github.com/mithileshz) for [PR 4671](https://github.com/nunit/nunit/pull/4671)
