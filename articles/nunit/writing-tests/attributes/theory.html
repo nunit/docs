@@ -153,7 +153,7 @@ gives the original number.</p>
 }
 </code></pre>
 <h2 id="theories-in-generic-fixtures">Theories in Generic Fixtures</h2>
-<p>In a generic fixture with Type parameter <code>T</code> individual methods using <code>T</code> as a parameter type or not generic, since <code>T</code>
+<p>In a generic fixture with Type parameter <code>T</code> individual methods using <code>T</code> as a parameter type are not generic, since <code>T</code>
 has been resolved to an actual Type in instantiating the fixture instance. You may use such methods as theories and any
 data of the appropriate type will be used.</p>
 <pre><code class="lang-csharp">[TestFixture(typeof(int))]
