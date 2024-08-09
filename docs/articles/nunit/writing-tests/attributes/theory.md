@@ -83,7 +83,7 @@ public class SqrtTests
 
 ## Theories in Generic Fixtures
 
-In a generic fixture with Type parameter `T` individual methods using `T` as a parameter type or not generic, since `T`
+In a generic fixture with Type parameter `T` individual methods using `T` as a parameter type are not generic, since `T`
 has been resolved to an actual Type in instantiating the fixture instance. You may use such methods as theories and any
 data of the appropriate type will be used.
 
