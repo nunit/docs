@@ -69,4 +69,3 @@ You do this by adding a `StartupObject` to your project file:
 ```xml
   <StartupObject>TestProject.Program</StartupObject>
 ```
-
