@@ -129,6 +129,15 @@ installed and referenced for you.</p>
 <h2 id="nunitlite-output">NUnitLite Output</h2>
 <p>As seen in the following screen shot, the output from an NUnitLite run is quite similar to that from the console runner.</p>
 <p><img src="../../../images/nunitlite-mock.png" alt="Screenshot of NUnitLite"></p>
+<h2 id="tips">Tips</h2>
+<h3 id="testing-an-executable-application">Testing an executable application</h3>
+<p>When testing an executable application, you can use the NUnitLite runner to execute your tests.
+However, this approach will result in having two Main methods in your application. To resolve this,
+you need to specify which Main method to use — specifically, the Main method from the test project.
+You do this by stating which class contains this method.</p>
+<p>You do this by adding a <code>StartupObject</code> to your project file:</p>
+<pre><code class="lang-xml">  &lt;StartupObject&gt;TestProject.Program&lt;/StartupObject&gt;
+</code></pre>
 
 </article>
           </div>
