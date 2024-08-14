@@ -60,9 +60,9 @@ As seen in the following screen shot, the output from an NUnitLite run is quite 
 
 ## Tips
 
-### Testing a console application
+### Testing an executable application
 
-When testing a console application, you can use the NUnitLite runner to execute your tests. However, this approach will result in having two Main methods in your application. To resolve this, you need to specify which Main method to use — specifically, the Main method from the test project. Additionally, you must indicate which class contains this method.
+When testing an executable application, you can use the NUnitLite runner to execute your tests. However, this approach will result in having two Main methods in your application. To resolve this, you need to specify which Main method to use — specifically, the Main method from the test project. You do this by stating which class contains this method.
 
 You do this by adding a `StartupObject` to your project file:
 
