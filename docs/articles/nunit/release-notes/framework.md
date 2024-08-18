@@ -7,7 +7,7 @@ uid: frameworkreleasenotes
 
 ## NUnit 4.2 - To Be released very soon now
 
-There are 33 issues fixed in this release.
+There are 34 issues fixed in this release.
 
 ### Enhancements
 
@@ -49,6 +49,7 @@ There are 33 issues fixed in this release.
 * [4733](https://github.com/nunit/nunit/issues/4733) Improve speed of Randomizer.GetString. Fixed by team [PR 4512](https://github.com/nunit/nunit/pull/4512)
 * [3981](https://github.com/nunit/nunit/issues/3981) Switch default branch to main. Fixed by team [PR 4753](https://github.com/nunit/nunit/pull/4753)
 * [4649](https://github.com/nunit/nunit/issues/4649) Switch to using MacOS 14 in GitHub Actions. Fixed by team [PR 4648](https://github.com/nunit/nunit/pull/4648)
+* [3757](https://github.com/nunit/nunit/issues/3757) Re-Add WinForms and WPF based tests. Fixed by team [PR 4776](https://github.com/nunit/nunit/pull/4776)
 
 ### Deprecated features
 
@@ -56,7 +57,7 @@ None
 
 ### Others
 
-* [4765](https://github.com/nunit/nunit/issues/4765) Document ThrowOnEachFailurUnderDebugger.
+* [4765](https://github.com/nunit/nunit/issues/4765) Document ThrowOnEachFailurUnderDebugger. 
 * [4730](https://github.com/nunit/nunit/issues/4730) Remove reference to the mailing list from CONTRIBUTING.md. Fixed by team [PR 4752](https://github.com/nunit/nunit/pull/4752)
 * [4726](https://github.com/nunit/nunit/issues/4726) `Using&lt;TCollectionType, TMemberType&gt;` is unclear. Thanks to [Michael Render](https://github.com/RenderMichael) for [PR 4729](https://github.com/nunit/nunit/pull/4729)
 * [4684](https://github.com/nunit/nunit/issues/4684) Increment StreamsComparer by 'Actual bytes read' rather than the buffer size. Fixed by team [PR 4671](https://github.com/nunit/nunit/pull/4671)
