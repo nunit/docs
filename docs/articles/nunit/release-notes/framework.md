@@ -7,7 +7,7 @@ uid: frameworkreleasenotes
 
 ## NUnit 4.2 - To Be released very soon now
 
-There are 34 issues fixed in this release.
+There are 35 issues fixed in this release.
 
 ### Enhancements
 
