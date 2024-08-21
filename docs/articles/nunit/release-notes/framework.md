@@ -14,9 +14,9 @@ There are 37 issues fixed in this release.
 * [4777](https://github.com/nunit/nunit/issues/4777) Publicly expose `IgnoreAttribute.Reason`. Thanks to [Michael Render](https://github.com/RenderMichael) for [PR 4781](https://github.com/nunit/nunit/pull/4781)
 * [4738](https://github.com/nunit/nunit/issues/4738) QoL suggestion: fail fast in Assert.Multiple under debugger. Thanks to [MaceWindu](https://github.com/MaceWindu) for [PR 4749](https://github.com/nunit/nunit/pull/4749)
 * [4710](https://github.com/nunit/nunit/issues/4710) Improve PropertiesComparer diagnostics. Fixed by team [PR 4712](https://github.com/nunit/nunit/pull/4712)
-* [4686](https://github.com/nunit/nunit/issues/4686) Provide a ProgressTraceListener to redirect Trace output to the NUnit Progress output. 
+* [4686](https://github.com/nunit/nunit/issues/4686) Provide a ProgressTraceListener to redirect Trace output to the NUnit Progress output. Thanks to [maettu-this](https://github.com/maettu-this) for [PR 4709](https://github.com/nunit/nunit/pull/4709)
 * [4353](https://github.com/nunit/nunit/issues/4353) TestContext.AddTestAttachment with long file paths. Thanks to [Rohit Aggarwal](https://github.com/Meet2rohit99) for [PR 4665](https://github.com/nunit/nunit/pull/4665)
-* [4134](https://github.com/nunit/nunit/issues/4134) NUnit 3 console does not display logs from background thread from a library. 
+* [4134](https://github.com/nunit/nunit/issues/4134) NUnit 3 console does not display logs from background thread from a library. Thanks to [maettu-this](https://github.com/maettu-this) for [PR 4709](https://github.com/nunit/nunit/pull/4709)
 * [3918](https://github.com/nunit/nunit/issues/3918) String comparison without whitespace. Fixed by team [PR 4664](https://github.com/nunit/nunit/pull/4664)
 * [3829](https://github.com/nunit/nunit/issues/3829) Consider optimizing `StreamsComparer` for happy path. Thanks to [Mithilesh Zavar](https://github.com/mithileshz) for [PR 4668](https://github.com/nunit/nunit/pull/4668)
 * [3767](https://github.com/nunit/nunit/issues/3767) Incorrect number of items listed in failure message. Thanks to [Dmitrij](https://github.com/iamdmitrij) for [PR 4702](https://github.com/nunit/nunit/pull/4702)
