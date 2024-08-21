@@ -318,7 +318,7 @@ gh pr merge $pull_request_url --auto --squash
 popd
 ```
 
-The script is provided as is and might require further tweaks to the specific use cases. 
+The script is provided as is and might require further tweaks to the specific use cases.
 It was written assuming a few structural conventions that might not apply to every use case.
 
 #### Updating from Classic Asserts in NUnit 4.x
