@@ -5,7 +5,7 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
-## NUnit 4.2 - To Be released very soon now
+## NUnit 4.2 - August 23. 2024
 
 There are 37 issues fixed in this release.
 
