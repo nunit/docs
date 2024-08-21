@@ -108,7 +108,7 @@ Assert.That(actualText, Does.StartWith("42"), $"Expected '{actualText}' to start
 There are no code fixers for `FileAssert` and `DirectoryAssert`. They could be added, but we don't expect these to be
 used too much.
 
-Should you be migrating a larger number of repositories to the constraint model 
+Should you be migrating a larger number of repositories to the constraint model
 the following script can be used as a good starting point:
 
 ```bash
