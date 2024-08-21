@@ -87,13 +87,16 @@
 <h1 id="framework-release">Framework Release</h1>
 <!-- markdownlint-disable-file MD013 -->
 
-<h2 id="nunit-42---to-be-released-very-soon-now">NUnit 4.2 - To Be released very soon now</h2>
-<p>There are 31 issues fixed in this release.</p>
+<h2 id="nunit-42---august-23-2024">NUnit 4.2 - August 23. 2024</h2>
+<p>There are 37 issues fixed in this release.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/4777">4777</a> Publicly expose <code>IgnoreAttribute.Reason</code>. Thanks to <a href="https://github.com/RenderMichael">Michael Render</a> for <a href="https://github.com/nunit/nunit/pull/4781">PR 4781</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4738">4738</a> QoL suggestion: fail fast in Assert.Multiple under debugger. Thanks to <a href="https://github.com/MaceWindu">MaceWindu</a> for <a href="https://github.com/nunit/nunit/pull/4749">PR 4749</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4710">4710</a> Improve PropertiesComparer diagnostics. Fixed by team <a href="https://github.com/nunit/nunit/pull/4712">PR 4712</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4686">4686</a> Provide a ProgressTraceListener to redirect Trace output to the NUnit Progress output. Thanks to <a href="https://github.com/maettu-this">maettu-this</a> for <a href="https://github.com/nunit/nunit/pull/4709">PR 4709</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4353">4353</a> TestContext.AddTestAttachment with long file paths. Thanks to <a href="https://github.com/Meet2rohit99">Rohit Aggarwal</a> for <a href="https://github.com/nunit/nunit/pull/4665">PR 4665</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4134">4134</a> NUnit 3 console does not display logs from background thread from a library. Thanks to <a href="https://github.com/maettu-this">maettu-this</a> for <a href="https://github.com/nunit/nunit/pull/4709">PR 4709</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3918">3918</a> String comparison without whitespace. Fixed by team <a href="https://github.com/nunit/nunit/pull/4664">PR 4664</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3829">3829</a> Consider optimizing <code>StreamsComparer</code> for happy path. Thanks to <a href="https://github.com/mithileshz">Mithilesh Zavar</a> for <a href="https://github.com/nunit/nunit/pull/4668">PR 4668</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3767">3767</a> Incorrect number of items listed in failure message. Thanks to <a href="https://github.com/iamdmitrij">Dmitrij</a> for <a href="https://github.com/nunit/nunit/pull/4702">PR 4702</a></li>
@@ -104,6 +107,7 @@
 </ul>
 <h3 id="bug-fixes">Bug fixes</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/4782">4782</a> Bug report: [ValueSource] doesn't play nice with [CancelAfter]. Fixed by team <a href="https://github.com/nunit/nunit/pull/4783">PR 4783</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4770">4770</a> Bug report: [Values] doesn't play nice with [CancelAfter]. Fixed by team <a href="https://github.com/nunit/nunit/pull/4774">PR 4774</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4750">4750</a> <code>DefaultFloatingPointTolerance</code> ignored for <code>TestCaseData</code>. Fixed by team <a href="https://github.com/nunit/nunit/pull/4754">PR 4754</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4723">4723</a> CurrentContext.Result.Outcome.Status is inconclusive in TearDown if Timeout attribute is used in 4.x. Fixed by team <a href="https://github.com/nunit/nunit/pull/4727">PR 4727</a></li>
@@ -127,26 +131,18 @@
 <li><a href="https://github.com/nunit/nunit/issues/4733">4733</a> Improve speed of Randomizer.GetString. Fixed by team <a href="https://github.com/nunit/nunit/pull/4512">PR 4512</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3981">3981</a> Switch default branch to main. Fixed by team <a href="https://github.com/nunit/nunit/pull/4753">PR 4753</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4649">4649</a> Switch to using MacOS 14 in GitHub Actions. Fixed by team <a href="https://github.com/nunit/nunit/pull/4648">PR 4648</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/3757">3757</a> Re-Add WinForms and WPF based tests. Fixed by team <a href="https://github.com/nunit/nunit/pull/4776">PR 4776</a></li>
 </ul>
 <h3 id="deprecated-features">Deprecated features</h3>
 <p>None</p>
 <h3 id="others">Others</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4765">4765</a> Document ThrowOnEachFailurUnderDebugger.</li>
-<li><a href="https://github.com/nunit/nunit/issues/4730">4730</a> Remove reference to the mailing list from CONTRIBUTING.md. Fixed by team <a href="https://github.com/nunit/nunit/pull/4751">PR 4752</a></li>
-<li><a href="https://github.com/nunit/nunit/issues/4726">4726</a> <code>Using&amp;lt;TCollectionType, TMemberType&amp;gt;</code> is unclear. Thanks to <a href="https://github.com/RenderMichael">Michael Render</a> for <a href="https://github.com/nunit/nunit/pull/4729">PR 4729</a></li>
-<li><a href="https://github.com/nunit/nunit/issues/4684">4684</a> Increment StreamsComparer by 'Actual bytes read' rather than the buffer size. Thanks to <a href="https://github.com/mithileshz">Mithilesh Zavar</a> for <a href="https://github.com/nunit/nunit/pull/4671">PR 4671</a></li>
-</ul>
-<h3 id="the-following-issues-are-marked-as-breaking-changes">The following issues are marked as breaking changes</h3>
-<p>None</p>
-<h3 id="others-1">Others</h3>
-<ul>
-<li><a href="https://github.com/nunit/nunit/issues/4765">4765</a> Document ThrowOnEachFailurUnderDebugger.</li>
 <li><a href="https://github.com/nunit/nunit/issues/4730">4730</a> Remove reference to the mailing list from CONTRIBUTING.md. Fixed by team <a href="https://github.com/nunit/nunit/pull/4752">PR 4752</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4726">4726</a> <code>Using&amp;lt;TCollectionType, TMemberType&amp;gt;</code> is unclear. Thanks to <a href="https://github.com/RenderMichael">Michael Render</a> for <a href="https://github.com/nunit/nunit/pull/4729">PR 4729</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4684">4684</a> Increment StreamsComparer by 'Actual bytes read' rather than the buffer size. Fixed by team <a href="https://github.com/nunit/nunit/pull/4671">PR 4671</a></li>
 </ul>
-<h3 id="the-following-issues-are-marked-as-breaking-changes-1">The following issues are marked as breaking changes</h3>
+<h3 id="the-following-issues-are-marked-as-breaking-changes">The following issues are marked as breaking changes</h3>
 <p>None</p>
 <h2 id="nunit-41---february-23-2024">NUnit 4.1 - February 23. 2024</h2>
 <p>This release is a bugfix and smaller enhancement release.</p>
@@ -173,7 +169,7 @@
 </ul>
 <h3 id="deprecated-features-1">Deprecated features</h3>
 <p>None</p>
-<h3 id="the-following-issues-are-marked-as-breaking-changes-2">The following issues are marked as breaking changes</h3>
+<h3 id="the-following-issues-are-marked-as-breaking-changes-1">The following issues are marked as breaking changes</h3>
 <p>None.</p>
 <p>Be aware that in version 4.0 the different equality constraints included checking properties of objects.
 That was a breaking change from earlier versions, and has now been replaced with an UsingPropertiesComparer()
@@ -331,12 +327,12 @@ doing!</p>
 <li><a href="https://github.com/nunit/nunit/issues/3410">3410</a> Consider deprecating NUnitEqualityComparer.AreEqual optional bool parameter. Thanks to <a href="https://github.com/x789">TillW</a> for <a href="https://github.com/nunit/nunit/pull/3960">PR 3960</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3132">3132</a> Remove AssertionHelper and AssertionHelperTests. Fixed by team <a href="https://github.com/nunit/nunit/pull/3836">PR 3836</a></li>
 </ul>
-<h3 id="others-2">Others</h3>
+<h3 id="others-1">Others</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/3869">3869</a> Copyright notices for third-party code. Thanks to <a href="https://github.com/lennartb-">Lennart Brggemann</a> for <a href="https://github.com/nunit/nunit/pull/4444">PR 4444</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3301">3301</a> [HandleProcessCorruptedStateExceptions] has no effect unless we disable partial trust. Fixed by team <a href="https://github.com/nunit/nunit/pull/4398">PR 4398</a></li>
 </ul>
-<h3 id="the-following-issues-are-marked-as-breaking-changes-3">The following issues are marked as breaking changes</h3>
+<h3 id="the-following-issues-are-marked-as-breaking-changes-2">The following issues are marked as breaking changes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4416">4416</a> Move classic asserts into its own project . Fixed by team <a href="https://github.com/nunit/nunit/pull/4417">PR 4417</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4415">4415</a> Remove use of params for messages. Fixed by team <a href="https://github.com/nunit/nunit/pull/4419">PR 4419</a></li>
@@ -398,7 +394,7 @@ Thanks to <a href="https://github.com/BrunoJuchli">Bruno Juchli</a> for <a href=
 </ul>
 <h3 id="deprecated-features-3">Deprecated features</h3>
 <p>None</p>
-<h3 id="the-following-issues-are-marked-as-breaking-changes-4">The following issues are marked as breaking changes</h3>
+<h3 id="the-following-issues-are-marked-as-breaking-changes-3">The following issues are marked as breaking changes</h3>
 <p>None</p>
 <h2 id="nunit-3133---march-20-2022">NUnit 3.13.3 - March 20, 2022</h2>
 <p>This release includes several performance enhancements. <a href="https://github.com/lahma">@lahma</a> provided a massive speed
