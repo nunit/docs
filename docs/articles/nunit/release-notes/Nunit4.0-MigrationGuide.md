@@ -108,6 +108,217 @@ Assert.That(actualText, Does.StartWith("42"), $"Expected '{actualText}' to start
 There are no code fixers for `FileAssert` and `DirectoryAssert`. They could be added, but we don't expect these to be
 used too much.
 
+Should you be migrating a larger number of repositories to the constraint model the following script can be used as a good starting point:
+
+```bash
+#!/bin/bash
+
+# This script automates the process of adding and configuring the NUnit.Analyzers package to .NET projects.
+# It performs the following steps:
+# - Checks if a directory is provided as an argument, and defaults to the current directory if not.
+# - Changes to the target directory to ensure all operations are performed within the correct git repository.
+# - Creates a dedicated branch that will contain the changes
+# - Searches for Directory.Packages.props in the target directory and its subdirectories.
+#   - Fails the script when multiple are found
+#   - If one is found it adds the NUnit.Analyzer there and makes sure the modifications to the project files follow the nomenclature
+#     for centralized packages
+# - Searches for all .csproj files in the target directory.
+# - For each .csproj file:
+#   - Checks if NUnit.Analyzers is already referenced, skipping if it is.
+#   - Adds NUnit.Analyzers after the NUnit reference if not already present.
+#   - Skips the .csproj file if no NUnit reference is found.
+# - Stages the modified .csproj and/or Directory.Packages.props files for commit and prompts the user to review before committing.
+# - Restores NuGet packages for all .sln files found in the directory.
+# - Applies each diagnostic rule sequantially to the projects in parallel:
+#   - Checks for NUnit.Analyzers reference, and creates or modifies .editor_config for each .csproj file.
+#   - Applies the formatting using dotnet format for each diagnostic.
+#   - Discards or deletes changes to .editor_config.
+#   - Commits the changes for each diagnostic.
+# - Returns to the original directory after completing the operations.
+#
+# Usage:
+# chmod +x nunit-analyzer-automation.sh
+# ./nunit-analyzer-automation.sh target/directory/path
+#
+# Requirements:
+# - sed
+# - git
+# - gh
+#
+# Installation Requirements MacOS: 
+# - brew install gnused
+#   - Make it the default sed as outlined in the hints in the installation step of the brew package or replaced "sed" with "gsed" in the script in case you don't want to override the default sed of MacOS
+# - brew install gh
+#   - gh auth login
+#     The gh client needs to be authenticated
+#   - gh auth refresh -s project
+#     The gh client requires project scope
+
+# Check if a directory is provided as an argument, if not, use the current directory
+TARGET_DIR="${1:-.}"
+
+PACKAGE_NAME="NUnit.Analyzers"
+PACKAGE_VERSION="4.3.0"  # Replace with the desired version
+BRANCH_NAME="nunit-assertions-migration"
+PROJECT_ID="XXX"
+ORG="ZZZ"
+
+# Define the XML snippet to insert
+INSERT_SNIPPET_CSPROJ="    <PackageReference Include=\"$PACKAGE_NAME\" Version=\"$PACKAGE_VERSION\" />"
+INSERT_SNIPPET_CSPROJ_PROPS="    <PackageReference Include=\"$PACKAGE_NAME\" />"
+INSERT_SNIPPET_PROPS="    <PackageVersion Include=\"$PACKAGE_NAME\" Version=\"$PACKAGE_VERSION\" />"
+
+# Change to the TARGET_DIR to ensure all commands are executed in the context of its git repository
+pushd "$TARGET_DIR" || { echo "Failed to change directory to $TARGET_DIR"; exit 1; }
+
+git checkout -b $BRANCH_NAME
+
+# Find all Directory.Packages.props files in the target directory and its subdirectories
+prop_files=($(find . -name "Directory.Packages.props"))
+prop_file=
+
+# Check if there are multiple Directory.Packages.props files
+if [ ${#prop_files[@]} -gt 1 ]; then
+    echo "Error: Multiple Directory.Packages.props files found. The script cannot proceed."
+    exit 1
+elif [ ${#prop_files[@]} -eq 1 ]; then
+    prop_file="${prop_files[0]}"
+    echo "Found Directory.Packages.props: $prop_file"
+    # Check if the project already has NUnit.Analyzers
+    if grep -qi "<PackageVersion Include=\"$PACKAGE_NAME\"" "$prop_file"; then
+        echo "Skipping $prop_file - $PACKAGE_NAME already present"
+    else
+        echo "Adding $PACKAGE_NAME to $prop_file"
+        # Insert the PackageReference after the NUnit reference to preserve the item groups that got added
+        sed -i "/<PackageVersion Include=\"NUnit\"/Ia\\
+$INSERT_SNIPPET_PROPS" "$prop_file"
+        INSERT_SNIPPET_CSPROJ=$INSERT_SNIPPET_CSPROJ_PROPS
+    fi
+else
+    echo "No Directory.Packages.props found"
+fi
+
+# Find all .csproj files in the target directory
+find . -name "*.csproj" | while read -r csproj; do
+    # Check if the project already has NUnit.Analyzers
+    if grep -qi "<PackageReference Include=\"$PACKAGE_NAME\"" "$csproj"; then
+        echo "Skipping $csproj - $PACKAGE_NAME already present"
+    # Check if the project references NUnit and add NUnit.Analyzers if not already present
+    elif grep -qi '<PackageReference Include="NUnit"' "$csproj"; then
+        echo "Adding $PACKAGE_NAME to $csproj"
+        
+        # Insert the PackageReference after the NUnit reference to preserve the item groups that got added
+        sed -i "/<PackageReference Include=\"NUnit\"/Ia\\
+$INSERT_SNIPPET_CSPROJ" "$csproj"
+    else
+        echo "Skipping $csproj - No NUnit reference found"
+    fi
+done
+
+# Stage .csproj files for commit
+git add "*.csproj"
+if [ -f "$prop_file" ]; then
+    git add "$prop_file"
+fi
+
+echo "Verify the changes and do the necessary resets with git. For example test projects that are shipped should either not have the analzyer or the the PrivateAssets set to All. Hit any key to commit the staged files"
+read -sn1
+
+git commit -m "Add Nunit.Analyzer to test projects"
+
+# Restore NuGet packages for all .sln files
+find . -name "*.sln" | while read -r solution; do
+    echo "Restoring nuget packages in $solution"
+    dotnet restore $solution
+done
+
+nunit_analyzer_diagnostics=($(seq -f "NUnit%g" 2001 2050))
+# For manual purposes use the explicitely declared diagnostic IDs
+# nunit_analyzer_diagnostics=(
+#   "NUnit2001" "NUnit2002" "NUnit2003" "NUnit2004" "NUnit2005"
+#   "NUnit2006" "NUnit2007" "NUnit2008" "NUnit2009" "NUnit2010"
+#   "NUnit2011" "NUnit2012" "NUnit2013" "NUnit2014" "NUnit2015"
+#   "NUnit2016" "NUnit2017" "NUnit2018" "NUnit2019" "NUnit2020"
+#   "NUnit2021" "NUnit2022" "NUnit2023" "NUnit2024" "NUnit2025"
+#   "NUnit2026" "NUnit2027" "NUnit2028" "NUnit2029" "NUnit2030"
+#   "NUnit2031" "NUnit2032" "NUnit2033" "NUnit2034" "NUnit2035"
+#   "NUnit2036" "NUnit2037" "NUnit2038" "NUnit2039" "NUnit2040"
+#   "NUnit2041" "NUnit2042" "NUnit2043" "NUnit2044" "NUnit2045"
+#   "NUnit2046" "NUnit2047" "NUnit2048" "NUnit2049" "NUnit2050"
+# )
+
+for diagnostic in ${nunit_analyzer_diagnostics[@]}; do
+    echo "Applying rule $diagnostic"
+
+    formatting_jobs=()
+
+    while IFS= read -r csproj; do
+        (
+            # Check if the project already has NUnit.Analyzers
+            if grep -q "<PackageReference Include=\"$PACKAGE_NAME\"" "$csproj"; then
+                csproj_dir=$(dirname "$csproj")
+                editor_config="$csproj_dir/.editorconfig"
+
+                if [ ! -f "$editor_config" ]; then
+                    echo "Creating .editor_config in $editor_config"
+                    touch "$editor_config"
+                    echo "[*.cs]" >> "$editor_config"
+                fi
+
+                echo "Appending to $editor_config"
+                echo "dotnet_diagnostic.$diagnostic.severity = warning" >> "$editor_config"
+
+                echo "Formatting $csproj with diagnostic $diagnostic"
+                dotnet format analyzers $csproj --diagnostics $diagnostic --severity info --no-restore --verbosity diagnostic
+
+            else
+                echo "Skipping $csproj - No NUnit.Analyzer reference found"
+            fi
+        ) &
+        
+        formatting_jobs+=($!)
+    done < <(find . -name "*.csproj")
+
+    echo "Waiting for formatting jobs to complete"
+    for formatting_job in "${formatting_jobs[@]}"; do
+        wait $formatting_job
+    done
+
+    echo "Committing formatting changes"
+    git add "*.cs"
+    git commit -m "Autoformat of test projects for $diagnostic"
+
+    echo "Discarding all unrelated changes"
+    git reset --hard
+    git clean -f
+
+    formatting_jobs=()
+done
+
+echo "Pushing the branch upstream"
+git push --set-upstream origin $BRANCH_NAME
+
+echo "Creating the pull request"
+pull_request_url=$(gh pr create --title "Migrate NUnit assertions to the constraint model in preparation of the NUnit 4 upgrade" --body "
+This PR contains all changes related to assertion model according to the [constraint assertion model](https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertion-models/constraint.html).
+
+Using a script, we apply all [assertion rules](https://docs.nunit.org/articles/nunit-analyzers/NUnit-Analyzers.html#assertion-rules-nunit2001---) provided by the NUnit.Analyzers package. In addition, some manual interventions are done when applicable.
+
+## Plan of action
+
+- [ ] ⚠️ Build the solution and resolve any remaining errors or warnings
+- [ ] ✅ Review the assertions commit by commit
+- [ ] 👀 Invite another pair of eyes to re-review
+" --assignee "@me" --head $BRANCH_NAME)
+
+gh project item-add $PROJECT_ID --owner $ORG --url $pull_request_url
+gh pr merge $pull_request_url --auto --squash
+
+popd
+```
+
+The script is provided as is and might require further tweaks to the specific use cases. It was written assuming a few structural conventions that might not apply to every use case.
+
 #### Updating from Classic Asserts in NUnit 4.x
 
 If you want to keep the Classic Asserts and not convert them to the constraint model -- but do want to use the new NUnit
