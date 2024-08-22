@@ -121,9 +121,9 @@ steps are only for reproducing the steps locally.
 
       `build --target build`
 
-4. Create the image directory
+4. Optionally create the image directory manually
 
-      `.\build.ps1 ---Target CreateImage`
+      `build --target createimage`
 
    You do this to ensure that the latest build is used for packaging. If the `images` directory does not already contain
    a subdirectory named for this release (package version and suffix) you may skip this step as a new one will be
@@ -131,7 +131,7 @@ steps are only for reproducing the steps locally.
 
 5. Create the packages by running:
 
-      `.\build.ps1 --Target Package`
+      `build --target package`
 
 6. Verify that the correct packages have been created in the `package` sub-directory:
 
@@ -147,7 +147,7 @@ The degree to which each package needs testing may vary depending on what has be
 
 1. Ensure the [NUnit Framework CI](https://nunit.visualstudio.com/NUnit/_build?definitionId=11) build succeeds on all
    platforms and that the tests passed.
-2. Download `Package.zip` from the build and extract it locally.
+2. Download `Package.zip` from the build and extract it locally, or use the ones you built locally.
 3. Five files should be extracted, `NUnit.{version}.nupkg`, `NUnit.{version}.snupkg`, `NunitLite.{version}.nupkg`,
    `NunitLite.{version}.snupkg` and `NUnit.Framework-{version}.zip`.
 4. In Visual Studio, create a test project and add your local directory as a package source. Install the packages and
@@ -161,7 +161,7 @@ The degree to which each package needs testing may vary depending on what has be
 1. Log onto Github and go to the main NUnit repository at <https://github.com/nunit/nunit>.
 2. Select Releases and then click on the "Draft a new release" button.
 3. Enter a tag to be used for the release. Currently our tags are simply the version of the release,
-   like `4.2.0`.
+   like `4.2.0`.  Don't add a `v` prefix to the tag. MinVer is set up to be used without the prefix.  Note that the tag already exist, as you created it when you pushed the commit, or after that push.
 4. Enter a title for the release, like NUnit 3.13. If you type 'N' you'll get some hints.
 5. Use the preamble from the release notes for the description and add a link to the full release notes on the docs
    website.
