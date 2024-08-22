@@ -161,7 +161,7 @@ The degree to which each package needs testing may vary depending on what has be
 1. Log onto Github and go to the main NUnit repository at <https://github.com/nunit/nunit>.
 2. Select Releases and then click on the "Draft a new release" button.
 3. Enter a tag to be used for the release. Currently our tags are simply the version of the release,
-   like `4.2.0`.  Don't add a `v` prefix to the tag. MinVer is set up to be used without the prefix.  Note that the tag already exist, as you created it when you pushed the commit, or after that push.
+   like `4.2.0`.  Don't add a `v` prefix to the tag. MinVer is set up to be used without the prefix. Note that the tag already exists, as you created it when you pushed the commit, or after that push.
 4. Enter a title for the release, like NUnit 3.13. If you type 'N' you'll get some hints.
 5. Use the preamble from the release notes for the description and add a link to the full release notes on the docs
    website.
