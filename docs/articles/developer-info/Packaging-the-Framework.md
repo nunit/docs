@@ -11,7 +11,7 @@ them.
 
 1. Visual Studio 2022 17.10 or newer with the NuGet Package manager.
 2. .NET 6.0 SDK
-1. .NET 8.0 SDK
+3. .NET 8.0 SDK
 
 ## Preparing for Release
 
@@ -191,4 +191,3 @@ channels you have.
 ### Close the Milestone
 
 The milestone representing this release should be closed at this time.
-
