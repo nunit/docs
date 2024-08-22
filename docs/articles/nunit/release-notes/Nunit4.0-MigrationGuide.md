@@ -267,7 +267,7 @@ for diagnostic in ${nunit_analyzer_diagnostics[@]}; do
                 fi
 
                 echo "Appending to $editor_config"
-                echo "dotnet_diagnostic.$diagnostic.severity = warning" >> "$editor_config"
+                echo -e "\ndotnet_diagnostic.$diagnostic.severity = warning" >> "$editor_config"
 
                 echo "Formatting $csproj with diagnostic $diagnostic"
                 dotnet format analyzers $csproj --diagnostics $diagnostic --severity info --no-restore --verbosity diagnostic
