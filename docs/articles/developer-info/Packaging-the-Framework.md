@@ -168,8 +168,7 @@ The degree to which each package needs testing may vary depending on what has be
    website.
 6. If this is an Alpha or Beta release, check the box that indicates a pre-release.
 7. Upload the five files from `Package` folder that you downloaded or built locally. Note that we upload all the
-packages, including those
-   that are also published on NuGet.
+packages, including those that are also published on NuGet.
 8. Click the "Publish release" button to publish the release on Github.
 
 ### NuGet
