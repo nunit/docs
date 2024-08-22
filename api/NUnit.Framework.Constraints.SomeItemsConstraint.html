@@ -628,13 +628,13 @@ without having to compare each property separately in own code.</p>
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/SomeItemsConstraint.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Constraints_SomeItemsConstraint_Using_" data-uid="NUnit.Framework.Constraints.SomeItemsConstraint.Using*"></a>
-  <h4 id="NUnit_Framework_Constraints_SomeItemsConstraint_Using__2_System_Func___0___1_System_Boolean__" data-uid="NUnit.Framework.Constraints.SomeItemsConstraint.Using``2(System.Func{``0,``1,System.Boolean})">Using&lt;TCollectionType, TMemberType&gt;(Func&lt;TCollectionType, TMemberType, bool&gt;)</h4>
+  <h4 id="NUnit_Framework_Constraints_SomeItemsConstraint_Using__2_System_Func___0___1_System_Boolean__" data-uid="NUnit.Framework.Constraints.SomeItemsConstraint.Using``2(System.Func{``0,``1,System.Boolean})">Using&lt;TActualCollectionElement, TExpected&gt;(Func&lt;TActualCollectionElement, TExpected, bool&gt;)</h4>
   <div class="markdown level1 summary"><p>Flag the constraint to use the supplied <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func&lt;T1, T2, TResult&gt;</a> object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SomeItemsConstraint Using&lt;TCollectionType, TMemberType&gt;(Func&lt;TCollectionType, TMemberType, bool&gt; comparison)</code></pre>
+    <pre><code class="lang-csharp hljs">public SomeItemsConstraint Using&lt;TActualCollectionElement, TExpected&gt;(Func&lt;TActualCollectionElement, TExpected, bool&gt; comparison)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -647,7 +647,7 @@ without having to compare each property separately in own code.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TCollectionType, TMemberType, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TActualCollectionElement, TExpected, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
         <td><span class="parametername">comparison</span></td>
         <td><p>The comparison function to use.</p>
 </td>
@@ -680,13 +680,13 @@ without having to compare each property separately in own code.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">TCollectionType</span></td>
+        <td><span class="parametername">TActualCollectionElement</span></td>
         <td><p>The type of the elements in the collection.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="parametername">TMemberType</span></td>
-        <td><p>The type of the member.</p>
+        <td><span class="parametername">TExpected</span></td>
+        <td><p>The type of the expected value.</p>
 </td>
       </tr>
     </tbody>

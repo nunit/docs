@@ -12,11 +12,11 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class OrderAttribute | NUnit Docs </title>
+      <title>Class TestCaseAttribute&lt;T1, T2&gt; | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class OrderAttribute | NUnit Docs ">
+      <meta name="title" content="Class TestCaseAttribute&lt;T1, T2&gt; | NUnit Docs ">
     
-    <meta name="description" content="Defines the order that the test will run in">
+    <meta name="description" content="Marks a method as a parameterized test suite and provides arguments for each test case.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -83,12 +83,12 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="NUnit.Framework.OrderAttribute">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.TestCaseAttribute`2">
 
 
 
-  <h1 id="NUnit_Framework_OrderAttribute" data-uid="NUnit.Framework.OrderAttribute" class="text-break">Class OrderAttribute</h1>
-  <div class="markdown level0 summary"><p>Defines the order that the test will run in</p>
+  <h1 id="NUnit_Framework_TestCaseAttribute_2" data-uid="NUnit.Framework.TestCaseAttribute`2" class="text-break">Class TestCaseAttribute&lt;T1, T2&gt;</h1>
+  <div class="markdown level0 summary"><p>Marks a method as a parameterized test suite and provides arguments for each test case.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -96,15 +96,75 @@
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute">Attribute</a></div>
     <div class="level2"><a class="xref" href="NUnit.Framework.NUnitAttribute.html">NUnitAttribute</a></div>
-    <div class="level3"><span class="xref">OrderAttribute</span></div>
+    <div class="level3"><a class="xref" href="NUnit.Framework.TestCaseAttribute.html">TestCaseAttribute</a></div>
+    <div class="level4"><span class="xref">TestCaseAttribute&lt;T1, T2&gt;</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="NUnit.Framework.Interfaces.IApplyToTest.html">IApplyToTest</a></div>
-    <div><a class="xref" href="NUnit.Framework.Interfaces.IApplyToTestSuite.html">IApplyToTestSuite</a></div>
+    <div><a class="xref" href="NUnit.Framework.Interfaces.ITestBuilder.html">ITestBuilder</a></div>
+    <div><a class="xref" href="NUnit.Framework.Interfaces.ITestCaseData.html">ITestCaseData</a></div>
+    <div><a class="xref" href="NUnit.Framework.Interfaces.ITestData.html">ITestData</a></div>
+    <div><a class="xref" href="NUnit.Framework.Interfaces.IImplyFixture.html">IImplyFixture</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_BuildFrom_NUnit_Framework_Interfaces_IMethodInfo_NUnit_Framework_Internal_Test_">TestCaseAttribute.BuildFrom(IMethodInfo, Test)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_TestName">TestCaseAttribute.TestName</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_RunState">TestCaseAttribute.RunState</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_Arguments">TestCaseAttribute.Arguments</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_Properties">TestCaseAttribute.Properties</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_ExpectedResult">TestCaseAttribute.ExpectedResult</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_HasExpectedResult">TestCaseAttribute.HasExpectedResult</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_Description">TestCaseAttribute.Description</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_Author">TestCaseAttribute.Author</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_TestOf">TestCaseAttribute.TestOf</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_Ignore">TestCaseAttribute.Ignore</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_Explicit">TestCaseAttribute.Explicit</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_Reason">TestCaseAttribute.Reason</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_IgnoreReason">TestCaseAttribute.IgnoreReason</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_IncludePlatform">TestCaseAttribute.IncludePlatform</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_ExcludePlatform">TestCaseAttribute.ExcludePlatform</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_TypeArgs">TestCaseAttribute.TypeArgs</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_Category">TestCaseAttribute.Category</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.TestCaseAttribute.html#NUnit_Framework_TestCaseAttribute_Until">TestCaseAttribute.Until</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute.getcustomattributes#system-attribute-getcustomattributes(system-reflection-memberinfo-system-type)">Attribute.GetCustomAttributes(MemberInfo, Type)</a>
     </div>
@@ -234,87 +294,44 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a></h6>
   <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
-  <h5 id="NUnit_Framework_OrderAttribute_syntax">Syntax</h5>
+  <h5 id="NUnit_Framework_TestCaseAttribute_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Class|AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
-public class OrderAttribute : NUnitAttribute, IApplyToTest, IApplyToTestSuite</code></pre>
+    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
+public class TestCaseAttribute&lt;T1, T2&gt; : TestCaseAttribute, ITestBuilder, ITestCaseData, ITestData, IImplyFixture</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/OrderAttribute.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_OrderAttribute__ctor_" data-uid="NUnit.Framework.OrderAttribute.#ctor*"></a>
-  <h4 id="NUnit_Framework_OrderAttribute__ctor_System_Int32_" data-uid="NUnit.Framework.OrderAttribute.#ctor(System.Int32)">OrderAttribute(int)</h4>
-  <div class="markdown level1 summary"><p>Defines the order that the test will run in</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OrderAttribute(int order)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
-        <th>Type</th>
         <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">order</span></td>
-        <td><p>The order that the test will run in</p>
-</td>
+        <td><span class="parametername">T1</span></td>
+        <td></td>
       </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-</h3>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/OrderAttribute.cs">View Source</a>
-  </span>
-  <h4 id="NUnit_Framework_OrderAttribute_Order" data-uid="NUnit.Framework.OrderAttribute.Order">Order</h4>
-  <div class="markdown level1 summary"><p>The order that the test will run in</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly int Order</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">T2</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
+  <h3 id="constructors">Constructors
 </h3>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/OrderAttribute.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/TestCaseAttribute.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_OrderAttribute_ApplyToTest_" data-uid="NUnit.Framework.OrderAttribute.ApplyToTest*"></a>
-  <h4 id="NUnit_Framework_OrderAttribute_ApplyToTest_NUnit_Framework_Internal_Test_" data-uid="NUnit.Framework.OrderAttribute.ApplyToTest(NUnit.Framework.Internal.Test)">ApplyToTest(Test)</h4>
-  <div class="markdown level1 summary"><p>Modifies a test as defined for the specific attribute.</p>
+  <a id="NUnit_Framework_TestCaseAttribute_2__ctor_" data-uid="NUnit.Framework.TestCaseAttribute`2.#ctor*"></a>
+  <h4 id="NUnit_Framework_TestCaseAttribute_2__ctor__0__1_" data-uid="NUnit.Framework.TestCaseAttribute`2.#ctor(`0,`1)">TestCaseAttribute(T1, T2)</h4>
+  <div class="markdown level1 summary"><p>Construct a TestCaseAttribute with a list of arguments.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ApplyToTest(Test test)</code></pre>
+    <pre><code class="lang-csharp hljs">public TestCaseAttribute(T1 argument1, T2 argument2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -327,50 +344,29 @@ public class OrderAttribute : NUnitAttribute, IApplyToTest, IApplyToTestSuite</c
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="NUnit.Framework.Internal.Test.html">Test</a></td>
-        <td><span class="parametername">test</span></td>
-        <td><p>The test to modify</p>
-</td>
+        <td><span class="xref">T1</span></td>
+        <td><span class="parametername">argument1</span></td>
+        <td></td>
       </tr>
-    </tbody>
-  </table>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/OrderAttribute.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_OrderAttribute_ApplyToTestSuite_" data-uid="NUnit.Framework.OrderAttribute.ApplyToTestSuite*"></a>
-  <h4 id="NUnit_Framework_OrderAttribute_ApplyToTestSuite_NUnit_Framework_Internal_TestSuite_" data-uid="NUnit.Framework.OrderAttribute.ApplyToTestSuite(NUnit.Framework.Internal.TestSuite)">ApplyToTestSuite(TestSuite)</h4>
-  <div class="markdown level1 summary"><p>Modifies a test suite as defined for the specific attribute.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ApplyToTestSuite(TestSuite testSuite)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="NUnit.Framework.Internal.TestSuite.html">TestSuite</a></td>
-        <td><span class="parametername">testSuite</span></td>
-        <td><p>The test suite to modify</p>
-</td>
+        <td><span class="xref">T2</span></td>
+        <td><span class="parametername">argument2</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="NUnit.Framework.Interfaces.IApplyToTest.html">IApplyToTest</a>
+      <a class="xref" href="NUnit.Framework.Interfaces.ITestBuilder.html">ITestBuilder</a>
   </div>
   <div>
-      <a class="xref" href="NUnit.Framework.Interfaces.IApplyToTestSuite.html">IApplyToTestSuite</a>
+      <a class="xref" href="NUnit.Framework.Interfaces.ITestCaseData.html">ITestCaseData</a>
+  </div>
+  <div>
+      <a class="xref" href="NUnit.Framework.Interfaces.ITestData.html">ITestData</a>
+  </div>
+  <div>
+      <a class="xref" href="NUnit.Framework.Interfaces.IImplyFixture.html">IImplyFixture</a>
   </div>
 
 </article>
@@ -381,7 +377,7 @@ public class OrderAttribute : NUnitAttribute, IApplyToTest, IApplyToTestSuite</c
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/OrderAttribute.cs" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/TestCaseAttribute.cs" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

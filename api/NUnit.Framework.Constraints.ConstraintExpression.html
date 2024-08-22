@@ -819,6 +819,34 @@ contains all unique items.</p>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_Constraints_ConstraintExpression_WhiteSpace_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.WhiteSpace*"></a>
+  <h4 id="NUnit_Framework_Constraints_ConstraintExpression_WhiteSpace" data-uid="NUnit.Framework.Constraints.ConstraintExpression.WhiteSpace">WhiteSpace</h4>
+  <div class="markdown level1 summary"><p>Returns a constraint that tests for white-space</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WhiteSpaceConstraint WhiteSpace { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.WhiteSpaceConstraint.html">WhiteSpaceConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_Constraints_ConstraintExpression_With_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.With*"></a>
   <h4 id="NUnit_Framework_Constraints_ConstraintExpression_With" data-uid="NUnit.Framework.Constraints.ConstraintExpression.With">With</h4>
   <div class="markdown level1 summary"><p>With is currently a NOP - reserved for future use.</p>
@@ -1133,6 +1161,73 @@ returns a new ResolvableConstraintExpression.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="NUnit.Framework.Constraints.ResolvableConstraintExpression.html">ResolvableConstraintExpression</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_ConstraintExpression_Append_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Append*"></a>
+  <h4 id="NUnit_Framework_Constraints_ConstraintExpression_Append__1___0_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Append``1(``0)">Append&lt;T&gt;(T)</h4>
+  <div class="markdown level1 summary"><p>Appends a constraint to the expression and returns that
+constraint, which is associated with the current state
+of the expression being built. Note that the constraint
+is not reduced at this time. For example, if there
+is a NotOperator on the stack we don't reduce and
+return a NotConstraint. The original constraint must
+be returned because it may support modifiers that
+are yet to be applied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Append&lt;T&gt;(T constraint) where T : Constraint</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">constraint</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -1647,14 +1742,14 @@ presence of a particular key in the Dictionary key collection.</p>
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Constraints_ConstraintExpression_ContainValue_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.ContainValue*"></a>
-  <h4 id="NUnit_Framework_Constraints_ConstraintExpression_ContainValue_System_Object_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.ContainValue(System.Object)">ContainValue(object)</h4>
+  <h4 id="NUnit_Framework_Constraints_ConstraintExpression_ContainValue_System_Object_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.ContainValue(System.Object)">ContainValue(object?)</h4>
   <div class="markdown level1 summary"><p>Returns a new DictionaryContainsValueConstraint checking for the
 presence of a particular value in the Dictionary value collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DictionaryContainsValueConstraint ContainValue(object expected)</code></pre>
+    <pre><code class="lang-csharp hljs">public DictionaryContainsValueConstraint ContainValue(object? expected)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">

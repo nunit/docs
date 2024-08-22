@@ -12,11 +12,11 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class BinaryOperator | NUnit Docs </title>
+      <title>Class InsteadOperator | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class BinaryOperator | NUnit Docs ">
+      <meta name="title" content="Class InsteadOperator | NUnit Docs ">
     
-    <meta name="description" content="Abstract base class for all binary operators">
+    <meta name="description" content="Operator that replaces the left constraint with the right constraint">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -83,25 +83,32 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Constraints.BinaryOperator">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Constraints.InsteadOperator">
 
 
 
-  <h1 id="NUnit_Framework_Constraints_BinaryOperator" data-uid="NUnit.Framework.Constraints.BinaryOperator" class="text-break">Class BinaryOperator</h1>
-  <div class="markdown level0 summary"><p>Abstract base class for all binary operators</p>
+  <h1 id="NUnit_Framework_Constraints_InsteadOperator" data-uid="NUnit.Framework.Constraints.InsteadOperator" class="text-break">Class InsteadOperator</h1>
+  <div class="markdown level0 summary"><p>Operator that replaces the left constraint with the right constraint</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><a class="xref" href="NUnit.Framework.Constraints.ConstraintOperator.html">ConstraintOperator</a></div>
-    <div class="level2"><span class="xref">BinaryOperator</span></div>
-      <div class="level3"><a class="xref" href="NUnit.Framework.Constraints.AndOperator.html">AndOperator</a></div>
-      <div class="level3"><a class="xref" href="NUnit.Framework.Constraints.InsteadOperator.html">InsteadOperator</a></div>
-      <div class="level3"><a class="xref" href="NUnit.Framework.Constraints.OrOperator.html">OrOperator</a></div>
+    <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.BinaryOperator.html">BinaryOperator</a></div>
+    <div class="level3"><span class="xref">InsteadOperator</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.BinaryOperator.html#NUnit_Framework_Constraints_BinaryOperator_Reduce_NUnit_Framework_Constraints_ConstraintBuilder_ConstraintStack_">BinaryOperator.Reduce(ConstraintBuilder.ConstraintStack)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.BinaryOperator.html#NUnit_Framework_Constraints_BinaryOperator_LeftPrecedence">BinaryOperator.LeftPrecedence</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.BinaryOperator.html#NUnit_Framework_Constraints_BinaryOperator_RightPrecedence">BinaryOperator.RightPrecedence</a>
+    </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.ConstraintOperator.html#NUnit_Framework_Constraints_ConstraintOperator_left_precedence">ConstraintOperator.left_precedence</a>
     </div>
@@ -138,101 +145,39 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Constraints.html">Constraints</a></h6>
   <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
-  <h5 id="NUnit_Framework_Constraints_BinaryOperator_syntax">Syntax</h5>
+  <h5 id="NUnit_Framework_Constraints_InsteadOperator_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class BinaryOperator : ConstraintOperator</code></pre>
+    <pre><code class="lang-csharp hljs">public class InsteadOperator : BinaryOperator</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/Operators/BinaryOperator.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/Operators/InsteadOperator.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_Constraints_BinaryOperator__ctor_" data-uid="NUnit.Framework.Constraints.BinaryOperator.#ctor*"></a>
-  <h4 id="NUnit_Framework_Constraints_BinaryOperator__ctor" data-uid="NUnit.Framework.Constraints.BinaryOperator.#ctor">BinaryOperator()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected BinaryOperator()</code></pre>
-  </div>
-  <h3 id="properties">Properties
-</h3>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/Operators/BinaryOperator.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_Constraints_BinaryOperator_LeftPrecedence_" data-uid="NUnit.Framework.Constraints.BinaryOperator.LeftPrecedence*"></a>
-  <h4 id="NUnit_Framework_Constraints_BinaryOperator_LeftPrecedence" data-uid="NUnit.Framework.Constraints.BinaryOperator.LeftPrecedence">LeftPrecedence</h4>
-  <div class="markdown level1 summary"><p>Gets the left precedence of the operator</p>
+  <a id="NUnit_Framework_Constraints_InsteadOperator__ctor_" data-uid="NUnit.Framework.Constraints.InsteadOperator.#ctor*"></a>
+  <h4 id="NUnit_Framework_Constraints_InsteadOperator__ctor" data-uid="NUnit.Framework.Constraints.InsteadOperator.#ctor">InsteadOperator()</h4>
+  <div class="markdown level1 summary"><p>Construct an InsteadOperator</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int LeftPrecedence { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public InsteadOperator()</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="NUnit.Framework.Constraints.ConstraintOperator.html#NUnit_Framework_Constraints_ConstraintOperator_LeftPrecedence">ConstraintOperator.LeftPrecedence</a></div>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/Operators/BinaryOperator.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_Constraints_BinaryOperator_RightPrecedence_" data-uid="NUnit.Framework.Constraints.BinaryOperator.RightPrecedence*"></a>
-  <h4 id="NUnit_Framework_Constraints_BinaryOperator_RightPrecedence" data-uid="NUnit.Framework.Constraints.BinaryOperator.RightPrecedence">RightPrecedence</h4>
-  <div class="markdown level1 summary"><p>Gets the right precedence of the operator</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int RightPrecedence { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="NUnit.Framework.Constraints.ConstraintOperator.html#NUnit_Framework_Constraints_ConstraintOperator_RightPrecedence">ConstraintOperator.RightPrecedence</a></div>
   <h3 id="methods">Methods
 </h3>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/Operators/BinaryOperator.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/Operators/InsteadOperator.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_Constraints_BinaryOperator_ApplyOperator_" data-uid="NUnit.Framework.Constraints.BinaryOperator.ApplyOperator*"></a>
-  <h4 id="NUnit_Framework_Constraints_BinaryOperator_ApplyOperator_NUnit_Framework_Constraints_IConstraint_NUnit_Framework_Constraints_IConstraint_" data-uid="NUnit.Framework.Constraints.BinaryOperator.ApplyOperator(NUnit.Framework.Constraints.IConstraint,NUnit.Framework.Constraints.IConstraint)">ApplyOperator(IConstraint, IConstraint)</h4>
-  <div class="markdown level1 summary"><p>Abstract method that produces a constraint by applying
-the operator to its left and right constraint arguments.</p>
+  <a id="NUnit_Framework_Constraints_InsteadOperator_ApplyOperator_" data-uid="NUnit.Framework.Constraints.InsteadOperator.ApplyOperator*"></a>
+  <h4 id="NUnit_Framework_Constraints_InsteadOperator_ApplyOperator_NUnit_Framework_Constraints_IConstraint_NUnit_Framework_Constraints_IConstraint_" data-uid="NUnit.Framework.Constraints.InsteadOperator.ApplyOperator(NUnit.Framework.Constraints.IConstraint,NUnit.Framework.Constraints.IConstraint)">ApplyOperator(IConstraint, IConstraint)</h4>
+  <div class="markdown level1 summary"><p>Apply the operator to replace the left constraint</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract IConstraint ApplyOperator(IConstraint left, IConstraint right)</code></pre>
+    <pre><code class="lang-csharp hljs">public override IConstraint ApplyOperator(IConstraint left, IConstraint right)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -271,40 +216,8 @@ the operator to its left and right constraint arguments.</p>
       </tr>
     </tbody>
   </table>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/Operators/BinaryOperator.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_Constraints_BinaryOperator_Reduce_" data-uid="NUnit.Framework.Constraints.BinaryOperator.Reduce*"></a>
-  <h4 id="NUnit_Framework_Constraints_BinaryOperator_Reduce_NUnit_Framework_Constraints_ConstraintBuilder_ConstraintStack_" data-uid="NUnit.Framework.Constraints.BinaryOperator.Reduce(NUnit.Framework.Constraints.ConstraintBuilder.ConstraintStack)">Reduce(ConstraintStack)</h4>
-  <div class="markdown level1 summary"><p>Reduce produces a constraint from the operator and
-any arguments. It takes the arguments from the constraint
-stack and pushes the resulting constraint on it.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void Reduce(ConstraintBuilder.ConstraintStack stack)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintBuilder.html">ConstraintBuilder</a>.<a class="xref" href="NUnit.Framework.Constraints.ConstraintBuilder.ConstraintStack.html">ConstraintStack</a></td>
-        <td><span class="parametername">stack</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="NUnit.Framework.Constraints.ConstraintOperator.html#NUnit_Framework_Constraints_ConstraintOperator_Reduce_NUnit_Framework_Constraints_ConstraintBuilder_ConstraintStack_">ConstraintOperator.Reduce(ConstraintBuilder.ConstraintStack)</a></div>
+  <div><a class="xref" href="NUnit.Framework.Constraints.BinaryOperator.html#NUnit_Framework_Constraints_BinaryOperator_ApplyOperator_NUnit_Framework_Constraints_IConstraint_NUnit_Framework_Constraints_IConstraint_">BinaryOperator.ApplyOperator(IConstraint, IConstraint)</a></div>
 
 </article>
           </div>
@@ -314,7 +227,7 @@ stack and pushes the resulting constraint on it.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/Operators/BinaryOperator.cs" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/Operators/InsteadOperator.cs" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

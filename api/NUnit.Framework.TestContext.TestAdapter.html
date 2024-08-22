@@ -447,6 +447,34 @@ the same as the method name.</p>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/TestContext.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_Parent_" data-uid="NUnit.Framework.TestContext.TestAdapter.Parent*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_Parent" data-uid="NUnit.Framework.TestContext.TestAdapter.Parent">Parent</h4>
+  <div class="markdown level1 summary"><p>The parent of this test or suite</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITest? Parent { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Interfaces.ITest.html">ITest</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_TestContext_TestAdapter_Properties_" data-uid="NUnit.Framework.TestContext.TestAdapter.Properties*"></a>
   <h4 id="NUnit_Framework_TestContext_TestAdapter_Properties" data-uid="NUnit.Framework.TestContext.TestAdapter.Properties">Properties</h4>
   <div class="markdown level1 summary"><p>A shallow copy of the properties of the test.</p>
@@ -495,6 +523,111 @@ the same as the method name.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_AllCategories_" data-uid="NUnit.Framework.TestContext.TestAdapter.AllCategories*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_AllCategories" data-uid="NUnit.Framework.TestContext.TestAdapter.AllCategories">AllCategories()</h4>
+  <div class="markdown level1 summary"><p>Return all categories in the hierarchy flattened</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; AllCategories()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_AllPropertyValues_" data-uid="NUnit.Framework.TestContext.TestAdapter.AllPropertyValues*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_AllPropertyValues_System_String_" data-uid="NUnit.Framework.TestContext.TestAdapter.AllPropertyValues(System.String)">AllPropertyValues(string)</h4>
+  <div class="markdown level1 summary"><p>Returns all values of a given property, with no duplicates</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;object&gt; AllPropertyValues(string property)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">property</span></td>
+        <td><p>Name of property</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_PropertyHierarchy_" data-uid="NUnit.Framework.TestContext.TestAdapter.PropertyHierarchy*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_PropertyHierarchy" data-uid="NUnit.Framework.TestContext.TestAdapter.PropertyHierarchy">PropertyHierarchy()</h4>
+  <div class="markdown level1 summary"><p>Returns all properties in the hierarchy
+Utility method for getting all properties in the hierarchy, with their included name, level and values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDictionary&lt;TestContext.PropertyHierachyItem, IList&gt; PropertyHierarchy()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="NUnit.Framework.TestContext.html">TestContext</a>.<a class="xref" href="NUnit.Framework.TestContext.PropertyHierachyItem.html">PropertyHierachyItem</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ilist">IList</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

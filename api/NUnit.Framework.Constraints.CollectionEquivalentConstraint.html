@@ -138,10 +138,16 @@ collections are equivalent.</p>
       <a class="xref" href="NUnit.Framework.Constraints.CollectionItemsEqualConstraint.html#NUnit_Framework_Constraints_CollectionItemsEqualConstraint_IgnoringCase">CollectionItemsEqualConstraint.IgnoringCase</a>
     </div>
     <div>
+      <a class="xref" href="NUnit.Framework.Constraints.CollectionItemsEqualConstraint.html#NUnit_Framework_Constraints_CollectionItemsEqualConstraint_IgnoringWhiteSpace">CollectionItemsEqualConstraint.IgnoringWhiteSpace</a>
+    </div>
+    <div>
       <a class="xref" href="NUnit.Framework.Constraints.CollectionItemsEqualConstraint.html#NUnit_Framework_Constraints_CollectionItemsEqualConstraint_UsingExternalComparer">CollectionItemsEqualConstraint.UsingExternalComparer</a>
     </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.CollectionItemsEqualConstraint.html#NUnit_Framework_Constraints_CollectionItemsEqualConstraint_IgnoreCase">CollectionItemsEqualConstraint.IgnoreCase</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.CollectionItemsEqualConstraint.html#NUnit_Framework_Constraints_CollectionItemsEqualConstraint_IgnoreWhiteSpace">CollectionItemsEqualConstraint.IgnoreWhiteSpace</a>
     </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.CollectionConstraint.html#NUnit_Framework_Constraints_CollectionConstraint_IsEmpty_System_Collections_IEnumerable_">CollectionConstraint.IsEmpty(IEnumerable)</a>
@@ -429,13 +435,13 @@ the two collections are equivalent.</p>
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/CollectionEquivalentConstraint.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Constraints_CollectionEquivalentConstraint_Using_" data-uid="NUnit.Framework.Constraints.CollectionEquivalentConstraint.Using*"></a>
-  <h4 id="NUnit_Framework_Constraints_CollectionEquivalentConstraint_Using__2_System_Func___0___1_System_Boolean__" data-uid="NUnit.Framework.Constraints.CollectionEquivalentConstraint.Using``2(System.Func{``0,``1,System.Boolean})">Using&lt;TActual, TExpected&gt;(Func&lt;TActual, TExpected, bool&gt;)</h4>
+  <h4 id="NUnit_Framework_Constraints_CollectionEquivalentConstraint_Using__2_System_Func___0___1_System_Boolean__" data-uid="NUnit.Framework.Constraints.CollectionEquivalentConstraint.Using``2(System.Func{``0,``1,System.Boolean})">Using&lt;TActualElement, TExpectedElement&gt;(Func&lt;TActualElement, TExpectedElement, bool&gt;)</h4>
   <div class="markdown level1 summary"><p>Flag the constraint to use the supplied predicate function</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CollectionEquivalentConstraint Using&lt;TActual, TExpected&gt;(Func&lt;TActual, TExpected, bool&gt; comparison)</code></pre>
+    <pre><code class="lang-csharp hljs">public CollectionEquivalentConstraint Using&lt;TActualElement, TExpectedElement&gt;(Func&lt;TActualElement, TExpectedElement, bool&gt; comparison)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -448,7 +454,7 @@ the two collections are equivalent.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TActual, TExpected, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TActualElement, TExpectedElement, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
         <td><span class="parametername">comparison</span></td>
         <td><p>The comparison function to use.</p>
 </td>
@@ -481,12 +487,14 @@ the two collections are equivalent.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">TActual</span></td>
-        <td></td>
+        <td><span class="parametername">TActualElement</span></td>
+        <td><p>The type of the elements in the actual value.</p>
+</td>
       </tr>
       <tr>
-        <td><span class="parametername">TExpected</span></td>
-        <td></td>
+        <td><span class="parametername">TExpectedElement</span></td>
+        <td><p>The type of the elements in the expected value.</p>
+</td>
       </tr>
     </tbody>
   </table>

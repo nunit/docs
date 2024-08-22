@@ -1095,6 +1095,38 @@ which means there are at least 9 additional years of work not quantified above.<
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_Assert_EnterMultipleScope_" data-uid="NUnit.Framework.Assert.EnterMultipleScope*"></a>
+  <h4 id="NUnit_Framework_Assert_EnterMultipleScope" data-uid="NUnit.Framework.Assert.EnterMultipleScope">EnterMultipleScope()</h4>
+  <div class="markdown level1 summary"><p>Enters a multiple assert scope.
+Wraps code containing a series of assertions, which should all
+be executed, even if they fail. Failed results are saved and
+reported when the returned IDisposable is disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IDisposable EnterMultipleScope()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></td>
+        <td><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a> which when disposed leaves the multiple assertion scope.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_Assert_Fail_" data-uid="NUnit.Framework.Assert.Fail*"></a>
   <h4 id="NUnit_Framework_Assert_Fail" data-uid="NUnit.Framework.Assert.Fail">Fail()</h4>
   <div class="markdown level1 summary"><p>Marks the test as failed. Returns without throwing an exception when inside a multiple assert block.</p>

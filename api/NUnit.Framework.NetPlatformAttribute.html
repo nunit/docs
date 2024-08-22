@@ -12,11 +12,11 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class OrderAttribute | NUnit Docs </title>
+      <title>Class NetPlatformAttribute | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class OrderAttribute | NUnit Docs ">
+      <meta name="title" content="Class NetPlatformAttribute | NUnit Docs ">
     
-    <meta name="description" content="Defines the order that the test will run in">
+    <meta name="description" content="Marks an assembly, test fixture or test method as applying to a specific platform.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -83,12 +83,12 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="NUnit.Framework.OrderAttribute">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.NetPlatformAttribute">
 
 
 
-  <h1 id="NUnit_Framework_OrderAttribute" data-uid="NUnit.Framework.OrderAttribute" class="text-break">Class OrderAttribute</h1>
-  <div class="markdown level0 summary"><p>Defines the order that the test will run in</p>
+  <h1 id="NUnit_Framework_NetPlatformAttribute" data-uid="NUnit.Framework.NetPlatformAttribute" class="text-break">Class NetPlatformAttribute</h1>
+  <div class="markdown level0 summary"><p>Marks an assembly, test fixture or test method as applying to a specific platform.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -96,15 +96,24 @@
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute">Attribute</a></div>
     <div class="level2"><a class="xref" href="NUnit.Framework.NUnitAttribute.html">NUnitAttribute</a></div>
-    <div class="level3"><span class="xref">OrderAttribute</span></div>
+    <div class="level3"><a class="xref" href="NUnit.Framework.IncludeExcludeAttribute.html">IncludeExcludeAttribute</a></div>
+    <div class="level4"><span class="xref">NetPlatformAttribute</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="NUnit.Framework.Interfaces.IApplyToTest.html">IApplyToTest</a></div>
-    <div><a class="xref" href="NUnit.Framework.Interfaces.IApplyToTestSuite.html">IApplyToTestSuite</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="NUnit.Framework.IncludeExcludeAttribute.html#NUnit_Framework_IncludeExcludeAttribute_Include">IncludeExcludeAttribute.Include</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.IncludeExcludeAttribute.html#NUnit_Framework_IncludeExcludeAttribute_Exclude">IncludeExcludeAttribute.Exclude</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.IncludeExcludeAttribute.html#NUnit_Framework_IncludeExcludeAttribute_Reason">IncludeExcludeAttribute.Reason</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute.getcustomattributes#system-attribute-getcustomattributes(system-reflection-memberinfo-system-type)">Attribute.GetCustomAttributes(MemberInfo, Type)</a>
     </div>
@@ -234,25 +243,44 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a></h6>
   <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
-  <h5 id="NUnit_Framework_OrderAttribute_syntax">Syntax</h5>
+  <h5 id="NUnit_Framework_NetPlatformAttribute_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Class|AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
-public class OrderAttribute : NUnitAttribute, IApplyToTest, IApplyToTestSuite</code></pre>
+    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
+public class NetPlatformAttribute : IncludeExcludeAttribute, IApplyToTest</code></pre>
   </div>
+  <h5 id="NUnit_Framework_NetPlatformAttribute_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This class is a replacement for the <a class="xref" href="NUnit.Framework.PlatformAttribute.html">PlatformAttribute</a> class,
+the platform names are based on the values in the TargetFramework.
+See: <a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416">https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416</a></p>
+</div>
   <h3 id="constructors">Constructors
 </h3>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/OrderAttribute.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/NetPlatformAttribute.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_OrderAttribute__ctor_" data-uid="NUnit.Framework.OrderAttribute.#ctor*"></a>
-  <h4 id="NUnit_Framework_OrderAttribute__ctor_System_Int32_" data-uid="NUnit.Framework.OrderAttribute.#ctor(System.Int32)">OrderAttribute(int)</h4>
-  <div class="markdown level1 summary"><p>Defines the order that the test will run in</p>
+  <a id="NUnit_Framework_NetPlatformAttribute__ctor_" data-uid="NUnit.Framework.NetPlatformAttribute.#ctor*"></a>
+  <h4 id="NUnit_Framework_NetPlatformAttribute__ctor" data-uid="NUnit.Framework.NetPlatformAttribute.#ctor">NetPlatformAttribute()</h4>
+  <div class="markdown level1 summary"><p>Constructor with no platforms specified, for use
+with named property syntax.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OrderAttribute(int order)</code></pre>
+    <pre><code class="lang-csharp hljs">public NetPlatformAttribute()</code></pre>
+  </div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/NetPlatformAttribute.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_NetPlatformAttribute__ctor_" data-uid="NUnit.Framework.NetPlatformAttribute.#ctor*"></a>
+  <h4 id="NUnit_Framework_NetPlatformAttribute__ctor_System_String_" data-uid="NUnit.Framework.NetPlatformAttribute.#ctor(System.String)">NetPlatformAttribute(string?)</h4>
+  <div class="markdown level1 summary"><p>Constructor taking one or more platforms</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetPlatformAttribute(string? platforms)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -265,39 +293,10 @@ public class OrderAttribute : NUnitAttribute, IApplyToTest, IApplyToTestSuite</c
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">order</span></td>
-        <td><p>The order that the test will run in</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">platforms</span></td>
+        <td><p>Comma-delimited list of platforms</p>
 </td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-</h3>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/OrderAttribute.cs">View Source</a>
-  </span>
-  <h4 id="NUnit_Framework_OrderAttribute_Order" data-uid="NUnit.Framework.OrderAttribute.Order">Order</h4>
-  <div class="markdown level1 summary"><p>The order that the test will run in</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly int Order</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
       </tr>
     </tbody>
   </table>
@@ -305,11 +304,11 @@ public class OrderAttribute : NUnitAttribute, IApplyToTest, IApplyToTestSuite</c
 </h3>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/OrderAttribute.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/NetPlatformAttribute.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_OrderAttribute_ApplyToTest_" data-uid="NUnit.Framework.OrderAttribute.ApplyToTest*"></a>
-  <h4 id="NUnit_Framework_OrderAttribute_ApplyToTest_NUnit_Framework_Internal_Test_" data-uid="NUnit.Framework.OrderAttribute.ApplyToTest(NUnit.Framework.Internal.Test)">ApplyToTest(Test)</h4>
-  <div class="markdown level1 summary"><p>Modifies a test as defined for the specific attribute.</p>
+  <a id="NUnit_Framework_NetPlatformAttribute_ApplyToTest_" data-uid="NUnit.Framework.NetPlatformAttribute.ApplyToTest*"></a>
+  <h4 id="NUnit_Framework_NetPlatformAttribute_ApplyToTest_NUnit_Framework_Internal_Test_" data-uid="NUnit.Framework.NetPlatformAttribute.ApplyToTest(NUnit.Framework.Internal.Test)">ApplyToTest(Test)</h4>
+  <div class="markdown level1 summary"><p>Causes a test to be skipped if this NewPlatformAttribute is not satisfied.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -334,43 +333,9 @@ public class OrderAttribute : NUnitAttribute, IApplyToTest, IApplyToTestSuite</c
       </tr>
     </tbody>
   </table>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/OrderAttribute.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_OrderAttribute_ApplyToTestSuite_" data-uid="NUnit.Framework.OrderAttribute.ApplyToTestSuite*"></a>
-  <h4 id="NUnit_Framework_OrderAttribute_ApplyToTestSuite_NUnit_Framework_Internal_TestSuite_" data-uid="NUnit.Framework.OrderAttribute.ApplyToTestSuite(NUnit.Framework.Internal.TestSuite)">ApplyToTestSuite(TestSuite)</h4>
-  <div class="markdown level1 summary"><p>Modifies a test suite as defined for the specific attribute.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ApplyToTestSuite(TestSuite testSuite)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="NUnit.Framework.Internal.TestSuite.html">TestSuite</a></td>
-        <td><span class="parametername">testSuite</span></td>
-        <td><p>The test suite to modify</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="NUnit.Framework.Interfaces.IApplyToTest.html">IApplyToTest</a>
-  </div>
-  <div>
-      <a class="xref" href="NUnit.Framework.Interfaces.IApplyToTestSuite.html">IApplyToTestSuite</a>
   </div>
 
 </article>
@@ -381,7 +346,7 @@ public class OrderAttribute : NUnitAttribute, IApplyToTest, IApplyToTestSuite</c
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/OrderAttribute.cs" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/NetPlatformAttribute.cs" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

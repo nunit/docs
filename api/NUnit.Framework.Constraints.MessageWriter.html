@@ -549,13 +549,82 @@ line containing a caret that points to the mismatch point.</p>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">mismatch</span></td>
-        <td><p>The point at which the strings don't match or -1</p>
+        <td><p>The point in <code class="paramref">expected</code> at which the strings don't match or -1</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">ignoreCase</span></td>
         <td><p>If true, case is ignored in locating the point where the strings differ</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">clipping</span></td>
+        <td><p>If true, the strings should be clipped to fit the line</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/MessageWriter.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_MessageWriter_DisplayStringDifferences_" data-uid="NUnit.Framework.Constraints.MessageWriter.DisplayStringDifferences*"></a>
+  <h4 id="NUnit_Framework_Constraints_MessageWriter_DisplayStringDifferences_System_String_System_String_System_Int32_System_Int32_System_Boolean_System_Boolean_System_Boolean_" data-uid="NUnit.Framework.Constraints.MessageWriter.DisplayStringDifferences(System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean)">DisplayStringDifferences(string, string, int, int, bool, bool, bool)</h4>
+  <div class="markdown level1 summary"><p>Display the expected and actual string values on separate lines.
+If the mismatch parameter is &gt;=0, an additional line is displayed
+line containing a caret that points to the mismatch point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void DisplayStringDifferences(string expected, string actual, int mismatchExpected, int mismatchActual, bool ignoreCase, bool ignoreWhiteSpace, bool clipping)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The expected string value</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The actual string value</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">mismatchExpected</span></td>
+        <td><p>The point in <code class="paramref">expected</code> at which the strings don't match or -1</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">mismatchActual</span></td>
+        <td><p>The point in <code class="paramref">actual</code> at which the strings don't match or -1</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">ignoreCase</span></td>
+        <td><p>If true, case is ignored in locating the point where the strings differ</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">ignoreWhiteSpace</span></td>
+        <td><p>If true, white space is ignored in locating the point where the strings differ</p>
 </td>
       </tr>
       <tr>
