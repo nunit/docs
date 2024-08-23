@@ -87,7 +87,14 @@
 <h1 id="framework-release">Framework Release</h1>
 <!-- markdownlint-disable-file MD013 -->
 
-<h2 id="nunit-42---august-23-2024">NUnit 4.2 - August 23. 2024</h2>
+<h2 id="nunit-421---august-23-2024">NUnit 4.2.1 - August 23. 2024</h2>
+<p>This is a hotfix release for 4.2.0, fixing issues related to .NET Framework.</p>
+<h3 id="bug-fixes">Bug fixes</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit/issues/4795">4795</a> NUnit 4.2.0 is missing System.Buffers on .NET Framework.</li>
+<li><a href="https://github.com/nunit/nunit/issues/4794">4794</a> <code>EqualConstraint</code> fails with missing assembly references on .NET Framework since NUnit 4.2.</li>
+</ul>
+<h2 id="nunit-42---august-22-2024">NUnit 4.2 - August 22. 2024</h2>
 <p>There are 37 issues fixed in this release.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
@@ -105,7 +112,7 @@
 <li><a href="https://github.com/nunit/nunit/issues/548">548</a> Properties set on a parameterized method are not accessible to TestContext. Fixed by team <a href="https://github.com/nunit/nunit/pull/4757">PR 4757</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4587">4587</a> Feature request: Assert.Multiple() could return an IDisposable, avoiding passing an Action around.. Fixed by team <a href="https://github.com/nunit/nunit/pull/4758">PR 4758</a></li>
 </ul>
-<h3 id="bug-fixes">Bug fixes</h3>
+<h3 id="bug-fixes-1">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4782">4782</a> Bug report: [ValueSource] doesn't play nice with [CancelAfter]. Fixed by team <a href="https://github.com/nunit/nunit/pull/4783">PR 4783</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4770">4770</a> Bug report: [Values] doesn't play nice with [CancelAfter]. Fixed by team <a href="https://github.com/nunit/nunit/pull/4774">PR 4774</a></li>
@@ -153,7 +160,7 @@
 <li><a href="https://github.com/nunit/nunit/issues/4572">4572</a> Make new PropertiesComparer optional. Fixed by team <a href="https://github.com/nunit/nunit/pull/4608">PR 4608</a>  Adding modifier UsingPropertiesComparer() to AnyOf-, Equal-, SomeItems-, CollectionEquivalent-, CollectionSubset-, CollectionSuperSet-, DictionaryContainsKey-, DictionaryContainsKeyValuePair-, DictionaryContainsValue- and UniqueItemsConstraint.</li>
 <li><a href="https://github.com/nunit/nunit/issues/1215">1215</a> Explicit specification of generic method types on TestCase and TestCaseSource. Fixed by team <a href="https://github.com/nunit/nunit/pull/4620">PR 4620</a>  See <a href="https://docs.nunit.org/articles/nunit/writing-tests/attributes/testcase.html">TestCase</a> and <a href="https://docs.nunit.org/articles/nunit/writing-tests/attributes/testcasesource.html">TestCaseSource</a> documentation.</li>
 </ul>
-<h3 id="bug-fixes-1">Bug fixes</h3>
+<h3 id="bug-fixes-2">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4602">4602</a> WpfMessagePumpStrategy - change from Dispatcher.Run to Dispatcher.PushFrame . Thanks to <a href="https://github.com/soerendd">soerendd</a> for <a href="https://github.com/nunit/nunit/pull/4603">PR 4603</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4591">4591</a> Parameter count mismatch with indexer. Fixed by team <a href="https://github.com/nunit/nunit/pull/4608">PR 4608</a></li>
@@ -177,7 +184,7 @@ modifier, making this optional.</p>
 <h2 id="nunit-401---december-2-2023">NUnit 4.0.1 - December 2. 2023</h2>
 <p>This is a hotfix release for three issues related to targeting windows targets, like <code>net6.0-windows</code>.  If you don't use these targets, you can safely ignore this release.</p>
 <p>For more details, see the information in the issues below:</p>
-<h3 id="bug-fixes-2">Bug fixes</h3>
+<h3 id="bug-fixes-3">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4571">4571</a> NUnit 4: dotnet test behaving differently locally vs on GH Actions (failing). Fixed by team <a href="https://github.com/nunit/nunit/pull/4574">PR 4574</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4565">4565</a> Unable to test project targeting net8.0-windows and win-x64 . Fixed by team <a href="https://github.com/nunit/nunit/pull/4569">PR 4569</a></li>
@@ -234,7 +241,7 @@ doing!</p>
 <li><a href="https://github.com/nunit/nunit/issues/3936">3936</a> Is there any way we could make use of CallerArgumentExpressionAttribute?. Fixed by team <a href="https://github.com/nunit/nunit/pull/4419">PR 4419</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3798">3798</a> Support abstract methods marked as tests. Fixed by team <a href="https://github.com/nunit/nunit/pull/4490">PR 4490</a></li>
 </ul>
-<h3 id="bug-fixes-3">Bug fixes</h3>
+<h3 id="bug-fixes-4">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4554">4554</a> SetUpFixture has stopped working going from NUnit 3.13.3 to 3.14.0/4.0.0-beta.1. Fixed by team <a href="https://github.com/nunit/nunit/pull/4555">PR 4555</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4532">4532</a> Assert.That no longer allows 'null' message. Fixed by team <a href="https://github.com/nunit/nunit/pull/4533">PR 4533</a></li>
@@ -358,7 +365,7 @@ Lahma</a> for <a href="https://github.com/nunit/nunit/pull/4034">PR 4034</a></li
 <li><a href="https://github.com/nunit/nunit/issues/2729">2729</a> Proposal: Async test case sources. Fixed by team <a href="https://github.com/nunit/nunit/pull/4390">PR
 4390</a></li>
 </ul>
-<h3 id="bug-fixes-4">Bug fixes</h3>
+<h3 id="bug-fixes-5">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4527">4527</a> Backport: NUnit.Framework 3.13.2 introduced a breaking change that
 conceals problems with tests. Fixed by team <a href="https://github.com/nunit/nunit/pull/4104">PR 4104</a> ( backport of issue
