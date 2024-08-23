@@ -5,7 +5,16 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
-## NUnit 4.2 - August 23. 2024
+## NUnit 4.2.1 - August 23. 2024
+
+This is a hotfix release for 4.2.0, fixing issues related to .NET Framework.
+
+### Bug fixes
+
+* [4795](https://github.com/nunit/nunit/issues/4795) NUnit 4.2.0 is missing System.Buffers on .NET Framework.
+* [4794](https://github.com/nunit/nunit/issues/4794) `EqualConstraint` fails with missing assembly references on .NET Framework since NUnit 4.2.
+
+## NUnit 4.2 - August 22. 2024
 
 There are 37 issues fixed in this release.
 
