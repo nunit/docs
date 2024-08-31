@@ -5,6 +5,12 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
+## NUnit 4.2.2 - August 31. 2024
+
+This hotfix addresses an issue with asynchronous behavior introduced in version 4.2.0. It resolves a regression bug that affected the release.
+
+* [4802](https://github.com/nunit/nunit/issues/4802) System.NotSupportedException when using AsyncEnumerable test cases for `TestCaseSourceAttribute`. Fixed by [PR 4804](https://github.com/nunit/nunit/pull/4804.)
+
 ## NUnit 4.2.1 - August 23. 2024
 
 This is a hotfix release for 4.2.0, fixing issues related to .NET Framework.
