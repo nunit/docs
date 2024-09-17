@@ -20,6 +20,10 @@ In that case, we could write a test with multiple assertions, such as:
 
 [!code-csharp[MultipleAssertsTests](~/snippets/Snippets.NUnit/MultipleAsserts.cs#MultipleAssertsTests)]
 
+From NUnit 4.2 you can also use the new `EnterMultipleScope`:
+
+[!code-csharp[MultipleAssertsScopes](~/snippets/Snippets.NUnit/MultipleAsserts.cs#MultipleAssertsScopes)]
+
 Functionally, this results in NUnit storing any failures encountered in the block and reporting all of them together
 upon exit from the block. If both asserts failed, then both would be reported. The test itself would terminate at the
 end of the block if any failures were encountered, but would continue otherwise.
@@ -28,7 +32,7 @@ end of the block if any failures were encountered, but would continue otherwise.
 
 1. The multiple assert block may contain any arbitrary code, not just asserts.
 
-2. Multiple assert blocks may be nested. Failure is not reported until the  outermost block exits.
+2. Multiple assert blocks may be nested. Failure is not reported until the outermost block exits.
 
 3. If the code in the block calls a method, that method may also contain multiple assert blocks.
 
