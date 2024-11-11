@@ -16,7 +16,7 @@ and integration servers that require that format.
 ### Installation
 
 * NuGet: Reference package `NUnit.Extension.NUnitV2ResultWriter` in your project
-* Chocolatey: `choco install nunit-extension-v2-result-writer`
+* Chocolatey: `choco install nunit-extension-nunit-v2-result-writer`
 * Also bundled with the `NUnit.Console` NuGet and MSI packages.
 
 ### Usage
