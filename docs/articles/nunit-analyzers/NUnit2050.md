@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Assertion
-| Code     | [UpdateStringFormatToInterpolatableStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/UpdateStringFormatToInterpolatableString/UpdateStringFormatToInterpolatableStringAnalyzer.cs)
+| Code     | [UpdateStringFormatToInterpolatableStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/UpdateStringFormatToInterpolatableString/UpdateStringFormatToInterpolatableStringAnalyzer.cs)
 
 ## Description
 
@@ -22,16 +22,29 @@ to include the expression passed in for the _actual_ and _constraint_ parameters
 These are parameters automatically supplied by the compiler.
 
 To facilitate this, we needed to drop support for
-[composite formatting](https://learn.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting)
+[composite formatting](https://learn.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting).
 All NUnit4 asserts only allow a single _message_ parameter which can be either a simple string literal
-or a [interpolatable string](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation)
+or a [interpolatable string](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation).
 
 This analyzer needs to be run when still building against NUnit3 as otherwise your code won't compile.
 When usages of the new methods with `params` are detected, the associated CodeFix will convert the format specification
 into an interpolated string.
 
+The affected methods are:
+
+```csharp
+Assert.Pass
+Assert.Fail
+Assert.Warn
+Assert.Ignore
+Assert.Inconclusive
+Assert.That
+Assume.That
+```
+
 Once you moved to NUnit4 the analyzer has some limited functionality as there are a few
-cases where your NUnit3 code will compile on NUnit4, but not the way you want it.
+cases with `Assert.That` or `Assume.That` where your NUnit3 code will compile on NUnit4,
+but not the way you want it.
 Here what you think are parameters to a format specification are actually interpreted as
 the _actual_ and _constraint_ expression strings.
 Unfortunately you only find that out when the test fails, which could be never.
@@ -99,7 +112,7 @@ When using NUnit3, this results in:
 But when using NUnit4, we get:
 
 ```plaintext
- Message: 
+ Message:
   Expected '{0}', but got: '{1}'
 Assert.That(NUnit 3, NUnit 4)
   String lengths are both 7. Strings differ at index 6.
@@ -122,7 +135,7 @@ public void TestMessage(string actual, string expected)
 and the output:
 
 ```plaintext
- Message: 
+ Message:
   Expected 'NUnit 3', but got: 'NUnit 4'
 Assert.That(actual, Is.EqualTo(expected))
   String lengths are both 7. Strings differ at index 6.
