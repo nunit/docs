@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs">TestCaseUsageAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs">TestCaseUsageAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -125,6 +125,12 @@ method.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
 <h3 id="example-violation">Example Violation</h3>
 <pre><code class="lang-csharp">[TestCase(true)]
+public void SampleTest(int numberValue)
+{
+    Assert.That(numberValue, Is.EqualTo(1));
+}
+
+[TestCase&lt;double&gt;(42)]
 public void SampleTest(int numberValue)
 {
     Assert.That(numberValue, Is.EqualTo(1));

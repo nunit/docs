@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/UpdateStringFormatToInterpolatableString/UpdateStringFormatToInterpolatableStringAnalyzer.cs">UpdateStringFormatToInterpolatableStringAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/UpdateStringFormatToInterpolatableString/UpdateStringFormatToInterpolatableStringAnalyzer.cs">UpdateStringFormatToInterpolatableStringAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -125,14 +125,24 @@
 to include the expression passed in for the <em>actual</em> and <em>constraint</em> parameters.
 These are parameters automatically supplied by the compiler.</p>
 <p>To facilitate this, we needed to drop support for
-<a href="https://learn.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting">composite formatting</a>
+<a href="https://learn.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting">composite formatting</a>.
 All NUnit4 asserts only allow a single <em>message</em> parameter which can be either a simple string literal
-or a <a href="https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation">interpolatable string</a></p>
+or a <a href="https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation">interpolatable string</a>.</p>
 <p>This analyzer needs to be run when still building against NUnit3 as otherwise your code won't compile.
 When usages of the new methods with <code>params</code> are detected, the associated CodeFix will convert the format specification
 into an interpolated string.</p>
+<p>The affected methods are:</p>
+<pre><code class="lang-csharp">Assert.Pass
+Assert.Fail
+Assert.Warn
+Assert.Ignore
+Assert.Inconclusive
+Assert.That
+Assume.That
+</code></pre>
 <p>Once you moved to NUnit4 the analyzer has some limited functionality as there are a few
-cases where your NUnit3 code will compile on NUnit4, but not the way you want it.
+cases with <code>Assert.That</code> or <code>Assume.That</code> where your NUnit3 code will compile on NUnit4,
+but not the way you want it.
 Here what you think are parameters to a format specification are actually interpreted as
 the <em>actual</em> and <em>constraint</em> expression strings.
 Unfortunately you only find that out when the test fails, which could be never.</p>
@@ -178,7 +188,7 @@ public void TestMessage(string actual, string expected)
   -----------------^
 </code></pre>
 <p>But when using NUnit4, we get:</p>
-<pre><code class="lang-plaintext"> Message: 
+<pre><code class="lang-plaintext"> Message:
   Expected '{0}', but got: '{1}'
 Assert.That(NUnit 3, NUnit 4)
   String lengths are both 7. Strings differ at index 6.
@@ -195,7 +205,7 @@ public void TestMessage(string actual, string expected)
 }
 </code></pre>
 <p>and the output:</p>
-<pre><code class="lang-plaintext"> Message: 
+<pre><code class="lang-plaintext"> Message:
   Expected 'NUnit 3', but got: 'NUnit 4'
 Assert.That(actual, Is.EqualTo(expected))
   String lengths are both 7. Strings differ at index 6.

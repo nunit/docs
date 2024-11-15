@@ -113,18 +113,45 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/DisposeFieldsAndPropertiesInTearDown/DisposeFieldsAndPropertiesInTearDownAnalyzer.cs">DisposeFieldsAndPropertiesInTearDownAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/DisposeFieldsAndPropertiesInTearDown/DisposeFieldsAndPropertiesInTearDownAnalyzer.cs">DisposeFieldsAndPropertiesInTearDownAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
 <p>An IDisposable field/property should be Disposed in a TearDown method.</p>
+<p>This analyzer rule only applies to a <code>TestFixture</code> which is using the default
+NUnit <code>SingleInstance</code> life cycle where the class is instantiated once for all tests.</p>
+<p>If you are using <code>LifeCycle.InstancePerTestCase</code> you should dispose the fields/properties
+in the <code>Dispose</code> method of the test class.</p>
 <h2 id="motivation">Motivation</h2>
 <p>Not Disposing fields/properties can cause memory leaks or failing tests.</p>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
+<h3 id="lifecyclesingleinstance">LifeCycle.SingleInstance</h3>
 <p>Dispose any fields/properties that are initialized in <code>SetUp</code> or <code>Test</code> methods in a <code>TearDown</code> method.
 Fields/Properties that are initialized in <code>OneTimeSetUp</code>, or with initializers or in constructors
 must be disposed in <code>OneTimeTearDown</code>.</p>
+<h3 id="lifecycleinstancepertestcase">LifeCycle.InstancePerTestCase</h3>
+<p>If you have <code>IDisposable</code> fields or properties, your class must implement the
+<a href="https://learn.microsoft.com/en-us/dotnet/api/system.idisposable?view=net-8.0"><code>IDisposable</code></a> interface.</p>
+<p>Dispose any fields/properties that are initialized at declaration or in the constructor in the
+<a href="https://learn.microsoft.com/en-us/dotnet/api/system.idisposable.dispose?view=net-8.0"><code>Dispose</code></a> method.</p>
+<p>The NUnit.Analyzer will not help you here as the functionality is available in
+<a href="https://www.nuget.org/packages/Microsoft.CodeAnalysis.NetAnalyzers">Microsoft .NET Analyzers</a>.
+These are the rules that will help you with this:</p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1001">CA1001</a>
+Types that own disposable fields should be disposable</li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca2213">CA2213</a>
+Disposable fields should be disposed</li>
+</ul>
+<p>Unfortunately, those rules are not enabled by default, you can enable them in your project in a
+<a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/use-roslyn-analyzers?view=vs-2022#manually-configure-rule-severity-in-an-editorconfig-file"><code>.editorconfig</code></a>
+file using the following content:</p>
+<pre><code class="lang-xml"># CA1001: Types that own disposable fields should be disposable
+dotnet_diagnostic.CA1001.severity = warning
+# CA2213: Disposable fields should be disposed
+dotnet_diagnostic.CA2213.severity = warning
+</code></pre>
 <!-- start generated config severity -->
 <h2 id="configure-severity">Configure severity</h2>
 <h3 id="via-ruleset-file">Via ruleset file</h3>
