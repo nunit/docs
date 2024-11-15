@@ -8,7 +8,7 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Assertion
-| Code     | [WithinUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/WithinUsage/WithinUsageAnalyzer.cs)
+| Code     | [WithinUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/WithinUsage/WithinUsageAnalyzer.cs)
 
 ## Description
 

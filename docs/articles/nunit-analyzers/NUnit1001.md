@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.1.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs)
+| Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs)
 
 ## Description
 
@@ -25,6 +25,12 @@ To prevent tests that will fail at runtime due to improper construction.
 
 ```csharp
 [TestCase(true)]
+public void SampleTest(int numberValue)
+{
+    Assert.That(numberValue, Is.EqualTo(1));
+}
+
+[TestCase<double>(42)]
 public void SampleTest(int numberValue)
 {
     Assert.That(numberValue, Is.EqualTo(1));
