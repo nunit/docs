@@ -7,9 +7,8 @@ uid: frameworkreleasenotes
 
 ## NUnit 4.3.0 -  ETA Dec 15. 2024
 
-This release includes a series of enhancements and bug fixes. Notably, some of the bug fixes address issues related to a lack of type safety in NUnit. See issues [4877](https://github.com/nunit/nunit/issues/4877), 
-[4876](https://github.com/nunit/nunit/issues/4876), [4875](https://github.com/nunit/nunit/issues/4875), [4874](https://github.com/nunit/nunit/issues/4874) and [150](https://github.com/nunit/nunit/issues/150). 
-
+This release includes a series of enhancements and bug fixes. Notably, some of the bug fixes address issues related to a lack of type safety in NUnit. See issues [4877](https://github.com/nunit/nunit/issues/4877),
+[4876](https://github.com/nunit/nunit/issues/4876), [4875](https://github.com/nunit/nunit/issues/4875), [4874](https://github.com/nunit/nunit/issues/4874) and [150](https://github.com/nunit/nunit/issues/150).
 
 There are 27 issues fixed in this release.
 
