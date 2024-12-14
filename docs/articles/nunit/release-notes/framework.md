@@ -62,11 +62,9 @@ None
 
 ### Others
 
-
 ### The following issues are marked as breaking changes
 
 None
-
 
 ### Acknowledgements
 
@@ -110,7 +108,6 @@ A special thank you to the following reporters for identifying issues:
 </tr>
 </table>
 
-
 and to the commenters who engaged in discussions and offered further insights:
 
 <table>
@@ -151,7 +148,6 @@ and to the commenters who engaged in discussions and offered further insights:
 <td><a href="https://github.com/wimvangool">Wim van Gool</a></td>
 </tr>
 </table>
-
 
 ## NUnit 4.2.2 - August 31. 2024
 
