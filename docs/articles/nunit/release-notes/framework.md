@@ -11,7 +11,7 @@ uid: frameworkreleasenotes
 This release includes a series of enhancements and bug fixes. Notably, some of the bug fixes address issues related to a lack of type safety in NUnit. See issues [4877](https://github.com/nunit/nunit/issues/4877),
 [4876](https://github.com/nunit/nunit/issues/4876), [4875](https://github.com/nunit/nunit/issues/4875), [4874](https://github.com/nunit/nunit/issues/4874) and [150](https://github.com/nunit/nunit/issues/150).  
 
-Be aware that this might cause compile errors in cases where the code was previously ignored. These errors can be safely resolved by removing the affected code..
+Be aware that this might cause compile errors in cases where the code was previously ignored. These errors can be safely resolved by removing the affected code.
 
 There are 29 issues fixed in this release.
 
