@@ -24,6 +24,8 @@ Team Lead: [Rob Prouse](https://github.com/rprouse)
 
 ### Engine Team
 
+The Engine Team maintains the NUnit3-Console runner, the Engine, and a number of extensions.
+
 Team Lead: [Charlie Poole](https://github.com/charliepoole)
 
 ### VS Extensions Team
