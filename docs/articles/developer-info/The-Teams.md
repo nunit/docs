@@ -24,9 +24,9 @@ Team Lead: [Rob Prouse](https://github.com/rprouse)
 
 ### Engine Team
 
-The Engine Team maintains the NUnit3-Console runner, the Engine and a number of extensions.
+The Engine Team maintains the NUnit3-Console runner, the Engine, and a number of extensions.
 
-Team Lead: Wanted!
+Team Lead: [Charlie Poole](https://github.com/charliepoole)
 
 ### VS Extensions Team
 
@@ -52,6 +52,7 @@ Team Lead: [Sean Killeen](https://github.com/seankilleen)
 
 |Name|Core Team|Framework|Engine|VS Extensions|Analyzer|Documentation|
 |--|--|--|--|--|--|--|
+|[Charlie Poole](https://github.com/charliepoole) :us: | :heavy_check_mark: || :heavy_check_mark: ||||
 |[Rob Prouse](https://github.com/rprouse) :canada: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | |
 |[Terje Sandstrom](https://github.com/osiristerje) :norway: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | |
 |[Joseph Musser](https://github.com/jnm2) :us: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | |
@@ -63,7 +64,5 @@ Team Lead: [Sean Killeen](https://github.com/seankilleen)
 |[Simon Cropp](https://github.com/SimonCropp) :australia: | | :heavy_check_mark: | | | | |
 
 ### Former members and honorable mentions (and there are multiple more, we'll add them as we find them)
-
-[Charlie Poole](https://github.com/CharliePoole) :us:
 
 [Chris Maddock](https://github.com/ChrisMaddock) :gb:
