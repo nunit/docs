@@ -16,7 +16,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class TeamCityEventListener | NUnit Docs ">
     
-    
+    <meta name="description" content="TeamCityEventListener class handles ITestListener events by issuing TeamCity service messages on the Console.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -88,7 +88,9 @@
 
 
   <h1 id="NUnitLite_TeamCityEventListener" data-uid="NUnitLite.TeamCityEventListener" class="text-break">Class TeamCityEventListener</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>TeamCityEventListener class handles ITestListener events
+by issuing TeamCity service messages on the Console.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -137,19 +139,25 @@
   </span>
   <a id="NUnitLite_TeamCityEventListener__ctor_" data-uid="NUnitLite.TeamCityEventListener.#ctor*"></a>
   <h4 id="NUnitLite_TeamCityEventListener__ctor" data-uid="NUnitLite.TeamCityEventListener.#ctor">TeamCityEventListener()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Default constructor using Console.Out</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TeamCityEventListener()</code></pre>
   </div>
+  <h5 id="NUnitLite_TeamCityEventListener__ctor_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This constructor must be called before Console.Out is
+redirected in order to work correctly under TeamCity.</p>
+</div>
 
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/nunitlite/TeamCityEventListener.cs">View Source</a>
   </span>
   <a id="NUnitLite_TeamCityEventListener__ctor_" data-uid="NUnitLite.TeamCityEventListener.#ctor*"></a>
   <h4 id="NUnitLite_TeamCityEventListener__ctor_System_IO_TextWriter_" data-uid="NUnitLite.TeamCityEventListener.#ctor(System.IO.TextWriter)">TeamCityEventListener(TextWriter)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Construct a TeamCityEventListener specifying a TextWriter. Used for testing.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -168,7 +176,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></td>
         <td><span class="parametername">outWriter</span></td>
-        <td></td>
+        <td><p>The TextWriter to receive normal messages.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -200,7 +209,7 @@
       <tr>
         <td><a class="xref" href="NUnit.Framework.Interfaces.TestMessage.html">TestMessage</a></td>
         <td><span class="parametername">message</span></td>
-        <td><p>A <a class="xref" href="NUnit.Framework.Interfaces.TestMessage.html">TestMessage</a> object containing the text to send</p>
+        <td><p>A TestMessage object containing the text to send</p>
 </td>
       </tr>
     </tbody>

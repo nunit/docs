@@ -16,7 +16,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class AutoRun | NUnit Docs ">
     
-    
+    <meta name="description" content="The AutoRun class is used by executable test assemblies to control their own execution. Call it from your executable test like this: new AutoRun().Execute(args); The arguments can be those passed into your exe or constructed for the purpose in your code. If the tests are in a dll, you can write a stub executable that runs them like this: new Autorun().Execute(testAssembly, args); When running tests compiled against the .NET Standard framework, the methods above are not available. Run your tests like this: new AutoRun().Execute(testAssembly, args, output, input); Where output is an ExtendedTextWriter (normally a ColorConsoleWriter) and input is usually Console.In and is used by the --wait option.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -88,7 +88,23 @@
 
 
   <h1 id="NUnitLite_AutoRun" data-uid="NUnitLite.AutoRun" class="text-break">Class AutoRun</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>The AutoRun class is used by executable test
+assemblies to control their own execution.</p>
+<p>Call it from your executable test like this:
+new AutoRun().Execute(args);
+The arguments can be those passed into your exe
+or constructed for the purpose in your code.</p>
+<p>If the tests are in a dll, you can write a stub
+executable that runs them like this:
+new Autorun().Execute(testAssembly, args);</p>
+<p>When running tests compiled against the .NET Standard
+framework, the methods above are not available.
+Run your tests like this:
+new AutoRun().Execute(testAssembly, args, output, input);
+Where output is an ExtendedTextWriter (normally a
+ColorConsoleWriter) and input is usually Console.In
+and is used by the --wait option.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -133,7 +149,8 @@
   </span>
   <a id="NUnitLite_AutoRun__ctor_" data-uid="NUnitLite.AutoRun.#ctor*"></a>
   <h4 id="NUnitLite_AutoRun__ctor" data-uid="NUnitLite.AutoRun.#ctor">AutoRun()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Default Constructor, only used where GetCallingAssembly is available</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -145,7 +162,9 @@
   </span>
   <a id="NUnitLite_AutoRun__ctor_" data-uid="NUnitLite.AutoRun.#ctor*"></a>
   <h4 id="NUnitLite_AutoRun__ctor_System_Reflection_Assembly_" data-uid="NUnitLite.AutoRun.#ctor(System.Reflection.Assembly)">AutoRun(Assembly)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor for use where GetCallingAssembly is not
+available, requiring the assembly to be passed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -164,7 +183,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></td>
         <td><span class="parametername">testAssembly</span></td>
-        <td></td>
+        <td><p>The test assembly</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -176,7 +196,9 @@
   </span>
   <a id="NUnitLite_AutoRun_Execute_" data-uid="NUnitLite.AutoRun.Execute*"></a>
   <h4 id="NUnitLite_AutoRun_Execute_System_String___" data-uid="NUnitLite.AutoRun.Execute(System.String[])">Execute(string[])</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Execute the tests in the assembly, passing in
+a list of arguments.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -195,7 +217,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
         <td><span class="parametername">args</span></td>
-        <td></td>
+        <td><p>arguments for NUnitLite to use</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -220,7 +243,11 @@
   </span>
   <a id="NUnitLite_AutoRun_Execute_" data-uid="NUnitLite.AutoRun.Execute*"></a>
   <h4 id="NUnitLite_AutoRun_Execute_System_String___NUnit_Common_ExtendedTextWriter_System_IO_TextReader_" data-uid="NUnitLite.AutoRun.Execute(System.String[],NUnit.Common.ExtendedTextWriter,System.IO.TextReader)">Execute(string[], ExtendedTextWriter, TextReader)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Execute the tests in the assembly, passing in
+a list of arguments, a test assembly a writer
+and a reader. For use in builds for runtimes
+that don't support Assembly.GetCallingAssembly().</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -239,17 +266,20 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
         <td><span class="parametername">args</span></td>
-        <td></td>
+        <td><p>Arguments passed to NUnitLite</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="NUnit.Common.ExtendedTextWriter.html">ExtendedTextWriter</a></td>
         <td><span class="parametername">writer</span></td>
-        <td></td>
+        <td><p>An ExtendedTextWriter to which output will be written</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textreader">TextReader</a></td>
         <td><span class="parametername">reader</span></td>
-        <td></td>
+        <td><p>A TextReader used when waiting for input</p>
+</td>
       </tr>
     </tbody>
   </table>

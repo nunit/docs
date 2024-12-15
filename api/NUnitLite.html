@@ -93,25 +93,70 @@
 Classes
 </h3>
       <h4><a class="xref" href="NUnitLite.AutoRun.html">AutoRun</a></h4>
-      <section></section>
+      <section><p>The AutoRun class is used by executable test
+assemblies to control their own execution.</p>
+<p>Call it from your executable test like this:
+new AutoRun().Execute(args);
+The arguments can be those passed into your exe
+or constructed for the purpose in your code.</p>
+<p>If the tests are in a dll, you can write a stub
+executable that runs them like this:
+new Autorun().Execute(testAssembly, args);</p>
+<p>When running tests compiled against the .NET Standard
+framework, the methods above are not available.
+Run your tests like this:
+new AutoRun().Execute(testAssembly, args, output, input);
+Where output is an ExtendedTextWriter (normally a
+ColorConsoleWriter) and input is usually Console.In
+and is used by the --wait option.</p>
+</section>
       <h4><a class="xref" href="NUnitLite.NUnit2XmlOutputWriter.html">NUnit2XmlOutputWriter</a></h4>
-      <section></section>
+      <section><p>NUnit2XmlOutputWriter is able to create an XML file representing
+the result of a test run in NUnit 2.x format.</p>
+</section>
       <h4><a class="xref" href="NUnitLite.NUnit3XmlOutputWriter.html">NUnit3XmlOutputWriter</a></h4>
-      <section></section>
+      <section><p>NUnit3XmlOutputWriter is responsible for writing the results
+of a test to a file in NUnit 3 format.</p>
+</section>
       <h4><a class="xref" href="NUnitLite.NUnitLiteOptions.html">NUnitLiteOptions</a></h4>
-      <section></section>
+      <section><p>NUnitLiteOptions encapsulates the option settings for NUnitLite.
+Currently, there are no additional options beyond those common
+options that are shared with nunit3-console. If NUnitLite should
+acquire some unique options, they should be placed here.</p>
+</section>
       <h4><a class="xref" href="NUnitLite.OutputManager.html">OutputManager</a></h4>
-      <section></section>
+      <section><p>OutputManager is responsible for creating output files
+from a test run in various formats.</p>
+</section>
       <h4><a class="xref" href="NUnitLite.OutputWriter.html">OutputWriter</a></h4>
-      <section></section>
+      <section><p>OutputWriter is an abstract class used to write test
+results to a file in various formats. Specific
+OutputWriters are derived from this class.</p>
+</section>
       <h4><a class="xref" href="NUnitLite.ResultSummary.html">ResultSummary</a></h4>
-      <section></section>
+      <section><p>Helper class used to summarize the result of a test run</p>
+</section>
       <h4><a class="xref" href="NUnitLite.TeamCityEventListener.html">TeamCityEventListener</a></h4>
-      <section></section>
+      <section><p>TeamCityEventListener class handles ITestListener events
+by issuing TeamCity service messages on the Console.</p>
+</section>
       <h4><a class="xref" href="NUnitLite.TestCaseOutputWriter.html">TestCaseOutputWriter</a></h4>
-      <section></section>
+      <section><p>TestCaseOutputWriter lists test cases</p>
+</section>
       <h4><a class="xref" href="NUnitLite.TextRunner.html">TextRunner</a></h4>
-      <section></section>
+      <section><p>TextRunner is a general purpose class that runs tests and
+outputs to a text-based user interface (TextUI).</p>
+<p>Call it from your Main like this:
+new TextRunner(textWriter).Execute(args);
+OR
+new TextUI().Execute(args);
+The provided TextWriter is used by default, unless the
+arguments to Execute override it using -out. The second
+form uses the Console, provided it exists on the platform.</p>
+<p>NOTE: When running on a platform without a Console, such
+as Windows Phone, the results will simply not appear if
+you fail to specify a file in the call itself or as an option.</p>
+</section>
       <h4><a class="xref" href="NUnitLite.TextUI.html">TextUI</a></h4>
       <section></section>
       <h4><a class="xref" href="NUnitLite.TimeStamp.html">TimeStamp</a></h4>

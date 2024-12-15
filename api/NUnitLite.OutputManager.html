@@ -16,7 +16,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class OutputManager | NUnit Docs ">
     
-    
+    <meta name="description" content="OutputManager is responsible for creating output files from a test run in various formats.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -88,7 +88,9 @@
 
 
   <h1 id="NUnitLite_OutputManager" data-uid="NUnitLite.OutputManager" class="text-break">Class OutputManager</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>OutputManager is responsible for creating output files
+from a test run in various formats.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -133,7 +135,8 @@
   </span>
   <a id="NUnitLite_OutputManager__ctor_" data-uid="NUnitLite.OutputManager.#ctor*"></a>
   <h4 id="NUnitLite_OutputManager__ctor_System_String_" data-uid="NUnitLite.OutputManager.#ctor(System.String)">OutputManager(string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Construct an OutputManager</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -152,7 +155,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">workDirectory</span></td>
-        <td></td>
+        <td><p>The directory to use for reports</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -164,7 +168,8 @@
   </span>
   <a id="NUnitLite_OutputManager_WriteResultFile_" data-uid="NUnitLite.OutputManager.WriteResultFile*"></a>
   <h4 id="NUnitLite_OutputManager_WriteResultFile_NUnit_Framework_Interfaces_ITestResult_NUnit_Common_OutputSpecification_System_Collections_Generic_IDictionary_System_String_System_Object__NUnit_Framework_Internal_TestFilter_" data-uid="NUnitLite.OutputManager.WriteResultFile(NUnit.Framework.Interfaces.ITestResult,NUnit.Common.OutputSpecification,System.Collections.Generic.IDictionary{System.String,System.Object},NUnit.Framework.Internal.TestFilter)">WriteResultFile(ITestResult, OutputSpecification, IDictionary&lt;string, object&gt;, TestFilter)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Write the result of a test run according to a spec.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -183,22 +188,26 @@
       <tr>
         <td><a class="xref" href="NUnit.Framework.Interfaces.ITestResult.html">ITestResult</a></td>
         <td><span class="parametername">result</span></td>
-        <td></td>
+        <td><p>The test result</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="NUnit.Common.OutputSpecification.html">OutputSpecification</a></td>
         <td><span class="parametername">spec</span></td>
-        <td></td>
+        <td><p>An output specification</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
         <td><span class="parametername">runSettings</span></td>
-        <td></td>
+        <td><p>Settings</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/TestFilter.cs">TestFilter</a></td>
         <td><span class="parametername">filter</span></td>
-        <td></td>
+        <td><p>Filter</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -208,7 +217,8 @@
   </span>
   <a id="NUnitLite_OutputManager_WriteTestFile_" data-uid="NUnitLite.OutputManager.WriteTestFile*"></a>
   <h4 id="NUnitLite_OutputManager_WriteTestFile_NUnit_Framework_Interfaces_ITest_NUnit_Common_OutputSpecification_" data-uid="NUnitLite.OutputManager.WriteTestFile(NUnit.Framework.Interfaces.ITest,NUnit.Common.OutputSpecification)">WriteTestFile(ITest, OutputSpecification)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Write out the result of exploring the tests</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -227,12 +237,14 @@
       <tr>
         <td><a class="xref" href="NUnit.Framework.Interfaces.ITest.html">ITest</a></td>
         <td><span class="parametername">test</span></td>
-        <td></td>
+        <td><p>The top-level test</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="NUnit.Common.OutputSpecification.html">OutputSpecification</a></td>
         <td><span class="parametername">spec</span></td>
-        <td></td>
+        <td><p>An OutputSpecification</p>
+</td>
       </tr>
     </tbody>
   </table>

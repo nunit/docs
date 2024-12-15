@@ -16,7 +16,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class TextRunner | NUnit Docs ">
     
-    
+    <meta name="description" content="TextRunner is a general purpose class that runs tests and outputs to a text-based user interface (TextUI). Call it from your Main like this: new TextRunner(textWriter).Execute(args); OR new TextUI().Execute(args); The provided TextWriter is used by default, unless the arguments to Execute override it using -out. The second form uses the Console, provided it exists on the platform. NOTE: When running on a platform without a Console, such as Windows Phone, the results will simply not appear if you fail to specify a file in the call itself or as an option.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -88,7 +88,19 @@
 
 
   <h1 id="NUnitLite_TextRunner" data-uid="NUnitLite.TextRunner" class="text-break">Class TextRunner</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>TextRunner is a general purpose class that runs tests and
+outputs to a text-based user interface (TextUI).</p>
+<p>Call it from your Main like this:
+new TextRunner(textWriter).Execute(args);
+OR
+new TextUI().Execute(args);
+The provided TextWriter is used by default, unless the
+arguments to Execute override it using -out. The second
+form uses the Console, provided it exists on the platform.</p>
+<p>NOTE: When running on a platform without a Console, such
+as Windows Phone, the results will simply not appear if
+you fail to specify a file in the call itself or as an option.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -137,7 +149,10 @@
   </span>
   <a id="NUnitLite_TextRunner__ctor_" data-uid="NUnitLite.TextRunner.#ctor*"></a>
   <h4 id="NUnitLite_TextRunner__ctor" data-uid="NUnitLite.TextRunner.#ctor">TextRunner()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NUnitLite.TextRunner.html">TextRunner</a> class
+without specifying an assembly. This is interpreted as allowing
+a single input file in the argument list to Execute().</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -149,7 +164,9 @@
   </span>
   <a id="NUnitLite_TextRunner__ctor_" data-uid="NUnitLite.TextRunner.#ctor*"></a>
   <h4 id="NUnitLite_TextRunner__ctor_System_Reflection_Assembly_" data-uid="NUnitLite.TextRunner.#ctor(System.Reflection.Assembly)">TextRunner(Assembly)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NUnitLite.TextRunner.html">TextRunner</a> class
+specifying a test assembly whose tests are to be run.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -179,7 +196,8 @@
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/nunitlite/TextRunner.cs">View Source</a>
   </span>
   <h4 id="NUnitLite_TextRunner_FILE_NOT_FOUND" data-uid="NUnitLite.TextRunner.FILE_NOT_FOUND">FILE_NOT_FOUND</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>File not found</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -205,7 +223,8 @@
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/nunitlite/TextRunner.cs">View Source</a>
   </span>
   <h4 id="NUnitLite_TextRunner_INVALID_ARG" data-uid="NUnitLite.TextRunner.INVALID_ARG">INVALID_ARG</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Invalid Arguments</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -231,7 +250,8 @@
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/nunitlite/TextRunner.cs">View Source</a>
   </span>
   <h4 id="NUnitLite_TextRunner_INVALID_TEST_FIXTURE" data-uid="NUnitLite.TextRunner.INVALID_TEST_FIXTURE">INVALID_TEST_FIXTURE</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Invalid test suite</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -257,7 +277,8 @@
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/nunitlite/TextRunner.cs">View Source</a>
   </span>
   <h4 id="NUnitLite_TextRunner_OK" data-uid="NUnitLite.TextRunner.OK">OK</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>OK</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -283,7 +304,8 @@
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/nunitlite/TextRunner.cs">View Source</a>
   </span>
   <h4 id="NUnitLite_TextRunner_UNEXPECTED_ERROR" data-uid="NUnitLite.TextRunner.UNEXPECTED_ERROR">UNEXPECTED_ERROR</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Unexpected error occurred</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -341,7 +363,8 @@
   </span>
   <a id="NUnitLite_TextRunner_CreateTestFilter_" data-uid="NUnitLite.TextRunner.CreateTestFilter*"></a>
   <h4 id="NUnitLite_TextRunner_CreateTestFilter_NUnitLite_NUnitLiteOptions_" data-uid="NUnitLite.TextRunner.CreateTestFilter(NUnitLite.NUnitLiteOptions)">CreateTestFilter(NUnitLiteOptions)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create the test filter for this run - public for testing</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -483,7 +506,8 @@
   </span>
   <a id="NUnitLite_TextRunner_MakeRunSettings_" data-uid="NUnitLite.TextRunner.MakeRunSettings*"></a>
   <h4 id="NUnitLite_TextRunner_MakeRunSettings_NUnitLite_NUnitLiteOptions_" data-uid="NUnitLite.TextRunner.MakeRunSettings(NUnitLite.NUnitLiteOptions)">MakeRunSettings(NUnitLiteOptions)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Make the settings for this run - this is public for testing</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -625,7 +649,7 @@
       <tr>
         <td><a class="xref" href="NUnit.Framework.Interfaces.TestMessage.html">TestMessage</a></td>
         <td><span class="parametername">message</span></td>
-        <td><p>A <a class="xref" href="NUnit.Framework.Interfaces.TestMessage.html">TestMessage</a> object containing the text to send</p>
+        <td><p>A TestMessage object containing the text to send</p>
 </td>
       </tr>
     </tbody>
@@ -698,7 +722,7 @@
   </span>
   <a id="NUnitLite_TextRunner_TestStarted_" data-uid="NUnitLite.TextRunner.TestStarted*"></a>
   <h4 id="NUnitLite_TextRunner_TestStarted_NUnit_Framework_Interfaces_ITest_" data-uid="NUnitLite.TextRunner.TestStarted(NUnit.Framework.Interfaces.ITest)">TestStarted(ITest)</h4>
-  <div class="markdown level1 summary"><p>Called when a test has just started</p>
+  <div class="markdown level1 summary"><p>Called when a test or suite has just started</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

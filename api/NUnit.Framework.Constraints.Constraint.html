@@ -109,6 +109,12 @@ constraints.</p>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EmptyDirectoryConstraint.html">EmptyDirectoryConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EmptyGuidConstraint.html">EmptyGuidConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EqualDateTimeOffsetConstraintWithSameOffset.html">EqualDateTimeOffsetConstraintWithSameOffset</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EqualNumericWithoutUsingConstraint-1.html">EqualNumericWithoutUsingConstraint&lt;T&gt;</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EqualStringWithoutUsingConstraint.html">EqualStringWithoutUsingConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EqualTimeBaseConstraint-1.html">EqualTimeBaseConstraint&lt;T&gt;</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EqualTimeBasedConstraintWithTimeSpanTolerance-1.html">EqualTimeBasedConstraintWithTimeSpanTolerance&lt;T&gt;</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EqualUsingConstraint-1.html">EqualUsingConstraint&lt;T&gt;</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.ExactCountConstraint.html">ExactCountConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.FalseConstraint.html">FalseConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.FileOrDirectoryExistsConstraint.html">FileOrDirectoryExistsConstraint</a></div>
@@ -495,6 +501,68 @@ and polling interval.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="NUnit.Framework.Constraints.DelayedConstraint.html">DelayedConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/Constraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_Constraint_ApplyToAsync_" data-uid="NUnit.Framework.Constraints.Constraint.ApplyToAsync*"></a>
+  <h4 id="NUnit_Framework_Constraints_Constraint_ApplyToAsync__1_System_Func_System_Threading_Tasks_Task___0___" data-uid="NUnit.Framework.Constraints.Constraint.ApplyToAsync``1(System.Func{System.Threading.Tasks.Task{``0}})">ApplyToAsync&lt;TActual&gt;(Func&lt;Task&lt;TActual&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Applies the constraint to a delegate that returns the task.
+The default implementation simply evaluates the delegate and awaits the task
+but derived classes may override it to provide for delayed processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;ConstraintResult&gt; ApplyToAsync&lt;TActual&gt;(Func&lt;Task&lt;TActual&gt;&gt; taskDel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TActual&gt;&gt;</td>
+        <td><span class="parametername">taskDel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
         <td></td>
       </tr>
     </tbody>

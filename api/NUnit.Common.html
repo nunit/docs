@@ -93,32 +93,57 @@
 Classes
 </h3>
       <h4><a class="xref" href="NUnit.Common.ColorConsole.html">ColorConsole</a></h4>
-      <section></section>
+      <section><p>Sets the console color in the constructor and resets it in the dispose</p>
+</section>
       <h4><a class="xref" href="NUnit.Common.ColorConsoleWriter.html">ColorConsoleWriter</a></h4>
       <section></section>
       <h4><a class="xref" href="NUnit.Common.CommandLineOptions.html">CommandLineOptions</a></h4>
-      <section></section>
+      <section><p>CommandLineOptions is the base class the specific option classes
+used for nunit3-console and nunitlite. It encapsulates all common
+settings and features of both. This is done to ensure that common
+features remain common and for the convenience of having the code
+in a common location. The class inherits from the Mono
+Options OptionSet class and provides a central location
+for defining and parsing options.</p>
+</section>
       <h4><a class="xref" href="NUnit.Common.ExtendedTextWrapper.html">ExtendedTextWrapper</a></h4>
-      <section></section>
+      <section><p>ExtendedTextWrapper wraps a TextWriter and makes it
+look like an ExtendedTextWriter. All style indications
+are ignored. It's used when text is being written
+to a file.</p>
+</section>
       <h4><a class="xref" href="NUnit.Common.ExtendedTextWriter.html">ExtendedTextWriter</a></h4>
-      <section></section>
+      <section><p>ExtendedTextWriter extends the TextWriter abstract class
+to support displaying text in color.</p>
+</section>
       <h4><a class="xref" href="NUnit.Common.OutputSpecification.html">OutputSpecification</a></h4>
-      <section></section>
+      <section><p>OutputSpecification encapsulates a file output path and format
+for use in saving the results of a run.</p>
+</section>
       <h4><a class="xref" href="NUnit.Common.TestNameParser.html">TestNameParser</a></h4>
-      <section></section>
+      <section><p>TestNameParser is used to parse the arguments to the
+-run option, separating testnames at the correct point.</p>
+</section>
       <h4><a class="xref" href="NUnit.Common.TestSelectionParser.html">TestSelectionParser</a></h4>
       <section></section>
       <h4><a class="xref" href="NUnit.Common.TestSelectionParserException.html">TestSelectionParserException</a></h4>
-      <section></section>
+      <section><p>TestSelectionParserException is thrown when an error
+is found while parsing the selection expression.</p>
+</section>
       <h4><a class="xref" href="NUnit.Common.Token.html">Token</a></h4>
       <section></section>
       <h4><a class="xref" href="NUnit.Common.Tokenizer.html">Tokenizer</a></h4>
-      <section></section>
+      <section><p>Tokenizer class performs lexical analysis for the TestSelectionParser.
+It recognizes a very limited set of tokens: words, symbols and
+quoted strings. This is sufficient for the simple DSL we use to
+select which tests to run.</p>
+</section>
     <h3 id="enums">
 Enums
 </h3>
       <h4><a class="xref" href="NUnit.Common.ColorStyle.html">ColorStyle</a></h4>
-      <section></section>
+      <section><p>ColorStyle enumerates the various styles used in the console display</p>
+</section>
       <h4><a class="xref" href="NUnit.Common.TokenKind.html">TokenKind</a></h4>
       <section></section>
 

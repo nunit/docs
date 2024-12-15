@@ -16,7 +16,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class CommandLineOptions | NUnit Docs ">
     
-    
+    <meta name="description" content="CommandLineOptions is the base class the specific option classes used for nunit3-console and nunitlite. It encapsulates all common settings and features of both. This is done to ensure that common features remain common and for the convenience of having the code in a common location. The class inherits from the Mono Options OptionSet class and provides a central location for defining and parsing options.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -88,7 +88,14 @@
 
 
   <h1 id="NUnit_Common_CommandLineOptions" data-uid="NUnit.Common.CommandLineOptions" class="text-break">Class CommandLineOptions</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>CommandLineOptions is the base class the specific option classes
+used for nunit3-console and nunitlite. It encapsulates all common
+settings and features of both. This is done to ensure that common
+features remain common and for the convenience of having the code
+in a common location. The class inherits from the Mono
+Options OptionSet class and provides a central location
+for defining and parsing options.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -583,7 +590,9 @@
   </span>
   <a id="NUnit_Common_CommandLineOptions_InputFileRequired_" data-uid="NUnit.Common.CommandLineOptions.InputFileRequired*"></a>
   <h4 id="NUnit_Common_CommandLineOptions_InputFileRequired" data-uid="NUnit.Common.CommandLineOptions.InputFileRequired">InputFileRequired</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Indicates whether an input file is required on the command-line.
+Note that multiple input files are never allowed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1323,7 +1332,9 @@
   </span>
   <a id="NUnit_Common_CommandLineOptions_RequiredValue_" data-uid="NUnit.Common.CommandLineOptions.RequiredValue*"></a>
   <h4 id="NUnit_Common_CommandLineOptions_RequiredValue_System_String_System_String_System_String___" data-uid="NUnit.Common.CommandLineOptions.RequiredValue(System.String,System.String,System.String[])">RequiredValue(string, string, params string[])</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Case is ignored when val is compared to validValues. When a match is found, the
+returned value will be in the canonical case from validValues.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
