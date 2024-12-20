@@ -41,7 +41,6 @@ A special thank you to the following reporters for identifying issues:
 </tr>
 </table>
 
-
 and to the commenters who engaged in discussions and offered further insights:
 
 <table>
