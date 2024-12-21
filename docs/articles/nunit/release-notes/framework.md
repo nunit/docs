@@ -12,7 +12,7 @@ This is a hotfix release to address a type safety issue that broke when some cla
 
 We had 3 bugs reported, they are all fixed by the same Pull Request.
 
-IN addition a small internal build issue was fixed.
+In addition, a small internal build issue was fixed.
 
 ### Bug fixes
 
