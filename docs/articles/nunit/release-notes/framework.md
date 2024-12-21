@@ -32,14 +32,10 @@ Your efforts help make NUnit better for the entire community.
 
 A special thank you to the following reporters for identifying issues:
 
-<table>
-<tr>
-<td><a href="https://github.com/alkampfergit">Gian Maria</a></td>
-<td><a href="https://github.com/MaxKot">MaxKot</a></td>
-<td><a href="https://github.com/moshekar">moshekar</a></td>
-<td><a href="https://github.com/rudfoss-rr">Thomas Haugland Rudfoss</a></td>
-</tr>
-</table>
+* [Gian Maria](https://github.com/alkampfergit)
+* [MaxKot](https://github.com/MaxKot)
+* [moshekar](https://github.com/moshekar)
+* [Thomas Haughland Rudfoss](https://github.com/rudfoss-rr)
 
 and to the commenters who engaged in discussions and offered further insights:
 
