@@ -39,25 +39,17 @@ A special thank you to the following reporters for identifying issues:
 
 and to the commenters who engaged in discussions and offered further insights:
 
-<table>
-<tr>
-<td><a href="https://github.com/ds5678">Jeremy Pritts</a></td>
-<td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
-<td><a href="https://github.com/m-gasser">Martin Gasser</a></td>
-<td><a href="https://github.com/moshekar">moshekar</a></td>
-</tr>
-<tr>
-<td><a href="https://github.com/ogborstad">Ole Gunnar Borstad</a></td>
-<td><a href="https://github.com/ORuban">Oleksii Ruban</a></td>
-<td><a href="https://github.com/smdn">smdn</a></td>
-<td><a href="https://github.com/stevenaw">Steven Weerdenburg</a></td>
-</tr>
-<tr>
-<td><a href="https://github.com/TadijaB">Tadija Bagaric</a></td>
-<td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
-<td><a href="https://github.com/rudfoss-rr">Thomas Haugland Rudfoss</a></td>
-</tr>
-</table>
+* [Jeremy Pritts](https://github.com/ds5678)
+* [Manfred Brands](https://github.com/manfred-brands)
+* [Martin Gasser](https://github.com/m-gasser)
+* [moshekar](https://github.com/moshekar)
+* [Ole Gunnar Borstad](https://github.com/ogborstad)
+* [Oleksii Ruban](https://github.com/ORuban)
+* [smdn](https://github.com/smdn)
+* [Steven Weerdenburg](https://github.com/stevenaw)
+* [Tadija Bagaric](https://github.com/TadijaB)
+* [Terje Sandstrom](https://github.com/OsirisTerje)
+* [Thomas Haugland Rudfoss](https://github.com/rudfoss-rr)
 
 ## NUnit 4.3.0 -  Dec 15. 2024
 
