@@ -201,7 +201,7 @@ value. NUnit has special semantics for some object types.</p>
   <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
   <h5 id="NUnit_Framework_Constraints_EqualNumericConstraint_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class EqualNumericConstraint&lt;T&gt; : EqualNumericWithoutUsingConstraint&lt;T&gt;, IConstraint, IResolveConstraint, IEqualWithUsingConstraint&lt;T&gt; where T : unmanaged, IConvertible, IEquatable&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class EqualNumericConstraint&lt;T&gt; : EqualNumericWithoutUsingConstraint&lt;T&gt;, IConstraint, IResolveConstraint, IEqualWithUsingConstraint&lt;T&gt; where T : struct</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -251,6 +251,9 @@ value. NUnit has special semantics for some object types.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="NUnit_Framework_Constraints_EqualNumericConstraint_1__ctor__0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Marked internal to prevent external instantiation with non-supported types.</p>
+</div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a>
