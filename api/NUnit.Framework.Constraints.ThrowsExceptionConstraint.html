@@ -109,9 +109,6 @@ been thrown, without any further tests.</p>
       <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1___0__">Constraint.ApplyTo&lt;TActual&gt;(ref TActual)</a>
     </div>
     <div>
-      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyToAsync__1_System_Func_System_Threading_Tasks_Task___0___">Constraint.ApplyToAsync&lt;TActual&gt;(Func&lt;Task&lt;TActual&gt;&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_GetTestObject__1_NUnit_Framework_Constraints_ActualValueDelegate___0__">Constraint.GetTestObject&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt;)</a>
     </div>
     <div>
@@ -221,6 +218,70 @@ use in messages and in the ConstraintResult.</p>
   <div><a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_Description">Constraint.Description</a></div>
   <h3 id="methods">Methods
 </h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ThrowsExceptionConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_ThrowsExceptionConstraint_ApplyToAsync_" data-uid="NUnit.Framework.Constraints.ThrowsExceptionConstraint.ApplyToAsync*"></a>
+  <h4 id="NUnit_Framework_Constraints_ThrowsExceptionConstraint_ApplyToAsync__1_System_Func_System_Threading_Tasks_Task___0___" data-uid="NUnit.Framework.Constraints.ThrowsExceptionConstraint.ApplyToAsync``1(System.Func{System.Threading.Tasks.Task{``0}})">ApplyToAsync&lt;TActual&gt;(Func&lt;Task&lt;TActual&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Applies the constraint to a delegate that returns the task.
+The default implementation simply evaluates the delegate and awaits the task
+but derived classes may override it to provide for delayed processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;ConstraintResult&gt; ApplyToAsync&lt;TActual&gt;(Func&lt;Task&lt;TActual&gt;&gt; actual)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TActual&gt;&gt;</td>
+        <td><span class="parametername">actual</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyToAsync__1_System_Func_System_Threading_Tasks_Task___0___">Constraint.ApplyToAsync&lt;TActual&gt;(Func&lt;Task&lt;TActual&gt;&gt;)</a></div>
 
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ThrowsExceptionConstraint.cs">View Source</a>
