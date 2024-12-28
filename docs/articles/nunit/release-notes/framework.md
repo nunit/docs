@@ -6,7 +6,7 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
-## NUnit 4.3.2 - Dec 28. 2024
+## NUnit 4.3.2 - Dec 28, 2024
 
 This is a hotfix release for a regression bug, and also fixing the version numbers of the assembly DLLs.
 
