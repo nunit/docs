@@ -8,7 +8,7 @@ uid: frameworkreleasenotes
 
 ## NUnit 4.3.2 - Dec 28, 2024
 
-This is a hotfix release for a regression bug, and also fixing the version numbers of the assembly DLLs.
+This is a hotfix release for a regression bug, and also fixes the version numbers of the assembly DLLs.
 
 There are 2 issues fixed in this release.
 
