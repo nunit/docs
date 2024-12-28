@@ -8,13 +8,13 @@ uid: frameworkreleasenotes
 
 ## NUnit 4.3.2 - Dec 28. 2024
 
-This is a hotfix release for a regression bug, and also fixing the version numbers of the assembly dlls. 
+This is a hotfix release for a regression bug, and also fixing the version numbers of the assembly dlls.
 
 There are 2 issues fixed in this release.
 
 ### Bug fixes
 
-* [4910](https://github.com/nunit/nunit/issues/4910) Versioning for .NET Framework 4.6.2 version of NUnit v4.3.1 inconsistent in `.csproj` file. 
+* [4910](https://github.com/nunit/nunit/issues/4910) Versioning for .NET Framework 4.6.2 version of NUnit v4.3.1 inconsistent in `.csproj` file.
 * [4907](https://github.com/nunit/nunit/issues/4907) Assert.ThatAsync fail to catch expected exception. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4908](https://github.com/nunit/nunit/pull/4908)
 
 ### Acknowledgements
