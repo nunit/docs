@@ -48,4 +48,26 @@ public class MultipleAsserts
         });
     }
     #endregion
+
+    #region MultipleAssertsScopes
+    [Test]
+    public void MultipleAssertsScopeDemo()
+    {
+        var situationUnderTest = new SomeCalculator();
+        var result = situationUnderTest.DoCalculation();
+
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(result.RealPart, Is.EqualTo(5.2));
+            Assert.That(result.ImaginaryPart, Is.EqualTo(3.9));
+        }
+
+        // Can also work with the classic assertion syntax
+        using (Assert.EnterMultipleScope())
+        {
+            ClassicAssert.AreEqual(5.2, result.RealPart, "Real Part");
+            ClassicAssert.AreEqual(3.9, result.ImaginaryPart, "Imaginary Part");
+        }
+    }
+    #endregion
 }
