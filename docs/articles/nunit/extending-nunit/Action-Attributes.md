@@ -335,10 +335,10 @@ public class ActionAttributeSampleTests
 ```text
   Before Suite: Hello, from ActionAttributeSampleTests.{no method}.
   Before Case: Hello, from ActionAttributeSampleTests.SimpleTestOne.
-  Test ran.
+  Test One.
   After Case: Hello, from ActionAttributeSampleTests.SimpleTestOne.
   Before Case: Hello, from ActionAttributeSampleTests.SimpleTestTwo.
-  Test ran.
+  Test Two.
   After Case: Hello, from ActionAttributeSampleTests.SimpleTestTwo.
   After Suite: Hello, from ActionAttributeSampleTests.{no method}.
 ```
