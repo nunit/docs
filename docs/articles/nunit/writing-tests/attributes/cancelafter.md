@@ -1,11 +1,15 @@
+---
+uid: cancelafterattribute
+---
+
 # CancelAfter
 
 Normally, NUnit simply runs tests and waits for them to terminate -- the test is allowed to run indefinitely. For
 certain kinds of tests, however, it may be desirable to specify a timeout value.
 
 For .NET Core and later,
-[`Thread.Abort`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.abort?view=net-7.0) as used by the
-[`TimeoutAttribue`](./timeout.md) can no longer be used, and there is therefore no way to interrupt an endless loop.
+[`Thread.Abort`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.abort?view=net-8.0) as used by the
+[`TimeoutAttribute`](./timeout.md) can no longer be used, and there is therefore no way to interrupt an endless loop.
 
 For all tests, one could use the `--blame-hang(-timeout)`  options of [`dotnet
 test`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test#options). However, this will stop any further
@@ -13,7 +17,7 @@ execution of the remaining tests.
 
 To still be able to cancel tests, one has to move to cooperative cancellation. See [Cancellation in Managed
 Threads](https://learn.microsoft.com/en-us/dotnet/standard/threading/cancellation-in-managed-threads) using a
-[`CancellationToken``](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken?view=net-7.0).
+[`CancellationToken``](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken?view=net-8.0).
 
 The `CancelAfterAttribute` is used to specify a timeout value in milliseconds for a test case. If the test case runs
 longer than the time specified, the supplied `CancellationToken` is set to canceled. It is however up to the test code
@@ -60,3 +64,6 @@ public async Task PotentiallyLongRunningTest(string uri, CancellationToken token
 > When debugging a unit test, i.e. when a debugger is attached to the process, the timeout is not enforced.
 
 ## See Also
+
+* [Timeout Attribute](./timeout.md)
+* [MaxTime Attribute](./maxtime.md)
