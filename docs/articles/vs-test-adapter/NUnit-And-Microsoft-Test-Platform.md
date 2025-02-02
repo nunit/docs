@@ -18,7 +18,7 @@ as an executable too.
 
 To change a current test project to use MTP, you need to use version 5.0 or greater of the NUnit3TestAdapter.
 
-Note that this version can run both MTP and non-MTP, and you can easily switch between them by setting to project
+Note that this version can run both MTP and non-MTP, and you can easily switch between them by setting two project
 properties.
 
 In a property group (use the top level one), add the following two properties
