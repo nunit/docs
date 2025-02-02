@@ -6,7 +6,7 @@ Microsoft Test Platform (MTP) is the new platform for testing from Microsoft.  T
 executables, like we do with [NUnitLite](../nunit/running-tests/NUnitLite-Runner.md). There is no longer a test runner;
 the executable **is** the test runner.
 
-It does take time however, to develop the same capabilities that we have with the current system.
+It does take time, however, to develop the same capabilities that we have with NUnit's current system, and there are many historical factors to consider.
 In the meantime, there needs to be a bridge between these two. In NUnit, the NUnit3TestAdapter contains what is
 necessary to run the MTP using the same old test runners.
 
