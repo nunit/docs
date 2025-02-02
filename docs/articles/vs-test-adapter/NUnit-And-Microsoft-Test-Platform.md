@@ -2,7 +2,7 @@
 
 ## Overview
 
-Microsoft Test Platform (MTP) is the new platform for testing from Microsoft.  The Test Projects can be run as
+Microsoft Test Platform (MTP) is the new platform for testing from Microsoft. The Test Projects can be run as
 executables, like we do with [NUnitLite](../nunit/running-tests/NUnitLite-Runner.md). There is no longer a test runner;
 the executable **is** the test runner.
 
