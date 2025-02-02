@@ -42,7 +42,7 @@ using it in Test Explorer or through `dotnet test`.
 In the current version running single tests don't work.  It will always run all tests.
 See [Adapter Issue 1232](https://github.com/nunit/nunit3-vs-adapter/issues/1232).
 
-This applies to both Test Explorer and `dotbet test`.
+This applies to both Test Explorer and `dotnet test`.
 
 As a workaround for the latter, you can filter tests using MTP specific commands
 like `dotnet test -- --filter Name=Test1`.
