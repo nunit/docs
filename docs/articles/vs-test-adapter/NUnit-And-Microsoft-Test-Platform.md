@@ -47,7 +47,3 @@ This applies to both Test Explorer and `dotnet test`.
 As a workaround for the latter, you can filter tests using MTP specific commands
 like `dotnet test -- --filter Name=Test1`.
 
-
-
-
-
