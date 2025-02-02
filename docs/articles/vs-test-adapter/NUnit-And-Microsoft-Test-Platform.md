@@ -7,7 +7,7 @@ executables, like we do with [NUnitLite](../nunit/running-tests/NUnitLite-Runner
 the executable **is** the test runner.
 
 It does take time, however, to develop the same capabilities that we have with NUnit's current system, and there are many historical factors to consider.
-In the meantime, there needs to be a bridge between these two. In NUnit, the NUnit3TestAdapter contains what is
+But, the NUnit team recognizes that in the meantime, there needs to be a bridge between these two. In NUnit, the NUnit3TestAdapter contains what is
 necessary to run the MTP using the same old test runners.
 
 This means we have two modes of MTP operation: either use the new platform but not as an executable, or use it
