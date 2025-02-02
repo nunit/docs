@@ -10,7 +10,7 @@ It does take time, however, to develop the same capabilities that we have with N
 In the meantime, there needs to be a bridge between these two. In NUnit, the NUnit3TestAdapter contains what is
 necessary to run the MTP using the same old test runners.
 
-This mean we have two modes of MTP operation, either just use the new platform, but not as an executable, or use it
+This means we have two modes of MTP operation: either use the new platform but not as an executable, or use it
 as an executable too.
 
 ## Changing a project to use MTP
