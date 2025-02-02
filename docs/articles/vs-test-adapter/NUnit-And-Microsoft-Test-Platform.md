@@ -28,7 +28,7 @@ In a property group (use the top level one), add the following two properties
 ```
 
 The first one enables the MTP.  The second enables it to also run as an executable, but it doesn't prevent you from
-using it in Test Explorer or through `dotnet test`
+using it in Test Explorer or through `dotnet test`.
 
 
 ## Information on the  Microsoft Test Platform
