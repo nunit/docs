@@ -31,7 +31,7 @@ The first one enables the MTP.  The second enables it to also run as an executab
 using it in Test Explorer or through `dotnet test`.
 
 
-## Information on the  Microsoft Test Platform
+## Information on the Microsoft Test Platform
 
 [Microsoft Test Platform](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-intro?tabs=dotnetcli)
 
