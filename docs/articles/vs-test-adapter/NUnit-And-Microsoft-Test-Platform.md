@@ -13,7 +13,7 @@ necessary to run the MTP using the same old test runners.
 This means we have two modes of MTP operation: either use the new platform but not as an executable, or use it
 as an executable too.
 
-## Changing a project to use MTP
+## Changing a Project to Use MTP
 
 To change a current test project to use MTP, you need to use version 5.0 or greater of the NUnit3TestAdapter.
 
