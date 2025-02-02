@@ -33,11 +33,9 @@ using it in Test Explorer or through `dotnet test`.
 
 ## Information on the Microsoft Test Platform
 
-[Microsoft Test Platform](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-intro?tabs=dotnetcli)
-
-[NUnit Samples](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue1152)
-
-[Adapter issue for implementing MTP](https://github.com/nunit/nunit3-vs-adapter/issues/1152)
+* [Microsoft Test Platform](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-intro?tabs=dotnetcli)
+* [NUnit Samples](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue1152)
+* [Adapter issue for implementing MTP](https://github.com/nunit/nunit3-vs-adapter/issues/1152)
 
 ## Known issues
 
