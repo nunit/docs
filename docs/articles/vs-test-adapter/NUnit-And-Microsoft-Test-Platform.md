@@ -39,7 +39,7 @@ using it in Test Explorer or through `dotnet test`.
 
 ## Known issues
 
-In the current version running single tests don't work.  It will always run all tests.
+In the current (v5) version of the NUnit3TestAdapter, running single tests don't work.  It will always run all tests.
 See [Adapter Issue 1232](https://github.com/nunit/nunit3-vs-adapter/issues/1232).
 
 This applies to both Test Explorer and `dotnet test`.
