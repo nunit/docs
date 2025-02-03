@@ -2,9 +2,9 @@
 
 ## Overview
 
-Microsoft Test Platform (MTP) is the new platform for testing from Microsoft. The Test Projects can be run as
-executables, like we do with [NUnitLite](../nunit/running-tests/NUnitLite-Runner.md). There is no longer a test runner;
-the executable _is_ the test runner.
+Microsoft Test Platform (MTP) is the new platform for testing from Microsoft. Test projects can be run as
+executables, as with [NUnitLite](../nunit/running-tests/NUnitLite-Runner.md) currently. There is no longer a test 
+runner; the executable _is_ the test runner.
 
 It will take time to develop feature parity with NUnit's current system, and there are many historical factors to
 consider. But, the NUnit team recognizes that in the meantime, there needs to be a bridge between these two. In NUnit,
