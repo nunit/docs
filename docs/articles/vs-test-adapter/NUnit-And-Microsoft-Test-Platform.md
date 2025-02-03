@@ -17,18 +17,18 @@ as an executable too.
 
 To change a current test project to use MTP, you need to use version 5.0 or greater of the NUnit3TestAdapter.
 
-Note that this version can run both MTP and non-MTP, and you can easily switch between them by setting two project
+Note that this version can run both with and without MTP, and you can easily switch between them by setting two project
 properties.
 
-In a property group (use the top level one), add the following two properties
+In a property group (use the top-level one), add the following two properties:
 
 ```xml
    <EnableNUnitRunner>true</EnableNUnitRunner>
    <OutputType>Exe</OutputType>  
 ```
 
-The first one enables the MTP.  The second enables it to also run as an executable, but it doesn't prevent you from
-using it in Test Explorer or through `dotnet test`.
+The first property, `EnableNUnitRunner`, enables the MTP. The second enables it to also run as an executable (but it 
+doesn't prevent you from using it in Test Explorer or through `dotnet test`.
 
 ## Information on the Microsoft Test Platform
 
@@ -38,7 +38,7 @@ using it in Test Explorer or through `dotnet test`.
 
 ## Known issues
 
-In the current (v5) version of the NUnit3TestAdapter, running single tests don't work.  It will always run all tests.
+In the current (v5) version of the NUnit3TestAdapter, running single tests doesn't work. It will always run all tests.
 See [Adapter Issue 1232](https://github.com/nunit/nunit3-vs-adapter/issues/1232).
 
 This applies to both Test Explorer and `dotnet test`.
