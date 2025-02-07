@@ -1,4 +1,19 @@
-# Adapter V4 Release Notes
+# Adapter Release Notes
+
+## NUnit3 Test Adapter for Visual Studio and Dotnet - Version 5.0.0 - February 7, 2025
+
+This major release introduce support for the new Microsoft Testing Platform.
+
+### Enhancements
+
+* [1152](https://github.com/nunit/nunit3-vs-adapter/issues/1152) Microsoft Testing Platform for NUnit
+
+See more information [here](https://docs.nunit.org/articles/vs-test-adapter/NUnit-And-Microsoft-Test-Platform.html)
+
+### Breaking changes
+
+Althought this is a major version, there is no direct breaking changes when using it without enabling the MTP.
+Using it **with** MTP enabled will change some parts of how to use it, see the documentation for details.
 
 ## NUnit3 Test Adapter for Visual Studio and Dotnet - Version 4.6.0 - July 26, 2024
 
