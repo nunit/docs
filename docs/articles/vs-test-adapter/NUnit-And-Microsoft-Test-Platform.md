@@ -38,7 +38,8 @@ You can switch between `VSTest` and `dotnet test` using a property in your cspro
  <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
 ```
 
-See [this article](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-integration-dotnet-test#dotnet-test---microsofttestingplatform-mode) for more information.
+See [this article](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-integration-dotnet-test#dotnet-test---microsofttestingplatform-mode)
+for more information.
 
 ## Information on the Microsoft Test Platform
 
