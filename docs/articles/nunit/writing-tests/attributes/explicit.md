@@ -38,6 +38,12 @@ However, the following options will **not** include explicit tests
     --where cat!=X
 ```
 
+## TRAP
+
+If a project contains only explicit tests, running the test project will execute all tests, as it is treated as an 
+explicit test run.
+To prevent this, ensure the project includes at least one non-explicit test, even if it's just a dummy test.
+
 ## Test Fixture Syntax
 
 ### `C#`
