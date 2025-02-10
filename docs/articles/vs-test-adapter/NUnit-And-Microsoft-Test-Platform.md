@@ -38,13 +38,13 @@ You can switch between `VSTest` and `dotnet test` using a property in your cspro
  <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
 ```
 
-See [this article](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-integration-dotnet-test#dotnet-test---microsofttestingplatform-mode)
+See [this article](https://learn.microsoft.com/dotnet/core/testing/unit-testing-platform-integration-dotnet-test#dotnet-test---microsofttestingplatform-mode)
 for more information.
 
 ## Information on the Microsoft.Testing.Platform
 
-* [Microsoft.Testing.Platform](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-intro?tabs=dotnetcli)
-* [Use Microsoft.Testing.Platform with dotnet test](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-integration-dotnet-test)
-* [Microsoft.Testing.Platform Architecture](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-architecture)
+* [Microsoft.Testing.Platform](https://learn.microsoft.com/dotnet/core/testing/unit-testing-platform-intro)
+* [Use Microsoft.Testing.Platform with dotnet test](https://learn.microsoft.com/dotnet/core/testing/unit-testing-platform-integration-dotnet-test)
+* [Microsoft.Testing.Platform Architecture](https://learn.microsoft.com/dotnet/core/testing/unit-testing-platform-architecture)
 * [NUnit Samples](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue1152)
 * [Adapter issue for implementing MTP](https://github.com/nunit/nunit3-vs-adapter/issues/1152)
