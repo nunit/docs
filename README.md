@@ -35,6 +35,16 @@ We'll be working on follow-ups to make this more user-friendly, but it's now wor
 * Open the root of the project (`/`, not `/docs`)
 * Run `markdownlint-cli2 --config ".github/linters/.markdownlint.yml" "docs/**/*.md"`
 
+We recommend adding the following settings to your VSCode environment if they don't come through in the repository:
+
+```json
+    "editor.codeActionsOnSave": {
+        "source.fixAll.markdownlint": "always"
+    }
+```
+
+This will fix 80% of the markdown linting issues for you upon save.
+
 We'd love your contributions! See [The contributing guide](CONTRIBUTING.md) for how to get involved.
 
 ## Building the API docs locally
