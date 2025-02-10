@@ -1,8 +1,8 @@
-# NUnit and Microsoft Test Platform
+# NUnit and Microsoft.Testing.Platform
 
 ## Overview
 
-Microsoft Test Platform (MTP) is the new platform for testing from Microsoft. Test projects can be run as executables,
+Microsoft.Testing.Platform (MTP) is the new platform for testing from Microsoft. Test projects can be run as executables,
 as with [NUnitLite](../nunit/running-tests/NUnitLite-Runner.md) currently. There is no longer a test runner; the
 executable _is_ the test runner.
 
@@ -41,10 +41,10 @@ You can switch between `VSTest` and `dotnet test` using a property in your cspro
 See [this article](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-integration-dotnet-test#dotnet-test---microsofttestingplatform-mode)
 for more information.
 
-## Information on the Microsoft Test Platform
+## Information on the Microsoft.Testing.Platform
 
-* [Microsoft Test Platform](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-intro?tabs=dotnetcli)
+* [Microsoft.Testing.Platform](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-intro?tabs=dotnetcli)
 * [Use Microsoft.Testing.Platform with dotnet test](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-integration-dotnet-test)
-* [Microsoft Test Platform Architecture](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-architecture)
+* [Microsoft.Testing.Platform Architecture](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-architecture)
 * [NUnit Samples](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue1152)
 * [Adapter issue for implementing MTP](https://github.com/nunit/nunit3-vs-adapter/issues/1152)
