@@ -57,7 +57,7 @@ jobs:
         run: unzip NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}.zip -d ./NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}
       - name: Copy NUnit Asset dir
         run: mkdir ./code-output && cp -r ./NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}/bin/net6.0/* ./code-output
-      - uses: "nunit/docfx-action@v3.4.2"
+      - uses: "nunit/docfx-action@v4.0.0"
         name: Build with Docfx
         with:
           args: docs/docfx.json --warningsAsErrors true
