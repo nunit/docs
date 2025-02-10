@@ -56,7 +56,8 @@ test is explicit, it will be an explicit test run.*
 *When you add the second test, which is not explicit, it will see both tests, and since there is a non-explicit test
 included, the test is a non-explicit testrun, and all explicit tests will be ignored.*
 
-*If you have a situation with only one explicit test, the work around is to just add another non-explicit test, which can be empty, or even have a false Assume statement, which will make the test be inconclusive, thus not part of your results."*
+*If you have a situation with only one explicit test, the work around is to just add another non-explicit test, which can be empty,
+ or even have a false Assume statement, which will make the test be inconclusive, thus not part of your results."*
 
 ## Test Fixture Syntax
 
