@@ -38,9 +38,32 @@ However, the following options will **not** include explicit tests
     --where cat!=X
 ```
 
+## TRAP
+
+If a project contains only explicit tests, running the test project will execute all tests, as  it is treated as an
+explicit test run. To prevent this, ensure the project includes at least one non-explicit test, even if it's just a
+dummy test.
+
+From [this issue](https://github.com/nunit/nunit3-vs-adapter/issues/1223), the following comment explains how the
+adapter works with explicit tests:
+
+*"When the adapter is called from the testhost, it receives a list of tests to run. It doesn't know HOW the Test
+Explorer is being used. And thus it has no knowledge if there are other tests present that are not selected, OR if the
+tests it receives are all the tests in the solution.*
+
+*If all the tests are Explicit it will assume that this is an explicit testrun. When you only have one test, and that
+test is explicit, it will be an explicit test run.*
+
+*When you add the second test, which is not explicit, it will see both tests, and since there is a non-explicit test
+included, the test is a non-explicit testrun, and all explicit tests will be ignored.*
+
+*If you have a situation with only one explicit test, the work around is to just add another non-explicit test, which
+can be empty, or even have a false Assume statement, which will make the test be inconclusive, thus not part of your
+results."*
+
 ## Test Fixture Syntax
 
-### `C#`
+C#:
 
 ```csharp
 namespace NUnit.Tests
@@ -56,7 +79,7 @@ namespace NUnit.Tests
 }
 ```
 
-### Visual Basic
+Visual Basic:
 
 ```VB
 Imports System
@@ -71,7 +94,7 @@ Namespace NUnit.Tests
 End Namespace
 ```
 
-### C++
+C++:
 
 ```cpp
 using namespace System;
@@ -96,7 +119,7 @@ namespace NUnitTests {
 
 ## Test Syntax
 
-### `C#`
+C#:
 
 ```csharp
 namespace NUnit.Tests
@@ -113,7 +136,7 @@ namespace NUnit.Tests
 }
 ```
 
-### Visual Basic
+Visual Basic:
 
 ```vb
 Imports System
@@ -129,7 +152,7 @@ Namespace NUnit.Tests
 End Namespace
 ```
 
-### C++
+C++:
 
 ```cpp
 # using <NUnit.Framework.dll>
