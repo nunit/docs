@@ -115,8 +115,24 @@ the selection.</p>
 <pre><code class="lang-none">    --where test!=My.Namespace.Fixture
     --where cat!=X
 </code></pre>
+<h2 id="trap">TRAP</h2>
+<p>If a project contains only explicit tests, running the test project will execute all tests, as  it is treated as an
+explicit test run. To prevent this, ensure the project includes at least one non-explicit test, even if it's just a
+dummy test.</p>
+<p>From <a href="https://github.com/nunit/nunit3-vs-adapter/issues/1223">this issue</a>, the following comment explains how the
+adapter works with explicit tests:</p>
+<p><em>&quot;When the adapter is called from the testhost, it receives a list of tests to run. It doesn't know HOW the Test
+Explorer is being used. And thus it has no knowledge if there are other tests present that are not selected, OR if the
+tests it receives are all the tests in the solution.</em></p>
+<p><em>If all the tests are Explicit it will assume that this is an explicit testrun. When you only have one test, and that
+test is explicit, it will be an explicit test run.</em></p>
+<p><em>When you add the second test, which is not explicit, it will see both tests, and since there is a non-explicit test
+included, the test is a non-explicit testrun, and all explicit tests will be ignored.</em></p>
+<p><em>If you have a situation with only one explicit test, the work around is to just add another non-explicit test, which
+can be empty, or even have a false Assume statement, which will make the test be inconclusive, thus not part of your
+results.&quot;</em></p>
 <h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
-<h3 id="c"><code>C#</code></h3>
+<p>C#:</p>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
   using System;
@@ -129,7 +145,7 @@ the selection.</p>
   }
 }
 </code></pre>
-<h3 id="visual-basic">Visual Basic</h3>
+<p>Visual Basic:</p>
 <pre><code class="lang-VB">Imports System
 Imports NUnit.Framework
 
@@ -141,7 +157,7 @@ Namespace NUnit.Tests
   End Class
 End Namespace
 </code></pre>
-<h3 id="c-1">C++</h3>
+<p>C++:</p>
 <pre><code class="lang-cpp">using namespace System;
 using namespace NUnit::Framework;
 
@@ -162,7 +178,7 @@ namespace NUnitTests {
 }
 </code></pre>
 <h2 id="test-syntax">Test Syntax</h2>
-<h3 id="c-2"><code>C#</code></h3>
+<p>C#:</p>
 <pre><code class="lang-csharp">namespace NUnit.Tests
 {
   using System;
@@ -176,7 +192,7 @@ namespace NUnitTests {
     { /* ... */ }
 }
 </code></pre>
-<h3 id="visual-basic-1">Visual Basic</h3>
+<p>Visual Basic:</p>
 <pre><code class="lang-vb">Imports System
 Imports NUnit.Framework
 
@@ -189,7 +205,7 @@ Namespace NUnit.Tests
   End Class
 End Namespace
 </code></pre>
-<h3 id="c-3">C++</h3>
+<p>C++:</p>
 <pre><code class="lang-cpp"># using &lt;NUnit.Framework.dll&gt;
 using namespace System;
 using namespace NUnit::Framework;
