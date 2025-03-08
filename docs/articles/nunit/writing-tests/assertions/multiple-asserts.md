@@ -54,7 +54,7 @@ Earlier than  NUnit 4.2 you can must  use  `Assert.Multiple`:
    * Assert.Inconclusive
    * Assume.That
 
-7. Use of Warnings (Assert.Warn, Warn.If, Warn.Unless) is permitted inside a multiple assert block. Warnings are
+8. Use of Warnings (Assert.Warn, Warn.If, Warn.Unless) is permitted inside a multiple assert block. Warnings are
    reported normally along with any failures that occur inside the block.
 
 ### Runner Support
