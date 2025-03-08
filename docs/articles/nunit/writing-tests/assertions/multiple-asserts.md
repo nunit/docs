@@ -10,7 +10,7 @@ object initialization and UI appearance as well as certain kinds of integration 
 
 ## Syntax / Example
 
-Multiple asserts are implemented using the `Assert.Multiple` method.
+Multiple asserts are implemented using the `Assert.EnterMultipleScope` method.
 
 Let's assume we have production code that looks like the following:
 
@@ -18,33 +18,37 @@ Let's assume we have production code that looks like the following:
 
 In that case, we could write a test with multiple assertions, such as:
 
-[!code-csharp[MultipleAssertsTests](~/snippets/Snippets.NUnit/MultipleAsserts.cs#MultipleAssertsTests)]
-
-From NUnit 4.2 you can also use the new `EnterMultipleScope`:
-
 [!code-csharp[MultipleAssertsScopes](~/snippets/Snippets.NUnit/MultipleAsserts.cs#MultipleAssertsScopes)]
 
 Functionally, this results in NUnit storing any failures encountered in the block and reporting all of them together
 upon exit from the block. If both asserts failed, then both would be reported. The test itself would terminate at the
 end of the block if any failures were encountered, but would continue otherwise.
 
+### Older NUnit versions
+
+Earlier than  NUnit 4.2 you can must  use  `Assert.Multiple`:
+
+[!code-csharp[MultipleAssertsTests](~/snippets/Snippets.NUnit/MultipleAsserts.cs#MultipleAssertsTests)]
+
 ## Notes
 
-1. The multiple assert block may contain any arbitrary code, not just asserts.
+1. For more information on `EnterMultipleScope` see this [Feature Request](https://github.com/nunit/nunit/issues/4587).
 
-2. Multiple assert blocks may be nested. Failure is not reported until the outermost block exits.
+2. The multiple assert block may contain any arbitrary code, not just asserts.
 
-3. If the code in the block calls a method, that method may also contain multiple assert blocks.
+3. Multiple assert blocks may be nested. Failure is not reported until the outermost block exits.
 
-4. The test will be terminated immediately if any exception is thrown that is not handled. An unexpected exception is
+4. If the code in the block calls a method, that method may also contain multiple assert blocks.
+
+5. The test will be terminated immediately if any exception is thrown that is not handled. An unexpected exception is
    often an indication that the test itself is in error, so it must be terminated. If the exception occurs after one or
    more assertion failures have been recorded, those failures will be reported along with the terminating exception
    itself.
 
-5. Assert.Fail is handled just as any other assert failure. The message and stack trace are recorded but the test
+6. Assert.Fail is handled just as any other assert failure. The message and stack trace are recorded but the test
    continues to execute until the end of the block.
 
-6. An error is reported if any of the following are used inside a multiple assert block:
+7. An error is reported if any of the following are used inside a multiple assert block:
    * Assert.Pass
    * Assert.Ignore
    * Assert.Inconclusive
