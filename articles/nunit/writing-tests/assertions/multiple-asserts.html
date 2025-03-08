@@ -90,7 +90,7 @@
 accumulate any additional failures so they may all be fixed at once. This is particularly useful for testing things like
 object initialization and UI appearance as well as certain kinds of integration testing.</p>
 <h2 id="syntax--example">Syntax / Example</h2>
-<p>Multiple asserts are implemented using the <code>Assert.Multiple</code> method.</p>
+<p>Multiple asserts are implemented using the <code>Assert.EnterMultipleScope</code> method.</p>
 <p>Let's assume we have production code that looks like the following:</p>
 <pre><code class="lang-csharp" name="MultipleAssertsProdCode">public class CalculationResult
 {
@@ -112,6 +112,31 @@ public class SomeCalculator
 }
 </code></pre>
 <p>In that case, we could write a test with multiple assertions, such as:</p>
+<pre><code class="lang-csharp" name="MultipleAssertsScopes">[Test]
+public void MultipleAssertsScopeDemo()
+{
+    var situationUnderTest = new SomeCalculator();
+    var result = situationUnderTest.DoCalculation();
+
+    using (Assert.EnterMultipleScope())
+    {
+        Assert.That(result.RealPart, Is.EqualTo(5.2));
+        Assert.That(result.ImaginaryPart, Is.EqualTo(3.9));
+    }
+
+    // Can also work with the classic assertion syntax
+    using (Assert.EnterMultipleScope())
+    {
+        ClassicAssert.AreEqual(5.2, result.RealPart, &quot;Real Part&quot;);
+        ClassicAssert.AreEqual(3.9, result.ImaginaryPart, &quot;Imaginary Part&quot;);
+    }
+}
+</code></pre>
+<p>Functionally, this results in NUnit storing any failures encountered in the block and reporting all of them together
+upon exit from the block. If both asserts failed, then both would be reported. The test itself would terminate at the
+end of the block if any failures were encountered, but would continue otherwise.</p>
+<h3 id="older-nunit-versions">Older NUnit versions</h3>
+<p>Earlier than  NUnit 4.2 you can must  use  <code>Assert.Multiple</code>:</p>
 <pre><code class="lang-csharp" name="MultipleAssertsTests">[Test]
 public void MultipleAssertsDemo()
 {
@@ -131,15 +156,13 @@ public void MultipleAssertsDemo()
         ClassicAssert.AreEqual(3.9, result.ImaginaryPart, &quot;Imaginary Part&quot;);
     });
 }
-</code></pre>
-<p>Functionally, this results in NUnit storing any failures encountered in the block and reporting all of them together
-upon exit from the block. If both asserts failed, then both would be reported. The test itself would terminate at the
-end of the block if any failures were encountered, but would continue otherwise.</p>
-<h2 id="notes">Notes</h2>
+</code></pre><h2 id="notes">Notes</h2>
 <ol>
+<li><p>For more information on <code>EnterMultipleScope</code> see this <a href="https://github.com/nunit/nunit/issues/4587">Feature Request</a>.</p>
+</li>
 <li><p>The multiple assert block may contain any arbitrary code, not just asserts.</p>
 </li>
-<li><p>Multiple assert blocks may be nested. Failure is not reported until the  outermost block exits.</p>
+<li><p>Multiple assert blocks may be nested. Failure is not reported until the outermost block exits.</p>
 </li>
 <li><p>If the code in the block calls a method, that method may also contain multiple assert blocks.</p>
 </li>
