@@ -1,6 +1,7 @@
 ---
 title: Documentation Home
 ---
+<! -- markdownlint-disable -->
 
 <style>
   /* Inline CSS (or link to an external stylesheet) */
