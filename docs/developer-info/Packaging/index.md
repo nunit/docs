@@ -2,10 +2,12 @@
 title: Packaging Guides
 ---
 
-Welcome to the NUnit Packaging section. Here you will find comprehensive guides for packaging various NUnit components. These guides provide detailed instructions for both release packaging and development packaging processes.
+Welcome to the NUnit Packaging section. Here you will find comprehensive guides for packaging various NUnit components.
 
 ## Contents
 
+- [Home](/) - Return to the main documentation page
+- [Back](/developer-info/) - Return to the Developer Information section
 - [Packaging the Framework](Packaging-the-Framework.md) - Instructions for packaging the NUnit Framework
 - [Packaging the V3 and V4 Adapter](Packaging-the-V3-and-V4-Adapter.md) - Instructions for packaging the NUnit Test Adapter for Visual Studio
 - [Packaging the Console and Engine](Packaging-the-Console-and-Engine.md) - Instructions for packaging the NUnit Console and Engine
