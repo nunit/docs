@@ -21,7 +21,8 @@ title: Documentation Home
     border-radius: 5px;
     min-width: 300px; /* Prevents blocks from becoming too small */
   }
-  .block h2 { font-size: 1.2em; margin-bottom: 10px; }
+
+  .block h2 { font-size: 1.2em; margin-bottom: 10px; color: #000000 }
   .block ul { list-style: none; padding: 0; }
   .block li { margin-bottom: 5px; }
   .block li a { text-decoration: none; color: #007acc; }
@@ -35,7 +36,8 @@ title: Documentation Home
 <div class="containerlp">
   <!-- Block 1 -->
   <div class="block" style="grid-column: 1;">
-    <h2><a href="/wip.html"><strong>Writing tests</strong></a></h2>
+    <img src="images/AutomatedCodeTestingIcon48x48.png" alt="Automatic Test Icon">
+    <h2><a href="/writing-tests/index.html"><strong>Writing tests</strong></a></h2>
     <ul>
       <li><a href="/wip.html">Page 1</a></li>
       <li><a href="/wip.html">Page 2</a></li>
@@ -44,10 +46,11 @@ title: Documentation Home
       <li><a href="/wip.html">Page 2b</a></li>
       <li><a href="/wip.html">Page 3b</a></li>
     </ul>
+  
   </div>
   <!-- Block 2 -->
   <div class="block" style="grid-column: 2;">
-    <h2><a href="/wip.html"><strong>Getting started</strong></a></h2>
+    <h2><a href="/getting-started/index.html"><strong>Getting started</strong></a></h2>
     <ul>
       <li><a href="/wip.html">Page 4</a></li>
       <li><a href="/wip.html">Page 5</a></li>
@@ -56,7 +59,7 @@ title: Documentation Home
   </div>
   <!-- Block 3 -->
   <div class="block" style="grid-column: 3;">
-    <h2><a href="/wip.html"><strong>News</strong></a></h2>
+    <h2><a href="/news/index.html"><strong>News</strong></a></h2>
     <ul>
       <li><a href="/wip.html">Page 7</a></li>
       <li><a href="/wip.html">Page 8</a></li>

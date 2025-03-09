@@ -14,6 +14,6 @@ Welcome to the Developer Information section. Here you will find various resourc
 - [Contributions](Contributions.md) - How to contribute to NUnit projects
 - [Issue Tracking](Issue-Tracking.md) - Information about our issue tracking process
 - [Notes Toward NUnit 4.0](Notes-Toward-NUnit-4.0.md) - Plans and ideas for NUnit 4.0
-- [Packaging](Packaging/) - Guidelines and procedures for packaging NUnit components
+- [Packaging](Packaging/index.md) - Guidelines and procedures for packaging NUnit components
 
 Feel free to explore the resources and guides provided here to help you with your development tasks.
