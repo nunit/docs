@@ -359,12 +359,12 @@ public void CompareDifferentTypesOnNameOnly()
    var dto2 = new PersonDto("Hejlsberg", 1966);
 
    // Specify name as a string
-   Assert.That(dto2, Is.EqualTo(dto1)
-                       .UsingPropertiesComparer(o => o.Using("Name")));
+   Assert.That(dto2, Is.EqualTo(dto1).UsingPropertiesComparer(
+      o => o.Using("Name")));
 
    // Specify name as an expression
-   Assert.That(dto2, Is.EqualTo(dto1)
-                       .UsingPropertiesComparer(o => o.Using(x => x.Name)));
+   Assert.That(dto2, Is.EqualTo(dto1).UsingPropertiesComparer(
+      o => o.Using(x => x.Name)));
 }
 ```
 
@@ -383,10 +383,10 @@ public void CompareDifferentTypesExcludingId()
    var entity1 = new PersonEntity(Guid.NewGuid(), "Hejlsberg", 1960);
    var entity2 = new PersonEntity(Guid.NewGuid(), "Hejlsberg", 1960);
 
-   Assert.That(entity2, Is.EqualTo(entity1)
-                          .UsingPropertiesComparer(o => o.Excluding(nameof(PersonEntity.Id))));
-   Assert.That(entity2, Is.EqualTo(entity1)
-                          .UsingPropertiesComparer(o => o.Excluding(x => x.Id)));
+   Assert.That(entity2, Is.EqualTo(entity1).UsingPropertiesComparer(
+      o => o.Excluding(nameof(PersonEntity.Id))));
+   Assert.That(entity2, Is.EqualTo(entity1).UsingPropertiesComparer(
+      o => o.Excluding(x => x.Id)));
 }
 ```
 
@@ -408,15 +408,13 @@ public void CompareDifferentTypesWithExcessFields()
    var dto = new PersonDto("Hejlsberg", 1960);
    var entity = new PersonEntity("Hejlsberg", 1960);
 
-   Assert.That(dto, Is.EqualTo(entity)
-                      .UsingPropertiesComparer(
-                        o => o.Map(nameof(PersonEntity.LastName), nameof(PersonDto.Name))
-                              .Map(nameof(PersonEntity.BirthYear), nameof(PersonDto.YearOfBirth))));
+   Assert.That(dto, Is.EqualTo(entity).UsingPropertiesComparer(
+      o => o.Map(nameof(PersonEntity.LastName), nameof(PersonDto.Name))
+            .Map(nameof(PersonEntity.BirthYear), nameof(PersonDto.YearOfBirth))));
 
-   Assert.That(dto, Is.EqualTo(entity)
-                      .UsingPropertiesComparer(
-                        o => o.Map<PersonDto>(entity => entity.LastName, dto => dto.Name)
-                              .Map<PersonDto>(entity => entity.BirthYear, dto => dto.YearOfBirth)));
+   Assert.That(dto, Is.EqualTo(entity).UsingPropertiesComparer(
+      o => o.Map<PersonDto>(entity => entity.LastName, dto => dto.Name)
+            .Map<PersonDto>(entity => entity.BirthYear, dto => dto.YearOfBirth)));
 }
 ```
 
@@ -462,33 +460,33 @@ private sealed record USPerson(string Name, USAddress USAddress);
 [Test]
 public void CompareMismatchedDifferentTypes()
 {
-    var person = new Person("John Doe", new Address("10", "CSI", "Las Vegas", "89030", "U.S.A."));
-    var usPerson = new USPerson("John Doe", new USAddress("10", "CSI", "Las Vegas", "89031"));
+   var person = new Person("John Doe", new Address("10", "CSI", "Las Vegas", "89030", "U.S.A."));
+   var usPerson = new USPerson("John Doe", new USAddress("10", "CSI", "Las Vegas", "89031"));
 
-    Assert.That(usPerson, Is.EqualTo(person).UsingPropertiesComparer(
-            o => o.Map<Person, USPerson>(x => x.Address, y => y.USAddress)
-                  .Map<Address, USAddress>(x => x.AreaCode, y => y.ZipCode)
-                  .Map<Address>(x => x.Country, "U.S.A.")));
+   Assert.That(usPerson, Is.EqualTo(person).UsingPropertiesComparer(
+   o => o.Map<Person, USPerson>(x => x.Address, y => y.USAddress)
+         .Map<Address, USAddress>(x => x.AreaCode, y => y.ZipCode)
+         .Map<Address>(x => x.Country, "U.S.A.")));
 }
 ```
 
 The mapped property names and values are shown in the failure message:
 
 ```text
-     Assert.That(usPerson, Is.EqualTo(person).UsingPropertiesComparer(
-                       c => c.Map<Person, USPerson>(x => x.Address, y => y.USAddress)
-                             .Map<Address, USAddress>(x => x.AreaCode, y => y.ZipCode)
-                             .Map<Address>(x => x.Country, "U.S.A.")))
-     Expected: <Person { Name = John Doe, Address = Address { House = 10, Street = CSI, City = Las Vegas, AreaCode = 89030, Country = U.S.A. } }>
-     But was:  <USPerson { Name = John Doe, USAddress = USAddress { House = 10, Street = CSI, City = Las Vegas, ZipCode = 89031 } }>
-     Values differ at property Person.Address => USPerson.USAddress:
-     Expected: <Address { House = 10, Street = CSI, City = Las Vegas, AreaCode = 89030, Country = U.S.A. }>
-     But was:  <USAddress { House = 10, Street = CSI, City = Las Vegas, ZipCode = 89031 }>
-     Values differ at property Address.AreaCode => USAddress.ZipCode:
-     String lengths are both 5. Strings differ at index 4.
-     Expected: "89030"
-     But was:  "89031"
-     ---------------^
+Assert.That(usPerson, Is.EqualTo(person).UsingPropertiesComparer(
+                  c => c.Map<Person, USPerson>(x => x.Address, y => y.USAddress)
+                        .Map<Address, USAddress>(x => x.AreaCode, y => y.ZipCode)
+                        .Map<Address>(x => x.Country, "U.S.A.")))
+Expected: <Person { Name = John Doe, Address = Address { House = 10, Street = CSI, City = Las Vegas, AreaCode = 89030, Country = U.S.A. } }>
+But was:  <USPerson { Name = John Doe, USAddress = USAddress { House = 10, Street = CSI, City = Las Vegas, ZipCode = 89031 } }>
+Values differ at property Person.Address => USPerson.USAddress:
+Expected: <Address { House = 10, Street = CSI, City = Las Vegas, AreaCode = 89030, Country = U.S.A. }>
+But was:  <USAddress { House = 10, Street = CSI, City = Las Vegas, ZipCode = 89031 }>
+Values differ at property Address.AreaCode => USAddress.ZipCode:
+String lengths are both 5. Strings differ at index 4.
+Expected: "89030"
+But was:  "89031"
+---------------^
 ```
 
 ## Notes
