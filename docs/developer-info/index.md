@@ -2,8 +2,6 @@
 title: Developer Information
 ---
 
-# Developer Information
-
 Welcome to the Developer Information section. Here you will find various resources and guides for developers who want to contribute to NUnit or understand more about our development practices.
 
 ## Contents

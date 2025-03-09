@@ -2,8 +2,6 @@
 title: Packaging Guides
 ---
 
-# NUnit Packaging Guides
-
 Welcome to the NUnit Packaging section. Here you will find comprehensive guides for packaging various NUnit components. These guides provide detailed instructions for both release packaging and development packaging processes.
 
 ## Contents
