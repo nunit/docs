@@ -1,0 +1,34 @@
+---
+title: Work In Progress
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Work In Progress</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 2em;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Work In Progress</h1>
+    <p>We're working hard to bring you this content. Please check back later!</p>
+    <img src="images/UnderConstruction.png" alt="Work In Progress">
+  </div>
+</body>
+</html>
