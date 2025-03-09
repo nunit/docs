@@ -1,5 +1,5 @@
 ---
-uid: teampractices
+uid: teampractices2
 ---
 
 # Team Practices
