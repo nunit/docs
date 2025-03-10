@@ -108,6 +108,9 @@ to see if a collection contains a value, see the <a class="xref" href="Collectio
 ...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 ...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
 ...UsingPropertiesComparer()  // From version 4.1
+...UsingPropertiesComparer(
+      Func&lt;PropertiesComparerConfiguration,
+           PropertiesComparerConfiguration&gt; configure) // From version 4.4
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">Assert.That(42, Is.AnyOf(0, -1, 42, 100));

@@ -105,6 +105,9 @@ Does.Not.ContainValue(object)
 ...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
 ...Using&lt;TActualValueElement, TExpected&gt;(Func&lt;TActualValueElement, TExpected, bool&gt; comparison)
 ...UsingPropertiesComparer()  // From version 4.1
+...UsingPropertiesComparer(
+      Func&lt;PropertiesComparerConfiguration,
+           PropertiesComparerConfiguration&gt; configure) // From version 4.4
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">IDictionary&lt;int, int&gt; idict = new IDictionary&lt;int, int&gt; { { 1, 4 }, { 2, 5 } };

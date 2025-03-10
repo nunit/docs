@@ -103,6 +103,9 @@ not implement <code>IEnumerable</code>, an exception is thrown.</p>
 ...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
 ...Using&lt;TSupersetElement, TSubsetElement&gt;(Func&lt;TSupersetElement, TSubsetElement, bool&gt; comparison)
 ...UsingPropertiesComparer()  // From version 4.1
+...UsingPropertiesComparer(
+      Func&lt;PropertiesComparerConfiguration,
+           PropertiesComparerConfiguration&gt; configure) // From version 4.4
 </code></pre>
 <h2 id="example-of-use">Example of Use</h2>
 <pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };

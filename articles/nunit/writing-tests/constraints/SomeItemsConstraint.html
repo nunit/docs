@@ -104,6 +104,9 @@ succeeds. An exception is thrown if the actual value passed does not implement <
 ...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 ...Using&lt;TActualCollectionElement, TExpectedElement&gt;(Func&lt;TActualCollectionElement, TExpectedElement, bool&gt; comparer)
 ...UsingPropertiesComparer()  // From version 4.1
+...UsingPropertiesComparer(
+      Func&lt;PropertiesComparerConfiguration,
+           PropertiesComparerConfiguration&gt; configure) // From version 4.4
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };
