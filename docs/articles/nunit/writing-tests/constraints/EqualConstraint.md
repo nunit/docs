@@ -47,6 +47,9 @@ Is.Zero // Equivalent to Is.EqualTo(0)
 ...Using<T>(Func<T, T, bool> comparer)
 ...Using<TActual, TExpected>(Func<TActual, TExpected, bool> comparer)
 ...UsingPropertiesComparer()  // From version 4.1
+...UsingPropertiesComparer(
+      Func<PropertiesComparerConfiguration,
+           PropertiesComparerConfiguration> configure) // From version 4.4
 ```
 
 ## Comparing Numerics
@@ -290,7 +293,7 @@ This can be useful when comparing floating point numbers of calculation results.
 The comparer can deal with recursive data structures,
 it will stop comparing if it already previously has compared two the same instances.
 
-There is an overload of `UsingPropertiesComparer` which allows tailoring the comparison.
+From version 4.4 there is a new overload of `UsingPropertiesComparer` which allows tailoring the comparison.
 This overload expects delegate that accepts a `PropertiesComparerConfiguration` and
 also returns a `PropertiesComparerConfiguration`.
 
@@ -348,6 +351,7 @@ You can do this with the `Using` method.
 
 There are two overloads, one expecting a `string` and the other a type safe `Expression`.
 The latter has the advantage that you get intellisense helping you with available property names.
+However, that overload is only available on some constraints which have been update with a generic type parameter.
 
 ```csharp
 private record struct Person(string Name, int YearOfBirth);

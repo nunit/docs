@@ -26,6 +26,9 @@ Is.SubsetOf(IEnumerable)
 ...Using<T>(Func<T, T, bool> comparer)
 ...Using<TSubsetElement, TSupersetElement>(Func<TSubsetElement, TSupersetElement, bool> comparison)
 ...UsingPropertiesComparer()  // From version 4.1
+...UsingPropertiesComparer(
+      Func<PropertiesComparerConfiguration,
+           PropertiesComparerConfiguration> configure) // From version 4.4
 ```
 
 ## Example of Use

@@ -28,6 +28,9 @@ Does.Not.ContainValue(object)
 ...Using<T>(IEqualityComparer<T> comparer)
 ...Using<TActualValueElement, TExpected>(Func<TActualValueElement, TExpected, bool> comparison)
 ...UsingPropertiesComparer()  // From version 4.1
+...UsingPropertiesComparer(
+      Func<PropertiesComparerConfiguration,
+           PropertiesComparerConfiguration> configure) // From version 4.4
 ```
 
 ## Examples of Use
