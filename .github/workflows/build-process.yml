@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v4
         name: Setup node
         with:
-          node-version: "18"
+          node-version: "22"
       - run: npm install -g markdownlint-cli2
         name: Install markdownlint-cli2
       - run: markdownlint-cli2 --config ".github/linters/.markdownlint.yml" "docs/**/*.md"
