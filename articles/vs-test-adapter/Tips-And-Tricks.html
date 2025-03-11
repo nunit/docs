@@ -282,7 +282,13 @@
 <tr>
 <td><a href="#includestacktraceforsuites">IncludeStackTraceForSuites</a></td>
 <td>bool</td>
-<td>Includes stack trace for failures in suites, like exceptions in OneTimeSetup</td>
+<td>Includes stack trace for failures in suites, like exceptions in OneTimeSetup and OneTimeTearDown</td>
+<td>true</td>
+</tr>
+<tr>
+<td><a href="#includestacktrace">IncludeStackTrace</a></td>
+<td>bool</td>
+<td>Includes stack trace for all failures</td>
 <td>true</td>
 </tr>
 <tr>
@@ -508,8 +514,12 @@ run.</em>&quot;</p>
 <p>Exceptions outside test cases are reported with its stack trace included in the message.  One example here is exceptions
 in OneTimeSetUp and OneTimeTearDown. They belong to the outer suite, and their exceptions are reported as part of the
 message. This option includes the stack trace in that message.  If this becomes too much information, this option turns
-the stack trace reporting off.</p>
+the stack trace reporting off.  Default is true.</p>
 <p>(From version 4.0.0)</p>
+<h4 id="includestacktrace">IncludeStackTrace</h4>
+<p>This is default true.  If turned off (false) it will stop outputting any stacktraces.  This is in cases where you just
+want to reduce the total output and don't need the stacktrace information.</p>
+<p>(From version 5.1.0)</p>
 <h4 id="explicitmode">ExplicitMode</h4>
 <p>This setting can be either <code>Strict</code> or <code>Relaxed</code>.  The default is <code>Strict</code>, which means that <code>Explicit</code>
 tests can only be run with other Explicit tests, and not mixed with non-Explicit tests.  The <code>Relaxed</code> mode is the
