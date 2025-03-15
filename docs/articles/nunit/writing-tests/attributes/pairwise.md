@@ -1,7 +1,3 @@
----
-uid: pairwiseattribute
----
-
 # Pairwise
 
 The **PairwiseAttribute** is used on a test to specify that NUnit should

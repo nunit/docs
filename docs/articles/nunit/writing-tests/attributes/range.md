@@ -1,7 +1,3 @@
----
-uid: rangeattribute
----
-
 # Range
 
 The **RangeAttribute** is used to specify a range of values to be provided

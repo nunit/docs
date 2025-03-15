@@ -1,7 +1,3 @@
----
-uid: sameasconstraint
----
-
 # SameAs Constraint
 
 A `SameAsConstraint` is used to test whether the object passed

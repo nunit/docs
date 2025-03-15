@@ -8,7 +8,7 @@ Welcome to the NUnit Testing Guide. This section provides information about writ
 
 - [Home](/) - Return to the main documentation page
 - [Ordinary tests](ordinary-tests.md) - Introduction to ordinary NUnit tests
-- [Datadriven tests](datadriven-tests.md) - The different ways of doing datadriven tests, parametrizing the tests.
+- [Data driven tests](datadriven-tests.md) - The different ways of doing data driven tests, parametrizing the tests.
 - [Auto tests](auto-tests.md) - How to make tests more automated
 
 **[Reference section](reference/index.md)**

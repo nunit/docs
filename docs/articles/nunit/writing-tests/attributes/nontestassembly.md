@@ -1,7 +1,3 @@
----
-uid: nontestassembly
----
-
 # NonTestAssembly
 
 This is an _assembly-level_ attribute, which may be used to specify that even though

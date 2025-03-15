@@ -1,7 +1,3 @@
----
-uid: author-attribute
----
-
 # Author
 
 The **Author** Attribute adds information about the author of the tests. It can be applied to test fixtures and to

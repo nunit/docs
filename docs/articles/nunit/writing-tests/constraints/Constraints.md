@@ -1,7 +1,3 @@
----
-uid: constraints
----
-
 # Constraints
 
 This page lists all the constraints available in NUnit.
