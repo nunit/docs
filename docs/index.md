@@ -6,7 +6,7 @@ title: Documentation Home
   /* Inline CSS (or link to an external stylesheet) */
 .containerlp {
   display: grid;
-  border: 2px solid green;
+  /* border: 2px solid green; */
   grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
   gap: 20px;
   max-width: 1200px;
@@ -17,16 +17,20 @@ title: Documentation Home
 }
   .block {
     border: 2px solid blue;
-    padding: 15px;
-    border-radius: 5px;
+    padding: 10px; /* 15px space on all sides inside the block element */
+    border-radius: 10px;
     min-width: 300px; /* Prevents blocks from becoming too small */
   }
 
-  .block h2 { font-size: 1.2em; margin-bottom: 10px; color: #000000 }
+  .block h2 { font-size: 1.2em; margin-bottom: 10px; color: #000000; }
+  .block h2 a { color: #000000 !important; } /* Override any blue link styling */
   .block ul { list-style: none; padding: 0; }
   .block li { margin-bottom: 5px; }
   .block li a { text-decoration: none; color: #007acc; }
   .block li a:hover { text-decoration: underline; }
+  .block img.icon-img {
+    margin: 2px; /* Reduced margin for the icon */
+  }
 </style>
 
 <div style="text-align: center;">
@@ -36,15 +40,18 @@ title: Documentation Home
 <div class="containerlp">
   <!-- Block 1 -->
   <div class="block" style="grid-column: 1;">
-    <img src="images/AutomatedCodeTestingIcon48x48.png" alt="Automatic Test Icon">
+   <!--  <img src="images/AutomatedCodeTestingIcon48x48.png" alt="Automatic Test Icon" class="icon-img"> -->
     <h2><a href="/writing-tests/index.html"><strong>Writing tests</strong></a></h2>
     <ul>
-      <li><a href="/wip.html">Page 1</a></li>
-      <li><a href="/wip.html">Page 2</a></li>
-      <li><a href="/wip.html">Page 3</a></li>
-      <li><a href="/wip.html">Page 1b</a></li>
-      <li><a href="/wip.html">Page 2b</a></li>
-      <li><a href="/wip.html">Page 3b</a></li>
+      <li><a href="/writing-tests/ordinary-tests.html">Ordinary tests</a></li>
+      <li><a href="/writing-tests/datadriven-tests.html">Data driven tests</a></li>
+      <li><a href="/writing-tests/auto-tests.html">Automating tests</a></li>
+      <li><strong>References</strong></li>
+      <li><a href="/wip.html">Attributes</a></li>
+      <li><a href="/wip.html">Fluent Assertions</a></li>
+      <li><a href="/wip.html">Classic Assertions</a></li>
+      <li><a href="/wip.html">Special Assertions</a></li>
+
     </ul>
   
   </div>
@@ -52,9 +59,8 @@ title: Documentation Home
   <div class="block" style="grid-column: 2;">
     <h2><a href="/getting-started/index.html"><strong>Getting started</strong></a></h2>
     <ul>
-      <li><a href="/wip.html">Page 4</a></li>
-      <li><a href="/wip.html">Page 5</a></li>
-      <li><a href="/wip.html">Page 6</a></li>
+      <li><a href="/getting-started/index.html">Installing</a></li>
+      <li><a href="/getting-started/upgrading.html">Upgrading NUnit</a></li>
     </ul>
   </div>
   <!-- Block 3 -->
