@@ -125,4 +125,4 @@ considered an internal type and shall not be used in production.
 
 ## `[SupportedOSPlatformAttribute]` support
 The [`[SupportedOSPlatform]`](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416) attribute is also supported, 
-however it is supported on a subnet of dotnet versions compared to `[Platform]`. See the docs from Microsoft for more information about `[SupportedOSPlatform]`.
+however it is supported on a subset of dotnet versions compared to `[Platform]`. See the docs from Microsoft for more information about `[SupportedOSPlatform]`.
