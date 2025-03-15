@@ -40,6 +40,9 @@ Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("HI", "UNIV
 ...Using<T>(Func<T, T, bool> comparer)
 ...Using<T>(IEqualityComparer<T> comparer)
 ...UsingPropertiesComparer()  // From version 4.1
+...UsingPropertiesComparer(
+      Func<PropertiesComparerConfiguration,
+           PropertiesComparerConfiguration> configure) // From version 4.4
 ```
 
 ## See also

@@ -42,7 +42,8 @@ Certain NUnit Test Adapter settings are configurable using a .runsettings file. 
 | [DiscoveryMethod](#discoverymethod)                                   | enum   | How execution discovery is done, options are `Legacy` or `Current`            | Current                       |
 | [AssemblySelectLimit](#assemblyselectlimit)                           | int    | Number of tests accepted before filters are turned off                        | 2000                          |
 | [NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)             | bool   | Creates a new file for each test run                                          | false                         |
-| [IncludeStackTraceForSuites](#includestacktraceforsuites)             | bool   | Includes stack trace for failures in suites, like exceptions in OneTimeSetup  | true                          |
+| [IncludeStackTraceForSuites](#includestacktraceforsuites)             | bool   | Includes stack trace for failures in suites, like exceptions in OneTimeSetup and OneTimeTearDown | true                          |
+| [IncludeStackTrace](#includestacktrace)             | bool   | Includes stack trace for all failures | true                          |
 | [ExplicitMode](#explicitmode)                                         | enum   | Changes handling of explicit tests, options are `Strict` or `Relaxed`         | Strict                        |
 | [SkipExecutionWhenNoTests](#skipexecutionwhennotests)                 | bool   | Skip execution if no tests are found                                          | false                         |
 | [AllowParallelWithDebugger](#allowparallelwithdebugger)               | bool   | Allow parallel execution when debugger is attached                            | false                         |
@@ -350,9 +351,16 @@ run.*"
 Exceptions outside test cases are reported with its stack trace included in the message.  One example here is exceptions
 in OneTimeSetUp and OneTimeTearDown. They belong to the outer suite, and their exceptions are reported as part of the
 message. This option includes the stack trace in that message.  If this becomes too much information, this option turns
-the stack trace reporting off.
+the stack trace reporting off.  Default is true.
 
 (From version 4.0.0)
+
+#### IncludeStackTrace
+
+This is default true.  If turned off (false) it will stop outputting any stacktraces.  This is in cases where you just
+ want to reduce the total output and don't need the stacktrace information.
+
+(From version 5.1.0)
 
 #### ExplicitMode
 
