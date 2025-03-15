@@ -10,3 +10,10 @@ Welcome to the NUnit Testing Guide. This section provides information about writ
 - [Ordinary tests](ordinary-tests.md) - Introduction to ordinary NUnit tests
 - [Datadriven tests](datadriven-tests.md) - The different ways of doing datadriven tests, parametrizing the tests.
 - [Auto tests](auto-tests.md) - How to make tests more automated
+
+**[Reference section](reference/index.md)**
+
+- [Fluent assertions](reference/fluent-assertions/Constraints.md) - NUnit fluent assertion language, also known as `constraints`
+- [Attributes](reference/attributes/attributes.md) - Controls the running, and characteristics of a test
+- [Special assertions](reference/special-assertions/index.md) - Fail, Warn, Pass, Ignore, Inconclusive
+- [Classic assertions](reference/classic-assertions/classic.md) - The former simple forms of assertions (e.g. AreEqual)

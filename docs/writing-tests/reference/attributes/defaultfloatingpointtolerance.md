@@ -47,5 +47,5 @@ public class ToleranceTest
 
 ## See Also
 
-* [Assert.AreEqual](../assertions/classic-assertions/Assert.AreEqual.md)
-* [EqualConstraint](../constraints/EqualConstraint.md)
+* [EqualConstraint](../fluent-assertions/EqualConstraint.md)
+* [Assert.AreEqual](../classic-assertions/Assert.AreEqual.md)

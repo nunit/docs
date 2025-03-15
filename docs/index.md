@@ -47,11 +47,10 @@ title: Documentation Home
       <li><a href="/writing-tests/datadriven-tests.html">Data driven tests</a></li>
       <li><a href="/writing-tests/auto-tests.html">Automating tests</a></li>
       <li><strong>References</strong></li>
-      <li><a href="/wip.html">Attributes</a></li>
-      <li><a href="/wip.html">Fluent Assertions</a></li>
-      <li><a href="/wip.html">Classic Assertions</a></li>
-      <li><a href="/wip.html">Special Assertions</a></li>
-
+      <li><a href="/writing-tests/reference/attributes\attributes.html">Attributes</a></li>
+      <li><a href="/writing-tests/reference/fluent-assertions\constraints.html">Fluent Assertions</a></li>
+      <li><a href="/writing-tests/reference/classic-assertions\classic.html">Classic Assertions</a></li>
+      <li><a href="/writing-tests/reference/special-assertions\index.html">Special Assertions</a></li>
     </ul>
   
   </div>
@@ -115,9 +114,9 @@ title: Documentation Home
   </div>
   <!-- Block 8 -->
   <div class="block" style="grid-column: 2;">
-    <h2><a href="/wip.html"><strong>Advanced</strong></a></h2>
+    <h2><a href="/advanced/index.html"><strong>Advanced</strong></a></h2>
     <ul>
-      <li><a href="/wip.html">Page 22</a></li>
+      <li><a href="/advanced/extending-nunit/index.html">Extending NUnit</a></li>
       <li><a href="/wip.html">Page 23</a></li>
       <li><a href="/wip.html">Page 24</a></li>
     </ul>
