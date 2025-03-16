@@ -1,7 +1,3 @@
----
-uid: testcasesourceattribute
----
-
 # TestCaseSource
 
 `TestCaseSourceAttribute` is used on a parameterized test method to identify the source from which the required
