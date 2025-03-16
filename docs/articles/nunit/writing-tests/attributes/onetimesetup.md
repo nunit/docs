@@ -1,7 +1,3 @@
----
-uid: onetimesetup-attribute
----
-
 # OneTimeSetUp
 
 This attribute is to identify methods that are called once prior to executing any of the tests in a fixture. It may

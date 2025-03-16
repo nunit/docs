@@ -1,7 +1,3 @@
----
-uid: fixturelifecycleattribute
----
-
 # FixtureLifeCycle
 
 Added in **NUnit 3.13**

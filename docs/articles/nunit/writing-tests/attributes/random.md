@@ -1,7 +1,3 @@
----
-uid: randomattribute
----
-
 # Random
 
 The **RandomAttribute** is used to specify a set of random values to be provided for an individual numeric parameter, or

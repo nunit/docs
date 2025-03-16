@@ -1,7 +1,3 @@
----
-uid: propertyattribute
----
-
 # Property
 
 **PropertyAttribute** provides a generalized approach to setting named

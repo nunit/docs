@@ -1,7 +1,3 @@
----
-uid: parallelizableattribute
----
-
 # Parallelizable
 
 Added in **NUnit 3.7**

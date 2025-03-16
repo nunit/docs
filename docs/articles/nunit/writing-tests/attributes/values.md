@@ -1,7 +1,3 @@
----
-uid: valuesattribute
----
-
 # Values
 
 The `ValuesAttribute` is used to specify a set of values to be provided

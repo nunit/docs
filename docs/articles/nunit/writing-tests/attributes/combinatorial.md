@@ -1,7 +1,3 @@
----
-uid: combinatorialattribute
----
-
 # Combinatorial
 
 The **CombinatorialAttribute** is used on a test to specify that NUnit should

@@ -1,7 +1,3 @@
----
-uid: testfixtureattribute
----
-
 # TestFixture
 
 This is the attribute that marks a class that contains tests and, optionally, setup or teardown methods.

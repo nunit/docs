@@ -1,7 +1,3 @@
----
-uid: setupfixture-attribute
----
-
 # SetUpFixture
 
 This is the attribute that marks a class that contains the one-time

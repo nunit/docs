@@ -1,7 +1,3 @@
----
-uid: apartment-attribute
----
-
 # Apartment
 
 The `ApartmentAttribute` is used on a test method, class or assembly to specify that the tests should be run in a

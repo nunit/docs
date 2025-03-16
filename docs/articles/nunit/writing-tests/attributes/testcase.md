@@ -1,7 +1,3 @@
----
-uid: testcaseattribute
----
-
 # TestCase
 
 `TestCaseAttribute` serves the dual purpose of marking a method with parameters as a test method and providing inline

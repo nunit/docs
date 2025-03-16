@@ -1,7 +1,3 @@
----
-uid: throwsconstraint
----
-
 # Throws Constraint
 
 `ThrowsConstraint` is used to test that some code, represented as a delegate,

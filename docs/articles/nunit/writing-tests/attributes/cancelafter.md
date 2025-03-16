@@ -1,7 +1,3 @@
----
-uid: cancelafterattribute
----
-
 # CancelAfter
 
 Normally, NUnit simply runs tests and waits for them to terminate -- the test is allowed to run indefinitely. For
