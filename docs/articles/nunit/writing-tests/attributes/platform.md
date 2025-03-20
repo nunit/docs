@@ -122,3 +122,8 @@ considered an internal type and shall not be used in production.
 3. Includes Net-4.0
 4. Includes Mono-2.0
 5. Includes Mono-2.0 and Mono-3.0
+
+## `[SupportedOSPlatformAttribute]` and `[UnsupportedOSPlatformAttribute]` support
+
+The [`[SupportedOSPlatform]` and `[UnsupportedOSPlatform]`](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416) attributes are also supported,
+however they are only supported on a subset of dotnet versions compared to `[Platform]`. See the docs from Microsoft for more information about `[SupportedOSPlatform]` and `[UnsupportedOSPlatform]`.
