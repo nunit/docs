@@ -7,7 +7,7 @@ You should **never** add an extra reference to the `NUnit.Engine` when using the
 the adapter to malfunction.
 
 [@CharliePoole](https://github.com/charliepoole) has written a [blog
-post](http://charliepoole.org/technical/nunit-engine-version-conflicts-in-visual-studio.html) about the compatibility of
+post](http://charliepoole.com/technical/nunit-engine-version-conflicts-in-visual-studio.html) about the compatibility of
 the adapter with the engine, explaining how it works and how you should work with both the console, engine and adapter.
 
 The table below shows the embedded engine versions for the different adapter versions, extended from Charlie's blog
