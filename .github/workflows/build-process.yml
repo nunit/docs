@@ -87,7 +87,7 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal $SOLUTION_LOCATION
   netlifypreview:
-    needs: [build, snippets]
+    needs: [linting, spellcheck, build, snippets]
     name: "Netlify Preview (PR only)"
     runs-on: ubuntu-latest
     if: ${{ github.ref != 'refs/heads/master'}}
@@ -135,7 +135,7 @@ jobs:
           token: ${{ secrets.SEAN_PAT_TO_MANAGE_ENVIRONMENTS }} 
   publish:
     name: Publish (master branch only)
-    needs: [linting, spellcheck, build]
+    needs: [linting, spellcheck, build, snippets]
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master'}}
     steps:
