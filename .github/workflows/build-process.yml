@@ -68,6 +68,36 @@ jobs:
         with:
           name: siteArtifact
           path: _site.zip
+  snippets:
+    name: "Build/Test Snippets"
+    runs-on: ubuntu-latest
+    env:
+      SOLUTION_LOCATION: "./docs/snippets/Snippets.sln"
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.x
+      - name: Restore dependencies
+        run: dotnet restore $SOLUTION_LOCATION
+      - name: Build
+        run: dotnet build --no-restore $SOLUTION_LOCATION
+      - name: Test
+        run: dotnet test --no-build --verbosity normal $SOLUTION_LOCATION
+  netlifypreview:
+    needs: [linting, spellcheck, build, snippets]
+    name: "Netlify Preview (PR only)"
+    runs-on: ubuntu-latest
+    if: ${{ github.ref != 'refs/heads/master'}}
+    steps:
+      - name: Download site artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: siteArtifact
+      - name: unzip site contents
+        run: unzip _site.zip
       - name: Start deployment (PR only)
         if: ${{ github.ref != 'refs/heads/master'}}
         uses: bobheadxi/deployments@v1
@@ -103,27 +133,9 @@ jobs:
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
           env_url: ${{ fromJson(steps.netlify.outputs.NETLIFY_OUTPUT).deploy_url }}     
           token: ${{ secrets.SEAN_PAT_TO_MANAGE_ENVIRONMENTS }} 
-  snippets:
-    name: "Build/Test Snippets"
-    runs-on: ubuntu-latest
-    env:
-      SOLUTION_LOCATION: "./docs/snippets/Snippets.sln"
-    steps:
-      - name: Check out the code
-        uses: actions/checkout@v4
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.x
-      - name: Restore dependencies
-        run: dotnet restore $SOLUTION_LOCATION
-      - name: Build
-        run: dotnet build --no-restore $SOLUTION_LOCATION
-      - name: Test
-        run: dotnet test --no-build --verbosity normal $SOLUTION_LOCATION
   publish:
     name: Publish (master branch only)
-    needs: [linting, spellcheck, build]
+    needs: [linting, spellcheck, build, snippets]
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master'}}
     steps:
