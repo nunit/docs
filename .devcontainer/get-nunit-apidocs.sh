@@ -10,6 +10,6 @@ wget "https://github.com/nunit/nunit/releases/download/$NUNIT_VERSION_FOR_API_DO
 
 mkdir -p /workspaces/$first_workspace/code-output 
 unzip -o /apidocs.zip -d /apidocs
-cp -r /apidocs/bin/net6.0/* /workspaces/$first_workspace/code-output
+cp -r /apidocs/bin/net8.0/* /workspaces/$first_workspace/code-output
 rm -rf /apidocs.zip
 rm -rf /apidocs
