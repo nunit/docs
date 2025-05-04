@@ -94,32 +94,36 @@ Classes
 </h3>
       <h4><a class="xref" href="NUnit.Framework.Diagnostics.ProgressTraceListener.html">ProgressTraceListener</a></h4>
       <section><p>
-        The ProgressTraceListener class allows directing tracing or
-        debugging output to <a class="xref" href="NUnit.Framework.TestContext.html#NUnit_Framework_TestContext_Progress">Progress</a>.
-        </p>
+            The ProgressTraceListener class allows directing tracing or
+            debugging output to <a class="xref" href="NUnit.Framework.TestContext.html#NUnit_Framework_TestContext_Progress">Progress</a>.
+            </p>
 <p>
-        To activate, place the following snippet into the one-time
-        set-up method of either a test's fixture or the set-up
-        fixture of a project:
-        <code>
-        System.Trace.Listeners.Add(new ProgressTraceListener());
-        </code></p>
-<p>
-        Make sure to only add a listener once, e.g.:
-        <code>
-        if (!System.Trace.Listeners.OfType&lt;ProgressTraceListener&gt;().Any())
+            To activate, place the following snippet into the one-time
+            set-up method of either a test's fixture or the set-up
+            fixture of a project:
+            <code>
             System.Trace.Listeners.Add(new ProgressTraceListener());
-        </code></p>
+            </code>
+            </p>
 <p>
-        Alternatively, add it in the one-time set-up and again remove
-        it in the one-time tear-down, e.g.:
-        <code>
-        _progressTraceListener = new ProgressTraceListener();
-        System.Trace.Listeners.Add(_progressTraceListener);
-        </code><code>
-        System.Trace.Listeners.Remove(_progressTraceListener);
-        _progressTraceListener.Close();
-        </code></p>
+            Make sure to only add a listener once, e.g.:
+            <code>
+            if (!System.Trace.Listeners.OfType&lt;ProgressTraceListener&gt;().Any())
+                System.Trace.Listeners.Add(new ProgressTraceListener());
+            </code>
+            </p>
+<p>
+            Alternatively, add it in the one-time set-up and again remove
+            it in the one-time tear-down, e.g.:
+            <code>
+            _progressTraceListener = new ProgressTraceListener();
+            System.Trace.Listeners.Add(_progressTraceListener);
+            </code>
+            <code>
+            System.Trace.Listeners.Remove(_progressTraceListener);
+            _progressTraceListener.Close();
+            </code>
+            </p>
 </section>
 
 
