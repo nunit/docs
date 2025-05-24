@@ -111,4 +111,4 @@ suggested by [Charlie Poole](https://github.com/CharliePoole).
 
 The repro code for the issue can be found
 [on this vs-adapter issue](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue718) and
-[on this testcentric-gui issue](https://github.com/TestCentric/testcentric-gui/issues/1043).
+[on this TestCentric GUI issue](https://github.com/TestCentric/testcentric-gui/issues/1043).
