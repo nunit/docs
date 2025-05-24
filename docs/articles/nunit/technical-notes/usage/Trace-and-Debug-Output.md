@@ -110,5 +110,5 @@ This issue has been discussed at [Issue 718](https://github.com/nunit/nunit3-vs-
 suggested by [Charlie Poole](https://github.com/CharliePoole).
 
 The repro code for the issue can be found
-[here](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue718) and
-[here](https://github.com/TestCentric/testcentric-gui/issues/1043).
+[on this vs-adapter issue](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue718) and
+[on this TestCentric GUI issue](https://github.com/TestCentric/testcentric-gui/issues/1043).

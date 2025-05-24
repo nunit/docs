@@ -8,7 +8,7 @@ This major release introduce support for the new Microsoft Testing Platform.
 
 * [1152](https://github.com/nunit/nunit3-vs-adapter/issues/1152) Microsoft Testing Platform for NUnit
 
-See more information [here](https://docs.nunit.org/articles/vs-test-adapter/NUnit-And-Microsoft-Test-Platform.html)
+You can find more information [at this article on NUnit and Microsoft Testing Platform](https://docs.nunit.org/articles/vs-test-adapter/NUnit-And-Microsoft-Test-Platform.html)
 
 ### Breaking changes
 
