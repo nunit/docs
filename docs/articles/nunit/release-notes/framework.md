@@ -19,7 +19,6 @@ This release is a bugfix and smaller enhancements release, with 19 issues fixed.
 * [4909](https://github.com/nunit/nunit/issues/4909) Assertion failures with PropertiesComparer are hard to debug when combined with other modifiers. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4922](https://github.com/nunit/nunit/pull/4922)
 * [4687](https://github.com/nunit/nunit/issues/4687) Value equality on subset of object properties. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4925](https://github.com/nunit/nunit/pull/4925)
 * [4244](https://github.com/nunit/nunit/issues/4244) [Feature request] EquivalentTo that compares similar objects of different types. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4925](https://github.com/nunit/nunit/pull/4925)
-* [4687](https://github.com/nunit/nunit/issues/4687) Value equality on subset of object properties. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4925](https://github.com/nunit/nunit/pull/4925)
 
 ### Bug fixes
 
