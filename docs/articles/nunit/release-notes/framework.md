@@ -65,7 +65,7 @@ A special thank you to the following reporters for identifying issues:
 </tr>
 <tr>
 <td><a href="https://github.com/Edgaras91">Edgaras</a></td>
-<td><a href="https://github.com/verdie-g">Gr‚goire</a></td>
+<td><a href="https://github.com/verdie-g">Grégoire</a></td>
 <td><a href="https://github.com/IgorVyatkin">Igor Vyatkin</a></td>
 <td><a href="https://github.com/Bartleby2718">Jihoon Park</a></td>
 </tr>
