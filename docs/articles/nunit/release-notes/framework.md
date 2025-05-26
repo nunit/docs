@@ -72,7 +72,7 @@ A special thank you to the following reporters for identifying issues:
 <tr>
 <td><a href="https://github.com/appel1">Johan Appelgren</a></td>
 <td><a href="https://github.com/killergege">Julien Nigay</a></td>
-<td><a href="https://github.com/juergstaub">Jrg Staub</a></td>
+<td><a href="https://github.com/juergstaub">Jörg Staub</a></td>
 <td><a href="https://github.com/maettu-this">maettu-this</a></td>
 </tr>
 <tr>
