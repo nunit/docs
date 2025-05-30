@@ -97,28 +97,31 @@ Does.ContainKey(object)
 Does.Not.ContainKey(object)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...IgnoreCase
-...IgnoreWhiteSpace  // From version 4.2
-...Using(IEqualityComparer comparer)
-...Using(IComparer comparer)
-...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
-...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func&lt;PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration&gt; configure) // From version 4.4
-...WithValue(object expectedValue)
+<pre><code class="lang-csharp">...WithValue(object expectedValue)
 </code></pre>
+<p>As of version 4.4.0 of NUnit the other modifiers were removed as they were non-functional.
+NUnit's <code>ContainKey</code> works the same as the <code>ContainsKey</code> method on <code>Dictionary</code>
+It uses the comparer specified when the dictionary was created.</p>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">IDictionary&lt;int, int&gt; idict = new IDictionary&lt;int, int&gt; { { 1, 4 }, { 2, 5 } };
+<pre><code class="lang-csharp">var caseSensitiveDictionary = new Dictionary&lt;string, string&gt;(StringComparer.Ordinal)
+{
+    [&quot;Hello&quot;] = &quot;World&quot;,
+};
 
-Assert.That(idict, Contains.Key(1));
-Assert.That(idict, Does.ContainKey(2));
-Assert.That(idict, Does.Not.ContainKey(3));
-Assert.That(mydict, Contains.Key(myOwnObject).Using(myComparer));
-Assert.That(mydict, Does.ContainKey(&quot;Hello&quot;).WithValue(&quot;World&quot;));
+Assert.That(caseSensitiveDictionary, Does.ContainKey(&quot;Hello&quot;));
+Assert.That(caseSensitiveDictionary, Does.Not.ContainKey(&quot;hello&quot;));
+
+var caseInsensitiveDictionary = new Dictionary&lt;string, string&gt;(StringComparer.OrdinalIgnoreCase)
+{
+    [&quot;Hello&quot;] = &quot;World&quot;,
+};
+
+Assert.That(caseInsensitiveDictionary, Does.ContainKey(&quot;Hello&quot;));
+Assert.That(caseInsensitiveDictionary, Does.ContainKey(&quot;hello&quot;));
+Assert.That(caseInsensitiveDictionary, Does.Not.ContainKey(&quot;hallo&quot;));
+
+// Note that the 'IgnoreCase' here is on the Value part, not the Key.
+Assert.That(caseInsensitiveDictionary, Does.ContainKey(&quot;hello&quot;).WithValue(&quot;world&quot;).IgnoreCase);
 </code></pre>
 <h2 id="see-also">See also</h2>
 <ul>
