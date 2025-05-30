@@ -8,7 +8,7 @@ uid: frameworkreleasenotes
 
 ## NUnit 4.4.0 - May 28, 2025
 
-This release is a bugfix and smaller enhancements release, with 20 issues fixed.
+This release contains bug fixes and smaller enhancements, with 20 issues fixed.
 
 ### Enhancements
 
