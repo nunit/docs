@@ -8,7 +8,7 @@ uid: frameworkreleasenotes
 
 ## NUnit 4.4.0 - May 28, 2025
 
-This release is a bugfix and smaller enhancements release, with 19 issues fixed.
+This release is a bugfix and smaller enhancements release, with 20 issues fixed.
 
 ### Enhancements
 
@@ -22,6 +22,7 @@ This release is a bugfix and smaller enhancements release, with 19 issues fixed.
 
 ### Bug fixes
 
+* [4981](https://github.com/nunit/nunit/issues/4981) ContainsKey doesn't support IgnoreCase, IgnoreWhiteSpace, or IgnoreLineEndingFormat. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4989](https://github.com/nunit/nunit/pull/4989)
 * [4964](https://github.com/nunit/nunit/issues/4964) Is.Not.EqualTo does not work correctly with Using comparer. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4965](https://github.com/nunit/nunit/pull/4965)
 * [4954](https://github.com/nunit/nunit/issues/4954) Regression in `Is.EqualTo(DateTime)` constraint in 4.3.x for types that implement `IEquatable&lt;DateTime&gt;`. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4957](https://github.com/nunit/nunit/pull/4957)
 * [4937](https://github.com/nunit/nunit/issues/4937) `PartitionFilter.ComputeHasValue` throws exception when test name is greater than 4096 characters. Thanks to [Will Ray](https://github.com/WillRayAtPropertyMe) for [PR 4941](https://github.com/nunit/nunit/pull/4941)
