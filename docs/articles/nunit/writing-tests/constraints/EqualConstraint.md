@@ -214,18 +214,19 @@ private sealed class Person
 {
     public Person(string name, int yearOfBirth)
     {
-      Name = name;
-      YearOfBirth = yearOfBirth;
+        Name = name;
+        YearOfBirth = yearOfBirth;
     }
 
     public string Name { get; }
+    public int YearOfBirth { get; }
 }
 
 [Test]
 public void ComparePersons()
 {
-    var person1 = new Person("Charlie");
-    var person2 = new Person("Charlie");
+    var person1 = new Person("Charlie", 1985);
+    var person2 = new Person("Charlie", 1985);
 
     Assert.That(person2, Is.EqualTo(person1));
 }
