@@ -86,7 +86,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="nunit2045">NUnit2045</h1>
 
-<h2 id="use-assertmultiple">Use Assert.Multiple</h2>
+<h2 id="use-assertentermultiplescope-or-assertmultiple">Use Assert.EnterMultipleScope or Assert.Multiple</h2>
 <table>
 <thead>
 <tr>
@@ -113,22 +113,32 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/UseAssertMultiple/UseAssertMultipleAnalyzer.cs">UseAssertMultipleAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/UseAssertMultiple/UseAssertMultipleAnalyzer.cs">UseAssertMultipleAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="description">Description</h2>
-<p>Hosting Asserts inside an Assert.Multiple allows detecting more than one failure.</p>
+<p>Hosting Asserts inside an Assert.EnterMultipleScope or Assert.Multiple allows detecting more than one failure.</p>
 <h2 id="motivation">Motivation</h2>
-<p>When independent <code>Assert</code> statements are called from an <code>Assert.Multiple</code> they all will run.
-This allows detecting more than one failure in a single test run.</p>
-<p>Without the <code>Assert.Multiple</code> the below code will stop executing after the first failure and the second
-violation won't be detected until the next run when the first one has been finished.</p>
+<p>When independent <code>Assert</code> statements are called from an <code>Assert.EnterMultipleScope</code> or <code>Assert.Multiple</code> they all
+will run. This allows detecting more than one failure in a single test run. Note that <code>Assert.EnterMultipleScope</code> is
+the preferred method, but this functionality was released in NUnit 4.2. On older NUnit versions one can use
+<code>Assert.Multiple</code>.</p>
+<p>Without the <code>Assert.EnterMultipleScope</code> the below code will stop executing after the first failure and the second
+violation won't be detected until the next run when the first one has been corrected.</p>
 <pre><code class="lang-csharp">Assert.That(instance.Property1, Is.EqualTo(expectedProperty1Value));
 Assert.That(instance.Property2, Is.EqualTo(expectedProperty2Value));
 </code></pre>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
-<p>Add an <code>Assert.Multiple</code> and call all independent <code>Assert</code> statements from the lambda parameter.</p>
+<p>Add an <code>Assert.EnterMultipleScope</code> using block surrounding the <code>Assert</code> statements.</p>
+<pre><code class="lang-csharp">using (Assert.EnterMultipleScope())
+{
+    Assert.That(instance.Property1, Is.EqualTo(expectedProperty1Value));
+    Assert.That(instance.Property2, Is.EqualTo(expectedProperty2Value));
+};
+</code></pre>
+<p>Using <code>Assert.Multiple</code> then the fix would look like this - where all the independent <code>Assert</code> statements are called from
+inside the lambda parameter.</p>
 <pre><code class="lang-csharp">Assert.Multiple(() =&gt;
 {
     Assert.That(instance.Property1, Is.EqualTo(expectedProperty1Value));
@@ -141,21 +151,21 @@ Assert.That(instance.Property2, Is.EqualTo(expectedProperty2Value));
 <p>Configure the severity per project, for more info see
 <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2022">MSDN</a>.</p>
 <h3 id="via-editorconfig-file">Via .editorconfig file</h3>
-<pre><code class="lang-ini"># NUnit2045: Use Assert.Multiple
+<pre><code class="lang-ini"># NUnit2045: Use Assert.EnterMultipleScope or Assert.Multiple
 dotnet_diagnostic.NUnit2045.severity = chosenSeverity
 </code></pre>
 <p>where <code>chosenSeverity</code> can be one of <code>none</code>, <code>silent</code>, <code>suggestion</code>, <code>warning</code>, or <code>error</code>.</p>
 <h3 id="via-pragma-directive">Via #pragma directive</h3>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2045 // Use Assert.Multiple
+<pre><code class="lang-csharp">#pragma warning disable NUnit2045 // Use Assert.EnterMultipleScope or Assert.Multiple
 Code violating the rule here
-#pragma warning restore NUnit2045 // Use Assert.Multiple
+#pragma warning restore NUnit2045 // Use Assert.EnterMultipleScope or Assert.Multiple
 </code></pre>
 <p>Or put this at the top of the file to disable all instances.</p>
-<pre><code class="lang-csharp">#pragma warning disable NUnit2045 // Use Assert.Multiple
+<pre><code class="lang-csharp">#pragma warning disable NUnit2045 // Use Assert.EnterMultipleScope or Assert.Multiple
 </code></pre>
 <h3 id="via-attribute-suppressmessage">Via attribute <code>[SuppressMessage]</code></h3>
 <pre><code class="lang-csharp">[System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Assertion&quot;,
-    &quot;NUnit2045:Use Assert.Multiple&quot;,
+    &quot;NUnit2045:Use Assert.EnterMultipleScope or Assert.Multiple&quot;,
     Justification = &quot;Reason...&quot;)]
 </code></pre>
 <!-- end generated config severity -->
