@@ -8,7 +8,7 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Structure
-| Code     | [TestContextWriteIsObsoleteAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/TestContextWriteIsObsolete/TestContextWriteIsObsoleteAnalyzer.cs)
+| Code     | [TestContextWriteIsObsoleteAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/TestContextWriteIsObsolete/TestContextWriteIsObsoleteAnalyzer.cs)
 
 ## Description
 

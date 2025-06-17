@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Style
-| Code     | [SimplifyValuesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/SimplifyValues/SimplifyValuesAnalyzer.cs)
+| Code     | [SimplifyValuesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/SimplifyValues/SimplifyValuesAnalyzer.cs)
 
 ## Description
 

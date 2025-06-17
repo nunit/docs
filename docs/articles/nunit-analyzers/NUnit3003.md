@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Suppressor
-| Code     | [AvoidUninstantiatedInternalClassSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/DiagnosticSuppressors/AvoidUninstantiatedInternalClassSuppressor.cs)
+| Code     | [AvoidUninstantiatedInternalClassSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/DiagnosticSuppressors/AvoidUninstantiatedInternalClassSuppressor.cs)
 
 ## Description
 
@@ -30,7 +30,7 @@ The rule has no severity, but can be disabled.
 ### Via ruleset file
 
 To disable the rule for a project, you need to add a
-[ruleset file](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
+[ruleset file](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
