@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [UseCollectionConstraintAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/UseCollectionConstraint/UseCollectionConstraintAnalyzer.cs)
+| Code     | [UseCollectionConstraintAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/UseCollectionConstraint/UseCollectionConstraintAnalyzer.cs)
 
 ## Description
 

@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [DisposeFieldsAndPropertiesInTearDownAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/DisposeFieldsAndPropertiesInTearDown/DisposeFieldsAndPropertiesInTearDownAnalyzer.cs)
+| Code     | [DisposeFieldsAndPropertiesInTearDownAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/DisposeFieldsAndPropertiesInTearDown/DisposeFieldsAndPropertiesInTearDownAnalyzer.cs)
 
 ## Description
 
@@ -58,6 +58,18 @@ Unfortunately, those rules are not enabled by default, you can enable them in yo
 dotnet_diagnostic.CA1001.severity = warning
 # CA2213: Disposable fields should be disposed
 dotnet_diagnostic.CA2213.severity = warning
+```
+
+## Extending the list of names of disposing methods
+
+The analyzer considers the following list of method names to be disposing: `Dispose`, `DisposeAsync`, `Close`, and
+`CloseAsync`. It is possible to add method names to this list by using the configuration
+`dotnet_diagnostic.NUnit1032.additional_dispose_methods` in the `.editorconfig`. The configuration accepts a
+list of method names - separated by either comma, semicolon, or space. I.e. to add `Quit` and `Exit` to the list add
+the following line.
+
+```ini
+dotnet_diagnostic.NUnit1032.additional_dispose_methods = Quit, Exit
 ```
 
 <!-- start generated config severity -->
