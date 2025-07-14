@@ -88,8 +88,8 @@
 <!-- markdownlint-disable-file MD013 -->
 <!-- markdownlint-disable-file MD033 -->
 
-<h2 id="nunit-440---may-28-2025">NUnit 4.4.0 - May 28, 2025</h2>
-<p>This release contains bug fixes and smaller enhancements, with 20 issues fixed.</p>
+<h2 id="nunit-440---july-14-2025">NUnit 4.4.0 - July 14, 2025</h2>
+<p>This release contains bug fixes and smaller enhancements, with 24 issues fixed.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4975">4975</a> Support ignoring line ending format when comparing strings. Thanks to <a href="https://github.com/Bartleby2718">Jihoon Park</a> for <a href="https://github.com/nunit/nunit/pull/4976">PR 4976</a></li>
@@ -102,6 +102,7 @@
 </ul>
 <h3 id="bug-fixes">Bug fixes</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/4998">4998</a> <code>PropertyConstraint</code> Causes Unexpected Behavior Because the Property's Value Is <code>object</code> Instead of the Property's Actual Type. Thanks to <a href="https://github.com/LeQuackers">LeQuackers</a> for <a href="https://github.com/nunit/nunit/pull/5003">PR 5003</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4981">4981</a> ContainsKey doesn't support IgnoreCase, IgnoreWhiteSpace, or IgnoreLineEndingFormat. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4989">PR 4989</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4964">4964</a> Is.Not.EqualTo does not work correctly with Using comparer. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4965">PR 4965</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4954">4954</a> Regression in <code>Is.EqualTo(DateTime)</code> constraint in 4.3.x for types that implement <code>IEquatable&amp;lt;DateTime&amp;gt;</code>. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4957">PR 4957</a></li>
@@ -117,6 +118,12 @@
 <h3 id="refactorings">Refactorings</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4930">4930</a> What to do with <code>IConstraint.Apply&amp;lt;TActual&amp;gt;(ref TActual)</code>. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4944">PR 4944</a></li>
+</ul>
+<h3 id="internal-fixes">Internal fixes</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit/issues/4995">4995</a> Check and fix properties for sideeffects. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5001">PR 5001</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4994">4994</a> Fix or remove ToString in class ConstraintExpression. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5001">PR 5001</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/4990">4990</a> FileLoadException for NUnit 4.3.2: System.Buffers 4.0.4 missing. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4991">PR 4991</a></li>
 </ul>
 <h3 id="others">Others</h3>
 <ul>
@@ -246,7 +253,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <li><a href="https://github.com/nunit/nunit/issues/4902">4902</a> Regression in 4.3.0 comparing class that override equals and implicit string conversion. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4899">PR 4899</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4898">4898</a> Assert(..., Is.EqualTo(...)) issues since 4.3.0. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4899">PR 4899</a></li>
 </ul>
-<h3 id="internal-fixes">Internal fixes</h3>
+<h3 id="internal-fixes-1">Internal fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4806">4806</a> Benchmarks fail to run. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/4897">PR 4897</a></li>
 </ul>
@@ -312,7 +319,7 @@ Your efforts help make NUnit better for the entire community.</p>
 </ul>
 <h3 id="refactorings-1">Refactorings</h3>
 <p>None</p>
-<h3 id="internal-fixes-1">Internal fixes</h3>
+<h3 id="internal-fixes-2">Internal fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4865">4865</a> Increase Legacy NUnit so at least all methods are covered. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4871">PR 4871</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4841">4841</a> MacOS test failure. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4842">PR 4842</a></li>
@@ -451,7 +458,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4577">4577</a> Remove some version hard-coding in the OSPlatformTranslator. Fixed by team <a href="https://github.com/nunit/nunit/pull/4756">PR 4756</a></li>
 </ul>
-<h3 id="internal-fixes-2">Internal fixes</h3>
+<h3 id="internal-fixes-3">Internal fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4735">4735</a> StreamComparer - Pool allocating the byte array reduces memory allocation by 96%. Thanks to <a href="https://github.com/mithileshz">Mithilesh Zavar</a> for <a href="https://github.com/nunit/nunit/pull/4737">PR 4737</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4733">4733</a> Improve speed of Randomizer.GetString. Fixed by team <a href="https://github.com/nunit/nunit/pull/4512">PR 4512</a></li>
@@ -489,7 +496,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4626">4626</a> Remove link in readme to the google discuss group, it's spammed.. Fixed by team <a href="https://github.com/nunit/nunit/pull/4627">PR 4627</a></li>
 </ul>
-<h3 id="internal-fixes-3">Internal fixes</h3>
+<h3 id="internal-fixes-4">Internal fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4606">4606</a> GitHub Actions fail on <code>master</code> for Windows and Linux builds. Fixed by team <a href="https://github.com/nunit/nunit/pull/4607">PR 4607</a></li>
 </ul>
@@ -614,7 +621,7 @@ doing!</p>
 <li><a href="https://github.com/nunit/nunit/issues/4051">4051</a> Update codebase to use Array.Empty&lt;T&gt;. Thanks to <a href="https://github.com/mjedrzejek">Marcin Jedrzejek</a> for <a href="https://github.com/nunit/nunit/pull/4127">PR 4127</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3932">3932</a> Make <code>Numerics</code> class internal. Thanks to <a href="https://github.com/x789">TillW</a> for <a href="https://github.com/nunit/nunit/pull/4205">PR 4205</a></li>
 </ul>
-<h3 id="internal-fixes-4">Internal fixes</h3>
+<h3 id="internal-fixes-5">Internal fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4503">4503</a> Add NET8 target for the framework tests. Thanks to <a href="https://github.com/ashishdawale20">Ashish Dawale</a> for <a href="https://github.com/nunit/nunit/pull/4511">PR 4511</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4432">4432</a> Fix null message in internal static string? ExtendedMessage(string methodName, string? message, string actualExpression, string constraintExpression). Fixed by team <a href="https://github.com/nunit/nunit/pull/4430">PR 4430</a></li>
@@ -709,7 +716,7 @@ Fixed by team <a href="https://github.com/nunit/nunit/pull/4467">PR 4467</a></li
 </ul>
 <h3 id="refactorings-5">Refactorings</h3>
 <p>None</p>
-<h3 id="internal-fixes-5">Internal fixes</h3>
+<h3 id="internal-fixes-6">Internal fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4524">4524</a> Backport: Add .NET7 as a build target for the test suite #4170.
 Fixed by team <a href="https://github.com/nunit/nunit/pull/4302">PR 4302</a> ( backport of issue 4170 by pr 4224)</li>
