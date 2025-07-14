@@ -6,9 +6,9 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
-## NUnit 4.4.0 - May 28, 2025
+## NUnit 4.4.0 - July 14, 2025
 
-This release contains bug fixes and smaller enhancements, with 20 issues fixed.
+This release contains bug fixes and smaller enhancements, with 24 issues fixed.
 
 ### Enhancements
 
@@ -22,6 +22,7 @@ This release contains bug fixes and smaller enhancements, with 20 issues fixed.
 
 ### Bug fixes
 
+* [4998](https://github.com/nunit/nunit/issues/4998) `PropertyConstraint` Causes Unexpected Behavior Because the Property's Value Is `object` Instead of the Property's Actual Type. Thanks to [LeQuackers](https://github.com/LeQuackers) for [PR 5003](https://github.com/nunit/nunit/pull/5003)
 * [4981](https://github.com/nunit/nunit/issues/4981) ContainsKey doesn't support IgnoreCase, IgnoreWhiteSpace, or IgnoreLineEndingFormat. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4989](https://github.com/nunit/nunit/pull/4989)
 * [4964](https://github.com/nunit/nunit/issues/4964) Is.Not.EqualTo does not work correctly with Using comparer. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4965](https://github.com/nunit/nunit/pull/4965)
 * [4954](https://github.com/nunit/nunit/issues/4954) Regression in `Is.EqualTo(DateTime)` constraint in 4.3.x for types that implement `IEquatable&lt;DateTime&gt;`. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4957](https://github.com/nunit/nunit/pull/4957)
@@ -37,6 +38,12 @@ This release contains bug fixes and smaller enhancements, with 20 issues fixed.
 ### Refactorings
 
 * [4930](https://github.com/nunit/nunit/issues/4930) What to do with `IConstraint.Apply&lt;TActual&gt;(ref TActual)`. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4944](https://github.com/nunit/nunit/pull/4944)
+
+### Internal fixes
+
+* [4995](https://github.com/nunit/nunit/issues/4995) Check and fix properties for sideeffects. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5001](https://github.com/nunit/nunit/pull/5001)
+* [4994](https://github.com/nunit/nunit/issues/4994) Fix or remove ToString in class ConstraintExpression. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5001](https://github.com/nunit/nunit/pull/5001)
+* [4990](https://github.com/nunit/nunit/issues/4990) FileLoadException for NUnit 4.3.2: System.Buffers 4.0.4 missing. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4991](https://github.com/nunit/nunit/pull/4991)
 
 ### Others
 
