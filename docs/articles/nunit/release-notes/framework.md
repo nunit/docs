@@ -6,9 +6,9 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
-## NUnit 4.4.0 - July 14, 2025
+## NUnit 4.4.0 - Aug 6, 2025
 
-This release contains bug fixes and smaller enhancements, with 24 issues fixed.
+This release contains bug fixes and smaller enhancements, with 26 issues fixed.
 
 ### Enhancements
 
@@ -22,6 +22,7 @@ This release contains bug fixes and smaller enhancements, with 24 issues fixed.
 
 ### Bug fixes
 
+* [5011](https://github.com/nunit/nunit/issues/5011) Breaking change in version 4.4.0-beta.1. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5013](https://github.com/nunit/nunit/pull/5013)
 * [4998](https://github.com/nunit/nunit/issues/4998) `PropertyConstraint` Causes Unexpected Behavior Because the Property's Value Is `object` Instead of the Property's Actual Type. Thanks to [LeQuackers](https://github.com/LeQuackers) for [PR 5003](https://github.com/nunit/nunit/pull/5003)
 * [4981](https://github.com/nunit/nunit/issues/4981) ContainsKey doesn't support IgnoreCase, IgnoreWhiteSpace, or IgnoreLineEndingFormat. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4989](https://github.com/nunit/nunit/pull/4989)
 * [4964](https://github.com/nunit/nunit/issues/4964) Is.Not.EqualTo does not work correctly with Using comparer. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4965](https://github.com/nunit/nunit/pull/4965)
@@ -41,9 +42,14 @@ This release contains bug fixes and smaller enhancements, with 24 issues fixed.
 
 ### Internal fixes
 
+* [5014](https://github.com/nunit/nunit/issues/5014) Use span-based APIs to construct random GUIDs on non-framework codepath. Thanks to [zaidonolsen](https://github.com/zaidonolsen) for [PR 5015](https://github.com/nunit/nunit/pull/5015)
 * [4995](https://github.com/nunit/nunit/issues/4995) Check and fix properties for sideeffects. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5001](https://github.com/nunit/nunit/pull/5001)
 * [4994](https://github.com/nunit/nunit/issues/4994) Fix or remove ToString in class ConstraintExpression. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5001](https://github.com/nunit/nunit/pull/5001)
 * [4990](https://github.com/nunit/nunit/issues/4990) FileLoadException for NUnit 4.3.2: System.Buffers 4.0.4 missing. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4991](https://github.com/nunit/nunit/pull/4991)
+
+### Deprecated features
+
+None
 
 ### Others
 
@@ -53,7 +59,7 @@ This release contains bug fixes and smaller enhancements, with 24 issues fixed.
 
 * [4930](https://github.com/nunit/nunit/issues/4930) What to do with `IConstraint.Apply&lt;TActual&gt;(ref TActual)`. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4944](https://github.com/nunit/nunit/pull/4944)
 
-This only applies to other implementers of extensions. See issue and PR for more information.
+This is technically breaking, and is marked as obsolete. It is not used by NUnit code, but some externals may use it.  If you do, please read the issue, and move away from this.  It will be removed in next version.
 
 ### Acknowledgements
 
@@ -72,23 +78,26 @@ A special thank you to the following reporters for identifying issues:
 </tr>
 <tr>
 <td><a href="https://github.com/Edgaras91">Edgaras</a></td>
-<td><a href="https://github.com/verdie-g">Grégoire</a></td>
+<td><a href="https://github.com/verdie-g">Gr‚goire</a></td>
 <td><a href="https://github.com/IgorVyatkin">Igor Vyatkin</a></td>
 <td><a href="https://github.com/Bartleby2718">Jihoon Park</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/appel1">Johan Appelgren</a></td>
 <td><a href="https://github.com/killergege">Julien Nigay</a></td>
-<td><a href="https://github.com/juergstaub">Jörg Staub</a></td>
-<td><a href="https://github.com/maettu-this">maettu-this</a></td>
+<td><a href="https://github.com/juergstaub">Jrg Staub</a></td>
+<td><a href="https://github.com/LeQuackers">LeQuackers</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/maettu-this">maettu-this</a></td>
 <td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
 <td><a href="https://github.com/Dreamescaper">Oleksandr Liakhevych</a></td>
 <td><a href="https://github.com/Sputnik24">Sputnik24</a></td>
-<td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/SFrank1966">Stefan Frank</a></td>
+<td><a href="https://github.com/stevenaw">Steven Weerdenburg</a></td>
+<td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 <td><a href="https://github.com/WillRayAtPropertyMe">Will Ray</a></td>
 </tr>
 </table>
@@ -112,30 +121,37 @@ and to the commenters who engaged in discussions and offered further insights:
 <td><a href="https://github.com/glassesarms">ethan</a></td>
 <td><a href="https://github.com/verdie-g">Gr‚goire</a></td>
 <td><a href="https://github.com/IgorVyatkin">Igor Vyatkin</a></td>
-<td><a href="https://github.com/appel1">Johan Appelgren</a></td>
+<td><a href="https://github.com/Bartleby2718">Jihoon Park</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/appel1">Johan Appelgren</a></td>
 <td><a href="https://github.com/jnm2">Joseph Musser</a></td>
 <td><a href="https://github.com/killergege">Julien Nigay</a></td>
 <td><a href="https://github.com/juergstaub">Jrg Staub</a></td>
-<td><a href="https://github.com/maettu-this">maettu-this</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/LeQuackers">LeQuackers</a></td>
+<td><a href="https://github.com/maettu-this">maettu-this</a></td>
 <td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
 <td><a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a></td>
-<td><a href="https://github.com/Dreamescaper">Oleksandr Liakhevych</a></td>
-<td><a href="https://github.com/pembebiri">pembebiri</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/Dreamescaper">Oleksandr Liakhevych</a></td>
+<td><a href="https://github.com/pembebiri">pembebiri</a></td>
 <td><a href="https://github.com/SeanKilleen">Sean Killeen</a></td>
+<td><a href="https://github.com/siva1160github">Sivasubramanian T</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/Sputnik24">Sputnik24</a></td>
 <td><a href="https://github.com/Star62enis">Star62enis</a></td>
+<td><a href="https://github.com/SFrank1966">Stefan Frank</a></td>
 <td><a href="https://github.com/stevenaw">Steven Weerdenburg</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 <td><a href="https://github.com/vvidetta-gearset">Vito Videtta</a></td>
 <td><a href="https://github.com/WillRayAtPropertyMe">Will Ray</a></td>
+<td><a href="https://github.com/zaidonolsen">zaidonolsen</a></td>
 </tr>
 </table>
 
