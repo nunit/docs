@@ -88,8 +88,8 @@
 <!-- markdownlint-disable-file MD013 -->
 <!-- markdownlint-disable-file MD033 -->
 
-<h2 id="nunit-440---july-14-2025">NUnit 4.4.0 - July 14, 2025</h2>
-<p>This release contains bug fixes and smaller enhancements, with 24 issues fixed.</p>
+<h2 id="nunit-440---aug-6-2025">NUnit 4.4.0 - Aug 6, 2025</h2>
+<p>This release contains bug fixes and smaller enhancements, with 26 issues fixed.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4975">4975</a> Support ignoring line ending format when comparing strings. Thanks to <a href="https://github.com/Bartleby2718">Jihoon Park</a> for <a href="https://github.com/nunit/nunit/pull/4976">PR 4976</a></li>
@@ -102,6 +102,7 @@
 </ul>
 <h3 id="bug-fixes">Bug fixes</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/5011">5011</a> Breaking change in version 4.4.0-beta.1. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5013">PR 5013</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4998">4998</a> <code>PropertyConstraint</code> Causes Unexpected Behavior Because the Property's Value Is <code>object</code> Instead of the Property's Actual Type. Thanks to <a href="https://github.com/LeQuackers">LeQuackers</a> for <a href="https://github.com/nunit/nunit/pull/5003">PR 5003</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4981">4981</a> ContainsKey doesn't support IgnoreCase, IgnoreWhiteSpace, or IgnoreLineEndingFormat. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4989">PR 4989</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4964">4964</a> Is.Not.EqualTo does not work correctly with Using comparer. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4965">PR 4965</a></li>
@@ -121,10 +122,13 @@
 </ul>
 <h3 id="internal-fixes">Internal fixes</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/5014">5014</a> Use span-based APIs to construct random GUIDs on non-framework codepath. Thanks to <a href="https://github.com/zaidonolsen">zaidonolsen</a> for <a href="https://github.com/nunit/nunit/pull/5015">PR 5015</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4995">4995</a> Check and fix properties for sideeffects. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5001">PR 5001</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4994">4994</a> Fix or remove ToString in class ConstraintExpression. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5001">PR 5001</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4990">4990</a> FileLoadException for NUnit 4.3.2: System.Buffers 4.0.4 missing. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4991">PR 4991</a></li>
 </ul>
+<h3 id="deprecated-features">Deprecated features</h3>
+<p>None</p>
 <h3 id="others">Others</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4906">4906</a> Test error in TestContextOneTimeTearDownTests. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/4928">PR 4928</a></li>
@@ -133,7 +137,7 @@
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4930">4930</a> What to do with <code>IConstraint.Apply&amp;lt;TActual&amp;gt;(ref TActual)</code>. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4944">PR 4944</a></li>
 </ul>
-<p>This only applies to other implementers of extensions. See issue and PR for more information.</p>
+<p>This is technically breaking, and is marked as obsolete. It is not used by NUnit code, but some externals may use it.  If you do, please read the issue, and move away from this.  It will be removed in next version.</p>
 <h3 id="acknowledgements">Acknowledgements</h3>
 <p>We want to express our heartfelt gratitude to everyone who has contributed to this release
 by reporting bugs, suggesting enhancements, and providing valuable feedback.
@@ -148,23 +152,26 @@ Your efforts help make NUnit better for the entire community.</p>
 </tr>
 <tr>
 <td><a href="https://github.com/Edgaras91">Edgaras</a></td>
-<td><a href="https://github.com/verdie-g">Grégoire</a></td>
+<td><a href="https://github.com/verdie-g">Gr‚goire</a></td>
 <td><a href="https://github.com/IgorVyatkin">Igor Vyatkin</a></td>
 <td><a href="https://github.com/Bartleby2718">Jihoon Park</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/appel1">Johan Appelgren</a></td>
 <td><a href="https://github.com/killergege">Julien Nigay</a></td>
-<td><a href="https://github.com/juergstaub">Jörg Staub</a></td>
-<td><a href="https://github.com/maettu-this">maettu-this</a></td>
+<td><a href="https://github.com/juergstaub">Jrg Staub</a></td>
+<td><a href="https://github.com/LeQuackers">LeQuackers</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/maettu-this">maettu-this</a></td>
 <td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
 <td><a href="https://github.com/Dreamescaper">Oleksandr Liakhevych</a></td>
 <td><a href="https://github.com/Sputnik24">Sputnik24</a></td>
-<td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/SFrank1966">Stefan Frank</a></td>
+<td><a href="https://github.com/stevenaw">Steven Weerdenburg</a></td>
+<td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 <td><a href="https://github.com/WillRayAtPropertyMe">Will Ray</a></td>
 </tr>
 </table>
@@ -186,30 +193,37 @@ Your efforts help make NUnit better for the entire community.</p>
 <td><a href="https://github.com/glassesarms">ethan</a></td>
 <td><a href="https://github.com/verdie-g">Gr‚goire</a></td>
 <td><a href="https://github.com/IgorVyatkin">Igor Vyatkin</a></td>
-<td><a href="https://github.com/appel1">Johan Appelgren</a></td>
+<td><a href="https://github.com/Bartleby2718">Jihoon Park</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/appel1">Johan Appelgren</a></td>
 <td><a href="https://github.com/jnm2">Joseph Musser</a></td>
 <td><a href="https://github.com/killergege">Julien Nigay</a></td>
 <td><a href="https://github.com/juergstaub">Jrg Staub</a></td>
-<td><a href="https://github.com/maettu-this">maettu-this</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/LeQuackers">LeQuackers</a></td>
+<td><a href="https://github.com/maettu-this">maettu-this</a></td>
 <td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
 <td><a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a></td>
-<td><a href="https://github.com/Dreamescaper">Oleksandr Liakhevych</a></td>
-<td><a href="https://github.com/pembebiri">pembebiri</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/Dreamescaper">Oleksandr Liakhevych</a></td>
+<td><a href="https://github.com/pembebiri">pembebiri</a></td>
 <td><a href="https://github.com/SeanKilleen">Sean Killeen</a></td>
+<td><a href="https://github.com/siva1160github">Sivasubramanian T</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/Sputnik24">Sputnik24</a></td>
 <td><a href="https://github.com/Star62enis">Star62enis</a></td>
+<td><a href="https://github.com/SFrank1966">Stefan Frank</a></td>
 <td><a href="https://github.com/stevenaw">Steven Weerdenburg</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 <td><a href="https://github.com/vvidetta-gearset">Vito Videtta</a></td>
 <td><a href="https://github.com/WillRayAtPropertyMe">Will Ray</a></td>
+<td><a href="https://github.com/zaidonolsen">zaidonolsen</a></td>
 </tr>
 </table>
 <h2 id="nunit-432---dec-28-2024">NUnit 4.3.2 - Dec 28, 2024</h2>
@@ -326,7 +340,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <li><a href="https://github.com/nunit/nunit/issues/4819">4819</a> Remove <code>StringUtil.Compare()</code> and update references in the tests. Thanks to <a href="https://github.com/mr-sergito">Sergio L.</a> for <a href="https://github.com/nunit/nunit/pull/4827">PR 4827</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4798">4798</a> Add a test to ensure direct framework dependencies in csproj are reflected in nuspec. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/4799">PR 4799</a></li>
 </ul>
-<h3 id="deprecated-features">Deprecated features</h3>
+<h3 id="deprecated-features-1">Deprecated features</h3>
 <p>None</p>
 <h3 id="others-1">Others</h3>
 <h3 id="the-following-issues-are-marked-as-breaking-changes-1">The following issues are marked as breaking changes</h3>
@@ -466,7 +480,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <li><a href="https://github.com/nunit/nunit/issues/4649">4649</a> Switch to using MacOS 14 in GitHub Actions. Fixed by team <a href="https://github.com/nunit/nunit/pull/4648">PR 4648</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3757">3757</a> Re-Add WinForms and WPF based tests. Fixed by team <a href="https://github.com/nunit/nunit/pull/4776">PR 4776</a></li>
 </ul>
-<h3 id="deprecated-features-1">Deprecated features</h3>
+<h3 id="deprecated-features-2">Deprecated features</h3>
 <p>None</p>
 <h3 id="others-2">Others</h3>
 <ul>
@@ -500,7 +514,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4606">4606</a> GitHub Actions fail on <code>master</code> for Windows and Linux builds. Fixed by team <a href="https://github.com/nunit/nunit/pull/4607">PR 4607</a></li>
 </ul>
-<h3 id="deprecated-features-2">Deprecated features</h3>
+<h3 id="deprecated-features-3">Deprecated features</h3>
 <p>None</p>
 <h3 id="the-following-issues-are-marked-as-breaking-changes-3">The following issues are marked as breaking changes</h3>
 <p>None.</p>
@@ -649,7 +663,7 @@ doing!</p>
 <li><a href="https://github.com/nunit/nunit/issues/3758">3758</a> Drop .NET 3.5 Build Targets. Fixed by team <a href="https://github.com/nunit/nunit/pull/3760">PR 3760</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/2485">2485</a> Remove\Trim copyright on individual files. Fixed by team <a href="https://github.com/nunit/nunit/pull/3795">PR 3795</a></li>
 </ul>
-<h3 id="deprecated-features-3">Deprecated features</h3>
+<h3 id="deprecated-features-4">Deprecated features</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/4415">4415</a> Remove use of params for messages. Fixed by team <a href="https://github.com/nunit/nunit/pull/4419">PR 4419</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4036">4036</a> Drop net45 build target in nunit4. Fixed by team <a href="https://github.com/nunit/nunit/pull/4050">PR 4050</a></li>
@@ -725,7 +739,7 @@ team <a href="https://github.com/nunit/nunit/pull/4296">PR 4296</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/2973">2973</a> Write up recommended way to test and link it from the readme.
 Thanks to <a href="https://github.com/BrunoJuchli">Bruno Juchli</a> for <a href="https://github.com/nunit/nunit/pull/2971">PR 2971</a></li>
 </ul>
-<h3 id="deprecated-features-4">Deprecated features</h3>
+<h3 id="deprecated-features-5">Deprecated features</h3>
 <p>None</p>
 <h3 id="the-following-issues-are-marked-as-breaking-changes-5">The following issues are marked as breaking changes</h3>
 <p>None</p>
