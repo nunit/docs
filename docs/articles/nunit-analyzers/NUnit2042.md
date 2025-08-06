@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [ComparableTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/ComparableTypes/ComparableTypesAnalyzer.cs)
+| Code     | [ComparableTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/ComparableTypes/ComparableTypesAnalyzer.cs)
 
 ## Description
 

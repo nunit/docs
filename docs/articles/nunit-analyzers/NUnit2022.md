@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Assertion
-| Code     | [MissingPropertyAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/MissingProperty/MissingPropertyAnalyzer.cs)
+| Code     | [MissingPropertyAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/MissingProperty/MissingPropertyAnalyzer.cs)
 
 ## Description
 

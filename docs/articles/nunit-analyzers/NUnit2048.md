@@ -8,7 +8,7 @@
 | Severity | Warning
 | Enabled  | True
 | Category | Assertion
-| Code     | [StringAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.4.0/src/nunit.analyzers/StringAssertUsage/StringAssertUsageAnalyzer.cs)
+| Code     | [StringAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/StringAssertUsage/StringAssertUsageAnalyzer.cs)
 
 ## Description
 
