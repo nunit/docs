@@ -1,3 +1,10 @@
+---
+uid: adapterreleasenotes
+---
+
+<!-- markdownlint-disable-file MD013 -->
+<!-- markdownlint-disable-file MD033 -->
+
 # Adapter Release Notes
 
 ## NUnit3 Test Adapter for Visual Studio and Dotnet - Version 5.1.0 - August 6, 2025
