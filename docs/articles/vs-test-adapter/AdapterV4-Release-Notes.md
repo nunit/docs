@@ -52,7 +52,7 @@ and to the commenters who engaged in discussions and offered further insights:
 
 <table>
 <tr>
-<td><a href="https://github.com/Evangelink">Amaury Lev‚</a></td>
+<td><a href="https://github.com/Evangelink">Amaury Levé</a></td>
 <td><a href="https://github.com/CharliePoole">CharliePoole</a></td>
 <td><a href="https://github.com/errarr">errarr</a></td>
 <td><a href="https://github.com/nohwnd">Jakub Jares</a></td>
