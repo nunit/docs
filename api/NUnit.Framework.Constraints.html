@@ -295,6 +295,12 @@ value. NUnit has special semantics for some object types.</p>
       <section><p>The EqualConstraintResult class is tailored for formatting
 and displaying the result of an EqualConstraint.</p>
 </section>
+      <h4><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint-1.html">EqualConstraint&lt;T&gt;</a></h4>
+      <section><p>EqualConstraint is able to compare an actual value with the
+expected value provided in its constructor. Two objects are
+considered equal if both are null, or if both have the same
+value. NUnit has special semantics for some object types.</p>
+</section>
       <h4><a class="xref" href="NUnit.Framework.Constraints.EqualDateTimeOffsetConstraint.html">EqualDateTimeOffsetConstraint</a></h4>
       <section><p>EqualConstraint is able to compare an actual value with the
 expected value provided in its constructor. Two objects are
@@ -423,6 +429,9 @@ class has separate methods for writing various components
 of a message, allowing implementations to tailor the
 presentation as needed.</p>
 </section>
+      <h4><a class="xref" href="NUnit.Framework.Constraints.MultipleOfConstraint.html">MultipleOfConstraint</a></h4>
+      <section><p>MultipleOfConstraint tests that the actual value is a multiple of a specified integer.</p>
+</section>
       <h4><a class="xref" href="NUnit.Framework.Constraints.NUnitComparer.html">NUnitComparer</a></h4>
       <section><p>NUnitComparer encapsulates NUnit's default behavior
 in comparing two objects.</p>
@@ -481,6 +490,16 @@ its action in some way.</p>
 on an object and optionally apply further tests to the
 value of that property.</p>
 </section>
+      <h4><a class="xref" href="NUnit.Framework.Constraints.PropertiesComparerConfiguration.html">PropertiesComparerConfiguration</a></h4>
+      <section><p>Class to configure how to compare properties</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Constraints.PropertiesComparerConfigurationUntyped.html">PropertiesComparerConfigurationUntyped</a></h4>
+      <section><p>Class to configure how to compare properties. Non-generic untyped version.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Constraints.PropertiesComparerConfiguration-1.html">PropertiesComparerConfiguration&lt;T&gt;</a></h4>
+      <section><p>Generic version of <a class="xref" href="NUnit.Framework.Constraints.PropertiesComparerConfiguration.html">PropertiesComparerConfiguration</a> to allow
+specifiying properties using expression syntax instead of strings.</p>
+</section>
       <h4><a class="xref" href="NUnit.Framework.Constraints.PropertyConstraint.html">PropertyConstraint</a></h4>
       <section><p>PropertyConstraint extracts a named property and uses
 its value as the actual value for a chained constraint.</p>
@@ -529,6 +548,10 @@ the object passed to its constructor</p>
 constraint whether or not another syntactic element follows.</p>
 </section>
       <h4><a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html">SomeItemsConstraint</a></h4>
+      <section><p>SomeItemsConstraint applies another constraint to each
+item in a collection, succeeding if any of them succeeds.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint-1.html">SomeItemsConstraint&lt;T&gt;</a></h4>
       <section><p>SomeItemsConstraint applies another constraint to each
 item in a collection, succeeding if any of them succeeds.</p>
 </section>

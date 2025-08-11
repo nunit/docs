@@ -173,7 +173,7 @@ value. NUnit has special semantics for some object types.</p>
   <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
   <h5 id="NUnit_Framework_Constraints_EqualNumericWithoutUsingConstraint_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class EqualNumericWithoutUsingConstraint&lt;T&gt; : Constraint, IConstraint, IResolveConstraint where T : struct</code></pre>
+    <pre><code class="lang-csharp hljs">public class EqualNumericWithoutUsingConstraint&lt;T&gt; : Constraint, IConstraint, IResolveConstraint where T : unmanaged, IConvertible</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-condensed">

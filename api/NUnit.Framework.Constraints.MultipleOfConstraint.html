@@ -12,11 +12,11 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class DictionaryContainsKeyConstraint | NUnit Docs </title>
+      <title>Class MultipleOfConstraint | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class DictionaryContainsKeyConstraint | NUnit Docs ">
+      <meta name="title" content="Class MultipleOfConstraint | NUnit Docs ">
     
-    <meta name="description" content="DictionaryContainsKeyConstraint is used to test whether a dictionary contains an expected object as a key.">
+    <meta name="description" content="MultipleOfConstraint tests that the actual value is a multiple of a specified integer.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -83,20 +83,19 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint">
+            <article class="content wrap" id="_content" data-uid="NUnit.Framework.Constraints.MultipleOfConstraint">
 
 
 
-  <h1 id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint" class="text-break">Class DictionaryContainsKeyConstraint</h1>
-  <div class="markdown level0 summary"><p>DictionaryContainsKeyConstraint is used to test whether a dictionary
-contains an expected object as a key.</p>
+  <h1 id="NUnit_Framework_Constraints_MultipleOfConstraint" data-uid="NUnit.Framework.Constraints.MultipleOfConstraint" class="text-break">Class MultipleOfConstraint</h1>
+  <div class="markdown level0 summary"><p>MultipleOfConstraint tests that the actual value is a multiple of a specified integer.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><a class="xref" href="NUnit.Framework.Constraints.Constraint.html">Constraint</a></div>
-    <div class="level2"><span class="xref">DictionaryContainsKeyConstraint</span></div>
+    <div class="level2"><span class="xref">MultipleOfConstraint</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -131,6 +130,9 @@ contains an expected object as a key.</p>
     </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_After_System_Int32_System_Int32_">Constraint.After(int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_DisplayName">Constraint.DisplayName</a>
     </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_Arguments">Constraint.Arguments</a>
@@ -168,24 +170,24 @@ contains an expected object as a key.</p>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="NUnit.html">NUnit</a>.<a class="xref" href="NUnit.Framework.html">Framework</a>.<a class="xref" href="NUnit.Framework.Constraints.html">Constraints</a></h6>
   <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
-  <h5 id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint_syntax">Syntax</h5>
+  <h5 id="NUnit_Framework_Constraints_MultipleOfConstraint_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DictionaryContainsKeyConstraint : Constraint, IConstraint, IResolveConstraint</code></pre>
+    <pre><code class="lang-csharp hljs">public class MultipleOfConstraint : Constraint, IConstraint, IResolveConstraint</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/DictionaryContainsKeyConstraint.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/MultipleOfConstraint.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint__ctor_" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.#ctor*"></a>
-  <h4 id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint__ctor_System_Object_" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.#ctor(System.Object)">DictionaryContainsKeyConstraint(object)</h4>
-  <div class="markdown level1 summary"><p>Construct a DictionaryContainsKeyConstraint</p>
+  <a id="NUnit_Framework_Constraints_MultipleOfConstraint__ctor_" data-uid="NUnit.Framework.Constraints.MultipleOfConstraint.#ctor*"></a>
+  <h4 id="NUnit_Framework_Constraints_MultipleOfConstraint__ctor_System_Int32_" data-uid="NUnit.Framework.Constraints.MultipleOfConstraint.#ctor(System.Int32)">MultipleOfConstraint(int)</h4>
+  <div class="markdown level1 summary"><p>Initializes an instance of the <a class="xref" href="NUnit.Framework.Constraints.MultipleOfConstraint.html">MultipleOfConstraint</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DictionaryContainsKeyConstraint(object expected)</code></pre>
+    <pre><code class="lang-csharp hljs">public MultipleOfConstraint(int multiple)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -198,9 +200,10 @@ contains an expected object as a key.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
-        <td><span class="parametername">expected</span></td>
-        <td></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">multiple</span></td>
+        <td><p>An integer value greater than zero</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -208,10 +211,10 @@ contains an expected object as a key.</p>
 </h3>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/DictionaryContainsKeyConstraint.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/MultipleOfConstraint.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint_Description_" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.Description*"></a>
-  <h4 id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint_Description" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.Description">Description</h4>
+  <a id="NUnit_Framework_Constraints_MultipleOfConstraint_Description_" data-uid="NUnit.Framework.Constraints.MultipleOfConstraint.Description*"></a>
+  <h4 id="NUnit_Framework_Constraints_MultipleOfConstraint_Description" data-uid="NUnit.Framework.Constraints.MultipleOfConstraint.Description">Description</h4>
   <div class="markdown level1 summary"><p>The Description of what this constraint tests, for
 use in messages and in the ConstraintResult.</p>
 </div>
@@ -237,75 +240,14 @@ use in messages and in the ConstraintResult.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_Description">Constraint.Description</a></div>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/DictionaryContainsKeyConstraint.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint_DisplayName_" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.DisplayName*"></a>
-  <h4 id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint_DisplayName" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.DisplayName">DisplayName</h4>
-  <div class="markdown level1 summary"><p>The display name of this Constraint for use by ToString().
-The default value is the name of the constraint with
-trailing &quot;Constraint&quot; removed. Derived classes may set
-this to another name in their constructors.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string DisplayName { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_DisplayName">Constraint.DisplayName</a></div>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/DictionaryContainsKeyConstraint.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint_Expected_" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.Expected*"></a>
-  <h4 id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint_Expected" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.Expected">Expected</h4>
-  <div class="markdown level1 summary"><p>Gets the expected object</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected object Expected { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
 </h3>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/DictionaryContainsKeyConstraint.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/MultipleOfConstraint.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint_ApplyTo_" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.ApplyTo*"></a>
-  <h4 id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint_ApplyTo__1___0_" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.ApplyTo``1(``0)">ApplyTo&lt;TActual&gt;(TActual)</h4>
+  <a id="NUnit_Framework_Constraints_MultipleOfConstraint_ApplyTo_" data-uid="NUnit.Framework.Constraints.MultipleOfConstraint.ApplyTo*"></a>
+  <h4 id="NUnit_Framework_Constraints_MultipleOfConstraint_ApplyTo__1___0_" data-uid="NUnit.Framework.Constraints.MultipleOfConstraint.ApplyTo``1(``0)">ApplyTo&lt;TActual&gt;(TActual)</h4>
   <div class="markdown level1 summary"><p>Test whether the constraint is satisfied by a given value</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -342,7 +284,8 @@ this to another name in their constructors.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
-        <td></td>
+        <td><p>True for success, false for failure</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -363,52 +306,6 @@ this to another name in their constructors.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1___0_">Constraint.ApplyTo&lt;TActual&gt;(TActual)</a></div>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/DictionaryContainsKeyConstraint.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint_WithValue_" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.WithValue*"></a>
-  <h4 id="NUnit_Framework_Constraints_DictionaryContainsKeyConstraint_WithValue_System_Object_" data-uid="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.WithValue(System.Object)">WithValue(object?)</h4>
-  <div class="markdown level1 summary"><p>Returns a new DictionaryContainsKeyValuePairConstraint checking for the
-presence of a particular key-value-pair in the dictionary.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DictionaryContainsKeyValuePairConstraint WithValue(object? expectedValue)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
-        <td><span class="parametername">expectedValue</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="NUnit.Framework.Constraints.DictionaryContainsKeyValuePairConstraint.html">DictionaryContainsKeyValuePairConstraint</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a>
@@ -425,7 +322,7 @@ presence of a particular key-value-pair in the dictionary.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/DictionaryContainsKeyConstraint.cs" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/MultipleOfConstraint.cs" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

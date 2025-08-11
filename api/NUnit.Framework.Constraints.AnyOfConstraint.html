@@ -269,6 +269,34 @@ use in messages and in the ConstraintResult.</p>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/AnyOfConstraint.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_Constraints_AnyOfConstraint_IgnoreLineEndingFormat_" data-uid="NUnit.Framework.Constraints.AnyOfConstraint.IgnoreLineEndingFormat*"></a>
+  <h4 id="NUnit_Framework_Constraints_AnyOfConstraint_IgnoreLineEndingFormat" data-uid="NUnit.Framework.Constraints.AnyOfConstraint.IgnoreLineEndingFormat">IgnoreLineEndingFormat</h4>
+  <div class="markdown level1 summary"><p>Flag the constraint to ignore line ending format (\r vs. \n vs. \r\n) and return self.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnyOfConstraint IgnoreLineEndingFormat { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.AnyOfConstraint.html">AnyOfConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/AnyOfConstraint.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_Constraints_AnyOfConstraint_IgnoreWhiteSpace_" data-uid="NUnit.Framework.Constraints.AnyOfConstraint.IgnoreWhiteSpace*"></a>
   <h4 id="NUnit_Framework_Constraints_AnyOfConstraint_IgnoreWhiteSpace" data-uid="NUnit.Framework.Constraints.AnyOfConstraint.IgnoreWhiteSpace">IgnoreWhiteSpace</h4>
   <div class="markdown level1 summary"><p>Flag the constraint to ignore white space and return self.</p>
@@ -510,6 +538,55 @@ use in messages and in the ConstraintResult.</p>
     </tbody>
   </table>
   <h5 id="NUnit_Framework_Constraints_AnyOfConstraint_UsingPropertiesComparer_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This allows comparing classes that don't implement <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+without having to compare each property separately in own code.</p>
+</div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/AnyOfConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_AnyOfConstraint_UsingPropertiesComparer_" data-uid="NUnit.Framework.Constraints.AnyOfConstraint.UsingPropertiesComparer*"></a>
+  <h4 id="NUnit_Framework_Constraints_AnyOfConstraint_UsingPropertiesComparer_System_Func_NUnit_Framework_Constraints_PropertiesComparerConfigurationUntyped_NUnit_Framework_Constraints_PropertiesComparerConfigurationUntyped__" data-uid="NUnit.Framework.Constraints.AnyOfConstraint.UsingPropertiesComparer(System.Func{NUnit.Framework.Constraints.PropertiesComparerConfigurationUntyped,NUnit.Framework.Constraints.PropertiesComparerConfigurationUntyped})">UsingPropertiesComparer(Func&lt;PropertiesComparerConfigurationUntyped, PropertiesComparerConfigurationUntyped&gt;)</h4>
+  <div class="markdown level1 summary"><p>Enables comparing of instance properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnyOfConstraint UsingPropertiesComparer(Func&lt;PropertiesComparerConfigurationUntyped, PropertiesComparerConfigurationUntyped&gt; configure)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="NUnit.Framework.Constraints.PropertiesComparerConfigurationUntyped.html">PropertiesComparerConfigurationUntyped</a>, <a class="xref" href="NUnit.Framework.Constraints.PropertiesComparerConfigurationUntyped.html">PropertiesComparerConfigurationUntyped</a>&gt;</td>
+        <td><span class="parametername">configure</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.AnyOfConstraint.html">AnyOfConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="NUnit_Framework_Constraints_AnyOfConstraint_UsingPropertiesComparer_System_Func_NUnit_Framework_Constraints_PropertiesComparerConfigurationUntyped_NUnit_Framework_Constraints_PropertiesComparerConfigurationUntyped___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This allows comparing classes that don't implement <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
 without having to compare each property separately in own code.</p>
 </div>

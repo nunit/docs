@@ -16,7 +16,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class TheoryAttribute | NUnit Docs ">
     
-    <meta name="description" content="Adding this attribute to a method within a  class makes the method callable from the NUnit test runner. There is a property called Description which is optional which you can provide a more detailed test description. This class cannot be inherited.">
+    <meta name="description" content="Indicates that a test method is a theory and can be run multiple times with different input data.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -88,10 +88,7 @@
 
 
   <h1 id="NUnit_Framework_TheoryAttribute" data-uid="NUnit.Framework.TheoryAttribute" class="text-break">Class TheoryAttribute</h1>
-  <div class="markdown level0 summary"><p>Adding this attribute to a method within a <a class="xref" href="NUnit.Framework.TestFixtureAttribute.html">TestFixtureAttribute</a>
-class makes the method callable from the NUnit test runner. There is a property
-called Description which is optional which you can provide a more detailed test
-description. This class cannot be inherited.</p>
+  <div class="markdown level0 summary"><p>Indicates that a test method is a theory and can be run multiple times with different input data.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -250,17 +247,26 @@ description. This class cannot be inherited.</p>
     <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
 public class TheoryAttribute : CombiningStrategyAttribute, IApplyToTest, ITestBuilder, IImplyFixture</code></pre>
   </div>
+  <h5 id="NUnit_Framework_TheoryAttribute_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The theory attribute allows a test to be executed with a variety of data sets. For more details, please refer to the NUnit documentation.</p>
+</div>
   <h5 id="NUnit_Framework_TheoryAttribute_examples"><strong>Examples</strong></h5>
-  <p>[TestFixture]
-public class Fixture
+  <p>public class SqrtTests
 {
-[Test]
-public void MethodToTest()
-{}</p>
-<p>[Test(Description = &quot;more detailed description&quot;)]
-public void TestDescriptionMethod()
-{}
-}</p>
+[DatapointSource]
+public double[] values = new double[] { 0.0, 1.0, -1.0, 42.0 };</p>
+<pre><code>[Theory]
+public void SquareRootDefinition(double num)
+{
+    Assume.That(num &gt;= 0.0);
+
+    double sqrt = Math.Sqrt(num);
+
+    Assert.That(sqrt &gt;= 0.0);
+    Assert.That(sqrt * sqrt, Is.EqualTo(num).Within(0.000001));
+}
+</code></pre>
+<p>}</p>
 
   <h3 id="constructors">Constructors
 </h3>
@@ -303,6 +309,10 @@ public void TestDescriptionMethod()
   </div>
   <div>
       <a class="xref" href="NUnit.Framework.Interfaces.IImplyFixture.html">IImplyFixture</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><span><a href="https://docs.nunit.org/articles/nunit/writing-tests/attributes/theory.html">NUnit Theory Documentation</a></span></div>
   </div>
 
 </article>

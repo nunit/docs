@@ -330,6 +330,34 @@ constraint to the Count property of the object being tested.</p>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_Constraints_ConstraintExpression_Even_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Even*"></a>
+  <h4 id="NUnit_Framework_Constraints_ConstraintExpression_Even" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Even">Even</h4>
+  <div class="markdown level1 summary"><p>Returns a constraint that tests for a number to be even (i.e. a multiple of two)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultipleOfConstraint Even { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.MultipleOfConstraint.html">MultipleOfConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_Constraints_ConstraintExpression_Exist_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Exist*"></a>
   <h4 id="NUnit_Framework_Constraints_ConstraintExpression_Exist" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Exist">Exist</h4>
   <div class="markdown level1 summary"><p>Returns a constraint that succeeds if the value
@@ -638,6 +666,34 @@ following constraint.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="NUnit.Framework.Constraints.NullConstraint.html">NullConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_ConstraintExpression_Odd_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Odd*"></a>
+  <h4 id="NUnit_Framework_Constraints_ConstraintExpression_Odd" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Odd">Odd</h4>
+  <div class="markdown level1 summary"><p>Returns a constraint that tests for a number to be odd.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultipleOfConstraint Odd { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.MultipleOfConstraint.html">MultipleOfConstraint</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1788,6 +1844,67 @@ presence of a particular value in the Dictionary value collection.</p>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_Constraints_ConstraintExpression_Contain_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Contain*"></a>
+  <h4 id="NUnit_Framework_Constraints_ConstraintExpression_Contain__1___0_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Contain``1(``0)">Contain&lt;T&gt;(T?)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html">SomeItemsConstraint</a> checking for the
+presence of a particular object in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SomeItemsConstraint&lt;T&gt; Contain&lt;T&gt;(T? expected)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">expected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint-1.html">SomeItemsConstraint</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_Constraints_ConstraintExpression_Contains_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Contains*"></a>
   <h4 id="NUnit_Framework_Constraints_ConstraintExpression_Contains_System_Object_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Contains(System.Object)">Contains(object?)</h4>
   <div class="markdown level1 summary"><p>
@@ -1885,6 +2002,73 @@ To search for a collection element instead of a substring, use the
     <tbody>
       <tr>
         <td><a class="xref" href="NUnit.Framework.Constraints.ContainsConstraint.html">ContainsConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_ConstraintExpression_Contains_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Contains*"></a>
+  <h4 id="NUnit_Framework_Constraints_ConstraintExpression_Contains__1___0_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Contains``1(``0)">Contains&lt;T&gt;(T?)</h4>
+  <div class="markdown level1 summary"><p>
+Returns a new <a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html">SomeItemsConstraint</a> checking for the
+presence of a particular object in the collection.
+</p>
+<p>
+To search for a substring instead of a collection element, use the
+<a class="xref" href="NUnit.Framework.Constraints.ConstraintExpression.html#NUnit_Framework_Constraints_ConstraintExpression_Contains_System_String_">Contains(string?)</a> overload.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SomeItemsConstraint&lt;T&gt; Contains&lt;T&gt;(T? expected)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">expected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint-1.html">SomeItemsConstraint</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -2712,7 +2896,7 @@ value ends with the substring supplied as an argument.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EqualConstraint EqualTo&lt;T&gt;(T? expected)</code></pre>
+    <pre><code class="lang-csharp hljs">public EqualConstraint&lt;T&gt; EqualTo&lt;T&gt;(T? expected)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2741,7 +2925,7 @@ value ends with the substring supplied as an argument.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint-1.html">EqualConstraint</a>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -3562,6 +3746,112 @@ presence of a particular object in the collection.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html">SomeItemsConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_ConstraintExpression_Member_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Member*"></a>
+  <h4 id="NUnit_Framework_Constraints_ConstraintExpression_Member__1___0_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.Member``1(``0)">Member&lt;T&gt;(T?)</h4>
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html">SomeItemsConstraint</a> checking for the
+presence of a particular object in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SomeItemsConstraint&lt;T&gt; Member&lt;T&gt;(T? expected)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">expected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint-1.html">SomeItemsConstraint</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/ConstraintExpression.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_ConstraintExpression_MultipleOf_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.MultipleOf*"></a>
+  <h4 id="NUnit_Framework_Constraints_ConstraintExpression_MultipleOf_System_Int32_" data-uid="NUnit.Framework.Constraints.ConstraintExpression.MultipleOf(System.Int32)">MultipleOf(int)</h4>
+  <div class="markdown level1 summary"><p>Returns a constraint that tests for a number to be a multiple of another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultipleOfConstraint MultipleOf(int multiple)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">multiple</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.MultipleOfConstraint.html">MultipleOfConstraint</a></td>
         <td></td>
       </tr>
     </tbody>

@@ -234,6 +234,34 @@ succeeding if all of them succeed.</p>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Is.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_Is_Even_" data-uid="NUnit.Framework.Is.Even*"></a>
+  <h4 id="NUnit_Framework_Is_Even" data-uid="NUnit.Framework.Is.Even">Even</h4>
+  <div class="markdown level1 summary"><p>Returns a constraint that tests for a number to be even (i.e. a multiple of two)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultipleOfConstraint Even { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.MultipleOfConstraint.html">MultipleOfConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Is.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_Is_False_" data-uid="NUnit.Framework.Is.False*"></a>
   <h4 id="NUnit_Framework_Is_False" data-uid="NUnit.Framework.Is.False">False</h4>
   <div class="markdown level1 summary"><p>Returns a constraint that tests for False</p>
@@ -367,6 +395,34 @@ following constraint.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="NUnit.Framework.Constraints.NullConstraint.html">NullConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Is.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Is_Odd_" data-uid="NUnit.Framework.Is.Odd*"></a>
+  <h4 id="NUnit_Framework_Is_Odd" data-uid="NUnit.Framework.Is.Odd">Odd</h4>
+  <div class="markdown level1 summary"><p>Returns a constraint that tests for a number to be odd.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultipleOfConstraint Odd { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.MultipleOfConstraint.html">MultipleOfConstraint</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1665,7 +1721,7 @@ actual value is less than or equal to the supplied argument</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static EqualConstraint EqualTo&lt;T&gt;(IEnumerable&lt;T&gt;? expected)</code></pre>
+    <pre><code class="lang-csharp hljs">public static EqualConstraint&lt;T&gt; EqualTo&lt;T&gt;(IEnumerable&lt;T&gt;? expected)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1694,7 +1750,7 @@ actual value is less than or equal to the supplied argument</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint-1.html">EqualConstraint</a>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1725,7 +1781,7 @@ actual value is less than or equal to the supplied argument</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static EqualConstraint EqualTo&lt;T&gt;(T? expected)</code></pre>
+    <pre><code class="lang-csharp hljs">public static EqualConstraint&lt;T&gt; EqualTo&lt;T&gt;(T? expected)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1754,7 +1810,67 @@ actual value is less than or equal to the supplied argument</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint.html">EqualConstraint</a></td>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint-1.html">EqualConstraint</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Is.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Is_EqualTo_" data-uid="NUnit.Framework.Is.EqualTo*"></a>
+  <h4 id="NUnit_Framework_Is_EqualTo__1___0___" data-uid="NUnit.Framework.Is.EqualTo``1(``0[])">EqualTo&lt;T&gt;(T[]?)</h4>
+  <div class="markdown level1 summary"><p>Returns a constraint that tests two collections for equality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static EqualConstraint&lt;T&gt; EqualTo&lt;T&gt;(T[]? expected)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>T[]</td>
+        <td><span class="parametername">expected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.EqualConstraint-1.html">EqualConstraint</a>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -2206,6 +2322,51 @@ actual value is less than or equal to the supplied argument</p>
     <tbody>
       <tr>
         <td><a class="xref" href="NUnit.Framework.Constraints.LessThanOrEqualConstraint.html">LessThanOrEqualConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Is.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Is_MultipleOf_" data-uid="NUnit.Framework.Is.MultipleOf*"></a>
+  <h4 id="NUnit_Framework_Is_MultipleOf_System_Int32_" data-uid="NUnit.Framework.Is.MultipleOf(System.Int32)">MultipleOf(int)</h4>
+  <div class="markdown level1 summary"><p>Returns a constraint that tests for a number to be a multiple of another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MultipleOfConstraint MultipleOf(int multiple)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">multiple</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.MultipleOfConstraint.html">MultipleOfConstraint</a></td>
         <td></td>
       </tr>
     </tbody>

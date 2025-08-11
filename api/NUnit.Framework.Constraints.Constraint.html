@@ -105,6 +105,7 @@ constraints.</p>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.ContainsConstraint.html">ContainsConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.CountZeroConstraint.html">CountZeroConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.DefaultConstraint.html">DefaultConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.DictionaryContainsKeyConstraint.html">DictionaryContainsKeyConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EmptyConstraint.html">EmptyConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EmptyDirectoryConstraint.html">EmptyDirectoryConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.EmptyGuidConstraint.html">EmptyGuidConstraint</a></div>
@@ -118,6 +119,7 @@ constraints.</p>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.ExactCountConstraint.html">ExactCountConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.FalseConstraint.html">FalseConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.FileOrDirectoryExistsConstraint.html">FileOrDirectoryExistsConstraint</a></div>
+      <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.MultipleOfConstraint.html">MultipleOfConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.NaNConstraint.html">NaNConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.NullConstraint.html">NullConstraint</a></div>
       <div class="level2"><a class="xref" href="NUnit.Framework.Constraints.PredicateConstraint-1.html">PredicateConstraint&lt;T&gt;</a></div>
@@ -707,7 +709,8 @@ derived classes may override it to provide for delayed processing.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual ConstraintResult ApplyTo&lt;TActual&gt;(ref TActual actual)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This was never implemented and will be removed.&quot;)]
+public virtual ConstraintResult ApplyTo&lt;TActual&gt;(ref TActual actual)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">

@@ -115,6 +115,9 @@
       <a class="xref" href="NUnit.Framework.Constraints.PrefixConstraint.html#NUnit_Framework_Constraints_PrefixConstraint_DescriptionPrefix">PrefixConstraint.DescriptionPrefix</a>
     </div>
     <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1___0__">Constraint.ApplyTo&lt;TActual&gt;(ref TActual)</a>
+    </div>
+    <div>
       <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_GetTestObject__1_NUnit_Framework_Constraints_ActualValueDelegate___0__">Constraint.GetTestObject&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt;)</a>
     </div>
     <div>
@@ -568,72 +571,6 @@ but derived classes may override it to provide for delayed processing.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1___0_">Constraint.ApplyTo&lt;TActual&gt;(TActual)</a></div>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/DelayedConstraint.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_Constraints_DelayedConstraint_ApplyTo_" data-uid="NUnit.Framework.Constraints.DelayedConstraint.ApplyTo*"></a>
-  <h4 id="NUnit_Framework_Constraints_DelayedConstraint_ApplyTo__1___0__" data-uid="NUnit.Framework.Constraints.DelayedConstraint.ApplyTo``1(``0@)">ApplyTo&lt;TActual&gt;(ref TActual)</h4>
-  <div class="markdown level1 summary"><p>Test whether the constraint is satisfied by a given reference.
-Overridden to wait for the specified delay period before
-calling the base constraint with the dereferenced value.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override ConstraintResult ApplyTo&lt;TActual&gt;(ref TActual actual)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TActual</span></td>
-        <td><span class="parametername">actual</span></td>
-        <td><p>A reference to the value to be tested</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
-        <td><p>True for success, false for failure</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TActual</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1___0__">Constraint.ApplyTo&lt;TActual&gt;(ref TActual)</a></div>
 
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/DelayedConstraint.cs">View Source</a>
