@@ -1,7 +1,4 @@
 using NUnit.Framework;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 #pragma warning disable CA1822
 #pragma warning disable NUnit2045
@@ -20,6 +17,7 @@ public class AttributeExamples
     }
     #endregion
 
+    // ReSharper disable UnusedMember.Global
     #region ValuesAttributeEnumExample
     public enum MyEnumType
     {
@@ -34,15 +32,20 @@ public class AttributeExamples
         Assert.That(myEnumArgument, Is.TypeOf<MyEnumType>());
     }
     #endregion
+    // ReSharper restore UnusedMember.Global
 
+    // ReSharper disable RedundantBoolCompare
+    #pragma warning disable CS8794 // The input always matches the provided pattern.
     #region ValuesAttributeBoolExample
     [Test]
     public void ValuesAttribute_BoolExample([Values] bool value)
     {
         // This test will run twice: once with true, once with false
-        Assert.That(value == true || value == false);
+        Assert.That(value is true or false);
     }
     #endregion
+    #pragma warning restore CS8794 // The input always matches the provided pattern.
+    // ReSharper restore RedundantBoolCompare
 
     #region RangeAttributeExample
     [Test]
@@ -85,6 +88,9 @@ public class CategoryAttributeExamples
     }
     #endregion
 
+    // ReSharper disable RedundantAttributeUsageProperty
+    // ReSharper disable MemberCanBePrivate.Global
+    // ReSharper disable RedundantTypeDeclarationBody
     #region CustomCategoryAttribute
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public class CriticalAttribute : CategoryAttribute
@@ -97,18 +103,21 @@ public class CategoryAttributeExamples
         Assert.Pass("This test uses a custom category attribute");
     }
     #endregion
+    // ReSharper restore RedundantAttributeUsageProperty
+    // ReSharper restore MemberCanBePrivate.Global
+    // ReSharper restore RedundantTypeDeclarationBody
 }
 
 [TestFixture]
 public class SetupTeardownExamples
 {
-    private int counter;
+    private int _counter;
 
     #region SetUpExample
     [SetUp]
     public void Init()
     {
-        counter = 0;
+        _counter = 0;
         Console.WriteLine("SetUp method called before each test");
     }
     #endregion
@@ -124,28 +133,28 @@ public class SetupTeardownExamples
     [Test]
     public void TestMethod1()
     {
-        counter++;
-        Assert.That(counter, Is.EqualTo(1));
+        _counter++;
+        Assert.That(_counter, Is.EqualTo(1));
     }
 
     [Test]
     public void TestMethod2()
     {
-        counter++;
-        Assert.That(counter, Is.EqualTo(1));
+        _counter++;
+        Assert.That(_counter, Is.EqualTo(1));
     }
 }
 
 [TestFixture]
 public class OneTimeSetupTeardownExamples
 {
-    private static int staticCounter;
+    private static int _staticCounter;
 
     #region OneTimeSetUpExample
     [OneTimeSetUp]
     public void OneTimeInit()
     {
-        staticCounter = 100;
+        _staticCounter = 100;
         Console.WriteLine("OneTimeSetUp called once before all tests in the fixture");
     }
     #endregion
@@ -161,13 +170,13 @@ public class OneTimeSetupTeardownExamples
     [Test]
     public void Test1()
     {
-        Assert.That(staticCounter, Is.EqualTo(100));
+        Assert.That(_staticCounter, Is.EqualTo(100));
     }
 
     [Test]
     public void Test2()
     {
-        Assert.That(staticCounter, Is.EqualTo(100));
+        Assert.That(_staticCounter, Is.EqualTo(100));
     }
 }
 
