@@ -1,9 +1,4 @@
 using NUnit.Framework;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
 
 #pragma warning disable CA1822
 #pragma warning disable NUnit2045
@@ -46,8 +41,8 @@ public class ConstraintExamples
         Assert.That("Hello!", Is.Not.EqualTo("HELLO!"));
         Assert.That("Hello!", Is.EqualTo("HELLO!").IgnoreCase);
 
-        string[] expected = new string[] { "Hello", "World" };
-        string[] actual = new string[] { "HELLO", "world" };
+        string[] expected = ["Hello", "World"];
+        string[] actual = ["HELLO", "world"];
         Assert.That(actual, Is.EqualTo(expected).IgnoreCase);
     }
     #endregion
@@ -67,14 +62,14 @@ public class ConstraintExamples
     [Test]
     public void CollectionContains_Examples()
     {
-        int[] iarray = new int[] { 1, 2, 3 };
-        string[] sarray = new string[] { "a", "b", "c" };
+        int[] intArray = [1, 2, 3];
+        string[] stringArray = ["a", "b", "c"];
         
-        Assert.That(iarray, Has.Member(3));
-        Assert.That(sarray, Has.Member("b"));
-        Assert.That(sarray, Contains.Item("c"));
-        Assert.That(sarray, Has.No.Member("x"));
-        Assert.That(iarray, Does.Contain(3));
+        Assert.That(intArray, Has.Member(3));
+        Assert.That(stringArray, Has.Member("b"));
+        Assert.That(stringArray, Contains.Item("c"));
+        Assert.That(stringArray, Has.No.Member("x"));
+        Assert.That(intArray, Does.Contain(3));
     }
     #endregion
 
@@ -91,6 +86,7 @@ public class ConstraintExamples
     }
     #endregion
 
+    #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
     #region NullConstraintExamples
     [Test]
     public void NullConstraint_Examples()
@@ -102,6 +98,7 @@ public class ConstraintExamples
         Assert.That(anObject, Is.Not.Null);
     }
     #endregion
+    #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 
     #region LessThanExamples
     [Test]
@@ -193,6 +190,8 @@ public class ConstraintExamples
     }
     #endregion
 
+    // ReSharper disable once MemberCanBePrivate.Global
+    // ReSharper disable UnusedAutoPropertyAccessor.Global
     #region PropertyConstraintExamples
     public class Person
     {
@@ -211,6 +210,7 @@ public class ConstraintExamples
         Assert.That(person, Has.Property("Email").Contains("@"));
     }
     #endregion
+    // ReSharper restore UnusedAutoPropertyAccessor.Global
 
     #region EmptyConstraintExamples
     [Test]
@@ -238,7 +238,7 @@ public class ConstraintExamples
     {
         Assert.That(42, Is.Not.EqualTo(99));
         Assert.That("Hello", Is.Not.Null);
-        Assert.That(new int[] { 1, 2, 3 }, Is.Not.Empty);
+        Assert.That(new[] { 1, 2, 3 }, Is.Not.Empty);
     }
     #endregion
 
