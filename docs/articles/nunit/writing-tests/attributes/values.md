@@ -17,13 +17,7 @@ test method itself.
 
 ## Example
 
-```csharp
-[Test]
-public void MyTest([Values(1, 2, 3)] int x, [Values("A", "B")] string s)
-{
-    /* ... */
-}
-```
+[!code-csharp[ValuesAttributeExample](~/snippets/Snippets.NUnit/AttributeExamples.cs#ValuesAttributeExample)]
 
 The above test will be executed six times, as follows:
 
@@ -43,24 +37,12 @@ The values attribute works in a special way with Enums and Boolean parameters.
 When used without any arguments, the **[Values]** attribute on an enum parameter
 will automatically include all possible values of the enumeration.
 
-```csharp
-[Test]
-public void MyEnumTest([Values]MyEnumType myEnumArgument)
-{
-    //...
-}
-```
+[!code-csharp[ValuesAttributeEnumExample](~/snippets/Snippets.NUnit/AttributeExamples.cs#ValuesAttributeEnumExample)]
 
 There is the same support for Boolean values. Add the **[Values]** attribute to a bool
 and the method will be run with true and false.
 
-```csharp
-[Test]
-public void MyBoolTest([Values]bool value)
-{
-    //...
-}
-```
+[!code-csharp[ValuesAttributeBoolExample](~/snippets/Snippets.NUnit/AttributeExamples.cs#ValuesAttributeBoolExample)]
 
 ## See also
 

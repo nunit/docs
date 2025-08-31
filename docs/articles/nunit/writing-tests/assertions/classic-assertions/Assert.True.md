@@ -15,9 +15,7 @@ ClassicAssert.IsTrue(bool condition, string message, params object[] params);
 You can also use **Assert.That** with a Boolean argument to achieve the
 same result.
 
-```csharp
-Assert.That(condition);
-```
+[!code-csharp[TrueExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#TrueExamples)]
 
 ## See Also
 

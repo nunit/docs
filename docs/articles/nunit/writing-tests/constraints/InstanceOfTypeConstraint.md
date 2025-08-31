@@ -17,9 +17,4 @@ Is.InstanceOf<T>()
 
 ## Examples of Use
 
-```csharp
-Assert.That("Hello", Is.InstanceOf(typeof(string)));
-Assert.That(5, Is.Not.InstanceOf(typeof(string)));
-
-Assert.That(5, Is.Not.InstanceOf<string>());
-```
+[!code-csharp[TypeConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#TypeConstraintExamples)]

@@ -27,22 +27,7 @@ namespace NUnit.Tests
 
 ## Test Syntax
 
-```csharp
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
-    [Test]
-    [Ignore("Ignore a test")]
-    public void IgnoredTest()
-    { /* ... */ }
-  }
-}
-```
+[!code-csharp[IgnoreTestExample](~/snippets/Snippets.NUnit/AttributeExamples.cs#IgnoreTestExample)]
 
 ## Ignore Until
 

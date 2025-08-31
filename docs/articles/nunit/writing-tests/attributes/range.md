@@ -29,15 +29,7 @@ public RangeAttribute(double from, double to, double step);
 
 The following test will be executed nine times.
 
-```csharp
-[Test]
-public void MyTest(
-    [Values(1, 2, 3)] int x,
-    [Range(0.2, 0.6, 0.2)] double d)
-{
-    /* ... */
-}
-```
+[!code-csharp[RangeAttributeExample](~/snippets/Snippets.NUnit/AttributeExamples.cs#RangeAttributeExample)]
 
 The MyTest method is called nine times, as follows:
 

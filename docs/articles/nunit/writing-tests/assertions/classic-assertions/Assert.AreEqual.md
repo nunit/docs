@@ -17,9 +17,7 @@ ClassicAssert.AreEqual(object expected, object actual,
 The method overloads that compare two objects make special provision so that numeric
 values of different types compare as expected. This assert succeeds:
 
-```csharp
-ClassicAssert.AreEqual(5, 5.0);
-```
+[!code-csharp[AreEqualExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#AreEqualExamples)]
 
 ## Comparing Floating Point Values
 
@@ -29,11 +27,7 @@ as equal.
 
 Special values are handled so that the following Asserts succeed:
 
-```csharp
-ClassicAssert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
-ClassicAssert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
-ClassicAssert.AreEqual(double.NaN, double.NaN);
-```
+[!code-csharp[AreEqualExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#AreEqualExamples)]
 
 ## Comparing Arrays and Collections
 

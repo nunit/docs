@@ -16,11 +16,7 @@ Is.Empty
 
 ## Examples of Use
 
-```csharp
-Assert.That("", Is.Empty);
-Assert.That(new Dictionary<int, int>(), Is.Empty);
-Assert.That(new List<string>(), Is.Empty);
-```
+[!code-csharp[EmptyConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#EmptyConstraintExamples)]
 
 ## Notes
 
