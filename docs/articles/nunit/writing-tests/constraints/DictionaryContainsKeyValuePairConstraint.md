@@ -25,7 +25,7 @@ Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("Hi", "Univ
 Assert.That(dictionary, Does.ContainKey("Hola").WithValue("Mundo"));
 Assert.That(dictionary, Does.Not.ContainKey("Hello").WithValue("NotValue"));
 Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("HI", "UNIVERSE").IgnoreCase);
-Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("HI", "UNIVERSE").Using<string>((x, y) => StringUtil.Compare(x, y, true)));
+Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint("HI", "UNIVERSE").Using<string>((x, y) => string.Compare(x, y, StringComparison.CurrentCultureIgnoreCase)));
 ```
 
 ## Modifiers
