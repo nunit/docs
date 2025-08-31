@@ -17,4 +17,10 @@ Has.None...
 
 ## Examples of Use
 
-[!code-csharp[NotConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#NotConstraintExamples)]
+```csharp
+int[] iarray = new int[] { 1, 2, 3 };
+string[] sarray = new string[] { "a", "b", "c" };
+Assert.That(iarray, Has.None.Null);
+Assert.That(sarray, Has.None.EqualTo("d"));
+Assert.That(iarray, Has.None.LessThan(0));
+```
