@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is the NUnit documentation repository that serves content at https://docs.nunit.org. It's a DocFX-based static site generator that builds documentation from markdown files and generates API documentation from .NET assemblies.
+This is the NUnit documentation repository that serves content at <https://docs.nunit.org>. It's a DocFX-based static site generator that builds documentation from markdown files and generates API documentation from .NET assemblies.
 
 ## Architecture
 
@@ -18,14 +18,16 @@ This is the NUnit documentation repository that serves content at https://docs.n
 ## Development Commands
 
 ### DevContainer/Codespaces (Recommended)
+
 - `build` - Build the documentation site using DocFX
-- `serve` - Build and serve the site locally at http://localhost:8080
+- `serve` - Build and serve the site locally at <http://localhost:8080>
 - `lint` - Run markdown linting using markdownlint-cli2
 - `spellcheck` - Run spell checking using cspell
 - `snippets` - Build and test the code snippets solution
 - `apidocs` - Download latest NUnit API documentation
 
 ### Local Development (requires docfx installed)
+
 - `docfx docs/docfx.json` - Build the site
 - `docfx docs/docfx.json --serve` - Build and serve locally
 - `markdownlint-cli2 --config ".github/linters/.markdownlint.yml" "docs/**/*.md"` - Lint markdown
@@ -51,6 +53,7 @@ This is the NUnit documentation repository that serves content at https://docs.n
 ## Code Snippets
 
 The repository includes a .NET solution at `docs/snippets/Snippets.sln` containing:
+
 - **Snippets.NUnit**: NUnit framework code examples
 - **Snippets.NUnitLite**: NUnit Lite framework examples
 
@@ -62,4 +65,4 @@ API docs are generated from NUnit release assemblies placed in the `code-output/
 
 ## Deployment
 
-The site is built and deployed via GitHub Actions to the `gh-pages` branch, which serves https://docs.nunit.org.
+The site is built and deployed via GitHub Actions to the `gh-pages` branch, which serves <https://docs.nunit.org>.
