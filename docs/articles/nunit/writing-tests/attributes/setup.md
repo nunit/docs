@@ -14,26 +14,7 @@ If a SetUp method fails or throws an exception, the test is not executed and a f
 
 ## Example
 
-```csharp
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
-    [SetUp] public void Init()
-    { /* ... */ }
-
-    [TearDown] public void Cleanup()
-    { /* ... */ }
-
-    [Test] public void Add()
-    { /* ... */ }
-  }
-}
-```
+[!code-csharp[SetUpTearDownExample](~/snippets/Snippets.NUnit/AttributeExamples.cs#SetUpTearDownExample)]
 
 ## Inheritance
 

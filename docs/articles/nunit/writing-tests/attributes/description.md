@@ -5,23 +5,7 @@ XML output file.
 
 ## Example
 
-```csharp
-[assembly: Description("Assembly description here")]
-
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture, Description("Fixture description here")]
-  public class SomeTests
-  {
-    [Test, Description("Test description here")]
-    public void OneTest()
-    { /* ... */ }
-  }
-}
-```
+[!code-csharp[DescriptionTestExample](~/snippets/Snippets.NUnit/AttributeExamples.cs#DescriptionTestExample)]
 
 > [!NOTE]
 > The Test and TestFixture attributes continue to support an optional Description property. The Description

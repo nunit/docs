@@ -28,3 +28,7 @@ With NUnit 3.6, an enhanced syntax is available that allows expressing the delay
 ```
 
 Only Minutes, Seconds and MilliSeconds (note capital-S) are accepted as time modifiers. The default is to use MilliSeconds.
+
+## Examples of Use
+
+[!code-csharp[DelayedConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#DelayedConstraintExamples)]

@@ -31,15 +31,7 @@ Does.Contain(object)
 
 ## Examples of Use
 
-```csharp
-int[] iarray = new int[] { 1, 2, 3 };
-string[] sarray = new string[] { "a", "b", "c" };
-Assert.That(iarray, Has.Member(3));
-Assert.That(sarray, Has.Member("b"));
-Assert.That(sarray, Contains.Item("c"));
-Assert.That(sarray, Has.No.Member("x"));
-Assert.That(iarray, Does.Contain(3));
-```
+[!code-csharp[CollectionContainsExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#CollectionContainsExamples)]
 
 ## Note
 

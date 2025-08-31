@@ -17,9 +17,4 @@ Is.TypeOf<T>()
 
 ## Examples of Use
 
-```csharp
-Assert.That("Hello", Is.TypeOf(typeof(string)));
-Assert.That("Hello", Is.Not.TypeOf(typeof(int)));
-
-Assert.That("World", Is.TypeOf<string>());
-```
+[!code-csharp[TypeConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#TypeConstraintExamples)]

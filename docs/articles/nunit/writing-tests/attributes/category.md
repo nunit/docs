@@ -11,38 +11,11 @@ selected categories will be run. Those tests in categories that are not selected
 
 ## Test Fixture Syntax
 
-```csharp
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  [Category("LongRunning")]
-  public class LongRunningTests
-  {
-    // ...
-  }
-}
-```
+[!code-csharp[CategoryTestFixtureExample](~/snippets/Snippets.NUnit/AttributeExamples.cs#CategoryTestFixtureExample)]
 
 ## Test Syntax
 
-```csharp
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
-    [Test]
-    [Category("Long")]
-    public void VeryLongTest()
-    { /* ... */ }
-}
-```
+[!code-csharp[CategoryTestExample](~/snippets/Snippets.NUnit/AttributeExamples.cs#CategoryTestExample)]
 
 ### Custom Category Attributes
 
@@ -52,14 +25,4 @@ of CategoryAttribute sets the category name to the name of your class.
 Here's an example that creates a category of Critical tests. It works just like any other category, but has a simpler
 syntax. A test reporting system might make use of the attribute to provide special reports.
 
-```csharp
-[AttributeUsage(AttributeTargets.Method, AllowMultiple=false)]
-public class CriticalAttribute : CategoryAttribute
-{ }
-```
-
-```csharp
-[Test, Critical]
-public void MyTest()
-{ /*...*/ }
-```
+[!code-csharp[CustomCategoryAttribute](~/snippets/Snippets.NUnit/AttributeExamples.cs#CustomCategoryAttribute)]

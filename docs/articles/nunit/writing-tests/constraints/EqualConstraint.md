@@ -58,15 +58,7 @@ Numerics are compared based on their values. Different types may be compared suc
 
 Using the **Within** modifier, numerics may be tested for equality within a fixed or percent tolerance.
 
-```csharp
-Assert.That(2 + 2, Is.EqualTo(4.0));
-Assert.That(2 + 2 == 4);
-Assert.That(2 + 2, Is.Not.EqualTo(5));
-Assert.That(2 + 2 != 5);
-Assert.That(5.0, Is.EqualTo(5));
-Assert.That(5.5, Is.EqualTo(5).Within(0.075));
-Assert.That(5.5, Is.EqualTo(5).Within(1.5).Percent);
-```
+[!code-csharp[EqualConstraintNumerics](~/snippets/Snippets.NUnit/ConstraintExamples.cs#EqualConstraintNumerics)]
 
 ## Comparing Floating Point Values
 
@@ -77,26 +69,14 @@ Floating-point values may be compared using a tolerance in "Units in the Last Pl
 numerical work, this is safer than a fixed tolerance because it automatically compensates for the added inaccuracy of
 larger numbers.
 
-```csharp
-Assert.That(2.1 + 1.2, Is.EqualTo(3.3).Within(.0005));
-Assert.That(double.PositiveInfinity, Is.EqualTo(double.PositiveInfinity));
-Assert.That(double.NegativeInfinity, Is.EqualTo(double.NegativeInfinity));
-Assert.That(double.NaN, Is.EqualTo(double.NaN));
-Assert.That(20000000000000004.0, Is.EqualTo(20000000000000000.0).Within(1).Ulps);
-```
+[!code-csharp[EqualConstraintFloatingPoint](~/snippets/Snippets.NUnit/ConstraintExamples.cs#EqualConstraintFloatingPoint)]
 
 ## Comparing Strings
 
 String comparisons normally respect case. The `IgnoreCase` modifier causes the comparison to be case-insensitive. It may
 also be used when comparing arrays or collections of strings.
 
-```csharp
-Assert.That("Hello!", Is.Not.EqualTo("HELLO!"));
-Assert.That("Hello!", Is.EqualTo("HELLO!").IgnoreCase);
-
-string[] expected = new string[] { "Hello", "World" };
-string[] actual = new string[] { "HELLO", "world" };
-```
+[!code-csharp[EqualConstraintStrings](~/snippets/Snippets.NUnit/ConstraintExamples.cs#EqualConstraintStrings)]
 
 Sometimes we need to compare strings irrespective of white space characters, e.g.: when comparing Json strings.
 This can be done with the `IgnoreWhiteSpace` modifier.

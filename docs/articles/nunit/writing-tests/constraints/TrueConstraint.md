@@ -16,6 +16,4 @@ Is.True
 
 ## Example of Use
 
-```csharp
-Assert.That(condition, Is.True);
-```
+[!code-csharp[TrueConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#TrueConstraintExamples)]

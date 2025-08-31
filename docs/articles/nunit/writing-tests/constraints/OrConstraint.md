@@ -16,9 +16,7 @@ OrConstraint(Constraint left, Constraint right)
 
 ## Examples of Use
 
-```csharp
-Assert.That(3, Is.LessThan(5).Or.GreaterThan(10));
-```
+[!code-csharp[OrConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#OrConstraintExamples)]
 
 ## Evaluation Order and Precedence
 

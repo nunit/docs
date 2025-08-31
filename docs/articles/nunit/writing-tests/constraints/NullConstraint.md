@@ -16,7 +16,4 @@ Is.Null
 
 ## Examples of Use
 
-```csharp
-Assert.That(anObject, Is.Null);
-Assert.That(anObject, Is.Not.Null);
-```
+[!code-csharp[NullConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#NullConstraintExamples)]

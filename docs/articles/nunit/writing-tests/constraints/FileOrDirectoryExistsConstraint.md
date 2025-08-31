@@ -24,12 +24,4 @@ IgnoreFiles
 
 ## Examples of Use
 
-```csharp
-Assert.That(fileStr, Does.Exist);
-Assert.That(dirStr, Does.Exist);
-Assert.That(fileStr, Does.Not.Exist);
-Assert.That(dirStr, Does.Not.Exist);
-
-Assert.That(new FileInfo(fileStr), Does.Exist);
-Assert.That(new DirectoryInfo(dirStr), Does.Exist);
-```
+[!code-csharp[FileConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#FileConstraintExamples)]
