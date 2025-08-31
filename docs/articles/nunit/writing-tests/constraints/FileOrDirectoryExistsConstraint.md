@@ -24,4 +24,4 @@ IgnoreFiles
 
 ## Examples of Use
 
-[!code-csharp[GreaterThanExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#FileConstraintExamples)]
+[!code-csharp[FileConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#FileConstraintExamples)]
