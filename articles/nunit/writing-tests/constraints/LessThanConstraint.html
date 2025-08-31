@@ -101,12 +101,13 @@ Is.Negative // Equivalent to Is.LessThan(0)
 ...Within(object tolerance)
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(3, Is.LessThan(7));
-Assert.That(myOwnObject, Is.LessThan(theExpected).Using(myComparer));
-Assert.That(-5, Is.Negative);
-Assert.That(myDateTime, Is.LessThan(expectedDateTime).Within(TimeSpan.FromSeconds(1)))
+<pre><code class="lang-csharp" name="LessThanExamples">[Test]
+public void LessThan_Examples()
+{
+    Assert.That(3, Is.LessThan(7));
+    Assert.That(-5, Is.Negative);
+}
 </code></pre>
-
 </article>
           </div>
 

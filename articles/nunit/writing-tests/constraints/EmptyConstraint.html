@@ -94,11 +94,15 @@
 <pre><code class="lang-csharp">Is.Empty
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(&quot;&quot;, Is.Empty);
-Assert.That(new Dictionary&lt;int, int&gt;(), Is.Empty);
-Assert.That(new List&lt;string&gt;(), Is.Empty);
-</code></pre>
-<h2 id="notes">Notes</h2>
+<pre><code class="lang-csharp" name="EmptyConstraintExamples">[Test]
+public void EmptyConstraint_Examples()
+{
+    Assert.That(&quot;&quot;, Is.Empty);
+    Assert.That(new int[] {}, Is.Empty);
+    Assert.That(new List&lt;string&gt;(), Is.Empty);
+    Assert.That(&quot;Hello&quot;, Is.Not.Empty);
+}
+</code></pre><h2 id="notes">Notes</h2>
 <ul>
 <li><strong>EmptyConstraint</strong> creates and uses either an <a href="EmptyStringConstraint.html">EmptyStringConstraint</a>,
 <a href="EmptyDirectoryConstraint.html">EmptyDirectoryConstraint</a> or <a href="EmptyCollectionConstraint.html">EmptyCollectionConstraint</a>

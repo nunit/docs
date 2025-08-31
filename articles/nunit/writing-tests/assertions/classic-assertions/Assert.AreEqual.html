@@ -98,18 +98,48 @@ ClassicAssert.AreEqual(object expected, object actual,
 <h2 id="comparing-numerics-of-different-types">Comparing Numerics of Different Types</h2>
 <p>The method overloads that compare two objects make special provision so that numeric
 values of different types compare as expected. This assert succeeds:</p>
-<pre><code class="lang-csharp">ClassicAssert.AreEqual(5, 5.0);
-</code></pre>
-<h2 id="comparing-floating-point-values">Comparing Floating Point Values</h2>
+<pre><code class="lang-csharp" name="AreEqualExamples">[Test]
+public void AreEqual_Examples()
+{
+    // Comparing numerics of different types
+    ClassicAssert.AreEqual(5, 5.0);
+    
+    // Floating point special values
+    ClassicAssert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
+    ClassicAssert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
+    ClassicAssert.AreEqual(double.NaN, double.NaN);
+    
+    // Basic equality
+    ClassicAssert.AreEqual(&quot;expected&quot;, &quot;expected&quot;);
+    ClassicAssert.AreEqual(42, 42);
+    
+    // With tolerance for floating point
+    ClassicAssert.AreEqual(2.1 + 1.2, 3.3, 0.001);
+}
+</code></pre><h2 id="comparing-floating-point-values">Comparing Floating Point Values</h2>
 <p>Values of type float and double are compared using an additional
 argument that indicates a tolerance within which they will be considered
 as equal.</p>
 <p>Special values are handled so that the following Asserts succeed:</p>
-<pre><code class="lang-csharp">ClassicAssert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
-ClassicAssert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
-ClassicAssert.AreEqual(double.NaN, double.NaN);
-</code></pre>
-<h2 id="comparing-arrays-and-collections">Comparing Arrays and Collections</h2>
+<pre><code class="lang-csharp" name="AreEqualExamples">[Test]
+public void AreEqual_Examples()
+{
+    // Comparing numerics of different types
+    ClassicAssert.AreEqual(5, 5.0);
+    
+    // Floating point special values
+    ClassicAssert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
+    ClassicAssert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
+    ClassicAssert.AreEqual(double.NaN, double.NaN);
+    
+    // Basic equality
+    ClassicAssert.AreEqual(&quot;expected&quot;, &quot;expected&quot;);
+    ClassicAssert.AreEqual(42, 42);
+    
+    // With tolerance for floating point
+    ClassicAssert.AreEqual(2.1 + 1.2, 3.3, 0.001);
+}
+</code></pre><h2 id="comparing-arrays-and-collections">Comparing Arrays and Collections</h2>
 <p>NUnit is able to compare single-dimensioned arrays, multi-dimensioned arrays,
 nested arrays (arrays of arrays) and collections. Two arrays or collections are considered equal
 if they have the same dimensions and if each pair of corresponding elements is equal.</p>

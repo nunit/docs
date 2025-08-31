@@ -95,9 +95,22 @@ property value.</p>
 <pre><code class="lang-csharp">Has.Property(string name)... // followed by further constraint syntax
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(someObject, Has.Property(&quot;Version&quot;).EqualTo(&quot;2.0&quot;));
-Assert.That(collection, Has.Property(&quot;Count&quot;).GreaterThan(10));
-Assert.That(collection, Has.Count.GreaterThan(10);
+<pre><code class="lang-csharp" name="PropertyConstraintExamples">public class Person
+{
+    public string Name { get; set; } = &quot;&quot;;
+    public int Age { get; set; }
+    public string Email { get; set; } = &quot;&quot;;
+}
+
+[Test]
+public void PropertyConstraint_Examples()
+{
+    var person = new Person { Name = &quot;John&quot;, Age = 25, Email = &quot;john@example.com&quot; };
+    
+    Assert.That(person, Has.Property(&quot;Name&quot;).EqualTo(&quot;John&quot;));
+    Assert.That(person, Has.Property(&quot;Age&quot;).GreaterThan(18));
+    Assert.That(person, Has.Property(&quot;Email&quot;).Contains(&quot;@&quot;));
+}
 </code></pre>
 <p>As shown in the example, certain common properties are known to NUnit and may be tested using a shorter form. The
 following properties are supported:</p>

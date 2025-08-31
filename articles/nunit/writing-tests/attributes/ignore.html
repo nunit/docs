@@ -107,22 +107,13 @@ Cases</a> below.</p>
 }
 </code></pre>
 <h2 id="test-syntax">Test Syntax</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
+<pre><code class="lang-csharp" name="IgnoreTestExample">[Test]
+[Ignore(&quot;Test is not ready yet&quot;)]
+public void IgnoredTest()
 {
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
-    [Test]
-    [Ignore(&quot;Ignore a test&quot;)]
-    public void IgnoredTest()
-    { /* ... */ }
-  }
+    Assert.Fail(&quot;This test is ignored and should not run&quot;);
 }
-</code></pre>
-<h2 id="ignore-until">Ignore Until</h2>
+</code></pre><h2 id="ignore-until">Ignore Until</h2>
 <p>The <code>Until</code> named parameter allows you to ignore a test for a specific period of time, after which the test will run
 normally. The until date must be a string that can be parsed to a date.</p>
 <pre><code class="lang-csharp">[TestFixture]

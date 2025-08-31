@@ -97,9 +97,15 @@ ClassicAssert.IsTrue(bool condition, string message, params object[] params);
 </code></pre>
 <p>You can also use <strong>Assert.That</strong> with a Boolean argument to achieve the
 same result.</p>
-<pre><code class="lang-csharp">Assert.That(condition);
-</code></pre>
-<h2 id="see-also">See Also</h2>
+<pre><code class="lang-csharp" name="TrueExamples">[Test]
+public void True_Examples()
+{
+    ClassicAssert.True(2 + 2 == 4);
+    ClassicAssert.IsTrue(true);
+    ClassicAssert.True(&quot;Hello&quot;.StartsWith(&quot;H&quot;));
+    
+}
+</code></pre><h2 id="see-also">See Also</h2>
 <ul>
 <li><a class="xref" href="../../constraints/Constraints.html#condition-constraints">Condition Constraints</a></li>
 </ul>

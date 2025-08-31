@@ -102,15 +102,19 @@ Does.Contain(object)
 ...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };
-string[] sarray = new string[] { &quot;a&quot;, &quot;b&quot;, &quot;c&quot; };
-Assert.That(iarray, Has.Member(3));
-Assert.That(sarray, Has.Member(&quot;b&quot;));
-Assert.That(sarray, Contains.Item(&quot;c&quot;));
-Assert.That(sarray, Has.No.Member(&quot;x&quot;));
-Assert.That(iarray, Does.Contain(3));
-</code></pre>
-<h2 id="note">Note</h2>
+<pre><code class="lang-csharp" name="CollectionContainsExamples">[Test]
+public void CollectionContains_Examples()
+{
+    int[] intArray = [1, 2, 3];
+    string[] stringArray = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+    
+    Assert.That(intArray, Has.Member(3));
+    Assert.That(stringArray, Has.Member(&quot;b&quot;));
+    Assert.That(stringArray, Contains.Item(&quot;c&quot;));
+    Assert.That(stringArray, Has.No.Member(&quot;x&quot;));
+    Assert.That(intArray, Does.Contain(3));
+}
+</code></pre><h2 id="note">Note</h2>
 <p><code>Has.Member()</code>, <code>Contains.Item()</code> and <code>Does.Contain()</code> work the same as <code>Has.Some.EqualTo()</code>. The last statement
 generates a <a href="SomeItemsConstraint.html">SomeItemsConstraint</a> based on an <a href="EqualConstraint.html">EqualConstraint</a> and offers
 additional options such as ignoring case or specifying a tolerance. The syntax on this page may be viewed as a shortcut

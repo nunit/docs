@@ -99,15 +99,24 @@ Does.Not.Exist
 IgnoreFiles
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(fileStr, Does.Exist);
-Assert.That(dirStr, Does.Exist);
-Assert.That(fileStr, Does.Not.Exist);
-Assert.That(dirStr, Does.Not.Exist);
-
-Assert.That(new FileInfo(fileStr), Does.Exist);
-Assert.That(new DirectoryInfo(dirStr), Does.Exist);
+<pre><code class="lang-csharp" name="FileConstraintExamples">[Test]
+public void FileConstraint_Examples()
+{
+    var tempFile = Path.GetTempFileName();
+    File.WriteAllText(tempFile, &quot;test content&quot;);
+    
+    try
+    {
+        Assert.That(tempFile, Does.Exist);
+        Assert.That(&quot;nonexistent.txt&quot;, Does.Not.Exist);
+    }
+    finally
+    {
+        if (File.Exists(tempFile))
+            File.Delete(tempFile);
+    }
+}
 </code></pre>
-
 </article>
           </div>
 

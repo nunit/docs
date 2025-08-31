@@ -92,26 +92,38 @@ performed just before each test method is called.</p>
 multiple SetUp methods are only defined at different levels of an inheritance hierarchy, as explained below.</p>
 <p>If a SetUp method fails or throws an exception, the test is not executed and a failure or error is reported.</p>
 <h2 id="example">Example</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
+<pre><code class="lang-csharp" name="SetUpTearDownExample">[TestFixture]
+public class SetupTeardownExamples
 {
-  using System;
-  using NUnit.Framework;
+    private int _counter;
 
-  [TestFixture]
-  public class SuccessTests
-  {
-    [SetUp] public void Init()
-    { /* ... */ }
+    [SetUp]
+    public void Init()
+    {
+        _counter = 0;
+        Console.WriteLine(&quot;SetUp method called before each test&quot;);
+    }
+    [TearDown]
+    public void Cleanup()
+    {
+        Console.WriteLine(&quot;TearDown method called after each test&quot;);
+    }
 
-    [TearDown] public void Cleanup()
-    { /* ... */ }
+    [Test]
+    public void TestMethod1()
+    {
+        _counter++;
+        Assert.That(_counter, Is.EqualTo(1));
+    }
 
-    [Test] public void Add()
-    { /* ... */ }
-  }
+    [Test]
+    public void TestMethod2()
+    {
+        _counter++;
+        Assert.That(_counter, Is.EqualTo(1));
+    }
 }
-</code></pre>
-<h2 id="inheritance">Inheritance</h2>
+</code></pre><h2 id="inheritance">Inheritance</h2>
 <p>The SetUp attribute is inherited from any base class. Therefore, if a base class has defined a SetUp method, that method
 will be called before each test method in the derived class.</p>
 <p>You may define a SetUp method in the base class and another in the derived class. NUnit will call base class SetUp

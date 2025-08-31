@@ -104,12 +104,13 @@ public RangeAttribute(double from, double to, double step);
 </code></pre>
 <h2 id="example">Example</h2>
 <p>The following test will be executed nine times.</p>
-<pre><code class="lang-csharp">[Test]
-public void MyTest(
+<pre><code class="lang-csharp" name="RangeAttributeExample">[Test]
+public void RangeAttribute_Example(
     [Values(1, 2, 3)] int x,
     [Range(0.2, 0.6, 0.2)] double d)
 {
-    /* ... */
+    Assert.That(x, Is.GreaterThan(0));
+    Assert.That(d, Is.GreaterThan(0.0));
 }
 </code></pre>
 <p>The MyTest method is called nine times, as follows:</p>

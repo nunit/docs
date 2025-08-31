@@ -123,7 +123,20 @@ multiple times so only methods without side effects should be used in this way.<
    After(1).Minutes.PollEvery(500).MilliSeconds
 </code></pre>
 <p>Only Minutes, Seconds and MilliSeconds (note capital-S) are accepted as time modifiers. The default is to use MilliSeconds.</p>
-
+<h2 id="examples-of-use">Examples of Use</h2>
+<pre><code class="lang-csharp" name="DelayedConstraintExamples">[Test]
+public void DelayedConstraint_Examples()
+{
+    bool flag = false;
+    Task.Run(async () =&gt; 
+    { 
+        await Task.Delay(100); 
+        flag = true; 
+    });
+    
+    Assert.That(() =&gt; flag, Is.True.After(200).MilliSeconds);
+}
+</code></pre>
 </article>
           </div>
 

@@ -96,10 +96,11 @@ of the data values provided on parameters - the combinatorial approach.
 This default may be modified by use of specific attributes on the
 test method itself.</p>
 <h2 id="example">Example</h2>
-<pre><code class="lang-csharp">[Test]
-public void MyTest([Values(1, 2, 3)] int x, [Values(&quot;A&quot;, &quot;B&quot;)] string s)
+<pre><code class="lang-csharp" name="ValuesAttributeExample">[Test]
+public void ValuesAttribute_BasicExample([Values(1, 2, 3)] int x, [Values(&quot;A&quot;, &quot;B&quot;)] string s)
 {
-    /* ... */
+    Assert.That(x, Is.GreaterThan(0));
+    Assert.That(s, Is.Not.Null);
 }
 </code></pre>
 <p>The above test will be executed six times, as follows:</p>
@@ -114,21 +115,28 @@ MyTest(3, &quot;B&quot;)
 <p>The values attribute works in a special way with Enums and Boolean parameters.</p>
 <p>When used without any arguments, the <strong>[Values]</strong> attribute on an enum parameter
 will automatically include all possible values of the enumeration.</p>
-<pre><code class="lang-csharp">[Test]
-public void MyEnumTest([Values]MyEnumType myEnumArgument)
+<pre><code class="lang-csharp" name="ValuesAttributeEnumExample">public enum MyEnumType
 {
-    //...
+    Value1,
+    Value2,
+    Value3
+}
+
+[Test]
+public void ValuesAttribute_EnumExample([Values] MyEnumType myEnumArgument)
+{
+    Assert.That(myEnumArgument, Is.TypeOf&lt;MyEnumType&gt;());
 }
 </code></pre>
 <p>There is the same support for Boolean values. Add the <strong>[Values]</strong> attribute to a bool
 and the method will be run with true and false.</p>
-<pre><code class="lang-csharp">[Test]
-public void MyBoolTest([Values]bool value)
+<pre><code class="lang-csharp" name="ValuesAttributeBoolExample">[Test]
+public void ValuesAttribute_BoolExample([Values] bool value)
 {
-    //...
+    // This test will run twice: once with true, once with false
+    Assert.That(value is true or false);
 }
-</code></pre>
-<h2 id="see-also">See also</h2>
+</code></pre><h2 id="see-also">See also</h2>
 <ul>
 <li><a href="range.html">Range Attribute</a></li>
 <li><a href="random.html">Random Attribute</a></li>

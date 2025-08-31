@@ -99,13 +99,15 @@
 ...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };
-
-Assert.That(42, Is.InRange(1, 100));
-Assert.That(iarray, Is.All.InRange(1, 3));
-Assert.That(myOwnObject, Is.InRange(lowExpected, highExpected).Using(myComparer));
+<pre><code class="lang-csharp" name="RangeConstraintExamples">[Test]
+public void RangeConstraint_Examples()
+{
+    int[] intArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    Assert.That(5, Is.InRange(1, 10));
+    Assert.That(42, Is.Not.InRange(1, 10));
+    Assert.That(intArray, Has.All.InRange(1, 10));
+}
 </code></pre>
-
 </article>
           </div>
 

@@ -127,34 +127,45 @@ Is.Zero // Equivalent to Is.EqualTo(0)
 <h2 id="comparing-numerics">Comparing Numerics</h2>
 <p>Numerics are compared based on their values. Different types may be compared successfully if their values are equal.</p>
 <p>Using the <strong>Within</strong> modifier, numerics may be tested for equality within a fixed or percent tolerance.</p>
-<pre><code class="lang-csharp">Assert.That(2 + 2, Is.EqualTo(4.0));
-Assert.That(2 + 2 == 4);
-Assert.That(2 + 2, Is.Not.EqualTo(5));
-Assert.That(2 + 2 != 5);
-Assert.That(5.0, Is.EqualTo(5));
-Assert.That(5.5, Is.EqualTo(5).Within(0.075));
-Assert.That(5.5, Is.EqualTo(5).Within(1.5).Percent);
-</code></pre>
-<h2 id="comparing-floating-point-values">Comparing Floating Point Values</h2>
+<pre><code class="lang-csharp" name="EqualConstraintNumerics">[Test]
+public void EqualConstraint_Numerics()
+{
+    Assert.That(2 + 2, Is.EqualTo(4.0));
+    Assert.That(2 + 2 == 4);
+    Assert.That(2 + 2, Is.Not.EqualTo(5));
+    Assert.That(2 + 2 != 5);
+    Assert.That(5.0, Is.EqualTo(5));
+    Assert.That(5.5, Is.EqualTo(5).Within(0.5));
+    Assert.That(5.5, Is.EqualTo(5).Within(10).Percent);
+}
+</code></pre><h2 id="comparing-floating-point-values">Comparing Floating Point Values</h2>
 <p>Values of type float and double are normally compared using a tolerance specified by the <strong>Within</strong> modifier. The
 special values PositiveInfinity, NegativeInfinity and NaN compare as equal to themselves.</p>
 <p>Floating-point values may be compared using a tolerance in &quot;Units in the Last Place&quot; or ULPs. For certain types of
 numerical work, this is safer than a fixed tolerance because it automatically compensates for the added inaccuracy of
 larger numbers.</p>
-<pre><code class="lang-csharp">Assert.That(2.1 + 1.2, Is.EqualTo(3.3).Within(.0005));
-Assert.That(double.PositiveInfinity, Is.EqualTo(double.PositiveInfinity));
-Assert.That(double.NegativeInfinity, Is.EqualTo(double.NegativeInfinity));
-Assert.That(double.NaN, Is.EqualTo(double.NaN));
-Assert.That(20000000000000004.0, Is.EqualTo(20000000000000000.0).Within(1).Ulps);
-</code></pre>
-<h2 id="comparing-strings">Comparing Strings</h2>
+<pre><code class="lang-csharp" name="EqualConstraintFloatingPoint">[Test]
+public void EqualConstraint_FloatingPoint()
+{
+    Assert.That(2.1 + 1.2, Is.EqualTo(3.3).Within(.0005));
+    Assert.That(double.PositiveInfinity, Is.EqualTo(double.PositiveInfinity));
+    Assert.That(double.NegativeInfinity, Is.EqualTo(double.NegativeInfinity));
+    Assert.That(double.NaN, Is.EqualTo(double.NaN));
+    Assert.That(20000000000000004.0, Is.EqualTo(20000000000000000.0).Within(1).Ulps);
+}
+</code></pre><h2 id="comparing-strings">Comparing Strings</h2>
 <p>String comparisons normally respect case. The <code>IgnoreCase</code> modifier causes the comparison to be case-insensitive. It may
 also be used when comparing arrays or collections of strings.</p>
-<pre><code class="lang-csharp">Assert.That(&quot;Hello!&quot;, Is.Not.EqualTo(&quot;HELLO!&quot;));
-Assert.That(&quot;Hello!&quot;, Is.EqualTo(&quot;HELLO!&quot;).IgnoreCase);
+<pre><code class="lang-csharp" name="EqualConstraintStrings">[Test]
+public void EqualConstraint_Strings()
+{
+    Assert.That(&quot;Hello!&quot;, Is.Not.EqualTo(&quot;HELLO!&quot;));
+    Assert.That(&quot;Hello!&quot;, Is.EqualTo(&quot;HELLO!&quot;).IgnoreCase);
 
-string[] expected = new string[] { &quot;Hello&quot;, &quot;World&quot; };
-string[] actual = new string[] { &quot;HELLO&quot;, &quot;world&quot; };
+    string[] expected = [&quot;Hello&quot;, &quot;World&quot;];
+    string[] actual = [&quot;HELLO&quot;, &quot;world&quot;];
+    Assert.That(actual, Is.EqualTo(expected).IgnoreCase);
+}
 </code></pre>
 <p>Sometimes we need to compare strings irrespective of white space characters, e.g.: when comparing Json strings.
 This can be done with the <code>IgnoreWhiteSpace</code> modifier.

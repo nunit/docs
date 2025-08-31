@@ -94,10 +94,16 @@
 <pre><code class="lang-csharp">Is.Null
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(anObject, Is.Null);
-Assert.That(anObject, Is.Not.Null);
+<pre><code class="lang-csharp" name="NullConstraintExamples">[Test]
+public void NullConstraint_Examples()
+{
+    object anObject = null;
+    Assert.That(anObject, Is.Null);
+    
+    anObject = &quot;something&quot;;
+    Assert.That(anObject, Is.Not.Null);
+}
 </code></pre>
-
 </article>
           </div>
 

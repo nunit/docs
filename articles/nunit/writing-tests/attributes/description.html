@@ -89,20 +89,11 @@
 <p>The Description attribute is used to apply descriptive text to a Test, TestFixture or Assembly. The text appears in the
 XML output file.</p>
 <h2 id="example">Example</h2>
-<pre><code class="lang-csharp">[assembly: Description(&quot;Assembly description here&quot;)]
-
-namespace NUnit.Tests
+<pre><code class="lang-csharp" name="DescriptionTestExample">[Test]
+[Description(&quot;This test should always pass&quot;)]
+public void AlwaysPassingTest()
 {
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture, Description(&quot;Fixture description here&quot;)]
-  public class SomeTests
-  {
-    [Test, Description(&quot;Test description here&quot;)]
-    public void OneTest()
-    { /* ... */ }
-  }
+    Assert.Pass(&quot;Test passed as expected&quot;);
 }
 </code></pre>
 <div class="NOTE">

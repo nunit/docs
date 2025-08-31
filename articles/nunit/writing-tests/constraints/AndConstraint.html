@@ -94,9 +94,15 @@
 <pre><code class="lang-csharp">&lt;Constraint&gt;.And.&lt;Constraint&gt;
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(2.3, Is.GreaterThan(2.0).And.LessThan(3.0));
-</code></pre>
-<h2 id="evaluation-order-and-precedence">Evaluation Order and Precedence</h2>
+<pre><code class="lang-csharp" name="AndConstraintExamples">[Test]
+public void AndConstraint_Examples()
+{
+    Assert.That(2.3, Is.GreaterThan(2.0).And.LessThan(3.0));
+    
+    int? i = 10;
+    Assert.That(i, Is.Not.Null.And.GreaterThan(9));
+}
+</code></pre><h2 id="evaluation-order-and-precedence">Evaluation Order and Precedence</h2>
 <p>Note that the constraint evaluates the sub-constraints left to right, meaning that <code>Assert.That(i, Is.Not.Null.And.GreaterThan(9));</code> where <code>i</code> is a nullable <code>int</code> will work for <code>10</code>, but fail for <code>null</code> with the message
 <code>Expected: not null and greater than 9. But was:  null</code>. <code>Assert.That(i, Is.GreaterThan(9).And.Not.Null);</code> will also
 succeed for <code>10</code>, but throw an exception for <code>null</code>, as <code>null</code> cannot be compared to <code>9</code>.</p>

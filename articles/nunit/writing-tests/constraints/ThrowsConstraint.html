@@ -111,16 +111,15 @@ Throws.InstanceOf&lt;T&gt;()
 Throws.InnerException
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(SomeMethod, Throws.TypeOf&lt;ArgumentException&gt;());
-Assert.That(SomeMethod, Throws.Exception.TypeOf&lt;ArgumentException&gt;());
-Assert.That(SomeMethod, Throws.TypeOf&lt;ArgumentException&gt;()
-                    .With.Property(&quot;Parameter&quot;).EqualTo(&quot;myParam&quot;));
-Assert.That(SomeMethod, Throws.ArgumentException);
-Assert.That(SomeMethod, Throws.TargetInvocationException
-                    .With.InnerException.TypeOf&lt;ArgumentException&gt;());
-Assert.That(() =&gt; { throw new ArgumentException(); }, Throws.ArgumentException);
-</code></pre>
-<h2 id="notes">Notes</h2>
+<pre><code class="lang-csharp" name="ThrowsConstraintExamples">[Test]
+public void ThrowsConstraint_Examples()
+{
+    Assert.That(() =&gt; throw new ArgumentException(), Throws.ArgumentException);
+    Assert.That(() =&gt; throw new InvalidOperationException(&quot;test&quot;), 
+               Throws.InvalidOperationException.With.Message.EqualTo(&quot;test&quot;));
+    Assert.That(() =&gt; { }, Throws.Nothing);
+}
+</code></pre><h2 id="notes">Notes</h2>
 <ol>
 <li><p><strong>Throws.Exception</strong> may be followed by further constraints,
 which are applied to the exception itself as shown in the last two

@@ -95,12 +95,16 @@
 Is.InstanceOf&lt;T&gt;()
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(&quot;Hello&quot;, Is.InstanceOf(typeof(string)));
-Assert.That(5, Is.Not.InstanceOf(typeof(string)));
-
-Assert.That(5, Is.Not.InstanceOf&lt;string&gt;());
+<pre><code class="lang-csharp" name="TypeConstraintExamples">[Test]
+public void TypeConstraint_Examples()
+{
+    Assert.That(&quot;Hello&quot;, Is.TypeOf&lt;string&gt;());
+    Assert.That(&quot;Hello&quot;, Is.TypeOf(typeof(string)));
+    Assert.That(&quot;Hello&quot;, Is.InstanceOf&lt;string&gt;());
+    Assert.That(&quot;Hello&quot;, Is.InstanceOf&lt;object&gt;());
+    Assert.That(&quot;Hello&quot;, Is.AssignableTo&lt;object&gt;());
+}
 </code></pre>
-
 </article>
           </div>
 
