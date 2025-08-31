@@ -105,7 +105,7 @@ protected DictionaryContainsKeyValuePairConstraint(KeyValuePair&lt;object, objec
 Assert.That(dictionary, Does.ContainKey(&quot;Hola&quot;).WithValue(&quot;Mundo&quot;));
 Assert.That(dictionary, Does.Not.ContainKey(&quot;Hello&quot;).WithValue(&quot;NotValue&quot;));
 Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint(&quot;HI&quot;, &quot;UNIVERSE&quot;).IgnoreCase);
-Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint(&quot;HI&quot;, &quot;UNIVERSE&quot;).Using&lt;string&gt;((x, y) =&gt; StringUtil.Compare(x, y, true)));
+Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint(&quot;HI&quot;, &quot;UNIVERSE&quot;).Using&lt;string&gt;((x, y) =&gt; string.Compare(x, y, StringComparison.CurrentCultureIgnoreCase)));
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
 <pre><code class="lang-csharp">...IgnoreCase
