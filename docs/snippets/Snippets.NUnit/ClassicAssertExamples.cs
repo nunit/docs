@@ -52,8 +52,6 @@ public class ClassicAssertExamples
         ClassicAssert.IsTrue(true);
         ClassicAssert.True("Hello".StartsWith("H"));
         
-        // Using Assert.That with boolean
-        Assert.That(2 + 2 == 4);
     }
     #endregion
 
