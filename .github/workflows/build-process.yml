@@ -86,53 +86,6 @@ jobs:
         run: dotnet build --no-restore $SOLUTION_LOCATION
       - name: Test
         run: dotnet test --no-build --verbosity normal $SOLUTION_LOCATION
-  netlifypreview:
-    needs: [linting, spellcheck, build, snippets]
-    name: "Netlify Preview (PR only)"
-    runs-on: ubuntu-latest
-    if: ${{ github.ref != 'refs/heads/master'}}
-    steps:
-      - name: Download site artifacts
-        uses: actions/download-artifact@v5
-        with:
-          name: siteArtifact
-      - name: unzip site contents
-        run: unzip _site.zip
-      - name: Start deployment (PR only)
-        if: ${{ github.ref != 'refs/heads/master'}}
-        uses: bobheadxi/deployments@v1
-        id: deployment
-        with:
-          env: preview_${{github.event.number}}
-          step: start
-          token: ${{ secrets.SEAN_PAT_TO_MANAGE_ENVIRONMENTS }}
-      - name: Deploy to Netlify (PR only)
-        if: ${{ github.ref != 'refs/heads/master'}}
-        uses: South-Paw/action-netlify-cli@v2
-        id: netlify
-        with:
-          # note that the --json flag has been passed so we can parse outputs
-          args: deploy --json --dir './docs/_site' --message 'preview [${{ github.sha }}]'
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}          
-      - name: Update Preview link comment
-        if: ${{ github.ref != 'refs/heads/master'}}
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          header: previewlink
-          message: |
-            Preview link: ${{ fromJson(steps.netlify.outputs.NETLIFY_OUTPUT).deploy_url }}          
-      - name: Finish deployment
-        uses: bobheadxi/deployments@v1
-        if: ${{ github.ref != 'refs/heads/master'}}
-        with:
-          env: ${{ steps.deployment.outputs.env }}
-          step: finish
-          status: ${{ job.status }}
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-          env_url: ${{ fromJson(steps.netlify.outputs.NETLIFY_OUTPUT).deploy_url }}     
-          token: ${{ secrets.SEAN_PAT_TO_MANAGE_ENVIRONMENTS }} 
   publish:
     name: Publish (master branch only)
     needs: [linting, spellcheck, build, snippets]
