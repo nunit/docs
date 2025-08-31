@@ -26,5 +26,3 @@ Here's an example that creates a category of Critical tests. It works just like 
 syntax. A test reporting system might make use of the attribute to provide special reports.
 
 [!code-csharp[CustomCategoryAttribute](~/snippets/Snippets.NUnit/AttributeExamples.cs#CustomCategoryAttribute)]
-
-[!code-csharp[CustomCategoryAttribute](~/snippets/Snippets.NUnit/AttributeExamples.cs#CustomCategoryAttribute)]

@@ -14,7 +14,7 @@ If a SetUp method fails or throws an exception, the test is not executed and a f
 
 ## Example
 
-[!code-csharp[SetUpExample](~/snippets/Snippets.NUnit/AttributeExamples.cs#SetUpExample)]
+[!code-csharp[SetUpTearDownExample](~/snippets/Snippets.NUnit/AttributeExamples.cs#SetUpTearDownExample)]
 
 ## Inheritance
 
