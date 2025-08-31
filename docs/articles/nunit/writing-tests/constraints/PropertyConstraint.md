@@ -17,11 +17,7 @@ Has.Property(string name)... // followed by further constraint syntax
 
 ## Examples of Use
 
-```csharp
-Assert.That(someObject, Has.Property("Version").EqualTo("2.0"));
-Assert.That(collection, Has.Property("Count").GreaterThan(10));
-Assert.That(collection, Has.Count.GreaterThan(10);
-```
+[!code-csharp[PropertyConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#PropertyConstraintExamples)]
 
 As shown in the example, certain common properties are known to NUnit and may be tested using a shorter form. The
 following properties are supported:
