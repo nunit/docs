@@ -247,6 +247,7 @@ public class ExplicitAttributeExamples
 [TestFixture]
 public class TimeoutAttributeExamples
 {
+    #pragma warning disable CS0618 // Type or member is obsolete
     #region TimeoutExample
     [Test]
     [Timeout(1000)] // 1 second timeout
@@ -256,7 +257,9 @@ public class TimeoutAttributeExamples
         Assert.Pass();
     }
     #endregion
+    #pragma warning restore CS0618 // Type or member is obsolete
 
+    #pragma warning disable CS0618 // Type or member is obsolete
     #region TimeoutWithAsyncExample
     [Test]
     [Timeout(2000)] // 2 second timeout
@@ -266,24 +269,27 @@ public class TimeoutAttributeExamples
         Assert.Pass();
     }
     #endregion
+    #pragma warning restore CS0618 // Type or member is obsolete
 }
 
+// ReSharper disable RedundantDefaultMemberInitializer
+#region RepeatExample
 [TestFixture]
 public class RepeatAttributeExamples
 {
-    private int repeatCounter = 0;
+    private int _repeatCounter = 0;
 
-    #region RepeatExample
     [Test]
     [Repeat(3)]
     public void RepeatedTest()
     {
-        repeatCounter++;
-        Console.WriteLine($"Repeat iteration: {repeatCounter}");
+        _repeatCounter++;
+        Console.WriteLine($"Repeat iteration: {_repeatCounter}");
         Assert.Pass();
     }
-    #endregion
 }
+#endregion
+// ReSharper restore RedundantDefaultMemberInitializer
 
 [TestFixture]
 public class OrderAttributeExamples
@@ -315,7 +321,7 @@ public class OrderAttributeExamples
 [TestFixture]
 public class TestOfAttributeExamples
 {
-    public class Calculator
+    private class Calculator
     {
         public int Add(int a, int b) => a + b;
         public int Subtract(int a, int b) => a - b;
