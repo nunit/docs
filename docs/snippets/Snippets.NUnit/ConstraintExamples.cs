@@ -145,10 +145,10 @@ public class ConstraintExamples
     [Test]
     public void RangeConstraint_Examples()
     {
-        int[] iarray = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        int[] intArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         Assert.That(5, Is.InRange(1, 10));
         Assert.That(42, Is.Not.InRange(1, 10));
-        Assert.That(iarray, Has.All.InRange(1, 10));
+        Assert.That(intArray, Has.All.InRange(1, 10));
     }
     #endregion
 
@@ -156,17 +156,17 @@ public class ConstraintExamples
     [Test]
     public void CollectionConstraint_Examples()
     {
-        int[] iarray = { 1, 2, 3 };
-        string[] sarray = { "a", "b", "c" };
+        int[] intArray = [1, 2, 3];
+        string[] stringArray = ["a", "b", "c"];
         
-        Assert.That(iarray, Is.All.GreaterThan(0));
-        Assert.That(sarray, Is.All.InstanceOf<string>());
-        Assert.That(iarray, Has.Some.EqualTo(2));
-        Assert.That(iarray, Has.None.EqualTo(4));
-        Assert.That(iarray, Is.Unique);
+        Assert.That(intArray, Is.All.GreaterThan(0));
+        Assert.That(stringArray, Is.All.InstanceOf<string>());
+        Assert.That(intArray, Has.Some.EqualTo(2));
+        Assert.That(intArray, Has.None.EqualTo(4));
+        Assert.That(intArray, Is.Unique);
         Assert.That(new int[] {}, Is.Empty);
-        Assert.That(iarray, Has.Exactly(3).Items);
-        Assert.That(iarray, Has.Some.GreaterThan(2));
+        Assert.That(intArray, Has.Exactly(3).Items);
+        Assert.That(intArray, Has.Some.GreaterThan(2));
     }
     #endregion
 
