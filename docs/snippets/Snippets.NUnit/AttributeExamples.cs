@@ -35,7 +35,7 @@ public class AttributeExamples
     // ReSharper restore UnusedMember.Global
 
     // ReSharper disable RedundantBoolCompare
-    #pragma warning disable CS8794 // The input always matches the provided pattern.
+#pragma warning disable CS8794 // The input always matches the provided pattern.
     #region ValuesAttributeBoolExample
     [Test]
     public void ValuesAttribute_BoolExample([Values] bool value)
@@ -44,7 +44,7 @@ public class AttributeExamples
         Assert.That(value is true or false);
     }
     #endregion
-    #pragma warning restore CS8794 // The input always matches the provided pattern.
+#pragma warning restore CS8794 // The input always matches the provided pattern.
     // ReSharper restore RedundantBoolCompare
 
     #region RangeAttributeExample
@@ -108,27 +108,23 @@ public class CategoryAttributeExamples
     // ReSharper restore RedundantTypeDeclarationBody
 }
 
+#region SetUpTearDownExample
 [TestFixture]
 public class SetupTeardownExamples
 {
     private int _counter;
 
-    #region SetUpExample
     [SetUp]
     public void Init()
     {
         _counter = 0;
         Console.WriteLine("SetUp method called before each test");
     }
-    #endregion
-
-    #region TearDownExample
     [TearDown]
     public void Cleanup()
     {
         Console.WriteLine("TearDown method called after each test");
     }
-    #endregion
 
     [Test]
     public void TestMethod1()
@@ -144,6 +140,7 @@ public class SetupTeardownExamples
         Assert.That(_counter, Is.EqualTo(1));
     }
 }
+#endregion
 
 [TestFixture]
 public class OneTimeSetupTeardownExamples
@@ -247,7 +244,7 @@ public class ExplicitAttributeExamples
 [TestFixture]
 public class TimeoutAttributeExamples
 {
-    #pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
     #region TimeoutExample
     [Test]
     [Timeout(1000)] // 1 second timeout
@@ -257,9 +254,9 @@ public class TimeoutAttributeExamples
         Assert.Pass();
     }
     #endregion
-    #pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning restore CS0618 // Type or member is obsolete
 
-    #pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
     #region TimeoutWithAsyncExample
     [Test]
     [Timeout(2000)] // 2 second timeout
@@ -269,7 +266,7 @@ public class TimeoutAttributeExamples
         Assert.Pass();
     }
     #endregion
-    #pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning restore CS0618 // Type or member is obsolete
 }
 
 // ReSharper disable RedundantDefaultMemberInitializer
