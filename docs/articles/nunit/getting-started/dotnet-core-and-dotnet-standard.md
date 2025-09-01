@@ -23,9 +23,9 @@ Any tests using the new style CSPROJ format, either .NET Core or .NET 4.x, need 
 package `Microsoft.NET.Test.Sdk`. Your test assemblies must also be .NET Core or .NET 4.x, not .NET Standard.
 
 You can create a new NUnit test project using `dotnet new nunit`. It will create an ItemGroup in the csproj file with
-the necessary references.
+the necessary references. The `.csproj` will look similar to below.
 
-[!code-xml[CSProjItemGroupDefaults](~/snippets/Snippets.NUnit/Snippets.NUnit.csproj#L11-23)]
+[!code-xml[](~/snippets/Snippets.NUnit/Snippets.NUnit.csproj)]
 
 .NET Core test can be run on the command line with `dotnet test`, for example,
 
