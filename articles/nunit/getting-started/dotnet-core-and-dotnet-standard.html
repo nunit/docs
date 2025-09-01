@@ -103,14 +103,32 @@ the <code>dotnet test</code> command for .NET Core projects.</p>
 <p>Any tests using the new style CSPROJ format, either .NET Core or .NET 4.x, need to add a <code>PackageReference</code> to the NuGet
 package <code>Microsoft.NET.Test.Sdk</code>. Your test assemblies must also be .NET Core or .NET 4.x, not .NET Standard.</p>
 <p>You can create a new NUnit test project using <code>dotnet new nunit</code>. It will create an ItemGroup in the csproj file with
-the necessary references.</p>
-<pre><code class="lang-xml">  &lt;ItemGroup&gt;
-    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;17.8.0&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;4.0.1&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; Version=&quot;4.5.0&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit.Analyzers&quot; Version=&quot;3.10.0&quot; /&gt;
-    &lt;PackageReference Include=&quot;coverlet.collector&quot; Version=&quot;6.0.0&quot; /&gt;
+the necessary references. The <code>.csproj</code> will look similar to below.</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;TargetFrameworks&gt;net8.0&lt;/TargetFrameworks&gt;
+    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+    &lt;Nullable&gt;enable&lt;/Nullable&gt;
+
+    &lt;IsPackable&gt;false&lt;/IsPackable&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;17.14.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;4.4.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; Version=&quot;5.1.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;NUnit.Analyzers&quot; Version=&quot;4.10.0&quot;&gt;
+      &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
+      &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
+    &lt;/PackageReference&gt;
+    &lt;PackageReference Include=&quot;coverlet.collector&quot; Version=&quot;6.0.4&quot;&gt;
+      &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
+      &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
+    &lt;/PackageReference&gt;
   &lt;/ItemGroup&gt;
+
+&lt;/Project&gt;
 </code></pre>
 <p>.NET Core test can be run on the command line with <code>dotnet test</code>, for example,</p>
 <p>From the solution root folder</p>
