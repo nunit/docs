@@ -1,9 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Snippets.NUnit.Attributes
 {
@@ -26,6 +21,39 @@ namespace Snippets.NUnit.Attributes
         public int DivideTest(int n, int d)
         {
             return n / d;
+        }
+        #endregion
+
+        #region TestCaseWithIgnore
+        [TestCase(1, 1)]
+        [TestCase(0, 0, Ignore = "Only ignore this")]
+        [TestCase(1, 3)]
+        public void AddTestWithIgnore(int a, int b)
+        {
+            var result = a + b;
+            Assert.That(result, Is.GreaterThan(1));
+        }
+        #endregion
+
+        #region TestCaseWithExplicit
+        [TestCase(1, 1)]
+        [TestCase(0, 0, Explicit = true, Reason = "This will fail so only run explicitly")]
+        [TestCase(1, 3)]
+        public void AddTestWithExplicit(int a, int b)
+        {
+            var result = a + b;
+            Assert.That(result, Is.GreaterThan(1));
+        }
+        #endregion
+
+        #region TestCaseWithCategory
+        [TestCase(1, 1)]
+        [TestCase(2, 0, Category = "Crazy")]
+        [TestCase(1, 3)]
+        public void AddTestWithCategory(int a, int b)
+        {
+            var result = a + b;
+            Assert.That(result, Is.GreaterThan(1));
         }
         #endregion
     }

@@ -42,6 +42,41 @@ TestCaseAttribute supports a number of additional named parameters:
   but may serve a purpose for the test author)
 * **TypeArgs** specifies the `Type`s to be used when targeting a generic test method. (_NUnit 4.1+_)
 
+## Be aware of mixing the syntax for named paramaters and attributes with the same name
+
+### Ignore done right and wrong
+
+[!WARNING]
+When using the **Ignore** parameter (and others, see below), note that this has to be a named parameter. It is easy to add another Ignore attribute after the TestCase attribute. That will be the same as adding it separately, and it will apply to the complete fixture. Note, that this might apply to more of these named parameters, with names equal to other attributes, like the Explicit and Category parameters.
+
+[!TIP]
+Doing it right!
+
+[!code-csharp[TestCaseWithIgnore](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithIgnore)]
+
+![TestCaseIgnoreDoneCorrect](../../../../images/TestCaseIgnoreDoneCorrect.png)
+
+[!WARNING]
+Wrong way! (1) Adding it on the same line is the same as adding it on a separate line (3), both results in the fixture being ignored (2).
+
+![TestCaseIgnoreGoneWrong](../../../../images/TestCaseIgnoreGoneWrong.png)
+
+_Thanks to [Geir Marius Gjul](https://github.com/GeirMG) for raising this question again._
+
+### Explicit done correct
+
+Explicit is another one, and done correctly as:
+
+[!code-csharp[TestCaseWithExplicit](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithExplicit)]
+
+Note that adding the Reason is optional, and Visual Studio TestExplorer will not even show it.
+
+### Category done correct
+
+Categories can be applied to a single testcase the same way, as a named parameter. Otherwise it will apply to the whole fixture. Be sure what you're asking for!
+
+[!code-csharp[TestCaseWithCategory](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithCategory)]
+
 ## Order of Execution
 
 Individual test cases are executed in the order in which NUnit discovers them. This order does **not** necessarily
