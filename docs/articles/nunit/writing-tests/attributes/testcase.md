@@ -49,7 +49,8 @@ TestCaseAttribute supports a number of additional named parameters:
 > [!WARNING]
 > When using the `Ignore` parameter (and others, see below), note that this has to be a named parameter. It is easy to accidentally add another `Ignore` attribute after the `TestCase` attribute. That will be the same as adding it separately, and it will apply to the complete fixture. This may apply to other named parameters, with names equal to other attributes, like the `Explicit` and `Category` parameters.
 
-Correct example usage
+Correct example usage:
+
 [!code-csharp[TestCaseWithIgnore](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithIgnore)]
 
 ![TestCaseIgnoreDoneCorrect](../../../../images/TestCaseIgnoreDoneCorrect.png)
