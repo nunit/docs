@@ -61,6 +61,7 @@ Wrong way! (1) Adding it on the same line is the same as adding it on a separate
 
 ![TestCaseIgnoreGoneWrong](../../../../images/TestCaseIgnoreGoneWrong.png)
 
+<!-- cspell:disable-next-line -->
 _Thanks to [Geir Marius Gjul](https://github.com/GeirMG) for raising this question again._
 
 ### Explicit done correct
