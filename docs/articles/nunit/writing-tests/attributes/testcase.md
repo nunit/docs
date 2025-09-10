@@ -42,7 +42,7 @@ TestCaseAttribute supports a number of additional named parameters:
   but may serve a purpose for the test author)
 * **TypeArgs** specifies the `Type`s to be used when targeting a generic test method. (_NUnit 4.1+_)
 
-## Be aware of mixing the syntax for named paramaters and attributes with the same name
+## Be aware of mixing the syntax for named parameters and attributes with the same name
 
 ### Ignore done right and wrong
 
