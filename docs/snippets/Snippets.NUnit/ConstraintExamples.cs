@@ -44,6 +44,7 @@ public class ConstraintExamples
         string[] expected = ["Hello", "World"];
         string[] actual = ["HELLO", "world"];
         Assert.That(actual, Is.EqualTo(expected).IgnoreCase);
+        Assert.That("Hello  my world is \r\n on fire!", Is.EqualTo("Hellomy    world \r\n  is   on    fire!").IgnoreWhiteSpace);
     }
     #endregion
 

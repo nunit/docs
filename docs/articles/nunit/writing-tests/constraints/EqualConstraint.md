@@ -23,9 +23,9 @@ Is.Zero // Equivalent to Is.EqualTo(0)
 ## Modifiers
 
 ```csharp
+...AsCollection
 ...IgnoreCase
 ...IgnoreWhiteSpace  // From version 4.2
-...AsCollection
 ...NoClip
 ...WithSameOffset
 ...Within(object tolerance)
@@ -37,8 +37,7 @@ Is.Zero // Equivalent to Is.EqualTo(0)
       .Seconds
       .Milliseconds
       .Ticks
-...IgnoreCase
-...IgnoreWhiteSpace
+
 ...Using(IEqualityComparer comparer)
 ...Using(IComparer comparer)
 ...Using<T>(IEqualityComparer<T> comparer)
@@ -118,6 +117,8 @@ to indicate the mismatched location in both _expected_ and _actual_ values:
 
 The `IgnoreWhiteSpace` can also be specified when comparing collections of strings.
 
+The characters ignored is the same as for the C# `Char.IsWhiteSpace`.
+
 ## Comparing DateTimes and TimeSpans
 
 **DateTimes** and **TimeSpans** may be compared either with or without a tolerance. A tolerance is specified using
@@ -136,7 +137,7 @@ Assert.That(later, Is.EqualTo(now).Within(TimeSpan.FromHours(3.0));
 Assert.That(later, Is.EqualTo(now).Within(3).Hours);
 ```
 
-## Comparing Arrays, Collections and IEnumerables
+## Comparing Arrays, Collections and IEnumerables with AsCollection
 
 Since version 2.2, NUnit has been able to compare two single-dimensioned arrays. Beginning with version 2.4,
 multi-dimensioned arrays, nested arrays (arrays of arrays) and collections may be compared. With version 2.5, any
