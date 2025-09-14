@@ -87,23 +87,39 @@
 <h1 id="repeat">Repeat</h1>
 
 <p><strong>RepeatAttribute</strong> is used on a test method to specify that it should be
-executed multiple times. If any repetition fails, the remaining ones are
-not run and a failure is reported.</p>
-<h2 id="notes">Notes</h2>
-<ol>
-<li>If RepeatAttribute is used on a parameterized method, each individual
-test case created for that method is repeated.</li>
-<li>It is not currently possible to use RepeatAttribute on a TestFixture
-or any higher level suite. Only test cases may be repeated.</li>
-</ol>
+executed multiple times.</p>
+<p>By default, the test is repeated until a failure occurs. If no failures occur, it runs for the specified number of repetitions.</p>
+<p>You can change this behavior in case of a failure, so that it continues to run after the failure by setting the property <code>StopOnFailure</code> to <code>false</code>.  (From version 4.3.0)</p>
 <h2 id="examples">Examples</h2>
-<pre><code class="lang-csharp">[Test]
-[Repeat(25)]
-public void MyTest()
+<h3 id="the-default-behavior">The default behavior</h3>
+<pre><code class="lang-csharp" name="RepeatDefaultAttributeExample">[Test]
+[Repeat(5)]
+public void TestMethod1()
 {
-    /* The contents of this test will be run 25 times. */
+    Assert.Pass();
+}
+</code></pre><h3 id="run-all-regardless-of-failures">Run all regardless of failures</h3>
+<pre><code class="lang-csharp" name="RepeatWithFaultAttributeExample">
+private int count2 = 0;
+
+[Test,Explicit]  // Marking the test as Explicit to avoid failing our doc build. You can skip this.
+[Repeat(5, StopOnFailure = false)]
+public void TestMethod3()
+{
+    count2++;
+    Assert.That(count2, Is.Not.EqualTo(3)); // Intentional failure on 3rd iteration
 }
 </code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>There is currently (as of 4.4.0) a <a href="https://github.com/nunit/nunit/issues/5031">bug</a> which causes only the last successful console statement to be output.  Also, in case of failures, only the latest failure is shown.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If RepeatAttribute is used on a parameterized method,
+each individual test case created for that method is repeated.
+It is not currently possible to use RepeatAttribute on a TestFixture or any higher level suite. Only test cases may be repeated.</p>
+</div>
 
 </article>
           </div>
