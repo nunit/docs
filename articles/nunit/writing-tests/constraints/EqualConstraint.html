@@ -96,9 +96,9 @@ optionally within a specified tolerance.</p>
 Is.Zero // Equivalent to Is.EqualTo(0)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...IgnoreCase
+<pre><code class="lang-csharp">...AsCollection
+...IgnoreCase
 ...IgnoreWhiteSpace  // From version 4.2
-...AsCollection
 ...NoClip
 ...WithSameOffset
 ...Within(object tolerance)
@@ -110,8 +110,7 @@ Is.Zero // Equivalent to Is.EqualTo(0)
       .Seconds
       .Milliseconds
       .Ticks
-...IgnoreCase
-...IgnoreWhiteSpace
+
 ...Using(IEqualityComparer comparer)
 ...Using(IComparer comparer)
 ...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
@@ -159,12 +158,16 @@ also be used when comparing arrays or collections of strings.</p>
 <pre><code class="lang-csharp" name="EqualConstraintStrings">[Test]
 public void EqualConstraint_Strings()
 {
-    Assert.That(&quot;Hello!&quot;, Is.Not.EqualTo(&quot;HELLO!&quot;));
-    Assert.That(&quot;Hello!&quot;, Is.EqualTo(&quot;HELLO!&quot;).IgnoreCase);
+    string hello = &quot;Hello!&quot;;
+    Assert.That(hello, Is.Not.EqualTo(&quot;HELLO!&quot;));
+    Assert.That(hello, Is.EqualTo(&quot;HELLO!&quot;).IgnoreCase);  // Ignores case in both actual and expected before comparing
 
     string[] expected = [&quot;Hello&quot;, &quot;World&quot;];
     string[] actual = [&quot;HELLO&quot;, &quot;world&quot;];
     Assert.That(actual, Is.EqualTo(expected).IgnoreCase);
+    string actualiws   = &quot;Hello  my world is \r\n on fire!&quot;;
+    string expectediws = &quot;Hellomy    world \r\n  is   on    fire!&quot;;
+    Assert.That(actualiws, Is.EqualTo(expectediws).IgnoreWhiteSpace);  // Ignores white space in both actual and expected before comparing
 }
 </code></pre>
 <p>Sometimes we need to compare strings irrespective of white space characters, e.g.: when comparing Json strings.
@@ -200,6 +203,7 @@ to indicate the mismatched location in both <em>expected</em> and <em>actual</em
  ------------------------------------------------------^
 </code></pre>
 <p>The <code>IgnoreWhiteSpace</code> can also be specified when comparing collections of strings.</p>
+<p>The characters ignored are the same as for the C# <code>Char.IsWhiteSpace</code>.</p>
 <h2 id="comparing-datetimes-and-timespans">Comparing DateTimes and TimeSpans</h2>
 <p><strong>DateTimes</strong> and <strong>TimeSpans</strong> may be compared either with or without a tolerance. A tolerance is specified using
 <strong>Within</strong> with either a <strong>TimeSpan</strong> as an argument or with a numeric value followed by a one of the time conversion
@@ -213,7 +217,7 @@ Assert.That(now, Is.EqualTo(now));
 Assert.That(later, Is.EqualTo(now).Within(TimeSpan.FromHours(3.0));
 Assert.That(later, Is.EqualTo(now).Within(3).Hours);
 </code></pre>
-<h2 id="comparing-arrays-collections-and-ienumerables">Comparing Arrays, Collections and IEnumerables</h2>
+<h2 id="comparing-arrays-collections-and-ienumerables-with-ascollection">Comparing Arrays, Collections and IEnumerables with AsCollection</h2>
 <p>Since version 2.2, NUnit has been able to compare two single-dimensioned arrays. Beginning with version 2.4,
 multi-dimensioned arrays, nested arrays (arrays of arrays) and collections may be compared. With version 2.5, any
 IEnumerable is supported. Two arrays, collections or IEnumerables are considered equal if they have the same dimensions
