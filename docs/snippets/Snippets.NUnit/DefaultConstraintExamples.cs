@@ -21,7 +21,7 @@ public class DefaultConstraintExamples
             Assert.That(defaultLength.Length, Is.Default);
             Assert.That(defaultLength, Has.Length.Default);
             Assert.That(defaultLength, Has.Property("Length").Default);
-            Assert.That(defaultList,Has.Count.Default);
+            Assert.That(defaultList, Has.Count.Default);
             Assert.That(defaultDate, Is.Default);
 
             Assert.That(nonDefaultLength.Length, Is.Not.Zero);
