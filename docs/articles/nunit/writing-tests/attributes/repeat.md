@@ -3,9 +3,9 @@
 **RepeatAttribute** is used on a test method to specify that it should be
 executed multiple times.
 
-The default behavior is that it repeats until a failure, or all repeats have been done.
+By default, the test is repeated until a failure occurs. If no failures occur, it runs for the specified number of repetitions.
 
-You can change this behavior so that it continues to run by setting the property `StopOnFailure` to `false`.  (From version 4.3.0)
+You can change this behavior in case of a failure, so that it continues to run after the failure by setting the property `StopOnFailure` to `false`.  (From version 4.3.0)
 
 ## Examples
 
