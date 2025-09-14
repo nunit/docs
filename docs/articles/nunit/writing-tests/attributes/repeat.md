@@ -11,11 +11,11 @@ You can change this behavior so that it continues to run by setting the property
 
 ### The default behavior
 
-[!code-csharp[RepeatDefaultAttributeExample](~/snippets/Snippets.NUnit/ConstraintExamples.cs#RepeatDefaultAttributeExample)]
+[!code-csharp[RepeatDefaultAttributeExample](~/snippets/Snippets.NUnit/Attributes/RepeatAttributeExample.cs#RepeatDefaultAttributeExample)]
 
 ### Run all regardless of failures
 
-[!code-csharp[RepeatWithFaultAttributeExample](~/snippets/Snippets.NUnit/ConstraintExamples.cs#RepeatWithFaultAttributeExample)]
+[!code-csharp[RepeatWithFaultAttributeExample](~/snippets/Snippets.NUnit/Attributes/RepeatAttributeExample.cs#RepeatWithFaultAttributeExample)]
 
 > [!WARNING]
 > There is currently (as of 4.4.0) a [bug](https://github.com/nunit/nunit/issues/5031) which causes only the last successful console statement to be output.  Also, in case of failures, only the latest failure is shown.
