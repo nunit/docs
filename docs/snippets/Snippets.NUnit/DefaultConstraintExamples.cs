@@ -13,7 +13,7 @@ public class DefaultConstraintExamples
         var defaultList = new List<int>(); 
         var nonDefaultList = new List<int> {1};
         var defaultDate = default(DateTime);
-        var noNDefaultDate = DateTime.Now;
+        var nonDefaultDate = DateTime.Now;
 
         using (Assert.EnterMultipleScope())
         {
@@ -29,7 +29,7 @@ public class DefaultConstraintExamples
             Assert.That(nonDefaultLength, Has.Length.Not.Default);
             Assert.That(nonDefaultLength, Has.Property("Length").Not.Default);
             Assert.That(nonDefaultList, Has.Count.Not.Default);
-            Assert.That(noNDefaultDate, Is.Not.Default);
+            Assert.That(nonDefaultDate, Is.Not.Default);
         }
     }
     #endregion
