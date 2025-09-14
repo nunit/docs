@@ -38,12 +38,16 @@ public class ConstraintExamples
     [Test]
     public void EqualConstraint_Strings()
     {
-        Assert.That("Hello!", Is.Not.EqualTo("HELLO!"));
-        Assert.That("Hello!", Is.EqualTo("HELLO!").IgnoreCase);
+        string hello = "Hello!";
+        Assert.That(hello, Is.Not.EqualTo("HELLO!"));
+        Assert.That(hello, Is.EqualTo("HELLO!").IgnoreCase);  // Ignores case in both actual and expected before comparing
 
         string[] expected = ["Hello", "World"];
         string[] actual = ["HELLO", "world"];
         Assert.That(actual, Is.EqualTo(expected).IgnoreCase);
+        string actualiws   = "Hello  my world is \r\n on fire!";
+        string expectediws = "Hellomy    world \r\n  is   on    fire!";
+        Assert.That(actualiws, Is.EqualTo(expectediws).IgnoreWhiteSpace);  // Ignores white space in both actual and expected before comparing
     }
     #endregion
 
