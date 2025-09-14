@@ -1,23 +1,25 @@
 # Repeat
 
 **RepeatAttribute** is used on a test method to specify that it should be
-executed multiple times. If any repetition fails, the remaining ones are
-not run and a failure is reported.
+executed multiple times.
 
-## Notes
+By default, the test is repeated until a failure occurs. If no failures occur, it runs for the specified number of repetitions.
 
-1. If RepeatAttribute is used on a parameterized method, each individual
-   test case created for that method is repeated.
-2. It is not currently possible to use RepeatAttribute on a TestFixture
-   or any higher level suite. Only test cases may be repeated.
+You can change this behavior in case of a failure, so that it continues to run after the failure by setting the property `StopOnFailure` to `false`.  (From version 4.3.0)
 
 ## Examples
 
-```csharp
-[Test]
-[Repeat(25)]
-public void MyTest()
-{
-    /* The contents of this test will be run 25 times. */
-}
-```
+### The default behavior
+
+[!code-csharp[RepeatDefaultAttributeExample](~/snippets/Snippets.NUnit/Attributes/RepeatAttributeExample.cs#RepeatDefaultAttributeExample)]
+
+### Run all regardless of failures
+
+[!code-csharp[RepeatWithFaultAttributeExample](~/snippets/Snippets.NUnit/Attributes/RepeatAttributeExample.cs#RepeatWithFaultAttributeExample)]
+
+> [!WARNING]
+> There is currently (as of 4.4.0) a [bug](https://github.com/nunit/nunit/issues/5031) which causes only the last successful console statement to be output.  Also, in case of failures, only the latest failure is shown.
+> [!NOTE]
+> If RepeatAttribute is used on a parameterized method,
+> each individual test case created for that method is repeated.
+> It is not currently possible to use RepeatAttribute on a TestFixture or any higher level suite. Only test cases may be repeated.
