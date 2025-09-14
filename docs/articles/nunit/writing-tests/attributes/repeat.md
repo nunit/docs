@@ -23,5 +23,4 @@ You can change this behaviour so that it continues to run by setting the propert
 > [!NOTE]
 > If RepeatAttribute is used on a parameterized method,
 > each individual test case created for that method is repeated.
->
 > It is not currently possible to use RepeatAttribute on a TestFixture or any higher level suite. Only test cases may be repeated.
