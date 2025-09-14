@@ -7,7 +7,7 @@ It is implemented equal to the C# keyword `default`.
 ## Constructor
 
 ```csharp
-DefaultConstrint()
+DefaultConstraint()
 ```
 
 ## Syntax
