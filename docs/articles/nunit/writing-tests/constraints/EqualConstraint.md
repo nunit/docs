@@ -117,7 +117,7 @@ to indicate the mismatched location in both _expected_ and _actual_ values:
 
 The `IgnoreWhiteSpace` can also be specified when comparing collections of strings.
 
-The characters ignored is the same as for the C# `Char.IsWhiteSpace`.
+The characters ignored are the same as for the C# `Char.IsWhiteSpace`.
 
 ## Comparing DateTimes and TimeSpans
 
