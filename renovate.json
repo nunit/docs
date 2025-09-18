@@ -6,8 +6,8 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "^\\.github\\/workflows\\/build-process\\.yml$"
+      "managerFilePatterns": [
+        "/^\\.github\\/workflows\\/build-process\\.yml$/"
       ],
       "matchStrings": [
         "NUNIT_VERSION_FOR_API_DOCS: \"(?<currentValue>.*?)\""
