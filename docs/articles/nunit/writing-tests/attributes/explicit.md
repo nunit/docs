@@ -61,6 +61,17 @@ included, the test is a non-explicit testrun, and all explicit tests will be ign
 can be empty, or even have a false Assume statement, which will make the test be inconclusive, thus not part of your
 results."*
 
+## TRICK
+
+If you want to ensure NO Explicit tests are being run, e.g. a CI build, you can change the ExplicitMode to None.
+You can do this either in a .runsettings file, or as a command line parameter
+
+```cmd
+dotnet test -- NUnit.ExplicitMode=None
+```
+
+(From version 5.2.0)
+
 ## Test Fixture Syntax
 
 C#:
