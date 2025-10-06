@@ -11,6 +11,8 @@ uid: adapterreleasenotes
 
 There are 2 issues fixed in this release.
 
+In addition, the MTP version have been updated to 1.9.0.
+
 ### Enhancements
 
 * [1111](https://github.com/nunit/nunit3-vs-adapter/issues/1111) New Mode that completely excludes explicit tests. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 1323](https://github.com/nunit/nunit3-vs-adapter/pull/1323)
