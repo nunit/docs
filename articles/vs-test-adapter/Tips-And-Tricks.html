@@ -294,7 +294,7 @@
 <tr>
 <td><a href="#explicitmode">ExplicitMode</a></td>
 <td>enum</td>
-<td>Changes handling of explicit tests, options are <code>Strict</code> or <code>Relaxed</code></td>
+<td>Changes handling of explicit tests, options are <code>Strict</code>, <code>Relaxed</code> or <code>None</code></td>
 <td>Strict</td>
 </tr>
 <tr>
@@ -521,13 +521,15 @@ the stack trace reporting off.  Default is true.</p>
 want to reduce the total output and don't need the stacktrace information.</p>
 <p>(From version 5.1.0)</p>
 <h4 id="explicitmode">ExplicitMode</h4>
-<p>This setting can be either <code>Strict</code> or <code>Relaxed</code>.  The default is <code>Strict</code>, which means that <code>Explicit</code>
+<p>This setting can be either <code>Strict</code>, <code>Relaxed</code> or <code>None</code>.  The default is <code>Strict</code>, which means that <code>Explicit</code>
 tests can only be run with other Explicit tests, and not mixed with non-Explicit tests.  The <code>Relaxed</code> mode is the
 original NUnit mode, where if you select a category, a class or a set of tests, both explicit and non-explicit tests
 will be run.  From Visual Studio Test Explorer there are no longer (since VS2019) any way of separating between a
 <code>Run-All</code> and <code>run selected tests</code>, so Relaxed mode doesn't work properly. It may or may not work for command
 line tests, dependent upon how your tests are set up and run.</p>
 <p>(From version 4.2.0)</p>
+<p>When using <code>None</code>, no explicit tests will be run at all.  This can be useful for CI scenarios.</p>
+<p>(From version 5.2.0)</p>
 <h4 id="skipexecutionwhennotests">SkipExecutionWhenNoTests</h4>
 <p>If set, this setting will skip execution for an assembly if no tests are found during the pre-execution discovery phase.
 It will give you a small performance boost, but if you skip the execution, this assembly will not generate any log
