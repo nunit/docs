@@ -44,7 +44,7 @@ Certain NUnit Test Adapter settings are configurable using a .runsettings file. 
 | [NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)             | bool   | Creates a new file for each test run                                          | false                         |
 | [IncludeStackTraceForSuites](#includestacktraceforsuites)             | bool   | Includes stack trace for failures in suites, like exceptions in OneTimeSetup and OneTimeTearDown | true                          |
 | [IncludeStackTrace](#includestacktrace)             | bool   | Includes stack trace for all failures | true                          |
-| [ExplicitMode](#explicitmode)                                         | enum   | Changes handling of explicit tests, options are `Strict` or `Relaxed`         | Strict                        |
+| [ExplicitMode](#explicitmode)                                         | enum   | Changes handling of explicit tests, options are `Strict`, `Relaxed` or `None`     | Strict                        |
 | [SkipExecutionWhenNoTests](#skipexecutionwhennotests)                 | bool   | Skip execution if no tests are found                                          | false                         |
 | [AllowParallelWithDebugger](#allowparallelwithdebugger)               | bool   | Allow parallel execution when debugger is attached                            | false                         |
 | [ThrowOnEachFailureUnderDebugger](#throwoneachfailureunderdebugger)   | bool   | | false |
@@ -364,7 +364,7 @@ This is default true.  If turned off (false) it will stop outputting any stacktr
 
 #### ExplicitMode
 
-This setting can be either ```Strict``` or ```Relaxed```.  The default is ```Strict```, which means that ```Explicit```
+This setting can be either ```Strict```, ```Relaxed``` or ```None```.  The default is ```Strict```, which means that ```Explicit```
 tests can only be run with other Explicit tests, and not mixed with non-Explicit tests.  The ```Relaxed``` mode is the
 original NUnit mode, where if you select a category, a class or a set of tests, both explicit and non-explicit tests
 will be run.  From Visual Studio Test Explorer there are no longer (since VS2019) any way of separating between a
@@ -372,6 +372,10 @@ will be run.  From Visual Studio Test Explorer there are no longer (since VS2019
 line tests, dependent upon how your tests are set up and run.
 
 (From version 4.2.0)
+
+When using `None`, no explicit tests will be run at all.  This can be useful for CI scenarios.
+
+(From version 5.2.0)
 
 #### SkipExecutionWhenNoTests
 
