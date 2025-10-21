@@ -48,3 +48,4 @@ for more information.
 * [Microsoft.Testing.Platform Architecture](https://learn.microsoft.com/dotnet/core/testing/unit-testing-platform-architecture)
 * [NUnit Samples](https://github.com/nunit/nunit3-vs-adapter.issues/tree/master/Issue1152)
 * [Adapter issue for implementing MTP](https://github.com/nunit/nunit3-vs-adapter/issues/1152)
+* [Migration guide MTP v1 to v2](https://learn.microsoft.com/en-us/dotnet/core/testing/microsoft-testing-platform-migration-from-v1-to-v2)
