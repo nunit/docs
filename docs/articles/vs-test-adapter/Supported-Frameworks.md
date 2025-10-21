@@ -34,6 +34,7 @@ The included versions are as shown below, only the versions where changes are do
 | 3.16.0 | 3.5 | 2.1 | |
 |4.3.1|3.5|3.1||
 |4.4.0|4.6.2|3.1||
+|6.0.0|4.6.2|net8.0||
 
 ## Traps
 
