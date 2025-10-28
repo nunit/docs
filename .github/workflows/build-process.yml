@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v6
         name: Setup node
         with:
-          node-version: "22"
+          node-version: "24"
       - run: npm install -g markdownlint-cli2
         name: Install markdownlint-cli2
       - run: markdownlint-cli2 --config ".github/linters/.markdownlint.yml" "docs/**/*.md"
@@ -35,7 +35,7 @@ jobs:
       - uses: actions/setup-node@v6
         name: Setup node
         with:
-          node-version: "22"
+          node-version: "24"
       - run: npm install -g cspell
         name: Install cSpell
       - run: cspell --config ./cSpell.json "docs/**/*.md" --no-progress
