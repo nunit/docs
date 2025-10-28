@@ -16,8 +16,8 @@ StringAssert.StartsWith(string expected, string actual);
 StringAssert.StartsWith(string expected, string actual,
                         string message, params object[] args);
 
-StringAssert.DoesNotStartsWith(string expected, string actual);
-StringAssert.DoesNotStartsWith(string expected, string actual,
+StringAssert.DoesNotStartWith(string expected, string actual);
+StringAssert.DoesNotStartWith(string expected, string actual,
                                string message, params object[] args);
 
 StringAssert.EndsWith(string expected, string actual);
