@@ -4,7 +4,7 @@ The NUnit Framework is the part of NUnit that is referenced by user tests. It co
 Attributes, Constraints and Asserts as well as the code that discovers and executes tests. Most extensions to exactly
 how tests are recognized and how they execute are Framework extensions.
 
-In this documentation, we refer to three different types of Framework extension:
+In this documentation, we refer to four different types of Framework extension:
 
 [Custom Attributes](Custom-Attributes.md) allow creation of new types of tests and suites, new sources of data and
 modification of the environment in which a test runs as well as its final result.
@@ -17,6 +17,9 @@ to many tests.
 
 [Custom Constraints](Custom-Constraints.md) allow the user to define new constraints for use in tests along with the
 associated fluent syntax that allows them to be used with `Assert.That`.
+
+[Execution Hooks](Execution-Hooks.md) are a NUnit extensibility feature that lets custom code run
+at precise moments in the lifecycle of every test method.
 
 ## Links to Blog Posts
 
