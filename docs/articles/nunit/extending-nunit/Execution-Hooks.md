@@ -1,5 +1,7 @@
 # Execution Hooks
 
+Added in **NUnit 4.5**
+
 Execution Hooks provide structured, ordered, exception-aware extension points around each core test lifecycle phase. They complement (and can wrap) [Action Attributes](Action-Attributes.md) while staying focused on execution.
 
 Key differences to Action Attributes:
