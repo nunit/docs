@@ -106,27 +106,27 @@ package <code>Microsoft.NET.Test.Sdk</code>. Your test assemblies must also be .
 the necessary references. The <code>.csproj</code> will look similar to below.</p>
 <pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
 
-  &lt;PropertyGroup&gt;
-    &lt;TargetFrameworks&gt;net8.0&lt;/TargetFrameworks&gt;
-    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
-    &lt;Nullable&gt;enable&lt;/Nullable&gt;
+    &lt;PropertyGroup&gt;
+        &lt;TargetFrameworks&gt;net8.0&lt;/TargetFrameworks&gt;
+        &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+        &lt;Nullable&gt;enable&lt;/Nullable&gt;
+        &lt;NoWarn&gt;NUnit2007;NUnit2009;CS7022&lt;/NoWarn&gt;
+        &lt;IsPackable&gt;false&lt;/IsPackable&gt;
+    &lt;/PropertyGroup&gt;
 
-    &lt;IsPackable&gt;false&lt;/IsPackable&gt;
-  &lt;/PropertyGroup&gt;
-
-  &lt;ItemGroup&gt;
-    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;18.0.1&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;4.4.0&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; Version=&quot;5.2.0&quot; /&gt;
-    &lt;PackageReference Include=&quot;NUnit.Analyzers&quot; Version=&quot;4.11.2&quot;&gt;
-      &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
-      &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
-    &lt;/PackageReference&gt;
-    &lt;PackageReference Include=&quot;coverlet.collector&quot; Version=&quot;6.0.4&quot;&gt;
-      &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
-      &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
-    &lt;/PackageReference&gt;
-  &lt;/ItemGroup&gt;
+    &lt;ItemGroup&gt;
+        &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;18.0.1&quot; /&gt;
+        &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;4.4.0&quot; /&gt;
+        &lt;PackageReference Include=&quot;NUnit3TestAdapter&quot; Version=&quot;5.2.0&quot; /&gt;
+        &lt;PackageReference Include=&quot;NUnit.Analyzers&quot; Version=&quot;4.11.2&quot;&gt;
+            &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
+            &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
+        &lt;/PackageReference&gt;
+        &lt;PackageReference Include=&quot;coverlet.collector&quot; Version=&quot;6.0.4&quot;&gt;
+            &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
+            &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
+        &lt;/PackageReference&gt;
+    &lt;/ItemGroup&gt;
 
 &lt;/Project&gt;
 </code></pre>
