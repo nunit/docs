@@ -49,6 +49,7 @@ Team Lead: [Sean Killeen](https://github.com/seankilleen)
 ## Membership matrix
 
 ### Current team memberships, listed in a kind of chronological order
+<!-- markdownlint-disable MD060 -->
 
 |Name|Core Team|Framework|Engine|VS Extensions|Analyzer|Documentation|
 |--|--|--|--|--|--|--|

@@ -15,7 +15,7 @@ The version numbers follow the basic principles of [semantic versioning]. (The f
 under development, and will always be 0 for release versions.)
 
 The version numbers have to be edited in the following files, and should match:
-
+<!-- markdownlint-disable MD060 -->
 | File | Change |
 | ---- | ------ |
 | `AssemblyInfo.cs`,  found in the NUnitTestAdapter project | change both file and assembly version number |

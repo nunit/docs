@@ -196,7 +196,7 @@ figure out the names. We don't use any form of "Hungarian" notation.
 
 For items that may vary by project, the project’s root .editorconfig and solution DotSettings may provide the defaults
 and diagnostics expected for PRs in that project.
-
+<!-- markdownlint-disable MD060 -->
 |Named Item|Naming Standard|Notes|
 |--- |--- |--- |
 |Namespaces|PascalCasing||

@@ -221,7 +221,7 @@ namespace NUnit.Engine
     }
 }
 ```
-
+<!-- markdownlint-disable MD060 -->
 The following services are available publicly.
 
 | Service            | Interface    | Function  |

@@ -18,7 +18,7 @@ The severity of a diagnostic can the one of the following (in increasing severit
 * :exclamation: - indicates a severity of **Error**
 
 ## Structure Rules (NUnit1001 - )
-
+<!-- markdownlint-disable MD060 -->
 Rules which enforce structural requirements on the test code.
 
 | Id       | Title       | :mag: | :memo: | :bulb: |

@@ -6,6 +6,8 @@ uid: teampractices
 
 ## How We Work As a Team
 
+<!-- markdownlint-disable MD060 -->
+
 |||
 |--- |--- |
 |[Issue Tracking](Issue-Tracking.md)|How we track bugs, enhancements and features on GitHub.|
