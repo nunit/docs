@@ -3,6 +3,8 @@ using NUnit.Framework;
 #pragma warning disable CA1822
 #pragma warning disable NUnit2045
 #pragma warning disable CA2211
+#pragma warning disable NUnit2007
+#pragma warning disable NUnit2009
 
 namespace Snippets.NUnit;
 
