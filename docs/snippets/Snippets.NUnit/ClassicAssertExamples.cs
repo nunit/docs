@@ -1,13 +1,13 @@
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 
 #pragma warning disable CA1822
 #pragma warning disable NUnit2045
 #pragma warning disable NUnit2005
+#pragma warning disable NUnit2006
+#pragma warning disable NUnit2015
+#pragma warning disable NUnit2031
+#pragma warning disable NUnit2049
 
 namespace Snippets.NUnit;
 
@@ -65,6 +65,9 @@ public class ClassicAssertExamples
     }
     #endregion
 
+#pragma warning disable CS8600
+#pragma warning disable CS8625
+
     #region NullExamples
     [Test]
     public void Null_Examples()
@@ -78,7 +81,9 @@ public class ClassicAssertExamples
         ClassicAssert.IsNotNull(obj);
     }
     #endregion
-
+#pragma warning restore CS8600
+#pragma warning restore CS8625
+    
     #region SameExamples
     [Test]
     public void Same_Examples()
@@ -289,6 +294,8 @@ public class CollectionAssertExamples
     }
     #endregion
 
+
+#pragma warning disable CS8625
     #region CollectionAssertItemTypeExamples
     [Test]
     public void CollectionAssert_ItemType_Examples()
@@ -301,4 +308,5 @@ public class CollectionAssertExamples
         CollectionAssert.AllItemsAreUnique(stringList);
     }
     #endregion
+#pragma warning restore CS8625
 }
