@@ -16,7 +16,7 @@ jobs:
     name: "Markdown linting"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         name: Check out the code
       - uses: actions/setup-node@v6
         name: Setup node
@@ -30,7 +30,7 @@ jobs:
     name: "Spell check"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         name: Check out the code
       - uses: actions/setup-node@v6
         name: Setup node
@@ -44,7 +44,7 @@ jobs:
     name: "Build the site with docfx"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         name: Check out the code
       - name: Get latest NUnit Asset dir
         uses: dsaltares/fetch-gh-release-asset@master
@@ -75,7 +75,7 @@ jobs:
       SOLUTION_LOCATION: "./docs/snippets/Snippets.sln"
     steps:
       - name: Check out the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
