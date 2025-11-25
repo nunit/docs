@@ -21,7 +21,6 @@ Constraint Name                      |
 [AttributeExistsConstraint](AttributeExistsConstraint.md)        |
 [AnyOfConstraint](AnyOfConstraint.md)                  |
 [BinarySerializableConstraint](BinarySerializableConstraint.md)     |
-[CollectionContainsConstraint](CollectionContainsConstraint.md)     |
 [CollectionEquivalentConstraint](CollectionEquivalentConstraint.md)   |
 [CollectionOrderedConstraint](CollectionOrderedConstraint.md)      |
 [CollectionSubsetConstraint](CollectionSubsetConstraint.md)       |
