@@ -44,6 +44,7 @@ StringAssert.DoesNotMatch(string regexPattern, string actual);
 StringAssert.DoesNotMatch(string regexPattern, string actual,
                           string message, params object[] args);
 
+// Functions below are available in NUnit 4.5 and later
 StringAssert.IsNullOrEmpty(string? actual);
 StringAssert.IsNullOrEmpty(string? actual,
                            string message, params object[] args);
