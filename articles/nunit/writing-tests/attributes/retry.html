@@ -87,17 +87,76 @@
 <h1 id="retry">Retry</h1>
 
 <p>RetryAttribute is used on a test method to specify that it should be rerun if it fails, up to a maximum number of times.</p>
+<pre><code class="lang-csharp" name="Retry">[TestFixture]
+public sealed class RetryTests
+{
+    private readonly Random _random = new(42);
+
+    [Test]
+    [Retry(5)]
+    public async Task OperationShouldPassIn1s()
+    {
+        var sw = Stopwatch.StartNew();
+        string result = await ExpensiveOperation();
+        sw.Stop();
+        Assert.That(sw.ElapsedMilliseconds, Is.LessThan(1000), &quot;Operation did not complete in time&quot;);
+        Assert.That(result, Is.Not.Null);
+    }
+
+    private async Task&lt;string&gt; ExpensiveOperation()
+    {
+        // Simulate an expensive operation
+        int duration = _random.Next(500, 1500);
+        await Task.Delay(duration); // Simulate work
+        return &quot;Actual Result&quot;; // Simulate a response
+    }
+}
+</code></pre>
 <p>Notes:</p>
 <ol>
-<li>The argument you specify is the total number of attempts and <strong>not</strong> the number of retries after an initial failure.
-So <code>[Retry(1)]</code> does nothing and should not be used.</li>
-<li>It is not currently possible to use <code>RetryAttribute</code> on a <code>TestFixture</code> or any other type of test suite. Only single
-tests may be repeated.</li>
-<li>If a test has an unexpected exception, an error result is returned and it is not retried. Only assertion failures can
-trigger a retry. To convert an unexpected exception into an assertion failure, see the
-<a class="xref" href="../constraints/ThrowsConstraint.html">ThrowsConstraint</a>.</li>
+<li><p>The argument you specify is the total number of attempts and <strong>not</strong> the number of retries after an initial failure.
+So <code>[Retry(1)]</code> does nothing and should not be used.</p>
+</li>
+<li><p>It is not currently possible to use <code>RetryAttribute</code> on a <code>TestFixture</code> or any other type of test suite.
+Only single tests may be repeated.</p>
+</li>
+<li><p>If a test has an unexpected exception, an error result is returned and it is not retried.</p>
+<p>From NUnit 4.5.0 you can enable retry on an expected exception such as <code>TimeoutException</code>
+by setting the <code>RetryExceptions</code> property. The value of this property is an array of anticipated exceptions that should be retried.</p>
+</li>
 </ol>
+<pre><code class="lang-csharp" name="RetryWithRetryExceptions">[TestFixture]
+public sealed class Retry
+{
+    private int _delayInMilliseconds;
 
+    [OneTimeSetUp]
+    public void Setup()
+    {
+        _delayInMilliseconds = 2500;
+    }
+
+    [Test]
+    [Retry(5, RetryExceptions = [typeof(OperationCanceledException)])]
+    [CancelAfter(2000)]
+    public async Task QueryServiceAsync(CancellationToken cancellationToken)
+    {
+        string result = await CallExternalServiceAsync(cancellationToken);
+        Assert.That(result, Is.Not.Null);
+    }
+
+    private async Task&lt;string&gt; CallExternalServiceAsync(CancellationToken cancellationToken)
+    {
+        // Call an external service that may time out
+        int delayInMilliseconds = _delayInMilliseconds;
+        if (_delayInMilliseconds &gt; 1000)
+            _delayInMilliseconds -= 1000; // Decrease delay for next attempt
+
+        await Task.Delay(delayInMilliseconds, cancellationToken); // Simulate a delay that may exceed
+        return &quot;Actual Result&quot;; // Simulate a response
+    }
+}
+</code></pre>
 </article>
           </div>
 
