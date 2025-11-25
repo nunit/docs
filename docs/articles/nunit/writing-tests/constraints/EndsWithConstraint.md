@@ -19,6 +19,8 @@ EndsWith(string expected)
 
 ```csharp
 ...IgnoreCase
+...Using(StringComparison comparisonType)
+...Using(CultureInfo culture)
 ```
 
 ## Examples of Use
@@ -30,6 +32,28 @@ Assert.That(phrase, Does.EndWith("!"));
 Assert.That(phrase, Does.EndWith("PASSING!").IgnoreCase);
 ```
 
+### Specifying a StringComparison
+
+```csharp
+Assert.That("Hello World!", Does.EndWith("WORLD!").Using(StringComparison.OrdinalIgnoreCase));
+Assert.That("Hello World!", Does.EndWith("World!").Using(StringComparison.Ordinal));
+```
+
+### Specifying a CultureInfo
+
+The `Using(CultureInfo)` modifier allows for culture-specific string comparisons.
+It can be combined with `.IgnoreCase` for case-insensitive culture-aware comparisons:
+
+```csharp
+// Using Turkish culture where 'i' and 'I' have special casing rules
+Assert.That("text TITLE", Does.EndWith("title").IgnoreCase.Using(new CultureInfo("tr-TR")));
+
+// Culture-specific comparison without case-insensitivity
+Assert.That("Main Straße", Does.EndWith("Straße").Using(new CultureInfo("de-DE")));
+```
+
 ## Notes
 
 1. **EndsWith** may appear only in the body of a constraint expression or when the inherited syntax is used.
+2. Only one `Using` modifier may be specified. Attempting to use multiple `Using` modifiers
+   will throw an `InvalidOperationException`.

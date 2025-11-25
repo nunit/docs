@@ -19,6 +19,8 @@ StartsWith(string expected)
 
 ```csharp
 ...IgnoreCase
+...Using(StringComparison comparisonType)
+...Using(CultureInfo culture)
 ```
 
 ## Examples of Use
@@ -30,7 +32,29 @@ Assert.That(phrase, Does.StartWith("Make"));
 Assert.That(phrase, Does.Not.StartWith("Break"));
 ```
 
+### Specifying a StringComparison
+
+```csharp
+Assert.That("Hello World!", Does.StartWith("HELLO").Using(StringComparison.OrdinalIgnoreCase));
+Assert.That("Hello World!", Does.StartWith("Hello").Using(StringComparison.Ordinal));
+```
+
+### Specifying a CultureInfo
+
+The `Using(CultureInfo)` modifier allows for culture-specific string comparisons.
+It can be combined with `.IgnoreCase` for case-insensitive culture-aware comparisons:
+
+```csharp
+// Using Turkish culture where 'i' and 'I' have special casing rules
+Assert.That("TITLE text", Does.StartWith("title").IgnoreCase.Using(new CultureInfo("tr-TR")));
+
+// Culture-specific comparison without case-insensitivity
+Assert.That("Straße Street", Does.StartWith("Straße").Using(new CultureInfo("de-DE")));
+```
+
 ## Notes
 
 1. **StartsWith** may appear only in the body of a constraint
    expression or when the inherited syntax is used.
+2. Only one `Using` modifier may be specified. Attempting to use multiple `Using` modifiers
+   will throw an `InvalidOperationException`.
