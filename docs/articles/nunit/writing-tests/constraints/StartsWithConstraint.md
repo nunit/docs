@@ -41,11 +41,15 @@ Assert.That("Hello World!", Does.StartWith("Hello").Using(StringComparison.Ordin
 
 ### Specifying a CultureInfo
 
-The `Using(CultureInfo)` modifier allows for culture-specific string comparisons:
+The `Using(CultureInfo)` modifier allows for culture-specific string comparisons.
+It can be combined with `.IgnoreCase` for case-insensitive culture-aware comparisons:
 
 ```csharp
 // Using Turkish culture where 'i' and 'I' have special casing rules
-Assert.That("TITLE", Does.StartWith("title").IgnoreCase.Using(new CultureInfo("tr-TR")));
+Assert.That("TITLE text", Does.StartWith("title").IgnoreCase.Using(new CultureInfo("tr-TR")));
+
+// Culture-specific comparison without case-insensitivity
+Assert.That("Straße Street", Does.StartWith("Straße").Using(new CultureInfo("de-DE")));
 ```
 
 ## Notes
