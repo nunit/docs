@@ -41,8 +41,11 @@ Assert.That("Hello World!", Does.StartWith("Hello").Using(StringComparison.Ordin
 
 ### Specifying a CultureInfo
 
+The `Using(CultureInfo)` modifier allows for culture-specific string comparisons:
+
 ```csharp
-Assert.That("Straße test", Does.StartWith("ss").Using(new CultureInfo("de-DE")));
+// Using Turkish culture where 'i' and 'I' have special casing rules
+Assert.That("TITLE", Does.StartWith("title").IgnoreCase.Using(new CultureInfo("tr-TR")));
 ```
 
 ## Notes
