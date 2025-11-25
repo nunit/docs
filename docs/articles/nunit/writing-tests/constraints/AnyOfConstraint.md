@@ -4,7 +4,7 @@
 
 > [!NOTE]
 > Values provided must be as parameters to the method, not as e.g. a separate array. If you are instead looking
-> to see if a collection contains a value, see the [CollectionContains Constraint](xref:collectioncontainsconstraint).
+> to see if a collection contains a value, see the [SomeItems Constraint](xref:someitemsconstraint).
 
 ## Constructor
 

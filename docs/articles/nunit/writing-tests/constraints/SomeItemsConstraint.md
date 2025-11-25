@@ -1,3 +1,6 @@
+---
+uid: someitemsconstraint
+---
 # SomeItems Constraint
 
 `SomeItemsConstraint` applies a constraint to each item in an `IEnumerable`, succeeding if at least one of them
