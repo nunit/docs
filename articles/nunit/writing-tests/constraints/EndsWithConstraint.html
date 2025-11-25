@@ -96,6 +96,8 @@ EndsWith(string expected)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
 <pre><code class="lang-csharp">...IgnoreCase
+...Using(StringComparison comparisonType)
+...Using(CultureInfo culture)
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
 <pre><code class="lang-csharp">string phrase = &quot;Make your tests fail before passing!&quot;;
@@ -103,9 +105,24 @@ EndsWith(string expected)
 Assert.That(phrase, Does.EndWith(&quot;!&quot;));
 Assert.That(phrase, Does.EndWith(&quot;PASSING!&quot;).IgnoreCase);
 </code></pre>
+<h3 id="specifying-a-stringcomparison">Specifying a StringComparison</h3>
+<pre><code class="lang-csharp">Assert.That(&quot;Hello World!&quot;, Does.EndWith(&quot;WORLD!&quot;).Using(StringComparison.OrdinalIgnoreCase));
+Assert.That(&quot;Hello World!&quot;, Does.EndWith(&quot;World!&quot;).Using(StringComparison.Ordinal));
+</code></pre>
+<h3 id="specifying-a-cultureinfo">Specifying a CultureInfo</h3>
+<p>The <code>Using(CultureInfo)</code> modifier allows for culture-specific string comparisons.
+It can be combined with <code>.IgnoreCase</code> for case-insensitive culture-aware comparisons:</p>
+<pre><code class="lang-csharp">// Using Turkish culture where 'i' and 'I' have special casing rules
+Assert.That(&quot;text TITLE&quot;, Does.EndWith(&quot;title&quot;).IgnoreCase.Using(new CultureInfo(&quot;tr-TR&quot;)));
+
+// Culture-specific comparison without case-insensitivity
+Assert.That(&quot;Main Straße&quot;, Does.EndWith(&quot;Straße&quot;).Using(new CultureInfo(&quot;de-DE&quot;)));
+</code></pre>
 <h2 id="notes">Notes</h2>
 <ol>
 <li><strong>EndsWith</strong> may appear only in the body of a constraint expression or when the inherited syntax is used.</li>
+<li>Only one <code>Using</code> modifier may be specified. Attempting to use multiple <code>Using</code> modifiers
+will throw an <code>InvalidOperationException</code>.</li>
 </ol>
 
 </article>
