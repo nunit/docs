@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Execution Hooks | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Execution Hooks | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="execution-hooks">Execution Hooks</h1>
+
+<p>Added in <strong>NUnit 4.5</strong></p>
+<p>Execution Hooks provide structured, ordered, exception-aware extension points around each core test lifecycle phase. They complement (and can wrap) <a href="Action-Attributes.html">Action Attributes</a> while staying focused on execution.</p>
+<p>Key differences to Action Attributes:</p>
+<ul>
+<li>Execution Hooks focus on the immediate test invocation phases (before/after setup, test, teardown and test action callbacks).</li>
+<li>Only overridden hook methods are registered, keeping runtime overhead low.</li>
+<li>After-hooks run in reverse order (stack behavior) to naturally unwind resources paired with the corresponding before-hooks.</li>
+</ul>
+<h2 id="when-to-use-execution-hooks">When to use Execution Hooks</h2>
+<p>Execution Hooks should be used when there is a need to:</p>
+<ul>
+<li>Time, log, trace or audit test phases precisely.</li>
+<li>Inject state around each SetUp/TearDown.</li>
+<li>Pair resource acquisition/release symmetrically (BeforeX/AfterX).</li>
+<li>React to exceptions thrown by setup, test or teardown methods.</li>
+<li>Integrate with or augment existing Action Attributes behavior at a finer granularity.</li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<p>Derive from <code>ExecutionHookAttribute</code> and override only the methods that are relevant:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Triggered immediately</th>
+<th>Applies To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BeforeEverySetUpHook</code></td>
+<td>Before each <code>[SetUp]</code> or <code>[OneTimeSetUp]</code> method</td>
+<td>All fixture &amp; base fixture setup methods</td>
+</tr>
+<tr>
+<td><code>AfterEverySetUpHook</code></td>
+<td>After each <code>[SetUp]</code> or <code>[OneTimeSetUp]</code> method</td>
+<td>All fixture &amp; base fixture setup methods</td>
+</tr>
+<tr>
+<td><code>BeforeTestHook</code></td>
+<td>Before the test method</td>
+<td>The test method</td>
+</tr>
+<tr>
+<td><code>AfterTestHook</code></td>
+<td>After the test method</td>
+<td>The test method</td>
+</tr>
+<tr>
+<td><code>BeforeEveryTearDownHook</code></td>
+<td>Before each <code>[TearDown]</code> or <code>[OneTimeTearDown]</code> method</td>
+<td>All fixture &amp; base fixture teardown methods</td>
+</tr>
+<tr>
+<td><code>AfterEveryTearDownHook</code></td>
+<td>After each <code>[TearDown]</code> or <code>[OneTimeTearDown]</code> method</td>
+<td>All fixture &amp; base fixture teardown methods</td>
+</tr>
+<tr>
+<td><code>BeforeTestActionBeforeTestHook</code></td>
+<td>Before an <code>ITestAction.BeforeTest(ITest)</code> executes</td>
+<td>Each applicable Action Attribute</td>
+</tr>
+<tr>
+<td><code>BeforeTestActionAfterTestHook</code></td>
+<td>After an <code>ITestAction.BeforeTest(ITest)</code> executes</td>
+<td>Each applicable Action Attribute</td>
+</tr>
+<tr>
+<td><code>AfterTestActionBeforeTestHook</code></td>
+<td>Before an <code>ITestAction.AfterTest(ITest)</code> executes</td>
+<td>Each applicable Action Attribute</td>
+</tr>
+<tr>
+<td><code>AfterTestActionAfterTestHook</code></td>
+<td>After an <code>ITestAction.AfterTest(ITest)</code> executes</td>
+<td>Each applicable Action Attribute</td>
+</tr>
+</tbody>
+</table>
+<p>This derived attribute can be applied at the method, class, or assembly level.</p>
+<p>Each hook receives a <code>HookData</code> instance:</p>
+<ul>
+<li><code>Context</code>: A <code>TestContext</code> snapshot (current test, properties, etc.).</li>
+<li><code>HookedMethod</code>: The <code>MethodInfoAdapter</code> of the method currently executing (e.g., the specific <code>[SetUp]</code>, test, or <code>[TearDown]</code>).</li>
+<li><code>Exception</code>: Non-null only for after-hooks when the hooked method threw.</li>
+</ul>
+<p>Use these fields for logging, conditional logic, or adaptive cleanup.</p>
+<h2 id="example-measure-time-for-setup">Example: Measure Time for Setup</h2>
+<pre><code class="lang-csharp" name="ExecutionHookAttributeExample">[AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
+public sealed class TimeMeasurementHookAttribute : ExecutionHookAttribute
+{
+    private readonly Dictionary&lt;string, DateTime&gt; _starts = new();
+
+    public override void BeforeEverySetUpHook(HookData hookData)
+    {
+        _starts[hookData.Context.Test.FullName] = DateTime.UtcNow;
+    }
+
+    public override void AfterEverySetUpHook(HookData hookData)
+    {
+        var key = hookData.Context.Test.FullName;
+        if (_starts.TryGetValue(key, out var start))
+        {
+            var elapsed = DateTime.UtcNow - start;
+            TestContext.WriteLine($&quot;[Timing] &quot; +
+                $&quot;{hookData.Context.Test.MethodName} &quot; +
+                $&quot;took {elapsed.TotalMilliseconds:F1} ms&quot;);
+        }
+    }
+}
+</code></pre>
+<p>Usage:</p>
+<pre><code class="lang-csharp" name="ExecutionHookAttributeExample">[TestFixture]
+[TimeMeasurementHook]
+public class SampleTests
+{
+    [SetUp]
+    public void HeavySetUp() { /* ... */ }
+
+    [Test]
+    public void FastTest() { /* ... */ }
+}
+</code></pre><h2 id="example-logging-all-phases">Example: Logging All Phases</h2>
+<pre><code class="lang-csharp" name="ExecutionHookAttributeExample">[AttributeUsage(AttributeTargets.Method)]
+public sealed class LogAllHooksAttribute : ExecutionHookAttribute
+{
+    private void Log(string phase, HookData data, bool withException = false)
+    {
+        var name = data.Context.Test.MethodName;
+        var exInfo = withException &amp;&amp; data.Exception != null ? 
+            $&quot; (EX: {data.Exception.GetType().Name})&quot; : string.Empty;
+        TestContext.WriteLine($&quot;[{phase}] {name}{exInfo}&quot;);
+    }
+
+    public override void BeforeEverySetUpHook(HookData d) 
+        =&gt; Log(&quot;BeforeEverySetUp&quot;, d);
+
+    public override void AfterEverySetUpHook(HookData d) 
+        =&gt; Log(&quot;AfterEverySetUp&quot;, d, withException: true);
+
+    public override void BeforeTestHook(HookData d) 
+        =&gt; Log(&quot;BeforeTest&quot;, d);
+
+    public override void AfterTestHook(HookData d) 
+        =&gt; Log(&quot;AfterTest&quot;, d, withException: true);
+
+    public override void BeforeEveryTearDownHook(HookData d) 
+        =&gt; Log(&quot;BeforeEveryTearDown&quot;, d);
+
+    public override void AfterEveryTearDownHook(HookData d) 
+        =&gt; Log(&quot;AfterEveryTearDown&quot;, d, withException: true);
+}
+</code></pre><h2 id="exception-handling">Exception Handling</h2>
+<p>In general:</p>
+<ul>
+<li>If an Execution Hook throws an exception, NUnit treats it in the same way as if the hooked method had thrown it.
+For example, an exception from a before/after setup hook is handled the same way as an exception from the setup method itself.</li>
+<li>Independent if a before hook method or the hooked method itself is throwing an exception it is always guaranteed that the after hook method is called and contains the exception details within the <code>HookData</code>.</li>
+</ul>
+<p>Behavior illustrated by hooking a test method:</p>
+<ul>
+<li>If a <code>BeforeTestHook</code> throws, the test method body is skipped, but its <code>AfterTestHook</code> still runs (with <code>HookData.Exception</code> set) allowing cleanup/logging.</li>
+<li>If an <code>AfterTestHook</code> throws, NUnit still proceeds with TearDown phases (remaining hooks and teardown methods run).</li>
+<li>Failures inside a test body still trigger all <code>AfterTestHook</code> executions.</li>
+<li>Setup/TearDown exceptions are reported by the corresponding after-hook with <code>HookData.Exception</code> populated.</li>
+</ul>
+<h2 id="ordering-semantics">Ordering Semantics</h2>
+<p>If multiple attributes are applied:</p>
+<ul>
+<li>Before-hooks (<code>BeforeEverySetUpHook</code>, <code>BeforeTestHook</code>, etc.) execute in the order, attributes were applied (declaration order on the method/class/assembly).</li>
+<li>After-hooks execute in reverse order, enabling natural stacking:
+<ul>
+<li>Attribute A before, Attribute B before - Attribute B after, then Attribute A after.</li>
+</ul>
+</li>
+<li>When multiple attributes appear at different scopes (assembly, class, method), hooks from broader scopes run before narrower scopes for &quot;before&quot; phases, and after narrower scopes for &quot;after&quot; phases (as shown in sequence tests).</li>
+</ul>
+<h2 id="scope-method-vs-class-vs-assembly">Scope: Method vs Class vs Assembly</h2>
+<p>Because the <code>AttributeUsage</code> targets can be chosen on the derived attribute, control over where hooks can be applied is provided:</p>
+<ul>
+<li>Method: affects only that test method.</li>
+<li>Class: affects all tests within the fixture and inherited base fixture methods.</li>
+<li>Assembly: affects every test in the assembly.</li>
+</ul>
+<p>Hooks from broader scopes wrap those from narrower scopes. For a single test method with an assembly-level and a method-level TimingHook:</p>
+<ol>
+<li>Assembly <code>BeforeTestHook</code> runs first.</li>
+<li>Method <code>BeforeTestHook</code> runs.</li>
+<li>Test executes.</li>
+<li>Method <code>AfterTestHook</code> runs.</li>
+<li>Assembly <code>AfterTestHook</code> runs.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="Action-Attributes.html">Action Attributes</a></li>
+<li><a href="Custom-Attributes.html">Custom Attributes</a></li>
+<li><a href="Framework-Extensibility.html">Framework Extensibility</a></li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/extending-nunit/Execution-Hooks.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
