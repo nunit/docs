@@ -10,5 +10,3 @@ ClassicAssert.Contains(object anObject, ICollection collection,
 ```
 
 ## See Also
-
-* [CollectionContainsConstraint](xref:collectioncontainsconstraint)

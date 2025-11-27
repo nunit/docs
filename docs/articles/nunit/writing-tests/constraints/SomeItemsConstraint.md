@@ -1,7 +1,12 @@
+---
+uid: someitemsconstraint
+---
 # SomeItems Constraint
 
 `SomeItemsConstraint` applies a constraint to each item in an `IEnumerable`, succeeding if at least one of them
 succeeds. An exception is thrown if the actual value passed does not implement `IEnumerable`.
+
+This constraint will also cover `Contains` functionality. See examples below.
 
 ## Constructor
 
@@ -13,6 +18,9 @@ SomeItemsConstraint(Constraint itemConstraint)
 
 ```csharp
 Has.Some...
+Has.Member(object)
+Contains.Item(object)
+Does.Contain(object)
 ```
 
 ## Modifiers
@@ -40,3 +48,11 @@ string[] sarray = new string[] { "a", "b", "c" };
 Assert.That(iarray, Has.Some.GreaterThan(2));
 Assert.That(sarray, Has.Some.Length.EqualTo(1));
 ```
+
+### Contains examples
+
+[!code-csharp[Collection Contains Examples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#CollectionContainsExamples)]
+
+## Note
+
+`Has.Member()`, `Contains.Item()` and `Does.Contain()` work the same as `Has.Some.EqualTo()`.
