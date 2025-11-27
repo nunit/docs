@@ -83,16 +83,20 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="someitemsconstraint">
 <h1 id="someitems-constraint">SomeItems Constraint</h1>
 
 <p><code>SomeItemsConstraint</code> applies a constraint to each item in an <code>IEnumerable</code>, succeeding if at least one of them
 succeeds. An exception is thrown if the actual value passed does not implement <code>IEnumerable</code>.</p>
+<p>This constraint will also cover <code>Contains</code> functionality. See examples below.</p>
 <h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">SomeItemsConstraint(Constraint itemConstraint)
 </code></pre>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="lang-csharp">Has.Some...
+Has.Member(object)
+Contains.Item(object)
+Does.Contain(object)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
 <pre><code class="lang-csharp">...IgnoreCase
@@ -114,6 +118,21 @@ string[] sarray = new string[] { &quot;a&quot;, &quot;b&quot;, &quot;c&quot; };
 Assert.That(iarray, Has.Some.GreaterThan(2));
 Assert.That(sarray, Has.Some.Length.EqualTo(1));
 </code></pre>
+<h3 id="contains-examples">Contains examples</h3>
+<pre><code class="lang-csharp" name="Collection Contains Examples">[Test]
+public void CollectionContains_Examples()
+{
+    int[] intArray = [1, 2, 3];
+    string[] stringArray = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+    
+    Assert.That(intArray, Has.Member(3));
+    Assert.That(stringArray, Has.Member(&quot;b&quot;));
+    Assert.That(stringArray, Contains.Item(&quot;c&quot;));
+    Assert.That(stringArray, Has.No.Member(&quot;x&quot;));
+    Assert.That(intArray, Does.Contain(3));
+}
+</code></pre><h2 id="note">Note</h2>
+<p><code>Has.Member()</code>, <code>Contains.Item()</code> and <code>Does.Contain()</code> work the same as <code>Has.Some.EqualTo()</code>.</p>
 
 </article>
           </div>
