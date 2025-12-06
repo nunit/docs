@@ -63,7 +63,7 @@ and to the commenters who engaged in discussions and offered further insights:
 </tr>
 <tr>
 <td><a href="https://github.com/joschmo80">joschmo80</a></td>
-<td><a href="https://github.com/lennartb-">Lennart Brggemann</a></td>
+<td><a href="https://github.com/lennartb-">Lennart Brüggemann</a></td>
 <td><a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a></td>
 <td><a href="https://github.com/moh-hassan">Mohamed Hassan</a></td>
 </tr>
