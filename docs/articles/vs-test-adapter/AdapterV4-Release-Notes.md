@@ -42,7 +42,7 @@ A special thank you to the following reporters for identifying issues:
 
 <table>
 <tr>
-<td><a href="https://github.com/Evangelink">Amaury Lev‚</a></td>
+<td><a href="https://github.com/Evangelink">Amaury Levé</a></td>
 <td><a href="https://github.com/agray">Andrew Gray</a></td>
 <td><a href="https://github.com/cbersch">Christoph Bersch</a></td>
 <td><a href="https://github.com/JasonBock">Jason Bock</a></td>
