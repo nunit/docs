@@ -88,10 +88,10 @@
 <!-- markdownlint-disable-file MD013 -->
 <!-- markdownlint-disable-file MD033 -->
 
-<h2 id="nunit3-test-adapter-for-visual-studio-and-dotnet---version-600-beta1---october-19-2025">NUnit3 Test Adapter for Visual Studio and Dotnet - Version 6.0.0-beta.1 - October 19, 2025</h2>
+<h2 id="nunit3-test-adapter-for-visual-studio-and-dotnet---version-600---december-6-2025">NUnit3 Test Adapter for Visual Studio and Dotnet - Version 6.0.0 - December 6, 2025</h2>
 <p>This version supports MTP version 2.  Further the lowest .net version is .net 8.0, so netcore 3.1 is no longer supported.</p>
 <p>See the migration guide for <a href="https://learn.microsoft.com/en-us/dotnet/core/testing/microsoft-testing-platform-migration-from-v1-to-v2">MTP v1 to v2</a> for details on moving up to version 2.</p>
-<p>There are 3 issues fixed in this release.</p>
+<p>There are 6 issues fixed in this release.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1328">1328</a> NUnit compatible version for MTP 2.0.0. Thanks to <a href="https://github.com/Youssef1313">Youssef Victor</a> and NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1329">PR 1329</a></li>
@@ -99,7 +99,10 @@
 </ul>
 <h3 id="bug-fixes">Bug fixes</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1347">1347</a> Test Cases With Strings That Contain Escaped Double-Quotes are Not Run.</li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1334">1334</a> Attempting to execute a native assembly crashes the runner. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1333">PR 1333</a></li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1332">1332</a> [MTP] OutOfMemoryException in VS Test Explorer from TestFilterConverter.Tokenizer. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1341">PR 1341</a></li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1241">1241</a> VS Test Explorer NUnit error: &quot;TestPlatformFormatException: Filter string ... includes unrecognized escape sequence&quot;.</li>
 </ul>
 <h3 id="the-following-issues-are-marked-as-breaking-changes">The following issues are marked as breaking changes</h3>
 <ul>
@@ -113,12 +116,29 @@ Your efforts help make NUnit better for the entire community.</p>
 <p>A special thank you to the following reporters for identifying issues:</p>
 <table>
 <tr>
+<td><a href="https://github.com/Evangelink">Amaury Levé</a></td>
 <td><a href="https://github.com/agray">Andrew Gray</a></td>
+<td><a href="https://github.com/cbersch">Christoph Bersch</a></td>
+<td><a href="https://github.com/JasonBock">Jason Bock</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 </tr>
 </table>
 <p>and to the commenters who engaged in discussions and offered further insights:</p>
 <table>
+<tr>
+<td><a href="https://github.com/cbersch">Christoph Bersch</a></td>
+<td><a href="https://github.com/danstur">Daniel Sturm</a></td>
+<td><a href="https://github.com/RussKie">Igor Velikorossov</a></td>
+<td><a href="https://github.com/JasonBock">Jason Bock</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/joschmo80">joschmo80</a></td>
+<td><a href="https://github.com/lennartb-">Lennart Brüggemann</a></td>
+<td><a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a></td>
+<td><a href="https://github.com/moh-hassan">Mohamed Hassan</a></td>
+</tr>
 <tr>
 <td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 <td><a href="https://github.com/Youssef1313">Youssef Victor</a></td>
