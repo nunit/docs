@@ -37,16 +37,15 @@ When used on test methods, NUnit automatically adds an extra argument to your me
 
 ## Example
 
-```csharp
-[Test, CancelAfter(2000)]
-public void RunningTestUntilCanceled(CancellationToken token)
-{
-    while (!token.IsCancellationRequested)
-    {
-        /* */
-    }
-}
+The `CancelAfterAttribute` supports cancellation across a variety of ways to write tests.
 
+A simple test, written using the `Test` attribute:
+
+[!code-csharp[TestWithCancellationToken](~/snippets/Snippets.NUnit/Attributes/CancelAfterAttributeExamples.cs#TestWithCancellationToken)]
+
+A parameterized test written using the `TestCase` attribute:
+
+```csharp
 [CancelAfter(2000)]
 [TestCase("http://server1")]
 [TestCase("http://server2")]
@@ -59,6 +58,10 @@ public async Task PotentiallyLongRunningTest(string uri, CancellationToken token
     /* */
 }
 ```
+
+A parameterized test written using the `TestCaseSource` attribute:
+
+[!code-csharp[TestCaseSourceWithCancellationToken](~/snippets/Snippets.NUnit/Attributes/CancelAfterAttributeExamples.cs#TestCaseSourceWithCancellationToken)]
 
 > [!NOTE]
 > When debugging a unit test, i.e. when a debugger is attached to the process, the timeout is not enforced.
