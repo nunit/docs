@@ -37,16 +37,11 @@ When used on test methods, NUnit automatically adds an extra argument to your me
 
 ## Example
 
-```csharp
-[Test, CancelAfter(2000)]
-public void RunningTestUntilCanceled(CancellationToken token)
-{
-    while (!token.IsCancellationRequested)
-    {
-        /* */
-    }
-}
+[!code-csharp[TestWithCancellationToken](~/snippets/Snippets.NUnit/Attributes/CancelAfterAttributeExamples.cs#TestWithCancellationToken)]
 
+[!code-csharp[TestCaseSourceWithCancellationToken](~/snippets/Snippets.NUnit/Attributes/CancelAfterAttributeExamples.cs#TestCaseSourceWithCancellationToken)]
+
+```csharp
 [CancelAfter(2000)]
 [TestCase("http://server1")]
 [TestCase("http://server2")]
