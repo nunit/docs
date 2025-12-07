@@ -109,16 +109,19 @@ test cases. When using the console runner, it is also possible to specify a defa
 <code>CancellationToken</code>. If you want to check for cancellation in <code>SetUp</code> methods, you can use
 <code>TestContext.CurrentContext.CancellationToken</code></p>
 <h2 id="example">Example</h2>
-<pre><code class="lang-csharp">[Test, CancelAfter(2000)]
-public void RunningTestUntilCanceled(CancellationToken token)
+<p>The <code>CancelAfterAttribute</code> supports cancellation across a variety of ways to write tests.</p>
+<p>A simple test, written using the <code>Test</code> attribute:</p>
+<pre><code class="lang-csharp" name="TestWithCancellationToken">[Test, CancelAfter(2_000)]
+public void RunningTestUntilCanceled(CancellationToken cancellationToken)
 {
-    while (!token.IsCancellationRequested)
+    while (!cancellationToken.IsCancellationRequested)
     {
         /* */
     }
 }
-
-[CancelAfter(2000)]
+</code></pre>
+<p>A parameterized test written using the <code>TestCase</code> attribute:</p>
+<pre><code class="lang-csharp">[CancelAfter(2000)]
 [TestCase(&quot;http://server1&quot;)]
 [TestCase(&quot;http://server2&quot;)]
 public async Task PotentiallyLongRunningTest(string uri, CancellationToken token)
@@ -128,6 +131,20 @@ public async Task PotentiallyLongRunningTest(string uri, CancellationToken token
     await client.PostAync(uri, content, token);
     HttpResponseMessage response = await client.GetAsync(uri, token);
     /* */
+}
+</code></pre>
+<p>A parameterized test written using the <code>TestCaseSource</code> attribute:</p>
+<pre><code class="lang-csharp" name="TestCaseSourceWithCancellationToken">private static int[] _simpleValues = { 2, 4, 6, 8 };
+
+[TestCaseSource(nameof(_simpleValues)), CancelAfter(1_000)]
+public void TestCaseSourceWithCancellationToken(int a, CancellationToken cancellationToken)
+{
+    Assert.That(cancellationToken, Is.Not.Default);
+
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        /* */
+    }
 }
 </code></pre>
 <div class="NOTE">
