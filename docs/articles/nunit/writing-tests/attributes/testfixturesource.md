@@ -65,7 +65,7 @@ class. Arguments must be consistent with the fixture constructor.
 
 In constructing fixtures, NUnit uses each item returned by the enumerator as follows:
 
-* If it is an object deriving from `TestFixtureParameters`, its properties are used to provide the test case. NUnit
+* If it is an object deriving from `TestFixtureParameters`, its properties are used to provide the test fixture's data. NUnit
   provides the [TestFixtureData](xref:testfixturedata) class for this purpose.
 * If it is an `object[]`, its members are used to provide the arguments for the method. This is the approach taken in
   the examples above.
