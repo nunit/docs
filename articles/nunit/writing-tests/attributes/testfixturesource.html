@@ -93,14 +93,14 @@ fixtures. See <a class="xref" href="../../technical-notes/usage/Parameterized-Te
 <p>Consider a test fixture class taking two parameters in its constructor, a string and an int. We can specify the test and
 its data using one of the forms of <strong>TestFixtureSourceAttribute</strong>:</p>
 <h3 id="form-1---testfixturesourcestring-sourcename">Form 1 - [TestFixtureSource(string sourceName)]</h3>
-<pre><code class="lang-csharp">[TestFixtureSource(nameof(FixtureArgs))]
+<pre><code class="lang-csharp" name="BasicTestFixtureSource">[TestFixtureSource(nameof(FixtureArgs))]
 public class MyTestClass
 {
-    public MyTestClass(string word, int num) { ... }
+    public MyTestClass(string word, int num) { /* ... */ }
 
-    /* ... */
+    /* Tests */
 
-    static object [] FixtureArgs = {
+    static object[] FixtureArgs = {
         new object[] { &quot;Question&quot;, 1 },
         new object[] { &quot;Answer&quot;, 42 }
     };
@@ -122,17 +122,17 @@ properties and methods, you may return an array or implement your own iterator.
 <code>TestFixtureParameters</code> class. Arguments must be consistent with the fixture constructor.</li>
 </ul>
 <h3 id="form-2---testfixturesourcetype-sourcetype-string-sourcename">Form 2 - [TestFixtureSource(Type sourceType, string sourceName)]</h3>
-<pre><code class="lang-csharp">[TestFixtureSource(typeof(AnotherClass), nameof(AnotherClass.FixtureArgs)]
+<pre><code class="lang-csharp" name="StaticPropertyInAnotherClass">[TestFixtureSource(typeof(AnotherClass), nameof(AnotherClass.FixtureArgs))]
 public class MyTestClass
 {
-    public MyTestClass(string word, int num) { ... }
+    public MyTestClass(string word, int num) { /* ... */ }
 
-    ...
+    /* Tests */
 }
 
-class AnotherClass
+public class AnotherClass
 {
-    static object [] FixtureArgs = {
+    public static object[] FixtureArgs = {
         new object[] { &quot;Question&quot;, 1 },
         new object[] { &quot;Answer&quot;, 42 }
     };
@@ -156,7 +156,7 @@ properties and methods, you may return an array or implement your own iterator.
 <code>TestFixtureParameters</code> class. Arguments must be consistent with the fixture constructor.</li>
 </ul>
 <h3 id="form-3---testfixturesourcetype-sourcetype">Form 3 - [TestFixtureSource(Type sourceType)]</h3>
-<pre><code class="lang-csharp">[TestFixtureSource(typeof(FixtureArgs))]
+<pre><code class="lang-csharp" name="SourceFromEnumerable">[TestFixtureSource(typeof(FixtureArgs))]
 public class MyTestClass
 {
     public MyTestClass(string word, int num) { /* ... */ }
@@ -164,7 +164,7 @@ public class MyTestClass
     /* ... */
 }
 
-class FixtureArgs: IEnumerable
+class FixtureArgs : IEnumerable
 {
     public IEnumerator GetEnumerator()
     {
@@ -173,19 +173,20 @@ class FixtureArgs: IEnumerable
     }
 }
 </code></pre>
-<p>The Type argument in this form represents the class that provides test cases. It must have a default constructor and
+<p>The Type argument in this form represents the class that provides test fixtures. It must have a default constructor and
 implement <code>IEnumerable</code>.</p>
 <p>The individual items returned by the enumerator must either be object arrays or derive from the <code>TestFixtureParameters</code>
 class. Arguments must be consistent with the fixture constructor.</p>
 <h2 id="named-parameters">Named Parameters</h2>
-<p><code>TestCaseSourceAttribute</code> supports one named parameter:</p>
+<p><code>TestFixtureSourceAttribute</code> supports two named parameters:</p>
 <ul>
-<li><strong>Category</strong> is used to assign one or more categories to every test case returned from this source.</li>
+<li><strong>Category</strong> is used to assign one or more categories to every test fixture returned from this source.</li>
+<li><strong>TypeArgs</strong> can be used to explicitly specify the <code>Type</code>s to be used when constructing a generic test fixture. (<em>NUnit 4.5+</em>)</li>
 </ul>
-<h2 id="test-case-construction">Test Case Construction</h2>
-<p>In constructing tests, NUnit uses each item returned by the enumerator as follows:</p>
+<h2 id="test-fixture-construction">Test Fixture Construction</h2>
+<p>In constructing fixtures, NUnit uses each item returned by the enumerator as follows:</p>
 <ul>
-<li>If it is an object deriving from <code>TestFixtureParameters</code>, its properties are used to provide the test case. NUnit
+<li>If it is an object deriving from <code>TestFixtureParameters</code>, its properties are used to provide the test fixture's data. NUnit
 provides the <a class="xref" href="../TestFixtureData.html">TestFixtureData</a> class for this purpose.</li>
 <li>If it is an <code>object[]</code>, its members are used to provide the arguments for the method. This is the approach taken in
 the examples above.</li>
