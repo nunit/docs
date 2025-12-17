@@ -11,20 +11,7 @@ its data using one of the forms of **TestFixtureSourceAttribute**:
 
 ### Form 1 - [TestFixtureSource(string sourceName)]
 
-```csharp
-[TestFixtureSource(nameof(FixtureArgs))]
-public class MyTestClass
-{
-    public MyTestClass(string word, int num) { ... }
-
-    /* ... */
-
-    static object [] FixtureArgs = {
-        new object[] { "Question", 1 },
-        new object[] { "Answer", 42 }
-    };
-}
-```
+[!code-csharp[BasicTestFixtureSource](~/snippets/Snippets.NUnit/Attributes/TestFixtureSourceAttributeExamples.cs#StaticPropertyInOwnClass)]
 
 The single attribute argument in this form is a string representing the name of the source used to provide arguments for
 constructing the `TestFixture`. It has the following characteristics:
@@ -40,23 +27,7 @@ constructing the `TestFixture`. It has the following characteristics:
 
 ### Form 2 - [TestFixtureSource(Type sourceType, string sourceName)]
 
-```csharp
-[TestFixtureSource(typeof(AnotherClass), nameof(AnotherClass.FixtureArgs)]
-public class MyTestClass
-{
-    public MyTestClass(string word, int num) { ... }
-
-    ...
-}
-
-class AnotherClass
-{
-    static object [] FixtureArgs = {
-        new object[] { "Question", 1 },
-        new object[] { "Answer", 42 }
-    };
-}
-```
+[!code-csharp[StaticPropertyInAnotherClass](~/snippets/Snippets.NUnit/Attributes/TestFixtureSourceAttributeExamples.cs#StaticPropertyInAnotherClass)]
 
 The first argument of the attribute in this form is a Type representing the class that will provide the test fixture
 data.
@@ -75,26 +46,9 @@ characteristics:
 
 ### Form 3 - [TestFixtureSource(Type sourceType)]
 
-```csharp
-[TestFixtureSource(typeof(FixtureArgs))]
-public class MyTestClass
-{
-    public MyTestClass(string word, int num) { /* ... */ }
+[!code-csharp[SourceFromEnumerable](~/snippets/Snippets.NUnit/Attributes/TestFixtureSourceAttributeExamples.cs#SourceFromEnumerable)]
 
-    /* ... */
-}
-
-class FixtureArgs: IEnumerable
-{
-    public IEnumerator GetEnumerator()
-    {
-        yield return new object[] { "Question", 1 };
-        yield return new object[] { "Answer", 42 };
-    }
-}
-```
-
-The Type argument in this form represents the class that provides test cases. It must have a default constructor and
+The Type argument in this form represents the class that provides test fixtures. It must have a default constructor and
 implement `IEnumerable`.
 
 The individual items returned by the enumerator must either be object arrays or derive from the `TestFixtureParameters`
@@ -102,15 +56,16 @@ class. Arguments must be consistent with the fixture constructor.
 
 ## Named Parameters
 
-`TestCaseSourceAttribute` supports one named parameter:
+`TestFixtureSourceAttribute` supports two named parameters:
 
-* **Category** is used to assign one or more categories to every test case returned from this source.
+* **Category** is used to assign one or more categories to every test fixture returned from this source.
+* **TypeArgs** can be used to explicitly specify the `Type`s to be used when constructing a generic test fixture. (_NUnit 4.5+_)
 
-## Test Case Construction
+## Test Fixture Construction
 
-In constructing tests, NUnit uses each item returned by the enumerator as follows:
+In constructing fixtures, NUnit uses each item returned by the enumerator as follows:
 
-* If it is an object deriving from `TestFixtureParameters`, its properties are used to provide the test case. NUnit
+* If it is an object deriving from `TestFixtureParameters`, its properties are used to provide the test fixture's data. NUnit
   provides the [TestFixtureData](xref:testfixturedata) class for this purpose.
 * If it is an `object[]`, its members are used to provide the arguments for the method. This is the approach taken in
   the examples above.
