@@ -96,6 +96,7 @@ There are 6 issues fixed in this release.
 
 * [1328](https://github.com/nunit/nunit3-vs-adapter/issues/1328) NUnit compatible version for MTP 2.0.0. Thanks to [Youssef Victor](https://github.com/Youssef1313) and NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 1329](https://github.com/nunit/nunit3-vs-adapter/pull/1329)
 * [1335](https://github.com/nunit/nunit3-vs-adapter/issues/1335) Update to net 8,  remove netcore 3.1. Thanks to [Youssef Victor](https://github.com/Youssef1313) and NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 1329](https://github.com/nunit/nunit3-vs-adapter/pull/1329)
+* [1366](https://github.com/nunit/nunit3-vs-adapter/issues/1366) Assembly loading move to AssemblyLoadContext for net8 and higher
 
 ### Acknowledgements
 
