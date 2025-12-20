@@ -88,6 +88,62 @@
 <!-- markdownlint-disable-file MD013 -->
 <!-- markdownlint-disable-file MD033 -->
 
+<h2 id="nunit3-test-adapter-for-visual-studio-and-dotnet---version-601---december-20-2025">NUnit3 Test Adapter for Visual Studio and Dotnet - Version 6.0.1 - December 20, 2025</h2>
+<p>This is a hotfix release for version 6.0.0 to handle issues related to loading assemblies.
+Go here for a <a href="https://github.com/nunit/nunit3-vs-adapter/issues/1376">detailed overview</a>,
+with links to all related issues.</p>
+<p>The fixes is mainly in the NUnit.Engine, so this release embeds NUnit.Engine version 3.21.1.</p>
+<p>The following adapter issues have been fixed.</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1382">1382</a> NU1109 after update to v6.0.0 when using CPM with transitive pinning enabled (Net8 SDK).</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1374">1374</a> System.Diagnostics.Trace.Assert crashes the test process after updating to NUnit3TestAdapter 6.0.0.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1372">1372</a> <code>SocketException</code> (&quot;can't assign requested address&quot;) when starting child process on 6.0.0.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1371">1371</a> V6 - assembly loading issue.</li>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1367">1367</a> V10 of Microsoft.* nugets makes it more difficult to support older nugets and runtime.</li>
+</ul>
+<p>The fixes in the adapter is for these three issues:</p>
+<ul>
+<li><a href="https://github.com/nunit/nunit-console/issues/1797">1797</a> Issue with assembly load context changes in NUnit3TestAdapter v6 &amp; Microsoft.Build.dll dynamic loading</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1796">1796</a> Assembly load logic changes in v6</li>
+<li><a href="https://github.com/nunit/nunit-console/issues/1795">1795</a> :test_tube: Assembly loading move to AssemblyLoadContext for net8 and higher</li>
+</ul>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>We want to express our heartfelt gratitude to everyone who has contributed to this release
+by reporting bugs, suggesting enhancements, and providing valuable feedback.
+Your efforts help make NUnit better for the entire community.</p>
+<p>A special thank you to the following reporters for identifying the issues:</p>
+<table>
+<tr>
+<td><a href="https://github.com/bvst">Bjorn-Vegard Thoresen</a></td>
+<td><a href="https://github.com/DaRosenberg">Daniel Rosenberg</a></td>
+<td><a href="https://github.com/fschmied">Fabian Schmied</a></td>
+<td><a href="https://github.com/perclausen">Per Clausen</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/SimonCropp">Simon Cropp</a></td>
+</tr>
+</table>
+<p>and to the commenters who engaged in discussions and offered further insights:</p>
+<table>
+<tr>
+<td><a href="https://github.com/CharliePoole">CharliePoole</a></td>
+<td><a href="https://github.com/cjbush">Chris Bush</a></td>
+<td><a href="https://github.com/DaRosenberg">Daniel Rosenberg</a></td>
+<td><a href="https://github.com/fschmied">Fabian Schmied</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
+<td><a href="https://github.com/perclausen">Per Clausen</a></td>
+<td><a href="https://github.com/peter-nguyen-contemi">Peter Nguyen</a></td>
+<td><a href="https://github.com/PhilippNaused">Philipp Naused</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/NightOwl888">Shad Storhaug</a></td>
+<td><a href="https://github.com/SimonCropp">Simon Cropp</a></td>
+<td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
+<td><a href="https://github.com/tonygambone">Tony Gambone</a></td>
+</tr>
+</table>
 <h2 id="nunit3-test-adapter-for-visual-studio-and-dotnet---version-600---december-6-2025">NUnit3 Test Adapter for Visual Studio and Dotnet - Version 6.0.0 - December 6, 2025</h2>
 <p>This version supports MTP version 2.  Further the lowest .net version is .net 8.0, so netcore 3.1 is no longer supported.</p>
 <p>See the migration guide for <a href="https://learn.microsoft.com/en-us/dotnet/core/testing/microsoft-testing-platform-migration-from-v1-to-v2">MTP v1 to v2</a> for details on moving up to version 2.</p>
@@ -109,7 +165,7 @@
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1328">1328</a> NUnit compatible version for MTP 2.0.0. Thanks to <a href="https://github.com/Youssef1313">Youssef Victor</a> and NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1329">PR 1329</a></li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1335">1335</a> Update to net 8,  remove netcore 3.1. Thanks to <a href="https://github.com/Youssef1313">Youssef Victor</a> and NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1329">PR 1329</a></li>
 </ul>
-<h3 id="acknowledgements">Acknowledgements</h3>
+<h3 id="acknowledgements-1">Acknowledgements</h3>
 <p>We want to express our heartfelt gratitude to everyone who has contributed to this release
 by reporting bugs, suggesting enhancements, and providing valuable feedback.
 Your efforts help make NUnit better for the entire community.</p>
@@ -155,7 +211,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1292">1292</a> (Apparently) inconsistent version requirements of Microsoft.Testing.Extensions.VSTestBridge and Microsoft.Testing.Platform.MSBuild. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1296">PR 1296</a></li>
 </ul>
-<h3 id="acknowledgements-1">Acknowledgements</h3>
+<h3 id="acknowledgements-2">Acknowledgements</h3>
 <p>We want to express our heartfelt gratitude to everyone who has contributed to this release
 by reporting bugs, suggesting enhancements, and providing valuable feedback.
 Your efforts help make NUnit better for the entire community.</p>
@@ -199,7 +255,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <p>None</p>
 <h3 id="the-following-issues-are-marked-as-breaking-changes-1">The following issues are marked as breaking changes</h3>
 <p>None</p>
-<h3 id="acknowledgements-2">Acknowledgements</h3>
+<h3 id="acknowledgements-3">Acknowledgements</h3>
 <p>We want to express our heartfelt gratitude to everyone who has contributed to this release
 by reporting bugs, suggesting enhancements, and providing valuable feedback.
 Your efforts help make NUnit better for the entire community.</p>
