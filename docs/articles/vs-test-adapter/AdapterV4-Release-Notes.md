@@ -27,7 +27,7 @@ The remaining settings are intended for development and diagnostics. `DebugEngin
 
 The 6.1 version of the adapter use the NUnit.Engine version 3.22.0. This version introduce a changed way of loading assemblies.
 In order for the adapter to handle MTP (Microsoft test Platform) it needs to use the default loading context, which the engine may not use.
-The introduction of the `UseDefaultAssemblyLoadContext` ensures this work.
+The introduction of the `UseDefaultAssemblyLoadContext` ensures this works.
 The current versions of Resharper and Rider (2025.3.1) however do not yet support the `UseDefaultAssemblyLoadContext`, and therefore the user **may** experience assembly loading issues.
 
 If you're not using Visual Studio test explorer, but only Rider or Resharper's, they will work if you don't install the adapter.
