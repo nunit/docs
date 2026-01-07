@@ -42,12 +42,13 @@ Certain NUnit Test Adapter settings are configurable using a .runsettings file. 
 | [DiscoveryMethod](#discoverymethod)                                   | enum   | How execution discovery is done, options are `Legacy` or `Current`            | Current                       |
 | [AssemblySelectLimit](#assemblyselectlimit)                           | int    | Number of tests accepted before filters are turned off                        | 2000                          |
 | [NewOutputXmlFileForEachRun](#newoutputxmlfileforeachrun)             | bool   | Creates a new file for each test run                                          | false                         |
-| [IncludeStackTraceForSuites](#includestacktraceforsuites)             | bool   | Includes stack trace for failures in suites, like exceptions in OneTimeSetup and OneTimeTearDown | true                          |
-| [IncludeStackTrace](#includestacktrace)             | bool   | Includes stack trace for all failures | true                          |
-| [ExplicitMode](#explicitmode)                                         | enum   | Changes handling of explicit tests, options are `Strict`, `Relaxed` or `None`     | Strict                        |
+| [IncludeStackTraceForSuites](#includestacktraceforsuites)             | bool   | Includes stack trace for failures in suites, e.g.OneTimeSetup/OneTimeTearDown | true                          |
+| [IncludeStackTrace](#includestacktrace)                               | bool   | Includes stack trace for all failures                                         | true                          |
+| [ExplicitMode](#explicitmode)                                         | enum   | Changes handling of explicit tests, options are `Strict`, `Relaxed` or `None` | Strict                        |
 | [SkipExecutionWhenNoTests](#skipexecutionwhennotests)                 | bool   | Skip execution if no tests are found                                          | false                         |
 | [AllowParallelWithDebugger](#allowparallelwithdebugger)               | bool   | Allow parallel execution when debugger is attached                            | false                         |
-| [ThrowOnEachFailureUnderDebugger](#throwoneachfailureunderdebugger)   | bool   | | false |
+| [ThrowOnEachFailureUnderDebugger](#throwoneachfailureunderdebugger)   | bool   | Throw on each failure when debugger is attached                               | false                         |
+| [UseDefaultAssemblyLoadContext](#usedefaultassemblyloadcontext)       | bool   | Force the engine to use Default Loading Context, otherwise engine decide      | true                          |
 
 ### Visual Studio templates for runsettings
 
@@ -398,6 +399,14 @@ is attached. The default is `false`.
 [See docs for more info](https://docs.nunit.org/articles/nunit/technical-notes/usage/Debugging-Support.html#throwoneachfailureunderdebugger-setting).
 
 (From version 4.6, require NUnit from 4.2)
+
+#### UseDefaultAssemblyLoadContext
+
+Controls how the NUnit.Engine (from version 3.22.0) does assembly loading.  Default is `true`, and cause the engine to
+load the assemblies into the default assembly loading context.  This is mandatory for MTP.
+If set to `false`, the engine will load assemblies based on its own algorithm, also taking isolation into account.
+
+(From version 6.1)
 
 ---
 
