@@ -18,12 +18,10 @@ The table below shows the supported adapter versions for a given framework versi
 |Net 7|4.3 - 5.X ||
 |Net 8+|Works with 4.3.2 and upwards||
 
-The adapter is shipped with three different versions of the test framework. The first is the full framework version,
-which is used for .NET Framework based test projects.  The second is the .NET version 6.0, which is used for .NET
-6.0, and the third is .NET 8.0 which is used for .net 7.0, 8.0, 9.0, 10.0 and upwards.  
+The adapter is shipped with two different versions of the test framework. The first is the full framework version,
+which is used for .NET Framework based test projects.  The second is the .NET (Core) version.  
 The different versions of the adapter supports different versions of the test framework.  
-The table above shows the supported versions.git sw -
-
+The table above shows the supported versions.
 
 Version 4.3.2 of the adapter will support future versions of .net, as long as there are no breaking changes.  (Earlier
 versions have been blocking that based on the table above).
