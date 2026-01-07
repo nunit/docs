@@ -282,7 +282,7 @@
 <tr>
 <td><a href="#includestacktraceforsuites">IncludeStackTraceForSuites</a></td>
 <td>bool</td>
-<td>Includes stack trace for failures in suites, like exceptions in OneTimeSetup and OneTimeTearDown</td>
+<td>Includes stack trace for failures in suites, e.g.OneTimeSetup/OneTimeTearDown</td>
 <td>true</td>
 </tr>
 <tr>
@@ -312,8 +312,14 @@
 <tr>
 <td><a href="#throwoneachfailureunderdebugger">ThrowOnEachFailureUnderDebugger</a></td>
 <td>bool</td>
-<td></td>
+<td>Throw on each failure when debugger is attached</td>
 <td>false</td>
+</tr>
+<tr>
+<td><a href="#usedefaultassemblyloadcontext">UseDefaultAssemblyLoadContext</a></td>
+<td>bool</td>
+<td>Force the engine to use Default Loading Context, otherwise engine decide</td>
+<td>true</td>
 </tr>
 </tbody>
 </table>
@@ -543,6 +549,11 @@ files. The default is false.</p>
 is attached. The default is <code>false</code>.<br>
 <a href="https://docs.nunit.org/articles/nunit/technical-notes/usage/Debugging-Support.html#throwoneachfailureunderdebugger-setting">See docs for more info</a>.</p>
 <p>(From version 4.6, require NUnit from 4.2)</p>
+<h4 id="usedefaultassemblyloadcontext">UseDefaultAssemblyLoadContext</h4>
+<p>Controls how the NUnit.Engine (from version 3.22.0) does assembly loading.  Default is <code>true</code>, and cause the engine to
+load the assemblies into the default assembly loading context.  This is mandatory for MTP.
+If set to <code>false</code>, the engine will load assemblies based on its own algorithm, also taking isolation into account.</p>
+<p>(From version 6.1)</p>
 <hr>
 <h3 id="some-further-information-on-directories">Some further information on directories</h3>
 <p>(From <a href="https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421">comment on issue 575</a> by

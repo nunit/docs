@@ -102,9 +102,11 @@ You can then enable a debug run by passing one of the NUnit debug settings using
 <pre><code class="lang-cmd">NUnit.DebugExecution
 NUnit.DebugDiscovery
 NUnit.Debug
+NUnit.DebugEngine  # (From version 6.1)
 </code></pre>
-<p>The last setting is equal to setting both of the two above.</p>
-<p>From command line, you can set these by adding</p>
+<p>The <code>NUnit.Debug</code> is equal to setting both of the two above.</p>
+<p>The <code>NUnit.DebugEngine</code> enables debugging of the embedded NUnit.Engine.</p>
+<p>From command line, you can set these by adding e.g.</p>
 <pre><code class="lang-cmd">dotnet test -- NUnit.DebugExecution=true
 </code></pre>
 <p>If you want to do this using Visual Studio, you must add a runsettings file, and add these settings there to the NUnit
