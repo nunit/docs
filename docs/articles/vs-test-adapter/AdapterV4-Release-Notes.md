@@ -30,7 +30,7 @@ In order for the adapter to handle MTP (Microsoft test Platform) it needs to use
 The introduction of the `UseDefaultAssemblyLoadContext` ensures this work.
 The current versions of Resharper and Rider (2025.3.1) however do not yet support the `UseDefaultAssemblyLoadContext`, and therefore the user **may** experience assembly loading issues.
 
-If you're not using Visual Studio test explorer, but only Rider og Resharper's, they will work if you don't install the adapter.
+If you're not using Visual Studio test explorer, but only Rider or Resharper's, they will work if you don't install the adapter.
 
 ### Acknowledgements
 
