@@ -12,7 +12,7 @@ uid: adapterreleasenotes
 This is a bug-fix release that addresses a series of issues related to assembly loading.
 It also introduces several new settings. One of these, `UseDefaultAssemblyLoadContext`, is crucial for correct assembly loading and is now enabled by default by the adapter.
 
-The remaining settings are intended for development and diagnostics.`DebugEngine` enables debugging of the NUnit Engine, and `InternalTraceLevel` allows the engine’s internal trace level to be configured and is now passed through to the engine.
+The remaining settings are intended for development and diagnostics. `DebugEngine` enables debugging of the NUnit Engine, and `InternalTraceLevel` allows the engine’s internal trace level to be configured and is now passed through to the engine.
 
 ### Bug fixes
 
