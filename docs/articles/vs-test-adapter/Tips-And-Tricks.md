@@ -47,7 +47,7 @@ Certain NUnit Test Adapter settings are configurable using a .runsettings file. 
 | [ExplicitMode](#explicitmode)                                         | enum   | Changes handling of explicit tests, options are `Strict`, `Relaxed` or `None` | Strict                        |
 | [SkipExecutionWhenNoTests](#skipexecutionwhennotests)                 | bool   | Skip execution if no tests are found                                          | false                         |
 | [AllowParallelWithDebugger](#allowparallelwithdebugger)               | bool   | Allow parallel execution when debugger is attached                            | false                         |
-| [ThrowOnEachFailureUnderDebugger](#throwoneachfailureunderdebugger)   | bool   |                                                                               | false                         |
+| [ThrowOnEachFailureUnderDebugger](#throwoneachfailureunderdebugger)   | bool   | Throw on each failure when debugger is attached                               | false                         |
 | [UseDefaultAssemblyLoadContext](#usedefaultassemblyloadcontext)       | bool   | Force the engine to use Default Loading Context, otherwise engine decide      | true                          |
 
 ### Visual Studio templates for runsettings
