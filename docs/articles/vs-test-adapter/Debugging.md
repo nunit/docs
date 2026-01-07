@@ -26,11 +26,14 @@ The symbols are:
 NUnit.DebugExecution
 NUnit.DebugDiscovery
 NUnit.Debug
+NUnit.DebugEngine  # (From version 6.1)
 ```
 
-The last setting is equal to setting both of the two above.
+The `NUnit.Debug` is equal to setting both of the two above.
 
-From command line, you can set these by adding
+The `NUnit.DebugEngine` enables debugging of the embedded NUnit.Engine.
+
+From command line, you can set these by adding e.g.
 
 ```cmd
 dotnet test -- NUnit.DebugExecution=true

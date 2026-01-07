@@ -7,6 +7,74 @@ uid: adapterreleasenotes
 
 # Adapter Release Notes
 
+## NUnit3 Test Adapter for Visual Studio and Dotnet - Version 6.1.0 - January 7, 2026
+
+This is a bug-fix release that addresses a series of issues related to assembly loading.
+It also introduces several new settings. One of these, `UseDefaultAssemblyLoadContext`, is crucial for correct assembly loading and is now enabled by default by the adapter.
+
+The remaining settings are intended for development and diagnostics.`DebugEngine` enables debugging of the NUnit Engine, and `InternalTraceLevel` allows the engine’s internal trace level to be configured and is now passed through to the engine.
+
+### Bug fixes
+
+* [1393](https://github.com/nunit/nunit3-vs-adapter/issues/1393) System.IO.FileNotFoundException: Could not load file or assembly 'System.Text.Json, Version=10.0.0.0.
+* [1391](https://github.com/nunit/nunit3-vs-adapter/issues/1391) NUnit3TestAdapter V6.0.1 doesn't work with Resharpers Unit Tests explorer.
+* [1390](https://github.com/nunit/nunit3-vs-adapter/issues/1390) I am getting a System.InvalidCastException when updating from NUnit3TestAdapter Version=5.2.0 to 6.0.1.
+* [1389](https://github.com/nunit/nunit3-vs-adapter/issues/1389) Double loading assemblys NUnit3TestAdapter 6.0.1 with Microsoft Testing Platform (MTP). Fixed by [PR 1395](https://github.com/nunit/nunit3-vs-adapter/pull/1395)
+* [1375](https://github.com/nunit/nunit3-vs-adapter/issues/1375) New failures in dynamic code evaluation in v6. Fixed by [PR 1395](https://github.com/nunit/nunit3-vs-adapter/pull/1395)
+* [1348](https://github.com/nunit/nunit3-vs-adapter/issues/1348) [MTP] AwesomeAssertions throws different NUnit.Framework.AssertionException than expected at runtime.
+
+### Breaking changes
+
+The 6.1 version of the adapter use the NUnit.Engine version 3.22.0. This version introduce a changed way of loading assemblies.
+In order for the adapter to handle MTP (Microsoft test Platform) it need to use the default loading context, which the engine may not use.
+The introduction of the `UseDefaultAssemblyLoadContext` ensures this work.
+The current versions of Resharper and Rider (2025.3.1) however do not yet support the `UseDefaultAssemblyLoadContext`, and therefore the user **may** experience assembly loading issues.
+
+If you're not using Visual Studio test explorer, but only Rider og Resharper's, they will work if you don't install the adapter.
+
+### Acknowledgements
+
+We want to express our heartfelt gratitude to everyone who has contributed to this release
+by reporting bugs, suggesting enhancements, and providing valuable feedback.
+Your efforts help make NUnit better for the entire community.
+
+A special thank you to the following reporters for identifying issues:
+
+<table>
+<tr>
+<td><a href="https://github.com/ScarletKuro">Artyom M.</a></td>
+<td><a href="https://github.com/cbersch">Christoph Bersch</a></td>
+<td><a href="https://github.com/glennawatson">Glenn Watson</a></td>
+<td><a href="https://github.com/MJB222398">MJB222398</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Methuselah96">Nathan Bierema</a></td>
+<td><a href="https://github.com/Sveti86">Svetoslav Inkolov</a></td>
+</tr>
+</table>
+
+and to the commenters who engaged in discussions and offered further insights:
+
+<table>
+<tr>
+<td><a href="https://github.com/ScarletKuro">Artyom M.</a></td>
+<td><a href="https://github.com/bradford-fisher">Bradford Fisher</a></td>
+<td><a href="https://github.com/CharliePoole">CharliePoole</a></td>
+<td><a href="https://github.com/cbersch">Christoph Bersch</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
+<td><a href="https://github.com/MJB222398">MJB222398</a></td>
+<td><a href="https://github.com/Methuselah96">Nathan Bierema</a></td>
+<td><a href="https://github.com/nesc58">nesc58</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Sveti86">Svetoslav Inkolov</a></td>
+<td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
+<td><a href="https://github.com/Youssef1313">Youssef Victor</a></td>
+</tr>
+</table>
+
 ## NUnit3 Test Adapter for Visual Studio and Dotnet - Version 6.0.1 - December 20, 2025
 
 This is a hotfix release for version 6.0.0 to handle issues related to loading assemblies.
