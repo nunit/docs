@@ -30,6 +30,24 @@ namespace Snippets.NUnit
         }
         #endregion
 
+        #region OneTimeVsPerTestSetupTearDownExample
+        [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
+        public sealed class OneTimeVsPerTestSetupTearDownHookAttribute : ExecutionHookAttribute
+        {
+            public override void BeforeEverySetUpHook(HookData data)
+            {
+                var scope = data.Context.Test.IsSuite ? "OneTimeSetUp" : "SetUp";
+                TestContext.Progress.WriteLine($"{scope}: {data.HookedMethod?.Name}");
+            }
+
+            public override void AfterEveryTearDownHook(HookData data)
+            {
+                var scope = data.Context.Test.IsSuite ? "OneTimeTearDown" : "TearDown";
+                TestContext.Progress.WriteLine($"{scope}: {data.HookedMethod?.Name}");
+            }
+        }
+        #endregion
+
         #region Usage
         [TestFixture]
         [TimeMeasurementHook]
