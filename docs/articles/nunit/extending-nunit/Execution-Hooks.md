@@ -51,9 +51,9 @@ Use these fields for logging, conditional logic, or adaptive cleanup.
 
 `BeforeEverySetUpHook`/`AfterEverySetUpHook` and `BeforeEveryTearDownHook`/`AfterEveryTearDownHook` run for both per-test and one-time setup/teardown. Inside a hook, the supported way to distinguish the two is the current test context: `Context.Test.IsSuite` is `true` for [OneTimeSetUp]/[OneTimeTearDown] (suite context) and `false` for [SetUp]/[TearDown] (test method context).
 
-See [Example: One-Time vs Per-Test Setup/TearDown](#example-one-time-vs-per-test-setup-teardown) for a complete hook implementation.
+See [Example: One-Time vs Per-Test Setup and TearDown](#example-one-time-vs-per-test-setup-and-teardown) for a complete hook implementation.
 
-## Example: One-Time vs Per-Test Setup/TearDown
+## Example: One-Time vs Per-Test Setup and TearDown
 
 [!code-csharp[ExecutionHookAttributeExample](~/snippets/Snippets.NUnit/ExecutionHookExamples.cs#OneTimeVsPerTestSetupTearDownExample)]
 
