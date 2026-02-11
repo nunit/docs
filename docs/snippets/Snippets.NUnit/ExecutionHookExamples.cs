@@ -22,10 +22,28 @@ namespace Snippets.NUnit
                 if (_starts.TryGetValue(key, out var start))
                 {
                     var elapsed = DateTime.UtcNow - start;
-                    TestContext.WriteLine($"[Timing] " +
+                    TestContext.Progress.WriteLine($"[Timing] " +
                         $"{hookData.Context.Test.MethodName} " +
                         $"took {elapsed.TotalMilliseconds:F1} ms");
                 }
+            }
+        }
+        #endregion
+
+        #region OneTimeVsPerTestSetupTearDownExample
+        [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
+        public sealed class OneTimeVsPerTestSetupTearDownHookAttribute : ExecutionHookAttribute
+        {
+            public override void BeforeEverySetUpHook(HookData data)
+            {
+                var scope = data.Context.Test.IsSuite ? "OneTimeSetUp" : "SetUp";
+                TestContext.Progress.WriteLine($"{scope}: {data.HookedMethod?.Name}");
+            }
+
+            public override void AfterEveryTearDownHook(HookData data)
+            {
+                var scope = data.Context.Test.IsSuite ? "OneTimeTearDown" : "TearDown";
+                TestContext.Progress.WriteLine($"{scope}: {data.HookedMethod?.Name}");
             }
         }
         #endregion
@@ -52,7 +70,7 @@ namespace Snippets.NUnit
                 var name = data.Context.Test.MethodName;
                 var exInfo = withException && data.Exception != null ? 
                     $" (EX: {data.Exception.GetType().Name})" : string.Empty;
-                TestContext.WriteLine($"[{phase}] {name}{exInfo}");
+                TestContext.Progress.WriteLine($"[{phase}] {name}{exInfo}");
             }
 
             public override void BeforeEverySetUpHook(HookData d) 
