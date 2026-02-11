@@ -174,7 +174,26 @@
 <li><code>Exception</code>: Non-null only for after-hooks when the hooked method threw.</li>
 </ul>
 <p>Use these fields for logging, conditional logic, or adaptive cleanup.</p>
-<h2 id="example-measure-time-for-setup">Example: Measure Time for Setup</h2>
+<h2 id="one-time-vs-per-test-setupteardown">One-Time vs Per-Test Setup/TearDown</h2>
+<p><code>BeforeEverySetUpHook</code>/<code>AfterEverySetUpHook</code> and <code>BeforeEveryTearDownHook</code>/<code>AfterEveryTearDownHook</code> run for both per-test and one-time setup/teardown. Inside a hook, the supported way to distinguish the two is the current test context: <code>Context.Test.IsSuite</code> is <code>true</code> for [OneTimeSetUp]/[OneTimeTearDown] (suite context) and <code>false</code> for [SetUp]/[TearDown] (test method context).</p>
+<p>See <a href="#example-one-time-vs-per-test-setup-and-teardown">Example: One-Time vs Per-Test Setup and TearDown</a> for a complete hook implementation.</p>
+<h2 id="example-one-time-vs-per-test-setup-and-teardown">Example: One-Time vs Per-Test Setup and TearDown</h2>
+<pre><code class="lang-csharp" name="ExecutionHookAttributeExample">[AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
+public sealed class OneTimeVsPerTestSetupTearDownHookAttribute : ExecutionHookAttribute
+{
+    public override void BeforeEverySetUpHook(HookData data)
+    {
+        var scope = data.Context.Test.IsSuite ? &quot;OneTimeSetUp&quot; : &quot;SetUp&quot;;
+        TestContext.Progress.WriteLine($&quot;{scope}: {data.HookedMethod?.Name}&quot;);
+    }
+
+    public override void AfterEveryTearDownHook(HookData data)
+    {
+        var scope = data.Context.Test.IsSuite ? &quot;OneTimeTearDown&quot; : &quot;TearDown&quot;;
+        TestContext.Progress.WriteLine($&quot;{scope}: {data.HookedMethod?.Name}&quot;);
+    }
+}
+</code></pre><h2 id="example-measure-time-for-setup">Example: Measure Time for Setup</h2>
 <pre><code class="lang-csharp" name="ExecutionHookAttributeExample">[AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
 public sealed class TimeMeasurementHookAttribute : ExecutionHookAttribute
 {
@@ -191,7 +210,7 @@ public sealed class TimeMeasurementHookAttribute : ExecutionHookAttribute
         if (_starts.TryGetValue(key, out var start))
         {
             var elapsed = DateTime.UtcNow - start;
-            TestContext.WriteLine($&quot;[Timing] &quot; +
+            TestContext.Progress.WriteLine($&quot;[Timing] &quot; +
                 $&quot;{hookData.Context.Test.MethodName} &quot; +
                 $&quot;took {elapsed.TotalMilliseconds:F1} ms&quot;);
         }
@@ -218,7 +237,7 @@ public sealed class LogAllHooksAttribute : ExecutionHookAttribute
         var name = data.Context.Test.MethodName;
         var exInfo = withException &amp;&amp; data.Exception != null ? 
             $&quot; (EX: {data.Exception.GetType().Name})&quot; : string.Empty;
-        TestContext.WriteLine($&quot;[{phase}] {name}{exInfo}&quot;);
+        TestContext.Progress.WriteLine($&quot;[{phase}] {name}{exInfo}&quot;);
     }
 
     public override void BeforeEverySetUpHook(HookData d) 
