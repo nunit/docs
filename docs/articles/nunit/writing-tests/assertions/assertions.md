@@ -34,6 +34,18 @@ approach have all been implemented internally using constraints. For example...
 
 ### Some notes on the Classic/Legacy asserts
 
+**From version 4.5**
+The Classic assertions are back in the `NUnit.Framework` namespace.  
+You don't need to add what is described below for these.
+
+PS: There are a few that are still there, we'll get them over in
+the next releases.
+
+[!NOTE]
+The Classic assertions are still available in the `NUnit.Framework.Legacy` too,
+so you don't need to refactor back. You now have both worlds at the same time.
+
+**Versions 4.0 to 4.4**
 The classic/legacy asserts, like `ClassicAssert.AreEqual`, have now been moved into its own project (namespace), and
 may later be released as a separate package.  They are now in the namespace `NUnit.Framework.Legacy`, and the `Assert`
 have been renamed to `ClassicAssert`.
