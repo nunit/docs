@@ -241,10 +241,11 @@ public class ExplicitAttributeExamples
     }
 }
 
+[Explicit("This code doesnt work on net, only netframework")]
 [TestFixture]
 public class TimeoutAttributeExamples
 {
-#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete[Explicit("This doesnt work on .net, only .netframework")]
     #region TimeoutExample
     [Test]
     [Timeout(1000)] // 1 second timeout
@@ -257,6 +258,7 @@ public class TimeoutAttributeExamples
 #pragma warning restore CS0618 // Type or member is obsolete
 
 #pragma warning disable CS0618 // Type or member is obsolete
+    
     #region TimeoutWithAsyncExample
     [Test]
     [Timeout(2000)] // 2 second timeout
