@@ -93,9 +93,10 @@ be done on a single Windows machine.</p>
 have used and tested for building everything and creating the release packages. We'll add options to the list as we find
 them.</p>
 <ol>
-<li>Visual Studio 2022 17.10 or newer with the NuGet Package manager.</li>
+<li>Visual Studio 2026 18.0 or newer with the NuGet Package manager.</li>
 <li>.NET 6.0 SDK</li>
 <li>.NET 8.0 SDK</li>
+<li>.NET 10.0 SDK</li>
 </ol>
 <h2 id="preparing-for-release">Preparing for Release</h2>
 <h3 id="create-a-release-branch">Create a Release Branch</h3>
@@ -138,12 +139,12 @@ use the following query to find issues that need to be reviewed:</li>
 <h3 id="update-copyright-year">Update Copyright Year</h3>
 <p>If necessary, update the year in the general copyright notice LICENSE.txt. Note that these copyright notices refer to
 each of the packages in their entirety.
-Each of the <code>.nuspec</code> files in the <code>nuget</code> subdirectory contains a copyright
-line, which should also be updated.</p>
+Each of the <code>.nuspec</code> files in the <code>nuget</code> subdirectory contains a copyright line, which should also be updated.</p>
 <h3 id="update-the-version-number-if-needed">Update the version number if needed</h3>
 <p>The version is given using <a href="https://github.com/adamralph/minver?tab=readme-ov-file#minver">MinVer</a>.
 If the version number doesn't match you expected XYZ, you update the version number by adding and pushing a tag in main.
 <strong>Note that this tag has to be on the commit that you're releasing.</strong></p>
+<p>If this is to be a non-beta, use the tag in the format <code>X.Y.Z</code>.  If it is a beta or alpha <code>X.Y.Z-beta.W</code>.</p>
 <h3 id="update-release-notes-in-frameworkmd">Update Release notes in <code>framework.md</code></h3>
 <p>To generate the change list in the format required, use the <strong>GetChanges</strong> console app from
 <a href="https://github.com/nunit/NUnit.InternalTools">NUnit.InternalTools</a> which fetches and prints all issues in the given
@@ -165,40 +166,9 @@ implemented in.</p>
 reviewed in the PR.
 Then merge the PR to main.
 Pull down the changes to your local machine.</p>
-<h2 id="creating-the-release-locally">Creating the Release Locally</h2>
-<p>The release <strong>should not</strong> be built on a developers machine, it should be built by the build servers. The following
-steps are only for reproducing the steps locally.</p>
-<ol>
-<li><p>Clear the package directory (if it exists) to avoid confusion:</p>
-<p><code>del package\*</code></p>
-<p>This is not absolutely required, but will be helpful if you have other release packages present in the directory.</p>
-</li>
-<li><p>You should be working on the release branch. Do a pull to make sure you have everything up to date. If changes of any
-significance were merged, you should test again before creating the release.</p>
-</li>
-<li><p>Ensure that the release build is up to date. If you have any doubt whether the latest code changes have actually been
-built, do a clean build. If the build is up to date you may skip this step.</p>
-<p><code>build --target build</code></p>
-</li>
-<li><p>Optionally create the image directory manually</p>
-<p><code>build --target createimage</code></p>
-<p>You do this to ensure that the latest build is used for packaging. If the <code>images</code> directory does not already contain
-a subdirectory named for this release (package version and suffix) you may skip this step as a new one will be
-created automatically.</p>
-</li>
-<li><p>Create the packages by running:</p>
-<p><code>build --target package</code></p>
-</li>
-<li><p>Verify that the correct packages have been created in the <code>package</code> sub-directory:</p>
-</li>
-</ol>
-<ul>
-<li>NUnit-VERSION.zip</li>
-<li>NUnit.VERSION.nupkg</li>
-<li>NUnit.VERSION.snupkg</li>
-<li>NUnitLite.VERSION.nupkg</li>
-<li>NUnitLite.VERSION.snupkg</li>
-</ul>
+<h2 id="creating-the-release">Creating the Release</h2>
+<p>Run the action script <code>NUnit.Nuget.Publish</code>.  It will build based on the tag of the source code (MinVer), and push that version to Nuget.</p>
+<p>The release <strong>should not</strong> be built on a developers machine, it should be built by the build servers.</p>
 <h2 id="testing-the-release">Testing the Release</h2>
 <p>The degree to which each package needs testing may vary depending on what has been changed. At a minimum,</p>
 <ol>
