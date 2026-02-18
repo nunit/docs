@@ -9,9 +9,10 @@ Various software combinations and environments may be used to build NUnit compon
 have used and tested for building everything and creating the release packages. We'll add options to the list as we find
 them.
 
-1. Visual Studio 2022 17.10 or newer with the NuGet Package manager.
+1. Visual Studio 2026 18.0 or newer with the NuGet Package manager.
 2. .NET 6.0 SDK
 3. .NET 8.0 SDK
+4. .NET 10.0 SDK
 
 ## Preparing for Release
 
@@ -61,14 +62,15 @@ All work on releases should be done on a branch.
 
 If necessary, update the year in the general copyright notice LICENSE.txt. Note that these copyright notices refer to
 each of the packages in their entirety.
-Each of the `.nuspec` files in the `nuget` subdirectory contains a copyright
-line, which should also be updated.
+Each of the `.nuspec` files in the `nuget` subdirectory contains a copyright line, which should also be updated.
 
 ### Update the version number if needed
 
 The version is given using [MinVer](https://github.com/adamralph/minver?tab=readme-ov-file#minver).
 If the version number doesn't match you expected XYZ, you update the version number by adding and pushing a tag in main.
 **Note that this tag has to be on the commit that you're releasing.**
+
+If this is to be a non-beta, use the tag in the format `X.Y.Z`.  If it is a beta or alpha `X.Y.Z-beta.W`.
 
 ### Update Release notes in `framework.md`
 
@@ -102,44 +104,11 @@ reviewed in the PR.
 Then merge the PR to main.
 Pull down the changes to your local machine.
 
-## Creating the Release Locally
+## Creating the Release
 
-The release **should not** be built on a developers machine, it should be built by the build servers. The following
-steps are only for reproducing the steps locally.
+Run the action script `NUnit.Nuget.Publish`.  It will build based on the tag of the source code (MinVer), and push that version to Nuget.
 
-1. Clear the package directory (if it exists) to avoid confusion:
-
-      `del package\*`
-
-   This is not absolutely required, but will be helpful if you have other release packages present in the directory.
-
-2. You should be working on the release branch. Do a pull to make sure you have everything up to date. If changes of any
-   significance were merged, you should test again before creating the release.
-
-3. Ensure that the release build is up to date. If you have any doubt whether the latest code changes have actually been
-   built, do a clean build. If the build is up to date you may skip this step.
-
-      `build --target build`
-
-4. Optionally create the image directory manually
-
-      `build --target createimage`
-
-   You do this to ensure that the latest build is used for packaging. If the `images` directory does not already contain
-   a subdirectory named for this release (package version and suffix) you may skip this step as a new one will be
-   created automatically.
-
-5. Create the packages by running:
-
-      `build --target package`
-
-6. Verify that the correct packages have been created in the `package` sub-directory:
-
-* NUnit-VERSION.zip
-* NUnit.VERSION.nupkg
-* NUnit.VERSION.snupkg
-* NUnitLite.VERSION.nupkg
-* NUnitLite.VERSION.snupkg
+The release **should not** be built on a developers machine, it should be built by the build servers.
 
 ## Testing the Release
 
