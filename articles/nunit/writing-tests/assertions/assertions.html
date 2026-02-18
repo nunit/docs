@@ -110,7 +110,16 @@ approach have all been implemented internally using constraints. For example...<
 <pre><code class="lang-csharp" name="ClassicAndConstraintsAreEquivalent">ClassicAssert.AreEqual(4, 2 + 2);
 Assert.That(2 + 2, Is.EqualTo(4));
 </code></pre><h3 id="some-notes-on-the-classiclegacy-asserts">Some notes on the Classic/Legacy asserts</h3>
-<p>The classic/legacy asserts, like <code>ClassicAssert.AreEqual</code>, have now been moved into its own project (namespace), and
+<p><strong>From version 4.5</strong>
+The Classic assertions are back in the <code>NUnit.Framework</code> namespace.<br>
+You don't need to add what is described below for these.</p>
+<p>PS: There are a few that are still there, we'll get them over in
+the next releases.</p>
+<p>[!NOTE]
+The Classic assertions are still available in the <code>NUnit.Framework.Legacy</code> too,
+so you don't need to refactor back. You now have both worlds at the same time.</p>
+<p><strong>Versions 4.0 to 4.4</strong>
+The classic/legacy asserts, like <code>ClassicAssert.AreEqual</code>, have now been moved into its own project (namespace), and
 may later be released as a separate package.  They are now in the namespace <code>NUnit.Framework.Legacy</code>, and the <code>Assert</code>
 have been renamed to <code>ClassicAssert</code>.</p>
 <p>If you're upgrading from NUnit 3.X to NUnit 4, you need to add a using for <code>NUnit.Framework.Legacy</code> to your test
