@@ -162,36 +162,61 @@ The direct construction approach is not very convenient or easy to read. For its
 classes that implement a special constraint syntax, allowing you to write things like...
 
 ```csharp
-Assert.That(actual, Is.All.InRange(1, 100));
+Assert.That(actual, Is.Custom(x, y));
 ```
 
-Custom constraints can support this syntax by providing a static helper class and extension method on
-`ConstraintExpression`, such as this.
+To fully utilize your custom constraint the same way built-in constraints are used, you'll need to implement two additional integration points (which can cover all your constraints, not for each custom constraint):
 
-```csharp
-public static class CustomConstraintExtensions
-{
-    public static ContentsEqualConstraint ContentsEqual(this ConstraintExpression expression, object expected)
-    {
-        var constraint = new ContentsEqualConstraint(expected);
-        expression.Append(constraint);
-        return constraint;
-    }
-}
-```
-
-To fully utilize your custom constraint the same way built-in constraints are used, you'll need to implement two
-additional classes (which can cover all your constraints, not for each custom constraint).
-
-* Provide a static class patterned after NUnit's `Is` class, with properties or methods that construct your custom
-   constructor. If you like, you can even call it `Is` and extend NUnit's `Is`, provided you place it in your own
-   namespace and avoid any conflicts. This allows you to write things like:
+* Provide a static method patterned after NUnit's `Is` class that can construct your custom
+   constraint.
 
 ```csharp
 Assert.That(actual, Is.Custom(x, y));
 ```
 
-   with this sample implementation:
+* Provide a method for NUnit's `ConstraintExpression` to allow chaining with other constraints, allowing you to write things like:
+
+```csharp
+Assert.That(actual, Is.Not.Custom(x, y));
+```
+
+### Example 1 (Using C#14 Extension Members)
+
+Provide a static extension method on NUnit's `Is` class.
+
+```csharp
+public static class CustomConstraintExtensions
+{
+    extension(Is)
+    {
+        public static CustomConstraint Custom(string expected)
+        {
+            return new CustomConstraint(expected);
+        }
+    }
+}
+```
+
+Provide an extension method for NUnit's `ConstraintExpression`.
+
+```csharp
+public static class CustomConstraintExtensions
+{
+    extension(ConstraintExpression expression)
+    {
+        public CustomConstraint Custom(string expected)
+        {
+            var constraint = new CustomConstraint(expected);
+            expression.Append(constraint);
+            return constraint;
+        }
+    }
+}   
+```
+
+### Example 2 (Using Extension Methods and Inheritance)
+
+Extend NUnit's `Is` class and provide a static method. If you like, you can even call it `Is` and extend NUnit's `Is`, provided you place it in your own namespace and avoid any conflicts.
 
 ```csharp
 public class Is : NUnit.Framework.Is
@@ -203,22 +228,6 @@ public class Is : NUnit.Framework.Is
 }
 ```
 
-* Provide an extension method for NUnit's `ConstraintExpression`, allowing you to write things like:
+Provide an extension method for NUnit's `ConstraintExpression`.
 
-```csharp
-Assert.That(actual, Is.Not.Custom(x, y));
-```
-
-with this sample implementation:
-
-```csharp
-public static class CustomConstraintExtensions
-{
-    public static CustomConstraint Custom(this ConstraintExpression expression, object expected)
-    {
-        var constraint = new CustomConstraint(expected);
-        expression.Append(constraint);
-        return constraint;
-    }
-}
-```
+[!code-csharp[Syntax_Expression_ClassicExtension](~/snippets/Snippets.NUnit/CustomConstraints.cs#Syntax_Expression_ClassicExtension)]
