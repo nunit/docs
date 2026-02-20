@@ -25,9 +25,9 @@ them.
 The following NUnit attributes currently implement `ITestBuilder`:
 
 * `CombiningStrategyAttribute`, with the following derived classes:
-  * `CombinatorialAttribute`
-  * `PairwiseAttribute`
-  * `SequentialAttribute`
-* `TestCaseAttribute`
-* `TestCaseSourceAttribute`
-* `TheoryAttribute`
+  * [`CombinatorialAttribute`](../writing-tests/attributes/combinatorial.md)
+  * [`PairwiseAttribute`](../writing-tests/attributes/pairwise.md)
+  * [`SequentialAttribute`](../writing-tests/attributes/sequential.md)
+* [`TestCaseAttribute`](../writing-tests/attributes/testcase.md)
+* [`TestCaseSourceAttribute`](../writing-tests/attributes/testcasesource.md)
+* [`TheoryAttribute`](../writing-tests/attributes/theory.md)

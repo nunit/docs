@@ -16,9 +16,9 @@ create it.
 
 The following NUnit attributes currently implement this interface:
 
-* `TestFixtureAttribute`
-* `TestFixtureSourceAttribute`
-* `SetUpFixtureAttribute`
+* [`TestFixtureAttribute`](../writing-tests/attributes/testfixture.md)
+* [`TestFixtureSourceAttribute`](../writing-tests/attributes/testfixturesource.md)
+* [`SetUpFixtureAttribute`](../writing-tests/attributes/setupfixture.md)
 
 **Notes:**
 
