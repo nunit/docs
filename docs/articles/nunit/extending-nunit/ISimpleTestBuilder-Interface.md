@@ -24,4 +24,4 @@ implement `ITestBuilder`. This allows, for example, use of `[Test]` on a method 
 specified, without any error arising. Such usage has existed in NUnit for some time and this special handling of the
 interface allows us to preserve it.
 
-In the current build, only `TestAttribute` implements this interface.
+In the current build, only [`TestAttribute`](../writing-tests/attributes/test.md) implements this interface.
