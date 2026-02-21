@@ -1,7 +1,25 @@
 # Timeout
 
 > [!NOTE]
-> From version 3.12 this is also available in the .NET Standard 2.0 builds of the framework.
+> The Timeout attribute does not work from .net 5 and upwards.
+> From version 4.5 usage of Timeout attribute where the target framework is .net5 or higher is reported as a failure.
+
+## Alternatives to the Timeout attribute for .net 5 and above
+
+If you want to cancel the Test in the same manner, use the [CancelAfter Attribute](./cancelafter.md).
+It is cooperative cancelling, so your test needs to handle the CancellationToken.
+
+If you just want to be informed of tests that have run over an expected time, use the [MaxTime Attribute](./maxtime.md).
+
+If you want to cancel the whole test run use the `dotnet test --blame-hang-timeout <TIMESPAN>`.
+See [dotnet test docs](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test-vstest).
+
+### Reason
+
+The Timeout attribute use the Thread.Abort to kill tests.  The Thread.Abort was removed in .net 5, and replaced with
+cooperative cancellation.
+
+## For projects that target .Net Framework only
 
 Normally, NUnit simply runs tests and waits for them to terminate -- the test is allowed to run indefinitely. For
 certain kinds of tests, however, it may be desirable to specify a timeout value.
