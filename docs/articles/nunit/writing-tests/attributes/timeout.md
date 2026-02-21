@@ -2,7 +2,7 @@
 
 > [!NOTE]
 > The Timeout attribute does not work from .NET 5 and upwards due to limitations in the runtime.
-> From version 4.5 usage of Timeout attribute where the target framework is .net5 or higher is reported as a failure.
+> Beginning in NUnit version 4.5, usage of Timeout attribute on .NET 5 or higher is reported as a failure.
 
 ## Alternatives to the Timeout attribute for .net 5 and above
 
