@@ -12,6 +12,7 @@ It is cooperative cancelling, so your test needs to handle the CancellationToken
 If you just want to be informed of tests that have run over an expected time, use the [MaxTime Attribute](./maxtime.md).
 
 If you want to cancel the whole test run use the `dotnet test --blame-hang-timeout <TIMESPAN>`.
+Any test that use more than the TIMESPAN will abort the run.
 See [dotnet test docs](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test-vstest).
 
 ### Reason
