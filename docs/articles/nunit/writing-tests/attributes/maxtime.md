@@ -22,7 +22,7 @@ public void TimedTest()
    is exceeded. It merely waits for the test to complete and then
    compares the elapsed time to the specified maximum. If you want to
    cancel long-running tests, see [CancelAfter Attribute](cancelafter.md).
-   The [Timeout Attribute](timeout.md) only works for .net framework and will give a test error if used for .net.
+   The [Timeout Attribute](timeout.md) only works for .NET Framework and will give a test error if used for .NET.
 
 ## See Also
 
