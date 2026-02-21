@@ -17,7 +17,7 @@ See [dotnet test docs](https://learn.microsoft.com/en-us/dotnet/core/tools/dotne
 
 ### Reason
 
-The Timeout attribute use the Thread.Abort to kill tests.  The Thread.Abort was removed in .net 5, and replaced with
+The Timeout attribute use the `Thread.Abort()` method to kill tests.  `Thread.Abort()` was removed in .NET 5 and replaced with
 cooperative cancellation.
 
 ## For projects that target .Net Framework only
