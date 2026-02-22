@@ -20,7 +20,7 @@ See [dotnet test docs](https://learn.microsoft.com/en-us/dotnet/core/tools/dotne
 The Timeout attribute uses the `Thread.Abort()` method to kill tests.  `Thread.Abort()` was removed in .NET 5 and replaced with
 cooperative cancellation.
 
-## For projects that target .Net Framework only
+## For projects that target .NET Framework only
 
 Normally, NUnit simply runs tests and waits for them to terminate -- the test is allowed to run indefinitely. For
 certain kinds of tests, however, it may be desirable to specify a timeout value.
