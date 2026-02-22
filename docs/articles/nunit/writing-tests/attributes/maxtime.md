@@ -21,4 +21,10 @@ public void TimedTest()
 2. This attribute does not cancel the test if the time
    is exceeded. It merely waits for the test to complete and then
    compares the elapsed time to the specified maximum. If you want to
-   cancel long-running tests, see [Timeout Attribute](timeout.md).
+   cancel long-running tests, see [CancelAfter Attribute](cancelafter.md).
+   The [Timeout Attribute](timeout.md) only works for .NET Framework and will give a test error if used for .NET.
+
+## See Also
+
+* [CancelAfter Attribute](./cancelafter.md)
+* [Timeout Attribute](timeout.md)
