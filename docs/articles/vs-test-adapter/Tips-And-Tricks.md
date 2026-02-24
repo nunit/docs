@@ -20,7 +20,7 @@ Certain NUnit Test Adapter settings are configurable using a .runsettings file. 
 | BasePath                                                              | string | path                                                                          | ?                             |
 | PrivateBinPath                                                        | string | directory1;directory2;etc                                                     | ?                             |
 | RandomSeed                                                            | int    | seed integer                                                                  | random                        |
-| DefaultTimeout                                                        | int    | timeout in mS, 0 means infinite                                               | 0                             |
+| DefaultTimeout                                                        | int    | timeout in mS, 0 means infinite. Not for .net >5.0, error with NUnit 4.5.0    | 0                             |
 | [DefaultTestNamePattern](#defaulttestnamepattern)                     | string | Pattern for display name                                                      | {m}{a}                        |
 | [WorkDirectory](#workdirectory)                                       | string | specify directory                                                             | Test assembly location        |
 | [TestOutputXml](#testoutputxml)                                       | string | specify directory                                                             | Test Result Xml output folder |
