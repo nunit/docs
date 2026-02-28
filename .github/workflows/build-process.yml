@@ -64,7 +64,7 @@ jobs:
       - name: zip site contents
         run: zip -r _site.zip docs/_site/
       - name: Archive site artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: siteArtifact
           path: _site.zip
@@ -93,7 +93,7 @@ jobs:
     if: ${{ github.ref == 'refs/heads/master'}}
     steps:
       - name: Download site artifacts
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: siteArtifact
       - name: unzip site contents
