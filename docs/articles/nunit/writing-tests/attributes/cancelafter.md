@@ -30,7 +30,7 @@ incomplete. If only used on a test, once a test has timed out, its teardown meth
 that the cancellation token will be available across all these phases. This also means that the token will be in the
 "cancelled" state in one phase (ex: `TearDown`) if it were marked as cancelled during a previous phase. It therefore
 should be used with caution in `TearDown` phases when getting passed down to other methods which perform cleanup as
-a cancelled token may prevent HTTP or DB calls from being performed.
+an already-cancelled token may prevent HTTP or DB calls from being performed.
 
 The attribute may also be specified on a fixture, in which case it indicates the default timeout for any subordinate
 test cases. When using the console runner, it is also possible to specify a default timeout on the command-line.
