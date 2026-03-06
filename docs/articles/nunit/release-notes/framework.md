@@ -63,7 +63,7 @@ and to the commenters who engaged in discussions and offered further insights:
 </tr>
 <tr>
 <td><a href="https://github.com/JakenVeina">Jake Meiergerd</a></td>
-<td><a href="https://github.com/jzapletal95">Jir¡ Zapletal</a></td>
+<td><a href="https://github.com/jzapletal95">Jiří Zapletal</a></td>
 <td><a href="https://github.com/maettu-this">maettu-this</a></td>
 <td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
 </tr>
