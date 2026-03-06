@@ -59,7 +59,7 @@ and to the commenters who engaged in discussions and offered further insights:
 <td><a href="https://github.com/freever">Adrian Frielinghaus</a></td>
 <td><a href="https://github.com/apps/cursor">cursor[bot]</a></td>
 <td><a href="https://github.com/dd-eg">dd-eg</a></td>
-<td><a href="https://github.com/flownzu">Florian J„ckel</a></td>
+<td><a href="https://github.com/flownzu">Florian Jäckel</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/JakenVeina">Jake Meiergerd</a></td>
