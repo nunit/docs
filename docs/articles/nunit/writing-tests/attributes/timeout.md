@@ -1,10 +1,12 @@
 # Timeout
 
 > [!NOTE]
-> The Timeout attribute does not work from .NET 5 and upwards due to limitations in the runtime.
-> Beginning in NUnit version 4.5, usage of Timeout attribute on .NET 5 or higher is reported as a failure.
+> Starting from .NET 5, due to limitations in the runtime, the Timeout attribute works only partially. It will cancel the test
+> for the purposes of test results reporting and scheduling of further tests, but the test's code will continue to run on the test's
+> thread in the background. Starting from NUnit version 4.5, usage of Timeout attribute at all on .NET 5 or higher is reported
+> as a failure.
 
-## Alternatives to the Timeout attribute for .net 5 and above
+## Alternatives to the Timeout attribute for .NET 5 and above
 
 If you want to cancel the Test in the same manner, use the [CancelAfter Attribute](./cancelafter.md).
 It is cooperative cancelling, so your test needs to handle the CancellationToken.
