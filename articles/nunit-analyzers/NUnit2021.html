@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Code</td>
-<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/EqualToIncompatibleTypes/EqualToIncompatibleTypesAnalyzer.cs">EqualToIncompatibleTypesAnalyzer</a></td>
+<td style="text-align: left;"><a href="https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/EqualToIncompatibleTypes/EqualToIncompatibleTypesAnalyzer.cs">EqualToIncompatibleTypesAnalyzer</a></td>
 </tr>
 </tbody>
 </table>
@@ -130,6 +130,11 @@ Assert.That(foo, Is.EqualTo(bar));
 </code></pre>
 <p>There is no way that instances of types <code>Foo</code> and <code>Bar</code> could be considered equal, therefore such assertion will always
 fail.</p>
+<p>Testing non-floating point values against <code>NaN</code> is also invalid,
+as only floating point values can be <code>NaN</code>.</p>
+<pre><code class="lang-csharp">int actual = 5;
+Assert.That(actual, Is.Not.NaN);
+</code></pre>
 <h2 id="how-to-fix-violations">How to fix violations</h2>
 <p>Fix your assertion (i.e. fix actual or expected value, or choose another constraint).</p>
 <!-- start generated config severity -->
