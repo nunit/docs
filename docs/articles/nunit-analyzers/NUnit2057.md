@@ -18,9 +18,9 @@ Only the argument value is needed by the Assert.
 
 The `Assert` method will call a delegate if passed in, but that is an unnecessary overhead.
 
-In most case, only the return value is needed by the Assert:
+In most cases, only the return value is needed by the assertion.
 
-There are two exception for this:
+There are two exceptions:
 
 1. When catching exceptions, like in:
 
@@ -34,7 +34,7 @@ There are two exception for this:
     Assert.That(() => task.IsCompleted, Is.True.After(5).Seconds.PollEvery(100).MilliSeconds);
     ```
 
-Sometimes developers unnecessary create a lambda expression for the _actual_ parameter.
+Sometimes developers unnecessarily create a lambda expression for the _actual_ parameter.
 
 ```csharp
 Assert.That(() => instance.Method1(Parameters), Is.EqualTo(expected));
@@ -49,7 +49,7 @@ Assert.That(instance.Method1(Parameters), Is.EqualTo(expected));
 
 It is clearer both in looks and in what is being tested here.
 
-Sometimes the lambda is created implicit like in:
+Sometimes the lambda is created implicitly like in:
 
 ```csharp
 Assert.That(instance.Method2, Is.EqualTo(expected));

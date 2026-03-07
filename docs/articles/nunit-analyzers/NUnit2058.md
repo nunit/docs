@@ -12,7 +12,7 @@
 
 ## Description
 
-The constraint didn't take the operator priority into account.
+The constraint didn't take the operator precedence into account.
 
 ## Motivation
 
@@ -22,13 +22,13 @@ We have seen users wanting to test for an equivalent of `!string.IsNullOrEmpty()
 Assert.That(name, Is.Not.Null.Or.Empty);
 ```
 
-Because of the operator priority this actually means `Is.Not.Null | Is.Empty`.
+Because of the operator precedence this actually means `Is.Not.Null | Is.Empty`.
 The `Is.Empty` part will only be tested when the item under test is `null`.
 Depending on the type this either returns `false` or `throws` an `Exception`.
 
 ## How to fix violations
 
-The code fix associated with thus rule will convert this to test for both `Not.Null` and `Not.Empty`:
+The code fix associated with this rule will convert this to test for both `Not.Null` and `Not.Empty`:
 
 ```csharp
 Assert.That(name, Is.Not.Null.And.Not.Empty);
