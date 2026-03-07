@@ -101,6 +101,7 @@ item in a collection, succeeding if they all succeed.</p>
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><a class="xref" href="NUnit.Framework.Constraints.IEnumerableConstraint.html">IEnumerableConstraint</a></div>
     <div><a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a></div>
     <div><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></div>
   </div>
@@ -180,7 +181,7 @@ item in a collection, succeeding if they all succeed.</p>
   <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
   <h5 id="NUnit_Framework_Constraints_AllItemsConstraint_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AllItemsConstraint : PrefixConstraint, IConstraint, IResolveConstraint</code></pre>
+    <pre><code class="lang-csharp hljs">public class AllItemsConstraint : PrefixConstraint, IEnumerableConstraint, IConstraint, IResolveConstraint</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -255,6 +256,79 @@ this to another name in their constructors.</p>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/AllItemsConstraint.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_Constraints_AllItemsConstraint_ApplyToEnumerable_" data-uid="NUnit.Framework.Constraints.AllItemsConstraint.ApplyToEnumerable*"></a>
+  <h4 id="NUnit_Framework_Constraints_AllItemsConstraint_ApplyToEnumerable__2___0_System_Collections_Generic_IEnumerable___1__" data-uid="NUnit.Framework.Constraints.AllItemsConstraint.ApplyToEnumerable``2(``0,System.Collections.Generic.IEnumerable{``1})">ApplyToEnumerable&lt;TActual, TItem&gt;(TActual, IEnumerable&lt;TItem&gt;)</h4>
+  <div class="markdown level1 summary"><p>Apply the item constraint to each item in the collection,
+failing if any item fails.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConstraintResult ApplyToEnumerable&lt;TActual, TItem&gt;(TActual actual, IEnumerable&lt;TItem&gt; enumerable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TActual</span></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The value that the collection originated from</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TItem&gt;</td>
+        <td><span class="parametername">enumerable</span></td>
+        <td><p>The collection to be tested</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
+        <td><p>A ConstraintResult</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TItem</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/AllItemsConstraint.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_Constraints_AllItemsConstraint_ApplyTo_" data-uid="NUnit.Framework.Constraints.AllItemsConstraint.ApplyTo*"></a>
   <h4 id="NUnit_Framework_Constraints_AllItemsConstraint_ApplyTo__1___0_" data-uid="NUnit.Framework.Constraints.AllItemsConstraint.ApplyTo``1(``0)">ApplyTo&lt;TActual&gt;(TActual)</h4>
   <div class="markdown level1 summary"><p>Apply the item constraint to each item in the collection,
@@ -278,7 +352,8 @@ failing if any item fails.</p>
       <tr>
         <td><span class="xref">TActual</span></td>
         <td><span class="parametername">actual</span></td>
-        <td></td>
+        <td><p>The value to be tested</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -293,7 +368,8 @@ failing if any item fails.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
-        <td></td>
+        <td><p>A ConstraintResult</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -315,6 +391,9 @@ failing if any item fails.</p>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1___0_">Constraint.ApplyTo&lt;TActual&gt;(TActual)</a></div>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="NUnit.Framework.Constraints.IEnumerableConstraint.html">IEnumerableConstraint</a>
+  </div>
   <div>
       <a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a>
   </div>

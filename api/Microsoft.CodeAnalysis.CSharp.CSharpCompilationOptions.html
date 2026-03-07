@@ -1,0 +1,3225 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class CSharpCompilationOptions | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class CSharpCompilationOptions | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions">
+
+
+
+  <h1 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions" class="text-break">Class CSharpCompilationOptions</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></div>
+    <div class="level2"><span class="xref">CSharpCompilationOptions</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_GetHashCode">CompilationOptions.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_OutputKind">CompilationOptions.OutputKind</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_ModuleName">CompilationOptions.ModuleName</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_ScriptClassName">CompilationOptions.ScriptClassName</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_MainTypeName">CompilationOptions.MainTypeName</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CryptoPublicKey">CompilationOptions.CryptoPublicKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CryptoKeyFile">CompilationOptions.CryptoKeyFile</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CryptoKeyContainer">CompilationOptions.CryptoKeyContainer</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_DelaySign">CompilationOptions.DelaySign</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_PublicSign">CompilationOptions.PublicSign</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CheckOverflow">CompilationOptions.CheckOverflow</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_Platform">CompilationOptions.Platform</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_OptimizationLevel">CompilationOptions.OptimizationLevel</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_GeneralDiagnosticOption">CompilationOptions.GeneralDiagnosticOption</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_WarningLevel">CompilationOptions.WarningLevel</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_ConcurrentBuild">CompilationOptions.ConcurrentBuild</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_Deterministic">CompilationOptions.Deterministic</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_MetadataImportOptions">CompilationOptions.MetadataImportOptions</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_SpecificDiagnosticOptions">CompilationOptions.SpecificDiagnosticOptions</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_SyntaxTreeOptionsProvider">CompilationOptions.SyntaxTreeOptionsProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_ReportSuppressedDiagnostics">CompilationOptions.ReportSuppressedDiagnostics</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_MetadataReferenceResolver">CompilationOptions.MetadataReferenceResolver</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_XmlReferenceResolver">CompilationOptions.XmlReferenceResolver</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_SourceReferenceResolver">CompilationOptions.SourceReferenceResolver</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_StrongNameProvider">CompilationOptions.StrongNameProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_AssemblyIdentityComparer">CompilationOptions.AssemblyIdentityComparer</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_Errors">CompilationOptions.Errors</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.html">Microsoft</a>.<a class="xref" href="Microsoft.CodeAnalysis.html">CodeAnalysis</a>.<a class="xref" href="Microsoft.CodeAnalysis.CSharp.html">CSharp</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.CodeAnalysis.CSharp.dll</h6>
+  <h5 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CSharpCompilationOptions : CompilationOptions, IEquatable&lt;CSharpCompilationOptions&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions__ctor_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.#ctor*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions__ctor_Microsoft_CodeAnalysis_OutputKind_System_Boolean_System_String_System_String_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_CodeAnalysis_OptimizationLevel_System_Boolean_System_Boolean_System_String_System_String_System_Collections_Immutable_ImmutableArray_System_Byte__System_Nullable_System_Boolean__Microsoft_CodeAnalysis_Platform_Microsoft_CodeAnalysis_ReportDiagnostic_System_Int32_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_Microsoft_CodeAnalysis_ReportDiagnostic___System_Boolean_System_Boolean_Microsoft_CodeAnalysis_XmlReferenceResolver_Microsoft_CodeAnalysis_SourceReferenceResolver_Microsoft_CodeAnalysis_MetadataReferenceResolver_Microsoft_CodeAnalysis_AssemblyIdentityComparer_Microsoft_CodeAnalysis_StrongNameProvider_System_Boolean_Microsoft_CodeAnalysis_MetadataImportOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.#ctor(Microsoft.CodeAnalysis.OutputKind,System.Boolean,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},Microsoft.CodeAnalysis.OptimizationLevel,System.Boolean,System.Boolean,System.String,System.String,System.Collections.Immutable.ImmutableArray{System.Byte},System.Nullable{System.Boolean},Microsoft.CodeAnalysis.Platform,Microsoft.CodeAnalysis.ReportDiagnostic,System.Int32,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,Microsoft.CodeAnalysis.ReportDiagnostic}},System.Boolean,System.Boolean,Microsoft.CodeAnalysis.XmlReferenceResolver,Microsoft.CodeAnalysis.SourceReferenceResolver,Microsoft.CodeAnalysis.MetadataReferenceResolver,Microsoft.CodeAnalysis.AssemblyIdentityComparer,Microsoft.CodeAnalysis.StrongNameProvider,System.Boolean,Microsoft.CodeAnalysis.MetadataImportOptions)">CSharpCompilationOptions(OutputKind, bool, string?, string?, string?, IEnumerable&lt;string&gt;?, OptimizationLevel, bool, bool, string?, string?, ImmutableArray&lt;byte&gt;, bool?, Platform, ReportDiagnostic, int, IEnumerable&lt;KeyValuePair&lt;string, ReportDiagnostic&gt;&gt;?, bool, bool, XmlReferenceResolver?, SourceReferenceResolver?, MetadataReferenceResolver?, AssemblyIdentityComparer?, StrongNameProvider?, bool, MetadataImportOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions(OutputKind outputKind, bool reportSuppressedDiagnostics, string? moduleName, string? mainTypeName, string? scriptClassName, IEnumerable&lt;string&gt;? usings, OptimizationLevel optimizationLevel, bool checkOverflow, bool allowUnsafe, string? cryptoKeyContainer, string? cryptoKeyFile, ImmutableArray&lt;byte&gt; cryptoPublicKey, bool? delaySign, Platform platform, ReportDiagnostic generalDiagnosticOption, int warningLevel, IEnumerable&lt;KeyValuePair&lt;string, ReportDiagnostic&gt;&gt;? specificDiagnosticOptions, bool concurrentBuild, bool deterministic, XmlReferenceResolver? xmlReferenceResolver, SourceReferenceResolver? sourceReferenceResolver, MetadataReferenceResolver? metadataReferenceResolver, AssemblyIdentityComparer? assemblyIdentityComparer, StrongNameProvider? strongNameProvider, bool publicSign, MetadataImportOptions metadataImportOptions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.OutputKind.html">OutputKind</a></td>
+        <td><span class="parametername">outputKind</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">reportSuppressedDiagnostics</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">moduleName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">mainTypeName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">scriptClassName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><span class="parametername">usings</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.OptimizationLevel.html">OptimizationLevel</a></td>
+        <td><span class="parametername">optimizationLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">checkOverflow</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">allowUnsafe</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">cryptoKeyContainer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">cryptoKeyFile</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</td>
+        <td><span class="parametername">cryptoPublicKey</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">delaySign</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Platform.html">Platform</a></td>
+        <td><span class="parametername">platform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ReportDiagnostic.html">ReportDiagnostic</a></td>
+        <td><span class="parametername">generalDiagnosticOption</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">warningLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.reportdiagnostic">ReportDiagnostic</a>&gt;&gt;</td>
+        <td><span class="parametername">specificDiagnosticOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">concurrentBuild</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">deterministic</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.XmlReferenceResolver.html">XmlReferenceResolver</a></td>
+        <td><span class="parametername">xmlReferenceResolver</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SourceReferenceResolver.html">SourceReferenceResolver</a></td>
+        <td><span class="parametername">sourceReferenceResolver</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.MetadataReferenceResolver.html">MetadataReferenceResolver</a></td>
+        <td><span class="parametername">metadataReferenceResolver</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.AssemblyIdentityComparer.html">AssemblyIdentityComparer</a></td>
+        <td><span class="parametername">assemblyIdentityComparer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.StrongNameProvider.html">StrongNameProvider</a></td>
+        <td><span class="parametername">strongNameProvider</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">publicSign</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.MetadataImportOptions.html">MetadataImportOptions</a></td>
+        <td><span class="parametername">metadataImportOptions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions__ctor_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.#ctor*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions__ctor_Microsoft_CodeAnalysis_OutputKind_System_Boolean_System_String_System_String_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_CodeAnalysis_OptimizationLevel_System_Boolean_System_Boolean_System_String_System_String_System_Collections_Immutable_ImmutableArray_System_Byte__System_Nullable_System_Boolean__Microsoft_CodeAnalysis_Platform_Microsoft_CodeAnalysis_ReportDiagnostic_System_Int32_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_Microsoft_CodeAnalysis_ReportDiagnostic___System_Boolean_System_Boolean_Microsoft_CodeAnalysis_XmlReferenceResolver_Microsoft_CodeAnalysis_SourceReferenceResolver_Microsoft_CodeAnalysis_MetadataReferenceResolver_Microsoft_CodeAnalysis_AssemblyIdentityComparer_Microsoft_CodeAnalysis_StrongNameProvider_System_Boolean_Microsoft_CodeAnalysis_MetadataImportOptions_Microsoft_CodeAnalysis_NullableContextOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.#ctor(Microsoft.CodeAnalysis.OutputKind,System.Boolean,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},Microsoft.CodeAnalysis.OptimizationLevel,System.Boolean,System.Boolean,System.String,System.String,System.Collections.Immutable.ImmutableArray{System.Byte},System.Nullable{System.Boolean},Microsoft.CodeAnalysis.Platform,Microsoft.CodeAnalysis.ReportDiagnostic,System.Int32,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,Microsoft.CodeAnalysis.ReportDiagnostic}},System.Boolean,System.Boolean,Microsoft.CodeAnalysis.XmlReferenceResolver,Microsoft.CodeAnalysis.SourceReferenceResolver,Microsoft.CodeAnalysis.MetadataReferenceResolver,Microsoft.CodeAnalysis.AssemblyIdentityComparer,Microsoft.CodeAnalysis.StrongNameProvider,System.Boolean,Microsoft.CodeAnalysis.MetadataImportOptions,Microsoft.CodeAnalysis.NullableContextOptions)">CSharpCompilationOptions(OutputKind, bool, string?, string?, string?, IEnumerable&lt;string&gt;?, OptimizationLevel, bool, bool, string?, string?, ImmutableArray&lt;byte&gt;, bool?, Platform, ReportDiagnostic, int, IEnumerable&lt;KeyValuePair&lt;string, ReportDiagnostic&gt;&gt;?, bool, bool, XmlReferenceResolver?, SourceReferenceResolver?, MetadataReferenceResolver?, AssemblyIdentityComparer?, StrongNameProvider?, bool, MetadataImportOptions, NullableContextOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions(OutputKind outputKind, bool reportSuppressedDiagnostics = false, string? moduleName = null, string? mainTypeName = null, string? scriptClassName = null, IEnumerable&lt;string&gt;? usings = null, OptimizationLevel optimizationLevel = OptimizationLevel.Debug, bool checkOverflow = false, bool allowUnsafe = false, string? cryptoKeyContainer = null, string? cryptoKeyFile = null, ImmutableArray&lt;byte&gt; cryptoPublicKey = default, bool? delaySign = null, Platform platform = Platform.AnyCpu, ReportDiagnostic generalDiagnosticOption = ReportDiagnostic.Default, int warningLevel = 4, IEnumerable&lt;KeyValuePair&lt;string, ReportDiagnostic&gt;&gt;? specificDiagnosticOptions = null, bool concurrentBuild = true, bool deterministic = false, XmlReferenceResolver? xmlReferenceResolver = null, SourceReferenceResolver? sourceReferenceResolver = null, MetadataReferenceResolver? metadataReferenceResolver = null, AssemblyIdentityComparer? assemblyIdentityComparer = null, StrongNameProvider? strongNameProvider = null, bool publicSign = false, MetadataImportOptions metadataImportOptions = MetadataImportOptions.Public, NullableContextOptions nullableContextOptions = NullableContextOptions.Disable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.OutputKind.html">OutputKind</a></td>
+        <td><span class="parametername">outputKind</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">reportSuppressedDiagnostics</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">moduleName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">mainTypeName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">scriptClassName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><span class="parametername">usings</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.OptimizationLevel.html">OptimizationLevel</a></td>
+        <td><span class="parametername">optimizationLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">checkOverflow</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">allowUnsafe</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">cryptoKeyContainer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">cryptoKeyFile</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</td>
+        <td><span class="parametername">cryptoPublicKey</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">delaySign</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Platform.html">Platform</a></td>
+        <td><span class="parametername">platform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ReportDiagnostic.html">ReportDiagnostic</a></td>
+        <td><span class="parametername">generalDiagnosticOption</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">warningLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.reportdiagnostic">ReportDiagnostic</a>&gt;&gt;</td>
+        <td><span class="parametername">specificDiagnosticOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">concurrentBuild</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">deterministic</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.XmlReferenceResolver.html">XmlReferenceResolver</a></td>
+        <td><span class="parametername">xmlReferenceResolver</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SourceReferenceResolver.html">SourceReferenceResolver</a></td>
+        <td><span class="parametername">sourceReferenceResolver</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.MetadataReferenceResolver.html">MetadataReferenceResolver</a></td>
+        <td><span class="parametername">metadataReferenceResolver</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.AssemblyIdentityComparer.html">AssemblyIdentityComparer</a></td>
+        <td><span class="parametername">assemblyIdentityComparer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.StrongNameProvider.html">StrongNameProvider</a></td>
+        <td><span class="parametername">strongNameProvider</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">publicSign</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.MetadataImportOptions.html">MetadataImportOptions</a></td>
+        <td><span class="parametername">metadataImportOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.NullableContextOptions.html">NullableContextOptions</a></td>
+        <td><span class="parametername">nullableContextOptions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_AllowUnsafe_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.AllowUnsafe*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_AllowUnsafe" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.AllowUnsafe">AllowUnsafe</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllowUnsafe { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_Language_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.Language*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_Language" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.Language">Language</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string Language { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_Language">CompilationOptions.Language</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_NullableContextOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.NullableContextOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_NullableContextOptions" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.NullableContextOptions">NullableContextOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override NullableContextOptions NullableContextOptions { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.NullableContextOptions.html">NullableContextOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_NullableContextOptions">CompilationOptions.NullableContextOptions</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_Usings_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.Usings*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_Usings" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.Usings">Usings</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;string&gt; Usings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithAssemblyIdentityComparer_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithAssemblyIdentityComparer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithAssemblyIdentityComparer_Microsoft_CodeAnalysis_AssemblyIdentityComparer_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithAssemblyIdentityComparer(Microsoft.CodeAnalysis.AssemblyIdentityComparer)">CommonWithAssemblyIdentityComparer(AssemblyIdentityComparer?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithAssemblyIdentityComparer(AssemblyIdentityComparer? comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.AssemblyIdentityComparer.html">AssemblyIdentityComparer</a></td>
+        <td><span class="parametername">comparer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithAssemblyIdentityComparer_Microsoft_CodeAnalysis_AssemblyIdentityComparer_">CompilationOptions.CommonWithAssemblyIdentityComparer(AssemblyIdentityComparer?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithCheckOverflow_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithCheckOverflow*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithCheckOverflow_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithCheckOverflow(System.Boolean)">CommonWithCheckOverflow(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithCheckOverflow(bool checkOverflow)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">checkOverflow</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithCheckOverflow_System_Boolean_">CompilationOptions.CommonWithCheckOverflow(bool)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithConcurrentBuild_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithConcurrentBuild*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithConcurrentBuild_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithConcurrentBuild(System.Boolean)">CommonWithConcurrentBuild(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithConcurrentBuild(bool concurrent)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">concurrent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithConcurrentBuild_System_Boolean_">CompilationOptions.CommonWithConcurrentBuild(bool)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithCryptoKeyContainer_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithCryptoKeyContainer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithCryptoKeyContainer_System_String_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithCryptoKeyContainer(System.String)">CommonWithCryptoKeyContainer(string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithCryptoKeyContainer(string? cryptoKeyContainer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">cryptoKeyContainer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithCryptoKeyContainer_System_String_">CompilationOptions.CommonWithCryptoKeyContainer(string?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithCryptoKeyFile_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithCryptoKeyFile*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithCryptoKeyFile_System_String_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithCryptoKeyFile(System.String)">CommonWithCryptoKeyFile(string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithCryptoKeyFile(string? cryptoKeyFile)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">cryptoKeyFile</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithCryptoKeyFile_System_String_">CompilationOptions.CommonWithCryptoKeyFile(string?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithCryptoPublicKey_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithCryptoPublicKey*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithCryptoPublicKey_System_Collections_Immutable_ImmutableArray_System_Byte__" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithCryptoPublicKey(System.Collections.Immutable.ImmutableArray{System.Byte})">CommonWithCryptoPublicKey(ImmutableArray&lt;byte&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithCryptoPublicKey(ImmutableArray&lt;byte&gt; cryptoPublicKey)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</td>
+        <td><span class="parametername">cryptoPublicKey</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithCryptoPublicKey_System_Collections_Immutable_ImmutableArray_System_Byte__">CompilationOptions.CommonWithCryptoPublicKey(ImmutableArray&lt;byte&gt;)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithDelaySign_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithDelaySign*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithDelaySign_System_Nullable_System_Boolean__" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithDelaySign(System.Nullable{System.Boolean})">CommonWithDelaySign(bool?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithDelaySign(bool? delaySign)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">delaySign</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithDelaySign_System_Nullable_System_Boolean__">CompilationOptions.CommonWithDelaySign(bool?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithDeterministic_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithDeterministic*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithDeterministic_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithDeterministic(System.Boolean)">CommonWithDeterministic(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithDeterministic(bool deterministic)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">deterministic</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithDeterministic_System_Boolean_">CompilationOptions.CommonWithDeterministic(bool)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithFeatures_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithFeatures*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithFeatures_System_Collections_Immutable_ImmutableArray_System_String__" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithFeatures(System.Collections.Immutable.ImmutableArray{System.String})">CommonWithFeatures(ImmutableArray&lt;string&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete]
+protected override CompilationOptions CommonWithFeatures(ImmutableArray&lt;string&gt; features)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><span class="parametername">features</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithFeatures_System_Collections_Immutable_ImmutableArray_System_String__">CompilationOptions.CommonWithFeatures(ImmutableArray&lt;string&gt;)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithGeneralDiagnosticOption_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithGeneralDiagnosticOption*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithGeneralDiagnosticOption_Microsoft_CodeAnalysis_ReportDiagnostic_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithGeneralDiagnosticOption(Microsoft.CodeAnalysis.ReportDiagnostic)">CommonWithGeneralDiagnosticOption(ReportDiagnostic)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithGeneralDiagnosticOption(ReportDiagnostic value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ReportDiagnostic.html">ReportDiagnostic</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithGeneralDiagnosticOption_Microsoft_CodeAnalysis_ReportDiagnostic_">CompilationOptions.CommonWithGeneralDiagnosticOption(ReportDiagnostic)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithMainTypeName_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithMainTypeName*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithMainTypeName_System_String_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithMainTypeName(System.String)">CommonWithMainTypeName(string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithMainTypeName(string? mainTypeName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">mainTypeName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithMainTypeName_System_String_">CompilationOptions.CommonWithMainTypeName(string?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithMetadataImportOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithMetadataImportOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithMetadataImportOptions_Microsoft_CodeAnalysis_MetadataImportOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithMetadataImportOptions(Microsoft.CodeAnalysis.MetadataImportOptions)">CommonWithMetadataImportOptions(MetadataImportOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithMetadataImportOptions(MetadataImportOptions value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.MetadataImportOptions.html">MetadataImportOptions</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithMetadataImportOptions_Microsoft_CodeAnalysis_MetadataImportOptions_">CompilationOptions.CommonWithMetadataImportOptions(MetadataImportOptions)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithMetadataReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithMetadataReferenceResolver*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithMetadataReferenceResolver_Microsoft_CodeAnalysis_MetadataReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithMetadataReferenceResolver(Microsoft.CodeAnalysis.MetadataReferenceResolver)">CommonWithMetadataReferenceResolver(MetadataReferenceResolver?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithMetadataReferenceResolver(MetadataReferenceResolver? resolver)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.MetadataReferenceResolver.html">MetadataReferenceResolver</a></td>
+        <td><span class="parametername">resolver</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithMetadataReferenceResolver_Microsoft_CodeAnalysis_MetadataReferenceResolver_">CompilationOptions.CommonWithMetadataReferenceResolver(MetadataReferenceResolver?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithModuleName_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithModuleName*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithModuleName_System_String_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithModuleName(System.String)">CommonWithModuleName(string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithModuleName(string? moduleName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">moduleName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithModuleName_System_String_">CompilationOptions.CommonWithModuleName(string?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithOptimizationLevel_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithOptimizationLevel*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithOptimizationLevel_Microsoft_CodeAnalysis_OptimizationLevel_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithOptimizationLevel(Microsoft.CodeAnalysis.OptimizationLevel)">CommonWithOptimizationLevel(OptimizationLevel)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithOptimizationLevel(OptimizationLevel value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.OptimizationLevel.html">OptimizationLevel</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithOptimizationLevel_Microsoft_CodeAnalysis_OptimizationLevel_">CompilationOptions.CommonWithOptimizationLevel(OptimizationLevel)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithOutputKind_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithOutputKind*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithOutputKind_Microsoft_CodeAnalysis_OutputKind_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithOutputKind(Microsoft.CodeAnalysis.OutputKind)">CommonWithOutputKind(OutputKind)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithOutputKind(OutputKind kind)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.OutputKind.html">OutputKind</a></td>
+        <td><span class="parametername">kind</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithOutputKind_Microsoft_CodeAnalysis_OutputKind_">CompilationOptions.CommonWithOutputKind(OutputKind)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithPlatform_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithPlatform*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithPlatform_Microsoft_CodeAnalysis_Platform_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithPlatform(Microsoft.CodeAnalysis.Platform)">CommonWithPlatform(Platform)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithPlatform(Platform platform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Platform.html">Platform</a></td>
+        <td><span class="parametername">platform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithPlatform_Microsoft_CodeAnalysis_Platform_">CompilationOptions.CommonWithPlatform(Platform)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithPublicSign_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithPublicSign*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithPublicSign_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithPublicSign(System.Boolean)">CommonWithPublicSign(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithPublicSign(bool publicSign)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">publicSign</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithPublicSign_System_Boolean_">CompilationOptions.CommonWithPublicSign(bool)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithReportSuppressedDiagnostics_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithReportSuppressedDiagnostics*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithReportSuppressedDiagnostics_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithReportSuppressedDiagnostics(System.Boolean)">CommonWithReportSuppressedDiagnostics(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithReportSuppressedDiagnostics(bool reportSuppressedDiagnostics)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">reportSuppressedDiagnostics</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithReportSuppressedDiagnostics_System_Boolean_">CompilationOptions.CommonWithReportSuppressedDiagnostics(bool)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithScriptClassName_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithScriptClassName*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithScriptClassName_System_String_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithScriptClassName(System.String)">CommonWithScriptClassName(string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithScriptClassName(string? scriptClassName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">scriptClassName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithScriptClassName_System_String_">CompilationOptions.CommonWithScriptClassName(string)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithSourceReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithSourceReferenceResolver*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithSourceReferenceResolver_Microsoft_CodeAnalysis_SourceReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithSourceReferenceResolver(Microsoft.CodeAnalysis.SourceReferenceResolver)">CommonWithSourceReferenceResolver(SourceReferenceResolver?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithSourceReferenceResolver(SourceReferenceResolver? resolver)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SourceReferenceResolver.html">SourceReferenceResolver</a></td>
+        <td><span class="parametername">resolver</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithSourceReferenceResolver_Microsoft_CodeAnalysis_SourceReferenceResolver_">CompilationOptions.CommonWithSourceReferenceResolver(SourceReferenceResolver?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithSpecificDiagnosticOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithSpecificDiagnosticOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithSpecificDiagnosticOptions_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_Microsoft_CodeAnalysis_ReportDiagnostic___" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithSpecificDiagnosticOptions(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,Microsoft.CodeAnalysis.ReportDiagnostic}})">CommonWithSpecificDiagnosticOptions(IEnumerable&lt;KeyValuePair&lt;string, ReportDiagnostic&gt;&gt;?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithSpecificDiagnosticOptions(IEnumerable&lt;KeyValuePair&lt;string, ReportDiagnostic&gt;&gt;? specificDiagnosticOptions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.reportdiagnostic">ReportDiagnostic</a>&gt;&gt;</td>
+        <td><span class="parametername">specificDiagnosticOptions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithSpecificDiagnosticOptions_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_Microsoft_CodeAnalysis_ReportDiagnostic___">CompilationOptions.CommonWithSpecificDiagnosticOptions(IEnumerable&lt;KeyValuePair&lt;string, ReportDiagnostic&gt;&gt;)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithSpecificDiagnosticOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithSpecificDiagnosticOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithSpecificDiagnosticOptions_System_Collections_Immutable_ImmutableDictionary_System_String_Microsoft_CodeAnalysis_ReportDiagnostic__" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithSpecificDiagnosticOptions(System.Collections.Immutable.ImmutableDictionary{System.String,Microsoft.CodeAnalysis.ReportDiagnostic})">CommonWithSpecificDiagnosticOptions(ImmutableDictionary&lt;string, ReportDiagnostic&gt;?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithSpecificDiagnosticOptions(ImmutableDictionary&lt;string, ReportDiagnostic&gt;? specificDiagnosticOptions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutabledictionary-2">ImmutableDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.reportdiagnostic">ReportDiagnostic</a>&gt;</td>
+        <td><span class="parametername">specificDiagnosticOptions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithSpecificDiagnosticOptions_System_Collections_Immutable_ImmutableDictionary_System_String_Microsoft_CodeAnalysis_ReportDiagnostic__">CompilationOptions.CommonWithSpecificDiagnosticOptions(ImmutableDictionary&lt;string, ReportDiagnostic&gt;?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithStrongNameProvider_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithStrongNameProvider*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithStrongNameProvider_Microsoft_CodeAnalysis_StrongNameProvider_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithStrongNameProvider(Microsoft.CodeAnalysis.StrongNameProvider)">CommonWithStrongNameProvider(StrongNameProvider?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithStrongNameProvider(StrongNameProvider? provider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.StrongNameProvider.html">StrongNameProvider</a></td>
+        <td><span class="parametername">provider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithStrongNameProvider_Microsoft_CodeAnalysis_StrongNameProvider_">CompilationOptions.CommonWithStrongNameProvider(StrongNameProvider?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithSyntaxTreeOptionsProvider_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithSyntaxTreeOptionsProvider*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithSyntaxTreeOptionsProvider_Microsoft_CodeAnalysis_SyntaxTreeOptionsProvider_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithSyntaxTreeOptionsProvider(Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider)">CommonWithSyntaxTreeOptionsProvider(SyntaxTreeOptionsProvider?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithSyntaxTreeOptionsProvider(SyntaxTreeOptionsProvider? provider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider.html">SyntaxTreeOptionsProvider</a></td>
+        <td><span class="parametername">provider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithSyntaxTreeOptionsProvider_Microsoft_CodeAnalysis_SyntaxTreeOptionsProvider_">CompilationOptions.CommonWithSyntaxTreeOptionsProvider(SyntaxTreeOptionsProvider?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithXmlReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithXmlReferenceResolver*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_CommonWithXmlReferenceResolver_Microsoft_CodeAnalysis_XmlReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.CommonWithXmlReferenceResolver(Microsoft.CodeAnalysis.XmlReferenceResolver)">CommonWithXmlReferenceResolver(XmlReferenceResolver?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override CompilationOptions CommonWithXmlReferenceResolver(XmlReferenceResolver? resolver)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.XmlReferenceResolver.html">XmlReferenceResolver</a></td>
+        <td><span class="parametername">resolver</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_CommonWithXmlReferenceResolver_Microsoft_CodeAnalysis_XmlReferenceResolver_">CompilationOptions.CommonWithXmlReferenceResolver(XmlReferenceResolver?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_ComputeHashCode_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.ComputeHashCode*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_ComputeHashCode" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.ComputeHashCode">ComputeHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override int ComputeHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_ComputeHashCode">CompilationOptions.ComputeHashCode()</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_Equals_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.Equals*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_Equals_Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.Equals(Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions)">Equals(CSharpCompilationOptions?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(CSharpCompilationOptions? other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_Equals_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.Equals*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_Equals_System_Object_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.Equals(System.Object)">Equals(object?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html#Microsoft_CodeAnalysis_CompilationOptions_Equals_System_Object_">CompilationOptions.Equals(object?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithAllowUnsafe_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithAllowUnsafe*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithAllowUnsafe_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithAllowUnsafe(System.Boolean)">WithAllowUnsafe(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithAllowUnsafe(bool enabled)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">enabled</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithAssemblyIdentityComparer_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithAssemblyIdentityComparer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithAssemblyIdentityComparer_Microsoft_CodeAnalysis_AssemblyIdentityComparer_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithAssemblyIdentityComparer(Microsoft.CodeAnalysis.AssemblyIdentityComparer)">WithAssemblyIdentityComparer(AssemblyIdentityComparer?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithAssemblyIdentityComparer(AssemblyIdentityComparer? comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.AssemblyIdentityComparer.html">AssemblyIdentityComparer</a></td>
+        <td><span class="parametername">comparer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithConcurrentBuild_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithConcurrentBuild*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithConcurrentBuild_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithConcurrentBuild(System.Boolean)">WithConcurrentBuild(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithConcurrentBuild(bool concurrentBuild)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">concurrentBuild</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithCryptoKeyContainer_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithCryptoKeyContainer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithCryptoKeyContainer_System_String_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithCryptoKeyContainer(System.String)">WithCryptoKeyContainer(string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithCryptoKeyContainer(string? name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithCryptoKeyFile_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithCryptoKeyFile*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithCryptoKeyFile_System_String_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithCryptoKeyFile(System.String)">WithCryptoKeyFile(string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithCryptoKeyFile(string? path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithCryptoPublicKey_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithCryptoPublicKey*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithCryptoPublicKey_System_Collections_Immutable_ImmutableArray_System_Byte__" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithCryptoPublicKey(System.Collections.Immutable.ImmutableArray{System.Byte})">WithCryptoPublicKey(ImmutableArray&lt;byte&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithCryptoPublicKey(ImmutableArray&lt;byte&gt; value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithDelaySign_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithDelaySign*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithDelaySign_System_Nullable_System_Boolean__" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithDelaySign(System.Nullable{System.Boolean})">WithDelaySign(bool?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithDelaySign(bool? value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithDeterministic_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithDeterministic*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithDeterministic_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithDeterministic(System.Boolean)">WithDeterministic(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithDeterministic(bool deterministic)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">deterministic</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithGeneralDiagnosticOption_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithGeneralDiagnosticOption*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithGeneralDiagnosticOption_Microsoft_CodeAnalysis_ReportDiagnostic_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithGeneralDiagnosticOption(Microsoft.CodeAnalysis.ReportDiagnostic)">WithGeneralDiagnosticOption(ReportDiagnostic)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithGeneralDiagnosticOption(ReportDiagnostic value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ReportDiagnostic.html">ReportDiagnostic</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithMainTypeName_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithMainTypeName*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithMainTypeName_System_String_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithMainTypeName(System.String)">WithMainTypeName(string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithMainTypeName(string? name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithMetadataImportOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithMetadataImportOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithMetadataImportOptions_Microsoft_CodeAnalysis_MetadataImportOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithMetadataImportOptions(Microsoft.CodeAnalysis.MetadataImportOptions)">WithMetadataImportOptions(MetadataImportOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithMetadataImportOptions(MetadataImportOptions value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.MetadataImportOptions.html">MetadataImportOptions</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithMetadataReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithMetadataReferenceResolver*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithMetadataReferenceResolver_Microsoft_CodeAnalysis_MetadataReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithMetadataReferenceResolver(Microsoft.CodeAnalysis.MetadataReferenceResolver)">WithMetadataReferenceResolver(MetadataReferenceResolver?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithMetadataReferenceResolver(MetadataReferenceResolver? resolver)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.MetadataReferenceResolver.html">MetadataReferenceResolver</a></td>
+        <td><span class="parametername">resolver</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithModuleName_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithModuleName*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithModuleName_System_String_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithModuleName(System.String)">WithModuleName(string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithModuleName(string? moduleName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">moduleName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithNullableContextOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithNullableContextOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithNullableContextOptions_Microsoft_CodeAnalysis_NullableContextOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithNullableContextOptions(Microsoft.CodeAnalysis.NullableContextOptions)">WithNullableContextOptions(NullableContextOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithNullableContextOptions(NullableContextOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.NullableContextOptions.html">NullableContextOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithOptimizationLevel_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithOptimizationLevel*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithOptimizationLevel_Microsoft_CodeAnalysis_OptimizationLevel_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithOptimizationLevel(Microsoft.CodeAnalysis.OptimizationLevel)">WithOptimizationLevel(OptimizationLevel)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithOptimizationLevel(OptimizationLevel value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.OptimizationLevel.html">OptimizationLevel</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithOutputKind_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithOutputKind*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithOutputKind_Microsoft_CodeAnalysis_OutputKind_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithOutputKind(Microsoft.CodeAnalysis.OutputKind)">WithOutputKind(OutputKind)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithOutputKind(OutputKind kind)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.OutputKind.html">OutputKind</a></td>
+        <td><span class="parametername">kind</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithOverflowChecks_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithOverflowChecks*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithOverflowChecks_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithOverflowChecks(System.Boolean)">WithOverflowChecks(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithOverflowChecks(bool enabled)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">enabled</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithPlatform_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithPlatform*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithPlatform_Microsoft_CodeAnalysis_Platform_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithPlatform(Microsoft.CodeAnalysis.Platform)">WithPlatform(Platform)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithPlatform(Platform platform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Platform.html">Platform</a></td>
+        <td><span class="parametername">platform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithPublicSign_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithPublicSign*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithPublicSign_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithPublicSign(System.Boolean)">WithPublicSign(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithPublicSign(bool publicSign)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">publicSign</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithReportSuppressedDiagnostics_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithReportSuppressedDiagnostics*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithReportSuppressedDiagnostics_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithReportSuppressedDiagnostics(System.Boolean)">WithReportSuppressedDiagnostics(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithReportSuppressedDiagnostics(bool reportSuppressedDiagnostics)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">reportSuppressedDiagnostics</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithScriptClassName_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithScriptClassName*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithScriptClassName_System_String_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithScriptClassName(System.String)">WithScriptClassName(string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithScriptClassName(string? name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithSourceReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithSourceReferenceResolver*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithSourceReferenceResolver_Microsoft_CodeAnalysis_SourceReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithSourceReferenceResolver(Microsoft.CodeAnalysis.SourceReferenceResolver)">WithSourceReferenceResolver(SourceReferenceResolver?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithSourceReferenceResolver(SourceReferenceResolver? resolver)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SourceReferenceResolver.html">SourceReferenceResolver</a></td>
+        <td><span class="parametername">resolver</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithSpecificDiagnosticOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithSpecificDiagnosticOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithSpecificDiagnosticOptions_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_Microsoft_CodeAnalysis_ReportDiagnostic___" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithSpecificDiagnosticOptions(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,Microsoft.CodeAnalysis.ReportDiagnostic}})">WithSpecificDiagnosticOptions(IEnumerable&lt;KeyValuePair&lt;string, ReportDiagnostic&gt;&gt;?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithSpecificDiagnosticOptions(IEnumerable&lt;KeyValuePair&lt;string, ReportDiagnostic&gt;&gt;? values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.reportdiagnostic">ReportDiagnostic</a>&gt;&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithSpecificDiagnosticOptions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithSpecificDiagnosticOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithSpecificDiagnosticOptions_System_Collections_Immutable_ImmutableDictionary_System_String_Microsoft_CodeAnalysis_ReportDiagnostic__" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithSpecificDiagnosticOptions(System.Collections.Immutable.ImmutableDictionary{System.String,Microsoft.CodeAnalysis.ReportDiagnostic})">WithSpecificDiagnosticOptions(ImmutableDictionary&lt;string, ReportDiagnostic&gt;?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithSpecificDiagnosticOptions(ImmutableDictionary&lt;string, ReportDiagnostic&gt;? values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutabledictionary-2">ImmutableDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.reportdiagnostic">ReportDiagnostic</a>&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithStrongNameProvider_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithStrongNameProvider*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithStrongNameProvider_Microsoft_CodeAnalysis_StrongNameProvider_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithStrongNameProvider(Microsoft.CodeAnalysis.StrongNameProvider)">WithStrongNameProvider(StrongNameProvider?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithStrongNameProvider(StrongNameProvider? provider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.StrongNameProvider.html">StrongNameProvider</a></td>
+        <td><span class="parametername">provider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithSyntaxTreeOptionsProvider_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithSyntaxTreeOptionsProvider*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithSyntaxTreeOptionsProvider_Microsoft_CodeAnalysis_SyntaxTreeOptionsProvider_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithSyntaxTreeOptionsProvider(Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider)">WithSyntaxTreeOptionsProvider(SyntaxTreeOptionsProvider?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithSyntaxTreeOptionsProvider(SyntaxTreeOptionsProvider? provider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider.html">SyntaxTreeOptionsProvider</a></td>
+        <td><span class="parametername">provider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithUsings_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithUsings*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithUsings_System_Collections_Generic_IEnumerable_System_String__" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithUsings(System.Collections.Generic.IEnumerable{System.String})">WithUsings(IEnumerable&lt;string&gt;?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithUsings(IEnumerable&lt;string&gt;? usings)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><span class="parametername">usings</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithUsings_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithUsings*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithUsings_System_Collections_Immutable_ImmutableArray_System_String__" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithUsings(System.Collections.Immutable.ImmutableArray{System.String})">WithUsings(ImmutableArray&lt;string&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithUsings(ImmutableArray&lt;string&gt; usings)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><span class="parametername">usings</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithUsings_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithUsings*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithUsings_System_String___" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithUsings(System.String[])">WithUsings(params string[]?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithUsings(params string[]? usings)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td><span class="parametername">usings</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithWarningLevel_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithWarningLevel*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithWarningLevel_System_Int32_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithWarningLevel(System.Int32)">WithWarningLevel(int)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithWarningLevel(int warningLevel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">warningLevel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithXmlReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithXmlReferenceResolver*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpCompilationOptions_WithXmlReferenceResolver_Microsoft_CodeAnalysis_XmlReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithXmlReferenceResolver(Microsoft.CodeAnalysis.XmlReferenceResolver)">WithXmlReferenceResolver(XmlReferenceResolver?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpCompilationOptions WithXmlReferenceResolver(XmlReferenceResolver? resolver)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.XmlReferenceResolver.html">XmlReferenceResolver</a></td>
+        <td><span class="parametername">resolver</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.html">CSharpCompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

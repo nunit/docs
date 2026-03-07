@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class CommandLineArguments | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class CommandLineArguments | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.CodeAnalysis.CommandLineArguments">
+
+
+
+  <h1 id="Microsoft_CodeAnalysis_CommandLineArguments" data-uid="Microsoft.CodeAnalysis.CommandLineArguments" class="text-break">Class CommandLineArguments</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">CommandLineArguments</span></div>
+      <div class="level2"><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpCommandLineArguments.html">CSharpCommandLineArguments</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft">Microsoft</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis">CodeAnalysis</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.CodeAnalysis.dll</h6>
+  <h5 id="Microsoft_CodeAnalysis_CommandLineArguments_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class CommandLineArguments</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_AdditionalFiles_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.AdditionalFiles*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_AdditionalFiles" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.AdditionalFiles">AdditionalFiles</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CommandLineSourceFile&gt; AdditionalFiles { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.CommandLineSourceFile.html">CommandLineSourceFile</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_AnalyzerConfigPaths_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.AnalyzerConfigPaths*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_AnalyzerConfigPaths" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.AnalyzerConfigPaths">AnalyzerConfigPaths</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;string&gt; AnalyzerConfigPaths { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_AnalyzerReferences_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.AnalyzerReferences*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_AnalyzerReferences" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.AnalyzerReferences">AnalyzerReferences</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CommandLineAnalyzerReference&gt; AnalyzerReferences { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.CommandLineAnalyzerReference.html">CommandLineAnalyzerReference</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_AppConfigPath_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.AppConfigPath*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_AppConfigPath" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.AppConfigPath">AppConfigPath</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? AppConfigPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_BaseDirectory_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.BaseDirectory*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_BaseDirectory" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.BaseDirectory">BaseDirectory</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? BaseDirectory { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ChecksumAlgorithm_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ChecksumAlgorithm*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ChecksumAlgorithm" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ChecksumAlgorithm">ChecksumAlgorithm</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SourceHashAlgorithm ChecksumAlgorithm { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.SourceHashAlgorithm.html">SourceHashAlgorithm</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_CompilationName_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.CompilationName*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_CompilationName" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.CompilationName">CompilationName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? CompilationName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_CompilationOptions_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.CompilationOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_CompilationOptions" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.CompilationOptions">CompilationOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CompilationOptions CompilationOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_CompilationOptionsCore_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.CompilationOptionsCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_CompilationOptionsCore" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.CompilationOptionsCore">CompilationOptionsCore</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract CompilationOptions CompilationOptionsCore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CompilationOptions.html">CompilationOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_DisplayHelp_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.DisplayHelp*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_DisplayHelp" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.DisplayHelp">DisplayHelp</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DisplayHelp { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_DisplayLangVersions_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.DisplayLangVersions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_DisplayLangVersions" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.DisplayLangVersions">DisplayLangVersions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DisplayLangVersions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_DisplayLogo_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.DisplayLogo*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_DisplayLogo" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.DisplayLogo">DisplayLogo</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DisplayLogo { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_DisplayVersion_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.DisplayVersion*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_DisplayVersion" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.DisplayVersion">DisplayVersion</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DisplayVersion { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_DocumentationPath_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.DocumentationPath*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_DocumentationPath" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.DocumentationPath">DocumentationPath</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? DocumentationPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_EmbeddedFiles_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.EmbeddedFiles*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_EmbeddedFiles" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.EmbeddedFiles">EmbeddedFiles</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CommandLineSourceFile&gt; EmbeddedFiles { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.CommandLineSourceFile.html">CommandLineSourceFile</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_EmitOptions_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.EmitOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_EmitOptions" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.EmitOptions">EmitOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EmitOptions EmitOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Emit.EmitOptions.html">EmitOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_EmitPdb_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.EmitPdb*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_EmitPdb" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.EmitPdb">EmitPdb</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EmitPdb { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_EmitPdbFile_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.EmitPdbFile*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_EmitPdbFile" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.EmitPdbFile">EmitPdbFile</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EmitPdbFile { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_Encoding_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Encoding*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_Encoding" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Encoding">Encoding</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Encoding? Encoding { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.encoding">Encoding</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ErrorLogOptions_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ErrorLogOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ErrorLogOptions" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ErrorLogOptions">ErrorLogOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ErrorLogOptions? ErrorLogOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ErrorLogOptions.html">ErrorLogOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ErrorLogPath_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ErrorLogPath*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ErrorLogPath" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ErrorLogPath">ErrorLogPath</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ErrorLogPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_Errors_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Errors*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_Errors" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Errors">Errors</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Diagnostic&gt; Errors { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.diagnostic">Diagnostic</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_GeneratedFilesOutputDirectory_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.GeneratedFilesOutputDirectory*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_GeneratedFilesOutputDirectory" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.GeneratedFilesOutputDirectory">GeneratedFilesOutputDirectory</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GeneratedFilesOutputDirectory { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_InteractiveMode_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.InteractiveMode*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_InteractiveMode" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.InteractiveMode">InteractiveMode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool InteractiveMode { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_KeyFileSearchPaths_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.KeyFileSearchPaths*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_KeyFileSearchPaths" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.KeyFileSearchPaths">KeyFileSearchPaths</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;string&gt; KeyFileSearchPaths { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ManifestResources_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ManifestResources*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ManifestResources" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ManifestResources">ManifestResources</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ResourceDescription&gt; ManifestResources { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.ResourceDescription.html">ResourceDescription</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_MetadataReferences_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.MetadataReferences*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_MetadataReferences" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.MetadataReferences">MetadataReferences</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CommandLineReference&gt; MetadataReferences { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.CommandLineReference.html">CommandLineReference</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_NoWin32Manifest_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.NoWin32Manifest*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_NoWin32Manifest" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.NoWin32Manifest">NoWin32Manifest</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool NoWin32Manifest { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_OutputDirectory_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.OutputDirectory*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_OutputDirectory" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.OutputDirectory">OutputDirectory</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string OutputDirectory { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_OutputFileName_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.OutputFileName*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_OutputFileName" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.OutputFileName">OutputFileName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? OutputFileName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_OutputRefFilePath_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.OutputRefFilePath*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_OutputRefFilePath" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.OutputRefFilePath">OutputRefFilePath</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? OutputRefFilePath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ParseOptions_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ParseOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ParseOptions" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ParseOptions">ParseOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParseOptions ParseOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ParseOptions.html">ParseOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ParseOptionsCore_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ParseOptionsCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ParseOptionsCore" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ParseOptionsCore">ParseOptionsCore</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ParseOptions ParseOptionsCore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ParseOptions.html">ParseOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_PathMap_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.PathMap*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_PathMap" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.PathMap">PathMap</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;KeyValuePair&lt;string, string&gt;&gt; PathMap { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_PdbPath_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.PdbPath*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_PdbPath" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.PdbPath">PdbPath</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? PdbPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_PreferredUILang_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.PreferredUILang*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_PreferredUILang" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.PreferredUILang">PreferredUILang</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CultureInfo? PreferredUILang { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_PrintFullPaths_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.PrintFullPaths*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_PrintFullPaths" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.PrintFullPaths">PrintFullPaths</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PrintFullPaths { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ReferencePaths_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ReferencePaths*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ReferencePaths" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ReferencePaths">ReferencePaths</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;string&gt; ReferencePaths { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ReportAnalyzer_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ReportAnalyzer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ReportAnalyzer" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ReportAnalyzer">ReportAnalyzer</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReportAnalyzer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ReportInternalsVisibleToAttributes_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ReportInternalsVisibleToAttributes*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ReportInternalsVisibleToAttributes" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ReportInternalsVisibleToAttributes">ReportInternalsVisibleToAttributes</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReportInternalsVisibleToAttributes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_RuleSetPath_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.RuleSetPath*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_RuleSetPath" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.RuleSetPath">RuleSetPath</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? RuleSetPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ScriptArguments_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ScriptArguments*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ScriptArguments" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ScriptArguments">ScriptArguments</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;string&gt; ScriptArguments { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_SkipAnalyzers_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.SkipAnalyzers*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_SkipAnalyzers" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.SkipAnalyzers">SkipAnalyzers</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SkipAnalyzers { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_SourceFiles_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.SourceFiles*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_SourceFiles" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.SourceFiles">SourceFiles</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CommandLineSourceFile&gt; SourceFiles { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.CommandLineSourceFile.html">CommandLineSourceFile</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_SourceLink_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.SourceLink*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_SourceLink" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.SourceLink">SourceLink</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? SourceLink { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_SourcePaths_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.SourcePaths*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_SourcePaths" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.SourcePaths">SourcePaths</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;string&gt; SourcePaths { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_TouchedFilesPath_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.TouchedFilesPath*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_TouchedFilesPath" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.TouchedFilesPath">TouchedFilesPath</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? TouchedFilesPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_Utf8Output_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Utf8Output*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_Utf8Output" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Utf8Output">Utf8Output</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Utf8Output { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_Win32Icon_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Win32Icon*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_Win32Icon" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Win32Icon">Win32Icon</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Win32Icon { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_Win32Manifest_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Win32Manifest*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_Win32Manifest" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Win32Manifest">Win32Manifest</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Win32Manifest { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_Win32ResourceFile_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Win32ResourceFile*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_Win32ResourceFile" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.Win32ResourceFile">Win32ResourceFile</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Win32ResourceFile { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_GetOutputFilePath_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.GetOutputFilePath*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_GetOutputFilePath_System_String_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.GetOutputFilePath(System.String)">GetOutputFilePath(string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetOutputFilePath(string outputFileName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">outputFileName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_GetPdbFilePath_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.GetPdbFilePath*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_GetPdbFilePath_System_String_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.GetPdbFilePath(System.String)">GetPdbFilePath(string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetPdbFilePath(string outputFileName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">outputFileName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ResolveAnalyzerReferences_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ResolveAnalyzerReferences*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ResolveAnalyzerReferences_Microsoft_CodeAnalysis_IAnalyzerAssemblyLoader_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ResolveAnalyzerReferences(Microsoft.CodeAnalysis.IAnalyzerAssemblyLoader)">ResolveAnalyzerReferences(IAnalyzerAssemblyLoader)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;AnalyzerReference&gt; ResolveAnalyzerReferences(IAnalyzerAssemblyLoader analyzerLoader)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IAnalyzerAssemblyLoader.html">IAnalyzerAssemblyLoader</a></td>
+        <td><span class="parametername">analyzerLoader</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference.html">AnalyzerReference</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CommandLineArguments_ResolveMetadataReferences_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ResolveMetadataReferences*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CommandLineArguments_ResolveMetadataReferences_Microsoft_CodeAnalysis_MetadataReferenceResolver_" data-uid="Microsoft.CodeAnalysis.CommandLineArguments.ResolveMetadataReferences(Microsoft.CodeAnalysis.MetadataReferenceResolver)">ResolveMetadataReferences(MetadataReferenceResolver)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;MetadataReference&gt; ResolveMetadataReferences(MetadataReferenceResolver metadataResolver)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.MetadataReferenceResolver.html">MetadataReferenceResolver</a></td>
+        <td><span class="parametername">metadataResolver</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.metadatareference">MetadataReference</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -334,6 +334,34 @@ the user test code.</p>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/TestContext.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_IsSuite_" data-uid="NUnit.Framework.TestContext.TestAdapter.IsSuite*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_IsSuite" data-uid="NUnit.Framework.TestContext.TestAdapter.IsSuite">IsSuite</h4>
+  <div class="markdown level1 summary"><p>Returns true if this is a TestSuite</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSuite { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_TestContext_TestAdapter_Method_" data-uid="NUnit.Framework.TestContext.TestAdapter.Method*"></a>
   <h4 id="NUnit_Framework_TestContext_TestAdapter_Method" data-uid="NUnit.Framework.TestContext.TestAdapter.Method">Method</h4>
   <div class="markdown level1 summary"><p>The method representing the test.</p>
@@ -341,7 +369,8 @@ the user test code.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IMethodInfo? Method { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use MethodInfo property instead. This property will be removed in a future version of NUnit.&quot;)]
+public IMethodInfo? Method { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -354,6 +383,34 @@ the user test code.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="NUnit.Framework.Interfaces.IMethodInfo.html">IMethodInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/TestContext.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_TestContext_TestAdapter_MethodInfo_" data-uid="NUnit.Framework.TestContext.TestAdapter.MethodInfo*"></a>
+  <h4 id="NUnit_Framework_TestContext_TestAdapter_MethodInfo" data-uid="NUnit.Framework.TestContext.TestAdapter.MethodInfo">MethodInfo</h4>
+  <div class="markdown level1 summary"><p>Gets information about the actual the test method</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestContext.MethodInfoAdapter? MethodInfo { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.TestContext.html">TestContext</a>.<a class="xref" href="NUnit.Framework.TestContext.MethodInfoAdapter.html">MethodInfoAdapter</a></td>
         <td></td>
       </tr>
     </tbody>

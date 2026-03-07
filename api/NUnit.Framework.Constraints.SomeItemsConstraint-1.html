@@ -102,6 +102,7 @@ item in a collection, succeeding if any of them succeeds.</p>
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><a class="xref" href="NUnit.Framework.Constraints.IEnumerableConstraint.html">IEnumerableConstraint</a></div>
     <div><a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a></div>
     <div><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></div>
   </div>
@@ -109,6 +110,9 @@ item in a collection, succeeding if any of them succeeds.</p>
     <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html#NUnit_Framework_Constraints_SomeItemsConstraint_ApplyTo__1___0_">SomeItemsConstraint.ApplyTo&lt;TActual&gt;(TActual)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html#NUnit_Framework_Constraints_SomeItemsConstraint_ApplyToEnumerable__2___0_System_Collections_Generic_IEnumerable___1__">SomeItemsConstraint.ApplyToEnumerable&lt;TActual, TItem&gt;(TActual, IEnumerable&lt;TItem&gt;)</a>
     </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html#NUnit_Framework_Constraints_SomeItemsConstraint_Using__2_System_Func___0___1_System_Boolean__">SomeItemsConstraint.Using&lt;TActualCollectionElement, TExpected&gt;(Func&lt;TActualCollectionElement, TExpected, bool&gt;)</a>
@@ -133,6 +137,9 @@ item in a collection, succeeding if any of them succeeds.</p>
     </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html#NUnit_Framework_Constraints_SomeItemsConstraint_UsingPropertiesComparer_System_Func_NUnit_Framework_Constraints_PropertiesComparerConfigurationUntyped_NUnit_Framework_Constraints_PropertiesComparerConfigurationUntyped__">SomeItemsConstraint.UsingPropertiesComparer(Func&lt;PropertiesComparerConfigurationUntyped, PropertiesComparerConfigurationUntyped&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html#NUnit_Framework_Constraints_SomeItemsConstraint_UsingPropertiesComparer__1_System_Func_NUnit_Framework_Constraints_PropertiesComparerConfiguration___0__NUnit_Framework_Constraints_PropertiesComparerConfiguration___0___">SomeItemsConstraint.UsingPropertiesComparer&lt;T&gt;(Func&lt;PropertiesComparerConfiguration&lt;T&gt;, PropertiesComparerConfiguration&lt;T&gt;&gt;)</a>
     </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html#NUnit_Framework_Constraints_SomeItemsConstraint_DisplayName">SomeItemsConstraint.DisplayName</a>
@@ -211,7 +218,7 @@ item in a collection, succeeding if any of them succeeds.</p>
   <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
   <h5 id="NUnit_Framework_Constraints_SomeItemsConstraint_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SomeItemsConstraint&lt;T&gt; : SomeItemsConstraint, IConstraint, IResolveConstraint</code></pre>
+    <pre><code class="lang-csharp hljs">public class SomeItemsConstraint&lt;T&gt; : SomeItemsConstraint, IEnumerableConstraint, IConstraint, IResolveConstraint</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -313,6 +320,9 @@ item in a collection, succeeding if any of them succeeds.</p>
 without having to compare each property separately in own code.</p>
 </div>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="NUnit.Framework.Constraints.IEnumerableConstraint.html">IEnumerableConstraint</a>
+  </div>
   <div>
       <a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a>
   </div>

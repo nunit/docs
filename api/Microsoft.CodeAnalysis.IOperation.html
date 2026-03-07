@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Interface IOperation | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Interface IOperation | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.CodeAnalysis.IOperation">
+
+
+
+  <h1 id="Microsoft_CodeAnalysis_IOperation" data-uid="Microsoft.CodeAnalysis.IOperation" class="text-break">Interface IOperation</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft">Microsoft</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis">CodeAnalysis</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.CodeAnalysis.dll</h6>
+  <h5 id="Microsoft_CodeAnalysis_IOperation_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IOperation</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_ChildOperations_" data-uid="Microsoft.CodeAnalysis.IOperation.ChildOperations*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_ChildOperations" data-uid="Microsoft.CodeAnalysis.IOperation.ChildOperations">ChildOperations</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IOperation.OperationList ChildOperations { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IOperation.html">IOperation</a>.<a class="xref" href="Microsoft.CodeAnalysis.IOperation.OperationList.html">OperationList</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_Children_" data-uid="Microsoft.CodeAnalysis.IOperation.Children*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_Children" data-uid="Microsoft.CodeAnalysis.IOperation.Children">Children</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This API has performance penalties, please use ChildOperations instead.&quot;, false)]
+IEnumerable&lt;IOperation&gt; Children { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.IOperation.html">IOperation</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_ConstantValue_" data-uid="Microsoft.CodeAnalysis.IOperation.ConstantValue*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_ConstantValue" data-uid="Microsoft.CodeAnalysis.IOperation.ConstantValue">ConstantValue</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Optional&lt;object?&gt; ConstantValue { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.optional-1">Optional</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_IsImplicit_" data-uid="Microsoft.CodeAnalysis.IOperation.IsImplicit*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_IsImplicit" data-uid="Microsoft.CodeAnalysis.IOperation.IsImplicit">IsImplicit</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsImplicit { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_Kind_" data-uid="Microsoft.CodeAnalysis.IOperation.Kind*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_Kind" data-uid="Microsoft.CodeAnalysis.IOperation.Kind">Kind</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">OperationKind Kind { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.OperationKind.html">OperationKind</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_Language_" data-uid="Microsoft.CodeAnalysis.IOperation.Language*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_Language" data-uid="Microsoft.CodeAnalysis.IOperation.Language">Language</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Language { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_Parent_" data-uid="Microsoft.CodeAnalysis.IOperation.Parent*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_Parent" data-uid="Microsoft.CodeAnalysis.IOperation.Parent">Parent</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IOperation? Parent { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IOperation.html">IOperation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_SemanticModel_" data-uid="Microsoft.CodeAnalysis.IOperation.SemanticModel*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_SemanticModel" data-uid="Microsoft.CodeAnalysis.IOperation.SemanticModel">SemanticModel</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SemanticModel? SemanticModel { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SemanticModel.html">SemanticModel</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_Syntax_" data-uid="Microsoft.CodeAnalysis.IOperation.Syntax*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_Syntax" data-uid="Microsoft.CodeAnalysis.IOperation.Syntax">Syntax</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SyntaxNode Syntax { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_Type_" data-uid="Microsoft.CodeAnalysis.IOperation.Type*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_Type" data-uid="Microsoft.CodeAnalysis.IOperation.Type">Type</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ITypeSymbol? Type { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ITypeSymbol.html">ITypeSymbol</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_Accept_" data-uid="Microsoft.CodeAnalysis.IOperation.Accept*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_Accept_Microsoft_CodeAnalysis_Operations_OperationVisitor_" data-uid="Microsoft.CodeAnalysis.IOperation.Accept(Microsoft.CodeAnalysis.Operations.OperationVisitor)">Accept(OperationVisitor)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Accept(OperationVisitor visitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.OperationVisitor.html">OperationVisitor</a></td>
+        <td><span class="parametername">visitor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_IOperation_Accept_" data-uid="Microsoft.CodeAnalysis.IOperation.Accept*"></a>
+  <h4 id="Microsoft_CodeAnalysis_IOperation_Accept__2_Microsoft_CodeAnalysis_Operations_OperationVisitor___0___1____0_" data-uid="Microsoft.CodeAnalysis.IOperation.Accept``2(Microsoft.CodeAnalysis.Operations.OperationVisitor{``0,``1},``0)">Accept&lt;TArgument, TResult&gt;(OperationVisitor&lt;TArgument, TResult&gt;, TArgument)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TResult? Accept&lt;TArgument, TResult&gt;(OperationVisitor&lt;TArgument, TResult&gt; visitor, TArgument argument)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.OperationVisitor-2.html">OperationVisitor</a>&lt;TArgument, TResult&gt;</td>
+        <td><span class="parametername">visitor</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TArgument</span></td>
+        <td><span class="parametername">argument</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TArgument</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.Operations.OperationExtensions.html#Microsoft_CodeAnalysis_Operations_OperationExtensions_Descendants_Microsoft_CodeAnalysis_IOperation_">OperationExtensions.Descendants(IOperation?)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.Operations.OperationExtensions.html#Microsoft_CodeAnalysis_Operations_OperationExtensions_DescendantsAndSelf_Microsoft_CodeAnalysis_IOperation_">OperationExtensions.DescendantsAndSelf(IOperation?)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

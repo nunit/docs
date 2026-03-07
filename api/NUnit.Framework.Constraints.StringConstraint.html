@@ -485,6 +485,236 @@ use in messages and in the ConstraintResult.</p>
       </tr>
     </tbody>
   </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/StringConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_StringConstraint_Matches_" data-uid="NUnit.Framework.Constraints.StringConstraint.Matches*"></a>
+  <h4 id="NUnit_Framework_Constraints_StringConstraint_Matches_System_String_System_Globalization_CultureInfo_" data-uid="NUnit.Framework.Constraints.StringConstraint.Matches(System.String,System.Globalization.CultureInfo)">Matches(string?, CultureInfo)</h4>
+  <div class="markdown level1 summary"><p>Test whether the constraint is satisfied by a given string with a specific culture</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool Matches(string? actual, CultureInfo cultureInfo)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The string to be tested</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></td>
+        <td><span class="parametername">cultureInfo</span></td>
+        <td><p>The culture info to use for comparison</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True for success, false for failure</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/StringConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_StringConstraint_Matches_" data-uid="NUnit.Framework.Constraints.StringConstraint.Matches*"></a>
+  <h4 id="NUnit_Framework_Constraints_StringConstraint_Matches_System_String_System_StringComparison_" data-uid="NUnit.Framework.Constraints.StringConstraint.Matches(System.String,System.StringComparison)">Matches(string?, StringComparison)</h4>
+  <div class="markdown level1 summary"><p>Test whether the constraint is satisfied by a given string with a specific string comparison</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool Matches(string? actual, StringComparison stringComparison)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The string to be tested</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.stringcomparison">StringComparison</a></td>
+        <td><span class="parametername">stringComparison</span></td>
+        <td><p>The string comparison type to be used</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True for success, false for failure</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/StringConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_StringConstraint_Using_" data-uid="NUnit.Framework.Constraints.StringConstraint.Using*"></a>
+  <h4 id="NUnit_Framework_Constraints_StringConstraint_Using_System_Globalization_CultureInfo_" data-uid="NUnit.Framework.Constraints.StringConstraint.Using(System.Globalization.CultureInfo)">Using(CultureInfo)</h4>
+  <div class="markdown level1 summary"><p>Modify the constraint to use the specified culture info.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual StringConstraint Using(CultureInfo culture)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></td>
+        <td><span class="parametername">culture</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html">StringConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown when a culture info was already set
+or when a comparison type was already set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/StringConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_StringConstraint_Using_" data-uid="NUnit.Framework.Constraints.StringConstraint.Using*"></a>
+  <h4 id="NUnit_Framework_Constraints_StringConstraint_Using_System_StringComparison_" data-uid="NUnit.Framework.Constraints.StringConstraint.Using(System.StringComparison)">Using(StringComparison)</h4>
+  <div class="markdown level1 summary"><p>Modify the constraint to use the specified comparison.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual StringConstraint Using(StringComparison comparisonType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.stringcomparison">StringComparison</a></td>
+        <td><span class="parametername">comparisonType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html">StringConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown when a comparison type was already set
+or when a culture info was already set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a>

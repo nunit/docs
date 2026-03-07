@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class SymbolDisplayFormat | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class SymbolDisplayFormat | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat">
+
+
+
+  <h1 id="Microsoft_CodeAnalysis_SymbolDisplayFormat" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat" class="text-break">Class SymbolDisplayFormat</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">SymbolDisplayFormat</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft">Microsoft</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis">CodeAnalysis</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.CodeAnalysis.dll</h6>
+  <h5 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SymbolDisplayFormat</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat__ctor_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.#ctor*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat__ctor_Microsoft_CodeAnalysis_SymbolDisplayGlobalNamespaceStyle_Microsoft_CodeAnalysis_SymbolDisplayTypeQualificationStyle_Microsoft_CodeAnalysis_SymbolDisplayGenericsOptions_Microsoft_CodeAnalysis_SymbolDisplayMemberOptions_Microsoft_CodeAnalysis_SymbolDisplayDelegateStyle_Microsoft_CodeAnalysis_SymbolDisplayExtensionMethodStyle_Microsoft_CodeAnalysis_SymbolDisplayParameterOptions_Microsoft_CodeAnalysis_SymbolDisplayPropertyStyle_Microsoft_CodeAnalysis_SymbolDisplayLocalOptions_Microsoft_CodeAnalysis_SymbolDisplayKindOptions_Microsoft_CodeAnalysis_SymbolDisplayMiscellaneousOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.#ctor(Microsoft.CodeAnalysis.SymbolDisplayGlobalNamespaceStyle,Microsoft.CodeAnalysis.SymbolDisplayTypeQualificationStyle,Microsoft.CodeAnalysis.SymbolDisplayGenericsOptions,Microsoft.CodeAnalysis.SymbolDisplayMemberOptions,Microsoft.CodeAnalysis.SymbolDisplayDelegateStyle,Microsoft.CodeAnalysis.SymbolDisplayExtensionMethodStyle,Microsoft.CodeAnalysis.SymbolDisplayParameterOptions,Microsoft.CodeAnalysis.SymbolDisplayPropertyStyle,Microsoft.CodeAnalysis.SymbolDisplayLocalOptions,Microsoft.CodeAnalysis.SymbolDisplayKindOptions,Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions)">SymbolDisplayFormat(SymbolDisplayGlobalNamespaceStyle, SymbolDisplayTypeQualificationStyle, SymbolDisplayGenericsOptions, SymbolDisplayMemberOptions, SymbolDisplayDelegateStyle, SymbolDisplayExtensionMethodStyle, SymbolDisplayParameterOptions, SymbolDisplayPropertyStyle, SymbolDisplayLocalOptions, SymbolDisplayKindOptions, SymbolDisplayMiscellaneousOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat(SymbolDisplayGlobalNamespaceStyle globalNamespaceStyle = SymbolDisplayGlobalNamespaceStyle.Omitted, SymbolDisplayTypeQualificationStyle typeQualificationStyle = SymbolDisplayTypeQualificationStyle.NameOnly, SymbolDisplayGenericsOptions genericsOptions = SymbolDisplayGenericsOptions.None, SymbolDisplayMemberOptions memberOptions = SymbolDisplayMemberOptions.None, SymbolDisplayDelegateStyle delegateStyle = SymbolDisplayDelegateStyle.NameOnly, SymbolDisplayExtensionMethodStyle extensionMethodStyle = SymbolDisplayExtensionMethodStyle.Default, SymbolDisplayParameterOptions parameterOptions = SymbolDisplayParameterOptions.None, SymbolDisplayPropertyStyle propertyStyle = SymbolDisplayPropertyStyle.NameOnly, SymbolDisplayLocalOptions localOptions = SymbolDisplayLocalOptions.None, SymbolDisplayKindOptions kindOptions = SymbolDisplayKindOptions.None, SymbolDisplayMiscellaneousOptions miscellaneousOptions = SymbolDisplayMiscellaneousOptions.None)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayGlobalNamespaceStyle.html">SymbolDisplayGlobalNamespaceStyle</a></td>
+        <td><span class="parametername">globalNamespaceStyle</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayTypeQualificationStyle.html">SymbolDisplayTypeQualificationStyle</a></td>
+        <td><span class="parametername">typeQualificationStyle</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayGenericsOptions.html">SymbolDisplayGenericsOptions</a></td>
+        <td><span class="parametername">genericsOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayMemberOptions.html">SymbolDisplayMemberOptions</a></td>
+        <td><span class="parametername">memberOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayDelegateStyle.html">SymbolDisplayDelegateStyle</a></td>
+        <td><span class="parametername">delegateStyle</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayExtensionMethodStyle.html">SymbolDisplayExtensionMethodStyle</a></td>
+        <td><span class="parametername">extensionMethodStyle</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayParameterOptions.html">SymbolDisplayParameterOptions</a></td>
+        <td><span class="parametername">parameterOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayPropertyStyle.html">SymbolDisplayPropertyStyle</a></td>
+        <td><span class="parametername">propertyStyle</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayLocalOptions.html">SymbolDisplayLocalOptions</a></td>
+        <td><span class="parametername">localOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayKindOptions.html">SymbolDisplayKindOptions</a></td>
+        <td><span class="parametername">kindOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions.html">SymbolDisplayMiscellaneousOptions</a></td>
+        <td><span class="parametername">miscellaneousOptions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_CSharpErrorMessageFormat_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.CSharpErrorMessageFormat*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_CSharpErrorMessageFormat" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.CSharpErrorMessageFormat">CSharpErrorMessageFormat</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SymbolDisplayFormat CSharpErrorMessageFormat { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_CSharpShortErrorMessageFormat_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.CSharpShortErrorMessageFormat*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_CSharpShortErrorMessageFormat" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.CSharpShortErrorMessageFormat">CSharpShortErrorMessageFormat</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SymbolDisplayFormat CSharpShortErrorMessageFormat { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_DelegateStyle_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.DelegateStyle*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_DelegateStyle" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.DelegateStyle">DelegateStyle</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayDelegateStyle DelegateStyle { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayDelegateStyle.html">SymbolDisplayDelegateStyle</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_ExtensionMethodStyle_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.ExtensionMethodStyle*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_ExtensionMethodStyle" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.ExtensionMethodStyle">ExtensionMethodStyle</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayExtensionMethodStyle ExtensionMethodStyle { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayExtensionMethodStyle.html">SymbolDisplayExtensionMethodStyle</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_FullyQualifiedFormat_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.FullyQualifiedFormat*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_FullyQualifiedFormat" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.FullyQualifiedFormat">FullyQualifiedFormat</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SymbolDisplayFormat FullyQualifiedFormat { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_GenericsOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.GenericsOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_GenericsOptions" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.GenericsOptions">GenericsOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayGenericsOptions GenericsOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayGenericsOptions.html">SymbolDisplayGenericsOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_GlobalNamespaceStyle_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.GlobalNamespaceStyle*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_GlobalNamespaceStyle" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.GlobalNamespaceStyle">GlobalNamespaceStyle</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayGlobalNamespaceStyle GlobalNamespaceStyle { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayGlobalNamespaceStyle.html">SymbolDisplayGlobalNamespaceStyle</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_KindOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.KindOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_KindOptions" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.KindOptions">KindOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayKindOptions KindOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayKindOptions.html">SymbolDisplayKindOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_LocalOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.LocalOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_LocalOptions" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.LocalOptions">LocalOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayLocalOptions LocalOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayLocalOptions.html">SymbolDisplayLocalOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_MemberOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.MemberOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_MemberOptions" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.MemberOptions">MemberOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayMemberOptions MemberOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayMemberOptions.html">SymbolDisplayMemberOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_MinimallyQualifiedFormat_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.MinimallyQualifiedFormat*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_MinimallyQualifiedFormat" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.MinimallyQualifiedFormat">MinimallyQualifiedFormat</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SymbolDisplayFormat MinimallyQualifiedFormat { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_MiscellaneousOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.MiscellaneousOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_MiscellaneousOptions" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.MiscellaneousOptions">MiscellaneousOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayMiscellaneousOptions MiscellaneousOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions.html">SymbolDisplayMiscellaneousOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_ParameterOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.ParameterOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_ParameterOptions" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.ParameterOptions">ParameterOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayParameterOptions ParameterOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayParameterOptions.html">SymbolDisplayParameterOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_PropertyStyle_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.PropertyStyle*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_PropertyStyle" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.PropertyStyle">PropertyStyle</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayPropertyStyle PropertyStyle { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayPropertyStyle.html">SymbolDisplayPropertyStyle</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_TypeQualificationStyle_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.TypeQualificationStyle*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_TypeQualificationStyle" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.TypeQualificationStyle">TypeQualificationStyle</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayTypeQualificationStyle TypeQualificationStyle { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayTypeQualificationStyle.html">SymbolDisplayTypeQualificationStyle</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_VisualBasicErrorMessageFormat_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.VisualBasicErrorMessageFormat*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_VisualBasicErrorMessageFormat" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.VisualBasicErrorMessageFormat">VisualBasicErrorMessageFormat</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SymbolDisplayFormat VisualBasicErrorMessageFormat { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_VisualBasicShortErrorMessageFormat_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.VisualBasicShortErrorMessageFormat*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_VisualBasicShortErrorMessageFormat" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.VisualBasicShortErrorMessageFormat">VisualBasicShortErrorMessageFormat</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SymbolDisplayFormat VisualBasicShortErrorMessageFormat { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddGenericsOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddGenericsOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddGenericsOptions_Microsoft_CodeAnalysis_SymbolDisplayGenericsOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddGenericsOptions(Microsoft.CodeAnalysis.SymbolDisplayGenericsOptions)">AddGenericsOptions(SymbolDisplayGenericsOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat AddGenericsOptions(SymbolDisplayGenericsOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayGenericsOptions.html">SymbolDisplayGenericsOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddKindOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddKindOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddKindOptions_Microsoft_CodeAnalysis_SymbolDisplayKindOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddKindOptions(Microsoft.CodeAnalysis.SymbolDisplayKindOptions)">AddKindOptions(SymbolDisplayKindOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat AddKindOptions(SymbolDisplayKindOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayKindOptions.html">SymbolDisplayKindOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddLocalOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddLocalOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddLocalOptions_Microsoft_CodeAnalysis_SymbolDisplayLocalOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddLocalOptions(Microsoft.CodeAnalysis.SymbolDisplayLocalOptions)">AddLocalOptions(SymbolDisplayLocalOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat AddLocalOptions(SymbolDisplayLocalOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayLocalOptions.html">SymbolDisplayLocalOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddMemberOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddMemberOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddMemberOptions_Microsoft_CodeAnalysis_SymbolDisplayMemberOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddMemberOptions(Microsoft.CodeAnalysis.SymbolDisplayMemberOptions)">AddMemberOptions(SymbolDisplayMemberOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat AddMemberOptions(SymbolDisplayMemberOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayMemberOptions.html">SymbolDisplayMemberOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddMiscellaneousOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddMiscellaneousOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddMiscellaneousOptions_Microsoft_CodeAnalysis_SymbolDisplayMiscellaneousOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddMiscellaneousOptions(Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions)">AddMiscellaneousOptions(SymbolDisplayMiscellaneousOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat AddMiscellaneousOptions(SymbolDisplayMiscellaneousOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions.html">SymbolDisplayMiscellaneousOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddParameterOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddParameterOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_AddParameterOptions_Microsoft_CodeAnalysis_SymbolDisplayParameterOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.AddParameterOptions(Microsoft.CodeAnalysis.SymbolDisplayParameterOptions)">AddParameterOptions(SymbolDisplayParameterOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat AddParameterOptions(SymbolDisplayParameterOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayParameterOptions.html">SymbolDisplayParameterOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveGenericsOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveGenericsOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveGenericsOptions_Microsoft_CodeAnalysis_SymbolDisplayGenericsOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveGenericsOptions(Microsoft.CodeAnalysis.SymbolDisplayGenericsOptions)">RemoveGenericsOptions(SymbolDisplayGenericsOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat RemoveGenericsOptions(SymbolDisplayGenericsOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayGenericsOptions.html">SymbolDisplayGenericsOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveKindOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveKindOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveKindOptions_Microsoft_CodeAnalysis_SymbolDisplayKindOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveKindOptions(Microsoft.CodeAnalysis.SymbolDisplayKindOptions)">RemoveKindOptions(SymbolDisplayKindOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat RemoveKindOptions(SymbolDisplayKindOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayKindOptions.html">SymbolDisplayKindOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveLocalOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveLocalOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveLocalOptions_Microsoft_CodeAnalysis_SymbolDisplayLocalOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveLocalOptions(Microsoft.CodeAnalysis.SymbolDisplayLocalOptions)">RemoveLocalOptions(SymbolDisplayLocalOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat RemoveLocalOptions(SymbolDisplayLocalOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayLocalOptions.html">SymbolDisplayLocalOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveMemberOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveMemberOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveMemberOptions_Microsoft_CodeAnalysis_SymbolDisplayMemberOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveMemberOptions(Microsoft.CodeAnalysis.SymbolDisplayMemberOptions)">RemoveMemberOptions(SymbolDisplayMemberOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat RemoveMemberOptions(SymbolDisplayMemberOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayMemberOptions.html">SymbolDisplayMemberOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveMiscellaneousOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveMiscellaneousOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveMiscellaneousOptions_Microsoft_CodeAnalysis_SymbolDisplayMiscellaneousOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveMiscellaneousOptions(Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions)">RemoveMiscellaneousOptions(SymbolDisplayMiscellaneousOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat RemoveMiscellaneousOptions(SymbolDisplayMiscellaneousOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions.html">SymbolDisplayMiscellaneousOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveParameterOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveParameterOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_RemoveParameterOptions_Microsoft_CodeAnalysis_SymbolDisplayParameterOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.RemoveParameterOptions(Microsoft.CodeAnalysis.SymbolDisplayParameterOptions)">RemoveParameterOptions(SymbolDisplayParameterOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat RemoveParameterOptions(SymbolDisplayParameterOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayParameterOptions.html">SymbolDisplayParameterOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithGenericsOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithGenericsOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithGenericsOptions_Microsoft_CodeAnalysis_SymbolDisplayGenericsOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithGenericsOptions(Microsoft.CodeAnalysis.SymbolDisplayGenericsOptions)">WithGenericsOptions(SymbolDisplayGenericsOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat WithGenericsOptions(SymbolDisplayGenericsOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayGenericsOptions.html">SymbolDisplayGenericsOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithGlobalNamespaceStyle_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithGlobalNamespaceStyle*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithGlobalNamespaceStyle_Microsoft_CodeAnalysis_SymbolDisplayGlobalNamespaceStyle_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithGlobalNamespaceStyle(Microsoft.CodeAnalysis.SymbolDisplayGlobalNamespaceStyle)">WithGlobalNamespaceStyle(SymbolDisplayGlobalNamespaceStyle)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat WithGlobalNamespaceStyle(SymbolDisplayGlobalNamespaceStyle style)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayGlobalNamespaceStyle.html">SymbolDisplayGlobalNamespaceStyle</a></td>
+        <td><span class="parametername">style</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithKindOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithKindOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithKindOptions_Microsoft_CodeAnalysis_SymbolDisplayKindOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithKindOptions(Microsoft.CodeAnalysis.SymbolDisplayKindOptions)">WithKindOptions(SymbolDisplayKindOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat WithKindOptions(SymbolDisplayKindOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayKindOptions.html">SymbolDisplayKindOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithLocalOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithLocalOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithLocalOptions_Microsoft_CodeAnalysis_SymbolDisplayLocalOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithLocalOptions(Microsoft.CodeAnalysis.SymbolDisplayLocalOptions)">WithLocalOptions(SymbolDisplayLocalOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat WithLocalOptions(SymbolDisplayLocalOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayLocalOptions.html">SymbolDisplayLocalOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithMemberOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithMemberOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithMemberOptions_Microsoft_CodeAnalysis_SymbolDisplayMemberOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithMemberOptions(Microsoft.CodeAnalysis.SymbolDisplayMemberOptions)">WithMemberOptions(SymbolDisplayMemberOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat WithMemberOptions(SymbolDisplayMemberOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayMemberOptions.html">SymbolDisplayMemberOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithMiscellaneousOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithMiscellaneousOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithMiscellaneousOptions_Microsoft_CodeAnalysis_SymbolDisplayMiscellaneousOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithMiscellaneousOptions(Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions)">WithMiscellaneousOptions(SymbolDisplayMiscellaneousOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat WithMiscellaneousOptions(SymbolDisplayMiscellaneousOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions.html">SymbolDisplayMiscellaneousOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithParameterOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithParameterOptions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolDisplayFormat_WithParameterOptions_Microsoft_CodeAnalysis_SymbolDisplayParameterOptions_" data-uid="Microsoft.CodeAnalysis.SymbolDisplayFormat.WithParameterOptions(Microsoft.CodeAnalysis.SymbolDisplayParameterOptions)">WithParameterOptions(SymbolDisplayParameterOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SymbolDisplayFormat WithParameterOptions(SymbolDisplayParameterOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayParameterOptions.html">SymbolDisplayParameterOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolDisplayFormat.html">SymbolDisplayFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

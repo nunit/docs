@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class SymbolVisitor&lt;TResult&gt; | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class SymbolVisitor&lt;TResult&gt; | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1">
+
+
+
+  <h1 id="Microsoft_CodeAnalysis_SymbolVisitor_1" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1" class="text-break">Class SymbolVisitor&lt;TResult&gt;</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">SymbolVisitor&lt;TResult&gt;</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft">Microsoft</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis">CodeAnalysis</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.CodeAnalysis.dll</h6>
+  <h5 id="Microsoft_CodeAnalysis_SymbolVisitor_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class SymbolVisitor&lt;TResult&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1__ctor_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.#ctor*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1__ctor" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.#ctor">SymbolVisitor()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SymbolVisitor()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_DefaultVisit_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.DefaultVisit*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_DefaultVisit_Microsoft_CodeAnalysis_ISymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.DefaultVisit(Microsoft.CodeAnalysis.ISymbol)">DefaultVisit(ISymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? DefaultVisit(ISymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ISymbol.html">ISymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_Visit_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.Visit*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_Visit_Microsoft_CodeAnalysis_ISymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.Visit(Microsoft.CodeAnalysis.ISymbol)">Visit(ISymbol?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? Visit(ISymbol? symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ISymbol.html">ISymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitAlias_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitAlias*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitAlias_Microsoft_CodeAnalysis_IAliasSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitAlias(Microsoft.CodeAnalysis.IAliasSymbol)">VisitAlias(IAliasSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitAlias(IAliasSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IAliasSymbol.html">IAliasSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitArrayType_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitArrayType*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitArrayType_Microsoft_CodeAnalysis_IArrayTypeSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitArrayType(Microsoft.CodeAnalysis.IArrayTypeSymbol)">VisitArrayType(IArrayTypeSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitArrayType(IArrayTypeSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IArrayTypeSymbol.html">IArrayTypeSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitAssembly_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitAssembly*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitAssembly_Microsoft_CodeAnalysis_IAssemblySymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitAssembly(Microsoft.CodeAnalysis.IAssemblySymbol)">VisitAssembly(IAssemblySymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitAssembly(IAssemblySymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IAssemblySymbol.html">IAssemblySymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitDiscard_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitDiscard*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitDiscard_Microsoft_CodeAnalysis_IDiscardSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitDiscard(Microsoft.CodeAnalysis.IDiscardSymbol)">VisitDiscard(IDiscardSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitDiscard(IDiscardSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IDiscardSymbol.html">IDiscardSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitDynamicType_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitDynamicType*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitDynamicType_Microsoft_CodeAnalysis_IDynamicTypeSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitDynamicType(Microsoft.CodeAnalysis.IDynamicTypeSymbol)">VisitDynamicType(IDynamicTypeSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitDynamicType(IDynamicTypeSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IDynamicTypeSymbol.html">IDynamicTypeSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitEvent_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitEvent*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitEvent_Microsoft_CodeAnalysis_IEventSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitEvent(Microsoft.CodeAnalysis.IEventSymbol)">VisitEvent(IEventSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitEvent(IEventSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IEventSymbol.html">IEventSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitField_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitField*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitField_Microsoft_CodeAnalysis_IFieldSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitField(Microsoft.CodeAnalysis.IFieldSymbol)">VisitField(IFieldSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitField(IFieldSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IFieldSymbol.html">IFieldSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitFunctionPointerType_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitFunctionPointerType*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitFunctionPointerType_Microsoft_CodeAnalysis_IFunctionPointerTypeSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitFunctionPointerType(Microsoft.CodeAnalysis.IFunctionPointerTypeSymbol)">VisitFunctionPointerType(IFunctionPointerTypeSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitFunctionPointerType(IFunctionPointerTypeSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IFunctionPointerTypeSymbol.html">IFunctionPointerTypeSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitLabel_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitLabel*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitLabel_Microsoft_CodeAnalysis_ILabelSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitLabel(Microsoft.CodeAnalysis.ILabelSymbol)">VisitLabel(ILabelSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitLabel(ILabelSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ILabelSymbol.html">ILabelSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitLocal_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitLocal*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitLocal_Microsoft_CodeAnalysis_ILocalSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitLocal(Microsoft.CodeAnalysis.ILocalSymbol)">VisitLocal(ILocalSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitLocal(ILocalSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ILocalSymbol.html">ILocalSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitMethod_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitMethod*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitMethod_Microsoft_CodeAnalysis_IMethodSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitMethod(Microsoft.CodeAnalysis.IMethodSymbol)">VisitMethod(IMethodSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitMethod(IMethodSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IMethodSymbol.html">IMethodSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitModule_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitModule*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitModule_Microsoft_CodeAnalysis_IModuleSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitModule(Microsoft.CodeAnalysis.IModuleSymbol)">VisitModule(IModuleSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitModule(IModuleSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IModuleSymbol.html">IModuleSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitNamedType_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitNamedType*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitNamedType_Microsoft_CodeAnalysis_INamedTypeSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitNamedType(Microsoft.CodeAnalysis.INamedTypeSymbol)">VisitNamedType(INamedTypeSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitNamedType(INamedTypeSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.INamedTypeSymbol.html">INamedTypeSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitNamespace_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitNamespace*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitNamespace_Microsoft_CodeAnalysis_INamespaceSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitNamespace(Microsoft.CodeAnalysis.INamespaceSymbol)">VisitNamespace(INamespaceSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitNamespace(INamespaceSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.INamespaceSymbol.html">INamespaceSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitParameter_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitParameter*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitParameter_Microsoft_CodeAnalysis_IParameterSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitParameter(Microsoft.CodeAnalysis.IParameterSymbol)">VisitParameter(IParameterSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitParameter(IParameterSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IParameterSymbol.html">IParameterSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitPointerType_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitPointerType*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitPointerType_Microsoft_CodeAnalysis_IPointerTypeSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitPointerType(Microsoft.CodeAnalysis.IPointerTypeSymbol)">VisitPointerType(IPointerTypeSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitPointerType(IPointerTypeSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IPointerTypeSymbol.html">IPointerTypeSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitProperty_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitProperty*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitProperty_Microsoft_CodeAnalysis_IPropertySymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitProperty(Microsoft.CodeAnalysis.IPropertySymbol)">VisitProperty(IPropertySymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitProperty(IPropertySymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IPropertySymbol.html">IPropertySymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitRangeVariable_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitRangeVariable*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitRangeVariable_Microsoft_CodeAnalysis_IRangeVariableSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitRangeVariable(Microsoft.CodeAnalysis.IRangeVariableSymbol)">VisitRangeVariable(IRangeVariableSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitRangeVariable(IRangeVariableSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IRangeVariableSymbol.html">IRangeVariableSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitTypeParameter_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitTypeParameter*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SymbolVisitor_1_VisitTypeParameter_Microsoft_CodeAnalysis_ITypeParameterSymbol_" data-uid="Microsoft.CodeAnalysis.SymbolVisitor`1.VisitTypeParameter(Microsoft.CodeAnalysis.ITypeParameterSymbol)">VisitTypeParameter(ITypeParameterSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TResult? VisitTypeParameter(ITypeParameterSymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ITypeParameterSymbol.html">ITypeParameterSymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -186,13 +186,13 @@ that take a Type as their expected value.</p>
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/TypeConstraint.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Constraints_TypeConstraint__ctor_" data-uid="NUnit.Framework.Constraints.TypeConstraint.#ctor*"></a>
-  <h4 id="NUnit_Framework_Constraints_TypeConstraint__ctor_System_Type_System_String_" data-uid="NUnit.Framework.Constraints.TypeConstraint.#ctor(System.Type,System.String)">TypeConstraint(Type, string)</h4>
+  <h4 id="NUnit_Framework_Constraints_TypeConstraint__ctor_System_Type_System_String_" data-uid="NUnit.Framework.Constraints.TypeConstraint.#ctor(System.Type,System.String)">TypeConstraint(Type?, string)</h4>
   <div class="markdown level1 summary"><p>Construct a TypeConstraint for a given Type</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected TypeConstraint(Type type, string descriptionPrefix)</code></pre>
+    <pre><code class="lang-csharp hljs">protected TypeConstraint(Type? type, string descriptionPrefix)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -257,7 +257,7 @@ that take a Type as their expected value.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Type expectedType</code></pre>
+    <pre><code class="lang-csharp hljs">protected Type? expectedType</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">

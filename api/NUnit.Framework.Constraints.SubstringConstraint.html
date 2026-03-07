@@ -116,7 +116,13 @@ the expected substring.</p>
       <a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html#NUnit_Framework_Constraints_StringConstraint_descriptionText">StringConstraint.descriptionText</a>
     </div>
     <div>
+      <a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html#NUnit_Framework_Constraints_StringConstraint_Using_System_Globalization_CultureInfo_">StringConstraint.Using(CultureInfo)</a>
+    </div>
+    <div>
       <a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html#NUnit_Framework_Constraints_StringConstraint_ApplyTo__1___0_">StringConstraint.ApplyTo&lt;TActual&gt;(TActual)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html#NUnit_Framework_Constraints_StringConstraint_IgnoreCase">StringConstraint.IgnoreCase</a>
     </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html#NUnit_Framework_Constraints_StringConstraint_Description">StringConstraint.Description</a>
@@ -224,56 +230,6 @@ the expected substring.</p>
       </tr>
     </tbody>
   </table>
-  <h3 id="properties">Properties
-</h3>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/SubstringConstraint.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_Constraints_SubstringConstraint_IgnoreCase_" data-uid="NUnit.Framework.Constraints.SubstringConstraint.IgnoreCase*"></a>
-  <h4 id="NUnit_Framework_Constraints_SubstringConstraint_IgnoreCase" data-uid="NUnit.Framework.Constraints.SubstringConstraint.IgnoreCase">IgnoreCase</h4>
-  <div class="markdown level1 summary"><p>Modify the constraint to ignore case in matching.
-This will call Using(StringComparison.CurrentCultureIgnoreCase).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override StringConstraint IgnoreCase { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html">StringConstraint</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html#NUnit_Framework_Constraints_StringConstraint_IgnoreCase">StringConstraint.IgnoreCase</a></div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>Thrown when a comparison type different
-than <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.stringcomparison#system-stringcomparison-currentcultureignorecase">CurrentCultureIgnoreCase</a> was already set.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
 </h3>
 
@@ -282,7 +238,7 @@ than <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.stringc
   </span>
   <a id="NUnit_Framework_Constraints_SubstringConstraint_Matches_" data-uid="NUnit.Framework.Constraints.SubstringConstraint.Matches*"></a>
   <h4 id="NUnit_Framework_Constraints_SubstringConstraint_Matches_System_String_" data-uid="NUnit.Framework.Constraints.SubstringConstraint.Matches(System.String)">Matches(string?)</h4>
-  <div class="markdown level1 summary"><p>Test whether the constraint is satisfied by a given value</p>
+  <div class="markdown level1 summary"><p>Test whether the constraint is satisfied by a given value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -325,6 +281,118 @@ than <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.stringc
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html#NUnit_Framework_Constraints_StringConstraint_Matches_System_String_">StringConstraint.Matches(string?)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/SubstringConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_SubstringConstraint_Matches_" data-uid="NUnit.Framework.Constraints.SubstringConstraint.Matches*"></a>
+  <h4 id="NUnit_Framework_Constraints_SubstringConstraint_Matches_System_String_System_Globalization_CultureInfo_" data-uid="NUnit.Framework.Constraints.SubstringConstraint.Matches(System.String,System.Globalization.CultureInfo)">Matches(string?, CultureInfo)</h4>
+  <div class="markdown level1 summary"><p>Test whether the constraint is satisfied by a given value
+using the specified culture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool Matches(string? actual, CultureInfo cultureInfo)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The value to be tested</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></td>
+        <td><span class="parametername">cultureInfo</span></td>
+        <td><p>The culture info to use for comparison</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True for success, false for failure</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html#NUnit_Framework_Constraints_StringConstraint_Matches_System_String_System_Globalization_CultureInfo_">StringConstraint.Matches(string?, CultureInfo)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/SubstringConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_SubstringConstraint_Matches_" data-uid="NUnit.Framework.Constraints.SubstringConstraint.Matches*"></a>
+  <h4 id="NUnit_Framework_Constraints_SubstringConstraint_Matches_System_String_System_StringComparison_" data-uid="NUnit.Framework.Constraints.SubstringConstraint.Matches(System.String,System.StringComparison)">Matches(string?, StringComparison)</h4>
+  <div class="markdown level1 summary"><p>Test whether the constraint is satisfied by a given value
+using the specified string comparison.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool Matches(string? actual, StringComparison stringComparison)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The value to be tested</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.stringcomparison">StringComparison</a></td>
+        <td><span class="parametername">stringComparison</span></td>
+        <td><p>The string comparison to use</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True for success, false for failure</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="NUnit.Framework.Constraints.StringConstraint.html#NUnit_Framework_Constraints_StringConstraint_Matches_System_String_System_StringComparison_">StringConstraint.Matches(string?, StringComparison)</a></div>
 
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/SubstringConstraint.cs">View Source</a>

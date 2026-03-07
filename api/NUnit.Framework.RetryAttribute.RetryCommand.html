@@ -162,7 +162,50 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">tryCount</span></td>
-        <td><p>The maximum number of repetitions</p>
+        <td><p>The maximum number of repetitions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/RetryAttribute.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_RetryAttribute_RetryCommand__ctor_" data-uid="NUnit.Framework.RetryAttribute.RetryCommand.#ctor*"></a>
+  <h4 id="NUnit_Framework_RetryAttribute_RetryCommand__ctor_NUnit_Framework_Internal_Commands_TestCommand_System_Int32_System_Type___" data-uid="NUnit.Framework.RetryAttribute.RetryCommand.#ctor(NUnit.Framework.Internal.Commands.TestCommand,System.Int32,System.Type[])">RetryCommand(TestCommand, int, Type[])</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NUnit.Framework.RetryAttribute.RetryCommand.html">RetryAttribute.RetryCommand</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RetryCommand(TestCommand innerCommand, int tryCount, Type[] retryExceptions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TestCommand</span></td>
+        <td><span class="parametername">innerCommand</span></td>
+        <td><p>The inner command.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">tryCount</span></td>
+        <td><p>The maximum number of repetitions.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</td>
+        <td><span class="parametername">retryExceptions</span></td>
+        <td><p>A list of exception types, that trigger a retry when thrown.</p>
 </td>
       </tr>
     </tbody>

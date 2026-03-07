@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class CSharpSyntaxTree | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class CSharpSyntaxTree | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree">
+
+
+
+  <h1 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree" class="text-break">Class CSharpSyntaxTree</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html">SyntaxTree</a></div>
+    <div class="level2"><span class="xref">CSharpSyntaxTree</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_EmptyDiagnosticOptions">SyntaxTree.EmptyDiagnosticOptions</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_TryGetText_Microsoft_CodeAnalysis_Text_SourceText__">SyntaxTree.TryGetText(out SourceText)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetText_System_Threading_CancellationToken_">SyntaxTree.GetText(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetTextAsync_System_Threading_CancellationToken_">SyntaxTree.GetTextAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_TryGetRoot_Microsoft_CodeAnalysis_SyntaxNode__">SyntaxTree.TryGetRoot(out SyntaxNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetReference_Microsoft_CodeAnalysis_SyntaxNode_">SyntaxTree.GetReference(SyntaxNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_WithRootAndOptions_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_ParseOptions_">SyntaxTree.WithRootAndOptions(SyntaxNode, ParseOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_WithFilePath_System_String_">SyntaxTree.WithFilePath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_WithDiagnosticOptions_System_Collections_Immutable_ImmutableDictionary_System_String_Microsoft_CodeAnalysis_ReportDiagnostic__">SyntaxTree.WithDiagnosticOptions(ImmutableDictionary&lt;string, ReportDiagnostic&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_ToString">SyntaxTree.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_FilePath">SyntaxTree.FilePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_HasCompilationUnitRoot">SyntaxTree.HasCompilationUnitRoot</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_DiagnosticOptions">SyntaxTree.DiagnosticOptions</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_Length">SyntaxTree.Length</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_Encoding">SyntaxTree.Encoding</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.html">Microsoft</a>.<a class="xref" href="Microsoft.CodeAnalysis.html">CodeAnalysis</a>.<a class="xref" href="Microsoft.CodeAnalysis.CSharp.html">CSharp</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.CodeAnalysis.CSharp.dll</h6>
+  <h5 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class CSharpSyntaxTree : SyntaxTree</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree__ctor_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.#ctor*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree__ctor" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.#ctor">CSharpSyntaxTree()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CSharpSyntaxTree()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_Options_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.Options*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_Options" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.Options">Options</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract CSharpParseOptions Options { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpParseOptions.html">CSharpParseOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_OptionsCore_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.OptionsCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_OptionsCore" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.OptionsCore">OptionsCore</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override ParseOptions OptionsCore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ParseOptions.html">ParseOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_OptionsCore">SyntaxTree.OptionsCore</a></div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_CloneNodeAsRoot_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.CloneNodeAsRoot*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_CloneNodeAsRoot__1___0_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.CloneNodeAsRoot``1(``0)">CloneNodeAsRoot&lt;T&gt;(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected T CloneNodeAsRoot&lt;T&gt;(T node) where T : CSharpSyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_Create_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.Create*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_Create_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_Microsoft_CodeAnalysis_CSharp_CSharpParseOptions_System_String_System_Text_Encoding_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.Create(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Microsoft.CodeAnalysis.CSharp.CSharpParseOptions,System.String,System.Text.Encoding)">Create(CSharpSyntaxNode, CSharpParseOptions?, string?, Encoding?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SyntaxTree Create(CSharpSyntaxNode root, CSharpParseOptions? options = null, string? path = &quot;&quot;, Encoding? encoding = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode.html">CSharpSyntaxNode</a></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpParseOptions.html">CSharpParseOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.encoding">Encoding</a></td>
+        <td><span class="parametername">encoding</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html">SyntaxTree</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetChangedSpans_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetChangedSpans*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetChangedSpans_Microsoft_CodeAnalysis_SyntaxTree_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetChangedSpans(Microsoft.CodeAnalysis.SyntaxTree)">GetChangedSpans(SyntaxTree)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IList&lt;TextSpan&gt; GetChangedSpans(SyntaxTree oldTree)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html">SyntaxTree</a></td>
+        <td><span class="parametername">oldTree</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.text.textspan">TextSpan</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetChangedSpans_Microsoft_CodeAnalysis_SyntaxTree_">SyntaxTree.GetChangedSpans(SyntaxTree)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetChanges_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetChanges*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetChanges_Microsoft_CodeAnalysis_SyntaxTree_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetChanges(Microsoft.CodeAnalysis.SyntaxTree)">GetChanges(SyntaxTree)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IList&lt;TextChange&gt; GetChanges(SyntaxTree oldTree)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html">SyntaxTree</a></td>
+        <td><span class="parametername">oldTree</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.text.textchange">TextChange</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetChanges_Microsoft_CodeAnalysis_SyntaxTree_">SyntaxTree.GetChanges(SyntaxTree)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetCompilationUnitRoot_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetCompilationUnitRoot*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetCompilationUnitRoot_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetCompilationUnitRoot(System.Threading.CancellationToken)">GetCompilationUnitRoot(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CompilationUnitSyntax GetCompilationUnitRoot(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.Syntax.CompilationUnitSyntax.html">CompilationUnitSyntax</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetDiagnostics_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetDiagnostics*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetDiagnostics_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetDiagnostics(Microsoft.CodeAnalysis.SyntaxNode)">GetDiagnostics(SyntaxNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Diagnostic&gt; GetDiagnostics(SyntaxNode node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.diagnostic">Diagnostic</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetDiagnostics_Microsoft_CodeAnalysis_SyntaxNode_">SyntaxTree.GetDiagnostics(SyntaxNode)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetDiagnostics_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetDiagnostics*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetDiagnostics_Microsoft_CodeAnalysis_SyntaxNodeOrToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetDiagnostics(Microsoft.CodeAnalysis.SyntaxNodeOrToken)">GetDiagnostics(SyntaxNodeOrToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Diagnostic&gt; GetDiagnostics(SyntaxNodeOrToken nodeOrToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNodeOrToken.html">SyntaxNodeOrToken</a></td>
+        <td><span class="parametername">nodeOrToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.diagnostic">Diagnostic</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetDiagnostics_Microsoft_CodeAnalysis_SyntaxNodeOrToken_">SyntaxTree.GetDiagnostics(SyntaxNodeOrToken)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetDiagnostics_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetDiagnostics*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetDiagnostics_Microsoft_CodeAnalysis_SyntaxToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetDiagnostics(Microsoft.CodeAnalysis.SyntaxToken)">GetDiagnostics(SyntaxToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Diagnostic&gt; GetDiagnostics(SyntaxToken token)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">token</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.diagnostic">Diagnostic</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetDiagnostics_Microsoft_CodeAnalysis_SyntaxToken_">SyntaxTree.GetDiagnostics(SyntaxToken)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetDiagnostics_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetDiagnostics*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetDiagnostics_Microsoft_CodeAnalysis_SyntaxTrivia_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetDiagnostics(Microsoft.CodeAnalysis.SyntaxTrivia)">GetDiagnostics(SyntaxTrivia)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Diagnostic&gt; GetDiagnostics(SyntaxTrivia trivia)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTrivia.html">SyntaxTrivia</a></td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.diagnostic">Diagnostic</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetDiagnostics_Microsoft_CodeAnalysis_SyntaxTrivia_">SyntaxTree.GetDiagnostics(SyntaxTrivia)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetDiagnostics_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetDiagnostics*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetDiagnostics_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetDiagnostics(System.Threading.CancellationToken)">GetDiagnostics(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Diagnostic&gt; GetDiagnostics(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.diagnostic">Diagnostic</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetDiagnostics_System_Threading_CancellationToken_">SyntaxTree.GetDiagnostics(CancellationToken)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetLineMappings_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetLineMappings*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetLineMappings_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetLineMappings(System.Threading.CancellationToken)">GetLineMappings(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;LineMapping&gt; GetLineMappings(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.linemapping">LineMapping</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetLineMappings_System_Threading_CancellationToken_">SyntaxTree.GetLineMappings(CancellationToken)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetLineSpan_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetLineSpan*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetLineSpan_Microsoft_CodeAnalysis_Text_TextSpan_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetLineSpan(Microsoft.CodeAnalysis.Text.TextSpan,System.Threading.CancellationToken)">GetLineSpan(TextSpan, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override FileLinePositionSpan GetLineSpan(TextSpan span, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.TextSpan.html">TextSpan</a></td>
+        <td><span class="parametername">span</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.FileLinePositionSpan.html">FileLinePositionSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetLineSpan_Microsoft_CodeAnalysis_Text_TextSpan_System_Threading_CancellationToken_">SyntaxTree.GetLineSpan(TextSpan, CancellationToken)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetLineVisibility_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetLineVisibility*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetLineVisibility_System_Int32_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetLineVisibility(System.Int32,System.Threading.CancellationToken)">GetLineVisibility(int, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override LineVisibility GetLineVisibility(int position, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.LineVisibility.html">LineVisibility</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetLineVisibility_System_Int32_System_Threading_CancellationToken_">SyntaxTree.GetLineVisibility(int, CancellationToken)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetLocation_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetLocation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetLocation_Microsoft_CodeAnalysis_Text_TextSpan_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetLocation(Microsoft.CodeAnalysis.Text.TextSpan)">GetLocation(TextSpan)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Location GetLocation(TextSpan span)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.TextSpan.html">TextSpan</a></td>
+        <td><span class="parametername">span</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Location.html">Location</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetLocation_Microsoft_CodeAnalysis_Text_TextSpan_">SyntaxTree.GetLocation(TextSpan)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetMappedLineSpan_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetMappedLineSpan*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetMappedLineSpan_Microsoft_CodeAnalysis_Text_TextSpan_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetMappedLineSpan(Microsoft.CodeAnalysis.Text.TextSpan,System.Threading.CancellationToken)">GetMappedLineSpan(TextSpan, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override FileLinePositionSpan GetMappedLineSpan(TextSpan span, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.TextSpan.html">TextSpan</a></td>
+        <td><span class="parametername">span</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.FileLinePositionSpan.html">FileLinePositionSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetMappedLineSpan_Microsoft_CodeAnalysis_Text_TextSpan_System_Threading_CancellationToken_">SyntaxTree.GetMappedLineSpan(TextSpan, CancellationToken)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetRoot_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetRoot*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetRoot_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetRoot(System.Threading.CancellationToken)">GetRoot(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract CSharpSyntaxNode GetRoot(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode.html">CSharpSyntaxNode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetRootAsync_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetRootAsync*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetRootAsync_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetRootAsync(System.Threading.CancellationToken)">GetRootAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;CSharpSyntaxNode&gt; GetRootAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode.html">CSharpSyntaxNode</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetRootAsyncCore_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetRootAsyncCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetRootAsyncCore_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetRootAsyncCore(System.Threading.CancellationToken)">GetRootAsyncCore(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task&lt;SyntaxNode&gt; GetRootAsyncCore(CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxnode">SyntaxNode</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetRootAsyncCore_System_Threading_CancellationToken_">SyntaxTree.GetRootAsyncCore(CancellationToken)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetRootCore_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetRootCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_GetRootCore_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.GetRootCore(System.Threading.CancellationToken)">GetRootCore(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override SyntaxNode GetRootCore(CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_GetRootCore_System_Threading_CancellationToken_">SyntaxTree.GetRootCore(CancellationToken)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_HasHiddenRegions_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.HasHiddenRegions*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_HasHiddenRegions" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.HasHiddenRegions">HasHiddenRegions()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool HasHiddenRegions()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_HasHiddenRegions">SyntaxTree.HasHiddenRegions()</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_IsEquivalentTo_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.IsEquivalentTo*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_IsEquivalentTo_Microsoft_CodeAnalysis_SyntaxTree_System_Boolean_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.IsEquivalentTo(Microsoft.CodeAnalysis.SyntaxTree,System.Boolean)">IsEquivalentTo(SyntaxTree, bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsEquivalentTo(SyntaxTree tree, bool topLevel = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html">SyntaxTree</a></td>
+        <td><span class="parametername">tree</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">topLevel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_IsEquivalentTo_Microsoft_CodeAnalysis_SyntaxTree_System_Boolean_">SyntaxTree.IsEquivalentTo(SyntaxTree, bool)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_ParseText_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.ParseText*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_ParseText_Microsoft_CodeAnalysis_Text_SourceText_Microsoft_CodeAnalysis_CSharp_CSharpParseOptions_System_String_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.ParseText(Microsoft.CodeAnalysis.Text.SourceText,Microsoft.CodeAnalysis.CSharp.CSharpParseOptions,System.String,System.Threading.CancellationToken)">ParseText(SourceText, CSharpParseOptions?, string, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SyntaxTree ParseText(SourceText text, CSharpParseOptions? options = null, string path = &quot;&quot;, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.SourceText.html">SourceText</a></td>
+        <td><span class="parametername">text</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpParseOptions.html">CSharpParseOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html">SyntaxTree</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_ParseText_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.ParseText*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_ParseText_System_String_Microsoft_CodeAnalysis_CSharp_CSharpParseOptions_System_String_System_Text_Encoding_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.ParseText(System.String,Microsoft.CodeAnalysis.CSharp.CSharpParseOptions,System.String,System.Text.Encoding,System.Threading.CancellationToken)">ParseText(string, CSharpParseOptions?, string, Encoding?, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SyntaxTree ParseText(string text, CSharpParseOptions? options = null, string path = &quot;&quot;, Encoding? encoding = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">text</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpParseOptions.html">CSharpParseOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.encoding">Encoding</a></td>
+        <td><span class="parametername">encoding</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html">SyntaxTree</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_TryGetRoot_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.TryGetRoot*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_TryGetRoot_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode__" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.TryGetRoot(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode@)">TryGetRoot(out CSharpSyntaxNode?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool TryGetRoot(out CSharpSyntaxNode? root)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode.html">CSharpSyntaxNode</a></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_TryGetRootCore_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.TryGetRootCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_TryGetRootCore_Microsoft_CodeAnalysis_SyntaxNode__" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.TryGetRootCore(Microsoft.CodeAnalysis.SyntaxNode@)">TryGetRootCore(out SyntaxNode?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool TryGetRootCore(out SyntaxNode? root)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_TryGetRootCore_Microsoft_CodeAnalysis_SyntaxNode__">SyntaxTree.TryGetRootCore(out SyntaxNode?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_WithChangedText_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.WithChangedText*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxTree_WithChangedText_Microsoft_CodeAnalysis_Text_SourceText_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.WithChangedText(Microsoft.CodeAnalysis.Text.SourceText)">WithChangedText(SourceText)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override SyntaxTree WithChangedText(SourceText newText)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.SourceText.html">SourceText</a></td>
+        <td><span class="parametername">newText</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html">SyntaxTree</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html#Microsoft_CodeAnalysis_SyntaxTree_WithChangedText_Microsoft_CodeAnalysis_Text_SourceText_">SyntaxTree.WithChangedText(SourceText)</a></div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpExtensions.html#Microsoft_CodeAnalysis_CSharp_CSharpExtensions_GetCompilationUnitRoot_Microsoft_CodeAnalysis_SyntaxTree_System_Threading_CancellationToken_">CSharpExtensions.GetCompilationUnitRoot(SyntaxTree, CancellationToken)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

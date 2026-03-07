@@ -1,0 +1,2522 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class SemanticModel | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class SemanticModel | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.CodeAnalysis.SemanticModel">
+
+
+
+  <h1 id="Microsoft_CodeAnalysis_SemanticModel" data-uid="Microsoft.CodeAnalysis.SemanticModel" class="text-break">Class SemanticModel</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">SemanticModel</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft">Microsoft</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis">CodeAnalysis</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.CodeAnalysis.dll</h6>
+  <h5 id="Microsoft_CodeAnalysis_SemanticModel_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class SemanticModel</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel__ctor_" data-uid="Microsoft.CodeAnalysis.SemanticModel.#ctor*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel__ctor" data-uid="Microsoft.CodeAnalysis.SemanticModel.#ctor">SemanticModel()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SemanticModel()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_Compilation_" data-uid="Microsoft.CodeAnalysis.SemanticModel.Compilation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_Compilation" data-uid="Microsoft.CodeAnalysis.SemanticModel.Compilation">Compilation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Compilation Compilation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Compilation.html">Compilation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_CompilationCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.CompilationCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_CompilationCore" data-uid="Microsoft.CodeAnalysis.SemanticModel.CompilationCore">CompilationCore</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Compilation CompilationCore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Compilation.html">Compilation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_IgnoresAccessibility_" data-uid="Microsoft.CodeAnalysis.SemanticModel.IgnoresAccessibility*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_IgnoresAccessibility" data-uid="Microsoft.CodeAnalysis.SemanticModel.IgnoresAccessibility">IgnoresAccessibility</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IgnoresAccessibility { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_IsSpeculativeSemanticModel_" data-uid="Microsoft.CodeAnalysis.SemanticModel.IsSpeculativeSemanticModel*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_IsSpeculativeSemanticModel" data-uid="Microsoft.CodeAnalysis.SemanticModel.IsSpeculativeSemanticModel">IsSpeculativeSemanticModel</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool IsSpeculativeSemanticModel { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_Language_" data-uid="Microsoft.CodeAnalysis.SemanticModel.Language*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_Language" data-uid="Microsoft.CodeAnalysis.SemanticModel.Language">Language</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string Language { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_NullableAnalysisIsDisabled_" data-uid="Microsoft.CodeAnalysis.SemanticModel.NullableAnalysisIsDisabled*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_NullableAnalysisIsDisabled" data-uid="Microsoft.CodeAnalysis.SemanticModel.NullableAnalysisIsDisabled">NullableAnalysisIsDisabled</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool NullableAnalysisIsDisabled { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_OriginalPositionForSpeculation_" data-uid="Microsoft.CodeAnalysis.SemanticModel.OriginalPositionForSpeculation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_OriginalPositionForSpeculation" data-uid="Microsoft.CodeAnalysis.SemanticModel.OriginalPositionForSpeculation">OriginalPositionForSpeculation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int OriginalPositionForSpeculation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_ParentModel_" data-uid="Microsoft.CodeAnalysis.SemanticModel.ParentModel*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_ParentModel" data-uid="Microsoft.CodeAnalysis.SemanticModel.ParentModel">ParentModel</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SemanticModel? ParentModel { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SemanticModel.html">SemanticModel</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_ParentModelCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.ParentModelCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_ParentModelCore" data-uid="Microsoft.CodeAnalysis.SemanticModel.ParentModelCore">ParentModelCore</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract SemanticModel? ParentModelCore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SemanticModel.html">SemanticModel</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_RootCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.RootCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_RootCore" data-uid="Microsoft.CodeAnalysis.SemanticModel.RootCore">RootCore</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract SyntaxNode RootCore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_SyntaxTree_" data-uid="Microsoft.CodeAnalysis.SemanticModel.SyntaxTree*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_SyntaxTree" data-uid="Microsoft.CodeAnalysis.SemanticModel.SyntaxTree">SyntaxTree</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SyntaxTree SyntaxTree { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html">SyntaxTree</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_SyntaxTreeCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.SyntaxTreeCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_SyntaxTreeCore" data-uid="Microsoft.CodeAnalysis.SemanticModel.SyntaxTreeCore">SyntaxTreeCore</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract SyntaxTree SyntaxTreeCore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTree.html">SyntaxTree</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_AnalyzeControlFlowCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.AnalyzeControlFlowCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_AnalyzeControlFlowCore_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.SemanticModel.AnalyzeControlFlowCore(Microsoft.CodeAnalysis.SyntaxNode)">AnalyzeControlFlowCore(SyntaxNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ControlFlowAnalysis AnalyzeControlFlowCore(SyntaxNode statement)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">statement</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ControlFlowAnalysis.html">ControlFlowAnalysis</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_AnalyzeControlFlowCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.AnalyzeControlFlowCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_AnalyzeControlFlowCore_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.SemanticModel.AnalyzeControlFlowCore(Microsoft.CodeAnalysis.SyntaxNode,Microsoft.CodeAnalysis.SyntaxNode)">AnalyzeControlFlowCore(SyntaxNode, SyntaxNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ControlFlowAnalysis AnalyzeControlFlowCore(SyntaxNode firstStatement, SyntaxNode lastStatement)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">firstStatement</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">lastStatement</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ControlFlowAnalysis.html">ControlFlowAnalysis</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_AnalyzeDataFlowCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.AnalyzeDataFlowCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_AnalyzeDataFlowCore_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.SemanticModel.AnalyzeDataFlowCore(Microsoft.CodeAnalysis.SyntaxNode)">AnalyzeDataFlowCore(SyntaxNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract DataFlowAnalysis AnalyzeDataFlowCore(SyntaxNode statementOrExpression)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">statementOrExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.DataFlowAnalysis.html">DataFlowAnalysis</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_AnalyzeDataFlowCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.AnalyzeDataFlowCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_AnalyzeDataFlowCore_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.SemanticModel.AnalyzeDataFlowCore(Microsoft.CodeAnalysis.SyntaxNode,Microsoft.CodeAnalysis.SyntaxNode)">AnalyzeDataFlowCore(SyntaxNode, SyntaxNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract DataFlowAnalysis AnalyzeDataFlowCore(SyntaxNode firstStatement, SyntaxNode lastStatement)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">firstStatement</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">lastStatement</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.DataFlowAnalysis.html">DataFlowAnalysis</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetAliasInfoCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetAliasInfoCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetAliasInfoCore_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetAliasInfoCore(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">GetAliasInfoCore(SyntaxNode, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract IAliasSymbol? GetAliasInfoCore(SyntaxNode nameSyntax, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">nameSyntax</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IAliasSymbol.html">IAliasSymbol</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetConstantValue_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetConstantValue*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetConstantValue_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetConstantValue(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">GetConstantValue(SyntaxNode, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Optional&lt;object?&gt; GetConstantValue(SyntaxNode node, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.optional-1">Optional</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetConstantValueCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetConstantValueCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetConstantValueCore_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetConstantValueCore(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">GetConstantValueCore(SyntaxNode, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Optional&lt;object?&gt; GetConstantValueCore(SyntaxNode node, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.optional-1">Optional</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetDeclarationDiagnostics_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetDeclarationDiagnostics*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetDeclarationDiagnostics_System_Nullable_Microsoft_CodeAnalysis_Text_TextSpan__System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetDeclarationDiagnostics(System.Nullable{Microsoft.CodeAnalysis.Text.TextSpan},System.Threading.CancellationToken)">GetDeclarationDiagnostics(TextSpan?, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ImmutableArray&lt;Diagnostic&gt; GetDeclarationDiagnostics(TextSpan? span = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.TextSpan.html">TextSpan</a>?</td>
+        <td><span class="parametername">span</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.diagnostic">Diagnostic</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetDeclaredSymbolCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetDeclaredSymbolCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetDeclaredSymbolCore_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetDeclaredSymbolCore(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">GetDeclaredSymbolCore(SyntaxNode, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ISymbol? GetDeclaredSymbolCore(SyntaxNode declaration, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">declaration</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ISymbol.html">ISymbol</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetDeclaredSymbolsCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetDeclaredSymbolsCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetDeclaredSymbolsCore_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetDeclaredSymbolsCore(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">GetDeclaredSymbolsCore(SyntaxNode, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ImmutableArray&lt;ISymbol&gt; GetDeclaredSymbolsCore(SyntaxNode declaration, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">declaration</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetDiagnostics_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetDiagnostics*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetDiagnostics_System_Nullable_Microsoft_CodeAnalysis_Text_TextSpan__System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetDiagnostics(System.Nullable{Microsoft.CodeAnalysis.Text.TextSpan},System.Threading.CancellationToken)">GetDiagnostics(TextSpan?, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ImmutableArray&lt;Diagnostic&gt; GetDiagnostics(TextSpan? span = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.TextSpan.html">TextSpan</a>?</td>
+        <td><span class="parametername">span</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.diagnostic">Diagnostic</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetEnclosingSymbol_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetEnclosingSymbol*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetEnclosingSymbol_System_Int32_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetEnclosingSymbol(System.Int32,System.Threading.CancellationToken)">GetEnclosingSymbol(int, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISymbol? GetEnclosingSymbol(int position, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ISymbol.html">ISymbol</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetEnclosingSymbolCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetEnclosingSymbolCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetEnclosingSymbolCore_System_Int32_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetEnclosingSymbolCore(System.Int32,System.Threading.CancellationToken)">GetEnclosingSymbolCore(int, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ISymbol? GetEnclosingSymbolCore(int position, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ISymbol.html">ISymbol</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetImportScopes_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetImportScopes*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetImportScopes_System_Int32_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetImportScopes(System.Int32,System.Threading.CancellationToken)">GetImportScopes(int, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;IImportScope&gt; GetImportScopes(int position, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.IImportScope.html">IImportScope</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetMemberGroupCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetMemberGroupCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetMemberGroupCore_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetMemberGroupCore(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">GetMemberGroupCore(SyntaxNode, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ImmutableArray&lt;ISymbol&gt; GetMemberGroupCore(SyntaxNode node, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetMethodBodyDiagnostics_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetMethodBodyDiagnostics*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetMethodBodyDiagnostics_System_Nullable_Microsoft_CodeAnalysis_Text_TextSpan__System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetMethodBodyDiagnostics(System.Nullable{Microsoft.CodeAnalysis.Text.TextSpan},System.Threading.CancellationToken)">GetMethodBodyDiagnostics(TextSpan?, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ImmutableArray&lt;Diagnostic&gt; GetMethodBodyDiagnostics(TextSpan? span = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.TextSpan.html">TextSpan</a>?</td>
+        <td><span class="parametername">span</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.diagnostic">Diagnostic</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetNullableContext_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetNullableContext*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetNullableContext_System_Int32_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetNullableContext(System.Int32)">GetNullableContext(int)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract NullableContext GetNullableContext(int position)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.NullableContext.html">NullableContext</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetOperation_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetOperation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetOperation_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetOperation(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">GetOperation(SyntaxNode, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IOperation? GetOperation(SyntaxNode node, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IOperation.html">IOperation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetOperationCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetOperationCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetOperationCore_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetOperationCore(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">GetOperationCore(SyntaxNode, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract IOperation? GetOperationCore(SyntaxNode node, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IOperation.html">IOperation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetPreprocessingSymbolInfo_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetPreprocessingSymbolInfo*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetPreprocessingSymbolInfo_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetPreprocessingSymbolInfo(Microsoft.CodeAnalysis.SyntaxNode)">GetPreprocessingSymbolInfo(SyntaxNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PreprocessingSymbolInfo GetPreprocessingSymbolInfo(SyntaxNode nameSyntax)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">nameSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.PreprocessingSymbolInfo.html">PreprocessingSymbolInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetPreprocessingSymbolInfoCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetPreprocessingSymbolInfoCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetPreprocessingSymbolInfoCore_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetPreprocessingSymbolInfoCore(Microsoft.CodeAnalysis.SyntaxNode)">GetPreprocessingSymbolInfoCore(SyntaxNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract PreprocessingSymbolInfo GetPreprocessingSymbolInfoCore(SyntaxNode nameSyntax)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">nameSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.PreprocessingSymbolInfo.html">PreprocessingSymbolInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetSpeculativeAliasInfoCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetSpeculativeAliasInfoCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetSpeculativeAliasInfoCore_System_Int32_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SpeculativeBindingOption_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetSpeculativeAliasInfoCore(System.Int32,Microsoft.CodeAnalysis.SyntaxNode,Microsoft.CodeAnalysis.SpeculativeBindingOption)">GetSpeculativeAliasInfoCore(int, SyntaxNode, SpeculativeBindingOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract IAliasSymbol? GetSpeculativeAliasInfoCore(int position, SyntaxNode nameSyntax, SpeculativeBindingOption bindingOption)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">nameSyntax</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SpeculativeBindingOption.html">SpeculativeBindingOption</a></td>
+        <td><span class="parametername">bindingOption</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IAliasSymbol.html">IAliasSymbol</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetSpeculativeSymbolInfoCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetSpeculativeSymbolInfoCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetSpeculativeSymbolInfoCore_System_Int32_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SpeculativeBindingOption_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetSpeculativeSymbolInfoCore(System.Int32,Microsoft.CodeAnalysis.SyntaxNode,Microsoft.CodeAnalysis.SpeculativeBindingOption)">GetSpeculativeSymbolInfoCore(int, SyntaxNode, SpeculativeBindingOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract SymbolInfo GetSpeculativeSymbolInfoCore(int position, SyntaxNode expression, SpeculativeBindingOption bindingOption)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">expression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SpeculativeBindingOption.html">SpeculativeBindingOption</a></td>
+        <td><span class="parametername">bindingOption</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolInfo.html">SymbolInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetSpeculativeTypeInfoCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetSpeculativeTypeInfoCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetSpeculativeTypeInfoCore_System_Int32_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SpeculativeBindingOption_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetSpeculativeTypeInfoCore(System.Int32,Microsoft.CodeAnalysis.SyntaxNode,Microsoft.CodeAnalysis.SpeculativeBindingOption)">GetSpeculativeTypeInfoCore(int, SyntaxNode, SpeculativeBindingOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract TypeInfo GetSpeculativeTypeInfoCore(int position, SyntaxNode expression, SpeculativeBindingOption bindingOption)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">expression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SpeculativeBindingOption.html">SpeculativeBindingOption</a></td>
+        <td><span class="parametername">bindingOption</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.TypeInfo.html">TypeInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetSymbolInfoCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetSymbolInfoCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetSymbolInfoCore_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetSymbolInfoCore(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">GetSymbolInfoCore(SyntaxNode, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract SymbolInfo GetSymbolInfoCore(SyntaxNode node, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SymbolInfo.html">SymbolInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetSyntaxDiagnostics_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetSyntaxDiagnostics*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetSyntaxDiagnostics_System_Nullable_Microsoft_CodeAnalysis_Text_TextSpan__System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetSyntaxDiagnostics(System.Nullable{Microsoft.CodeAnalysis.Text.TextSpan},System.Threading.CancellationToken)">GetSyntaxDiagnostics(TextSpan?, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ImmutableArray&lt;Diagnostic&gt; GetSyntaxDiagnostics(TextSpan? span = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.TextSpan.html">TextSpan</a>?</td>
+        <td><span class="parametername">span</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.diagnostic">Diagnostic</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetTopmostNodeForDiagnosticAnalysis_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetTopmostNodeForDiagnosticAnalysis*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetTopmostNodeForDiagnosticAnalysis_Microsoft_CodeAnalysis_ISymbol_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetTopmostNodeForDiagnosticAnalysis(Microsoft.CodeAnalysis.ISymbol,Microsoft.CodeAnalysis.SyntaxNode)">GetTopmostNodeForDiagnosticAnalysis(ISymbol, SyntaxNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual SyntaxNode GetTopmostNodeForDiagnosticAnalysis(ISymbol symbol, SyntaxNode declaringSyntax)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ISymbol.html">ISymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">declaringSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_GetTypeInfoCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetTypeInfoCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_GetTypeInfoCore_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_" data-uid="Microsoft.CodeAnalysis.SemanticModel.GetTypeInfoCore(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">GetTypeInfoCore(SyntaxNode, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract TypeInfo GetTypeInfoCore(SyntaxNode node, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.TypeInfo.html">TypeInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_IsAccessible_" data-uid="Microsoft.CodeAnalysis.SemanticModel.IsAccessible*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_IsAccessible_System_Int32_Microsoft_CodeAnalysis_ISymbol_" data-uid="Microsoft.CodeAnalysis.SemanticModel.IsAccessible(System.Int32,Microsoft.CodeAnalysis.ISymbol)">IsAccessible(int, ISymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsAccessible(int position, ISymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ISymbol.html">ISymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_IsAccessibleCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.IsAccessibleCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_IsAccessibleCore_System_Int32_Microsoft_CodeAnalysis_ISymbol_" data-uid="Microsoft.CodeAnalysis.SemanticModel.IsAccessibleCore(System.Int32,Microsoft.CodeAnalysis.ISymbol)">IsAccessibleCore(int, ISymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract bool IsAccessibleCore(int position, ISymbol symbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.ISymbol.html">ISymbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_IsEventUsableAsField_" data-uid="Microsoft.CodeAnalysis.SemanticModel.IsEventUsableAsField*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_IsEventUsableAsField_System_Int32_Microsoft_CodeAnalysis_IEventSymbol_" data-uid="Microsoft.CodeAnalysis.SemanticModel.IsEventUsableAsField(System.Int32,Microsoft.CodeAnalysis.IEventSymbol)">IsEventUsableAsField(int, IEventSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEventUsableAsField(int position, IEventSymbol eventSymbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IEventSymbol.html">IEventSymbol</a></td>
+        <td><span class="parametername">eventSymbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_IsEventUsableAsFieldCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.IsEventUsableAsFieldCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_IsEventUsableAsFieldCore_System_Int32_Microsoft_CodeAnalysis_IEventSymbol_" data-uid="Microsoft.CodeAnalysis.SemanticModel.IsEventUsableAsFieldCore(System.Int32,Microsoft.CodeAnalysis.IEventSymbol)">IsEventUsableAsFieldCore(int, IEventSymbol)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract bool IsEventUsableAsFieldCore(int position, IEventSymbol eventSymbol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IEventSymbol.html">IEventSymbol</a></td>
+        <td><span class="parametername">eventSymbol</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_LookupBaseMembers_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupBaseMembers*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_LookupBaseMembers_System_Int32_System_String_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupBaseMembers(System.Int32,System.String)">LookupBaseMembers(int, string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ISymbol&gt; LookupBaseMembers(int position, string? name = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_LookupBaseMembersCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupBaseMembersCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_LookupBaseMembersCore_System_Int32_System_String_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupBaseMembersCore(System.Int32,System.String)">LookupBaseMembersCore(int, string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ImmutableArray&lt;ISymbol&gt; LookupBaseMembersCore(int position, string? name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_LookupLabels_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupLabels*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_LookupLabels_System_Int32_System_String_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupLabels(System.Int32,System.String)">LookupLabels(int, string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ISymbol&gt; LookupLabels(int position, string? name = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_LookupLabelsCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupLabelsCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_LookupLabelsCore_System_Int32_System_String_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupLabelsCore(System.Int32,System.String)">LookupLabelsCore(int, string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ImmutableArray&lt;ISymbol&gt; LookupLabelsCore(int position, string? name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_LookupNamespacesAndTypes_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupNamespacesAndTypes*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_LookupNamespacesAndTypes_System_Int32_Microsoft_CodeAnalysis_INamespaceOrTypeSymbol_System_String_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupNamespacesAndTypes(System.Int32,Microsoft.CodeAnalysis.INamespaceOrTypeSymbol,System.String)">LookupNamespacesAndTypes(int, INamespaceOrTypeSymbol?, string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ISymbol&gt; LookupNamespacesAndTypes(int position, INamespaceOrTypeSymbol? container = null, string? name = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.INamespaceOrTypeSymbol.html">INamespaceOrTypeSymbol</a></td>
+        <td><span class="parametername">container</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_LookupNamespacesAndTypesCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupNamespacesAndTypesCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_LookupNamespacesAndTypesCore_System_Int32_Microsoft_CodeAnalysis_INamespaceOrTypeSymbol_System_String_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupNamespacesAndTypesCore(System.Int32,Microsoft.CodeAnalysis.INamespaceOrTypeSymbol,System.String)">LookupNamespacesAndTypesCore(int, INamespaceOrTypeSymbol?, string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ImmutableArray&lt;ISymbol&gt; LookupNamespacesAndTypesCore(int position, INamespaceOrTypeSymbol? container, string? name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.INamespaceOrTypeSymbol.html">INamespaceOrTypeSymbol</a></td>
+        <td><span class="parametername">container</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_LookupStaticMembers_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupStaticMembers*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_LookupStaticMembers_System_Int32_Microsoft_CodeAnalysis_INamespaceOrTypeSymbol_System_String_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupStaticMembers(System.Int32,Microsoft.CodeAnalysis.INamespaceOrTypeSymbol,System.String)">LookupStaticMembers(int, INamespaceOrTypeSymbol?, string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ISymbol&gt; LookupStaticMembers(int position, INamespaceOrTypeSymbol? container = null, string? name = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.INamespaceOrTypeSymbol.html">INamespaceOrTypeSymbol</a></td>
+        <td><span class="parametername">container</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_LookupStaticMembersCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupStaticMembersCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_LookupStaticMembersCore_System_Int32_Microsoft_CodeAnalysis_INamespaceOrTypeSymbol_System_String_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupStaticMembersCore(System.Int32,Microsoft.CodeAnalysis.INamespaceOrTypeSymbol,System.String)">LookupStaticMembersCore(int, INamespaceOrTypeSymbol?, string?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ImmutableArray&lt;ISymbol&gt; LookupStaticMembersCore(int position, INamespaceOrTypeSymbol? container, string? name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.INamespaceOrTypeSymbol.html">INamespaceOrTypeSymbol</a></td>
+        <td><span class="parametername">container</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_LookupSymbols_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupSymbols*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_LookupSymbols_System_Int32_Microsoft_CodeAnalysis_INamespaceOrTypeSymbol_System_String_System_Boolean_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupSymbols(System.Int32,Microsoft.CodeAnalysis.INamespaceOrTypeSymbol,System.String,System.Boolean)">LookupSymbols(int, INamespaceOrTypeSymbol?, string?, bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ISymbol&gt; LookupSymbols(int position, INamespaceOrTypeSymbol? container = null, string? name = null, bool includeReducedExtensionMethods = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.INamespaceOrTypeSymbol.html">INamespaceOrTypeSymbol</a></td>
+        <td><span class="parametername">container</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">includeReducedExtensionMethods</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SemanticModel_LookupSymbolsCore_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupSymbolsCore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SemanticModel_LookupSymbolsCore_System_Int32_Microsoft_CodeAnalysis_INamespaceOrTypeSymbol_System_String_System_Boolean_" data-uid="Microsoft.CodeAnalysis.SemanticModel.LookupSymbolsCore(System.Int32,Microsoft.CodeAnalysis.INamespaceOrTypeSymbol,System.String,System.Boolean)">LookupSymbolsCore(int, INamespaceOrTypeSymbol?, string?, bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract ImmutableArray&lt;ISymbol&gt; LookupSymbolsCore(int position, INamespaceOrTypeSymbol? container, string? name, bool includeReducedExtensionMethods)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.INamespaceOrTypeSymbol.html">INamespaceOrTypeSymbol</a></td>
+        <td><span class="parametername">container</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">includeReducedExtensionMethods</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.isymbol">ISymbol</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_AnalyzeControlFlow_Microsoft_CodeAnalysis_SemanticModel_Microsoft_CodeAnalysis_SyntaxNode_">ModelExtensions.AnalyzeControlFlow(SemanticModel, SyntaxNode)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_AnalyzeControlFlow_Microsoft_CodeAnalysis_SemanticModel_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SyntaxNode_">ModelExtensions.AnalyzeControlFlow(SemanticModel, SyntaxNode, SyntaxNode)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_AnalyzeDataFlow_Microsoft_CodeAnalysis_SemanticModel_Microsoft_CodeAnalysis_SyntaxNode_">ModelExtensions.AnalyzeDataFlow(SemanticModel, SyntaxNode)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_AnalyzeDataFlow_Microsoft_CodeAnalysis_SemanticModel_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SyntaxNode_">ModelExtensions.AnalyzeDataFlow(SemanticModel, SyntaxNode, SyntaxNode)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_GetAliasInfo_Microsoft_CodeAnalysis_SemanticModel_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_">ModelExtensions.GetAliasInfo(SemanticModel, SyntaxNode, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_GetDeclaredSymbol_Microsoft_CodeAnalysis_SemanticModel_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_">ModelExtensions.GetDeclaredSymbol(SemanticModel, SyntaxNode, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_GetMemberGroup_Microsoft_CodeAnalysis_SemanticModel_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_">ModelExtensions.GetMemberGroup(SemanticModel, SyntaxNode, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_GetSpeculativeAliasInfo_Microsoft_CodeAnalysis_SemanticModel_System_Int32_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SpeculativeBindingOption_">ModelExtensions.GetSpeculativeAliasInfo(SemanticModel, int, SyntaxNode, SpeculativeBindingOption)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_GetSpeculativeSymbolInfo_Microsoft_CodeAnalysis_SemanticModel_System_Int32_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SpeculativeBindingOption_">ModelExtensions.GetSpeculativeSymbolInfo(SemanticModel, int, SyntaxNode, SpeculativeBindingOption)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_GetSpeculativeTypeInfo_Microsoft_CodeAnalysis_SemanticModel_System_Int32_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SpeculativeBindingOption_">ModelExtensions.GetSpeculativeTypeInfo(SemanticModel, int, SyntaxNode, SpeculativeBindingOption)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_GetSymbolInfo_Microsoft_CodeAnalysis_SemanticModel_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_">ModelExtensions.GetSymbolInfo(SemanticModel, SyntaxNode, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.ModelExtensions.html#Microsoft_CodeAnalysis_ModelExtensions_GetTypeInfo_Microsoft_CodeAnalysis_SemanticModel_Microsoft_CodeAnalysis_SyntaxNode_System_Threading_CancellationToken_">ModelExtensions.GetTypeInfo(SemanticModel, SyntaxNode, CancellationToken)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

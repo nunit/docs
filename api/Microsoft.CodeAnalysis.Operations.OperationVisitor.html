@@ -1,0 +1,3664 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class OperationVisitor | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class OperationVisitor | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor">
+
+
+
+  <h1 id="Microsoft_CodeAnalysis_Operations_OperationVisitor" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor" class="text-break">Class OperationVisitor</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">OperationVisitor</span></div>
+      <div class="level2"><a class="xref" href="Microsoft.CodeAnalysis.Operations.OperationWalker.html">OperationWalker</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft">Microsoft</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis">CodeAnalysis</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.operations">Operations</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.CodeAnalysis.dll</h6>
+  <h5 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class OperationVisitor</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor__ctor_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.#ctor*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor__ctor" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.#ctor">OperationVisitor()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected OperationVisitor()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_DefaultVisit_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.DefaultVisit*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_DefaultVisit_Microsoft_CodeAnalysis_IOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.DefaultVisit(Microsoft.CodeAnalysis.IOperation)">DefaultVisit(IOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void DefaultVisit(IOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IOperation.html">IOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_Visit_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.Visit*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_Visit_Microsoft_CodeAnalysis_IOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.Visit(Microsoft.CodeAnalysis.IOperation)">Visit(IOperation?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Visit(IOperation? operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.IOperation.html">IOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitAddressOf_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitAddressOf*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitAddressOf_Microsoft_CodeAnalysis_Operations_IAddressOfOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitAddressOf(Microsoft.CodeAnalysis.Operations.IAddressOfOperation)">VisitAddressOf(IAddressOfOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitAddressOf(IAddressOfOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IAddressOfOperation.html">IAddressOfOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitAnonymousFunction_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitAnonymousFunction*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitAnonymousFunction_Microsoft_CodeAnalysis_Operations_IAnonymousFunctionOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitAnonymousFunction(Microsoft.CodeAnalysis.Operations.IAnonymousFunctionOperation)">VisitAnonymousFunction(IAnonymousFunctionOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitAnonymousFunction(IAnonymousFunctionOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IAnonymousFunctionOperation.html">IAnonymousFunctionOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitAnonymousObjectCreation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitAnonymousObjectCreation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitAnonymousObjectCreation_Microsoft_CodeAnalysis_Operations_IAnonymousObjectCreationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitAnonymousObjectCreation(Microsoft.CodeAnalysis.Operations.IAnonymousObjectCreationOperation)">VisitAnonymousObjectCreation(IAnonymousObjectCreationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitAnonymousObjectCreation(IAnonymousObjectCreationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IAnonymousObjectCreationOperation.html">IAnonymousObjectCreationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitArgument_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitArgument*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitArgument_Microsoft_CodeAnalysis_Operations_IArgumentOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitArgument(Microsoft.CodeAnalysis.Operations.IArgumentOperation)">VisitArgument(IArgumentOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitArgument(IArgumentOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IArgumentOperation.html">IArgumentOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitArrayCreation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitArrayCreation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitArrayCreation_Microsoft_CodeAnalysis_Operations_IArrayCreationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitArrayCreation(Microsoft.CodeAnalysis.Operations.IArrayCreationOperation)">VisitArrayCreation(IArrayCreationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitArrayCreation(IArrayCreationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IArrayCreationOperation.html">IArrayCreationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitArrayElementReference_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitArrayElementReference*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitArrayElementReference_Microsoft_CodeAnalysis_Operations_IArrayElementReferenceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitArrayElementReference(Microsoft.CodeAnalysis.Operations.IArrayElementReferenceOperation)">VisitArrayElementReference(IArrayElementReferenceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitArrayElementReference(IArrayElementReferenceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IArrayElementReferenceOperation.html">IArrayElementReferenceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitArrayInitializer_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitArrayInitializer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitArrayInitializer_Microsoft_CodeAnalysis_Operations_IArrayInitializerOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitArrayInitializer(Microsoft.CodeAnalysis.Operations.IArrayInitializerOperation)">VisitArrayInitializer(IArrayInitializerOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitArrayInitializer(IArrayInitializerOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IArrayInitializerOperation.html">IArrayInitializerOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitAttribute_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitAttribute*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitAttribute_Microsoft_CodeAnalysis_Operations_IAttributeOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitAttribute(Microsoft.CodeAnalysis.Operations.IAttributeOperation)">VisitAttribute(IAttributeOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitAttribute(IAttributeOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IAttributeOperation.html">IAttributeOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitAwait_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitAwait*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitAwait_Microsoft_CodeAnalysis_Operations_IAwaitOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitAwait(Microsoft.CodeAnalysis.Operations.IAwaitOperation)">VisitAwait(IAwaitOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitAwait(IAwaitOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IAwaitOperation.html">IAwaitOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitBinaryOperator_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitBinaryOperator*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitBinaryOperator_Microsoft_CodeAnalysis_Operations_IBinaryOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitBinaryOperator(Microsoft.CodeAnalysis.Operations.IBinaryOperation)">VisitBinaryOperator(IBinaryOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitBinaryOperator(IBinaryOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IBinaryOperation.html">IBinaryOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitBinaryPattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitBinaryPattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitBinaryPattern_Microsoft_CodeAnalysis_Operations_IBinaryPatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitBinaryPattern(Microsoft.CodeAnalysis.Operations.IBinaryPatternOperation)">VisitBinaryPattern(IBinaryPatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitBinaryPattern(IBinaryPatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IBinaryPatternOperation.html">IBinaryPatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitBlock_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitBlock*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitBlock_Microsoft_CodeAnalysis_Operations_IBlockOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitBlock(Microsoft.CodeAnalysis.Operations.IBlockOperation)">VisitBlock(IBlockOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitBlock(IBlockOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IBlockOperation.html">IBlockOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitBranch_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitBranch*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitBranch_Microsoft_CodeAnalysis_Operations_IBranchOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitBranch(Microsoft.CodeAnalysis.Operations.IBranchOperation)">VisitBranch(IBranchOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitBranch(IBranchOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IBranchOperation.html">IBranchOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCatchClause_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCatchClause*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCatchClause_Microsoft_CodeAnalysis_Operations_ICatchClauseOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCatchClause(Microsoft.CodeAnalysis.Operations.ICatchClauseOperation)">VisitCatchClause(ICatchClauseOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitCatchClause(ICatchClauseOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ICatchClauseOperation.html">ICatchClauseOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCaughtException_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCaughtException*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCaughtException_Microsoft_CodeAnalysis_FlowAnalysis_ICaughtExceptionOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCaughtException(Microsoft.CodeAnalysis.FlowAnalysis.ICaughtExceptionOperation)">VisitCaughtException(ICaughtExceptionOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitCaughtException(ICaughtExceptionOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.FlowAnalysis.ICaughtExceptionOperation.html">ICaughtExceptionOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCoalesce_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCoalesce*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCoalesce_Microsoft_CodeAnalysis_Operations_ICoalesceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCoalesce(Microsoft.CodeAnalysis.Operations.ICoalesceOperation)">VisitCoalesce(ICoalesceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitCoalesce(ICoalesceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ICoalesceOperation.html">ICoalesceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCoalesceAssignment_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCoalesceAssignment*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCoalesceAssignment_Microsoft_CodeAnalysis_Operations_ICoalesceAssignmentOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCoalesceAssignment(Microsoft.CodeAnalysis.Operations.ICoalesceAssignmentOperation)">VisitCoalesceAssignment(ICoalesceAssignmentOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitCoalesceAssignment(ICoalesceAssignmentOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ICoalesceAssignmentOperation.html">ICoalesceAssignmentOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCollectionElementInitializer_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCollectionElementInitializer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCollectionElementInitializer_Microsoft_CodeAnalysis_Operations_ICollectionElementInitializerOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCollectionElementInitializer(Microsoft.CodeAnalysis.Operations.ICollectionElementInitializerOperation)">VisitCollectionElementInitializer(ICollectionElementInitializerOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;ICollectionElementInitializerOperation has been replaced with IInvocationOperation and IDynamicInvocationOperation&quot;, true)]
+public virtual void VisitCollectionElementInitializer(ICollectionElementInitializerOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ICollectionElementInitializerOperation.html">ICollectionElementInitializerOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCollectionExpression_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCollectionExpression*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCollectionExpression_Microsoft_CodeAnalysis_Operations_ICollectionExpressionOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCollectionExpression(Microsoft.CodeAnalysis.Operations.ICollectionExpressionOperation)">VisitCollectionExpression(ICollectionExpressionOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitCollectionExpression(ICollectionExpressionOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ICollectionExpressionOperation.html">ICollectionExpressionOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCompoundAssignment_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCompoundAssignment*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitCompoundAssignment_Microsoft_CodeAnalysis_Operations_ICompoundAssignmentOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCompoundAssignment(Microsoft.CodeAnalysis.Operations.ICompoundAssignmentOperation)">VisitCompoundAssignment(ICompoundAssignmentOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitCompoundAssignment(ICompoundAssignmentOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ICompoundAssignmentOperation.html">ICompoundAssignmentOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConditional_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConditional*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConditional_Microsoft_CodeAnalysis_Operations_IConditionalOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConditional(Microsoft.CodeAnalysis.Operations.IConditionalOperation)">VisitConditional(IConditionalOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitConditional(IConditionalOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IConditionalOperation.html">IConditionalOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConditionalAccess_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConditionalAccess*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConditionalAccess_Microsoft_CodeAnalysis_Operations_IConditionalAccessOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConditionalAccess(Microsoft.CodeAnalysis.Operations.IConditionalAccessOperation)">VisitConditionalAccess(IConditionalAccessOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitConditionalAccess(IConditionalAccessOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IConditionalAccessOperation.html">IConditionalAccessOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConditionalAccessInstance_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConditionalAccessInstance*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConditionalAccessInstance_Microsoft_CodeAnalysis_Operations_IConditionalAccessInstanceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConditionalAccessInstance(Microsoft.CodeAnalysis.Operations.IConditionalAccessInstanceOperation)">VisitConditionalAccessInstance(IConditionalAccessInstanceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitConditionalAccessInstance(IConditionalAccessInstanceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IConditionalAccessInstanceOperation.html">IConditionalAccessInstanceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConstantPattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConstantPattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConstantPattern_Microsoft_CodeAnalysis_Operations_IConstantPatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConstantPattern(Microsoft.CodeAnalysis.Operations.IConstantPatternOperation)">VisitConstantPattern(IConstantPatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitConstantPattern(IConstantPatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IConstantPatternOperation.html">IConstantPatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConstructorBodyOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConstructorBodyOperation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConstructorBodyOperation_Microsoft_CodeAnalysis_Operations_IConstructorBodyOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConstructorBodyOperation(Microsoft.CodeAnalysis.Operations.IConstructorBodyOperation)">VisitConstructorBodyOperation(IConstructorBodyOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitConstructorBodyOperation(IConstructorBodyOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IConstructorBodyOperation.html">IConstructorBodyOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConversion_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConversion*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitConversion_Microsoft_CodeAnalysis_Operations_IConversionOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitConversion(Microsoft.CodeAnalysis.Operations.IConversionOperation)">VisitConversion(IConversionOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitConversion(IConversionOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IConversionOperation.html">IConversionOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDeclarationExpression_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDeclarationExpression*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDeclarationExpression_Microsoft_CodeAnalysis_Operations_IDeclarationExpressionOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDeclarationExpression(Microsoft.CodeAnalysis.Operations.IDeclarationExpressionOperation)">VisitDeclarationExpression(IDeclarationExpressionOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDeclarationExpression(IDeclarationExpressionOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDeclarationExpressionOperation.html">IDeclarationExpressionOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDeclarationPattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDeclarationPattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDeclarationPattern_Microsoft_CodeAnalysis_Operations_IDeclarationPatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDeclarationPattern(Microsoft.CodeAnalysis.Operations.IDeclarationPatternOperation)">VisitDeclarationPattern(IDeclarationPatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDeclarationPattern(IDeclarationPatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDeclarationPatternOperation.html">IDeclarationPatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDeconstructionAssignment_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDeconstructionAssignment*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDeconstructionAssignment_Microsoft_CodeAnalysis_Operations_IDeconstructionAssignmentOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDeconstructionAssignment(Microsoft.CodeAnalysis.Operations.IDeconstructionAssignmentOperation)">VisitDeconstructionAssignment(IDeconstructionAssignmentOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDeconstructionAssignment(IDeconstructionAssignmentOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDeconstructionAssignmentOperation.html">IDeconstructionAssignmentOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDefaultCaseClause_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDefaultCaseClause*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDefaultCaseClause_Microsoft_CodeAnalysis_Operations_IDefaultCaseClauseOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDefaultCaseClause(Microsoft.CodeAnalysis.Operations.IDefaultCaseClauseOperation)">VisitDefaultCaseClause(IDefaultCaseClauseOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDefaultCaseClause(IDefaultCaseClauseOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDefaultCaseClauseOperation.html">IDefaultCaseClauseOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDefaultValue_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDefaultValue*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDefaultValue_Microsoft_CodeAnalysis_Operations_IDefaultValueOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDefaultValue(Microsoft.CodeAnalysis.Operations.IDefaultValueOperation)">VisitDefaultValue(IDefaultValueOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDefaultValue(IDefaultValueOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDefaultValueOperation.html">IDefaultValueOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDelegateCreation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDelegateCreation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDelegateCreation_Microsoft_CodeAnalysis_Operations_IDelegateCreationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDelegateCreation(Microsoft.CodeAnalysis.Operations.IDelegateCreationOperation)">VisitDelegateCreation(IDelegateCreationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDelegateCreation(IDelegateCreationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDelegateCreationOperation.html">IDelegateCreationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDiscardOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDiscardOperation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDiscardOperation_Microsoft_CodeAnalysis_Operations_IDiscardOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDiscardOperation(Microsoft.CodeAnalysis.Operations.IDiscardOperation)">VisitDiscardOperation(IDiscardOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDiscardOperation(IDiscardOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDiscardOperation.html">IDiscardOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDiscardPattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDiscardPattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDiscardPattern_Microsoft_CodeAnalysis_Operations_IDiscardPatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDiscardPattern(Microsoft.CodeAnalysis.Operations.IDiscardPatternOperation)">VisitDiscardPattern(IDiscardPatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDiscardPattern(IDiscardPatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDiscardPatternOperation.html">IDiscardPatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDynamicIndexerAccess_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDynamicIndexerAccess*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDynamicIndexerAccess_Microsoft_CodeAnalysis_Operations_IDynamicIndexerAccessOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDynamicIndexerAccess(Microsoft.CodeAnalysis.Operations.IDynamicIndexerAccessOperation)">VisitDynamicIndexerAccess(IDynamicIndexerAccessOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDynamicIndexerAccess(IDynamicIndexerAccessOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDynamicIndexerAccessOperation.html">IDynamicIndexerAccessOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDynamicInvocation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDynamicInvocation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDynamicInvocation_Microsoft_CodeAnalysis_Operations_IDynamicInvocationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDynamicInvocation(Microsoft.CodeAnalysis.Operations.IDynamicInvocationOperation)">VisitDynamicInvocation(IDynamicInvocationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDynamicInvocation(IDynamicInvocationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDynamicInvocationOperation.html">IDynamicInvocationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDynamicMemberReference_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDynamicMemberReference*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDynamicMemberReference_Microsoft_CodeAnalysis_Operations_IDynamicMemberReferenceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDynamicMemberReference(Microsoft.CodeAnalysis.Operations.IDynamicMemberReferenceOperation)">VisitDynamicMemberReference(IDynamicMemberReferenceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDynamicMemberReference(IDynamicMemberReferenceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDynamicMemberReferenceOperation.html">IDynamicMemberReferenceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDynamicObjectCreation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDynamicObjectCreation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitDynamicObjectCreation_Microsoft_CodeAnalysis_Operations_IDynamicObjectCreationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitDynamicObjectCreation(Microsoft.CodeAnalysis.Operations.IDynamicObjectCreationOperation)">VisitDynamicObjectCreation(IDynamicObjectCreationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitDynamicObjectCreation(IDynamicObjectCreationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IDynamicObjectCreationOperation.html">IDynamicObjectCreationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitEmpty_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitEmpty*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitEmpty_Microsoft_CodeAnalysis_Operations_IEmptyOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitEmpty(Microsoft.CodeAnalysis.Operations.IEmptyOperation)">VisitEmpty(IEmptyOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitEmpty(IEmptyOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IEmptyOperation.html">IEmptyOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitEnd_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitEnd*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitEnd_Microsoft_CodeAnalysis_Operations_IEndOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitEnd(Microsoft.CodeAnalysis.Operations.IEndOperation)">VisitEnd(IEndOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitEnd(IEndOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IEndOperation.html">IEndOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitEventAssignment_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitEventAssignment*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitEventAssignment_Microsoft_CodeAnalysis_Operations_IEventAssignmentOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitEventAssignment(Microsoft.CodeAnalysis.Operations.IEventAssignmentOperation)">VisitEventAssignment(IEventAssignmentOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitEventAssignment(IEventAssignmentOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IEventAssignmentOperation.html">IEventAssignmentOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitEventReference_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitEventReference*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitEventReference_Microsoft_CodeAnalysis_Operations_IEventReferenceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitEventReference(Microsoft.CodeAnalysis.Operations.IEventReferenceOperation)">VisitEventReference(IEventReferenceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitEventReference(IEventReferenceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IEventReferenceOperation.html">IEventReferenceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitExpressionStatement_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitExpressionStatement*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitExpressionStatement_Microsoft_CodeAnalysis_Operations_IExpressionStatementOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitExpressionStatement(Microsoft.CodeAnalysis.Operations.IExpressionStatementOperation)">VisitExpressionStatement(IExpressionStatementOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitExpressionStatement(IExpressionStatementOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IExpressionStatementOperation.html">IExpressionStatementOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFieldInitializer_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFieldInitializer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFieldInitializer_Microsoft_CodeAnalysis_Operations_IFieldInitializerOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFieldInitializer(Microsoft.CodeAnalysis.Operations.IFieldInitializerOperation)">VisitFieldInitializer(IFieldInitializerOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitFieldInitializer(IFieldInitializerOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IFieldInitializerOperation.html">IFieldInitializerOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFieldReference_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFieldReference*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFieldReference_Microsoft_CodeAnalysis_Operations_IFieldReferenceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFieldReference(Microsoft.CodeAnalysis.Operations.IFieldReferenceOperation)">VisitFieldReference(IFieldReferenceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitFieldReference(IFieldReferenceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IFieldReferenceOperation.html">IFieldReferenceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFlowAnonymousFunction_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFlowAnonymousFunction*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFlowAnonymousFunction_Microsoft_CodeAnalysis_FlowAnalysis_IFlowAnonymousFunctionOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFlowAnonymousFunction(Microsoft.CodeAnalysis.FlowAnalysis.IFlowAnonymousFunctionOperation)">VisitFlowAnonymousFunction(IFlowAnonymousFunctionOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitFlowAnonymousFunction(IFlowAnonymousFunctionOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.FlowAnalysis.IFlowAnonymousFunctionOperation.html">IFlowAnonymousFunctionOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFlowCapture_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFlowCapture*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFlowCapture_Microsoft_CodeAnalysis_FlowAnalysis_IFlowCaptureOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFlowCapture(Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureOperation)">VisitFlowCapture(IFlowCaptureOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitFlowCapture(IFlowCaptureOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureOperation.html">IFlowCaptureOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFlowCaptureReference_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFlowCaptureReference*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFlowCaptureReference_Microsoft_CodeAnalysis_FlowAnalysis_IFlowCaptureReferenceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFlowCaptureReference(Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation)">VisitFlowCaptureReference(IFlowCaptureReferenceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitFlowCaptureReference(IFlowCaptureReferenceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation.html">IFlowCaptureReferenceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitForEachLoop_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitForEachLoop*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitForEachLoop_Microsoft_CodeAnalysis_Operations_IForEachLoopOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitForEachLoop(Microsoft.CodeAnalysis.Operations.IForEachLoopOperation)">VisitForEachLoop(IForEachLoopOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitForEachLoop(IForEachLoopOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IForEachLoopOperation.html">IForEachLoopOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitForLoop_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitForLoop*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitForLoop_Microsoft_CodeAnalysis_Operations_IForLoopOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitForLoop(Microsoft.CodeAnalysis.Operations.IForLoopOperation)">VisitForLoop(IForLoopOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitForLoop(IForLoopOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IForLoopOperation.html">IForLoopOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitForToLoop_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitForToLoop*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitForToLoop_Microsoft_CodeAnalysis_Operations_IForToLoopOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitForToLoop(Microsoft.CodeAnalysis.Operations.IForToLoopOperation)">VisitForToLoop(IForToLoopOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitForToLoop(IForToLoopOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IForToLoopOperation.html">IForToLoopOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFunctionPointerInvocation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFunctionPointerInvocation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitFunctionPointerInvocation_Microsoft_CodeAnalysis_Operations_IFunctionPointerInvocationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitFunctionPointerInvocation(Microsoft.CodeAnalysis.Operations.IFunctionPointerInvocationOperation)">VisitFunctionPointerInvocation(IFunctionPointerInvocationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitFunctionPointerInvocation(IFunctionPointerInvocationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IFunctionPointerInvocationOperation.html">IFunctionPointerInvocationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitImplicitIndexerReference_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitImplicitIndexerReference*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitImplicitIndexerReference_Microsoft_CodeAnalysis_Operations_IImplicitIndexerReferenceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitImplicitIndexerReference(Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation)">VisitImplicitIndexerReference(IImplicitIndexerReferenceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitImplicitIndexerReference(IImplicitIndexerReferenceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation.html">IImplicitIndexerReferenceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitIncrementOrDecrement_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitIncrementOrDecrement*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitIncrementOrDecrement_Microsoft_CodeAnalysis_Operations_IIncrementOrDecrementOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitIncrementOrDecrement(Microsoft.CodeAnalysis.Operations.IIncrementOrDecrementOperation)">VisitIncrementOrDecrement(IIncrementOrDecrementOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitIncrementOrDecrement(IIncrementOrDecrementOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IIncrementOrDecrementOperation.html">IIncrementOrDecrementOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInlineArrayAccess_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInlineArrayAccess*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInlineArrayAccess_Microsoft_CodeAnalysis_Operations_IInlineArrayAccessOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInlineArrayAccess(Microsoft.CodeAnalysis.Operations.IInlineArrayAccessOperation)">VisitInlineArrayAccess(IInlineArrayAccessOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitInlineArrayAccess(IInlineArrayAccessOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IInlineArrayAccessOperation.html">IInlineArrayAccessOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInstanceReference_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInstanceReference*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInstanceReference_Microsoft_CodeAnalysis_Operations_IInstanceReferenceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInstanceReference(Microsoft.CodeAnalysis.Operations.IInstanceReferenceOperation)">VisitInstanceReference(IInstanceReferenceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitInstanceReference(IInstanceReferenceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IInstanceReferenceOperation.html">IInstanceReferenceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedString_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedString*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedString_Microsoft_CodeAnalysis_Operations_IInterpolatedStringOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedString(Microsoft.CodeAnalysis.Operations.IInterpolatedStringOperation)">VisitInterpolatedString(IInterpolatedStringOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitInterpolatedString(IInterpolatedStringOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IInterpolatedStringOperation.html">IInterpolatedStringOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedStringAddition_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedStringAddition*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedStringAddition_Microsoft_CodeAnalysis_Operations_IInterpolatedStringAdditionOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedStringAddition(Microsoft.CodeAnalysis.Operations.IInterpolatedStringAdditionOperation)">VisitInterpolatedStringAddition(IInterpolatedStringAdditionOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitInterpolatedStringAddition(IInterpolatedStringAdditionOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IInterpolatedStringAdditionOperation.html">IInterpolatedStringAdditionOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedStringAppend_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedStringAppend*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedStringAppend_Microsoft_CodeAnalysis_Operations_IInterpolatedStringAppendOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedStringAppend(Microsoft.CodeAnalysis.Operations.IInterpolatedStringAppendOperation)">VisitInterpolatedStringAppend(IInterpolatedStringAppendOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitInterpolatedStringAppend(IInterpolatedStringAppendOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IInterpolatedStringAppendOperation.html">IInterpolatedStringAppendOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedStringHandlerArgumentPlaceholder_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedStringHandlerArgumentPlaceholder*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedStringHandlerArgumentPlaceholder_Microsoft_CodeAnalysis_Operations_IInterpolatedStringHandlerArgumentPlaceholderOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedStringHandlerArgumentPlaceholder(Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperation)">VisitInterpolatedStringHandlerArgumentPlaceholder(IInterpolatedStringHandlerArgumentPlaceholderOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitInterpolatedStringHandlerArgumentPlaceholder(IInterpolatedStringHandlerArgumentPlaceholderOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperation.html">IInterpolatedStringHandlerArgumentPlaceholderOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedStringHandlerCreation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedStringHandlerCreation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedStringHandlerCreation_Microsoft_CodeAnalysis_Operations_IInterpolatedStringHandlerCreationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedStringHandlerCreation(Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerCreationOperation)">VisitInterpolatedStringHandlerCreation(IInterpolatedStringHandlerCreationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitInterpolatedStringHandlerCreation(IInterpolatedStringHandlerCreationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerCreationOperation.html">IInterpolatedStringHandlerCreationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedStringText_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedStringText*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolatedStringText_Microsoft_CodeAnalysis_Operations_IInterpolatedStringTextOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolatedStringText(Microsoft.CodeAnalysis.Operations.IInterpolatedStringTextOperation)">VisitInterpolatedStringText(IInterpolatedStringTextOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitInterpolatedStringText(IInterpolatedStringTextOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IInterpolatedStringTextOperation.html">IInterpolatedStringTextOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInterpolation_Microsoft_CodeAnalysis_Operations_IInterpolationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInterpolation(Microsoft.CodeAnalysis.Operations.IInterpolationOperation)">VisitInterpolation(IInterpolationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitInterpolation(IInterpolationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IInterpolationOperation.html">IInterpolationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInvalid_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInvalid*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInvalid_Microsoft_CodeAnalysis_Operations_IInvalidOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInvalid(Microsoft.CodeAnalysis.Operations.IInvalidOperation)">VisitInvalid(IInvalidOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitInvalid(IInvalidOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IInvalidOperation.html">IInvalidOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInvocation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInvocation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitInvocation_Microsoft_CodeAnalysis_Operations_IInvocationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitInvocation(Microsoft.CodeAnalysis.Operations.IInvocationOperation)">VisitInvocation(IInvocationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitInvocation(IInvocationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IInvocationOperation.html">IInvocationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitIsNull_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitIsNull*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitIsNull_Microsoft_CodeAnalysis_FlowAnalysis_IIsNullOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitIsNull(Microsoft.CodeAnalysis.FlowAnalysis.IIsNullOperation)">VisitIsNull(IIsNullOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitIsNull(IIsNullOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.FlowAnalysis.IIsNullOperation.html">IIsNullOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitIsPattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitIsPattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitIsPattern_Microsoft_CodeAnalysis_Operations_IIsPatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitIsPattern(Microsoft.CodeAnalysis.Operations.IIsPatternOperation)">VisitIsPattern(IIsPatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitIsPattern(IIsPatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IIsPatternOperation.html">IIsPatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitIsType_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitIsType*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitIsType_Microsoft_CodeAnalysis_Operations_IIsTypeOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitIsType(Microsoft.CodeAnalysis.Operations.IIsTypeOperation)">VisitIsType(IIsTypeOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitIsType(IIsTypeOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IIsTypeOperation.html">IIsTypeOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitLabeled_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitLabeled*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitLabeled_Microsoft_CodeAnalysis_Operations_ILabeledOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitLabeled(Microsoft.CodeAnalysis.Operations.ILabeledOperation)">VisitLabeled(ILabeledOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitLabeled(ILabeledOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ILabeledOperation.html">ILabeledOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitListPattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitListPattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitListPattern_Microsoft_CodeAnalysis_Operations_IListPatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitListPattern(Microsoft.CodeAnalysis.Operations.IListPatternOperation)">VisitListPattern(IListPatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitListPattern(IListPatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IListPatternOperation.html">IListPatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitLiteral_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitLiteral*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitLiteral_Microsoft_CodeAnalysis_Operations_ILiteralOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitLiteral(Microsoft.CodeAnalysis.Operations.ILiteralOperation)">VisitLiteral(ILiteralOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitLiteral(ILiteralOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ILiteralOperation.html">ILiteralOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitLocalFunction_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitLocalFunction*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitLocalFunction_Microsoft_CodeAnalysis_Operations_ILocalFunctionOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitLocalFunction(Microsoft.CodeAnalysis.Operations.ILocalFunctionOperation)">VisitLocalFunction(ILocalFunctionOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitLocalFunction(ILocalFunctionOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ILocalFunctionOperation.html">ILocalFunctionOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitLocalReference_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitLocalReference*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitLocalReference_Microsoft_CodeAnalysis_Operations_ILocalReferenceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitLocalReference(Microsoft.CodeAnalysis.Operations.ILocalReferenceOperation)">VisitLocalReference(ILocalReferenceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitLocalReference(ILocalReferenceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ILocalReferenceOperation.html">ILocalReferenceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitLock_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitLock*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitLock_Microsoft_CodeAnalysis_Operations_ILockOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitLock(Microsoft.CodeAnalysis.Operations.ILockOperation)">VisitLock(ILockOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitLock(ILockOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ILockOperation.html">ILockOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitMemberInitializer_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitMemberInitializer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitMemberInitializer_Microsoft_CodeAnalysis_Operations_IMemberInitializerOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitMemberInitializer(Microsoft.CodeAnalysis.Operations.IMemberInitializerOperation)">VisitMemberInitializer(IMemberInitializerOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitMemberInitializer(IMemberInitializerOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IMemberInitializerOperation.html">IMemberInitializerOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitMethodBodyOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitMethodBodyOperation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitMethodBodyOperation_Microsoft_CodeAnalysis_Operations_IMethodBodyOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitMethodBodyOperation(Microsoft.CodeAnalysis.Operations.IMethodBodyOperation)">VisitMethodBodyOperation(IMethodBodyOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitMethodBodyOperation(IMethodBodyOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IMethodBodyOperation.html">IMethodBodyOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitMethodReference_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitMethodReference*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitMethodReference_Microsoft_CodeAnalysis_Operations_IMethodReferenceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitMethodReference(Microsoft.CodeAnalysis.Operations.IMethodReferenceOperation)">VisitMethodReference(IMethodReferenceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitMethodReference(IMethodReferenceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IMethodReferenceOperation.html">IMethodReferenceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitNameOf_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitNameOf*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitNameOf_Microsoft_CodeAnalysis_Operations_INameOfOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitNameOf(Microsoft.CodeAnalysis.Operations.INameOfOperation)">VisitNameOf(INameOfOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitNameOf(INameOfOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.INameOfOperation.html">INameOfOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitNegatedPattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitNegatedPattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitNegatedPattern_Microsoft_CodeAnalysis_Operations_INegatedPatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitNegatedPattern(Microsoft.CodeAnalysis.Operations.INegatedPatternOperation)">VisitNegatedPattern(INegatedPatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitNegatedPattern(INegatedPatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.INegatedPatternOperation.html">INegatedPatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitObjectCreation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitObjectCreation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitObjectCreation_Microsoft_CodeAnalysis_Operations_IObjectCreationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitObjectCreation(Microsoft.CodeAnalysis.Operations.IObjectCreationOperation)">VisitObjectCreation(IObjectCreationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitObjectCreation(IObjectCreationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IObjectCreationOperation.html">IObjectCreationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitObjectOrCollectionInitializer_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitObjectOrCollectionInitializer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitObjectOrCollectionInitializer_Microsoft_CodeAnalysis_Operations_IObjectOrCollectionInitializerOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitObjectOrCollectionInitializer(Microsoft.CodeAnalysis.Operations.IObjectOrCollectionInitializerOperation)">VisitObjectOrCollectionInitializer(IObjectOrCollectionInitializerOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitObjectOrCollectionInitializer(IObjectOrCollectionInitializerOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IObjectOrCollectionInitializerOperation.html">IObjectOrCollectionInitializerOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitOmittedArgument_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitOmittedArgument*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitOmittedArgument_Microsoft_CodeAnalysis_Operations_IOmittedArgumentOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitOmittedArgument(Microsoft.CodeAnalysis.Operations.IOmittedArgumentOperation)">VisitOmittedArgument(IOmittedArgumentOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitOmittedArgument(IOmittedArgumentOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IOmittedArgumentOperation.html">IOmittedArgumentOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitParameterInitializer_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitParameterInitializer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitParameterInitializer_Microsoft_CodeAnalysis_Operations_IParameterInitializerOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitParameterInitializer(Microsoft.CodeAnalysis.Operations.IParameterInitializerOperation)">VisitParameterInitializer(IParameterInitializerOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitParameterInitializer(IParameterInitializerOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IParameterInitializerOperation.html">IParameterInitializerOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitParameterReference_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitParameterReference*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitParameterReference_Microsoft_CodeAnalysis_Operations_IParameterReferenceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitParameterReference(Microsoft.CodeAnalysis.Operations.IParameterReferenceOperation)">VisitParameterReference(IParameterReferenceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitParameterReference(IParameterReferenceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IParameterReferenceOperation.html">IParameterReferenceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitParenthesized_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitParenthesized*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitParenthesized_Microsoft_CodeAnalysis_Operations_IParenthesizedOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitParenthesized(Microsoft.CodeAnalysis.Operations.IParenthesizedOperation)">VisitParenthesized(IParenthesizedOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitParenthesized(IParenthesizedOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IParenthesizedOperation.html">IParenthesizedOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitPatternCaseClause_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitPatternCaseClause*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitPatternCaseClause_Microsoft_CodeAnalysis_Operations_IPatternCaseClauseOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitPatternCaseClause(Microsoft.CodeAnalysis.Operations.IPatternCaseClauseOperation)">VisitPatternCaseClause(IPatternCaseClauseOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitPatternCaseClause(IPatternCaseClauseOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IPatternCaseClauseOperation.html">IPatternCaseClauseOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitPropertyInitializer_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitPropertyInitializer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitPropertyInitializer_Microsoft_CodeAnalysis_Operations_IPropertyInitializerOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitPropertyInitializer(Microsoft.CodeAnalysis.Operations.IPropertyInitializerOperation)">VisitPropertyInitializer(IPropertyInitializerOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitPropertyInitializer(IPropertyInitializerOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IPropertyInitializerOperation.html">IPropertyInitializerOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitPropertyReference_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitPropertyReference*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitPropertyReference_Microsoft_CodeAnalysis_Operations_IPropertyReferenceOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitPropertyReference(Microsoft.CodeAnalysis.Operations.IPropertyReferenceOperation)">VisitPropertyReference(IPropertyReferenceOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitPropertyReference(IPropertyReferenceOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IPropertyReferenceOperation.html">IPropertyReferenceOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitPropertySubpattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitPropertySubpattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitPropertySubpattern_Microsoft_CodeAnalysis_Operations_IPropertySubpatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitPropertySubpattern(Microsoft.CodeAnalysis.Operations.IPropertySubpatternOperation)">VisitPropertySubpattern(IPropertySubpatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitPropertySubpattern(IPropertySubpatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IPropertySubpatternOperation.html">IPropertySubpatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRaiseEvent_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRaiseEvent*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRaiseEvent_Microsoft_CodeAnalysis_Operations_IRaiseEventOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRaiseEvent(Microsoft.CodeAnalysis.Operations.IRaiseEventOperation)">VisitRaiseEvent(IRaiseEventOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitRaiseEvent(IRaiseEventOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IRaiseEventOperation.html">IRaiseEventOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRangeCaseClause_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRangeCaseClause*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRangeCaseClause_Microsoft_CodeAnalysis_Operations_IRangeCaseClauseOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRangeCaseClause(Microsoft.CodeAnalysis.Operations.IRangeCaseClauseOperation)">VisitRangeCaseClause(IRangeCaseClauseOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitRangeCaseClause(IRangeCaseClauseOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IRangeCaseClauseOperation.html">IRangeCaseClauseOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRangeOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRangeOperation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRangeOperation_Microsoft_CodeAnalysis_Operations_IRangeOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRangeOperation(Microsoft.CodeAnalysis.Operations.IRangeOperation)">VisitRangeOperation(IRangeOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitRangeOperation(IRangeOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IRangeOperation.html">IRangeOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitReDim_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitReDim*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitReDim_Microsoft_CodeAnalysis_Operations_IReDimOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitReDim(Microsoft.CodeAnalysis.Operations.IReDimOperation)">VisitReDim(IReDimOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitReDim(IReDimOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IReDimOperation.html">IReDimOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitReDimClause_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitReDimClause*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitReDimClause_Microsoft_CodeAnalysis_Operations_IReDimClauseOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitReDimClause(Microsoft.CodeAnalysis.Operations.IReDimClauseOperation)">VisitReDimClause(IReDimClauseOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitReDimClause(IReDimClauseOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IReDimClauseOperation.html">IReDimClauseOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRecursivePattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRecursivePattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRecursivePattern_Microsoft_CodeAnalysis_Operations_IRecursivePatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRecursivePattern(Microsoft.CodeAnalysis.Operations.IRecursivePatternOperation)">VisitRecursivePattern(IRecursivePatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitRecursivePattern(IRecursivePatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IRecursivePatternOperation.html">IRecursivePatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRelationalCaseClause_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRelationalCaseClause*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRelationalCaseClause_Microsoft_CodeAnalysis_Operations_IRelationalCaseClauseOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRelationalCaseClause(Microsoft.CodeAnalysis.Operations.IRelationalCaseClauseOperation)">VisitRelationalCaseClause(IRelationalCaseClauseOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitRelationalCaseClause(IRelationalCaseClauseOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IRelationalCaseClauseOperation.html">IRelationalCaseClauseOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRelationalPattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRelationalPattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitRelationalPattern_Microsoft_CodeAnalysis_Operations_IRelationalPatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitRelationalPattern(Microsoft.CodeAnalysis.Operations.IRelationalPatternOperation)">VisitRelationalPattern(IRelationalPatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitRelationalPattern(IRelationalPatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IRelationalPatternOperation.html">IRelationalPatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitReturn_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitReturn*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitReturn_Microsoft_CodeAnalysis_Operations_IReturnOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitReturn(Microsoft.CodeAnalysis.Operations.IReturnOperation)">VisitReturn(IReturnOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitReturn(IReturnOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IReturnOperation.html">IReturnOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSimpleAssignment_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSimpleAssignment*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSimpleAssignment_Microsoft_CodeAnalysis_Operations_ISimpleAssignmentOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSimpleAssignment(Microsoft.CodeAnalysis.Operations.ISimpleAssignmentOperation)">VisitSimpleAssignment(ISimpleAssignmentOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitSimpleAssignment(ISimpleAssignmentOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ISimpleAssignmentOperation.html">ISimpleAssignmentOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSingleValueCaseClause_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSingleValueCaseClause*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSingleValueCaseClause_Microsoft_CodeAnalysis_Operations_ISingleValueCaseClauseOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSingleValueCaseClause(Microsoft.CodeAnalysis.Operations.ISingleValueCaseClauseOperation)">VisitSingleValueCaseClause(ISingleValueCaseClauseOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitSingleValueCaseClause(ISingleValueCaseClauseOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ISingleValueCaseClauseOperation.html">ISingleValueCaseClauseOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSizeOf_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSizeOf*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSizeOf_Microsoft_CodeAnalysis_Operations_ISizeOfOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSizeOf(Microsoft.CodeAnalysis.Operations.ISizeOfOperation)">VisitSizeOf(ISizeOfOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitSizeOf(ISizeOfOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ISizeOfOperation.html">ISizeOfOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSlicePattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSlicePattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSlicePattern_Microsoft_CodeAnalysis_Operations_ISlicePatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSlicePattern(Microsoft.CodeAnalysis.Operations.ISlicePatternOperation)">VisitSlicePattern(ISlicePatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitSlicePattern(ISlicePatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ISlicePatternOperation.html">ISlicePatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSpread_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSpread*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSpread_Microsoft_CodeAnalysis_Operations_ISpreadOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSpread(Microsoft.CodeAnalysis.Operations.ISpreadOperation)">VisitSpread(ISpreadOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitSpread(ISpreadOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ISpreadOperation.html">ISpreadOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitStaticLocalInitializationSemaphore_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitStaticLocalInitializationSemaphore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitStaticLocalInitializationSemaphore_Microsoft_CodeAnalysis_FlowAnalysis_IStaticLocalInitializationSemaphoreOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitStaticLocalInitializationSemaphore(Microsoft.CodeAnalysis.FlowAnalysis.IStaticLocalInitializationSemaphoreOperation)">VisitStaticLocalInitializationSemaphore(IStaticLocalInitializationSemaphoreOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitStaticLocalInitializationSemaphore(IStaticLocalInitializationSemaphoreOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.FlowAnalysis.IStaticLocalInitializationSemaphoreOperation.html">IStaticLocalInitializationSemaphoreOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitStop_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitStop*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitStop_Microsoft_CodeAnalysis_Operations_IStopOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitStop(Microsoft.CodeAnalysis.Operations.IStopOperation)">VisitStop(IStopOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitStop(IStopOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IStopOperation.html">IStopOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSwitch_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSwitch*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSwitch_Microsoft_CodeAnalysis_Operations_ISwitchOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSwitch(Microsoft.CodeAnalysis.Operations.ISwitchOperation)">VisitSwitch(ISwitchOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitSwitch(ISwitchOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ISwitchOperation.html">ISwitchOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSwitchCase_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSwitchCase*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSwitchCase_Microsoft_CodeAnalysis_Operations_ISwitchCaseOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSwitchCase(Microsoft.CodeAnalysis.Operations.ISwitchCaseOperation)">VisitSwitchCase(ISwitchCaseOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitSwitchCase(ISwitchCaseOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ISwitchCaseOperation.html">ISwitchCaseOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSwitchExpression_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSwitchExpression*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSwitchExpression_Microsoft_CodeAnalysis_Operations_ISwitchExpressionOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSwitchExpression(Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation)">VisitSwitchExpression(ISwitchExpressionOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitSwitchExpression(ISwitchExpressionOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation.html">ISwitchExpressionOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSwitchExpressionArm_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSwitchExpressionArm*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitSwitchExpressionArm_Microsoft_CodeAnalysis_Operations_ISwitchExpressionArmOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitSwitchExpressionArm(Microsoft.CodeAnalysis.Operations.ISwitchExpressionArmOperation)">VisitSwitchExpressionArm(ISwitchExpressionArmOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitSwitchExpressionArm(ISwitchExpressionArmOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ISwitchExpressionArmOperation.html">ISwitchExpressionArmOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitThrow_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitThrow*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitThrow_Microsoft_CodeAnalysis_Operations_IThrowOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitThrow(Microsoft.CodeAnalysis.Operations.IThrowOperation)">VisitThrow(IThrowOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitThrow(IThrowOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IThrowOperation.html">IThrowOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTranslatedQuery_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTranslatedQuery*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTranslatedQuery_Microsoft_CodeAnalysis_Operations_ITranslatedQueryOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTranslatedQuery(Microsoft.CodeAnalysis.Operations.ITranslatedQueryOperation)">VisitTranslatedQuery(ITranslatedQueryOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitTranslatedQuery(ITranslatedQueryOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ITranslatedQueryOperation.html">ITranslatedQueryOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTry_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTry*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTry_Microsoft_CodeAnalysis_Operations_ITryOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTry(Microsoft.CodeAnalysis.Operations.ITryOperation)">VisitTry(ITryOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitTry(ITryOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ITryOperation.html">ITryOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTuple_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTuple*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTuple_Microsoft_CodeAnalysis_Operations_ITupleOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTuple(Microsoft.CodeAnalysis.Operations.ITupleOperation)">VisitTuple(ITupleOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitTuple(ITupleOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ITupleOperation.html">ITupleOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTupleBinaryOperator_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTupleBinaryOperator*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTupleBinaryOperator_Microsoft_CodeAnalysis_Operations_ITupleBinaryOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTupleBinaryOperator(Microsoft.CodeAnalysis.Operations.ITupleBinaryOperation)">VisitTupleBinaryOperator(ITupleBinaryOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitTupleBinaryOperator(ITupleBinaryOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ITupleBinaryOperation.html">ITupleBinaryOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTypeOf_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTypeOf*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTypeOf_Microsoft_CodeAnalysis_Operations_ITypeOfOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTypeOf(Microsoft.CodeAnalysis.Operations.ITypeOfOperation)">VisitTypeOf(ITypeOfOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitTypeOf(ITypeOfOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ITypeOfOperation.html">ITypeOfOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTypeParameterObjectCreation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTypeParameterObjectCreation*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTypeParameterObjectCreation_Microsoft_CodeAnalysis_Operations_ITypeParameterObjectCreationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTypeParameterObjectCreation(Microsoft.CodeAnalysis.Operations.ITypeParameterObjectCreationOperation)">VisitTypeParameterObjectCreation(ITypeParameterObjectCreationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitTypeParameterObjectCreation(ITypeParameterObjectCreationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ITypeParameterObjectCreationOperation.html">ITypeParameterObjectCreationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTypePattern_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTypePattern*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitTypePattern_Microsoft_CodeAnalysis_Operations_ITypePatternOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitTypePattern(Microsoft.CodeAnalysis.Operations.ITypePatternOperation)">VisitTypePattern(ITypePatternOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitTypePattern(ITypePatternOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.ITypePatternOperation.html">ITypePatternOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitUnaryOperator_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitUnaryOperator*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitUnaryOperator_Microsoft_CodeAnalysis_Operations_IUnaryOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitUnaryOperator(Microsoft.CodeAnalysis.Operations.IUnaryOperation)">VisitUnaryOperator(IUnaryOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitUnaryOperator(IUnaryOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IUnaryOperation.html">IUnaryOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitUsing_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitUsing*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitUsing_Microsoft_CodeAnalysis_Operations_IUsingOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitUsing(Microsoft.CodeAnalysis.Operations.IUsingOperation)">VisitUsing(IUsingOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitUsing(IUsingOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IUsingOperation.html">IUsingOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitUsingDeclaration_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitUsingDeclaration*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitUsingDeclaration_Microsoft_CodeAnalysis_Operations_IUsingDeclarationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitUsingDeclaration(Microsoft.CodeAnalysis.Operations.IUsingDeclarationOperation)">VisitUsingDeclaration(IUsingDeclarationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitUsingDeclaration(IUsingDeclarationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IUsingDeclarationOperation.html">IUsingDeclarationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitUtf8String_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitUtf8String*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitUtf8String_Microsoft_CodeAnalysis_Operations_IUtf8StringOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitUtf8String(Microsoft.CodeAnalysis.Operations.IUtf8StringOperation)">VisitUtf8String(IUtf8StringOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitUtf8String(IUtf8StringOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IUtf8StringOperation.html">IUtf8StringOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitVariableDeclaration_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitVariableDeclaration*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitVariableDeclaration_Microsoft_CodeAnalysis_Operations_IVariableDeclarationOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitVariableDeclaration(Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation)">VisitVariableDeclaration(IVariableDeclarationOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitVariableDeclaration(IVariableDeclarationOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation.html">IVariableDeclarationOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitVariableDeclarationGroup_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitVariableDeclarationGroup*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitVariableDeclarationGroup_Microsoft_CodeAnalysis_Operations_IVariableDeclarationGroupOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitVariableDeclarationGroup(Microsoft.CodeAnalysis.Operations.IVariableDeclarationGroupOperation)">VisitVariableDeclarationGroup(IVariableDeclarationGroupOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitVariableDeclarationGroup(IVariableDeclarationGroupOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IVariableDeclarationGroupOperation.html">IVariableDeclarationGroupOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitVariableDeclarator_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitVariableDeclarator*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitVariableDeclarator_Microsoft_CodeAnalysis_Operations_IVariableDeclaratorOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitVariableDeclarator(Microsoft.CodeAnalysis.Operations.IVariableDeclaratorOperation)">VisitVariableDeclarator(IVariableDeclaratorOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitVariableDeclarator(IVariableDeclaratorOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IVariableDeclaratorOperation.html">IVariableDeclaratorOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitVariableInitializer_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitVariableInitializer*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitVariableInitializer_Microsoft_CodeAnalysis_Operations_IVariableInitializerOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitVariableInitializer(Microsoft.CodeAnalysis.Operations.IVariableInitializerOperation)">VisitVariableInitializer(IVariableInitializerOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitVariableInitializer(IVariableInitializerOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IVariableInitializerOperation.html">IVariableInitializerOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitWhileLoop_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitWhileLoop*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitWhileLoop_Microsoft_CodeAnalysis_Operations_IWhileLoopOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitWhileLoop(Microsoft.CodeAnalysis.Operations.IWhileLoopOperation)">VisitWhileLoop(IWhileLoopOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitWhileLoop(IWhileLoopOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IWhileLoopOperation.html">IWhileLoopOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitWith_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitWith*"></a>
+  <h4 id="Microsoft_CodeAnalysis_Operations_OperationVisitor_VisitWith_Microsoft_CodeAnalysis_Operations_IWithOperation_" data-uid="Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitWith(Microsoft.CodeAnalysis.Operations.IWithOperation)">VisitWith(IWithOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitWith(IWithOperation operation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Operations.IWithOperation.html">IWithOperation</a></td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

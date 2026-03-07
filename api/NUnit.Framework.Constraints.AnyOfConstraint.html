@@ -594,6 +594,70 @@ without having to compare each property separately in own code.</p>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/AnyOfConstraint.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_Constraints_AnyOfConstraint_UsingPropertiesComparer_" data-uid="NUnit.Framework.Constraints.AnyOfConstraint.UsingPropertiesComparer*"></a>
+  <h4 id="NUnit_Framework_Constraints_AnyOfConstraint_UsingPropertiesComparer__1_System_Func_NUnit_Framework_Constraints_PropertiesComparerConfiguration___0__NUnit_Framework_Constraints_PropertiesComparerConfiguration___0___" data-uid="NUnit.Framework.Constraints.AnyOfConstraint.UsingPropertiesComparer``1(System.Func{NUnit.Framework.Constraints.PropertiesComparerConfiguration{``0},NUnit.Framework.Constraints.PropertiesComparerConfiguration{``0}})">UsingPropertiesComparer&lt;T&gt;(Func&lt;PropertiesComparerConfiguration&lt;T&gt;, PropertiesComparerConfiguration&lt;T&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Enables comparing of instance properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnyOfConstraint UsingPropertiesComparer&lt;T&gt;(Func&lt;PropertiesComparerConfiguration&lt;T&gt;, PropertiesComparerConfiguration&lt;T&gt;&gt; configure)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="NUnit.Framework.Constraints.PropertiesComparerConfiguration-1.html">PropertiesComparerConfiguration</a>&lt;T&gt;, <a class="xref" href="NUnit.Framework.Constraints.PropertiesComparerConfiguration-1.html">PropertiesComparerConfiguration</a>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">configure</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.AnyOfConstraint.html">AnyOfConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="NUnit_Framework_Constraints_AnyOfConstraint_UsingPropertiesComparer__1_System_Func_NUnit_Framework_Constraints_PropertiesComparerConfiguration___0__NUnit_Framework_Constraints_PropertiesComparerConfiguration___0____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This allows comparing classes that don't implement <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+without having to compare each property separately in own code.</p>
+</div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/AnyOfConstraint.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_Constraints_AnyOfConstraint_Using_" data-uid="NUnit.Framework.Constraints.AnyOfConstraint.Using*"></a>
   <h4 id="NUnit_Framework_Constraints_AnyOfConstraint_Using__1_System_Collections_Generic_IComparer___0__" data-uid="NUnit.Framework.Constraints.AnyOfConstraint.Using``1(System.Collections.Generic.IComparer{``0})">Using&lt;T&gt;(IComparer&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Flag the constraint to use the supplied IComparer object.</p>

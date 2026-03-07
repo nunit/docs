@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Struct SeparatedSyntaxList&lt;TNode&gt; | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Struct SeparatedSyntaxList&lt;TNode&gt; | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1">
+
+
+
+  <h1 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1" class="text-break">Struct SeparatedSyntaxList&lt;TNode&gt;</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.SeparatedSyntaxList-1.html">SeparatedSyntaxList</a>&lt;TNode&gt;&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TNode&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;TNode&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TNode&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft">Microsoft</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis">CodeAnalysis</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.CodeAnalysis.dll</h6>
+  <h5 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly struct SeparatedSyntaxList&lt;TNode&gt; : IEquatable&lt;SeparatedSyntaxList&lt;TNode&gt;&gt;, IReadOnlyList&lt;TNode&gt;, IReadOnlyCollection&lt;TNode&gt;, IEnumerable&lt;TNode&gt;, IEnumerable where TNode : SyntaxNode</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Count_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Count*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Count" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_FullSpan_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.FullSpan*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_FullSpan" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.FullSpan">FullSpan</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextSpan FullSpan { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.TextSpan.html">TextSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Item_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Item*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Item_System_Int32_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Item(System.Int32)">this[int]</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TNode this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_SeparatorCount_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.SeparatorCount*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_SeparatorCount" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.SeparatorCount">SeparatorCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SeparatorCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Span_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Span*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Span" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Span">Span</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextSpan Span { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.Text.TextSpan.html">TextSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Add_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Add*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Add__0_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Add(`0)">Add(TNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SeparatedSyntaxList&lt;TNode&gt; Add(TNode node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_AddRange_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.AddRange*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_AddRange_System_Collections_Generic_IEnumerable__0__" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.AddRange(System.Collections.Generic.IEnumerable{`0})">AddRange(IEnumerable&lt;TNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SeparatedSyntaxList&lt;TNode&gt; AddRange(IEnumerable&lt;TNode&gt; nodes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TNode&gt;</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Any_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Any*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Any" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Any">Any()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Any()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Contains_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Contains*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Contains__0_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Contains(`0)">Contains(TNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(TNode node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Equals_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Equals*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Equals_Microsoft_CodeAnalysis_SeparatedSyntaxList__0__" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Equals(Microsoft.CodeAnalysis.SeparatedSyntaxList{`0})">Equals(SeparatedSyntaxList&lt;TNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(SeparatedSyntaxList&lt;TNode&gt; other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Equals_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Equals*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Equals_System_Object_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Equals(System.Object)">Equals(object?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_First_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.First*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_First" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.First">First()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TNode First()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_FirstOrDefault_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.FirstOrDefault*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_FirstOrDefault" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.FirstOrDefault">FirstOrDefault()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TNode? FirstOrDefault()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_GetEnumerator_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.GetEnumerator*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_GetEnumerator" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SeparatedSyntaxList&lt;TNode&gt;.Enumerator GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SeparatedSyntaxList-1.html">SeparatedSyntaxList</a>&lt;TNode&gt;.<a class="xref" href="Microsoft.CodeAnalysis.SeparatedSyntaxList-1.Enumerator.html">Enumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_GetHashCode_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.GetHashCode*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_GetHashCode" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_GetSeparator_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.GetSeparator*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_GetSeparator_System_Int32_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.GetSeparator(System.Int32)">GetSeparator(int)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SyntaxToken GetSeparator(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_GetSeparators_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.GetSeparators*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_GetSeparators" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.GetSeparators">GetSeparators()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;SyntaxToken&gt; GetSeparators()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_GetWithSeparators_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.GetWithSeparators*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_GetWithSeparators" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.GetWithSeparators">GetWithSeparators()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SyntaxNodeOrTokenList GetWithSeparators()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNodeOrTokenList.html">SyntaxNodeOrTokenList</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_IndexOf_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.IndexOf*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_IndexOf_System_Func__0_System_Boolean__" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.IndexOf(System.Func{`0,System.Boolean})">IndexOf(Func&lt;TNode, bool&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(Func&lt;TNode, bool&gt; predicate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TNode, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_IndexOf_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.IndexOf*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_IndexOf__0_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.IndexOf(`0)">IndexOf(TNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(TNode node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Insert_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Insert*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Insert_System_Int32__0_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Insert(System.Int32,`0)">Insert(int, TNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SeparatedSyntaxList&lt;TNode&gt; Insert(int index, TNode node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_InsertRange_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.InsertRange*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_InsertRange_System_Int32_System_Collections_Generic_IEnumerable__0__" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.InsertRange(System.Int32,System.Collections.Generic.IEnumerable{`0})">InsertRange(int, IEnumerable&lt;TNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SeparatedSyntaxList&lt;TNode&gt; InsertRange(int index, IEnumerable&lt;TNode&gt; nodes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TNode&gt;</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Last_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Last*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Last" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Last">Last()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TNode Last()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_LastIndexOf_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.LastIndexOf*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_LastIndexOf_System_Func__0_System_Boolean__" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.LastIndexOf(System.Func{`0,System.Boolean})">LastIndexOf(Func&lt;TNode, bool&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LastIndexOf(Func&lt;TNode, bool&gt; predicate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TNode, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_LastIndexOf_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.LastIndexOf*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_LastIndexOf__0_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.LastIndexOf(`0)">LastIndexOf(TNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LastIndexOf(TNode node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_LastOrDefault_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.LastOrDefault*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_LastOrDefault" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.LastOrDefault">LastOrDefault()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TNode? LastOrDefault()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Remove_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Remove*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Remove__0_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Remove(`0)">Remove(TNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SeparatedSyntaxList&lt;TNode&gt; Remove(TNode node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_RemoveAt_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.RemoveAt*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_RemoveAt_System_Int32_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.RemoveAt(System.Int32)">RemoveAt(int)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SeparatedSyntaxList&lt;TNode&gt; RemoveAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Replace_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Replace*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_Replace__0__0_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.Replace(`0,`0)">Replace(TNode, TNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SeparatedSyntaxList&lt;TNode&gt; Replace(TNode nodeInList, TNode newNode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">nodeInList</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">newNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_ReplaceRange_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.ReplaceRange*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_ReplaceRange__0_System_Collections_Generic_IEnumerable__0__" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.ReplaceRange(`0,System.Collections.Generic.IEnumerable{`0})">ReplaceRange(TNode, IEnumerable&lt;TNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SeparatedSyntaxList&lt;TNode&gt; ReplaceRange(TNode nodeInList, IEnumerable&lt;TNode&gt; newNodes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">nodeInList</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TNode&gt;</td>
+        <td><span class="parametername">newNodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_ReplaceSeparator_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.ReplaceSeparator*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_ReplaceSeparator_Microsoft_CodeAnalysis_SyntaxToken_Microsoft_CodeAnalysis_SyntaxToken_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.ReplaceSeparator(Microsoft.CodeAnalysis.SyntaxToken,Microsoft.CodeAnalysis.SyntaxToken)">ReplaceSeparator(SyntaxToken, SyntaxToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SeparatedSyntaxList&lt;TNode&gt; ReplaceSeparator(SyntaxToken separatorToken, SyntaxToken newSeparator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">separatorToken</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">newSeparator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_ToFullString_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.ToFullString*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_ToFullString" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.ToFullString">ToFullString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToFullString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_ToString_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.ToString*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_ToString" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a></div>
+  <h3 id="operators">Operators
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_op_Equality_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.op_Equality*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_op_Equality_Microsoft_CodeAnalysis_SeparatedSyntaxList__0__Microsoft_CodeAnalysis_SeparatedSyntaxList__0__" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.op_Equality(Microsoft.CodeAnalysis.SeparatedSyntaxList{`0},Microsoft.CodeAnalysis.SeparatedSyntaxList{`0})">operator ==(SeparatedSyntaxList&lt;TNode&gt;, SeparatedSyntaxList&lt;TNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(SeparatedSyntaxList&lt;TNode&gt; left, SeparatedSyntaxList&lt;TNode&gt; right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_op_Explicit_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.op_Explicit*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_op_Explicit_Microsoft_CodeAnalysis_SeparatedSyntaxList_Microsoft_CodeAnalysis_SyntaxNode___Microsoft_CodeAnalysis_SeparatedSyntaxList__0_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.op_Explicit(Microsoft.CodeAnalysis.SeparatedSyntaxList{Microsoft.CodeAnalysis.SyntaxNode})~Microsoft.CodeAnalysis.SeparatedSyntaxList{`0}">explicit operator SeparatedSyntaxList&lt;TNode&gt;(SeparatedSyntaxList&lt;SyntaxNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator SeparatedSyntaxList&lt;TNode&gt;(SeparatedSyntaxList&lt;SyntaxNode&gt; nodes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SeparatedSyntaxList-1.html">SeparatedSyntaxList</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a>&gt;</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_op_Implicit_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.op_Implicit*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_op_Implicit_Microsoft_CodeAnalysis_SeparatedSyntaxList__0___Microsoft_CodeAnalysis_SeparatedSyntaxList_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.op_Implicit(Microsoft.CodeAnalysis.SeparatedSyntaxList{`0})~Microsoft.CodeAnalysis.SeparatedSyntaxList{Microsoft.CodeAnalysis.SyntaxNode}">implicit operator SeparatedSyntaxList&lt;SyntaxNode&gt;(SeparatedSyntaxList&lt;TNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator SeparatedSyntaxList&lt;SyntaxNode&gt;(SeparatedSyntaxList&lt;TNode&gt; nodes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SeparatedSyntaxList-1.html">SeparatedSyntaxList</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_op_Inequality_" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.op_Inequality*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SeparatedSyntaxList_1_op_Inequality_Microsoft_CodeAnalysis_SeparatedSyntaxList__0__Microsoft_CodeAnalysis_SeparatedSyntaxList__0__" data-uid="Microsoft.CodeAnalysis.SeparatedSyntaxList`1.op_Inequality(Microsoft.CodeAnalysis.SeparatedSyntaxList{`0},Microsoft.CodeAnalysis.SeparatedSyntaxList{`0})">operator !=(SeparatedSyntaxList&lt;TNode&gt;, SeparatedSyntaxList&lt;TNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(SeparatedSyntaxList&lt;TNode&gt; left, SeparatedSyntaxList&lt;TNode&gt; right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.separatedsyntaxlist-1">SeparatedSyntaxList</a>&lt;TNode&gt;</td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

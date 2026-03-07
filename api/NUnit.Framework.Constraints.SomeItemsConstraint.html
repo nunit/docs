@@ -102,6 +102,7 @@ item in a collection, succeeding if any of them succeeds.</p>
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><a class="xref" href="NUnit.Framework.Constraints.IEnumerableConstraint.html">IEnumerableConstraint</a></div>
     <div><a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a></div>
     <div><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></div>
   </div>
@@ -181,7 +182,7 @@ item in a collection, succeeding if any of them succeeds.</p>
   <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
   <h5 id="NUnit_Framework_Constraints_SomeItemsConstraint_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SomeItemsConstraint : PrefixConstraint, IConstraint, IResolveConstraint</code></pre>
+    <pre><code class="lang-csharp hljs">public class SomeItemsConstraint : PrefixConstraint, IEnumerableConstraint, IConstraint, IResolveConstraint</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -256,6 +257,79 @@ this to another name in their constructors.</p>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/SomeItemsConstraint.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_Constraints_SomeItemsConstraint_ApplyToEnumerable_" data-uid="NUnit.Framework.Constraints.SomeItemsConstraint.ApplyToEnumerable*"></a>
+  <h4 id="NUnit_Framework_Constraints_SomeItemsConstraint_ApplyToEnumerable__2___0_System_Collections_Generic_IEnumerable___1__" data-uid="NUnit.Framework.Constraints.SomeItemsConstraint.ApplyToEnumerable``2(``0,System.Collections.Generic.IEnumerable{``1})">ApplyToEnumerable&lt;TActual, TItem&gt;(TActual, IEnumerable&lt;TItem&gt;)</h4>
+  <div class="markdown level1 summary"><p>Apply the item constraint to each item in the collection,
+succeeding if any item succeeds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConstraintResult ApplyToEnumerable&lt;TActual, TItem&gt;(TActual actual, IEnumerable&lt;TItem&gt; enumerable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TActual</span></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The value that the collection originated from</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TItem&gt;</td>
+        <td><span class="parametername">enumerable</span></td>
+        <td><p>The collection to be tested</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
+        <td><p>A ConstraintResult</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TItem</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/SomeItemsConstraint.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_Constraints_SomeItemsConstraint_ApplyTo_" data-uid="NUnit.Framework.Constraints.SomeItemsConstraint.ApplyTo*"></a>
   <h4 id="NUnit_Framework_Constraints_SomeItemsConstraint_ApplyTo__1___0_" data-uid="NUnit.Framework.Constraints.SomeItemsConstraint.ApplyTo``1(``0)">ApplyTo&lt;TActual&gt;(TActual)</h4>
   <div class="markdown level1 summary"><p>Apply the item constraint to each item in the collection,
@@ -279,7 +353,8 @@ succeeding if any item succeeds.</p>
       <tr>
         <td><span class="xref">TActual</span></td>
         <td><span class="parametername">actual</span></td>
-        <td></td>
+        <td><p>The value to be tested</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -294,7 +369,8 @@ succeeding if any item succeeds.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
-        <td></td>
+        <td><p>A ConstraintResult</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -487,6 +563,70 @@ without having to compare each property separately in own code.</p>
     </tbody>
   </table>
   <h5 id="NUnit_Framework_Constraints_SomeItemsConstraint_UsingPropertiesComparer_System_Func_NUnit_Framework_Constraints_PropertiesComparerConfigurationUntyped_NUnit_Framework_Constraints_PropertiesComparerConfigurationUntyped___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This allows comparing classes that don't implement <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+without having to compare each property separately in own code.</p>
+</div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/SomeItemsConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_SomeItemsConstraint_UsingPropertiesComparer_" data-uid="NUnit.Framework.Constraints.SomeItemsConstraint.UsingPropertiesComparer*"></a>
+  <h4 id="NUnit_Framework_Constraints_SomeItemsConstraint_UsingPropertiesComparer__1_System_Func_NUnit_Framework_Constraints_PropertiesComparerConfiguration___0__NUnit_Framework_Constraints_PropertiesComparerConfiguration___0___" data-uid="NUnit.Framework.Constraints.SomeItemsConstraint.UsingPropertiesComparer``1(System.Func{NUnit.Framework.Constraints.PropertiesComparerConfiguration{``0},NUnit.Framework.Constraints.PropertiesComparerConfiguration{``0}})">UsingPropertiesComparer&lt;T&gt;(Func&lt;PropertiesComparerConfiguration&lt;T&gt;, PropertiesComparerConfiguration&lt;T&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Enables comparing of instance properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SomeItemsConstraint UsingPropertiesComparer&lt;T&gt;(Func&lt;PropertiesComparerConfiguration&lt;T&gt;, PropertiesComparerConfiguration&lt;T&gt;&gt; configure)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="NUnit.Framework.Constraints.PropertiesComparerConfiguration-1.html">PropertiesComparerConfiguration</a>&lt;T&gt;, <a class="xref" href="NUnit.Framework.Constraints.PropertiesComparerConfiguration-1.html">PropertiesComparerConfiguration</a>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">configure</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.SomeItemsConstraint.html">SomeItemsConstraint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="NUnit_Framework_Constraints_SomeItemsConstraint_UsingPropertiesComparer__1_System_Func_NUnit_Framework_Constraints_PropertiesComparerConfiguration___0__NUnit_Framework_Constraints_PropertiesComparerConfiguration___0____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This allows comparing classes that don't implement <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
 without having to compare each property separately in own code.</p>
 </div>
@@ -745,6 +885,9 @@ without having to compare each property separately in own code.</p>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="NUnit.Framework.Constraints.IEnumerableConstraint.html">IEnumerableConstraint</a>
+  </div>
   <div>
       <a class="xref" href="NUnit.Framework.Constraints.IConstraint.html">IConstraint</a>
   </div>

@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class CSharpSyntaxWalker | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class CSharpSyntaxWalker | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker">
+
+
+
+  <h1 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker" class="text-break">Class CSharpSyntaxWalker</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html">CSharpSyntaxVisitor</a></div>
+    <div class="level2"><span class="xref">CSharpSyntaxWalker</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitIdentifierName_Microsoft_CodeAnalysis_CSharp_Syntax_IdentifierNameSyntax_">CSharpSyntaxVisitor.VisitIdentifierName(IdentifierNameSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitQualifiedName_Microsoft_CodeAnalysis_CSharp_Syntax_QualifiedNameSyntax_">CSharpSyntaxVisitor.VisitQualifiedName(QualifiedNameSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitGenericName_Microsoft_CodeAnalysis_CSharp_Syntax_GenericNameSyntax_">CSharpSyntaxVisitor.VisitGenericName(GenericNameSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTypeArgumentList_Microsoft_CodeAnalysis_CSharp_Syntax_TypeArgumentListSyntax_">CSharpSyntaxVisitor.VisitTypeArgumentList(TypeArgumentListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAliasQualifiedName_Microsoft_CodeAnalysis_CSharp_Syntax_AliasQualifiedNameSyntax_">CSharpSyntaxVisitor.VisitAliasQualifiedName(AliasQualifiedNameSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitPredefinedType_Microsoft_CodeAnalysis_CSharp_Syntax_PredefinedTypeSyntax_">CSharpSyntaxVisitor.VisitPredefinedType(PredefinedTypeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitArrayType_Microsoft_CodeAnalysis_CSharp_Syntax_ArrayTypeSyntax_">CSharpSyntaxVisitor.VisitArrayType(ArrayTypeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitArrayRankSpecifier_Microsoft_CodeAnalysis_CSharp_Syntax_ArrayRankSpecifierSyntax_">CSharpSyntaxVisitor.VisitArrayRankSpecifier(ArrayRankSpecifierSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitPointerType_Microsoft_CodeAnalysis_CSharp_Syntax_PointerTypeSyntax_">CSharpSyntaxVisitor.VisitPointerType(PointerTypeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFunctionPointerType_Microsoft_CodeAnalysis_CSharp_Syntax_FunctionPointerTypeSyntax_">CSharpSyntaxVisitor.VisitFunctionPointerType(FunctionPointerTypeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFunctionPointerParameterList_Microsoft_CodeAnalysis_CSharp_Syntax_FunctionPointerParameterListSyntax_">CSharpSyntaxVisitor.VisitFunctionPointerParameterList(FunctionPointerParameterListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFunctionPointerCallingConvention_Microsoft_CodeAnalysis_CSharp_Syntax_FunctionPointerCallingConventionSyntax_">CSharpSyntaxVisitor.VisitFunctionPointerCallingConvention(FunctionPointerCallingConventionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFunctionPointerUnmanagedCallingConventionList_Microsoft_CodeAnalysis_CSharp_Syntax_FunctionPointerUnmanagedCallingConventionListSyntax_">CSharpSyntaxVisitor.VisitFunctionPointerUnmanagedCallingConventionList(FunctionPointerUnmanagedCallingConventionListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFunctionPointerUnmanagedCallingConvention_Microsoft_CodeAnalysis_CSharp_Syntax_FunctionPointerUnmanagedCallingConventionSyntax_">CSharpSyntaxVisitor.VisitFunctionPointerUnmanagedCallingConvention(FunctionPointerUnmanagedCallingConventionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitNullableType_Microsoft_CodeAnalysis_CSharp_Syntax_NullableTypeSyntax_">CSharpSyntaxVisitor.VisitNullableType(NullableTypeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTupleType_Microsoft_CodeAnalysis_CSharp_Syntax_TupleTypeSyntax_">CSharpSyntaxVisitor.VisitTupleType(TupleTypeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTupleElement_Microsoft_CodeAnalysis_CSharp_Syntax_TupleElementSyntax_">CSharpSyntaxVisitor.VisitTupleElement(TupleElementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitOmittedTypeArgument_Microsoft_CodeAnalysis_CSharp_Syntax_OmittedTypeArgumentSyntax_">CSharpSyntaxVisitor.VisitOmittedTypeArgument(OmittedTypeArgumentSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitRefType_Microsoft_CodeAnalysis_CSharp_Syntax_RefTypeSyntax_">CSharpSyntaxVisitor.VisitRefType(RefTypeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitScopedType_Microsoft_CodeAnalysis_CSharp_Syntax_ScopedTypeSyntax_">CSharpSyntaxVisitor.VisitScopedType(ScopedTypeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitParenthesizedExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ParenthesizedExpressionSyntax_">CSharpSyntaxVisitor.VisitParenthesizedExpression(ParenthesizedExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTupleExpression_Microsoft_CodeAnalysis_CSharp_Syntax_TupleExpressionSyntax_">CSharpSyntaxVisitor.VisitTupleExpression(TupleExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitPrefixUnaryExpression_Microsoft_CodeAnalysis_CSharp_Syntax_PrefixUnaryExpressionSyntax_">CSharpSyntaxVisitor.VisitPrefixUnaryExpression(PrefixUnaryExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAwaitExpression_Microsoft_CodeAnalysis_CSharp_Syntax_AwaitExpressionSyntax_">CSharpSyntaxVisitor.VisitAwaitExpression(AwaitExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitPostfixUnaryExpression_Microsoft_CodeAnalysis_CSharp_Syntax_PostfixUnaryExpressionSyntax_">CSharpSyntaxVisitor.VisitPostfixUnaryExpression(PostfixUnaryExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitMemberAccessExpression_Microsoft_CodeAnalysis_CSharp_Syntax_MemberAccessExpressionSyntax_">CSharpSyntaxVisitor.VisitMemberAccessExpression(MemberAccessExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitConditionalAccessExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ConditionalAccessExpressionSyntax_">CSharpSyntaxVisitor.VisitConditionalAccessExpression(ConditionalAccessExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitMemberBindingExpression_Microsoft_CodeAnalysis_CSharp_Syntax_MemberBindingExpressionSyntax_">CSharpSyntaxVisitor.VisitMemberBindingExpression(MemberBindingExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitElementBindingExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ElementBindingExpressionSyntax_">CSharpSyntaxVisitor.VisitElementBindingExpression(ElementBindingExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitRangeExpression_Microsoft_CodeAnalysis_CSharp_Syntax_RangeExpressionSyntax_">CSharpSyntaxVisitor.VisitRangeExpression(RangeExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitImplicitElementAccess_Microsoft_CodeAnalysis_CSharp_Syntax_ImplicitElementAccessSyntax_">CSharpSyntaxVisitor.VisitImplicitElementAccess(ImplicitElementAccessSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitBinaryExpression_Microsoft_CodeAnalysis_CSharp_Syntax_BinaryExpressionSyntax_">CSharpSyntaxVisitor.VisitBinaryExpression(BinaryExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAssignmentExpression_Microsoft_CodeAnalysis_CSharp_Syntax_AssignmentExpressionSyntax_">CSharpSyntaxVisitor.VisitAssignmentExpression(AssignmentExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitConditionalExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ConditionalExpressionSyntax_">CSharpSyntaxVisitor.VisitConditionalExpression(ConditionalExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitThisExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ThisExpressionSyntax_">CSharpSyntaxVisitor.VisitThisExpression(ThisExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitBaseExpression_Microsoft_CodeAnalysis_CSharp_Syntax_BaseExpressionSyntax_">CSharpSyntaxVisitor.VisitBaseExpression(BaseExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitLiteralExpression_Microsoft_CodeAnalysis_CSharp_Syntax_LiteralExpressionSyntax_">CSharpSyntaxVisitor.VisitLiteralExpression(LiteralExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFieldExpression_Microsoft_CodeAnalysis_CSharp_Syntax_FieldExpressionSyntax_">CSharpSyntaxVisitor.VisitFieldExpression(FieldExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitMakeRefExpression_Microsoft_CodeAnalysis_CSharp_Syntax_MakeRefExpressionSyntax_">CSharpSyntaxVisitor.VisitMakeRefExpression(MakeRefExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitRefTypeExpression_Microsoft_CodeAnalysis_CSharp_Syntax_RefTypeExpressionSyntax_">CSharpSyntaxVisitor.VisitRefTypeExpression(RefTypeExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitRefValueExpression_Microsoft_CodeAnalysis_CSharp_Syntax_RefValueExpressionSyntax_">CSharpSyntaxVisitor.VisitRefValueExpression(RefValueExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCheckedExpression_Microsoft_CodeAnalysis_CSharp_Syntax_CheckedExpressionSyntax_">CSharpSyntaxVisitor.VisitCheckedExpression(CheckedExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDefaultExpression_Microsoft_CodeAnalysis_CSharp_Syntax_DefaultExpressionSyntax_">CSharpSyntaxVisitor.VisitDefaultExpression(DefaultExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTypeOfExpression_Microsoft_CodeAnalysis_CSharp_Syntax_TypeOfExpressionSyntax_">CSharpSyntaxVisitor.VisitTypeOfExpression(TypeOfExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSizeOfExpression_Microsoft_CodeAnalysis_CSharp_Syntax_SizeOfExpressionSyntax_">CSharpSyntaxVisitor.VisitSizeOfExpression(SizeOfExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitInvocationExpression_Microsoft_CodeAnalysis_CSharp_Syntax_InvocationExpressionSyntax_">CSharpSyntaxVisitor.VisitInvocationExpression(InvocationExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitElementAccessExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ElementAccessExpressionSyntax_">CSharpSyntaxVisitor.VisitElementAccessExpression(ElementAccessExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitArgumentList_Microsoft_CodeAnalysis_CSharp_Syntax_ArgumentListSyntax_">CSharpSyntaxVisitor.VisitArgumentList(ArgumentListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitBracketedArgumentList_Microsoft_CodeAnalysis_CSharp_Syntax_BracketedArgumentListSyntax_">CSharpSyntaxVisitor.VisitBracketedArgumentList(BracketedArgumentListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitArgument_Microsoft_CodeAnalysis_CSharp_Syntax_ArgumentSyntax_">CSharpSyntaxVisitor.VisitArgument(ArgumentSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitExpressionColon_Microsoft_CodeAnalysis_CSharp_Syntax_ExpressionColonSyntax_">CSharpSyntaxVisitor.VisitExpressionColon(ExpressionColonSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitNameColon_Microsoft_CodeAnalysis_CSharp_Syntax_NameColonSyntax_">CSharpSyntaxVisitor.VisitNameColon(NameColonSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDeclarationExpression_Microsoft_CodeAnalysis_CSharp_Syntax_DeclarationExpressionSyntax_">CSharpSyntaxVisitor.VisitDeclarationExpression(DeclarationExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCastExpression_Microsoft_CodeAnalysis_CSharp_Syntax_CastExpressionSyntax_">CSharpSyntaxVisitor.VisitCastExpression(CastExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAnonymousMethodExpression_Microsoft_CodeAnalysis_CSharp_Syntax_AnonymousMethodExpressionSyntax_">CSharpSyntaxVisitor.VisitAnonymousMethodExpression(AnonymousMethodExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSimpleLambdaExpression_Microsoft_CodeAnalysis_CSharp_Syntax_SimpleLambdaExpressionSyntax_">CSharpSyntaxVisitor.VisitSimpleLambdaExpression(SimpleLambdaExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitRefExpression_Microsoft_CodeAnalysis_CSharp_Syntax_RefExpressionSyntax_">CSharpSyntaxVisitor.VisitRefExpression(RefExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitParenthesizedLambdaExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ParenthesizedLambdaExpressionSyntax_">CSharpSyntaxVisitor.VisitParenthesizedLambdaExpression(ParenthesizedLambdaExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitInitializerExpression_Microsoft_CodeAnalysis_CSharp_Syntax_InitializerExpressionSyntax_">CSharpSyntaxVisitor.VisitInitializerExpression(InitializerExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitImplicitObjectCreationExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ImplicitObjectCreationExpressionSyntax_">CSharpSyntaxVisitor.VisitImplicitObjectCreationExpression(ImplicitObjectCreationExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitObjectCreationExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ObjectCreationExpressionSyntax_">CSharpSyntaxVisitor.VisitObjectCreationExpression(ObjectCreationExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitWithExpression_Microsoft_CodeAnalysis_CSharp_Syntax_WithExpressionSyntax_">CSharpSyntaxVisitor.VisitWithExpression(WithExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAnonymousObjectMemberDeclarator_Microsoft_CodeAnalysis_CSharp_Syntax_AnonymousObjectMemberDeclaratorSyntax_">CSharpSyntaxVisitor.VisitAnonymousObjectMemberDeclarator(AnonymousObjectMemberDeclaratorSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAnonymousObjectCreationExpression_Microsoft_CodeAnalysis_CSharp_Syntax_AnonymousObjectCreationExpressionSyntax_">CSharpSyntaxVisitor.VisitAnonymousObjectCreationExpression(AnonymousObjectCreationExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitArrayCreationExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ArrayCreationExpressionSyntax_">CSharpSyntaxVisitor.VisitArrayCreationExpression(ArrayCreationExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitImplicitArrayCreationExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ImplicitArrayCreationExpressionSyntax_">CSharpSyntaxVisitor.VisitImplicitArrayCreationExpression(ImplicitArrayCreationExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitStackAllocArrayCreationExpression_Microsoft_CodeAnalysis_CSharp_Syntax_StackAllocArrayCreationExpressionSyntax_">CSharpSyntaxVisitor.VisitStackAllocArrayCreationExpression(StackAllocArrayCreationExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitImplicitStackAllocArrayCreationExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ImplicitStackAllocArrayCreationExpressionSyntax_">CSharpSyntaxVisitor.VisitImplicitStackAllocArrayCreationExpression(ImplicitStackAllocArrayCreationExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCollectionExpression_Microsoft_CodeAnalysis_CSharp_Syntax_CollectionExpressionSyntax_">CSharpSyntaxVisitor.VisitCollectionExpression(CollectionExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitExpressionElement_Microsoft_CodeAnalysis_CSharp_Syntax_ExpressionElementSyntax_">CSharpSyntaxVisitor.VisitExpressionElement(ExpressionElementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSpreadElement_Microsoft_CodeAnalysis_CSharp_Syntax_SpreadElementSyntax_">CSharpSyntaxVisitor.VisitSpreadElement(SpreadElementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitQueryExpression_Microsoft_CodeAnalysis_CSharp_Syntax_QueryExpressionSyntax_">CSharpSyntaxVisitor.VisitQueryExpression(QueryExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitQueryBody_Microsoft_CodeAnalysis_CSharp_Syntax_QueryBodySyntax_">CSharpSyntaxVisitor.VisitQueryBody(QueryBodySyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFromClause_Microsoft_CodeAnalysis_CSharp_Syntax_FromClauseSyntax_">CSharpSyntaxVisitor.VisitFromClause(FromClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitLetClause_Microsoft_CodeAnalysis_CSharp_Syntax_LetClauseSyntax_">CSharpSyntaxVisitor.VisitLetClause(LetClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitJoinClause_Microsoft_CodeAnalysis_CSharp_Syntax_JoinClauseSyntax_">CSharpSyntaxVisitor.VisitJoinClause(JoinClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitJoinIntoClause_Microsoft_CodeAnalysis_CSharp_Syntax_JoinIntoClauseSyntax_">CSharpSyntaxVisitor.VisitJoinIntoClause(JoinIntoClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitWhereClause_Microsoft_CodeAnalysis_CSharp_Syntax_WhereClauseSyntax_">CSharpSyntaxVisitor.VisitWhereClause(WhereClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitOrderByClause_Microsoft_CodeAnalysis_CSharp_Syntax_OrderByClauseSyntax_">CSharpSyntaxVisitor.VisitOrderByClause(OrderByClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitOrdering_Microsoft_CodeAnalysis_CSharp_Syntax_OrderingSyntax_">CSharpSyntaxVisitor.VisitOrdering(OrderingSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSelectClause_Microsoft_CodeAnalysis_CSharp_Syntax_SelectClauseSyntax_">CSharpSyntaxVisitor.VisitSelectClause(SelectClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitGroupClause_Microsoft_CodeAnalysis_CSharp_Syntax_GroupClauseSyntax_">CSharpSyntaxVisitor.VisitGroupClause(GroupClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitQueryContinuation_Microsoft_CodeAnalysis_CSharp_Syntax_QueryContinuationSyntax_">CSharpSyntaxVisitor.VisitQueryContinuation(QueryContinuationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitOmittedArraySizeExpression_Microsoft_CodeAnalysis_CSharp_Syntax_OmittedArraySizeExpressionSyntax_">CSharpSyntaxVisitor.VisitOmittedArraySizeExpression(OmittedArraySizeExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitInterpolatedStringExpression_Microsoft_CodeAnalysis_CSharp_Syntax_InterpolatedStringExpressionSyntax_">CSharpSyntaxVisitor.VisitInterpolatedStringExpression(InterpolatedStringExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitIsPatternExpression_Microsoft_CodeAnalysis_CSharp_Syntax_IsPatternExpressionSyntax_">CSharpSyntaxVisitor.VisitIsPatternExpression(IsPatternExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitThrowExpression_Microsoft_CodeAnalysis_CSharp_Syntax_ThrowExpressionSyntax_">CSharpSyntaxVisitor.VisitThrowExpression(ThrowExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitWhenClause_Microsoft_CodeAnalysis_CSharp_Syntax_WhenClauseSyntax_">CSharpSyntaxVisitor.VisitWhenClause(WhenClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDiscardPattern_Microsoft_CodeAnalysis_CSharp_Syntax_DiscardPatternSyntax_">CSharpSyntaxVisitor.VisitDiscardPattern(DiscardPatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDeclarationPattern_Microsoft_CodeAnalysis_CSharp_Syntax_DeclarationPatternSyntax_">CSharpSyntaxVisitor.VisitDeclarationPattern(DeclarationPatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitVarPattern_Microsoft_CodeAnalysis_CSharp_Syntax_VarPatternSyntax_">CSharpSyntaxVisitor.VisitVarPattern(VarPatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitRecursivePattern_Microsoft_CodeAnalysis_CSharp_Syntax_RecursivePatternSyntax_">CSharpSyntaxVisitor.VisitRecursivePattern(RecursivePatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitPositionalPatternClause_Microsoft_CodeAnalysis_CSharp_Syntax_PositionalPatternClauseSyntax_">CSharpSyntaxVisitor.VisitPositionalPatternClause(PositionalPatternClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitPropertyPatternClause_Microsoft_CodeAnalysis_CSharp_Syntax_PropertyPatternClauseSyntax_">CSharpSyntaxVisitor.VisitPropertyPatternClause(PropertyPatternClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSubpattern_Microsoft_CodeAnalysis_CSharp_Syntax_SubpatternSyntax_">CSharpSyntaxVisitor.VisitSubpattern(SubpatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitConstantPattern_Microsoft_CodeAnalysis_CSharp_Syntax_ConstantPatternSyntax_">CSharpSyntaxVisitor.VisitConstantPattern(ConstantPatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitParenthesizedPattern_Microsoft_CodeAnalysis_CSharp_Syntax_ParenthesizedPatternSyntax_">CSharpSyntaxVisitor.VisitParenthesizedPattern(ParenthesizedPatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitRelationalPattern_Microsoft_CodeAnalysis_CSharp_Syntax_RelationalPatternSyntax_">CSharpSyntaxVisitor.VisitRelationalPattern(RelationalPatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTypePattern_Microsoft_CodeAnalysis_CSharp_Syntax_TypePatternSyntax_">CSharpSyntaxVisitor.VisitTypePattern(TypePatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitBinaryPattern_Microsoft_CodeAnalysis_CSharp_Syntax_BinaryPatternSyntax_">CSharpSyntaxVisitor.VisitBinaryPattern(BinaryPatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitUnaryPattern_Microsoft_CodeAnalysis_CSharp_Syntax_UnaryPatternSyntax_">CSharpSyntaxVisitor.VisitUnaryPattern(UnaryPatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitListPattern_Microsoft_CodeAnalysis_CSharp_Syntax_ListPatternSyntax_">CSharpSyntaxVisitor.VisitListPattern(ListPatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSlicePattern_Microsoft_CodeAnalysis_CSharp_Syntax_SlicePatternSyntax_">CSharpSyntaxVisitor.VisitSlicePattern(SlicePatternSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitInterpolatedStringText_Microsoft_CodeAnalysis_CSharp_Syntax_InterpolatedStringTextSyntax_">CSharpSyntaxVisitor.VisitInterpolatedStringText(InterpolatedStringTextSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitInterpolation_Microsoft_CodeAnalysis_CSharp_Syntax_InterpolationSyntax_">CSharpSyntaxVisitor.VisitInterpolation(InterpolationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitInterpolationAlignmentClause_Microsoft_CodeAnalysis_CSharp_Syntax_InterpolationAlignmentClauseSyntax_">CSharpSyntaxVisitor.VisitInterpolationAlignmentClause(InterpolationAlignmentClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitInterpolationFormatClause_Microsoft_CodeAnalysis_CSharp_Syntax_InterpolationFormatClauseSyntax_">CSharpSyntaxVisitor.VisitInterpolationFormatClause(InterpolationFormatClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitGlobalStatement_Microsoft_CodeAnalysis_CSharp_Syntax_GlobalStatementSyntax_">CSharpSyntaxVisitor.VisitGlobalStatement(GlobalStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitBlock_Microsoft_CodeAnalysis_CSharp_Syntax_BlockSyntax_">CSharpSyntaxVisitor.VisitBlock(BlockSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitLocalFunctionStatement_Microsoft_CodeAnalysis_CSharp_Syntax_LocalFunctionStatementSyntax_">CSharpSyntaxVisitor.VisitLocalFunctionStatement(LocalFunctionStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitLocalDeclarationStatement_Microsoft_CodeAnalysis_CSharp_Syntax_LocalDeclarationStatementSyntax_">CSharpSyntaxVisitor.VisitLocalDeclarationStatement(LocalDeclarationStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitVariableDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_VariableDeclarationSyntax_">CSharpSyntaxVisitor.VisitVariableDeclaration(VariableDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitVariableDeclarator_Microsoft_CodeAnalysis_CSharp_Syntax_VariableDeclaratorSyntax_">CSharpSyntaxVisitor.VisitVariableDeclarator(VariableDeclaratorSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitEqualsValueClause_Microsoft_CodeAnalysis_CSharp_Syntax_EqualsValueClauseSyntax_">CSharpSyntaxVisitor.VisitEqualsValueClause(EqualsValueClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSingleVariableDesignation_Microsoft_CodeAnalysis_CSharp_Syntax_SingleVariableDesignationSyntax_">CSharpSyntaxVisitor.VisitSingleVariableDesignation(SingleVariableDesignationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDiscardDesignation_Microsoft_CodeAnalysis_CSharp_Syntax_DiscardDesignationSyntax_">CSharpSyntaxVisitor.VisitDiscardDesignation(DiscardDesignationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitParenthesizedVariableDesignation_Microsoft_CodeAnalysis_CSharp_Syntax_ParenthesizedVariableDesignationSyntax_">CSharpSyntaxVisitor.VisitParenthesizedVariableDesignation(ParenthesizedVariableDesignationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitExpressionStatement_Microsoft_CodeAnalysis_CSharp_Syntax_ExpressionStatementSyntax_">CSharpSyntaxVisitor.VisitExpressionStatement(ExpressionStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitEmptyStatement_Microsoft_CodeAnalysis_CSharp_Syntax_EmptyStatementSyntax_">CSharpSyntaxVisitor.VisitEmptyStatement(EmptyStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitLabeledStatement_Microsoft_CodeAnalysis_CSharp_Syntax_LabeledStatementSyntax_">CSharpSyntaxVisitor.VisitLabeledStatement(LabeledStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitGotoStatement_Microsoft_CodeAnalysis_CSharp_Syntax_GotoStatementSyntax_">CSharpSyntaxVisitor.VisitGotoStatement(GotoStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitBreakStatement_Microsoft_CodeAnalysis_CSharp_Syntax_BreakStatementSyntax_">CSharpSyntaxVisitor.VisitBreakStatement(BreakStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitContinueStatement_Microsoft_CodeAnalysis_CSharp_Syntax_ContinueStatementSyntax_">CSharpSyntaxVisitor.VisitContinueStatement(ContinueStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitReturnStatement_Microsoft_CodeAnalysis_CSharp_Syntax_ReturnStatementSyntax_">CSharpSyntaxVisitor.VisitReturnStatement(ReturnStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitThrowStatement_Microsoft_CodeAnalysis_CSharp_Syntax_ThrowStatementSyntax_">CSharpSyntaxVisitor.VisitThrowStatement(ThrowStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitYieldStatement_Microsoft_CodeAnalysis_CSharp_Syntax_YieldStatementSyntax_">CSharpSyntaxVisitor.VisitYieldStatement(YieldStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitWhileStatement_Microsoft_CodeAnalysis_CSharp_Syntax_WhileStatementSyntax_">CSharpSyntaxVisitor.VisitWhileStatement(WhileStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDoStatement_Microsoft_CodeAnalysis_CSharp_Syntax_DoStatementSyntax_">CSharpSyntaxVisitor.VisitDoStatement(DoStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitForStatement_Microsoft_CodeAnalysis_CSharp_Syntax_ForStatementSyntax_">CSharpSyntaxVisitor.VisitForStatement(ForStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitForEachStatement_Microsoft_CodeAnalysis_CSharp_Syntax_ForEachStatementSyntax_">CSharpSyntaxVisitor.VisitForEachStatement(ForEachStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitForEachVariableStatement_Microsoft_CodeAnalysis_CSharp_Syntax_ForEachVariableStatementSyntax_">CSharpSyntaxVisitor.VisitForEachVariableStatement(ForEachVariableStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitUsingStatement_Microsoft_CodeAnalysis_CSharp_Syntax_UsingStatementSyntax_">CSharpSyntaxVisitor.VisitUsingStatement(UsingStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFixedStatement_Microsoft_CodeAnalysis_CSharp_Syntax_FixedStatementSyntax_">CSharpSyntaxVisitor.VisitFixedStatement(FixedStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCheckedStatement_Microsoft_CodeAnalysis_CSharp_Syntax_CheckedStatementSyntax_">CSharpSyntaxVisitor.VisitCheckedStatement(CheckedStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitUnsafeStatement_Microsoft_CodeAnalysis_CSharp_Syntax_UnsafeStatementSyntax_">CSharpSyntaxVisitor.VisitUnsafeStatement(UnsafeStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitLockStatement_Microsoft_CodeAnalysis_CSharp_Syntax_LockStatementSyntax_">CSharpSyntaxVisitor.VisitLockStatement(LockStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitIfStatement_Microsoft_CodeAnalysis_CSharp_Syntax_IfStatementSyntax_">CSharpSyntaxVisitor.VisitIfStatement(IfStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitElseClause_Microsoft_CodeAnalysis_CSharp_Syntax_ElseClauseSyntax_">CSharpSyntaxVisitor.VisitElseClause(ElseClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSwitchStatement_Microsoft_CodeAnalysis_CSharp_Syntax_SwitchStatementSyntax_">CSharpSyntaxVisitor.VisitSwitchStatement(SwitchStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSwitchSection_Microsoft_CodeAnalysis_CSharp_Syntax_SwitchSectionSyntax_">CSharpSyntaxVisitor.VisitSwitchSection(SwitchSectionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCasePatternSwitchLabel_Microsoft_CodeAnalysis_CSharp_Syntax_CasePatternSwitchLabelSyntax_">CSharpSyntaxVisitor.VisitCasePatternSwitchLabel(CasePatternSwitchLabelSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCaseSwitchLabel_Microsoft_CodeAnalysis_CSharp_Syntax_CaseSwitchLabelSyntax_">CSharpSyntaxVisitor.VisitCaseSwitchLabel(CaseSwitchLabelSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDefaultSwitchLabel_Microsoft_CodeAnalysis_CSharp_Syntax_DefaultSwitchLabelSyntax_">CSharpSyntaxVisitor.VisitDefaultSwitchLabel(DefaultSwitchLabelSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSwitchExpression_Microsoft_CodeAnalysis_CSharp_Syntax_SwitchExpressionSyntax_">CSharpSyntaxVisitor.VisitSwitchExpression(SwitchExpressionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSwitchExpressionArm_Microsoft_CodeAnalysis_CSharp_Syntax_SwitchExpressionArmSyntax_">CSharpSyntaxVisitor.VisitSwitchExpressionArm(SwitchExpressionArmSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTryStatement_Microsoft_CodeAnalysis_CSharp_Syntax_TryStatementSyntax_">CSharpSyntaxVisitor.VisitTryStatement(TryStatementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCatchClause_Microsoft_CodeAnalysis_CSharp_Syntax_CatchClauseSyntax_">CSharpSyntaxVisitor.VisitCatchClause(CatchClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCatchDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_CatchDeclarationSyntax_">CSharpSyntaxVisitor.VisitCatchDeclaration(CatchDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCatchFilterClause_Microsoft_CodeAnalysis_CSharp_Syntax_CatchFilterClauseSyntax_">CSharpSyntaxVisitor.VisitCatchFilterClause(CatchFilterClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFinallyClause_Microsoft_CodeAnalysis_CSharp_Syntax_FinallyClauseSyntax_">CSharpSyntaxVisitor.VisitFinallyClause(FinallyClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCompilationUnit_Microsoft_CodeAnalysis_CSharp_Syntax_CompilationUnitSyntax_">CSharpSyntaxVisitor.VisitCompilationUnit(CompilationUnitSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitExternAliasDirective_Microsoft_CodeAnalysis_CSharp_Syntax_ExternAliasDirectiveSyntax_">CSharpSyntaxVisitor.VisitExternAliasDirective(ExternAliasDirectiveSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitUsingDirective_Microsoft_CodeAnalysis_CSharp_Syntax_UsingDirectiveSyntax_">CSharpSyntaxVisitor.VisitUsingDirective(UsingDirectiveSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitNamespaceDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_NamespaceDeclarationSyntax_">CSharpSyntaxVisitor.VisitNamespaceDeclaration(NamespaceDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFileScopedNamespaceDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_FileScopedNamespaceDeclarationSyntax_">CSharpSyntaxVisitor.VisitFileScopedNamespaceDeclaration(FileScopedNamespaceDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAttributeList_Microsoft_CodeAnalysis_CSharp_Syntax_AttributeListSyntax_">CSharpSyntaxVisitor.VisitAttributeList(AttributeListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAttributeTargetSpecifier_Microsoft_CodeAnalysis_CSharp_Syntax_AttributeTargetSpecifierSyntax_">CSharpSyntaxVisitor.VisitAttributeTargetSpecifier(AttributeTargetSpecifierSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAttribute_Microsoft_CodeAnalysis_CSharp_Syntax_AttributeSyntax_">CSharpSyntaxVisitor.VisitAttribute(AttributeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAttributeArgumentList_Microsoft_CodeAnalysis_CSharp_Syntax_AttributeArgumentListSyntax_">CSharpSyntaxVisitor.VisitAttributeArgumentList(AttributeArgumentListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAttributeArgument_Microsoft_CodeAnalysis_CSharp_Syntax_AttributeArgumentSyntax_">CSharpSyntaxVisitor.VisitAttributeArgument(AttributeArgumentSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitNameEquals_Microsoft_CodeAnalysis_CSharp_Syntax_NameEqualsSyntax_">CSharpSyntaxVisitor.VisitNameEquals(NameEqualsSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTypeParameterList_Microsoft_CodeAnalysis_CSharp_Syntax_TypeParameterListSyntax_">CSharpSyntaxVisitor.VisitTypeParameterList(TypeParameterListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTypeParameter_Microsoft_CodeAnalysis_CSharp_Syntax_TypeParameterSyntax_">CSharpSyntaxVisitor.VisitTypeParameter(TypeParameterSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitClassDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_ClassDeclarationSyntax_">CSharpSyntaxVisitor.VisitClassDeclaration(ClassDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitStructDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_StructDeclarationSyntax_">CSharpSyntaxVisitor.VisitStructDeclaration(StructDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitInterfaceDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_InterfaceDeclarationSyntax_">CSharpSyntaxVisitor.VisitInterfaceDeclaration(InterfaceDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitRecordDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_RecordDeclarationSyntax_">CSharpSyntaxVisitor.VisitRecordDeclaration(RecordDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitEnumDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_EnumDeclarationSyntax_">CSharpSyntaxVisitor.VisitEnumDeclaration(EnumDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDelegateDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_DelegateDeclarationSyntax_">CSharpSyntaxVisitor.VisitDelegateDeclaration(DelegateDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitEnumMemberDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_EnumMemberDeclarationSyntax_">CSharpSyntaxVisitor.VisitEnumMemberDeclaration(EnumMemberDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitBaseList_Microsoft_CodeAnalysis_CSharp_Syntax_BaseListSyntax_">CSharpSyntaxVisitor.VisitBaseList(BaseListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSimpleBaseType_Microsoft_CodeAnalysis_CSharp_Syntax_SimpleBaseTypeSyntax_">CSharpSyntaxVisitor.VisitSimpleBaseType(SimpleBaseTypeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitPrimaryConstructorBaseType_Microsoft_CodeAnalysis_CSharp_Syntax_PrimaryConstructorBaseTypeSyntax_">CSharpSyntaxVisitor.VisitPrimaryConstructorBaseType(PrimaryConstructorBaseTypeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTypeParameterConstraintClause_Microsoft_CodeAnalysis_CSharp_Syntax_TypeParameterConstraintClauseSyntax_">CSharpSyntaxVisitor.VisitTypeParameterConstraintClause(TypeParameterConstraintClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitConstructorConstraint_Microsoft_CodeAnalysis_CSharp_Syntax_ConstructorConstraintSyntax_">CSharpSyntaxVisitor.VisitConstructorConstraint(ConstructorConstraintSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitClassOrStructConstraint_Microsoft_CodeAnalysis_CSharp_Syntax_ClassOrStructConstraintSyntax_">CSharpSyntaxVisitor.VisitClassOrStructConstraint(ClassOrStructConstraintSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTypeConstraint_Microsoft_CodeAnalysis_CSharp_Syntax_TypeConstraintSyntax_">CSharpSyntaxVisitor.VisitTypeConstraint(TypeConstraintSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDefaultConstraint_Microsoft_CodeAnalysis_CSharp_Syntax_DefaultConstraintSyntax_">CSharpSyntaxVisitor.VisitDefaultConstraint(DefaultConstraintSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAllowsConstraintClause_Microsoft_CodeAnalysis_CSharp_Syntax_AllowsConstraintClauseSyntax_">CSharpSyntaxVisitor.VisitAllowsConstraintClause(AllowsConstraintClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitRefStructConstraint_Microsoft_CodeAnalysis_CSharp_Syntax_RefStructConstraintSyntax_">CSharpSyntaxVisitor.VisitRefStructConstraint(RefStructConstraintSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFieldDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_FieldDeclarationSyntax_">CSharpSyntaxVisitor.VisitFieldDeclaration(FieldDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitEventFieldDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_EventFieldDeclarationSyntax_">CSharpSyntaxVisitor.VisitEventFieldDeclaration(EventFieldDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitExplicitInterfaceSpecifier_Microsoft_CodeAnalysis_CSharp_Syntax_ExplicitInterfaceSpecifierSyntax_">CSharpSyntaxVisitor.VisitExplicitInterfaceSpecifier(ExplicitInterfaceSpecifierSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitMethodDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_MethodDeclarationSyntax_">CSharpSyntaxVisitor.VisitMethodDeclaration(MethodDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitOperatorDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_OperatorDeclarationSyntax_">CSharpSyntaxVisitor.VisitOperatorDeclaration(OperatorDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitConversionOperatorDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_ConversionOperatorDeclarationSyntax_">CSharpSyntaxVisitor.VisitConversionOperatorDeclaration(ConversionOperatorDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitConstructorDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_ConstructorDeclarationSyntax_">CSharpSyntaxVisitor.VisitConstructorDeclaration(ConstructorDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitConstructorInitializer_Microsoft_CodeAnalysis_CSharp_Syntax_ConstructorInitializerSyntax_">CSharpSyntaxVisitor.VisitConstructorInitializer(ConstructorInitializerSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDestructorDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_DestructorDeclarationSyntax_">CSharpSyntaxVisitor.VisitDestructorDeclaration(DestructorDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitPropertyDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_PropertyDeclarationSyntax_">CSharpSyntaxVisitor.VisitPropertyDeclaration(PropertyDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitArrowExpressionClause_Microsoft_CodeAnalysis_CSharp_Syntax_ArrowExpressionClauseSyntax_">CSharpSyntaxVisitor.VisitArrowExpressionClause(ArrowExpressionClauseSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitEventDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_EventDeclarationSyntax_">CSharpSyntaxVisitor.VisitEventDeclaration(EventDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitIndexerDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_IndexerDeclarationSyntax_">CSharpSyntaxVisitor.VisitIndexerDeclaration(IndexerDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAccessorList_Microsoft_CodeAnalysis_CSharp_Syntax_AccessorListSyntax_">CSharpSyntaxVisitor.VisitAccessorList(AccessorListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitAccessorDeclaration_Microsoft_CodeAnalysis_CSharp_Syntax_AccessorDeclarationSyntax_">CSharpSyntaxVisitor.VisitAccessorDeclaration(AccessorDeclarationSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitParameterList_Microsoft_CodeAnalysis_CSharp_Syntax_ParameterListSyntax_">CSharpSyntaxVisitor.VisitParameterList(ParameterListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitBracketedParameterList_Microsoft_CodeAnalysis_CSharp_Syntax_BracketedParameterListSyntax_">CSharpSyntaxVisitor.VisitBracketedParameterList(BracketedParameterListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitParameter_Microsoft_CodeAnalysis_CSharp_Syntax_ParameterSyntax_">CSharpSyntaxVisitor.VisitParameter(ParameterSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitFunctionPointerParameter_Microsoft_CodeAnalysis_CSharp_Syntax_FunctionPointerParameterSyntax_">CSharpSyntaxVisitor.VisitFunctionPointerParameter(FunctionPointerParameterSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitIncompleteMember_Microsoft_CodeAnalysis_CSharp_Syntax_IncompleteMemberSyntax_">CSharpSyntaxVisitor.VisitIncompleteMember(IncompleteMemberSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitSkippedTokensTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_SkippedTokensTriviaSyntax_">CSharpSyntaxVisitor.VisitSkippedTokensTrivia(SkippedTokensTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDocumentationCommentTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_DocumentationCommentTriviaSyntax_">CSharpSyntaxVisitor.VisitDocumentationCommentTrivia(DocumentationCommentTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitTypeCref_Microsoft_CodeAnalysis_CSharp_Syntax_TypeCrefSyntax_">CSharpSyntaxVisitor.VisitTypeCref(TypeCrefSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitQualifiedCref_Microsoft_CodeAnalysis_CSharp_Syntax_QualifiedCrefSyntax_">CSharpSyntaxVisitor.VisitQualifiedCref(QualifiedCrefSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitNameMemberCref_Microsoft_CodeAnalysis_CSharp_Syntax_NameMemberCrefSyntax_">CSharpSyntaxVisitor.VisitNameMemberCref(NameMemberCrefSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitIndexerMemberCref_Microsoft_CodeAnalysis_CSharp_Syntax_IndexerMemberCrefSyntax_">CSharpSyntaxVisitor.VisitIndexerMemberCref(IndexerMemberCrefSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitOperatorMemberCref_Microsoft_CodeAnalysis_CSharp_Syntax_OperatorMemberCrefSyntax_">CSharpSyntaxVisitor.VisitOperatorMemberCref(OperatorMemberCrefSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitConversionOperatorMemberCref_Microsoft_CodeAnalysis_CSharp_Syntax_ConversionOperatorMemberCrefSyntax_">CSharpSyntaxVisitor.VisitConversionOperatorMemberCref(ConversionOperatorMemberCrefSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCrefParameterList_Microsoft_CodeAnalysis_CSharp_Syntax_CrefParameterListSyntax_">CSharpSyntaxVisitor.VisitCrefParameterList(CrefParameterListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCrefBracketedParameterList_Microsoft_CodeAnalysis_CSharp_Syntax_CrefBracketedParameterListSyntax_">CSharpSyntaxVisitor.VisitCrefBracketedParameterList(CrefBracketedParameterListSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitCrefParameter_Microsoft_CodeAnalysis_CSharp_Syntax_CrefParameterSyntax_">CSharpSyntaxVisitor.VisitCrefParameter(CrefParameterSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlElement_Microsoft_CodeAnalysis_CSharp_Syntax_XmlElementSyntax_">CSharpSyntaxVisitor.VisitXmlElement(XmlElementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlElementStartTag_Microsoft_CodeAnalysis_CSharp_Syntax_XmlElementStartTagSyntax_">CSharpSyntaxVisitor.VisitXmlElementStartTag(XmlElementStartTagSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlElementEndTag_Microsoft_CodeAnalysis_CSharp_Syntax_XmlElementEndTagSyntax_">CSharpSyntaxVisitor.VisitXmlElementEndTag(XmlElementEndTagSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlEmptyElement_Microsoft_CodeAnalysis_CSharp_Syntax_XmlEmptyElementSyntax_">CSharpSyntaxVisitor.VisitXmlEmptyElement(XmlEmptyElementSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlName_Microsoft_CodeAnalysis_CSharp_Syntax_XmlNameSyntax_">CSharpSyntaxVisitor.VisitXmlName(XmlNameSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlPrefix_Microsoft_CodeAnalysis_CSharp_Syntax_XmlPrefixSyntax_">CSharpSyntaxVisitor.VisitXmlPrefix(XmlPrefixSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlTextAttribute_Microsoft_CodeAnalysis_CSharp_Syntax_XmlTextAttributeSyntax_">CSharpSyntaxVisitor.VisitXmlTextAttribute(XmlTextAttributeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlCrefAttribute_Microsoft_CodeAnalysis_CSharp_Syntax_XmlCrefAttributeSyntax_">CSharpSyntaxVisitor.VisitXmlCrefAttribute(XmlCrefAttributeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlNameAttribute_Microsoft_CodeAnalysis_CSharp_Syntax_XmlNameAttributeSyntax_">CSharpSyntaxVisitor.VisitXmlNameAttribute(XmlNameAttributeSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlText_Microsoft_CodeAnalysis_CSharp_Syntax_XmlTextSyntax_">CSharpSyntaxVisitor.VisitXmlText(XmlTextSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlCDataSection_Microsoft_CodeAnalysis_CSharp_Syntax_XmlCDataSectionSyntax_">CSharpSyntaxVisitor.VisitXmlCDataSection(XmlCDataSectionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlProcessingInstruction_Microsoft_CodeAnalysis_CSharp_Syntax_XmlProcessingInstructionSyntax_">CSharpSyntaxVisitor.VisitXmlProcessingInstruction(XmlProcessingInstructionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitXmlComment_Microsoft_CodeAnalysis_CSharp_Syntax_XmlCommentSyntax_">CSharpSyntaxVisitor.VisitXmlComment(XmlCommentSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitIfDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_IfDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitIfDirectiveTrivia(IfDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitElifDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_ElifDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitElifDirectiveTrivia(ElifDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitElseDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_ElseDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitElseDirectiveTrivia(ElseDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitEndIfDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_EndIfDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitEndIfDirectiveTrivia(EndIfDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitRegionDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_RegionDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitRegionDirectiveTrivia(RegionDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitEndRegionDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_EndRegionDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitEndRegionDirectiveTrivia(EndRegionDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitErrorDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_ErrorDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitErrorDirectiveTrivia(ErrorDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitWarningDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_WarningDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitWarningDirectiveTrivia(WarningDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitBadDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_BadDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitBadDirectiveTrivia(BadDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitDefineDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_DefineDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitDefineDirectiveTrivia(DefineDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitUndefDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_UndefDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitUndefDirectiveTrivia(UndefDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitLineDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_LineDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitLineDirectiveTrivia(LineDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitLineDirectivePosition_Microsoft_CodeAnalysis_CSharp_Syntax_LineDirectivePositionSyntax_">CSharpSyntaxVisitor.VisitLineDirectivePosition(LineDirectivePositionSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitLineSpanDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_LineSpanDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitLineSpanDirectiveTrivia(LineSpanDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitPragmaWarningDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_PragmaWarningDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitPragmaWarningDirectiveTrivia(PragmaWarningDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitPragmaChecksumDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_PragmaChecksumDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitPragmaChecksumDirectiveTrivia(PragmaChecksumDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitReferenceDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_ReferenceDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitReferenceDirectiveTrivia(ReferenceDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitLoadDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_LoadDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitLoadDirectiveTrivia(LoadDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitShebangDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_ShebangDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitShebangDirectiveTrivia(ShebangDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_VisitNullableDirectiveTrivia_Microsoft_CodeAnalysis_CSharp_Syntax_NullableDirectiveTriviaSyntax_">CSharpSyntaxVisitor.VisitNullableDirectiveTrivia(NullableDirectiveTriviaSyntax)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.html">Microsoft</a>.<a class="xref" href="Microsoft.CodeAnalysis.html">CodeAnalysis</a>.<a class="xref" href="Microsoft.CodeAnalysis.CSharp.html">CSharp</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.CodeAnalysis.CSharp.dll</h6>
+  <h5 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class CSharpSyntaxWalker : CSharpSyntaxVisitor</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker__ctor_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.#ctor*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker__ctor_Microsoft_CodeAnalysis_SyntaxWalkerDepth_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.#ctor(Microsoft.CodeAnalysis.SyntaxWalkerDepth)">CSharpSyntaxWalker(SyntaxWalkerDepth)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CSharpSyntaxWalker(SyntaxWalkerDepth depth = SyntaxWalkerDepth.Node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxWalkerDepth.html">SyntaxWalkerDepth</a></td>
+        <td><span class="parametername">depth</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_Depth_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.Depth*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_Depth" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.Depth">Depth</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SyntaxWalkerDepth Depth { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxWalkerDepth.html">SyntaxWalkerDepth</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_DefaultVisit_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.DefaultVisit*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_DefaultVisit_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.DefaultVisit(Microsoft.CodeAnalysis.SyntaxNode)">DefaultVisit(SyntaxNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void DefaultVisit(SyntaxNode node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_DefaultVisit_Microsoft_CodeAnalysis_SyntaxNode_">CSharpSyntaxVisitor.DefaultVisit(SyntaxNode)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_Visit_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.Visit*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_Visit_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.Visit(Microsoft.CodeAnalysis.SyntaxNode)">Visit(SyntaxNode?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Visit(SyntaxNode? node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.html#Microsoft_CodeAnalysis_CSharp_CSharpSyntaxVisitor_Visit_Microsoft_CodeAnalysis_SyntaxNode_">CSharpSyntaxVisitor.Visit(SyntaxNode?)</a></div>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_VisitLeadingTrivia_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.VisitLeadingTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_VisitLeadingTrivia_Microsoft_CodeAnalysis_SyntaxToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.VisitLeadingTrivia(Microsoft.CodeAnalysis.SyntaxToken)">VisitLeadingTrivia(SyntaxToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitLeadingTrivia(SyntaxToken token)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">token</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_VisitToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.VisitToken*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_VisitToken_Microsoft_CodeAnalysis_SyntaxToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.VisitToken(Microsoft.CodeAnalysis.SyntaxToken)">VisitToken(SyntaxToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitToken(SyntaxToken token)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">token</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_VisitTrailingTrivia_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.VisitTrailingTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_VisitTrailingTrivia_Microsoft_CodeAnalysis_SyntaxToken_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.VisitTrailingTrivia(Microsoft.CodeAnalysis.SyntaxToken)">VisitTrailingTrivia(SyntaxToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitTrailingTrivia(SyntaxToken token)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">token</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_VisitTrivia_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.VisitTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_CSharp_CSharpSyntaxWalker_VisitTrivia_Microsoft_CodeAnalysis_SyntaxTrivia_" data-uid="Microsoft.CodeAnalysis.CSharp.CSharpSyntaxWalker.VisitTrivia(Microsoft.CodeAnalysis.SyntaxTrivia)">VisitTrivia(SyntaxTrivia)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VisitTrivia(SyntaxTrivia trivia)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTrivia.html">SyntaxTrivia</a></td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

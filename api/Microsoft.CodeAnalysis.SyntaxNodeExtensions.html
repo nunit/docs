@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class SyntaxNodeExtensions | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class SyntaxNodeExtensions | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions">
+
+
+
+  <h1 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions" class="text-break">Class SyntaxNodeExtensions</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">SyntaxNodeExtensions</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft">Microsoft</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis">CodeAnalysis</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.CodeAnalysis.dll</h6>
+  <h5 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class SyntaxNodeExtensions</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_GetCurrentNode_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.GetCurrentNode*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_GetCurrentNode__1_Microsoft_CodeAnalysis_SyntaxNode___0_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.GetCurrentNode``1(Microsoft.CodeAnalysis.SyntaxNode,``0)">GetCurrentNode&lt;TNode&gt;(SyntaxNode, TNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TNode? GetCurrentNode&lt;TNode&gt;(this SyntaxNode root, TNode node) where TNode : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_GetCurrentNodes_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.GetCurrentNodes*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_GetCurrentNodes__1_Microsoft_CodeAnalysis_SyntaxNode_System_Collections_Generic_IEnumerable___0__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.GetCurrentNodes``1(Microsoft.CodeAnalysis.SyntaxNode,System.Collections.Generic.IEnumerable{``0})">GetCurrentNodes&lt;TNode&gt;(SyntaxNode, IEnumerable&lt;TNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;TNode&gt; GetCurrentNodes&lt;TNode&gt;(this SyntaxNode root, IEnumerable&lt;TNode&gt; nodes) where TNode : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TNode&gt;</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_GetCurrentNodes_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.GetCurrentNodes*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_GetCurrentNodes__1_Microsoft_CodeAnalysis_SyntaxNode___0_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.GetCurrentNodes``1(Microsoft.CodeAnalysis.SyntaxNode,``0)">GetCurrentNodes&lt;TNode&gt;(SyntaxNode, TNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;TNode&gt; GetCurrentNodes&lt;TNode&gt;(this SyntaxNode root, TNode node) where TNode : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TNode&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertNodesAfter_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertNodesAfter*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertNodesAfter__1___0_Microsoft_CodeAnalysis_SyntaxNode_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxNode__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertNodesAfter``1(``0,Microsoft.CodeAnalysis.SyntaxNode,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxNode})">InsertNodesAfter&lt;TRoot&gt;(TRoot, SyntaxNode, IEnumerable&lt;SyntaxNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot InsertNodesAfter&lt;TRoot&gt;(this TRoot root, SyntaxNode nodeInList, IEnumerable&lt;SyntaxNode&gt; newNodes) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">nodeInList</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxnode">SyntaxNode</a>&gt;</td>
+        <td><span class="parametername">newNodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertNodesBefore_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertNodesBefore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertNodesBefore__1___0_Microsoft_CodeAnalysis_SyntaxNode_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxNode__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertNodesBefore``1(``0,Microsoft.CodeAnalysis.SyntaxNode,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxNode})">InsertNodesBefore&lt;TRoot&gt;(TRoot, SyntaxNode, IEnumerable&lt;SyntaxNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot InsertNodesBefore&lt;TRoot&gt;(this TRoot root, SyntaxNode nodeInList, IEnumerable&lt;SyntaxNode&gt; newNodes) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">nodeInList</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxnode">SyntaxNode</a>&gt;</td>
+        <td><span class="parametername">newNodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertTokensAfter_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertTokensAfter*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertTokensAfter__1___0_Microsoft_CodeAnalysis_SyntaxToken_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxToken__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertTokensAfter``1(``0,Microsoft.CodeAnalysis.SyntaxToken,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxToken})">InsertTokensAfter&lt;TRoot&gt;(TRoot, SyntaxToken, IEnumerable&lt;SyntaxToken&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot InsertTokensAfter&lt;TRoot&gt;(this TRoot root, SyntaxToken tokenInList, IEnumerable&lt;SyntaxToken&gt; newTokens) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">tokenInList</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>&gt;</td>
+        <td><span class="parametername">newTokens</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertTokensBefore_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertTokensBefore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertTokensBefore__1___0_Microsoft_CodeAnalysis_SyntaxToken_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxToken__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertTokensBefore``1(``0,Microsoft.CodeAnalysis.SyntaxToken,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxToken})">InsertTokensBefore&lt;TRoot&gt;(TRoot, SyntaxToken, IEnumerable&lt;SyntaxToken&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot InsertTokensBefore&lt;TRoot&gt;(this TRoot root, SyntaxToken tokenInList, IEnumerable&lt;SyntaxToken&gt; newTokens) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">tokenInList</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>&gt;</td>
+        <td><span class="parametername">newTokens</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertTriviaAfter_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertTriviaAfter*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertTriviaAfter__1___0_Microsoft_CodeAnalysis_SyntaxTrivia_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxTrivia__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertTriviaAfter``1(``0,Microsoft.CodeAnalysis.SyntaxTrivia,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxTrivia})">InsertTriviaAfter&lt;TRoot&gt;(TRoot, SyntaxTrivia, IEnumerable&lt;SyntaxTrivia&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot InsertTriviaAfter&lt;TRoot&gt;(this TRoot root, SyntaxTrivia trivia, IEnumerable&lt;SyntaxTrivia&gt; newTrivia) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTrivia.html">SyntaxTrivia</a></td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>&gt;</td>
+        <td><span class="parametername">newTrivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertTriviaBefore_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertTriviaBefore*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_InsertTriviaBefore__1___0_Microsoft_CodeAnalysis_SyntaxTrivia_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxTrivia__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.InsertTriviaBefore``1(``0,Microsoft.CodeAnalysis.SyntaxTrivia,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxTrivia})">InsertTriviaBefore&lt;TRoot&gt;(TRoot, SyntaxTrivia, IEnumerable&lt;SyntaxTrivia&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot InsertTriviaBefore&lt;TRoot&gt;(this TRoot root, SyntaxTrivia trivia, IEnumerable&lt;SyntaxTrivia&gt; newTrivia) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTrivia.html">SyntaxTrivia</a></td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>&gt;</td>
+        <td><span class="parametername">newTrivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_NormalizeWhitespace_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.NormalizeWhitespace*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_NormalizeWhitespace__1___0_System_String_System_Boolean_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.NormalizeWhitespace``1(``0,System.String,System.Boolean)">NormalizeWhitespace&lt;TNode&gt;(TNode, string, bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TNode NormalizeWhitespace&lt;TNode&gt;(this TNode node, string indentation, bool elasticTrivia) where TNode : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">indentation</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">elasticTrivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_NormalizeWhitespace_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.NormalizeWhitespace*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_NormalizeWhitespace__1___0_System_String_System_String_System_Boolean_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.NormalizeWhitespace``1(``0,System.String,System.String,System.Boolean)">NormalizeWhitespace&lt;TNode&gt;(TNode, string, string, bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TNode NormalizeWhitespace&lt;TNode&gt;(this TNode node, string indentation = &quot;    &quot;, string eol = &quot;\r\n&quot;, bool elasticTrivia = false) where TNode : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">indentation</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">eol</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">elasticTrivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_RemoveNode_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.RemoveNode*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_RemoveNode__1___0_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SyntaxRemoveOptions_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.RemoveNode``1(``0,Microsoft.CodeAnalysis.SyntaxNode,Microsoft.CodeAnalysis.SyntaxRemoveOptions)">RemoveNode&lt;TRoot&gt;(TRoot, SyntaxNode, SyntaxRemoveOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot? RemoveNode&lt;TRoot&gt;(this TRoot root, SyntaxNode node, SyntaxRemoveOptions options) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxRemoveOptions.html">SyntaxRemoveOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_RemoveNodes_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.RemoveNodes*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_RemoveNodes__1___0_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxNode__Microsoft_CodeAnalysis_SyntaxRemoveOptions_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.RemoveNodes``1(``0,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxNode},Microsoft.CodeAnalysis.SyntaxRemoveOptions)">RemoveNodes&lt;TRoot&gt;(TRoot, IEnumerable&lt;SyntaxNode&gt;, SyntaxRemoveOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot? RemoveNodes&lt;TRoot&gt;(this TRoot root, IEnumerable&lt;SyntaxNode&gt; nodes, SyntaxRemoveOptions options) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxnode">SyntaxNode</a>&gt;</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxRemoveOptions.html">SyntaxRemoveOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceNode_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceNode*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceNode__1___0_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceNode``1(``0,Microsoft.CodeAnalysis.SyntaxNode,Microsoft.CodeAnalysis.SyntaxNode)">ReplaceNode&lt;TRoot&gt;(TRoot, SyntaxNode, SyntaxNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot ReplaceNode&lt;TRoot&gt;(this TRoot root, SyntaxNode oldNode, SyntaxNode newNode) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">oldNode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">newNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceNode_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceNode*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceNode__1___0_Microsoft_CodeAnalysis_SyntaxNode_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxNode__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceNode``1(``0,Microsoft.CodeAnalysis.SyntaxNode,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxNode})">ReplaceNode&lt;TRoot&gt;(TRoot, SyntaxNode, IEnumerable&lt;SyntaxNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot ReplaceNode&lt;TRoot&gt;(this TRoot root, SyntaxNode oldNode, IEnumerable&lt;SyntaxNode&gt; newNodes) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">oldNode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxnode">SyntaxNode</a>&gt;</td>
+        <td><span class="parametername">newNodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceNodes_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceNodes*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceNodes__2___0_System_Collections_Generic_IEnumerable___1__System_Func___1___1_Microsoft_CodeAnalysis_SyntaxNode__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceNodes``2(``0,System.Collections.Generic.IEnumerable{``1},System.Func{``1,``1,Microsoft.CodeAnalysis.SyntaxNode})">ReplaceNodes&lt;TRoot, TNode&gt;(TRoot, IEnumerable&lt;TNode&gt;, Func&lt;TNode, TNode, SyntaxNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot ReplaceNodes&lt;TRoot, TNode&gt;(this TRoot root, IEnumerable&lt;TNode&gt; nodes, Func&lt;TNode, TNode, SyntaxNode&gt; computeReplacementNode) where TRoot : SyntaxNode where TNode : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TNode&gt;</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TNode, TNode, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxnode">SyntaxNode</a>&gt;</td>
+        <td><span class="parametername">computeReplacementNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TNode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceSyntax_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceSyntax*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceSyntax__1___0_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxNode__System_Func_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SyntaxNode_Microsoft_CodeAnalysis_SyntaxNode__System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxToken__System_Func_Microsoft_CodeAnalysis_SyntaxToken_Microsoft_CodeAnalysis_SyntaxToken_Microsoft_CodeAnalysis_SyntaxToken__System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxTrivia__System_Func_Microsoft_CodeAnalysis_SyntaxTrivia_Microsoft_CodeAnalysis_SyntaxTrivia_Microsoft_CodeAnalysis_SyntaxTrivia__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceSyntax``1(``0,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxNode},System.Func{Microsoft.CodeAnalysis.SyntaxNode,Microsoft.CodeAnalysis.SyntaxNode,Microsoft.CodeAnalysis.SyntaxNode},System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxToken},System.Func{Microsoft.CodeAnalysis.SyntaxToken,Microsoft.CodeAnalysis.SyntaxToken,Microsoft.CodeAnalysis.SyntaxToken},System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxTrivia},System.Func{Microsoft.CodeAnalysis.SyntaxTrivia,Microsoft.CodeAnalysis.SyntaxTrivia,Microsoft.CodeAnalysis.SyntaxTrivia})">ReplaceSyntax&lt;TRoot&gt;(TRoot, IEnumerable&lt;SyntaxNode&gt;?, Func&lt;SyntaxNode, SyntaxNode, SyntaxNode&gt;?, IEnumerable&lt;SyntaxToken&gt;?, Func&lt;SyntaxToken, SyntaxToken, SyntaxToken&gt;?, IEnumerable&lt;SyntaxTrivia&gt;?, Func&lt;SyntaxTrivia, SyntaxTrivia, SyntaxTrivia&gt;?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot ReplaceSyntax&lt;TRoot&gt;(this TRoot root, IEnumerable&lt;SyntaxNode&gt;? nodes, Func&lt;SyntaxNode, SyntaxNode, SyntaxNode&gt;? computeReplacementNode, IEnumerable&lt;SyntaxToken&gt;? tokens, Func&lt;SyntaxToken, SyntaxToken, SyntaxToken&gt;? computeReplacementToken, IEnumerable&lt;SyntaxTrivia&gt;? trivia, Func&lt;SyntaxTrivia, SyntaxTrivia, SyntaxTrivia&gt;? computeReplacementTrivia) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxnode">SyntaxNode</a>&gt;</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a>, <a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a>, <a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a>&gt;</td>
+        <td><span class="parametername">computeReplacementNode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>&gt;</td>
+        <td><span class="parametername">tokens</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>&gt;</td>
+        <td><span class="parametername">computeReplacementToken</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>&gt;</td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>&gt;</td>
+        <td><span class="parametername">computeReplacementTrivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceToken_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceToken*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceToken__1___0_Microsoft_CodeAnalysis_SyntaxToken_Microsoft_CodeAnalysis_SyntaxToken_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceToken``1(``0,Microsoft.CodeAnalysis.SyntaxToken,Microsoft.CodeAnalysis.SyntaxToken)">ReplaceToken&lt;TRoot&gt;(TRoot, SyntaxToken, SyntaxToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot ReplaceToken&lt;TRoot&gt;(this TRoot root, SyntaxToken oldToken, SyntaxToken newToken) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">oldToken</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">newToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceToken_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceToken*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceToken__1___0_Microsoft_CodeAnalysis_SyntaxToken_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxToken__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceToken``1(``0,Microsoft.CodeAnalysis.SyntaxToken,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxToken})">ReplaceToken&lt;TRoot&gt;(TRoot, SyntaxToken, IEnumerable&lt;SyntaxToken&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot ReplaceToken&lt;TRoot&gt;(this TRoot root, SyntaxToken tokenInList, IEnumerable&lt;SyntaxToken&gt; newTokens) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">tokenInList</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>&gt;</td>
+        <td><span class="parametername">newTokens</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceTokens_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceTokens*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceTokens__1___0_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxToken__System_Func_Microsoft_CodeAnalysis_SyntaxToken_Microsoft_CodeAnalysis_SyntaxToken_Microsoft_CodeAnalysis_SyntaxToken__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceTokens``1(``0,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxToken},System.Func{Microsoft.CodeAnalysis.SyntaxToken,Microsoft.CodeAnalysis.SyntaxToken,Microsoft.CodeAnalysis.SyntaxToken})">ReplaceTokens&lt;TRoot&gt;(TRoot, IEnumerable&lt;SyntaxToken&gt;, Func&lt;SyntaxToken, SyntaxToken, SyntaxToken&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot ReplaceTokens&lt;TRoot&gt;(this TRoot root, IEnumerable&lt;SyntaxToken&gt; tokens, Func&lt;SyntaxToken, SyntaxToken, SyntaxToken&gt; computeReplacementToken) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>&gt;</td>
+        <td><span class="parametername">tokens</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtoken">SyntaxToken</a>&gt;</td>
+        <td><span class="parametername">computeReplacementToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceTrivia__1___0_Microsoft_CodeAnalysis_SyntaxTrivia_Microsoft_CodeAnalysis_SyntaxTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceTrivia``1(``0,Microsoft.CodeAnalysis.SyntaxTrivia,Microsoft.CodeAnalysis.SyntaxTrivia)">ReplaceTrivia&lt;TRoot&gt;(TRoot, SyntaxTrivia, SyntaxTrivia)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot ReplaceTrivia&lt;TRoot&gt;(this TRoot root, SyntaxTrivia trivia, SyntaxTrivia newTrivia) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTrivia.html">SyntaxTrivia</a></td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTrivia.html">SyntaxTrivia</a></td>
+        <td><span class="parametername">newTrivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceTrivia__1___0_Microsoft_CodeAnalysis_SyntaxTrivia_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxTrivia__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceTrivia``1(``0,Microsoft.CodeAnalysis.SyntaxTrivia,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxTrivia})">ReplaceTrivia&lt;TRoot&gt;(TRoot, SyntaxTrivia, IEnumerable&lt;SyntaxTrivia&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot ReplaceTrivia&lt;TRoot&gt;(this TRoot root, SyntaxTrivia oldTrivia, IEnumerable&lt;SyntaxTrivia&gt; newTrivia) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTrivia.html">SyntaxTrivia</a></td>
+        <td><span class="parametername">oldTrivia</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>&gt;</td>
+        <td><span class="parametername">newTrivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_ReplaceTrivia__1___0_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxTrivia__System_Func_Microsoft_CodeAnalysis_SyntaxTrivia_Microsoft_CodeAnalysis_SyntaxTrivia_Microsoft_CodeAnalysis_SyntaxTrivia__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceTrivia``1(``0,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxTrivia},System.Func{Microsoft.CodeAnalysis.SyntaxTrivia,Microsoft.CodeAnalysis.SyntaxTrivia,Microsoft.CodeAnalysis.SyntaxTrivia})">ReplaceTrivia&lt;TRoot&gt;(TRoot, IEnumerable&lt;SyntaxTrivia&gt;, Func&lt;SyntaxTrivia, SyntaxTrivia, SyntaxTrivia&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot ReplaceTrivia&lt;TRoot&gt;(this TRoot root, IEnumerable&lt;SyntaxTrivia&gt; trivia, Func&lt;SyntaxTrivia, SyntaxTrivia, SyntaxTrivia&gt; computeReplacementTrivia) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>&gt;</td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>&gt;</td>
+        <td><span class="parametername">computeReplacementTrivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_TrackNodes_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.TrackNodes*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_TrackNodes__1___0_Microsoft_CodeAnalysis_SyntaxNode___" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.TrackNodes``1(``0,Microsoft.CodeAnalysis.SyntaxNode[])">TrackNodes&lt;TRoot&gt;(TRoot, params SyntaxNode[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot TrackNodes&lt;TRoot&gt;(this TRoot root, params SyntaxNode[] nodes) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a>[]</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_TrackNodes_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.TrackNodes*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_TrackNodes__1___0_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxNode__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.TrackNodes``1(``0,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxNode})">TrackNodes&lt;TRoot&gt;(TRoot, IEnumerable&lt;SyntaxNode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TRoot TrackNodes&lt;TRoot&gt;(this TRoot root, IEnumerable&lt;SyntaxNode&gt; nodes) where TRoot : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td><span class="parametername">root</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxnode">SyntaxNode</a>&gt;</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TRoot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithLeadingTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithLeadingTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithLeadingTrivia__1___0_Microsoft_CodeAnalysis_SyntaxTriviaList_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithLeadingTrivia``1(``0,Microsoft.CodeAnalysis.SyntaxTriviaList)">WithLeadingTrivia&lt;TSyntax&gt;(TSyntax, SyntaxTriviaList)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TSyntax WithLeadingTrivia&lt;TSyntax&gt;(this TSyntax node, SyntaxTriviaList trivia) where TSyntax : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTriviaList.html">SyntaxTriviaList</a></td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithLeadingTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithLeadingTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithLeadingTrivia__1___0_Microsoft_CodeAnalysis_SyntaxTrivia___" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithLeadingTrivia``1(``0,Microsoft.CodeAnalysis.SyntaxTrivia[])">WithLeadingTrivia&lt;TSyntax&gt;(TSyntax, params SyntaxTrivia[]?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TSyntax WithLeadingTrivia&lt;TSyntax&gt;(this TSyntax node, params SyntaxTrivia[]? trivia) where TSyntax : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>[]</td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithLeadingTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithLeadingTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithLeadingTrivia__1___0_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxTrivia__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithLeadingTrivia``1(``0,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxTrivia})">WithLeadingTrivia&lt;TSyntax&gt;(TSyntax, IEnumerable&lt;SyntaxTrivia&gt;?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TSyntax WithLeadingTrivia&lt;TSyntax&gt;(this TSyntax node, IEnumerable&lt;SyntaxTrivia&gt;? trivia) where TSyntax : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>&gt;</td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithTrailingTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithTrailingTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithTrailingTrivia__1___0_Microsoft_CodeAnalysis_SyntaxTriviaList_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithTrailingTrivia``1(``0,Microsoft.CodeAnalysis.SyntaxTriviaList)">WithTrailingTrivia&lt;TSyntax&gt;(TSyntax, SyntaxTriviaList)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TSyntax WithTrailingTrivia&lt;TSyntax&gt;(this TSyntax node, SyntaxTriviaList trivia) where TSyntax : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxTriviaList.html">SyntaxTriviaList</a></td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithTrailingTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithTrailingTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithTrailingTrivia__1___0_Microsoft_CodeAnalysis_SyntaxTrivia___" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithTrailingTrivia``1(``0,Microsoft.CodeAnalysis.SyntaxTrivia[])">WithTrailingTrivia&lt;TSyntax&gt;(TSyntax, params SyntaxTrivia[]?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TSyntax WithTrailingTrivia&lt;TSyntax&gt;(this TSyntax node, params SyntaxTrivia[]? trivia) where TSyntax : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>[]</td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithTrailingTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithTrailingTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithTrailingTrivia__1___0_System_Collections_Generic_IEnumerable_Microsoft_CodeAnalysis_SyntaxTrivia__" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithTrailingTrivia``1(``0,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.SyntaxTrivia})">WithTrailingTrivia&lt;TSyntax&gt;(TSyntax, IEnumerable&lt;SyntaxTrivia&gt;?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TSyntax WithTrailingTrivia&lt;TSyntax&gt;(this TSyntax node, IEnumerable&lt;SyntaxTrivia&gt;? trivia) where TSyntax : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxtrivia">SyntaxTrivia</a>&gt;</td>
+        <td><span class="parametername">trivia</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithTriviaFrom_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithTriviaFrom*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithTriviaFrom__1___0_Microsoft_CodeAnalysis_SyntaxNode_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithTriviaFrom``1(``0,Microsoft.CodeAnalysis.SyntaxNode)">WithTriviaFrom&lt;TSyntax&gt;(TSyntax, SyntaxNode)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TSyntax WithTriviaFrom&lt;TSyntax&gt;(this TSyntax syntax, SyntaxNode node) where TSyntax : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td><span class="parametername">syntax</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxNode.html">SyntaxNode</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithoutLeadingTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithoutLeadingTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithoutLeadingTrivia__1___0_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithoutLeadingTrivia``1(``0)">WithoutLeadingTrivia&lt;TSyntax&gt;(TSyntax)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TSyntax WithoutLeadingTrivia&lt;TSyntax&gt;(this TSyntax node) where TSyntax : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithoutTrailingTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithoutTrailingTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithoutTrailingTrivia__1___0_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithoutTrailingTrivia``1(``0)">WithoutTrailingTrivia&lt;TSyntax&gt;(TSyntax)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TSyntax WithoutTrailingTrivia&lt;TSyntax&gt;(this TSyntax node) where TSyntax : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithoutTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithoutTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithoutTrivia_Microsoft_CodeAnalysis_SyntaxToken_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithoutTrivia(Microsoft.CodeAnalysis.SyntaxToken)">WithoutTrivia(SyntaxToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SyntaxToken WithoutTrivia(this SyntaxToken token)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td><span class="parametername">token</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.CodeAnalysis.SyntaxToken.html">SyntaxToken</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithoutTrivia_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithoutTrivia*"></a>
+  <h4 id="Microsoft_CodeAnalysis_SyntaxNodeExtensions_WithoutTrivia__1___0_" data-uid="Microsoft.CodeAnalysis.SyntaxNodeExtensions.WithoutTrivia``1(``0)">WithoutTrivia&lt;TSyntax&gt;(TSyntax)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TSyntax WithoutTrivia&lt;TSyntax&gt;(this TSyntax syntax) where TSyntax : SyntaxNode</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td><span class="parametername">syntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSyntax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
