@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Style
-| Code     | [UseSpecificConstraintAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/UseSpecificConstraint/UseSpecificConstraintAnalyzer.cs)
+| Code     | [UseSpecificConstraintAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UseSpecificConstraint/UseSpecificConstraintAnalyzer.cs)
 
 ## Description
 

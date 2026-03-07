@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Assertion
-| Code     | [EqualToIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/EqualToIncompatibleTypes/EqualToIncompatibleTypesAnalyzer.cs)
+| Code     | [EqualToIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/EqualToIncompatibleTypes/EqualToIncompatibleTypesAnalyzer.cs)
 
 ## Description
 
@@ -28,6 +28,14 @@ Assert.That(foo, Is.EqualTo(bar));
 
 There is no way that instances of types `Foo` and `Bar` could be considered equal, therefore such assertion will always
 fail.
+
+Testing non-floating point values against `NaN` is also invalid,
+as only floating point values can be `NaN`.
+
+```csharp
+int actual = 5;
+Assert.That(actual, Is.Not.NaN);
+```
 
 ## How to fix violations
 
