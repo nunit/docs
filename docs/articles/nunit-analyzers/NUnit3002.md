@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Suppressor
-| Code     | [NonNullableFieldOrPropertyIsUninitializedSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/DiagnosticSuppressors/NonNullableFieldOrPropertyIsUninitializedSuppressor.cs)
+| Code     | [NonNullableFieldOrPropertyIsUninitializedSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DiagnosticSuppressors/NonNullableFieldOrPropertyIsUninitializedSuppressor.cs)
 
 ## Description
 
@@ -54,6 +54,21 @@ or use the null suppression operator (`!`) everywhere.
 
 Initialize the field in the `SetUp` or `OneTimeSetUp` methods.
 
+## Specifying additional SetUp
+
+The analyzer can only analyze the current class and doesn't know if an `overridden` method
+is called from the base class' (OneTime)SetUp method.
+It is possible to specify those methods in the `.editorconfig`
+and have the analyzer treat them like a SetUp method.
+There are two configurations for this:
+
+* `dotnet_diagnostic.NUnit.additional_setup_methods`
+* `dotnet_diagnostic.NUnit.additional_one_time_setup_methods`
+
+The configuration accepts a list of method names - separated by either comma, semicolon, or space.
+
+Note that this configuration is shared with the [NUnit 1032](./NUnit1032.md) analyzer.
+
 <!-- start generated config severity -->
 ## Configure severity
 
@@ -62,7 +77,7 @@ The rule has no severity, but can be disabled.
 ### Via ruleset file
 
 To disable the rule for a project, you need to add a
-[ruleset file](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
+[ruleset file](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DiagnosticSuppressors/NUnit.Analyzers.Suppressions.ruleset)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

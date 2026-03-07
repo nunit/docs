@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Assertion
-| Code     | [DelegateRequiredAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/DelegateRequired/DelegateRequiredAnalyzer.cs)
+| Code     | [DelegateRequiredAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DelegateRequired/DelegateRequiredAnalyzer.cs)
 
 ## Description
 

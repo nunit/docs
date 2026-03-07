@@ -8,7 +8,7 @@
 | Severity | Info
 | Enabled  | True
 | Category | Assertion
-| Code     | [UseAssertEnterMultipleScopeAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/UseAssertEnterMultipleScope/UseAssertEnterMultipleScopeAnalyzer.cs)
+| Code     | [UseAssertEnterMultipleScopeAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UseAssertEnterMultipleScope/UseAssertEnterMultipleScopeAnalyzer.cs)
 
 ## Description
 

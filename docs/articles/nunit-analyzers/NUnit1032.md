@@ -8,7 +8,7 @@
 | Severity | Error
 | Enabled  | True
 | Category | Structure
-| Code     | [DisposeFieldsAndPropertiesInTearDownAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.9.2/src/nunit.analyzers/DisposeFieldsAndPropertiesInTearDown/DisposeFieldsAndPropertiesInTearDownAnalyzer.cs)
+| Code     | [DisposeFieldsAndPropertiesInTearDownAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DisposeFieldsAndPropertiesInTearDown/DisposeFieldsAndPropertiesInTearDownAnalyzer.cs)
 
 ## Description
 
@@ -71,6 +71,23 @@ the following line.
 ```ini
 dotnet_diagnostic.NUnit1032.additional_dispose_methods = Quit, Exit
 ```
+
+## Specifying additional SetUp and TearDown methods
+
+The analyzer can only analyze the current class and doesn't know if an `overridden` method
+is called from the base class' (OneTime)SetUp and (OneTime)TearDown methods.
+It is possible to specify those methods in the `.editorconfig`
+and have the analyzer treat them like SetUp and TearDown methods.
+There are four configurations for this:
+
+* `dotnet_diagnostic.NUnit.additional_setup_methods`
+* `dotnet_diagnostic.NUnit.additional_teardown_methods`
+* `dotnet_diagnostic.NUnit.additional_one_time_setup_methods`
+* `dotnet_diagnostic.NUnit.additional_one_time_teardown_methods`
+
+The configuration accepts a list of method names - separated by either comma, semicolon, or space.
+
+Note that this configuration is shared with the [NUnit 3002](./NUnit3002.md) analyzer.
 
 <!-- start generated config severity -->
 ## Configure severity

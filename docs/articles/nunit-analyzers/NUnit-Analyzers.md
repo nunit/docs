@@ -124,6 +124,8 @@ Rules which improve assertions in the test code.
 | [NUnit2054](NUnit2054.md) | Consider using Assert.That(actual, Is.Not.AssignableFrom(expected)) instead of ClassicAssert.IsNotAssignableFrom(expected, actual) | :white_check_mark: | :information_source: | :white_check_mark: |
 | [NUnit2055](NUnit2055.md) | Consider using Is.InstanceOf\<T> constraint instead of an 'is T' expression | :white_check_mark: | :information_source: | :white_check_mark: |
 | [NUnit2056](NUnit2056.md) | Consider using Assert.EnterMultipleScope statement instead of Assert.Multiple/Assert.MultipleAsync | :white_check_mark: | :information_source: | :white_check_mark: |
+| [NUnit2057](NUnit2057.md) | Remove unnecessary lambda expression | :white_check_mark: | :information_source: | :white_check_mark: |
+| [NUnit2058](NUnit2058.md) | The constraint is misused | :white_check_mark: | :warning: | :white_check_mark: |
 
 ## Suppressor Rules (NUnit3001 - )
 
