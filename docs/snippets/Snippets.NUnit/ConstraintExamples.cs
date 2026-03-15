@@ -90,11 +90,21 @@ public class ConstraintExamples
 
         var expectedDateTime = DateTime.Now.AddMinutes(-1);
         var myDateTime = DateTime.Now;
+        Assert.That(myDateTime, Is.GreaterThan(expectedDateTime).Within(TimeSpan.FromSeconds(1)));
 
         var myOwnObject = new MyOwnObject(42);
+
+        // Using an untyped comparer that can handle both MyOwnObject and int types, comparing based on the Age property of MyOwnObject instances.
         var myComparer = new MyComparerUnTyped();
         Assert.That(myOwnObject, Is.GreaterThan(41).Using(myComparer));
-        Assert.That(myDateTime, Is.GreaterThan(expectedDateTime).Within(TimeSpan.FromSeconds(1)));
+
+        // Using a lambda expression to compare MyOwnObject instances based on their Age property
+        var myParentObject = new MyOwnObject(84);
+        Assert.That(myParentObject, Is.GreaterThan(myOwnObject).Using<MyOwnObject>((x, y) => x.Age.CompareTo(y.Age)));
+
+        // Using a typed comparer
+        var myTypedComparer = new MyComparerTyped();
+        Assert.That(myParentObject, Is.GreaterThan(myOwnObject).Using(myTypedComparer));
     }
     #endregion
 
@@ -196,14 +206,21 @@ public class ConstraintExamples
 
         var myDateTime = DateTime.Now;
         var expectedDateTime = DateTime.Now;
-
         Assert.That(myDateTime, Is.LessThan(expectedDateTime).Within(TimeSpan.FromSeconds(1)));
 
         var myOwnObject = new MyOwnObject(42);
+
+        // Using an untyped comparer that can handle both MyOwnObject and int types, comparing based on the Age property of MyOwnObject instances.
         var myComparer = new MyComparerUnTyped();
         Assert.That(myOwnObject, Is.LessThan(43).Using(myComparer));
 
+        // Using a lambda expression to compare MyOwnObject instances based on their Age property
+        var myParentObject = new MyOwnObject(84);
+        Assert.That(myOwnObject, Is.LessThan(myParentObject).Using<MyOwnObject>((x, y) => x.Age.CompareTo(y.Age)));
 
+        // Using a typed comparer
+        var myTypedComparer = new MyComparerTyped();
+        Assert.That(myOwnObject, Is.LessThan(myParentObject).Using(myTypedComparer));
     }
     #endregion
 
@@ -218,14 +235,21 @@ public class ConstraintExamples
 
         var myDateTime = DateTime.Now.AddMinutes(-1);
         var expectedDateTime = DateTime.Now;
-
-        Assert.That(myDateTime, Is.LessThan(expectedDateTime).Within(TimeSpan.FromSeconds(1)));
+        Assert.That(myDateTime, Is.LessThanOrEqualTo(expectedDateTime).Within(TimeSpan.FromSeconds(1)));
 
         var myOwnObject = new MyOwnObject(42);
+
+        // Using an untyped comparer that can handle both MyOwnObject and int types, comparing based on the Age property of MyOwnObject instances.
         var myComparer = new MyComparerUnTyped();
-        Assert.That(myOwnObject, Is.LessThanOrEqualTo(43).Using(myComparer));
         Assert.That(myOwnObject, Is.LessThanOrEqualTo(42).Using(myComparer));
 
+        // Using a lambda expression to compare MyOwnObject instances based on their Age property
+        var myParentObject = new MyOwnObject(84);
+        Assert.That(myOwnObject, Is.LessThanOrEqualTo(myParentObject).Using<MyOwnObject>((x, y) => x.Age.CompareTo(y.Age)));
+
+        // Using a typed comparer
+        var myTypedComparer = new MyComparerTyped();
+        Assert.That(myOwnObject, Is.LessThanOrEqualTo(myParentObject).Using(myTypedComparer));
     }
     #endregion
 

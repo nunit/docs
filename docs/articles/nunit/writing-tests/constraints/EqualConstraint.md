@@ -7,6 +7,10 @@ uid: equalconstraint
 An EqualConstraint is used to test whether an actual value is equal to the expected value supplied in its constructor,
 optionally within a specified tolerance.
 
+It works with numeric types, floating point values, strings, `DateTime`, `TimeSpan`, arrays, collections, dictionaries,
+`DirectoryInfo`, and classes/structures. For custom types, a user-specified comparer can be provided using the `Using`
+modifier, or the `UsingPropertiesComparer` modifier can be used for property-by-property comparison.
+
 ## Constructor
 
 ```csharp
