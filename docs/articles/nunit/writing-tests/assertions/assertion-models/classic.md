@@ -15,15 +15,15 @@ StringAssert.AreEqualIgnoringCase("Hello", myString);
 :NOTE: From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy
 namespace, but can use the former Assert class. This applies for many of the asserts, but a few still require the use of
 the ClassicAssert class. These will be fixed in upcoming releases. In the list below, and in the examples, the 4.5.0
-syntax will be used. If you use an earlier version, replace Assert with ClassicAssert and include the
+syntax will be used. If you use an earlier 4.X version, replace Assert with ClassicAssert and include the
 NUnit.Framework.Legacy namespace.  
 
 :NOTE: The `ClassicAssert` and `NUnit.Framework.Legacy` are still available in 4.5.0, so you don't need to change code
 that already use this.
 
-:NOTE: The use of  See [classic extensions](../classic_extensions.md) for a full table over all extension mappings.
+:NOTE: See [classic extensions](../classic_extensions.md) for a full table over all extension mappings.
 
-The Assert class provides the most common assertions in NUnit:
+The Assert class provides the most common classic assertions in NUnit:
 
 * [Assert.True](../classic-assertions/Assert.True.md)
 * [Assert.False](../classic-assertions/Assert.False.md)
