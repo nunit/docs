@@ -17,7 +17,7 @@ namespace Snippets.NUnit.Attributes
         #endregion
 
         #region TestCaseSourceWithCancellationToken
-        private static int[] _simpleValues = { 2, 4, 6, 8 };
+        private static int[] _simpleValues = [2, 4, 6, 8];
 
         [TestCaseSource(nameof(_simpleValues)), CancelAfter(1_000)]
         public void TestCaseSourceWithCancellationToken(int a, CancellationToken cancellationToken)
