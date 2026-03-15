@@ -1,43 +1,49 @@
-# ClassicAssert.Less
+# Assert.Less
 
-**ClassicAssert.Less** tests whether one object is less than another.
+**Assert.Less** tests whether one object is less than another.
 Contrary to the normal order of Asserts, these methods are designed to be
 read in the "natural" English-language or mathematical order. Thus
-**ClassicAssert.Less(x, y)** asserts that x is less than y (x < y).
+**Assert.Less(x, y)** asserts that x is less than y (x < y).
+
+:NOTE: From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy
+namespace, but can use the former Assert class. This applies for many of the asserts, but a few still require the use of
+the ClassicAssert class. These will be fixed in upcoming releases. In the list below, and in the examples, the 4.5.0
+syntax will be used. If you use an earlier 4.x version, replace Assert with ClassicAssert and include the
+NUnit.Framework.Legacy namespace.
 
 ```csharp
-ClassicAssert.Less(int arg1, int arg2);
-ClassicAssert.Less(int arg1, int arg2, string message, params object[] params);
+Assert.Less(int arg1, int arg2);
+Assert.Less(int arg1, int arg2, string message, params object[] params);
 
-ClassicAssert.Less(uint arg1, uint arg2);
-ClassicAssert.Less(uint arg1, uint arg2, string message, params object[] params);
+Assert.Less(uint arg1, uint arg2);
+Assert.Less(uint arg1, uint arg2, string message, params object[] params);
 
-ClassicAssert.Less(long arg1, long arg2);
-ClassicAssert.Less(long arg1, long arg2, string message, params object[] params);
+Assert.Less(long arg1, long arg2);
+Assert.Less(long arg1, long arg2, string message, params object[] params);
 
-ClassicAssert.Less(ulong arg1, ulong arg2);
-ClassicAssert.Less(ulong arg1, ulong arg2, string message, params object[] params);
+Assert.Less(ulong arg1, ulong arg2);
+Assert.Less(ulong arg1, ulong arg2, string message, params object[] params);
 
-ClassicAssert.Less(decimal arg1, decimal arg2);
-ClassicAssert.Less(decimal arg1, decimal arg2,
+Assert.Less(decimal arg1, decimal arg2);
+Assert.Less(decimal arg1, decimal arg2,
             string message, params object[] params);
 
-ClassicAssert.Less(double arg1, double arg2);
-ClassicAssert.Less(double arg1, double arg2,
+Assert.Less(double arg1, double arg2);
+Assert.Less(double arg1, double arg2,
             string message, params object[] params);
 
-ClassicAssert.Less(float arg1, float arg2);
-ClassicAssert.Less(float arg1, float arg2,
+Assert.Less(float arg1, float arg2);
+Assert.Less(float arg1, float arg2,
             string message, params object[] params);
 
-ClassicAssert.Less(IComparable arg1, IComparable arg2);
-ClassicAssert.Less(IComparable arg1, IComparable arg2,
+Assert.Less(IComparable arg1, IComparable arg2);
+Assert.Less(IComparable arg1, IComparable arg2,
             string message, params object[] params);
 ```
 
 ## See Also
 
-* [ClassicAssert.Greater](Assert.Greater.md)
-* [ClassicAssert.GreaterOrEqual](Assert.GreaterOrEqual.md)
-* [ClassicAssert.LessOrEqual](Assert.LessOrEqual.md)
+* [Assert.Greater](Assert.Greater.md)
+* [Assert.GreaterOrEqual](Assert.GreaterOrEqual.md)
+* [Assert.LessOrEqual](Assert.LessOrEqual.md)
 * [Comparison Constraints](xref:constraints#comparison-constraints)

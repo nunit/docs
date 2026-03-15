@@ -17,19 +17,19 @@ public class ClassicAssertExamples
     public void AreEqual_Examples()
     {
         // Comparing numerics of different types
-        ClassicAssert.AreEqual(5, 5.0);
+       Assert.AreEqual(5, 5.0);
         
         // Floating point special values
-        ClassicAssert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
-        ClassicAssert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
-        ClassicAssert.AreEqual(double.NaN, double.NaN);
+       Assert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
+       Assert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
+       Assert.AreEqual(double.NaN, double.NaN);
         
         // Basic equality
-        ClassicAssert.AreEqual("expected", "expected");
-        ClassicAssert.AreEqual(42, 42);
+       Assert.AreEqual("expected", "expected");
+       Assert.AreEqual(42, 42);
         
         // With tolerance for floating point
-        ClassicAssert.AreEqual(2.1 + 1.2, 3.3, 0.001);
+       Assert.AreEqual(2.1 + 1.2, 3.3, 0.001);
     }
     #endregion
 
@@ -37,9 +37,9 @@ public class ClassicAssertExamples
     [Test]
     public void AreNotEqual_Examples()
     {
-        ClassicAssert.AreNotEqual(5, 3);
-        ClassicAssert.AreNotEqual("Hello", "World");
-        ClassicAssert.AreNotEqual(null, "something");
+       Assert.AreNotEqual(5, 3);
+       Assert.AreNotEqual("Hello", "World");
+       Assert.AreNotEqual(null, "something");
     }
     #endregion
 
@@ -58,9 +58,9 @@ public class ClassicAssertExamples
     [Test]
     public void False_Examples()
     {
-        ClassicAssert.False(2 + 2 == 5);
-        ClassicAssert.IsFalse(false);
-        ClassicAssert.False("Hello".StartsWith("X"));
+       Assert.False(2 + 2 == 5);
+       Assert.IsFalse(false);
+       Assert.False("Hello".StartsWith("X"));
     }
     #endregion
 
