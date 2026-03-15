@@ -127,7 +127,7 @@ public class ConstraintExamples
         var myOwnObject = new MyOwnObject(42);
 
         // Using an untyped comparer that can handle both MyOwnObject and int types, comparing based on the Age property of MyOwnObject instances.
-        var myComparer = new MyComparerUnTyped();
+        var myComparer = new MyComparerUntyped();
         Assert.That(myOwnObject, Is.GreaterThanOrEqualTo(42).Using(myComparer));
 
         // Using a lambda expression to compare MyOwnObject instances based on their Age property
@@ -149,7 +149,7 @@ public class ConstraintExamples
     /// <summary>
     /// Comparer handling different types of objects (MyOwnObject and int) and comparing them based on the Age property of MyOwnObject instances.
     /// </summary>
-    public class MyComparerUnTyped : IComparer
+    public class MyComparerUntyped : IComparer
     {
         public int Compare(object? x, object? y)
         {
