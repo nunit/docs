@@ -26,11 +26,5 @@ Is.AtMost(object expected)
 
 ## Examples of Use
 
-```csharp
-Assert.That(3, Is.LessThanOrEqualTo(7));
-Assert.That(3, Is.AtMost(7));
-Assert.That(3, Is.LessThanOrEqualTo(3));
-Assert.That(3, Is.AtMost(3));
-Assert.That(myOwnObject, Is.LessThanOrEqualTo(theExpected).Using(myComparer));
-Assert.That(myDateTime, Is.LessThanOrEqualTo(expectedDateTime).Within(TimeSpan.FromSeconds(1)))
-```
+[!code-csharp[GreaterThanOrEqualExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#LessThanOrEqualExamples)]
+[!code-csharp[With Comparer](~/snippets/Snippets.NUnit/ConstraintExamples.cs#MyComparerExample)]
