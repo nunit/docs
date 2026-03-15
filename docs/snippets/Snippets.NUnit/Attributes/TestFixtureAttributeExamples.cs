@@ -44,10 +44,9 @@ public class TestFixtureAttributeExamples
         {
             _eq1 = eqArguments[0].ToString();
             _eq2 = eqArguments[1].ToString();
-            if (eqArguments.Length > 2)
-                _neq = eqArguments[2].ToString();
-            else 
-                _neq = null;
+            _neq = eqArguments.Length > 2 
+                ? eqArguments[2].ToString() 
+                : null;
         }
         
         [Test]
@@ -121,8 +120,8 @@ public class TestFixtureAttributeExamples
     #endregion
 
     #region SpecifyTypeArgsSeparately
-    [TestFixture(100.0, 42, TypeArgs = new[] { typeof(double), typeof(int) })]
-    [TestFixture(42, 100.0, TypeArgs = new[] { typeof(int), typeof(double) })]
+    [TestFixture(100.0, 42, TypeArgs = [typeof(double), typeof(int)])]
+    [TestFixture(42, 100.0, TypeArgs = [typeof(int), typeof(double)])]
     public class SpecifyTypeArgsSeparately<T1, T2>
         where T1 : notnull
         where T2 : notnull
