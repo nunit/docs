@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using System.Collections;
-using static Snippets.NUnit.ConstraintExamples;
 
 #pragma warning disable CA1822
 #pragma warning disable NUnit2045
