@@ -110,11 +110,11 @@ same outcome.</p>
     }
 
     public static object[] DivideCases =
-    {
+    [
         new object[] { 12, 3, 4 },
         new object[] { 12, 2, 6 },
         new object[] { 12, 4, 3 }
-    };
+    ];
 }
 </code></pre>
 <p>The single attribute argument in this form is a string representing the name of the source used to provide test cases.
@@ -275,8 +275,8 @@ public class MyExplicitlyTypedTests
 
     private static IEnumerable&lt;TestCaseData&gt; ExplicitTypeArgsTestCases()
     {
-        yield return new TestCaseData(2) { TypeArgs = new[] { typeof(long) } };
-        yield return new TestCaseData(2L) { TypeArgs = new[] { typeof(long) } };
+        yield return new TestCaseData(2) { TypeArgs = [typeof(long)] };
+        yield return new TestCaseData(2L) { TypeArgs = [typeof(long)] };
     }
 }
 </code></pre>
@@ -297,7 +297,7 @@ an <code>IEnumerable&lt;&gt;</code> of the anonymous tuple type.</p>
         Assert.That(res, Is.EqualTo(td.Expected));
     }
 
-    public static IEnumerable&lt;(Person, bool)&gt; TestCases()
+    private static IEnumerable&lt;(Person, bool)&gt; TestCases()
     {
         yield return (new Person { Name = &quot;John&quot;, Age = 10 }, false);
         yield return (new Person { Name = &quot;Jane&quot;, Age = 30 }, true);

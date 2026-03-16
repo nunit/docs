@@ -138,7 +138,7 @@ public async Task PotentiallyLongRunningTest(string uri, CancellationToken token
 }
 </code></pre>
 <p>A parameterized test written using the <code>TestCaseSource</code> attribute:</p>
-<pre><code class="lang-csharp" name="TestCaseSourceWithCancellationToken">private static int[] _simpleValues = { 2, 4, 6, 8 };
+<pre><code class="lang-csharp" name="TestCaseSourceWithCancellationToken">private static int[] _simpleValues = [2, 4, 6, 8];
 
 [TestCaseSource(nameof(_simpleValues)), CancelAfter(1_000)]
 public void TestCaseSourceWithCancellationToken(int a, CancellationToken cancellationToken)

@@ -188,10 +188,9 @@ public class ParameterizedTestFixture
     {
         _eq1 = eqArguments[0].ToString();
         _eq2 = eqArguments[1].ToString();
-        if (eqArguments.Length &gt; 2)
-            _neq = eqArguments[2].ToString();
-        else 
-            _neq = null;
+        _neq = eqArguments.Length &gt; 2 
+            ? eqArguments[2].ToString() 
+            : null;
     }
     
     [Test]
@@ -276,8 +275,8 @@ public class SpecifyBothSetsOfArgs&lt;T1, T2&gt;
 specify the type arguments. Again, for this example, the type info is duplicated, but it is at least more cleanly
 separated from the normal arguments...</li>
 </ul>
-<pre><code class="lang-csharp" name="SpecifyTypeArgsSeparately">[TestFixture(100.0, 42, TypeArgs = new[] { typeof(double), typeof(int) })]
-[TestFixture(42, 100.0, TypeArgs = new[] { typeof(int), typeof(double) })]
+<pre><code class="lang-csharp" name="SpecifyTypeArgsSeparately">[TestFixture(100.0, 42, TypeArgs = [typeof(double), typeof(int)])]
+[TestFixture(42, 100.0, TypeArgs = [typeof(int), typeof(double)])]
 public class SpecifyTypeArgsSeparately&lt;T1, T2&gt;
     where T1 : notnull
     where T2 : notnull

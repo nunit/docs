@@ -100,7 +100,7 @@ objects</a> as an argument. We call this the <a class="xref" href="assertion-mod
 Model</a> is still supported but since no new features have been added to it for some time, the
 constraint-based model must be used in order to have full access to NUnit's capabilities.</p>
 <p>For example, the following code must use the constraint model. There is no real classic equivalent.</p>
-<pre><code class="lang-csharp" name="ConstraintWithoutClassicEquivalent">int[] array = { 1, 2, 3 };
+<pre><code class="lang-csharp" name="ConstraintWithoutClassicEquivalent">int[] array = [1, 2, 3];
 Assert.That(array, Has.Exactly(1).EqualTo(3));
 Assert.That(array, Has.Exactly(2).GreaterThan(1));
 Assert.That(array, Has.Exactly(3).LessThan(100));

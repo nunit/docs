@@ -100,10 +100,11 @@ public class MyTestClass
 
     /* Tests */
 
-    static object[] FixtureArgs = {
+    static object[] FixtureArgs =
+    [
         new object[] { &quot;Question&quot;, 1 },
         new object[] { &quot;Answer&quot;, 42 }
-    };
+    ];
 }
 </code></pre>
 <p>The single attribute argument in this form is a string representing the name of the source used to provide arguments for
@@ -132,10 +133,11 @@ public class MyTestClass
 
 public class AnotherClass
 {
-    public static object[] FixtureArgs = {
+    public static object[] FixtureArgs =
+    [
         new object[] { &quot;Question&quot;, 1 },
         new object[] { &quot;Answer&quot;, 42 }
-    };
+    ];
 }
 </code></pre>
 <p>The first argument of the attribute in this form is a Type representing the class that will provide the test fixture

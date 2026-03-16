@@ -100,7 +100,7 @@ public void TestMethod1()
 }
 </code></pre><h3 id="run-all-regardless-of-failures">Run all regardless of failures</h3>
 <pre><code class="lang-csharp" name="RepeatWithFaultAttributeExample">
-private int count2 = 0;
+private int count2;
 
 [Test,Explicit]  // Marking the test as Explicit to avoid failing our doc build. You can skip this.
 [Repeat(5, StopOnFailure = false)]
