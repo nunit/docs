@@ -22,7 +22,7 @@ StringAssert.AreEqualIgnoringCase("Hello", myString);
 > The `ClassicAssert` and `NUnit.Framework.Legacy` are still available in 4.5.0, so you don't need to change code
 > that already use this.
 >
-> See [classic extensions](../classic_extensions.md) for a full table over all extension mappings.
+> See [classic extensions](classic_extensions.md) for a full table over all extension mappings.
 
 The Assert class provides the most common classic assertions in NUnit:
 
