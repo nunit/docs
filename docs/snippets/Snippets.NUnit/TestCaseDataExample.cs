@@ -43,8 +43,8 @@ public class TestCaseDataExample
 
         private static IEnumerable<TestCaseData> ExplicitTypeArgsTestCases()
         {
-            yield return new TestCaseData(2) { TypeArgs = new[] { typeof(long) } };
-            yield return new TestCaseData(2L) { TypeArgs = new[] { typeof(long) } };
+            yield return new TestCaseData(2) { TypeArgs = [typeof(long)] };
+            yield return new TestCaseData(2L) { TypeArgs = [typeof(long)] };
         }
     }
     #endregion

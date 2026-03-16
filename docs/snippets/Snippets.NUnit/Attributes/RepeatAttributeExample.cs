@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace Snippets.NUnit.Attributes;
 
@@ -19,7 +14,7 @@ public class RepeatAttributeExample
     }
     #endregion
 
-    private int count1 = 0;
+    private int count1;
     #region RepeatWithFaultAndOutputAttributeExample
     [Test, Explicit("Issue 5031 must be fixed")]
     [Repeat(5, StopOnFailure = false)]
@@ -34,7 +29,7 @@ public class RepeatAttributeExample
 
     #region RepeatWithFaultAttributeExample
 
-    private int count2 = 0;
+    private int count2;
     
     [Test,Explicit]  // Marking the test as Explicit to avoid failing our doc build. You can skip this.
     [Repeat(5, StopOnFailure = false)]

@@ -21,11 +21,11 @@ public class TestCaseSourceExamples
         }
 
         public static object[] DivideCases =
-        {
+        [
             new object[] { 12, 3, 4 },
             new object[] { 12, 2, 6 },
             new object[] { 12, 4, 3 }
-        };
+        ];
     }
     #endregion
     #region ParameterizedSource
@@ -130,7 +130,7 @@ public class TestCaseSourceExamples
             Assert.That(res, Is.EqualTo(td.Expected));
         }
 
-        public static IEnumerable<(Person, bool)> TestCases()
+        private static IEnumerable<(Person, bool)> TestCases()
         {
             yield return (new Person { Name = "John", Age = 10 }, false);
             yield return (new Person { Name = "Jane", Age = 30 }, true);

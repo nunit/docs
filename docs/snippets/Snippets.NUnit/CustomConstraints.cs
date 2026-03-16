@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using NUnit.Framework.Constraints;
 using static Snippets.NUnit.CustomConstraints;
 

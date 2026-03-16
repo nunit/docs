@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Snippets.NUnit;

@@ -2,6 +2,9 @@
 
 `GreaterThanOrEqualConstraint` tests that one value is greater than or equal to another.
 
+It works with numeric types, `DateTime`, `TimeSpan`, and any type implementing `IComparable`. For custom types, a
+user-specified comparer can be provided using the `Using` modifier.
+
 ## Constructor
 
 ```csharp
@@ -26,11 +29,5 @@ Is.AtLeast(object expected)
 
 ## Examples of Use
 
-```csharp
-Assert.That(7, Is.GreaterThanOrEqualTo(3));
-Assert.That(7, Is.AtLeast(3));
-Assert.That(7, Is.GreaterThanOrEqualTo(7));
-Assert.That(7, Is.AtLeast(7));
-Assert.That(myOwnObject, Is.GreaterThanOrEqualTo(theExpected).Using(myComparer));
-Assert.That(myDateTime, Is.GreaterThanOrEqualTo(expectedDateTime).Within(TimeSpan.FromSeconds(1)))
-```
+[!code-csharp[GreaterThanOrEqualExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#GreaterThanOrEqualExamples)]
+[!code-csharp[With Comparer](~/snippets/Snippets.NUnit/ConstraintExamples.cs#MyComparerExample)]

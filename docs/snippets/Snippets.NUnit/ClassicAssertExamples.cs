@@ -146,7 +146,7 @@ public class ClassicAssertExamples
         var list = new List<int> { 1, 2, 3, 4, 5 };
         Assert.Contains(3, list);
         
-        var array = new string[] { "apple", "banana", "cherry" };
+        var array = new [] { "apple", "banana", "cherry" };
         Assert.Contains("banana", array);
     }
     #endregion
@@ -187,7 +187,7 @@ public class ClassicAssertExamples
         Assert.IsEmpty(new List<string>());
         
         Assert.IsNotEmpty("Hello");
-        Assert.IsNotEmpty(new int[] { 1, 2, 3 });
+        Assert.IsNotEmpty(new [] { 1, 2, 3 });
         Assert.IsNotEmpty(new List<string> { "item" });
     }
     #endregion
