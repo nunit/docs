@@ -88,6 +88,9 @@
 
 <p>An EqualConstraint is used to test whether an actual value is equal to the expected value supplied in its constructor,
 optionally within a specified tolerance.</p>
+<p>It works with numeric types, floating point values, strings, <code>DateTime</code>, <code>TimeSpan</code>, arrays, collections, dictionaries,
+<code>DirectoryInfo</code>, and classes/structures. For custom types, a user-specified comparer can be provided using the <code>Using</code>
+modifier, or the <code>UsingPropertiesComparer</code> modifier can be used for property-by-property comparison.</p>
 <h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">EqualConstraint(object expected)
 </code></pre>
@@ -158,15 +161,15 @@ also be used when comparing arrays or collections of strings.</p>
 <pre><code class="lang-csharp" name="EqualConstraintStrings">[Test]
 public void EqualConstraint_Strings()
 {
-    string hello = &quot;Hello!&quot;;
+    var hello = &quot;Hello!&quot;;
     Assert.That(hello, Is.Not.EqualTo(&quot;HELLO!&quot;));
     Assert.That(hello, Is.EqualTo(&quot;HELLO!&quot;).IgnoreCase);  // Ignores case in both actual and expected before comparing
 
     string[] expected = [&quot;Hello&quot;, &quot;World&quot;];
     string[] actual = [&quot;HELLO&quot;, &quot;world&quot;];
     Assert.That(actual, Is.EqualTo(expected).IgnoreCase);
-    string actualiws   = &quot;Hello  my world is \r\n on fire!&quot;;
-    string expectediws = &quot;Hellomy    world \r\n  is   on    fire!&quot;;
+    var actualiws = &quot;Hello  my world is \r\n on fire!&quot;;
+    var expectediws = &quot;Hellomy    world \r\n  is   on    fire!&quot;;
     Assert.That(actualiws, Is.EqualTo(expectediws).IgnoreWhiteSpace);  // Ignores white space in both actual and expected before comparing
 }
 </code></pre>

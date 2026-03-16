@@ -127,13 +127,13 @@ multiple times so only methods without side effects should be used in this way.<
 <pre><code class="lang-csharp" name="DelayedConstraintExamples">[Test]
 public void DelayedConstraint_Examples()
 {
-    bool flag = false;
-    Task.Run(async () =&gt; 
-    { 
-        await Task.Delay(100); 
-        flag = true; 
+    var flag = false;
+    Task.Run(async () =&gt;
+    {
+        await Task.Delay(100);
+        flag = true;
     });
-    
+
     Assert.That(() =&gt; flag, Is.True.After(200).MilliSeconds);
 }
 </code></pre>

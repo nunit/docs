@@ -115,7 +115,7 @@ Throws.InnerException
 public void ThrowsConstraint_Examples()
 {
     Assert.That(() =&gt; throw new ArgumentException(), Throws.ArgumentException);
-    Assert.That(() =&gt; throw new InvalidOperationException(&quot;test&quot;), 
+    Assert.That(() =&gt; throw new InvalidOperationException(&quot;test&quot;),
                Throws.InvalidOperationException.With.Message.EqualTo(&quot;test&quot;));
     Assert.That(() =&gt; { }, Throws.Nothing);
 }

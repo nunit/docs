@@ -106,7 +106,7 @@ property value.</p>
 public void PropertyConstraint_Examples()
 {
     var person = new Person { Name = &quot;John&quot;, Age = 25, Email = &quot;john@example.com&quot; };
-    
+
     Assert.That(person, Has.Property(&quot;Name&quot;).EqualTo(&quot;John&quot;));
     Assert.That(person, Has.Property(&quot;Age&quot;).GreaterThan(18));
     Assert.That(person, Has.Property(&quot;Email&quot;).Contains(&quot;@&quot;));

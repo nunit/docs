@@ -87,6 +87,8 @@
 <h1 id="greaterthan-constraint">GreaterThan Constraint</h1>
 
 <p><code>GreaterThanConstraint</code> tests that one value is greater than another.</p>
+<p>It works with numeric types, <code>DateTime</code>, <code>TimeSpan</code>, and any type implementing <code>IComparable</code>. For custom types, a
+user-specified comparer can be provided using the <code>Using</code> modifier.</p>
 <h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">GreaterThanConstraint(object expected)
 </code></pre>
@@ -106,11 +108,64 @@ public void GreaterThan_Examples()
 {
     Assert.That(7, Is.GreaterThan(3));
     Assert.That(42, Is.Positive);
-    
-    DateTime expectedDateTime = DateTime.Now.AddMinutes(-1);
-    DateTime myDateTime = DateTime.Now;
+
+    var expectedDateTime = DateTime.Now.AddMinutes(-1);
+    var myDateTime = DateTime.Now;
     Assert.That(myDateTime, Is.GreaterThan(expectedDateTime).Within(TimeSpan.FromSeconds(1)));
+
+    var myOwnObject = new MyOwnObject(42);
+
+    // Using an untyped comparer that can handle both MyOwnObject and int types, comparing based on the Age property of MyOwnObject instances.
+    var myComparer = new MyComparerUntyped();
+    Assert.That(myOwnObject, Is.GreaterThan(41).Using(myComparer));
+
+    // Using a lambda expression to compare MyOwnObject instances based on their Age property
+    var myParentObject = new MyOwnObject(84);
+    Assert.That(myParentObject, Is.GreaterThan(myOwnObject).Using&lt;MyOwnObject&gt;((x, y) =&gt; x.Age.CompareTo(y.Age)));
+
+    // Using a typed comparer
+    var myTypedComparer = new MyComparerTyped();
+    Assert.That(myParentObject, Is.GreaterThan(myOwnObject).Using(myTypedComparer));
 }
+</code></pre><pre><code class="lang-csharp" name="With Comparer">public class MyOwnObject(int age)
+{
+    public int Age =&gt; age;
+}
+
+/// &lt;summary&gt;
+/// Comparer handling different types of objects (MyOwnObject and int) and comparing them based on the Age property of MyOwnObject instances.
+/// &lt;/summary&gt;
+public class MyComparerUntyped : IComparer
+{
+    public int Compare(object? x, object? y)
+    {
+        // Handle nulls
+        if (ReferenceEquals(x, y)) return 0;
+        if (x is null) return -1;
+        if (y is null) return 1;
+        // Identify which one is the object and which is the int
+        int actualAge = x is MyOwnObject obj ? obj.Age : (int)x;
+        int expectedAge = y is MyOwnObject objY ? objY.Age : (int)y;
+
+        return actualAge.CompareTo(expectedAge);
+    }
+}
+
+/// &lt;summary&gt;
+/// High performance comparer for equal typed objects that only compares the Age property of MyOwnObject instances.
+/// &lt;/summary&gt;
+public class MyComparerTyped : IComparer&lt;MyOwnObject&gt;
+{
+    public int Compare(MyOwnObject? x, MyOwnObject? y)
+    {
+        if (ReferenceEquals(x, y)) return 0;
+        if (x is null) return -1;
+        if (y is null) return 1;
+
+        return x.Age.CompareTo(y.Age);
+    }
+}
+
 </code></pre>
 </article>
           </div>

@@ -104,7 +104,7 @@ public void FileConstraint_Examples()
 {
     var tempFile = Path.GetTempFileName();
     File.WriteAllText(tempFile, &quot;test content&quot;);
-    
+
     try
     {
         Assert.That(tempFile, Does.Exist);
