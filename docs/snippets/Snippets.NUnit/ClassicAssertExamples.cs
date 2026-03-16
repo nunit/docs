@@ -147,7 +147,7 @@ public class ClassicAssertExamples
         var list = new List<int> { 1, 2, 3, 4, 5 };
         ClassicAssert.Contains(3, list);
         
-        var array = new string[] { "apple", "banana", "cherry" };
+        var array = new[] { "apple", "banana", "cherry" };
         ClassicAssert.Contains("banana", array);
     }
     #endregion
@@ -188,7 +188,7 @@ public class ClassicAssertExamples
         ClassicAssert.IsEmpty(new List<string>());
         
         ClassicAssert.IsNotEmpty("Hello");
-        ClassicAssert.IsNotEmpty(new int[] { 1, 2, 3 });
+        ClassicAssert.IsNotEmpty(new[] { 1, 2, 3 });
         ClassicAssert.IsNotEmpty(new List<string> { "item" });
     }
     #endregion
@@ -227,10 +227,10 @@ public class CollectionAssertExamples
     [Test]
     public void CollectionAssert_Basic_Examples()
     {
-        var list1 = new int[] { 1, 2, 3 };
-        var list2 = new int[] { 1, 2, 3 };
-        var list3 = new int[] { 3, 2, 1 };
-        var list4 = new int[] { 1, 2, 4 };
+        var list1 = new[] { 1, 2, 3 };
+        var list2 = new[] { 1, 2, 3 };
+        var list3 = new[] { 3, 2, 1 };
+        var list4 = new[] { 1, 2, 4 };
         
         // Collections are equal (same order)
         CollectionAssert.AreEqual(list1, list2);
@@ -250,7 +250,7 @@ public class CollectionAssertExamples
     [Test]
     public void CollectionAssert_Contains_Examples()
     {
-        var list = new int[] { 1, 2, 3, 4, 5 };
+        var list = new[] { 1, 2, 3, 4, 5 };
         
         CollectionAssert.Contains(list, 3);
         CollectionAssert.DoesNotContain(list, 10);
@@ -261,9 +261,9 @@ public class CollectionAssertExamples
     [Test]
     public void CollectionAssert_Subset_Examples()
     {
-        var superset = new int[] { 1, 2, 3, 4, 5 };
-        var subset = new int[] { 2, 4 };
-        var notSubset = new int[] { 1, 6 };
+        var superset = new[] { 1, 2, 3, 4, 5 };
+        var subset = new[] { 2, 4 };
+        var notSubset = new[] { 1, 6 };
         
         CollectionAssert.IsSubsetOf(subset, superset);
         CollectionAssert.IsNotSubsetOf(notSubset, superset);
@@ -275,7 +275,7 @@ public class CollectionAssertExamples
     public void CollectionAssert_Empty_Examples()
     {
         var emptyList = new int[] { };
-        var nonEmptyList = new int[] { 1, 2, 3 };
+        var nonEmptyList = new[] { 1, 2, 3 };
         
         CollectionAssert.IsEmpty(emptyList);
         CollectionAssert.IsNotEmpty(nonEmptyList);
@@ -286,8 +286,8 @@ public class CollectionAssertExamples
     [Test]
     public void CollectionAssert_Ordered_Examples()
     {
-        var orderedList = new int[] { 1, 2, 3, 4, 5 };
-        var reverseOrderedList = new int[] { 5, 4, 3, 2, 1 };
+        var orderedList = new[] { 1, 2, 3, 4, 5 };
+        var reverseOrderedList = new[] { 5, 4, 3, 2, 1 };
         
         CollectionAssert.IsOrdered(orderedList);
         CollectionAssert.IsOrdered(reverseOrderedList, Comparer<int>.Create((x, y) => y.CompareTo(x)));
@@ -300,7 +300,7 @@ public class CollectionAssertExamples
     [Test]
     public void CollectionAssert_ItemType_Examples()
     {
-        var stringList = new string[] { "a", "b", "c" };
+        var stringList = new[] { "a", "b", "c" };
         var mixedList = new object[] { "string", 123, null };
         
         CollectionAssert.AllItemsAreInstancesOfType(stringList, typeof(string));

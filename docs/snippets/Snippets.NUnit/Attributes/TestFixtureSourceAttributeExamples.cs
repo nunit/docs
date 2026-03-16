@@ -14,10 +14,11 @@ namespace Snippets.NUnit.Attributes
 
                 /* Tests */
 
-                static object[] FixtureArgs = {
+                static object[] FixtureArgs =
+                [
                     new object[] { "Question", 1 },
                     new object[] { "Answer", 42 }
-                };
+                ];
             }
             #endregion
         }
@@ -34,10 +35,11 @@ namespace Snippets.NUnit.Attributes
 
         public class AnotherClass
         {
-            public static object[] FixtureArgs = {
+            public static object[] FixtureArgs =
+            [
                 new object[] { "Question", 1 },
                 new object[] { "Answer", 42 }
-            };
+            ];
         }
         #endregion
         }
