@@ -2,6 +2,9 @@
 
 `GreaterThanConstraint` tests that one value is greater than another.
 
+It works with numeric types, `DateTime`, `TimeSpan`, and any type implementing `IComparable`. For custom types, a
+user-specified comparer can be provided using the `Using` modifier.
+
 ## Constructor
 
 ```csharp
@@ -27,3 +30,4 @@ Is.Positive // Equivalent to Is.GreaterThan(0)
 ## Examples of Use
 
 [!code-csharp[GreaterThanExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#GreaterThanExamples)]
+[!code-csharp[With Comparer](~/snippets/Snippets.NUnit/ConstraintExamples.cs#MyComparerExample)]
