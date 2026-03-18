@@ -45,7 +45,8 @@ The Assert class provides the most common assertions in NUnit:
 * [Assert.Catch](../classic-assertions/Assert.Catch.md)
 * [Assert.CatchAsync](../classic-assertions/Assert.CatchAsync.md)
 
-Additional assertions are provided by the following classes, which are also in the `NUnit.Framework.Legacy` namespace:
+Additional assertions are provided by the following classes, which are in the `NUnit.Framework` namespace in version 3.X
+and 5.X, and in the `NUnit.Framework.Legacy` namespace in version 4.X.
 
 * [String Assert](../classic-assertions/String-Assert.md)
 * [Collection Assert](../classic-assertions/Collection-Assert.md)
@@ -55,8 +56,3 @@ Additional assertions are provided by the following classes, which are also in t
 ## See Also
 
 * [Constraint Model](xref:constraintmodel)
-
-## Notes
-
-* The exception-family of classic asserts have not yet been moved to the legacy namespace.  They have not yet full
-  equivalents in the constraint model.
