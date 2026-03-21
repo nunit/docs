@@ -25,8 +25,8 @@ concern this feature. It has now been implemented and works for both standard ru
 ### Bug fixes
 
 * [1400](https://github.com/nunit/nunit3-vs-adapter/issues/1400) Nunit3TestAdapter 6.1.0 copies unwanted version of Microsoft.Extensions.DependencyModel.dll into output, fixed in [PR 1401](https://github.com/nunit/nunit3-vs-adapter/pull/1401)
-* [1398](https://github.com/nunit/nunit3-vs-adapter/issues/1398) NUnit3TestAdapter &gt;= 6.0.1 requires pinning Microsoft.Extensions.DependencyModel when using Microsoft.Testing.Extensions.CodeCoverage, fixed in [PR 1401](https://github.com/nunit/nunit3-vs-adapter/pull/1401)
-* [1396](https://github.com/nunit/nunit3-vs-adapter/issues/1396) Resharper test runner fails with NUnit3TestAdapter 6.0.1, fixed in [PR 1401](https://github.com/nunit/nunit3-vs-adapter/pull/1401)
+* [1398](https://github.com/nunit/nunit3-vs-adapter/issues/1398) NUnit3TestAdapter >= 6.0.1 requires pinning Microsoft.Extensions.DependencyModel when using Microsoft.Testing.Extensions.CodeCoverage, fixed in [PR 1401](https://github.com/nunit/nunit3-vs-adapter/pull/1401)
+* [1396](https://github.com/nunit/nunit3-vs-adapter/issues/1396) ReSharper test runner fails with NUnit3TestAdapter 6.0.1, fixed in [PR 1401](https://github.com/nunit/nunit3-vs-adapter/pull/1401)
 * [1361](https://github.com/nunit/nunit3-vs-adapter/issues/1361) `dotnet test` using MTP with NUnit3TestAdapter cannot be cancelled on the CLI, fixed in [PR 1412](https://github.com/nunit/nunit3-vs-adapter/pull/1412)
 
 ### Refactorings
