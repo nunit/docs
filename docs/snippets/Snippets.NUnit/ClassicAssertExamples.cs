@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using NUnit.Framework.Legacy;
 
 #pragma warning disable CA1822
 #pragma warning disable NUnit2045
@@ -18,19 +17,19 @@ public class ClassicAssertExamples
     public void AreEqual_Examples()
     {
         // Comparing numerics of different types
-        ClassicAssert.AreEqual(5, 5.0);
+       Assert.AreEqual(5, 5.0);
         
         // Floating point special values
-        ClassicAssert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
-        ClassicAssert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
-        ClassicAssert.AreEqual(double.NaN, double.NaN);
+       Assert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
+       Assert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
+       Assert.AreEqual(double.NaN, double.NaN);
         
         // Basic equality
-        ClassicAssert.AreEqual("expected", "expected");
-        ClassicAssert.AreEqual(42, 42);
+       Assert.AreEqual("expected", "expected");
+       Assert.AreEqual(42, 42);
         
         // With tolerance for floating point
-        ClassicAssert.AreEqual(2.1 + 1.2, 3.3, 0.001);
+       Assert.AreEqual(2.1 + 1.2, 3.3, 0.001);
     }
     #endregion
 
@@ -38,9 +37,9 @@ public class ClassicAssertExamples
     [Test]
     public void AreNotEqual_Examples()
     {
-        ClassicAssert.AreNotEqual(5, 3);
-        ClassicAssert.AreNotEqual("Hello", "World");
-        ClassicAssert.AreNotEqual(null, "something");
+       Assert.AreNotEqual(5, 3);
+       Assert.AreNotEqual("Hello", "World");
+       Assert.AreNotEqual(null, "something");
     }
     #endregion
 
@@ -48,9 +47,9 @@ public class ClassicAssertExamples
     [Test]
     public void True_Examples()
     {
-        ClassicAssert.True(2 + 2 == 4);
-        ClassicAssert.IsTrue(true);
-        ClassicAssert.True("Hello".StartsWith("H"));
+        Assert.True(2 + 2 == 4);
+        Assert.IsTrue(true);
+        Assert.True("Hello".StartsWith("H"));
         
     }
     #endregion
@@ -59,9 +58,9 @@ public class ClassicAssertExamples
     [Test]
     public void False_Examples()
     {
-        ClassicAssert.False(2 + 2 == 5);
-        ClassicAssert.IsFalse(false);
-        ClassicAssert.False("Hello".StartsWith("X"));
+       Assert.False(2 + 2 == 5);
+       Assert.IsFalse(false);
+       Assert.False("Hello".StartsWith("X"));
     }
     #endregion
 
@@ -73,12 +72,12 @@ public class ClassicAssertExamples
     public void Null_Examples()
     {
         object obj = null;
-        ClassicAssert.Null(obj);
-        ClassicAssert.IsNull(obj);
+        Assert.Null(obj);
+        Assert.IsNull(obj);
         
         obj = "something";
-        ClassicAssert.NotNull(obj);
-        ClassicAssert.IsNotNull(obj);
+        Assert.NotNull(obj);
+        Assert.IsNotNull(obj);
     }
     #endregion
 #pragma warning restore CS8600
@@ -92,8 +91,8 @@ public class ClassicAssertExamples
         object obj2 = obj1;
         object obj3 = new object();
         
-        ClassicAssert.AreSame(obj1, obj2);
-        ClassicAssert.AreNotSame(obj1, obj3);
+        Assert.AreSame(obj1, obj2);
+        Assert.AreNotSame(obj1, obj3);
     }
     #endregion
 
@@ -101,10 +100,10 @@ public class ClassicAssertExamples
     [Test]
     public void Greater_Examples()
     {
-        ClassicAssert.Greater(7, 3);
-        ClassicAssert.Greater(3.5, 2.1);
-        ClassicAssert.Greater("b", "a");
-        ClassicAssert.Greater(DateTime.Now, DateTime.Now.AddDays(-1));
+        Assert.Greater(7, 3);
+        Assert.Greater(3.5, 2.1);
+        Assert.Greater("b", "a");
+        Assert.Greater(DateTime.Now, DateTime.Now.AddDays(-1));
     }
     #endregion
 
@@ -112,10 +111,10 @@ public class ClassicAssertExamples
     [Test]
     public void GreaterOrEqual_Examples()
     {
-        ClassicAssert.GreaterOrEqual(7, 3);
-        ClassicAssert.GreaterOrEqual(7, 7);
-        ClassicAssert.GreaterOrEqual("b", "a");
-        ClassicAssert.GreaterOrEqual("b", "b");
+        Assert.GreaterOrEqual(7, 3);
+        Assert.GreaterOrEqual(7, 7);
+        Assert.GreaterOrEqual("b", "a");
+        Assert.GreaterOrEqual("b", "b");
     }
     #endregion
 
@@ -123,9 +122,9 @@ public class ClassicAssertExamples
     [Test]
     public void Less_Examples()
     {
-        ClassicAssert.Less(3, 7);
-        ClassicAssert.Less(2.1, 3.5);
-        ClassicAssert.Less("a", "b");
+        Assert.Less(3, 7);
+        Assert.Less(2.1, 3.5);
+        Assert.Less("a", "b");
     }
     #endregion
 
@@ -133,10 +132,10 @@ public class ClassicAssertExamples
     [Test]
     public void LessOrEqual_Examples()
     {
-        ClassicAssert.LessOrEqual(3, 7);
-        ClassicAssert.LessOrEqual(7, 7);
-        ClassicAssert.LessOrEqual("a", "b");
-        ClassicAssert.LessOrEqual("a", "a");
+        Assert.LessOrEqual(3, 7);
+        Assert.LessOrEqual(7, 7);
+        Assert.LessOrEqual("a", "b");
+        Assert.LessOrEqual("a", "a");
     }
     #endregion
 
@@ -145,10 +144,10 @@ public class ClassicAssertExamples
     public void Contains_Examples()
     {
         var list = new List<int> { 1, 2, 3, 4, 5 };
-        ClassicAssert.Contains(3, list);
+        Assert.Contains(3, list);
         
-        var array = new[] { "apple", "banana", "cherry" };
-        ClassicAssert.Contains("banana", array);
+        var array = new [] { "apple", "banana", "cherry" };
+        Assert.Contains("banana", array);
     }
     #endregion
 
@@ -156,17 +155,17 @@ public class ClassicAssertExamples
     [Test]
     public void PositiveNegativeZero_Examples()
     {
-        ClassicAssert.Positive(5);
-        ClassicAssert.Positive(0.1);
+        Assert.Positive(5);
+        Assert.Positive(0.1);
         
-        ClassicAssert.Negative(-5);
-        ClassicAssert.Negative(-0.1);
+        Assert.Negative(-5);
+        Assert.Negative(-0.1);
         
-        ClassicAssert.Zero(0);
-        ClassicAssert.Zero(0.0);
+        Assert.Zero(0);
+        Assert.Zero(0.0);
         
-        ClassicAssert.NotZero(5);
-        ClassicAssert.NotZero(-3);
+        Assert.NotZero(5);
+        Assert.NotZero(-3);
     }
     #endregion
 
@@ -174,8 +173,8 @@ public class ClassicAssertExamples
     [Test]
     public void NaN_Examples()
     {
-        ClassicAssert.IsNaN(double.NaN);
-        ClassicAssert.IsNaN(float.NaN);
+       Assert.IsNaN(double.NaN);
+       Assert.IsNaN(float.NaN);
     }
     #endregion
 
@@ -183,13 +182,13 @@ public class ClassicAssertExamples
     [Test]
     public void Empty_Examples()
     {
-        ClassicAssert.IsEmpty("");
-        ClassicAssert.IsEmpty(new int[] { });
-        ClassicAssert.IsEmpty(new List<string>());
+        Assert.IsEmpty("");
+        Assert.IsEmpty(new int[] { });
+        Assert.IsEmpty(new List<string>());
         
-        ClassicAssert.IsNotEmpty("Hello");
-        ClassicAssert.IsNotEmpty(new[] { 1, 2, 3 });
-        ClassicAssert.IsNotEmpty(new List<string> { "item" });
+        Assert.IsNotEmpty("Hello");
+        Assert.IsNotEmpty(new [] { 1, 2, 3 });
+        Assert.IsNotEmpty(new List<string> { "item" });
     }
     #endregion
 
@@ -197,12 +196,12 @@ public class ClassicAssertExamples
     [Test]
     public void InstanceOf_Examples()
     {
-        ClassicAssert.IsInstanceOf<string>("Hello");
-        ClassicAssert.IsInstanceOf(typeof(string), "Hello");
-        ClassicAssert.IsInstanceOf<object>("Hello");
+        Assert.IsInstanceOf<string>("Hello");
+        Assert.IsInstanceOf(typeof(string), "Hello");
+        Assert.IsInstanceOf<object>("Hello");
         
-        ClassicAssert.IsNotInstanceOf<int>("Hello");
-        ClassicAssert.IsNotInstanceOf(typeof(int), "Hello");
+        Assert.IsNotInstanceOf<int>("Hello");
+        Assert.IsNotInstanceOf(typeof(int), "Hello");
     }
     #endregion
 
@@ -212,101 +211,11 @@ public class ClassicAssertExamples
     {
         // object can be assigned FROM string (string is a subtype of object)
         object obj = "Hello";
-        ClassicAssert.IsAssignableFrom<string>(obj);
-        ClassicAssert.IsAssignableFrom(typeof(string), obj);
+        Assert.IsAssignableFrom<string>(obj);
+        Assert.IsAssignableFrom(typeof(string), obj);
         
-        ClassicAssert.IsNotAssignableFrom<int>("Hello");
-        ClassicAssert.IsNotAssignableFrom(typeof(int), "Hello");
+        Assert.IsNotAssignableFrom<int>("Hello");
+        Assert.IsNotAssignableFrom(typeof(int), "Hello");
     }
     #endregion
-}
-
-public class CollectionAssertExamples
-{
-    #region CollectionAssertBasicExamples
-    [Test]
-    public void CollectionAssert_Basic_Examples()
-    {
-        var list1 = new[] { 1, 2, 3 };
-        var list2 = new[] { 1, 2, 3 };
-        var list3 = new[] { 3, 2, 1 };
-        var list4 = new[] { 1, 2, 4 };
-        
-        // Collections are equal (same order)
-        CollectionAssert.AreEqual(list1, list2);
-        
-        // Collections are equivalent (same items, any order)
-        CollectionAssert.AreEquivalent(list1, list3);
-        
-        // Collections are not equal
-        CollectionAssert.AreNotEqual(list1, list4);
-        
-        // Collections are not equivalent
-        CollectionAssert.AreNotEquivalent(list1, list4);
-    }
-    #endregion
-
-    #region CollectionAssertContainsExamples
-    [Test]
-    public void CollectionAssert_Contains_Examples()
-    {
-        var list = new[] { 1, 2, 3, 4, 5 };
-        
-        CollectionAssert.Contains(list, 3);
-        CollectionAssert.DoesNotContain(list, 10);
-    }
-    #endregion
-
-    #region CollectionAssertSubsetExamples
-    [Test]
-    public void CollectionAssert_Subset_Examples()
-    {
-        var superset = new[] { 1, 2, 3, 4, 5 };
-        var subset = new[] { 2, 4 };
-        var notSubset = new[] { 1, 6 };
-        
-        CollectionAssert.IsSubsetOf(subset, superset);
-        CollectionAssert.IsNotSubsetOf(notSubset, superset);
-    }
-    #endregion
-
-    #region CollectionAssertEmptyExamples
-    [Test]
-    public void CollectionAssert_Empty_Examples()
-    {
-        var emptyList = new int[] { };
-        var nonEmptyList = new[] { 1, 2, 3 };
-        
-        CollectionAssert.IsEmpty(emptyList);
-        CollectionAssert.IsNotEmpty(nonEmptyList);
-    }
-    #endregion
-
-    #region CollectionAssertOrderedExamples
-    [Test]
-    public void CollectionAssert_Ordered_Examples()
-    {
-        var orderedList = new[] { 1, 2, 3, 4, 5 };
-        var reverseOrderedList = new[] { 5, 4, 3, 2, 1 };
-        
-        CollectionAssert.IsOrdered(orderedList);
-        CollectionAssert.IsOrdered(reverseOrderedList, Comparer<int>.Create((x, y) => y.CompareTo(x)));
-    }
-    #endregion
-
-
-#pragma warning disable CS8625
-    #region CollectionAssertItemTypeExamples
-    [Test]
-    public void CollectionAssert_ItemType_Examples()
-    {
-        var stringList = new[] { "a", "b", "c" };
-        var mixedList = new object[] { "string", 123, null };
-        
-        CollectionAssert.AllItemsAreInstancesOfType(stringList, typeof(string));
-        CollectionAssert.AllItemsAreNotNull(stringList);
-        CollectionAssert.AllItemsAreUnique(stringList);
-    }
-    #endregion
-#pragma warning restore CS8625
 }

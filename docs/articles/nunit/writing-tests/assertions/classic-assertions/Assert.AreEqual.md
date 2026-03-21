@@ -1,14 +1,21 @@
-# ClassicAssert.AreEqual
+# Assert.AreEqual
 
-**ClassicAssert.AreEqual** tests whether the two arguments are equal.
+**Assert.AreEqual** tests whether the two arguments are equal.
+
+> [!NOTE]
+> From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy
+> namespace, but can use the former Assert class. This applies for many of the asserts, but a few still require the use of
+> the ClassicAssert class. These will be fixed in upcoming releases. In the list below, and in the examples, the 4.5.0
+> syntax will be used. If you use an earlier 4.x version, replace Assert with ClassicAssert and include the
+> NUnit.Framework.Legacy namespace.
 
 ```csharp
-ClassicAssert.AreEqual(double expected, double actual, double tolerance);
-ClassicAssert.AreEqual(double expected, double actual, double tolerance,
+Assert.AreEqual(double expected, double actual, double tolerance);
+Assert.AreEqual(double expected, double actual, double tolerance,
                 string message, params object[] params);
 
-ClassicAssert.AreEqual(object expected, object actual);
-ClassicAssert.AreEqual(object expected, object actual,
+Assert.AreEqual(object expected, object actual);
+Assert.AreEqual(object expected, object actual,
                 string message, params object[] params);
 ```
 

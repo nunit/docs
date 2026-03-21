@@ -3,7 +3,6 @@
 #pragma warning disable NUnit2007
 #pragma warning disable NUnit2005
 
-using NUnit.Framework.Legacy;
 namespace Snippets.NUnit;
 
 
@@ -20,7 +19,7 @@ public class ClassicVsConstraintAssertions
         #endregion
 
         #region ClassicAndConstraintsAreEquivalent
-        ClassicAssert.AreEqual(4, 2 + 2);
+        Assert.AreEqual(4, 2 + 2);
         Assert.That(2 + 2, Is.EqualTo(4));
         #endregion
     }
