@@ -107,7 +107,7 @@ Assert.That(array, Has.Exactly(3).LessThan(100));
 </code></pre>
 <p>Where equivalents do exist, the two approaches will always give the same result, because the methods of the classic
 approach have all been implemented internally using constraints. For example...</p>
-<pre><code class="lang-csharp" name="ClassicAndConstraintsAreEquivalent">ClassicAssert.AreEqual(4, 2 + 2);
+<pre><code class="lang-csharp" name="ClassicAndConstraintsAreEquivalent">Assert.AreEqual(4, 2 + 2);
 Assert.That(2 + 2, Is.EqualTo(4));
 </code></pre><h3 id="some-notes-on-the-classiclegacy-asserts">Some notes on the Classic/Legacy asserts</h3>
 <p><strong>From version 4.5</strong>

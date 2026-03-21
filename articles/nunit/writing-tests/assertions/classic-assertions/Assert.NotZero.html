@@ -12,9 +12,9 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>ClassicAssert.NotZero | NUnit Docs </title>
+      <title>Assert.NotZero | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="ClassicAssert.NotZero | NUnit Docs ">
+      <meta name="title" content="Assert.NotZero | NUnit Docs ">
     
     
       <link rel="shortcut icon" href="../../../../../favicon.ico">
@@ -84,31 +84,39 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="classicassertnotzero">ClassicAssert.NotZero</h1>
+<h1 id="assertnotzero">Assert.NotZero</h1>
 
-<p><strong>ClassicAssert.NotZero</strong> tests that a value is not zero.</p>
-<pre><code class="lang-csharp">ClassicAssert.NotZero(int actual);
-ClassicAssert.NotZero(int actual, string message, params object[] args);
+<p><strong>Assert.NotZero</strong> tests that a value is not zero.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy
+namespace, but can use the former Assert class. This applies for many of the asserts, but a few still require the use of
+the ClassicAssert class. These will be fixed in upcoming releases. In the list below, and in the examples, the 4.5.0
+syntax will be used. If you use an earlier 4.x version, replace Assert with ClassicAssert and include the
+NUnit.Framework.Legacy namespace.</p>
+</div>
+<pre><code class="lang-csharp">Assert.NotZero(int actual);
+Assert.NotZero(int actual, string message, params object[] args);
 
-ClassicAssert.NotZero(uint actual);
-ClassicAssert.NotZero(uint actual, string message, params object[] args);
+Assert.NotZero(uint actual);
+Assert.NotZero(uint actual, string message, params object[] args);
 
-ClassicAssert.NotZero(long actual);
-ClassicAssert.NotZero(long actual, string message, params object[] args);
+Assert.NotZero(long actual);
+Assert.NotZero(long actual, string message, params object[] args);
 
-ClassicAssert.NotZero(ulong actual);
-ClassicAssert.NotZero(ulong actual, string message, params object[] args);
+Assert.NotZero(ulong actual);
+Assert.NotZero(ulong actual, string message, params object[] args);
 
-ClassicAssert.NotZero(decimal actual);
-ClassicAssert.NotZero(decimal actual, string message, params object[] args);
+Assert.NotZero(decimal actual);
+Assert.NotZero(decimal actual, string message, params object[] args);
 
-ClassicAssert.NotZero(double actual);
-ClassicAssert.NotZero(double actual, string message, params object[] args);
+Assert.NotZero(double actual);
+Assert.NotZero(double actual, string message, params object[] args);
 
-ClassicAssert.NotZero(float actual);
-ClassicAssert.NotZero(float actual, string message, params object[] args);
+Assert.NotZero(float actual);
+Assert.NotZero(float actual, string message, params object[] args);
 </code></pre>
-<p>You may also use <strong>ClassicAssert.That</strong> with a <code>Is.Not.Zero</code> constraint to achieve the
+<p>You may also use <strong>Assert.That</strong> with a <code>Is.Not.Zero</code> constraint to achieve the
 same result.</p>
 
 </article>

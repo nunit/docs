@@ -12,9 +12,9 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>ClassicAssert.False | NUnit Docs </title>
+      <title>Assert.False | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="ClassicAssert.False | NUnit Docs ">
+      <meta name="title" content="Assert.False | NUnit Docs ">
     
     
       <link rel="shortcut icon" href="../../../../../favicon.ico">
@@ -84,16 +84,24 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="classicassertfalse">ClassicAssert.False</h1>
+<h1 id="assertfalse">Assert.False</h1>
 
-<p><strong>ClassicAssert.False</strong> and <strong>ClassicAssert.IsFalse</strong> test that the specified condition is false.
+<p><strong>Assert.False</strong> and <strong>Assert.IsFalse</strong> test that the specified condition is false.
 The two forms are provided for compatibility with past versions of NUnit and
 NUnitLite.</p>
-<pre><code class="lang-csharp">ClassicAssert.False(bool condition);
-ClassicAssert.False(bool condition, string message, params object[] params);
+<div class="NOTE">
+<h5>Note</h5>
+<p>From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy
+namespace, but can use the former Assert class. This applies for many of the asserts, but a few still require the use of
+the ClassicAssert class. These will be fixed in upcoming releases. In the list below, and in the examples, the 4.5.0
+syntax will be used. If you use an earlier 4.x version, replace Assert with ClassicAssert and include the
+NUnit.Framework.Legacy namespace.</p>
+</div>
+<pre><code class="lang-csharp">Assert.False(bool condition);
+Assert.False(bool condition, string message, params object[] params);
 
-ClassicAssert.IsFalse(bool condition);
-ClassicAssert.IsFalse(bool condition, string message, params object[] params);
+Assert.IsFalse(bool condition);
+Assert.IsFalse(bool condition, string message, params object[] params);
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>

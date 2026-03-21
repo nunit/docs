@@ -12,9 +12,9 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>ClassicAssert.AreEqual | NUnit Docs </title>
+      <title>Assert.AreEqual | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="ClassicAssert.AreEqual | NUnit Docs ">
+      <meta name="title" content="Assert.AreEqual | NUnit Docs ">
     
     
       <link rel="shortcut icon" href="../../../../../favicon.ico">
@@ -84,15 +84,23 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="classicassertareequal">ClassicAssert.AreEqual</h1>
+<h1 id="assertareequal">Assert.AreEqual</h1>
 
-<p><strong>ClassicAssert.AreEqual</strong> tests whether the two arguments are equal.</p>
-<pre><code class="lang-csharp">ClassicAssert.AreEqual(double expected, double actual, double tolerance);
-ClassicAssert.AreEqual(double expected, double actual, double tolerance,
+<p><strong>Assert.AreEqual</strong> tests whether the two arguments are equal.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy
+namespace, but can use the former Assert class. This applies for many of the asserts, but a few still require the use of
+the ClassicAssert class. These will be fixed in upcoming releases. In the list below, and in the examples, the 4.5.0
+syntax will be used. If you use an earlier 4.x version, replace Assert with ClassicAssert and include the
+NUnit.Framework.Legacy namespace.</p>
+</div>
+<pre><code class="lang-csharp">Assert.AreEqual(double expected, double actual, double tolerance);
+Assert.AreEqual(double expected, double actual, double tolerance,
                 string message, params object[] params);
 
-ClassicAssert.AreEqual(object expected, object actual);
-ClassicAssert.AreEqual(object expected, object actual,
+Assert.AreEqual(object expected, object actual);
+Assert.AreEqual(object expected, object actual,
                 string message, params object[] params);
 </code></pre>
 <h2 id="comparing-numerics-of-different-types">Comparing Numerics of Different Types</h2>
@@ -102,19 +110,19 @@ values of different types compare as expected. This assert succeeds:</p>
 public void AreEqual_Examples()
 {
     // Comparing numerics of different types
-    ClassicAssert.AreEqual(5, 5.0);
+   Assert.AreEqual(5, 5.0);
     
     // Floating point special values
-    ClassicAssert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
-    ClassicAssert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
-    ClassicAssert.AreEqual(double.NaN, double.NaN);
+   Assert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
+   Assert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
+   Assert.AreEqual(double.NaN, double.NaN);
     
     // Basic equality
-    ClassicAssert.AreEqual(&quot;expected&quot;, &quot;expected&quot;);
-    ClassicAssert.AreEqual(42, 42);
+   Assert.AreEqual(&quot;expected&quot;, &quot;expected&quot;);
+   Assert.AreEqual(42, 42);
     
     // With tolerance for floating point
-    ClassicAssert.AreEqual(2.1 + 1.2, 3.3, 0.001);
+   Assert.AreEqual(2.1 + 1.2, 3.3, 0.001);
 }
 </code></pre><h2 id="comparing-floating-point-values">Comparing Floating Point Values</h2>
 <p>Values of type float and double are compared using an additional
@@ -125,19 +133,19 @@ as equal.</p>
 public void AreEqual_Examples()
 {
     // Comparing numerics of different types
-    ClassicAssert.AreEqual(5, 5.0);
+   Assert.AreEqual(5, 5.0);
     
     // Floating point special values
-    ClassicAssert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
-    ClassicAssert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
-    ClassicAssert.AreEqual(double.NaN, double.NaN);
+   Assert.AreEqual(double.PositiveInfinity, double.PositiveInfinity);
+   Assert.AreEqual(double.NegativeInfinity, double.NegativeInfinity);
+   Assert.AreEqual(double.NaN, double.NaN);
     
     // Basic equality
-    ClassicAssert.AreEqual(&quot;expected&quot;, &quot;expected&quot;);
-    ClassicAssert.AreEqual(42, 42);
+   Assert.AreEqual(&quot;expected&quot;, &quot;expected&quot;);
+   Assert.AreEqual(42, 42);
     
     // With tolerance for floating point
-    ClassicAssert.AreEqual(2.1 + 1.2, 3.3, 0.001);
+   Assert.AreEqual(2.1 + 1.2, 3.3, 0.001);
 }
 </code></pre><h2 id="comparing-arrays-and-collections">Comparing Arrays and Collections</h2>
 <p>NUnit is able to compare single-dimensioned arrays, multi-dimensioned arrays,

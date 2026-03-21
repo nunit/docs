@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Classic Assert Extension Methods | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Classic Assert Extension Methods | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../../../toc.html">
+      <meta property="docfx:tocrel" content="../../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../../../index.html">
+                <img id="logo" class="svg" src="../../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="classic-assert-extension-methods">Classic Assert Extension Methods</h1>
+
+<p>This document provides a comprehensive mapping of all ClassicAssert methods to their corresponding C#14 static extension methods on <code>Assert</code>.</p>
+<h2 id="overview">Overview</h2>
+<p>All extension methods provide 1:1 mapping with their corresponding ClassicAssert methods. Each ClassicAssert overload has exactly one matching extension method with identical signatures.</p>
+<hr>
+<h2 id="core-assertions-classicextensionscs">Core Assertions (ClassicExtensions.cs)</h2>
+<h3 id="areequal">AreEqual</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.AreEqual(double, double, double)</code></td>
+<td><code>Assert.AreEqual(double, double, double)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.AreEqual(double, double, double, string, object[])</code></td>
+<td><code>Assert.AreEqual(double, double, double, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.AreEqual(object, object)</code></td>
+<td><code>Assert.AreEqual(object, object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.AreEqual(object, object, string, object[])</code></td>
+<td><code>Assert.AreEqual(object, object, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="arenotequal">AreNotEqual</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.AreNotEqual(object, object)</code></td>
+<td><code>Assert.AreNotEqual(object, object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.AreNotEqual(object, object, string, object[])</code></td>
+<td><code>Assert.AreNotEqual(object, object, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="aresame">AreSame</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.AreSame(object, object)</code></td>
+<td><code>Assert.AreSame(object, object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.AreSame(object, object, string, object[])</code></td>
+<td><code>Assert.AreSame(object, object, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="arenotsame">AreNotSame</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.AreNotSame(object, object)</code></td>
+<td><code>Assert.AreNotSame(object, object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.AreNotSame(object, object, string, object[])</code></td>
+<td><code>Assert.AreNotSame(object, object, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="true--istrue">True / IsTrue</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.True(bool)</code></td>
+<td><code>Assert.True(bool)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.True(bool, string, object[])</code></td>
+<td><code>Assert.True(bool, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.True(bool?)</code></td>
+<td><code>Assert.True(bool?)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.True(bool?, string, object[])</code></td>
+<td><code>Assert.True(bool?, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsTrue(bool)</code></td>
+<td><code>Assert.IsTrue(bool)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsTrue(bool, string, object[])</code></td>
+<td><code>Assert.IsTrue(bool, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsTrue(bool?)</code></td>
+<td><code>Assert.IsTrue(bool?)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsTrue(bool?, string, object[])</code></td>
+<td><code>Assert.IsTrue(bool?, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="false--isfalse">False / IsFalse</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.False(bool)</code></td>
+<td><code>Assert.False(bool)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.False(bool, string, object[])</code></td>
+<td><code>Assert.False(bool, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.False(bool?)</code></td>
+<td><code>Assert.False(bool?)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.False(bool?, string, object[])</code></td>
+<td><code>Assert.False(bool?, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsFalse(bool)</code></td>
+<td><code>Assert.IsFalse(bool)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsFalse(bool, string, object[])</code></td>
+<td><code>Assert.IsFalse(bool, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsFalse(bool?)</code></td>
+<td><code>Assert.IsFalse(bool?)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsFalse(bool?, string, object[])</code></td>
+<td><code>Assert.IsFalse(bool?, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="notnull--isnotnull">NotNull / IsNotNull</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.NotNull(object)</code></td>
+<td><code>Assert.NotNull(object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.NotNull(object, string, object[])</code></td>
+<td><code>Assert.NotNull(object, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNotNull(object)</code></td>
+<td><code>Assert.IsNotNull(object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNotNull(object, string, object[])</code></td>
+<td><code>Assert.IsNotNull(object, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="null--isnull">Null / IsNull</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.Null(object)</code></td>
+<td><code>Assert.Null(object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.Null(object, string, object[])</code></td>
+<td><code>Assert.Null(object, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNull(object)</code></td>
+<td><code>Assert.IsNull(object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNull(object, string, object[])</code></td>
+<td><code>Assert.IsNull(object, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="isnan">IsNaN</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.IsNaN(double)</code></td>
+<td><code>Assert.IsNaN(double)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNaN(double, string, object[])</code></td>
+<td><code>Assert.IsNaN(double, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNaN(double?)</code></td>
+<td><code>Assert.IsNaN(double?)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNaN(double?, string, object[])</code></td>
+<td><code>Assert.IsNaN(double?, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="isempty">IsEmpty</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.IsEmpty(string)</code></td>
+<td><code>Assert.IsEmpty(string)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsEmpty(string, string, object[])</code></td>
+<td><code>Assert.IsEmpty(string, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsEmpty(IEnumerable)</code></td>
+<td><code>Assert.IsEmpty(IEnumerable)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsEmpty(IEnumerable, string, object[])</code></td>
+<td><code>Assert.IsEmpty(IEnumerable, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="isnotempty">IsNotEmpty</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.IsNotEmpty(string)</code></td>
+<td><code>Assert.IsNotEmpty(string)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNotEmpty(string, string, object[])</code></td>
+<td><code>Assert.IsNotEmpty(string, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNotEmpty(IEnumerable)</code></td>
+<td><code>Assert.IsNotEmpty(IEnumerable)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNotEmpty(IEnumerable, string, object[])</code></td>
+<td><code>Assert.IsNotEmpty(IEnumerable, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contains">Contains</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.Contains(object, ICollection)</code></td>
+<td><code>Assert.Contains(object, ICollection)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.Contains(object, ICollection, string, object[])</code></td>
+<td><code>Assert.Contains(object, ICollection, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="numeric-assertions-classicextensionsnumericcs">Numeric Assertions (ClassicExtensions.Numeric.cs)</h2>
+<h3 id="zero">Zero</h3>
+<p>For each numeric type (int, uint, long, ulong, decimal, double, float):</p>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.Zero(T)</code></td>
+<td><code>Assert.Zero(T)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.Zero(T, string, object[])</code></td>
+<td><code>Assert.Zero(T, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="notzero">NotZero</h3>
+<p>For each numeric type (int, uint, long, ulong, decimal, double, float):</p>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.NotZero(T)</code></td>
+<td><code>Assert.NotZero(T)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.NotZero(T, string, object[])</code></td>
+<td><code>Assert.NotZero(T, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="positive">Positive</h3>
+<p>For each numeric type (int, uint, long, ulong, decimal, double, float):</p>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.Positive(T)</code></td>
+<td><code>Assert.Positive(T)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.Positive(T, string, object[])</code></td>
+<td><code>Assert.Positive(T, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="negative">Negative</h3>
+<p>For each numeric type (int, uint, long, ulong, decimal, double, float):</p>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.Negative(T)</code></td>
+<td><code>Assert.Negative(T)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.Negative(T, string, object[])</code></td>
+<td><code>Assert.Negative(T, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="comparison-assertions-classicextensionscomparisonscs">Comparison Assertions (ClassicExtensions.Comparisons.cs)</h2>
+<h3 id="greater">Greater</h3>
+<p>For each comparable type (int, uint, long, ulong, decimal, double, float, IComparable):</p>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.Greater(T, T)</code></td>
+<td><code>Assert.Greater(T, T)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.Greater(T, T, string, object[])</code></td>
+<td><code>Assert.Greater(T, T, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="less">Less</h3>
+<p>For each comparable type (int, uint, long, ulong, decimal, double, float, IComparable):</p>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.Less(T, T)</code></td>
+<td><code>Assert.Less(T, T)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.Less(T, T, string, object[])</code></td>
+<td><code>Assert.Less(T, T, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="greaterorequal">GreaterOrEqual</h3>
+<p>For each comparable type (int, uint, long, ulong, decimal, double, float, IComparable):</p>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.GreaterOrEqual(T, T)</code></td>
+<td><code>Assert.GreaterOrEqual(T, T)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.GreaterOrEqual(T, T, string, object[])</code></td>
+<td><code>Assert.GreaterOrEqual(T, T, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="lessorequal">LessOrEqual</h3>
+<p>For each comparable type (int, uint, long, ulong, decimal, double, float, IComparable):</p>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.LessOrEqual(T, T)</code></td>
+<td><code>Assert.LessOrEqual(T, T)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.LessOrEqual(T, T, string, object[])</code></td>
+<td><code>Assert.LessOrEqual(T, T, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="type-assertions-classicextensionstypescs">Type Assertions (ClassicExtensions.Types.cs)</h2>
+<h3 id="isassignablefrom">IsAssignableFrom</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.IsAssignableFrom(Type, object)</code></td>
+<td><code>Assert.IsAssignableFrom(Type, object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsAssignableFrom(Type, object, string, object[])</code></td>
+<td><code>Assert.IsAssignableFrom(Type, object, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsAssignableFrom&lt;T&gt;(object)</code></td>
+<td><code>Assert.IsAssignableFrom&lt;T&gt;(object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsAssignableFrom&lt;T&gt;(object, string, object[])</code></td>
+<td><code>Assert.IsAssignableFrom&lt;T&gt;(object, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="isnotassignablefrom">IsNotAssignableFrom</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.IsNotAssignableFrom(Type, object)</code></td>
+<td><code>Assert.IsNotAssignableFrom(Type, object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNotAssignableFrom(Type, object, string, object[])</code></td>
+<td><code>Assert.IsNotAssignableFrom(Type, object, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNotAssignableFrom&lt;T&gt;(object)</code></td>
+<td><code>Assert.IsNotAssignableFrom&lt;T&gt;(object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNotAssignableFrom&lt;T&gt;(object, string, object[])</code></td>
+<td><code>Assert.IsNotAssignableFrom&lt;T&gt;(object, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="isinstanceof">IsInstanceOf</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.IsInstanceOf(Type, object)</code></td>
+<td><code>Assert.IsInstanceOf(Type, object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsInstanceOf(Type, object, string, object[])</code></td>
+<td><code>Assert.IsInstanceOf(Type, object, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsInstanceOf&lt;T&gt;(object)</code></td>
+<td><code>Assert.IsInstanceOf&lt;T&gt;(object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsInstanceOf&lt;T&gt;(object, string, object[])</code></td>
+<td><code>Assert.IsInstanceOf&lt;T&gt;(object, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="isnotinstanceof">IsNotInstanceOf</h3>
+<table>
+<thead>
+<tr>
+<th>ClassicAssert Method</th>
+<th>Extension Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassicAssert.IsNotInstanceOf(Type, object)</code></td>
+<td><code>Assert.IsNotInstanceOf(Type, object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNotInstanceOf(Type, object, string, object[])</code></td>
+<td><code>Assert.IsNotInstanceOf(Type, object, string, object[])</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNotInstanceOf&lt;T&gt;(object)</code></td>
+<td><code>Assert.IsNotInstanceOf&lt;T&gt;(object)</code></td>
+</tr>
+<tr>
+<td><code>ClassicAssert.IsNotInstanceOf&lt;T&gt;(object, string, object[])</code></td>
+<td><code>Assert.IsNotInstanceOf&lt;T&gt;(object, string, object[])</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="usage-notes">Usage Notes</h2>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li><strong>C# Version</strong>: These extensions require C# 14 or later</li>
+<li><strong>Reference</strong>: Require only <code>using NUnit.Framework;</code> to access extension methods</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<p>All extension methods use <code>/// &lt;inheritdoc cref=&quot;...&quot;/&gt;</code> to inherit their documentation from the corresponding ClassicAssert methods, ensuring consistency and maintainability.</p>
+<h3 id="design-principles">Design Principles</h3>
+<ol>
+<li><strong>1:1 Mapping</strong>: Each ClassicAssert overload has exactly one corresponding extension method</li>
+<li><strong>No Optional Parameters</strong>: Separate overloads are used instead of optional parameters, as in the Classic Asserts.</li>
+<li><strong>Type Safety</strong>: Extension methods preserve all type constraints and signatures from the original methods</li>
+<li><strong>Naming Conflicts</strong>: Where method names would conflict (e.g., string Contains vs. collection Contains), prefixes are added for clarity</li>
+</ol>
+<h3 id="migration-example">Migration Example</h3>
+<p><strong>Before (Classic Assert):</strong></p>
+<pre><code class="lang-csharp">using NUnit.Framework.Legacy;
+
+ClassicAssert.AreEqual(expected, actual);
+ClassicAssert.IsTrue(condition, &quot;Custom message&quot;, arg1, arg2);
+StringAssert.Contains(&quot;substring&quot;, str);
+</code></pre>
+<p><strong>After (Extension Methods):</strong></p>
+<pre><code class="lang-csharp">using NUnit.Framework;
+
+Assert.AreEqual(expected, actual);
+Assert.IsTrue(condition, &quot;Custom message&quot;, arg1, arg2);
+Assert.StringContains(&quot;substring&quot;, str);
+</code></pre>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/assertions/assertion-models/classic_extensions.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../styles/main.js"></script>
+  </body>
+</html>
