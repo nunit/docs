@@ -19,7 +19,7 @@ concern this feature. It has now been implemented and works for both standard ru
 ### Enhancements
 
 * [1426](https://github.com/nunit/nunit3-vs-adapter/issues/1426) [MTP] --list-tests does not respect --filter, fixed in [PR 1427](https://github.com/nunit/nunit3-vs-adapter/pull/1427)
-* [1227](https://github.com/nunit/nunit3-vs-adapter/issues/1227)  Listing the discovered tests doesn't respect the filter, fixed in [PR 1427](https://github.com/nunit/nunit3-vs-adapter/pull/1427)
+* [1227](https://github.com/nunit/nunit3-vs-adapter/issues/1227) Listing the discovered tests doesn't respect the filter, fixed in [PR 1427](https://github.com/nunit/nunit3-vs-adapter/pull/1427)
 * [438](https://github.com/nunit/nunit3-vs-adapter/issues/438) vstest.console's `--TestCaseFilter` is ignored when listing tests, fixed in [PR 1427](https://github.com/nunit/nunit3-vs-adapter/pull/1427)
 
 ### Bug fixes
