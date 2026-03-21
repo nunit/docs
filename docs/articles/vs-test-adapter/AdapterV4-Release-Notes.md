@@ -7,7 +7,7 @@ uid: adapterreleasenotes
 
 # Adapter Release Notes
 
-## 6.2
+## NUnit3 Test Adapter for Visual Studio and Dotnet - Version 6.2.0 - March 21, 2026
 
 There are 8 issues fixed in this release.
 
@@ -75,7 +75,7 @@ and to the commenters who engaged in discussions and offered further insights:
 <td><a href="https://github.com/andrewimcclement">andrewimcclement</a></td>
 <td><a href="https://github.com/bradford-fisher">Bradford Fisher</a></td>
 <td><a href="https://github.com/CharliePoole">CharliePoole</a></td>
-<td><a href="">Copilot</a></td>
+<td><a href="https://github.com/Youssef1313">Youssef Victor</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/ds-ms2soft">Dave Sweeton</a></td>
@@ -91,7 +91,6 @@ and to the commenters who engaged in discussions and offered further insights:
 </tr>
 <tr>
 <td><a href="https://github.com/thomasdgx">thomasdgx</a></td>
-<td><a href="https://github.com/Youssef1313">Youssef Victor</a></td>
 </tr>
 </table>
 
