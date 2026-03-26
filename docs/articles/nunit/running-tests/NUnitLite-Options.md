@@ -12,6 +12,7 @@ The NUnitLite runner is invoked by executing the test program. If desired, any o
 | `--timeout=MILLISECONDS` | Set timeout for each test case in MILLISECONDS. |
 | `--seed=SEED` | Set the random SEED used to generate test cases. |
 | `--workers=NUMBER` | Specify the NUMBER of worker threads to be used in running tests. If not specified, defaults to 2 or the number of processors, whichever is greater. |
+| `--mainthread` | Causes tests to run in the main application thread. Will cause `--workers` to be ignored. (_NUnitLite 4.6+_) |
 | `--stoponerror` | Stop run immediately upon any test failure or error. |
 | `--wait` | Wait for input before closing console window. |
 | `--work=PATH` | PATH of the directory to use for output files. If not specified, defaults to the current directory. |
