@@ -2,6 +2,8 @@
 uid: unhandledexceptionhandlingattribute
 ---
 
+<!-- markdownlint-disable MD028 -->
+
 # UnhandledExceptionHandling
 
 The `UnhandledExceptionHandlingAttribute` specifies how NUnit should handle unhandled exceptions that occur on
