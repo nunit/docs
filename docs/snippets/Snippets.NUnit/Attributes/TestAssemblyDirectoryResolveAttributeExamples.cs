@@ -32,7 +32,7 @@ namespace Snippets.NUnit.Attributes
                 inherit: false);
 
             // This will be empty unless the attribute is applied to the assembly
-            Assert.That(attributes, Is.Not.Null);
+            Assert.That(attributes, Is.Empty);
         }
         #endregion
     }
