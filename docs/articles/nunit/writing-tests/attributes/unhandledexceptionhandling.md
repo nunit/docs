@@ -9,7 +9,9 @@ background threads during test execution. By default, NUnit treats unhandled exc
 attribute allows you to change that behavior.
 
 > [!NOTE]
-> This attribute was introduced in NUnit 4.6.
+> This attribute was introduced in NUnit 4.6 to address scenarios where background thread exceptions, particularly
+> `ThreadAbortException` from `Thread.Abort()` calls, would cause tests to be incorrectly marked as cancelled.
+
 > [!WARNING]
 > This attribute only affects exceptions raised on threads other than the main test thread. Exceptions on the main test
 > thread will always cause the test to fail, regardless of this attribute's setting.
@@ -55,6 +57,18 @@ Apply to an entire fixture to affect all tests within it:
 [!code-csharp[UnhandledExceptionFixtureLevel](~/snippets/Snippets.NUnit/Attributes/UnhandledExceptionHandlingAttributeExamples.cs#UnhandledExceptionFixtureLevel)]
 
 ## Common Scenarios
+
+### Handling Thread.Abort Scenarios
+
+When testing code that uses `Thread.Abort()`, the `ThreadAbortException` thrown on the background thread can cause NUnit
+to mark the test as "cancelled by user" even though the test completed successfully. This attribute allows you to
+ignore `ThreadAbortException` specifically:
+
+[!code-csharp[UnhandledExceptionThreadAbort](~/snippets/Snippets.NUnit/Attributes/UnhandledExceptionHandlingAttributeExamples.cs#UnhandledExceptionThreadAbort)]
+
+> [!NOTE]
+> `Thread.Abort()` is obsolete in .NET 5+ and throws `PlatformNotSupportedException` on those platforms.
+> Consider migrating to `CancellationToken`-based cancellation patterns instead.
 
 ### Testing Fire-and-Forget Operations
 

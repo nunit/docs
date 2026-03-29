@@ -85,6 +85,41 @@ namespace Snippets.NUnit.Attributes
         }
         #endregion
 
+        #region UnhandledExceptionThreadAbort
+        [Test]
+        [UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore, typeof(ThreadAbortException))]
+        public void TestWithThreadAbort()
+        {
+            // Thread.Abort() is not supported on .NET 5+
+            // This example demonstrates the pattern for .NET Framework
+            if (!IsThreadAbortSupported())
+            {
+                Assert.Ignore("Thread.Abort() is not supported on this platform");
+            }
+
+            // This test uses Thread.Abort() which throws ThreadAbortException
+            // Without this attribute, the test would be marked as "cancelled by user"
+            var thread = new Thread(() => Thread.Sleep(1000));
+            thread.Start();
+            thread.Join(500);
+
+#pragma warning disable SYSLIB0006 // Thread.Abort is obsolete
+            thread.Abort();
+#pragma warning restore SYSLIB0006
+
+            Assert.Pass();
+        }
+
+        private static bool IsThreadAbortSupported()
+        {
+#if NETFRAMEWORK
+            return true;
+#else
+            return false;
+#endif
+        }
+        #endregion
+
         #region UnhandledExceptionVerification
         [Test]
         public void VerifyUnhandledExceptionAttribute()
