@@ -133,7 +133,7 @@ public class LegacySystemTests
 The attribute can be applied at multiple levels:
 
 | Level | Scope |
-|-------|-------|
+| ------- | ------- |
 | Assembly | Affects all tests in the assembly |
 | Class | Affects all tests in the fixture |
 | Method | Affects only the specific test |
