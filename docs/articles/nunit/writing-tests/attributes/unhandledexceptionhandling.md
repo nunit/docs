@@ -90,21 +90,27 @@ public void TestFireAndForgetLogging()
 
 ### Testing Cancellation Scenarios
 
-When `OperationCanceledException` on background threads is expected:
+When `OperationCanceledException` on background threads is expected and should be ignored:
 
 ```csharp
 [Test]
 [UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore, typeof(OperationCanceledException))]
-public async Task TestCancellation()
+public async Task TestCancellationInBackgroundWork()
 {
     using var cts = new CancellationTokenSource();
-    var task = LongRunningOperationAsync(cts.Token);
 
+    // Fire-and-forget background work that observes the cancellation token
+    _ = Task.Run(() => LongRunningOperationAsync(cts.Token));
+
+    // Trigger cancellation while the test continues
     cts.Cancel();
 
-    // The background task may throw OperationCanceledException
-    // which we want to ignore
-    await Assert.ThatAsync(() => task, Throws.InstanceOf<OperationCanceledException>());
+    // Perform other assertions that do not await the background work
+    await Task.Delay(50);
+    Assert.That(SomeResult(), Is.EqualTo(expected));
+
+    // Any OperationCanceledException thrown on the background task
+    // will be ignored by NUnit due to the UnhandledExceptionHandling setting
 }
 ```
 

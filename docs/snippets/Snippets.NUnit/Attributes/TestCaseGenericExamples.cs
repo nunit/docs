@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace Snippets.NUnit.Attributes
 {
@@ -14,7 +13,7 @@ namespace Snippets.NUnit.Attributes
         [TestCase<int>(-1)]
         public void TestDefaultComparison<T>(T value)
         {
-            Assert.That(value, Is.Not.EqualTo(default(T)).Or.EqualTo(default(T)));
+            Assert.That(value, Is.InstanceOf<T>());
         }
         #endregion
 
