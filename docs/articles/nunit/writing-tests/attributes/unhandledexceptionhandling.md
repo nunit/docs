@@ -10,7 +10,6 @@ attribute allows you to change that behavior.
 
 > [!NOTE]
 > This attribute was introduced in NUnit 4.6.
-
 > [!WARNING]
 > This attribute only affects exceptions raised on threads other than the main test thread. Exceptions on the main test
 > thread will always cause the test to fail, regardless of this attribute's setting.
