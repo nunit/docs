@@ -48,15 +48,16 @@ namespace Snippets.NUnit.Attributes
         {
             // Only OperationCanceledException is ignored on background threads
             // Other exception types will still cause the test to fail
-            using var cts = new CancellationTokenSource();
 
-            var task = Task.Run(() =>
+            _ = Task.Run(() =>
             {
-                // This completes normally
-                cts.Token.ThrowIfCancellationRequested();
-            }, cts.Token);
+                // This will throw on a background thread
+                Thread.Sleep(10);
+                throw new OperationCanceledException();
+            });
 
-            task.Wait();
+            // The unhandled OperationCanceledException on the background thread
+            // will be ignored by the attribute, so this test still passes
             Assert.Pass();
         }
         #endregion
