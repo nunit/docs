@@ -87,3 +87,58 @@ CLR.
 
 As a result, when **TestCaseAttribute** appears multiple times on a method or when other data-providing attributes are
 used in combination with **TestCaseAttribute**, the order of the test cases is undefined.
+
+## Generic TestCase Attributes
+
+NUnit provides generic versions of `TestCaseAttribute` that offer compile-time type safety for test arguments. These are
+available as `TestCaseAttribute<T>` through `TestCaseAttribute<T1, T2, T3, T4, T5>`, supporting up to 5 type parameters.
+
+> [!NOTE]
+> From NUnit 4.6
+> Generic TestCase attributes are only available on .NET 6.0 and later. They are not supported on .NET Framework.
+
+### Single Type Parameter
+
+[!code-csharp[GenericTestCaseSingleType](~/snippets/Snippets.NUnit/Attributes/TestCaseGenericExamples.cs#GenericTestCaseSingleType)]
+
+### Multiple Type Parameters
+
+[!code-csharp[GenericTestCaseTwoTypes](~/snippets/Snippets.NUnit/Attributes/TestCaseGenericExamples.cs#GenericTestCaseTwoTypes)]
+
+### With Expected Result
+
+Generic TestCase attributes support all the same named parameters as the regular `TestCaseAttribute`:
+
+[!code-csharp[GenericTestCaseWithExpectedResult](~/snippets/Snippets.NUnit/Attributes/TestCaseGenericExamples.cs#GenericTestCaseWithExpectedResult)]
+
+### Mixing Generic and Regular TestCase
+
+You can mix generic and regular `TestCase` attributes on the same method:
+
+[!code-csharp[GenericTestCaseMixedWithRegular](~/snippets/Snippets.NUnit/Attributes/TestCaseGenericExamples.cs#GenericTestCaseMixedWithRegular)]
+
+### Benefits of Generic TestCase
+
+* **Compile-time type checking**: Errors are caught at compile time rather than runtime
+* **Better IDE support**: IntelliSense provides accurate parameter types
+* **Clearer intent**: The expected types are explicit in the attribute declaration
+* **Refactoring safety**: Type changes are caught by the compiler
+
+### Comparison with TypeArgs
+
+The `TypeArgs` named parameter provides similar functionality but is specified at runtime:
+
+```csharp
+// Using TypeArgs (runtime type specification)
+[TestCase(42, TypeArgs = new[] { typeof(int) })]
+public void TestWithTypeArgs<T>(T value) { }
+
+// Using generic attribute (compile-time type specification)
+[TestCase<int>(42)]
+public void TestWithGenericAttribute<T>(T value) { }
+```
+
+Both approaches are valid; choose based on your needs:
+
+* Use **generic attributes** when you want compile-time type safety
+* Use **TypeArgs** when you need to specify types dynamically or when targeting .NET Framework
