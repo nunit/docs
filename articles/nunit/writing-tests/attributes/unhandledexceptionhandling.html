@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>UnhandledExceptionHandling | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="UnhandledExceptionHandling | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../../toc.html">
+      <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="unhandledexceptionhandlingattribute">
+<h1 id="unhandledexceptionhandling">UnhandledExceptionHandling</h1>
+<!-- markdownlint-disable MD028 -->
+
+<p>The <code>UnhandledExceptionHandlingAttribute</code> specifies how NUnit should handle unhandled exceptions that occur on
+background threads during test execution. By default, NUnit treats unhandled exceptions as test errors, but this
+attribute allows you to change that behavior.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This attribute was introduced in NUnit 4.6 to address scenarios where background thread exceptions, particularly
+<code>ThreadAbortException</code> from <code>Thread.Abort()</code> calls, would cause tests to be incorrectly marked as cancelled.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>This attribute only affects exceptions raised on threads other than the main test thread. Exceptions on the main test
+thread will always cause the test to fail, regardless of this attribute's setting.</p>
+</div>
+<h2 id="handling-modes">Handling Modes</h2>
+<p>The attribute accepts an <code>UnhandledExceptionHandling</code> enum value:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Error</code></td>
+<td>Unhandled exceptions cause the test to fail (default behavior)</td>
+</tr>
+<tr>
+<td><code>Ignore</code></td>
+<td>Unhandled exceptions are ignored and do not affect the test result</td>
+</tr>
+<tr>
+<td><code>Default</code></td>
+<td>Same as <code>Error</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="basic-usage">Basic Usage</h2>
+<h3 id="error-mode-default">Error Mode (Default)</h3>
+<pre><code class="lang-csharp" name="UnhandledExceptionError">[Test]
+[UnhandledExceptionHandling(UnhandledExceptionHandling.Error)]
+public void TestWithErrorHandling()
+{
+    // Any unhandled exception on background threads will cause this test to fail
+    // This is the default behavior
+    var task = Task.Run(() =&gt;
+    {
+        // Work that completes successfully
+        Thread.Sleep(10);
+    });
+    task.Wait();
+    Assert.Pass();
+}
+</code></pre><h3 id="ignore-mode">Ignore Mode</h3>
+<p>Use with caution - ignoring exceptions may hide real issues:</p>
+<pre><code class="lang-csharp" name="UnhandledExceptionIgnore">[Test]
+[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore)]
+public void TestIgnoringBackgroundExceptions()
+{
+    // Background exceptions are ignored - use with caution!
+    // This test will pass even if background threads throw
+    using var cts = new CancellationTokenSource();
+    var task = Task.Run(() =&gt;
+    {
+        // Simulate work
+        Thread.Sleep(10);
+    }, cts.Token);
+
+    task.Wait();
+    Assert.Pass();
+}
+</code></pre><h2 id="filtering-by-exception-type">Filtering by Exception Type</h2>
+<p>You can specify which exception types should be handled differently:</p>
+<pre><code class="lang-csharp" name="UnhandledExceptionSpecificTypes">[Test]
+[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore, typeof(OperationCanceledException))]
+public void TestIgnoringSpecificExceptions()
+{
+    // Only OperationCanceledException is ignored on background threads
+    // Other exception types will still cause the test to fail
+
+    _ = Task.Run(() =&gt;
+    {
+        // This will throw on a background thread
+        Thread.Sleep(10);
+        throw new OperationCanceledException();
+    });
+
+    // The unhandled OperationCanceledException on the background thread
+    // will be ignored by the attribute, so this test still passes
+    Assert.Pass();
+}
+</code></pre>
+<p>When exception types are specified:</p>
+<ul>
+<li>Only the specified exception types are affected by the handling mode</li>
+<li>Other exception types follow the default behavior (Error)</li>
+<li>Multiple exception types can be specified</li>
+</ul>
+<h2 id="fixture-level-application">Fixture-Level Application</h2>
+<p>Apply to an entire fixture to affect all tests within it:</p>
+<pre><code class="lang-csharp" name="UnhandledExceptionFixtureLevel">[TestFixture]
+[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore)]
+public class LegacyCodeTests
+{
+    // All tests in this fixture will ignore unhandled exceptions
+    // on background threads
+
+    [Test]
+    public void TestLegacyComponent()
+    {
+        // Legacy code that might throw on background threads
+        Assert.Pass();
+    }
+
+    [Test]
+    public void TestAnotherLegacyComponent()
+    {
+        // This test also ignores background exceptions
+        Assert.Pass();
+    }
+}
+</code></pre><h2 id="common-scenarios">Common Scenarios</h2>
+<h3 id="handling-threadabort-scenarios">Handling Thread.Abort Scenarios</h3>
+<p>When testing code that uses <code>Thread.Abort()</code>, the <code>ThreadAbortException</code> thrown on the background thread can cause NUnit
+to mark the test as &quot;cancelled by user&quot; even though the test completed successfully. This attribute allows you to
+ignore <code>ThreadAbortException</code> specifically:</p>
+<pre><code class="lang-csharp" name="UnhandledExceptionThreadAbort">        [Test]
+        [UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore, typeof(ThreadAbortException))]
+        public void TestWithThreadAbort()
+        {
+            // Thread.Abort() is not supported on .NET 5+
+            // This example demonstrates the pattern for .NET Framework
+            if (!IsThreadAbortSupported())
+            {
+                Assert.Ignore(&quot;Thread.Abort() is not supported on this platform&quot;);
+            }
+
+            // This test uses Thread.Abort() which throws ThreadAbortException
+            // Without this attribute, the test would be marked as &quot;cancelled by user&quot;
+            var thread = new Thread(() =&gt; Thread.Sleep(1000));
+            thread.Start();
+            thread.Join(500);
+
+#pragma warning disable SYSLIB0006 // Thread.Abort is obsolete
+            thread.Abort();
+#pragma warning restore SYSLIB0006
+
+            Assert.Pass();
+        }
+
+        private static bool IsThreadAbortSupported()
+        {
+#if NETFRAMEWORK
+            return true;
+#else
+            return false;
+#endif
+        }
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>Thread.Abort()</code> is obsolete in .NET 5+ and throws <code>PlatformNotSupportedException</code> on those platforms.
+Consider migrating to <code>CancellationToken</code>-based cancellation patterns instead.</p>
+</div>
+<h3 id="testing-fire-and-forget-operations">Testing Fire-and-Forget Operations</h3>
+<p>When testing code that intentionally spawns background work that might fail independently:</p>
+<pre><code class="lang-csharp">[Test]
+[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore)]
+public void TestFireAndForgetLogging()
+{
+    // The system under test fires off logging that we don't want to wait for
+    var sut = new ServiceWithBackgroundLogging();
+    var result = sut.DoWork();
+
+    Assert.That(result, Is.EqualTo(expected));
+    // Background logging exceptions won't fail this test
+}
+</code></pre>
+<h3 id="testing-cancellation-scenarios">Testing Cancellation Scenarios</h3>
+<p>When <code>OperationCanceledException</code> on background threads is expected and should be ignored:</p>
+<pre><code class="lang-csharp">[Test]
+[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore, typeof(OperationCanceledException))]
+public async Task TestCancellationInBackgroundWork()
+{
+    using var cts = new CancellationTokenSource();
+
+    // Fire-and-forget background work that observes the cancellation token
+    _ = Task.Run(() =&gt; LongRunningOperationAsync(cts.Token));
+
+    // Trigger cancellation while the test continues
+    cts.Cancel();
+
+    // Perform other assertions that do not await the background work
+    await Task.Delay(50);
+    Assert.That(SomeResult(), Is.EqualTo(expected));
+
+    // Any OperationCanceledException thrown on the background task
+    // will be ignored by NUnit due to the UnhandledExceptionHandling setting
+}
+</code></pre>
+<h3 id="legacy-code-integration">Legacy Code Integration</h3>
+<p>When integrating with legacy code that has known background thread issues:</p>
+<pre><code class="lang-csharp">[TestFixture]
+[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore)]
+public class LegacySystemTests
+{
+    // Legacy system has known issues with background thread cleanup
+    // that we accept for now
+}
+</code></pre>
+<h2 id="inheritance-and-scope">Inheritance and Scope</h2>
+<p>The attribute can be applied at multiple levels:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Assembly</td>
+<td>Affects all tests in the assembly</td>
+</tr>
+<tr>
+<td>Class</td>
+<td>Affects all tests in the fixture</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>Affects only the specific test</td>
+</tr>
+</tbody>
+</table>
+<p>When multiple levels specify the attribute, they are combined - each level's configuration is additive.</p>
+<h2 id="best-practices">Best Practices</h2>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Using <code>Ignore</code> mode can hide real bugs in your code. Use it sparingly and only when you understand the implications.</p>
+</div>
+<ol>
+<li><strong>Prefer <code>Error</code> mode</strong> - The default behavior ensures you're aware of all exceptions</li>
+<li><strong>Be specific with exception types</strong> - When using <code>Ignore</code>, specify only the exception types you expect</li>
+<li><strong>Document why</strong> - Add comments explaining why certain exceptions are being ignored</li>
+<li><strong>Review regularly</strong> - Periodically review uses of <code>Ignore</code> mode to ensure they're still necessary</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../assertions/classic-assertions/Assert.Throws.html">Assert.Throws</a></li>
+<li><a href="../assertions/classic-assertions/Assert.ThrowsAsync.html">Assert.ThrowsAsync</a></li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/unhandledexceptionhandling.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

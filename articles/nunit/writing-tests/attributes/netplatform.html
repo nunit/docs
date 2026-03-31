@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>NetPlatform | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="NetPlatform | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../../toc.html">
+      <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="netplatformattribute">
+<h1 id="netplatform">NetPlatform</h1>
+
+<p>The <code>NetPlatformAttribute</code> is used to specify platforms for which a test or fixture should be run. It is a modern
+replacement for the <a href="platform.html">Platform</a> attribute, using platform names based on the .NET <code>TargetFramework</code>
+conventions as documented in <a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416">CA1416: Validate platform
+compatibility</a>.</p>
+<p>Platforms are specified using case-insensitive string values and may be either included or excluded from the run by use
+of the <code>Include</code> or <code>Exclude</code> properties respectively. Multiple comma-separated values may be specified.</p>
+<p>If a test or fixture with the <code>NetPlatformAttribute</code> does not satisfy the specified platform requirements, it is
+skipped.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This attribute was introduced in NUnit 4.6 and provides better alignment with .NET's built-in platform checking
+mechanisms compared to the older <code>PlatformAttribute</code>.</p>
+</div>
+<h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
+<pre><code class="lang-csharp" name="NetPlatformFixture">[TestFixture]
+[NetPlatform(Include = &quot;windows&quot;)]
+public class WindowsOnlyTests
+{
+    [Test]
+    public void TestWindowsFeature()
+    {
+        // This test only runs on Windows
+        Assert.Pass();
+    }
+}
+</code></pre><h2 id="test-syntax">Test Syntax</h2>
+<pre><code class="lang-csharp" name="NetPlatformBasic">[Test]
+[NetPlatform(Include = &quot;windows&quot;)]
+public void RunOnWindowsOnly()
+{
+    // This test only runs on Windows
+    Assert.That(OperatingSystem.IsWindows(), Is.True);
+}
+</code></pre><h2 id="excluding-platforms">Excluding Platforms</h2>
+<pre><code class="lang-csharp" name="NetPlatformExclude">[Test]
+[NetPlatform(Exclude = &quot;linux&quot;)]
+public void RunOnAllExceptLinux()
+{
+    // This test runs on Windows, macOS, etc., but not Linux
+    Assert.That(OperatingSystem.IsLinux(), Is.False);
+}
+</code></pre><h2 id="platform-version-requirements">Platform Version Requirements</h2>
+<p>You can specify minimum version requirements for platforms:</p>
+<pre><code class="lang-csharp" name="NetPlatformVersion">[Test]
+[NetPlatform(Include = &quot;windows10.0&quot;)]
+public void RunOnWindows10OrLater()
+{
+    // This test requires Windows 10 or later
+    Assert.That(OperatingSystem.IsWindowsVersionAtLeast(10), Is.True);
+}
+</code></pre><h2 id="multiple-platforms">Multiple Platforms</h2>
+<pre><code class="lang-csharp" name="NetPlatformMultiple">[Test]
+[NetPlatform(Include = &quot;windows,linux&quot;)]
+public void RunOnWindowsOrLinux()
+{
+    // This test runs on Windows or Linux, but not macOS
+    Assert.That(
+        OperatingSystem.IsWindows() || OperatingSystem.IsLinux(),
+        Is.True);
+}
+</code></pre><h2 id="platform-specifiers">Platform Specifiers</h2>
+<p>The following platform names are supported, matching the .NET SDK's supported platform identifiers:</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>windows</code></td>
+<td>Microsoft Windows</td>
+</tr>
+<tr>
+<td><code>linux</code></td>
+<td>Linux distributions</td>
+</tr>
+<tr>
+<td><code>macos</code></td>
+<td>Apple macOS</td>
+</tr>
+<tr>
+<td><code>android</code></td>
+<td>Android</td>
+</tr>
+<tr>
+<td><code>ios</code></td>
+<td>Apple iOS</td>
+</tr>
+<tr>
+<td><code>tvos</code></td>
+<td>Apple tvOS</td>
+</tr>
+<tr>
+<td><code>watchos</code></td>
+<td>Apple watchOS</td>
+</tr>
+<tr>
+<td><code>browser</code></td>
+<td>WebAssembly in browser</td>
+</tr>
+</tbody>
+</table>
+<h3 id="version-specifiers">Version Specifiers</h3>
+<p>Platform names can include version numbers to specify minimum version requirements:</p>
+<ul>
+<li><code>windows10.0</code> - Windows 10 or later</li>
+<li><code>windows10.0.19041</code> - Windows 10 build 19041 or later</li>
+<li><code>macos10.15</code> - macOS Catalina (10.15) or later</li>
+<li><code>ios14.0</code> - iOS 14 or later</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For Windows, public version numbers (like Windows 7, 8, 10, 11) are automatically mapped to their internal version
+numbers for compatibility checking.</p>
+</div>
+<h2 id="comparison-with-platformattribute">Comparison with PlatformAttribute</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>NetPlatformAttribute</th>
+<th>PlatformAttribute</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Platform names</td>
+<td>.NET SDK style (<code>windows</code>, <code>linux</code>, <code>macos</code>)</td>
+<td>Legacy style (<code>Win</code>, <code>Unix</code>, <code>MacOsX</code>)</td>
+</tr>
+<tr>
+<td>Version support</td>
+<td>Full version specifiers (<code>windows10.0.19041</code>)</td>
+<td>Limited version support</td>
+</tr>
+<tr>
+<td>Runtime detection</td>
+<td>Uses <code>OperatingSystem.IsOSPlatform()</code></td>
+<td>Uses custom detection logic</td>
+</tr>
+<tr>
+<td>Analyzer support</td>
+<td>Compatible with CA1416</td>
+<td>Not compatible</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="platform.html">Platform Attribute</a></li>
+<li><a href="culture.html">Culture Attribute</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416">CA1416: Validate platform compatibility</a></li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/attributes/netplatform.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

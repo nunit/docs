@@ -186,6 +186,76 @@ follow the lexical order of the attributes and will often vary between different
 CLR.</p>
 <p>As a result, when <strong>TestCaseAttribute</strong> appears multiple times on a method or when other data-providing attributes are
 used in combination with <strong>TestCaseAttribute</strong>, the order of the test cases is undefined.</p>
+<h2 id="generic-testcase-attributes">Generic TestCase Attributes</h2>
+<p>NUnit provides generic versions of <code>TestCaseAttribute</code> that offer compile-time type safety for test arguments. These are
+available as <code>TestCaseAttribute&lt;T&gt;</code> through <code>TestCaseAttribute&lt;T1, T2, T3, T4, T5&gt;</code>, supporting up to 5 type parameters.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>From NUnit 4.6
+Generic TestCase attributes are only available on .NET 6.0 and later. They are not supported on .NET Framework.</p>
+</div>
+<h3 id="single-type-parameter">Single Type Parameter</h3>
+<pre><code class="lang-csharp" name="GenericTestCaseSingleType">// Testing with a single generic type parameter
+// The compiler ensures the argument matches the type
+[TestCase&lt;int&gt;(42)]
+[TestCase&lt;int&gt;(0)]
+[TestCase&lt;int&gt;(-1)]
+public void TestDefaultComparison&lt;T&gt;(T value)
+{
+    Assert.That(value, Is.InstanceOf&lt;T&gt;());
+}
+</code></pre><h3 id="multiple-type-parameters">Multiple Type Parameters</h3>
+<pre><code class="lang-csharp" name="GenericTestCaseTwoTypes">// Testing with two generic type parameters
+[TestCase&lt;int, double&gt;(42, 42.0)]
+[TestCase&lt;string, int&gt;(&quot;hello&quot;, 5)]
+public void TestPairTypes&lt;T1, T2&gt;(T1 first, T2 second)
+{
+    Assert.That(first, Is.InstanceOf&lt;T1&gt;());
+    Assert.That(second, Is.InstanceOf&lt;T2&gt;());
+}
+</code></pre><h3 id="with-expected-result">With Expected Result</h3>
+<p>Generic TestCase attributes support all the same named parameters as the regular <code>TestCaseAttribute</code>:</p>
+<pre><code class="lang-csharp" name="GenericTestCaseWithExpectedResult">// Using ExpectedResult with generic TestCase
+[TestCase&lt;int&gt;(5, ExpectedResult = 10)]
+[TestCase&lt;int&gt;(0, ExpectedResult = 0)]
+[TestCase&lt;int&gt;(-3, ExpectedResult = -6)]
+public int DoubleValue&lt;T&gt;(T value) where T : IConvertible
+{
+    return Convert.ToInt32(value) * 2;
+}
+</code></pre><h3 id="mixing-generic-and-regular-testcase">Mixing Generic and Regular TestCase</h3>
+<p>You can mix generic and regular <code>TestCase</code> attributes on the same method:</p>
+<pre><code class="lang-csharp" name="GenericTestCaseMixedWithRegular">// You can mix regular and generic TestCase attributes
+[TestCase(1, 2)]                        // Types inferred
+[TestCase&lt;int, int&gt;(3, 4)]              // Types explicit - same as above
+[TestCase&lt;double, double&gt;(1.5, 2.5)]    // Different types
+public void MixedTestCases&lt;T1, T2&gt;(T1 a, T2 b)
+{
+    Assert.That(a, Is.InstanceOf&lt;T1&gt;());
+    Assert.That(b, Is.InstanceOf&lt;T2&gt;());
+}
+</code></pre><h3 id="benefits-of-generic-testcase">Benefits of Generic TestCase</h3>
+<ul>
+<li><strong>Compile-time type checking</strong>: Errors are caught at compile time rather than runtime</li>
+<li><strong>Better IDE support</strong>: IntelliSense provides accurate parameter types</li>
+<li><strong>Clearer intent</strong>: The expected types are explicit in the attribute declaration</li>
+<li><strong>Refactoring safety</strong>: Type changes are caught by the compiler</li>
+</ul>
+<h3 id="comparison-with-typeargs">Comparison with TypeArgs</h3>
+<p>The <code>TypeArgs</code> named parameter provides similar functionality but is specified at runtime:</p>
+<pre><code class="lang-csharp">// Using TypeArgs (runtime type specification)
+[TestCase(42, TypeArgs = new[] { typeof(int) })]
+public void TestWithTypeArgs&lt;T&gt;(T value) { }
+
+// Using generic attribute (compile-time type specification)
+[TestCase&lt;int&gt;(42)]
+public void TestWithGenericAttribute&lt;T&gt;(T value) { }
+</code></pre>
+<p>Both approaches are valid; choose based on your needs:</p>
+<ul>
+<li>Use <strong>generic attributes</strong> when you want compile-time type safety</li>
+<li>Use <strong>TypeArgs</strong> when you need to specify types dynamically or when targeting .NET Framework</li>
+</ul>
 
 </article>
           </div>
