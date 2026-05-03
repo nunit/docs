@@ -3,14 +3,17 @@ uid: frameworkreleasenotes
 ---
 <!-- markdownlint-disable-file MD013 -->
 <!-- markdownlint-disable-file MD033 -->
+<!-- markdownlint-disable-file MD060 -->
 
 # Framework Release
 
 ## NUnit 4.6.0 - May 4, 2026
 
-This is a release with several enhancements, more typesafety and the usual bunch of bugs fixed.
+This is a release with several enhancements, more typesafety and several bugs fixed.
 
-If you're using [TestDelegate](https://docs.nunit.org/api/NUnit.Framework.TestDelegate.html) or [ActionValueDelegate](https://docs.nunit.org/api/NUnit.Framework.Constraints.ActualValueDelegate-1.html) and you're on .net 8 or lower, then be aware of the requirement for how to avoid ambiguity errors, see the [Breaking changes section on Issue4824](#the-following-issues-are-marked-as-breaking-changes).
+If you're using [TestDelegate](https://docs.nunit.org/api/NUnit.Framework.TestDelegate.html) or [ActualValueDelegate](https://docs.nunit.org/api/NUnit.Framework.Constraints.ActualValueDelegate-1.html) and you're on .net 8 or lower, then be aware of the requirement for how to avoid ambiguity errors, see the [Breaking changes section on Issue4824](#the-following-issues-are-marked-as-breaking-changes).
+
+Please also update the NUnit.Analyzers package to version 4.13.
 
 There are 27 issues fixed in this release.
 
@@ -21,10 +24,10 @@ There are 27 issues fixed in this release.
 * [5158](https://github.com/nunit/nunit/issues/5158) Constants for canonical platform names. Thanks to [Jonathan Gilbert](https://github.com/logiclrd) for [PR 5159](https://github.com/nunit/nunit/pull/5159)
 * [5132](https://github.com/nunit/nunit/issues/5132) Thread.Abort() in Test causes "Test cancelled by user" result for NUnit 4.5.0. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5171](https://github.com/nunit/nunit/pull/5171)
 * [4824](https://github.com/nunit/nunit/issues/4824) Convert `TestDelegate` and `ActualValueDelegate` to `Action` and `Func&lt;T&gt;`. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5196](https://github.com/nunit/nunit/pull/5196)
-* [4254](https://github.com/nunit/nunit/issues/4254) Improve performance of equivalency, superset, and subset constraints for homogenous collections. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5224](https://github.com/nunit/nunit/pull/5224)
+* [4254](https://github.com/nunit/nunit/issues/4254) Improve performance of equivalency, superset, and subset constraints for homogeneous collections. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5224](https://github.com/nunit/nunit/pull/5224)
 * [4240](https://github.com/nunit/nunit/issues/4240) Feature request: Run the tests in main thread. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5188](https://github.com/nunit/nunit/pull/5188)
 * [4156](https://github.com/nunit/nunit/issues/4156) [Timeout] doesn't work on abstract class fixtures. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5167](https://github.com/nunit/nunit/pull/5167)
-* [4128](https://github.com/nunit/nunit/issues/4128) Improve how exception are displayed. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5216](https://github.com/nunit/nunit/pull/5216)
+* [4128](https://github.com/nunit/nunit/issues/4128) Improve how exceptions are displayed. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5216](https://github.com/nunit/nunit/pull/5216)
 * [3822](https://github.com/nunit/nunit/issues/3822) Make ArgDisplayNames public. Thanks to [Paul Irwin](https://github.com/paulirwin) for [PR 5236](https://github.com/nunit/nunit/pull/5236)
 * [3663](https://github.com/nunit/nunit/issues/3663) When TestCaseSource produces empty cases collection, test should be Passed/Failed/Inconclusive per creator expectation. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5125](https://github.com/nunit/nunit/pull/5125)
 * [2933](https://github.com/nunit/nunit/issues/2933) Add Is.SameAs overload with a reference type constraint. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5134](https://github.com/nunit/nunit/pull/5134)
@@ -60,17 +63,17 @@ There are 27 issues fixed in this release.
   > [!IMPORTANT]
   > This issue is a partially breaking change.  
   >
-  > If you use TestDelegate and Action **explicitly** , you must either:
+  > If you use TestDelegate and Action **explicitly**, you must either:
   > * Alternative 1:  Set your target framework to  .Net 9.0 or higher
-  > * Alternative 2:  You must set your language version to 13 or higher, and use the Visual Studio 2022 version 17.12 or higher, or use .NET 9 SDK (which includes the C# 13 compiler), while still targeting .net8 or lower.
+  > * Alternative 2:  You must set your language version to 13 or higher, and use the Visual Studio 2022 version 17.12 or higher, or use .Net 9 SDK (which includes the C# 13 compiler), while still targeting .net8 or lower.
   >
-  > | Scenario                              | NUnit pre 4.6 | NUnit 4.6+ (.net < 9.0)  | NUnit 4.6+ (.net >= 9.0) | NUnit 4.6+ (.net<9.0 and  langversion >=13) |
+  > | Scenario                              | NUnit pre 4.6 | NUnit 4.6+ (.Net < 9.0)  | NUnit 4.6+ (.Net >= 9.0) | NUnit 4.6+ (.Net<9.0 and  langversion >=13) |
   > | ------------------------------------- | ------------------------------- | ----------------- | ------ | ----- |
   > | Inline lambda                         | ✅                              | ❌ (breaking)                   | ✅                 | ✅                 |
   > | `Action` / `Func<T>` (inline lambda)  | ✅ (via implicit conversion)     | ❌ (breaking)                  | ✅                 |✅                 |
   > | `Action` / `Func<T>` (as variable)    | ❌ (type mismatch)              | ✅                 | ✅                 |✅                 |
   > | Explicit `TestDelegate` usage         | ✅                              | ❌ (breaking)      | ✅                 |✅                 |
-  > | Evaluates functions | ❗  (success, but no eval) |  ✅ | ✅|✅                 |
+  > | Evaluates functions | ❗  (success, but no eval) |  ✅ | ✅|✅         |
 >
   > ---
   > Examples of explicit TestDelegate usages are:
