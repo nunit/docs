@@ -24,16 +24,13 @@ There are 27 issues fixed in this release.
 * [5158](https://github.com/nunit/nunit/issues/5158) Constants for canonical platform names. Thanks to [Jonathan Gilbert](https://github.com/logiclrd) for [PR 5159](https://github.com/nunit/nunit/pull/5159)
 * [5132](https://github.com/nunit/nunit/issues/5132) Thread.Abort() in Test causes "Test cancelled by user" result for NUnit 4.5.0. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5171](https://github.com/nunit/nunit/pull/5171)
 * [4824](https://github.com/nunit/nunit/issues/4824) Convert `TestDelegate` and `ActualValueDelegate` to `Action` and `Func&lt;T&gt;`. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5196](https://github.com/nunit/nunit/pull/5196)
-* [4254](https://github.com/nunit/nunit/issues/4254) Improve performance of equivalency, superset, and subset constraints for homogeneous collections. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5224](https://github.com/nunit/nunit/pull/5224)
+* [4254](https://github.com/nunit/nunit/issues/4254) Improve performance of equivalency, superset, and subset constraints for homogenous collections. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5224](https://github.com/nunit/nunit/pull/5224)
 * [4240](https://github.com/nunit/nunit/issues/4240) Feature request: Run the tests in main thread. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5188](https://github.com/nunit/nunit/pull/5188)
 * [4156](https://github.com/nunit/nunit/issues/4156) [Timeout] doesn't work on abstract class fixtures. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5167](https://github.com/nunit/nunit/pull/5167)
-* [4128](https://github.com/nunit/nunit/issues/4128) Improve how exceptions are displayed. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5216](https://github.com/nunit/nunit/pull/5216)
-* [3822](https://github.com/nunit/nunit/issues/3822) Make ArgDisplayNames public. Thanks to [Paul Irwin](https://github.com/paulirwin) for [PR 5236](https://github.com/nunit/nunit/pull/5236)
-* [3663](https://github.com/nunit/nunit/issues/3663) When TestCaseSource produces empty cases collection, test should be Passed/Failed/Inconclusive per creator expectation. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5125](https://github.com/nunit/nunit/pull/5125)
-* [2933](https://github.com/nunit/nunit/issues/2933) Add Is.SameAs overload with a reference type constraint. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5134](https://github.com/nunit/nunit/pull/5134)
 * [4128](https://github.com/nunit/nunit/issues/4128) Improve how exception are displayed. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5216](https://github.com/nunit/nunit/pull/5216)
 * [3822](https://github.com/nunit/nunit/issues/3822) Make ArgDisplayNames public. Thanks to [Paul Irwin](https://github.com/paulirwin) for [PR 5236](https://github.com/nunit/nunit/pull/5236)
 * [3663](https://github.com/nunit/nunit/issues/3663) When TestCaseSource produces empty cases collection, test should be Passed/Failed/Inconclusive per creator expectation. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5125](https://github.com/nunit/nunit/pull/5125)
+* [2933](https://github.com/nunit/nunit/issues/2933) Add Is.SameAs overload with a reference type constraint. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5134](https://github.com/nunit/nunit/pull/5134)
 
 ### Bug fixes
 
@@ -49,12 +46,12 @@ There are 27 issues fixed in this release.
 ### Internal fixes
 
 * [5198](https://github.com/nunit/nunit/issues/5198) Benchmarkdotnet. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5203](https://github.com/nunit/nunit/pull/5203)
+* [5193](https://github.com/nunit/nunit/issues/5193) Update cake to v6.1. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5201](https://github.com/nunit/nunit/pull/5201)
+* [5189](https://github.com/nunit/nunit/issues/5189) Update cake to latest 5.x version. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5190](https://github.com/nunit/nunit/pull/5190)
 * [5186](https://github.com/nunit/nunit/issues/5186) Optimize NUnit's array unpacking. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5202](https://github.com/nunit/nunit/pull/5202)
 * [5182](https://github.com/nunit/nunit/issues/5182) Remove unnecessary NUnit analyzer suppressions from latest analyzer package. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5183](https://github.com/nunit/nunit/pull/5183)
 * [5168](https://github.com/nunit/nunit/issues/5168) Check tests and documentation for the Platform attribute. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5204](https://github.com/nunit/nunit/pull/5204)
 * [5154](https://github.com/nunit/nunit/issues/5154) Apply some internal string optimizations. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5155](https://github.com/nunit/nunit/pull/5155)
-* [5193](https://github.com/nunit/nunit/issues/5193) Update cake to v6.1. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5201](https://github.com/nunit/nunit/pull/5201)
-* [5189](https://github.com/nunit/nunit/issues/5189) Update cake to latest 5.x version. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5190](https://github.com/nunit/nunit/pull/5190)
 
 ### The following issues are marked as breaking changes
 
