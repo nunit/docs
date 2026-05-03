@@ -9,7 +9,7 @@ uid: frameworkreleasenotes
 
 ## NUnit 4.6.0 - May 4, 2026
 
-This is a release with several enhancements, more typesafety and several bugs fixed.
+This is a release with several enhancements, more type safety and several bugs fixed.
 
 If you're using [TestDelegate](https://docs.nunit.org/api/NUnit.Framework.TestDelegate.html) or [ActualValueDelegate](https://docs.nunit.org/api/NUnit.Framework.Constraints.ActualValueDelegate-1.html) and you're on .net 8 or lower, then be aware of the requirement for how to avoid ambiguity errors, see the [Breaking changes section on Issue4824](#the-following-issues-are-marked-as-breaking-changes).
 
