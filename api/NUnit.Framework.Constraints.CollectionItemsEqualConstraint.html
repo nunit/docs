@@ -126,13 +126,16 @@ as a part of their operation.</p>
       <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1_NUnit_Framework_Constraints_ActualValueDelegate___0__">Constraint.ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1___0__">Constraint.ApplyTo&lt;TActual&gt;(ref TActual)</a>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyTo__1_System_Func___0__">Constraint.ApplyTo&lt;TActual&gt;(Func&lt;TActual&gt;)</a>
     </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ApplyToAsync__1_System_Func_System_Threading_Tasks_Task___0___">Constraint.ApplyToAsync&lt;TActual&gt;(Func&lt;Task&lt;TActual&gt;&gt;)</a>
     </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_GetTestObject__1_NUnit_Framework_Constraints_ActualValueDelegate___0__">Constraint.GetTestObject&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_GetTestObject__1_System_Func___0__">Constraint.GetTestObject&lt;TActual&gt;(Func&lt;TActual&gt;)</a>
     </div>
     <div>
       <a class="xref" href="NUnit.Framework.Constraints.Constraint.html#NUnit_Framework_Constraints_Constraint_ToString">Constraint.ToString()</a>
@@ -501,7 +504,8 @@ as a part of their operation.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected CollectionTally Tally(IEnumerable c)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed in a future release.&quot;)]
+protected CollectionTally Tally(IEnumerable c)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">

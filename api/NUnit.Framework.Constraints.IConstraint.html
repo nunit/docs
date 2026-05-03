@@ -235,7 +235,8 @@ delayed processing.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ConstraintResult ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;TActual&gt; instead of ActualValueDelegate&lt;TActual&gt;&quot;)]
+ConstraintResult ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -251,6 +252,71 @@ delayed processing.</p>
         <td><a class="xref" href="NUnit.Framework.Constraints.ActualValueDelegate-1.html">ActualValueDelegate</a>&lt;TActual&gt;</td>
         <td><span class="parametername">del</span></td>
         <td><p>An ActualValueDelegate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
+        <td><p>A ConstraintResult</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/IConstraint.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Constraints_IConstraint_ApplyTo_" data-uid="NUnit.Framework.Constraints.IConstraint.ApplyTo*"></a>
+  <h4 id="NUnit_Framework_Constraints_IConstraint_ApplyTo__1_System_Func___0__" data-uid="NUnit.Framework.Constraints.IConstraint.ApplyTo``1(System.Func{``0})">ApplyTo&lt;TActual&gt;(Func&lt;TActual&gt;)</h4>
+  <div class="markdown level1 summary"><p>Applies the constraint to a func that returns
+the value to be tested. The default implementation simply evaluates
+the delegate but derived classes may override it to provide for
+delayed processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ConstraintResult ApplyTo&lt;TActual&gt;(Func&lt;TActual&gt; code)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TActual&gt;</td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A func returning the value to be tested</p>
 </td>
       </tr>
     </tbody>
@@ -313,71 +379,6 @@ delayed processing.</p>
         <td><span class="xref">TActual</span></td>
         <td><span class="parametername">actual</span></td>
         <td><p>The value to be tested</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="NUnit.Framework.Constraints.ConstraintResult.html">ConstraintResult</a></td>
-        <td><p>A ConstraintResult</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TActual</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Constraints/IConstraint.cs">View Source</a>
-  </span>
-  <a id="NUnit_Framework_Constraints_IConstraint_ApplyTo_" data-uid="NUnit.Framework.Constraints.IConstraint.ApplyTo*"></a>
-  <h4 id="NUnit_Framework_Constraints_IConstraint_ApplyTo__1___0__" data-uid="NUnit.Framework.Constraints.IConstraint.ApplyTo``1(``0@)">ApplyTo&lt;TActual&gt;(ref TActual)</h4>
-  <div class="markdown level1 summary"><p>Test whether the constraint is satisfied by a given reference.
-The default implementation simply dereferences the value but
-derived classes may override it to provide for delayed processing.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This was never implemented and will be removed.&quot;)]
-ConstraintResult ApplyTo&lt;TActual&gt;(ref TActual actual)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TActual</span></td>
-        <td><span class="parametername">actual</span></td>
-        <td><p>A reference to the value to be tested</p>
 </td>
       </tr>
     </tbody>

@@ -136,7 +136,7 @@ implement the most common assertions used in NUnit.</p>
 </h3>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert__ctor_" data-uid="NUnit.Framework.Assert.#ctor*"></a>
   <h4 id="NUnit_Framework_Assert__ctor" data-uid="NUnit.Framework.Assert.#ctor">Assert()</h4>
@@ -209,7 +209,7 @@ setters.</p>
 </div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
   <h4 id="NUnit_Framework_Assert_Catch_NUnit_Framework_TestDelegate_" data-uid="NUnit.Framework.Assert.Catch(NUnit.Framework.TestDelegate)">Catch(TestDelegate)</h4>
@@ -218,7 +218,8 @@ setters.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? Catch(TestDelegate code)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static Exception? Catch(TestDelegate code)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -255,7 +256,7 @@ setters.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
   <h4 id="NUnit_Framework_Assert_Catch_NUnit_Framework_TestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Catch(NUnit.Framework.TestDelegate,System.String,System.Object[])">Catch(TestDelegate, string, params object?[]?)</h4>
@@ -264,7 +265,8 @@ setters.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? Catch(TestDelegate code, string message, params object?[]? args)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static Exception? Catch(TestDelegate code, string message, params object?[]? args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -313,7 +315,111 @@ setters.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
+  <h4 id="NUnit_Framework_Assert_Catch_System_Action_" data-uid="NUnit.Framework.Assert.Catch(System.Action)">Catch(Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws an exception when called and returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? Catch(Action code)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
+  <h4 id="NUnit_Framework_Assert_Catch_System_Action_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Catch(System.Action,System.String,System.Object[])">Catch(Action, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws an exception when called and returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? Catch(Action code, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
   <h4 id="NUnit_Framework_Assert_Catch_System_Type_NUnit_Framework_TestDelegate_" data-uid="NUnit.Framework.Assert.Catch(System.Type,NUnit.Framework.TestDelegate)">Catch(Type, TestDelegate)</h4>
@@ -323,7 +429,8 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? Catch(Type expectedExceptionType, TestDelegate code)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static Exception? Catch(Type expectedExceptionType, TestDelegate code)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -366,7 +473,7 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
   <h4 id="NUnit_Framework_Assert_Catch_System_Type_NUnit_Framework_TestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Catch(System.Type,NUnit.Framework.TestDelegate,System.String,System.Object[])">Catch(Type, TestDelegate, string, params object?[]?)</h4>
@@ -376,7 +483,8 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? Catch(Type expectedExceptionType, TestDelegate code, string message, params object?[]? args)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static Exception? Catch(Type expectedExceptionType, TestDelegate code, string message, params object?[]? args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -431,7 +539,125 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
+  <h4 id="NUnit_Framework_Assert_Catch_System_Type_System_Action_" data-uid="NUnit.Framework.Assert.Catch(System.Type,System.Action)">Catch(Type, Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws an exception of a certain Type or one derived from it when called and
+returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? Catch(Type expectedExceptionType, Action code)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The expected Exception Type</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
+  <h4 id="NUnit_Framework_Assert_Catch_System_Type_System_Action_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Catch(System.Type,System.Action,System.String,System.Object[])">Catch(Type, Action, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws an exception of a certain Type or one derived from it when called and
+returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? Catch(Type expectedExceptionType, Action code, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The expected Exception Type</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
   <h4 id="NUnit_Framework_Assert_CatchAsync_NUnit_Framework_AsyncTestDelegate_" data-uid="NUnit.Framework.Assert.CatchAsync(NUnit.Framework.AsyncTestDelegate)">CatchAsync(AsyncTestDelegate)</h4>
@@ -441,7 +667,8 @@ be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keyword
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? CatchAsync(AsyncTestDelegate code)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static Exception? CatchAsync(AsyncTestDelegate code)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -478,7 +705,7 @@ be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keyword
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
   <h4 id="NUnit_Framework_Assert_CatchAsync_NUnit_Framework_AsyncTestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.CatchAsync(NUnit.Framework.AsyncTestDelegate,System.String,System.Object[])">CatchAsync(AsyncTestDelegate, string, params object?[]?)</h4>
@@ -488,7 +715,8 @@ be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keyword
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? CatchAsync(AsyncTestDelegate code, string message, params object?[]? args)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static Exception? CatchAsync(AsyncTestDelegate code, string message, params object?[]? args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -537,7 +765,113 @@ be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keyword
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_CatchAsync_System_Func_System_Threading_Tasks_Task__" data-uid="NUnit.Framework.Assert.CatchAsync(System.Func{System.Threading.Tasks.Task})">CatchAsync(Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws an exception when called and returns it. The returned exception may
+be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? CatchAsync(Func&lt;Task&gt; asyncCode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_CatchAsync_System_Func_System_Threading_Tasks_Task__System_String_System_Object___" data-uid="NUnit.Framework.Assert.CatchAsync(System.Func{System.Threading.Tasks.Task},System.String,System.Object[])">CatchAsync(Func&lt;Task&gt;, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws an exception when called and returns it. The returned exception may
+be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? CatchAsync(Func&lt;Task&gt; asyncCode, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
   <h4 id="NUnit_Framework_Assert_CatchAsync_System_Type_NUnit_Framework_AsyncTestDelegate_" data-uid="NUnit.Framework.Assert.CatchAsync(System.Type,NUnit.Framework.AsyncTestDelegate)">CatchAsync(Type, AsyncTestDelegate)</h4>
@@ -547,7 +881,8 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? CatchAsync(Type expectedExceptionType, AsyncTestDelegate code)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static Exception? CatchAsync(Type expectedExceptionType, AsyncTestDelegate code)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -590,7 +925,7 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
   <h4 id="NUnit_Framework_Assert_CatchAsync_System_Type_NUnit_Framework_AsyncTestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.CatchAsync(System.Type,NUnit.Framework.AsyncTestDelegate,System.String,System.Object[])">CatchAsync(Type, AsyncTestDelegate, string, params object?[]?)</h4>
@@ -600,7 +935,8 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? CatchAsync(Type expectedExceptionType, AsyncTestDelegate code, string message, params object?[]? args)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static Exception? CatchAsync(Type expectedExceptionType, AsyncTestDelegate code, string message, params object?[]? args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -655,7 +991,125 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_CatchAsync_System_Type_System_Func_System_Threading_Tasks_Task__" data-uid="NUnit.Framework.Assert.CatchAsync(System.Type,System.Func{System.Threading.Tasks.Task})">CatchAsync(Type, Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws an exception of a certain Type or one derived from it when called and
+returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? CatchAsync(Type expectedExceptionType, Func&lt;Task&gt; asyncCode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The expected Exception Type</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_CatchAsync_System_Type_System_Func_System_Threading_Tasks_Task__System_String_System_Object___" data-uid="NUnit.Framework.Assert.CatchAsync(System.Type,System.Func{System.Threading.Tasks.Task},System.String,System.Object[])">CatchAsync(Type, Func&lt;Task&gt;, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws an exception of a certain Type or one derived from it when called and
+returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? CatchAsync(Type expectedExceptionType, Func&lt;Task&gt; asyncCode, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The expected Exception Type</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
   <h4 id="NUnit_Framework_Assert_CatchAsync__1_NUnit_Framework_AsyncTestDelegate_" data-uid="NUnit.Framework.Assert.CatchAsync``1(NUnit.Framework.AsyncTestDelegate)">CatchAsync&lt;TActual&gt;(AsyncTestDelegate)</h4>
@@ -665,7 +1119,8 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TActual? CatchAsync&lt;TActual&gt;(AsyncTestDelegate code) where TActual : Exception</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static TActual? CatchAsync&lt;TActual&gt;(AsyncTestDelegate code) where TActual : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -717,7 +1172,7 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
   <h4 id="NUnit_Framework_Assert_CatchAsync__1_NUnit_Framework_AsyncTestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.CatchAsync``1(NUnit.Framework.AsyncTestDelegate,System.String,System.Object[])">CatchAsync&lt;TActual&gt;(AsyncTestDelegate, string, params object?[]?)</h4>
@@ -727,7 +1182,8 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TActual? CatchAsync&lt;TActual&gt;(AsyncTestDelegate code, string message, params object?[]? args) where TActual : Exception</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static TActual? CatchAsync&lt;TActual&gt;(AsyncTestDelegate code, string message, params object?[]? args) where TActual : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -791,17 +1247,17 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
-  <h4 id="NUnit_Framework_Assert_Catch__1_NUnit_Framework_TestDelegate_" data-uid="NUnit.Framework.Assert.Catch``1(NUnit.Framework.TestDelegate)">Catch&lt;TActual&gt;(TestDelegate)</h4>
-  <div class="markdown level1 summary"><p>Verifies that a delegate throws an exception of a certain Type or one derived from it when called and
+  <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_CatchAsync__1_System_Func_System_Threading_Tasks_Task__" data-uid="NUnit.Framework.Assert.CatchAsync``1(System.Func{System.Threading.Tasks.Task})">CatchAsync&lt;TActual&gt;(Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws an exception of a certain Type or one derived from it when called and
 returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TActual? Catch&lt;TActual&gt;(TestDelegate code) where TActual : Exception</code></pre>
+    <pre><code class="lang-csharp hljs">public static TActual? CatchAsync&lt;TActual&gt;(Func&lt;Task&gt; asyncCode) where TActual : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -814,9 +1270,9 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="NUnit.Framework.TestDelegate.html">TestDelegate</a></td>
-        <td><span class="parametername">code</span></td>
-        <td><p>A TestDelegate</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
 </td>
       </tr>
     </tbody>
@@ -853,17 +1309,17 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
-  <h4 id="NUnit_Framework_Assert_Catch__1_NUnit_Framework_TestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Catch``1(NUnit.Framework.TestDelegate,System.String,System.Object[])">Catch&lt;TActual&gt;(TestDelegate, string, params object?[]?)</h4>
-  <div class="markdown level1 summary"><p>Verifies that a delegate throws an exception of a certain Type or one derived from it when called and
+  <a id="NUnit_Framework_Assert_CatchAsync_" data-uid="NUnit.Framework.Assert.CatchAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_CatchAsync__1_System_Func_System_Threading_Tasks_Task__System_String_System_Object___" data-uid="NUnit.Framework.Assert.CatchAsync``1(System.Func{System.Threading.Tasks.Task},System.String,System.Object[])">CatchAsync&lt;TActual&gt;(Func&lt;Task&gt;, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws an exception of a certain Type or one derived from it when called and
 returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TActual? Catch&lt;TActual&gt;(TestDelegate code, string message, params object?[]? args) where TActual : Exception</code></pre>
+    <pre><code class="lang-csharp hljs">public static TActual? CatchAsync&lt;TActual&gt;(Func&lt;Task&gt; asyncCode, string message, params object?[]? args) where TActual : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -876,9 +1332,9 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="NUnit.Framework.TestDelegate.html">TestDelegate</a></td>
-        <td><span class="parametername">code</span></td>
-        <td><p>A TestDelegate</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
 </td>
       </tr>
       <tr>
@@ -921,6 +1377,280 @@ returns it. The returned exception may be <a href="https://learn.microsoft.com/d
     <tbody>
       <tr>
         <td><span class="parametername">TActual</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
+  <h4 id="NUnit_Framework_Assert_Catch__1_NUnit_Framework_TestDelegate_" data-uid="NUnit.Framework.Assert.Catch``1(NUnit.Framework.TestDelegate)">Catch&lt;TExpected&gt;(TestDelegate)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws an exception of a certain Type or one derived from it when called and
+returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static TExpected? Catch&lt;TExpected&gt;(TestDelegate code) where TExpected : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.TestDelegate.html">TestDelegate</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A TestDelegate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TExpected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TExpected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
+  <h4 id="NUnit_Framework_Assert_Catch__1_NUnit_Framework_TestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Catch``1(NUnit.Framework.TestDelegate,System.String,System.Object[])">Catch&lt;TExpected&gt;(TestDelegate, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws an exception of a certain Type or one derived from it when called and
+returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static TExpected? Catch&lt;TExpected&gt;(TestDelegate code, string message, params object?[]? args) where TExpected : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.TestDelegate.html">TestDelegate</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A TestDelegate</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TExpected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TExpected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
+  <h4 id="NUnit_Framework_Assert_Catch__1_System_Action_" data-uid="NUnit.Framework.Assert.Catch``1(System.Action)">Catch&lt;TExpected&gt;(Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws an exception of a certain Type or one derived from it when called and
+returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TExpected? Catch&lt;TExpected&gt;(Action code) where TExpected : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TExpected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TExpected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Catch_" data-uid="NUnit.Framework.Assert.Catch*"></a>
+  <h4 id="NUnit_Framework_Assert_Catch__1_System_Action_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Catch``1(System.Action,System.String,System.Object[])">Catch&lt;TExpected&gt;(Action, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws an exception of a certain Type or one derived from it when called and
+returns it. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TExpected? Catch&lt;TExpected&gt;(Action code, string message, params object?[]? args) where TExpected : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TExpected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TExpected</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -945,7 +1675,7 @@ which means there are at least 9 additional years of work not quantified above.<
   </div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_DoesNotThrow_" data-uid="NUnit.Framework.Assert.DoesNotThrow*"></a>
   <h4 id="NUnit_Framework_Assert_DoesNotThrow_NUnit_Framework_TestDelegate_" data-uid="NUnit.Framework.Assert.DoesNotThrow(NUnit.Framework.TestDelegate)">DoesNotThrow(TestDelegate)</h4>
@@ -954,7 +1684,8 @@ which means there are at least 9 additional years of work not quantified above.<
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void DoesNotThrow(TestDelegate code)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static void DoesNotThrow(TestDelegate code)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -976,7 +1707,7 @@ which means there are at least 9 additional years of work not quantified above.<
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_DoesNotThrow_" data-uid="NUnit.Framework.Assert.DoesNotThrow*"></a>
   <h4 id="NUnit_Framework_Assert_DoesNotThrow_NUnit_Framework_TestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.DoesNotThrow(NUnit.Framework.TestDelegate,System.String,System.Object[])">DoesNotThrow(TestDelegate, string, params object?[]?)</h4>
@@ -985,7 +1716,8 @@ which means there are at least 9 additional years of work not quantified above.<
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void DoesNotThrow(TestDelegate code, string message, params object?[]? args)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static void DoesNotThrow(TestDelegate code, string message, params object?[]? args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1019,7 +1751,81 @@ which means there are at least 9 additional years of work not quantified above.<
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_DoesNotThrow_" data-uid="NUnit.Framework.Assert.DoesNotThrow*"></a>
+  <h4 id="NUnit_Framework_Assert_DoesNotThrow_System_Action_" data-uid="NUnit.Framework.Assert.DoesNotThrow(System.Action)">DoesNotThrow(Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate does not throw an exception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoesNotThrow(Action code)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_DoesNotThrow_" data-uid="NUnit.Framework.Assert.DoesNotThrow*"></a>
+  <h4 id="NUnit_Framework_Assert_DoesNotThrow_System_Action_System_String_System_Object___" data-uid="NUnit.Framework.Assert.DoesNotThrow(System.Action,System.String,System.Object[])">DoesNotThrow(Action, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate does not throw an exception</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoesNotThrow(Action code, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_DoesNotThrowAsync_" data-uid="NUnit.Framework.Assert.DoesNotThrowAsync*"></a>
   <h4 id="NUnit_Framework_Assert_DoesNotThrowAsync_NUnit_Framework_AsyncTestDelegate_" data-uid="NUnit.Framework.Assert.DoesNotThrowAsync(NUnit.Framework.AsyncTestDelegate)">DoesNotThrowAsync(AsyncTestDelegate)</h4>
@@ -1028,7 +1834,8 @@ which means there are at least 9 additional years of work not quantified above.<
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void DoesNotThrowAsync(AsyncTestDelegate code)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static void DoesNotThrowAsync(AsyncTestDelegate code)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1050,7 +1857,7 @@ which means there are at least 9 additional years of work not quantified above.<
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_DoesNotThrowAsync_" data-uid="NUnit.Framework.Assert.DoesNotThrowAsync*"></a>
   <h4 id="NUnit_Framework_Assert_DoesNotThrowAsync_NUnit_Framework_AsyncTestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.DoesNotThrowAsync(NUnit.Framework.AsyncTestDelegate,System.String,System.Object[])">DoesNotThrowAsync(AsyncTestDelegate, string, params object?[]?)</h4>
@@ -1059,7 +1866,8 @@ which means there are at least 9 additional years of work not quantified above.<
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void DoesNotThrowAsync(AsyncTestDelegate code, string message, params object?[]? args)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static void DoesNotThrowAsync(AsyncTestDelegate code, string message, params object?[]? args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1075,6 +1883,80 @@ which means there are at least 9 additional years of work not quantified above.<
         <td><a class="xref" href="NUnit.Framework.AsyncTestDelegate.html">AsyncTestDelegate</a></td>
         <td><span class="parametername">code</span></td>
         <td><p>A TestDelegate</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_DoesNotThrowAsync_" data-uid="NUnit.Framework.Assert.DoesNotThrowAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_DoesNotThrowAsync_System_Func_System_Threading_Tasks_Task__" data-uid="NUnit.Framework.Assert.DoesNotThrowAsync(System.Func{System.Threading.Tasks.Task})">DoesNotThrowAsync(Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate does not throw an exception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoesNotThrowAsync(Func&lt;Task&gt; asyncCode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_DoesNotThrowAsync_" data-uid="NUnit.Framework.Assert.DoesNotThrowAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_DoesNotThrowAsync_System_Func_System_Threading_Tasks_Task__System_String_System_Object___" data-uid="NUnit.Framework.Assert.DoesNotThrowAsync(System.Func{System.Threading.Tasks.Task},System.String,System.Object[])">DoesNotThrowAsync(Func&lt;Task&gt;, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate does not throw an exception</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoesNotThrowAsync(Func&lt;Task&gt; asyncCode, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
 </td>
       </tr>
       <tr>
@@ -1273,7 +2155,8 @@ reported at the end of the code block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Multiple(AsyncTestDelegate testDelegate)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static void Multiple(AsyncTestDelegate testDelegate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1306,7 +2189,8 @@ reported at the end of the code block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Multiple(TestDelegate testDelegate)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static void Multiple(TestDelegate testDelegate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1328,7 +2212,73 @@ reported at the end of the code block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Multiple_" data-uid="NUnit.Framework.Assert.Multiple*"></a>
+  <h4 id="NUnit_Framework_Assert_Multiple_System_Action_" data-uid="NUnit.Framework.Assert.Multiple(System.Action)">Multiple(Action)</h4>
+  <div class="markdown level1 summary"><p>Wraps code containing a series of assertions, which should all
+be executed, even if they fail. Failed results are saved and
+reported at the end of the code block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Multiple(Action action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">action</span></td>
+        <td><p>An action to be executed in Multiple Assertion mode.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Multiple_" data-uid="NUnit.Framework.Assert.Multiple*"></a>
+  <h4 id="NUnit_Framework_Assert_Multiple_System_Func_System_Threading_Tasks_Task__" data-uid="NUnit.Framework.Assert.Multiple(System.Func{System.Threading.Tasks.Task})">Multiple(Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Wraps code containing a series of assertions, which should all
+be executed, even if they fail. Failed results are saved and
+reported at the end of the code block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Multiple(Func&lt;Task&gt; asyncAction)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncAction</span></td>
+        <td><p>An async action to be executed in Multiple Assertion mode.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_MultipleAsync_" data-uid="NUnit.Framework.Assert.MultipleAsync*"></a>
   <h4 id="NUnit_Framework_Assert_MultipleAsync_NUnit_Framework_AsyncTestDelegate_" data-uid="NUnit.Framework.Assert.MultipleAsync(NUnit.Framework.AsyncTestDelegate)">MultipleAsync(AsyncTestDelegate)</h4>
@@ -1339,7 +2289,8 @@ reported at the end of the code block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task MultipleAsync(AsyncTestDelegate testDelegate)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static Task MultipleAsync(AsyncTestDelegate testDelegate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1355,6 +2306,54 @@ reported at the end of the code block.</p>
         <td><a class="xref" href="NUnit.Framework.AsyncTestDelegate.html">AsyncTestDelegate</a></td>
         <td><span class="parametername">testDelegate</span></td>
         <td><p>An AsyncTestDelegate to be executed in Multiple Assertion mode.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_MultipleAsync_" data-uid="NUnit.Framework.Assert.MultipleAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_MultipleAsync_System_Func_System_Threading_Tasks_Task__" data-uid="NUnit.Framework.Assert.MultipleAsync(System.Func{System.Threading.Tasks.Task})">MultipleAsync(Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Wraps code containing a series of assertions, which should all
+be executed, even if they fail. Failed results are saved and
+reported at the end of the code block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task MultipleAsync(Func&lt;Task&gt; asyncAction)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncAction</span></td>
+        <td><p>An async action to be executed in Multiple Assertion mode.</p>
 </td>
       </tr>
     </tbody>
@@ -1433,7 +2432,8 @@ of success returned to NUnit.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void That(TestDelegate code, IResolveConstraint constraint, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static void That(TestDelegate code, IResolveConstraint constraint, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1486,7 +2486,8 @@ of success returned to NUnit.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void That(TestDelegate code, IResolveConstraint constraint, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static void That(TestDelegate code, IResolveConstraint constraint, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1539,7 +2540,8 @@ of success returned to NUnit.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void That(TestDelegate code, IResolveConstraint constraint, Func&lt;string&gt; getExceptionMessage, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static void That(TestDelegate code, IResolveConstraint constraint, Func&lt;string&gt; getExceptionMessage, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1555,6 +2557,165 @@ of success returned to NUnit.</p>
         <td><a class="xref" href="NUnit.Framework.TestDelegate.html">TestDelegate</a></td>
         <td><span class="parametername">code</span></td>
         <td><p>A TestDelegate to be executed</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">constraint</span></td>
+        <td><p>A Constraint expression to be applied</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><span class="parametername">getExceptionMessage</span></td>
+        <td><p>A function to build the message included with the Exception</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actualExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">constraintExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.That.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_That_" data-uid="NUnit.Framework.Assert.That*"></a>
+  <h4 id="NUnit_Framework_Assert_That_System_Action_NUnit_Framework_Constraints_IResolveConstraint_NUnit_Framework_NUnitString_System_String_System_String_" data-uid="NUnit.Framework.Assert.That(System.Action,NUnit.Framework.Constraints.IResolveConstraint,NUnit.Framework.NUnitString,System.String,System.String)">That(Action, IResolveConstraint, NUnitString, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to an action. Returns without throwing an exception when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void That(Action code, IResolveConstraint constraint, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>An Action to be executed</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">constraint</span></td>
+        <td><p>A Constraint expression to be applied</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.NUnitString.html">NUnitString</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actualExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">constraintExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.That.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_That_" data-uid="NUnit.Framework.Assert.That*"></a>
+  <h4 id="NUnit_Framework_Assert_That_System_Action_NUnit_Framework_Constraints_IResolveConstraint_System_FormattableString_System_String_System_String_" data-uid="NUnit.Framework.Assert.That(System.Action,NUnit.Framework.Constraints.IResolveConstraint,System.FormattableString,System.String,System.String)">That(Action, IResolveConstraint, FormattableString, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to an action. Returns without throwing an exception when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void That(Action code, IResolveConstraint constraint, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>An Action to be executed</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">constraint</span></td>
+        <td><p>A Constraint expression to be applied</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.formattablestring">FormattableString</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actualExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">constraintExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.That.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_That_" data-uid="NUnit.Framework.Assert.That*"></a>
+  <h4 id="NUnit_Framework_Assert_That_System_Action_NUnit_Framework_Constraints_IResolveConstraint_System_Func_System_String__System_String_System_String_" data-uid="NUnit.Framework.Assert.That(System.Action,NUnit.Framework.Constraints.IResolveConstraint,System.Func{System.String},System.String,System.String)">That(Action, IResolveConstraint, Func&lt;string&gt;, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to an action. Returns without throwing an exception when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void That(Action code, IResolveConstraint constraint, Func&lt;string&gt; getExceptionMessage, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>An Action to be executed</p>
 </td>
       </tr>
       <tr>
@@ -1835,7 +2996,7 @@ of success returned to NUnit.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_ThatAsync_" data-uid="NUnit.Framework.Assert.ThatAsync*"></a>
   <h4 id="NUnit_Framework_Assert_ThatAsync_NUnit_Framework_AsyncTestDelegate_NUnit_Framework_Constraints_IResolveConstraint_NUnit_Framework_NUnitString_System_String_System_String_" data-uid="NUnit.Framework.Assert.ThatAsync(NUnit.Framework.AsyncTestDelegate,NUnit.Framework.Constraints.IResolveConstraint,NUnit.Framework.NUnitString,System.String,System.String)">ThatAsync(AsyncTestDelegate, IResolveConstraint, NUnitString, string, string)</h4>
@@ -1844,7 +3005,8 @@ of success returned to NUnit.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task ThatAsync(AsyncTestDelegate code, IResolveConstraint constraint, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static Task ThatAsync(AsyncTestDelegate code, IResolveConstraint constraint, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1904,7 +3066,7 @@ of success returned to NUnit.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_ThatAsync_" data-uid="NUnit.Framework.Assert.ThatAsync*"></a>
   <h4 id="NUnit_Framework_Assert_ThatAsync_NUnit_Framework_AsyncTestDelegate_NUnit_Framework_Constraints_IResolveConstraint_System_FormattableString_System_String_System_String_" data-uid="NUnit.Framework.Assert.ThatAsync(NUnit.Framework.AsyncTestDelegate,NUnit.Framework.Constraints.IResolveConstraint,System.FormattableString,System.String,System.String)">ThatAsync(AsyncTestDelegate, IResolveConstraint, FormattableString, string, string)</h4>
@@ -1913,7 +3075,8 @@ of success returned to NUnit.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task ThatAsync(AsyncTestDelegate code, IResolveConstraint constraint, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static Task ThatAsync(AsyncTestDelegate code, IResolveConstraint constraint, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1973,16 +3136,154 @@ of success returned to NUnit.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_ThatAsync_" data-uid="NUnit.Framework.Assert.ThatAsync*"></a>
-  <h4 id="NUnit_Framework_Assert_ThatAsync__1_System_Func_System_Threading_Tasks_Task___0___NUnit_Framework_Constraints_IResolveConstraint_NUnit_Framework_NUnitString_System_String_System_String_" data-uid="NUnit.Framework.Assert.ThatAsync``1(System.Func{System.Threading.Tasks.Task{``0}},NUnit.Framework.Constraints.IResolveConstraint,NUnit.Framework.NUnitString,System.String,System.String)">ThatAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;, IResolveConstraint, NUnitString, string, string)</h4>
-  <div class="markdown level1 summary"><p>Apply a constraint to an async delegate. Returns without throwing an exception when inside a multiple assert block.</p>
+  <h4 id="NUnit_Framework_Assert_ThatAsync_System_Func_System_Threading_Tasks_Task__NUnit_Framework_Constraints_IResolveConstraint_NUnit_Framework_NUnitString_System_String_System_String_" data-uid="NUnit.Framework.Assert.ThatAsync(System.Func{System.Threading.Tasks.Task},NUnit.Framework.Constraints.IResolveConstraint,NUnit.Framework.NUnitString,System.String,System.String)">ThatAsync(Func&lt;Task&gt;, IResolveConstraint, NUnitString, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to an async action. Returns without throwing an exception when inside a multiple assert block.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task ThatAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; code, IResolveConstraint constraint, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task ThatAsync(Func&lt;Task&gt; asyncCode, IResolveConstraint constraint, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async action to be executed</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">constraint</span></td>
+        <td><p>A Constraint expression to be applied</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.NUnitString.html">NUnitString</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actualExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">constraintExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>Awaitable.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_ThatAsync_" data-uid="NUnit.Framework.Assert.ThatAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_ThatAsync_System_Func_System_Threading_Tasks_Task__NUnit_Framework_Constraints_IResolveConstraint_System_FormattableString_System_String_System_String_" data-uid="NUnit.Framework.Assert.ThatAsync(System.Func{System.Threading.Tasks.Task},NUnit.Framework.Constraints.IResolveConstraint,System.FormattableString,System.String,System.String)">ThatAsync(Func&lt;Task&gt;, IResolveConstraint, FormattableString, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to an async action. Returns without throwing an exception when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task ThatAsync(Func&lt;Task&gt; asyncCode, IResolveConstraint constraint, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async action to be executed</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">constraint</span></td>
+        <td><p>A Constraint expression to be applied</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.formattablestring">FormattableString</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actualExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">constraintExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>Awaitable.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_ThatAsync_" data-uid="NUnit.Framework.Assert.ThatAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_ThatAsync__1_System_Func_System_Threading_Tasks_Task___0___NUnit_Framework_Constraints_IResolveConstraint_NUnit_Framework_NUnitString_System_String_System_String_" data-uid="NUnit.Framework.Assert.ThatAsync``1(System.Func{System.Threading.Tasks.Task{``0}},NUnit.Framework.Constraints.IResolveConstraint,NUnit.Framework.NUnitString,System.String,System.String)">ThatAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;, IResolveConstraint, NUnitString, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to an async action. Returns without throwing an exception when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task ThatAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; asyncCode, IResolveConstraint constraint, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1996,8 +3297,8 @@ of success returned to NUnit.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;&gt;</td>
-        <td><span class="parametername">code</span></td>
-        <td><p>An async method to be executed</p>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async action to be executed</p>
 </td>
       </tr>
       <tr>
@@ -2057,16 +3358,16 @@ of success returned to NUnit.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_ThatAsync_" data-uid="NUnit.Framework.Assert.ThatAsync*"></a>
   <h4 id="NUnit_Framework_Assert_ThatAsync__1_System_Func_System_Threading_Tasks_Task___0___NUnit_Framework_Constraints_IResolveConstraint_System_FormattableString_System_String_System_String_" data-uid="NUnit.Framework.Assert.ThatAsync``1(System.Func{System.Threading.Tasks.Task{``0}},NUnit.Framework.Constraints.IResolveConstraint,System.FormattableString,System.String,System.String)">ThatAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;, IResolveConstraint, FormattableString, string, string)</h4>
-  <div class="markdown level1 summary"><p>Apply a constraint to an async delegate. Returns without throwing an exception when inside a multiple assert block.</p>
+  <div class="markdown level1 summary"><p>Apply a constraint to an async action. Returns without throwing an exception when inside a multiple assert block.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task ThatAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; code, IResolveConstraint constraint, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task ThatAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; asyncCode, IResolveConstraint constraint, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2080,8 +3381,8 @@ of success returned to NUnit.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;&gt;</td>
-        <td><span class="parametername">code</span></td>
-        <td><p>An async method to be executed</p>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async action to be executed</p>
 </td>
       </tr>
       <tr>
@@ -2150,7 +3451,8 @@ of success returned to NUnit.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;TActual&gt; instead of ActualValueDelegate&lt;TActual&gt;&quot;)]
+public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2219,7 +3521,8 @@ of success returned to NUnit.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;TActual&gt; instead of ActualValueDelegate&lt;TActual&gt;&quot;)]
+public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2288,7 +3591,8 @@ of success returned to NUnit.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, Func&lt;string&gt; getExceptionMessage, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;TActual&gt; instead of ActualValueDelegate&lt;TActual&gt;&quot;)]
+public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, Func&lt;string&gt; getExceptionMessage, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2304,6 +3608,213 @@ of success returned to NUnit.</p>
         <td><a class="xref" href="NUnit.Framework.Constraints.ActualValueDelegate-1.html">ActualValueDelegate</a>&lt;TActual&gt;</td>
         <td><span class="parametername">del</span></td>
         <td><p>An ActualValueDelegate returning the value to be tested</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">expr</span></td>
+        <td><p>A Constraint expression to be applied</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><span class="parametername">getExceptionMessage</span></td>
+        <td><p>A function to build the message included with the Exception</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actualExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">constraintExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td><p>The Type being compared.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.That.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_That_" data-uid="NUnit.Framework.Assert.That*"></a>
+  <h4 id="NUnit_Framework_Assert_That__1_System_Func___0__NUnit_Framework_Constraints_IResolveConstraint_NUnit_Framework_NUnitString_System_String_System_String_" data-uid="NUnit.Framework.Assert.That``1(System.Func{``0},NUnit.Framework.Constraints.IResolveConstraint,NUnit.Framework.NUnitString,System.String,System.String)">That&lt;TActual&gt;(Func&lt;TActual&gt;, IResolveConstraint, NUnitString, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to a delegate. Returns without throwing an exception when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(Func&lt;TActual&gt; code, IResolveConstraint expr, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TActual&gt;</td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code returning the value to be tested</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">expr</span></td>
+        <td><p>A Constraint expression to be applied</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.NUnitString.html">NUnitString</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actualExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">constraintExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td><p>The Type being compared.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.That.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_That_" data-uid="NUnit.Framework.Assert.That*"></a>
+  <h4 id="NUnit_Framework_Assert_That__1_System_Func___0__NUnit_Framework_Constraints_IResolveConstraint_System_FormattableString_System_String_System_String_" data-uid="NUnit.Framework.Assert.That``1(System.Func{``0},NUnit.Framework.Constraints.IResolveConstraint,System.FormattableString,System.String,System.String)">That&lt;TActual&gt;(Func&lt;TActual&gt;, IResolveConstraint, FormattableString, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to a delegate. Returns without throwing an exception when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(Func&lt;TActual&gt; code, IResolveConstraint expr, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TActual&gt;</td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code returning the value to be tested</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">expr</span></td>
+        <td><p>A Constraint expression to be applied</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.formattablestring">FormattableString</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actualExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">constraintExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td><p>The Type being compared.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.That.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_That_" data-uid="NUnit.Framework.Assert.That*"></a>
+  <h4 id="NUnit_Framework_Assert_That__1_System_Func___0__NUnit_Framework_Constraints_IResolveConstraint_System_Func_System_String__System_String_System_String_" data-uid="NUnit.Framework.Assert.That``1(System.Func{``0},NUnit.Framework.Constraints.IResolveConstraint,System.Func{System.String},System.String,System.String)">That&lt;TActual&gt;(Func&lt;TActual&gt;, IResolveConstraint, Func&lt;string&gt;, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to a delegate. Returns without throwing an exception when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(Func&lt;TActual&gt; code, IResolveConstraint expr, Func&lt;string&gt; getExceptionMessage, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TActual&gt;</td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code returning the value to be tested</p>
 </td>
       </tr>
       <tr>
@@ -2558,7 +4069,7 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
   <h4 id="NUnit_Framework_Assert_Throws_NUnit_Framework_Constraints_IResolveConstraint_NUnit_Framework_TestDelegate_" data-uid="NUnit.Framework.Assert.Throws(NUnit.Framework.Constraints.IResolveConstraint,NUnit.Framework.TestDelegate)">Throws(IResolveConstraint, TestDelegate)</h4>
@@ -2567,7 +4078,8 @@ block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? Throws(IResolveConstraint expression, TestDelegate code)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static Exception? Throws(IResolveConstraint expression, TestDelegate code)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2610,7 +4122,7 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
   <h4 id="NUnit_Framework_Assert_Throws_NUnit_Framework_Constraints_IResolveConstraint_NUnit_Framework_TestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Throws(NUnit.Framework.Constraints.IResolveConstraint,NUnit.Framework.TestDelegate,System.String,System.Object[])">Throws(IResolveConstraint, TestDelegate, string, params object?[]?)</h4>
@@ -2619,7 +4131,8 @@ block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? Throws(IResolveConstraint expression, TestDelegate code, string message, params object?[]? args)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static Exception? Throws(IResolveConstraint expression, TestDelegate code, string message, params object?[]? args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2674,7 +4187,123 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
+  <h4 id="NUnit_Framework_Assert_Throws_NUnit_Framework_Constraints_IResolveConstraint_System_Action_" data-uid="NUnit.Framework.Assert.Throws(NUnit.Framework.Constraints.IResolveConstraint,System.Action)">Throws(IResolveConstraint, Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws a particular exception when called. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? Throws(IResolveConstraint expression, Action code)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">expression</span></td>
+        <td><p>A constraint to be satisfied by the exception</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A TestSnippet delegate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
+  <h4 id="NUnit_Framework_Assert_Throws_NUnit_Framework_Constraints_IResolveConstraint_System_Action_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Throws(NUnit.Framework.Constraints.IResolveConstraint,System.Action,System.String,System.Object[])">Throws(IResolveConstraint, Action, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws a particular exception when called. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? Throws(IResolveConstraint expression, Action code, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">expression</span></td>
+        <td><p>A constraint to be satisfied by the exception</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A TestSnippet delegate</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
   <h4 id="NUnit_Framework_Assert_Throws_System_Type_NUnit_Framework_TestDelegate_" data-uid="NUnit.Framework.Assert.Throws(System.Type,NUnit.Framework.TestDelegate)">Throws(Type, TestDelegate)</h4>
@@ -2683,7 +4312,8 @@ block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? Throws(Type expectedExceptionType, TestDelegate code)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static Exception? Throws(Type expectedExceptionType, TestDelegate code)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2726,7 +4356,7 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
   <h4 id="NUnit_Framework_Assert_Throws_System_Type_NUnit_Framework_TestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Throws(System.Type,NUnit.Framework.TestDelegate,System.String,System.Object[])">Throws(Type, TestDelegate, string, params object?[]?)</h4>
@@ -2735,7 +4365,8 @@ block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? Throws(Type expectedExceptionType, TestDelegate code, string message, params object?[]? args)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static Exception? Throws(Type expectedExceptionType, TestDelegate code, string message, params object?[]? args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2790,7 +4421,123 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
+  <h4 id="NUnit_Framework_Assert_Throws_System_Type_System_Action_" data-uid="NUnit.Framework.Assert.Throws(System.Type,System.Action)">Throws(Type, Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws a particular exception when called. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? Throws(Type expectedExceptionType, Action code)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The exception Type expected</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
+  <h4 id="NUnit_Framework_Assert_Throws_System_Type_System_Action_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Throws(System.Type,System.Action,System.String,System.Object[])">Throws(Type, Action, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws a particular exception when called. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? Throws(Type expectedExceptionType, Action code, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The exception Type expected</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
   <h4 id="NUnit_Framework_Assert_ThrowsAsync_NUnit_Framework_Constraints_IResolveConstraint_NUnit_Framework_AsyncTestDelegate_" data-uid="NUnit.Framework.Assert.ThrowsAsync(NUnit.Framework.Constraints.IResolveConstraint,NUnit.Framework.AsyncTestDelegate)">ThrowsAsync(IResolveConstraint, AsyncTestDelegate)</h4>
@@ -2800,7 +4547,8 @@ block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? ThrowsAsync(IResolveConstraint expression, AsyncTestDelegate code)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static Exception? ThrowsAsync(IResolveConstraint expression, AsyncTestDelegate code)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2843,7 +4591,7 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
   <h4 id="NUnit_Framework_Assert_ThrowsAsync_NUnit_Framework_Constraints_IResolveConstraint_NUnit_Framework_AsyncTestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.ThrowsAsync(NUnit.Framework.Constraints.IResolveConstraint,NUnit.Framework.AsyncTestDelegate,System.String,System.Object[])">ThrowsAsync(IResolveConstraint, AsyncTestDelegate, string, params object?[]?)</h4>
@@ -2853,7 +4601,8 @@ block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? ThrowsAsync(IResolveConstraint expression, AsyncTestDelegate code, string message, params object?[]? args)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static Exception? ThrowsAsync(IResolveConstraint expression, AsyncTestDelegate code, string message, params object?[]? args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2908,7 +4657,125 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_ThrowsAsync_NUnit_Framework_Constraints_IResolveConstraint_System_Func_System_Threading_Tasks_Task__" data-uid="NUnit.Framework.Assert.ThrowsAsync(NUnit.Framework.Constraints.IResolveConstraint,System.Func{System.Threading.Tasks.Task})">ThrowsAsync(IResolveConstraint, Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws a particular exception when called. The returned exception may be
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? ThrowsAsync(IResolveConstraint expression, Func&lt;Task&gt; asyncCode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">expression</span></td>
+        <td><p>A constraint to be satisfied by the exception</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_ThrowsAsync_NUnit_Framework_Constraints_IResolveConstraint_System_Func_System_Threading_Tasks_Task__System_String_System_Object___" data-uid="NUnit.Framework.Assert.ThrowsAsync(NUnit.Framework.Constraints.IResolveConstraint,System.Func{System.Threading.Tasks.Task},System.String,System.Object[])">ThrowsAsync(IResolveConstraint, Func&lt;Task&gt;, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws a particular exception when called. The returned exception may be
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? ThrowsAsync(IResolveConstraint expression, Func&lt;Task&gt; asyncCode, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">expression</span></td>
+        <td><p>A constraint to be satisfied by the exception</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
   <h4 id="NUnit_Framework_Assert_ThrowsAsync_System_Type_NUnit_Framework_AsyncTestDelegate_" data-uid="NUnit.Framework.Assert.ThrowsAsync(System.Type,NUnit.Framework.AsyncTestDelegate)">ThrowsAsync(Type, AsyncTestDelegate)</h4>
@@ -2918,7 +4785,8 @@ block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? ThrowsAsync(Type expectedExceptionType, AsyncTestDelegate code)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static Exception? ThrowsAsync(Type expectedExceptionType, AsyncTestDelegate code)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2961,7 +4829,7 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
   <h4 id="NUnit_Framework_Assert_ThrowsAsync_System_Type_NUnit_Framework_AsyncTestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.ThrowsAsync(System.Type,NUnit.Framework.AsyncTestDelegate,System.String,System.Object[])">ThrowsAsync(Type, AsyncTestDelegate, string, params object?[]?)</h4>
@@ -2971,7 +4839,8 @@ block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Exception? ThrowsAsync(Type expectedExceptionType, AsyncTestDelegate code, string message, params object?[]? args)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static Exception? ThrowsAsync(Type expectedExceptionType, AsyncTestDelegate code, string message, params object?[]? args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3026,7 +4895,125 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_ThrowsAsync_System_Type_System_Func_System_Threading_Tasks_Task__" data-uid="NUnit.Framework.Assert.ThrowsAsync(System.Type,System.Func{System.Threading.Tasks.Task})">ThrowsAsync(Type, Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws a particular exception when called. The returned exception may be
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? ThrowsAsync(Type expectedExceptionType, Func&lt;Task&gt; asyncCode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The exception Type expected</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_ThrowsAsync_System_Type_System_Func_System_Threading_Tasks_Task__System_String_System_Object___" data-uid="NUnit.Framework.Assert.ThrowsAsync(System.Type,System.Func{System.Threading.Tasks.Task},System.String,System.Object[])">ThrowsAsync(Type, Func&lt;Task&gt;, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws a particular exception when called. The returned exception may be
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Exception? ThrowsAsync(Type expectedExceptionType, Func&lt;Task&gt; asyncCode, string message, params object?[]? args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">expectedExceptionType</span></td>
+        <td><p>The exception Type expected</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
   <h4 id="NUnit_Framework_Assert_ThrowsAsync__1_NUnit_Framework_AsyncTestDelegate_" data-uid="NUnit.Framework.Assert.ThrowsAsync``1(NUnit.Framework.AsyncTestDelegate)">ThrowsAsync&lt;TActual&gt;(AsyncTestDelegate)</h4>
@@ -3036,7 +5023,8 @@ block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TActual? ThrowsAsync&lt;TActual&gt;(AsyncTestDelegate code) where TActual : Exception</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static TActual? ThrowsAsync&lt;TActual&gt;(AsyncTestDelegate code) where TActual : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3089,7 +5077,7 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs">View Source</a>
   </span>
   <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
   <h4 id="NUnit_Framework_Assert_ThrowsAsync__1_NUnit_Framework_AsyncTestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.ThrowsAsync``1(NUnit.Framework.AsyncTestDelegate,System.String,System.Object[])">ThrowsAsync&lt;TActual&gt;(AsyncTestDelegate, string, params object?[]?)</h4>
@@ -3099,7 +5087,8 @@ block.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TActual? ThrowsAsync&lt;TActual&gt;(AsyncTestDelegate code, string message, params object?[]? args) where TActual : Exception</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;Task&gt; instead of AsyncTestDelegate&quot;)]
+public static TActual? ThrowsAsync&lt;TActual&gt;(AsyncTestDelegate code, string message, params object?[]? args) where TActual : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3164,16 +5153,17 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
-  <h4 id="NUnit_Framework_Assert_Throws__1_NUnit_Framework_TestDelegate_" data-uid="NUnit.Framework.Assert.Throws``1(NUnit.Framework.TestDelegate)">Throws&lt;TActual&gt;(TestDelegate)</h4>
-  <div class="markdown level1 summary"><p>Verifies that a delegate throws a particular exception when called. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+  <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_ThrowsAsync__1_System_Func_System_Threading_Tasks_Task__" data-uid="NUnit.Framework.Assert.ThrowsAsync``1(System.Func{System.Threading.Tasks.Task})">ThrowsAsync&lt;TActual&gt;(Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws a particular exception when called. The returned exception may be
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TActual? Throws&lt;TActual&gt;(TestDelegate code) where TActual : Exception</code></pre>
+    <pre><code class="lang-csharp hljs">public static TActual? ThrowsAsync&lt;TActual&gt;(Func&lt;Task&gt; asyncCode) where TActual : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3186,9 +5176,9 @@ block.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="NUnit.Framework.TestDelegate.html">TestDelegate</a></td>
-        <td><span class="parametername">code</span></td>
-        <td><p>A TestDelegate</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
 </td>
       </tr>
     </tbody>
@@ -3226,16 +5216,17 @@ block.</p>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.cs">View Source</a>
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.System.cs">View Source</a>
   </span>
-  <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
-  <h4 id="NUnit_Framework_Assert_Throws__1_NUnit_Framework_TestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Throws``1(NUnit.Framework.TestDelegate,System.String,System.Object[])">Throws&lt;TActual&gt;(TestDelegate, string, params object?[]?)</h4>
-  <div class="markdown level1 summary"><p>Verifies that a delegate throws a particular exception when called. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+  <a id="NUnit_Framework_Assert_ThrowsAsync_" data-uid="NUnit.Framework.Assert.ThrowsAsync*"></a>
+  <h4 id="NUnit_Framework_Assert_ThrowsAsync__1_System_Func_System_Threading_Tasks_Task__System_String_System_Object___" data-uid="NUnit.Framework.Assert.ThrowsAsync``1(System.Func{System.Threading.Tasks.Task},System.String,System.Object[])">ThrowsAsync&lt;TActual&gt;(Func&lt;Task&gt;, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that an async delegate throws a particular exception when called. The returned exception may be
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TActual? Throws&lt;TActual&gt;(TestDelegate code, string message, params object?[]? args) where TActual : Exception</code></pre>
+    <pre><code class="lang-csharp hljs">public static TActual? ThrowsAsync&lt;TActual&gt;(Func&lt;Task&gt; asyncCode, string message, params object?[]? args) where TActual : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3248,9 +5239,9 @@ block.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="NUnit.Framework.TestDelegate.html">TestDelegate</a></td>
-        <td><span class="parametername">code</span></td>
-        <td><p>A TestDelegate</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
+        <td><span class="parametername">asyncCode</span></td>
+        <td><p>An async piece of code to execute</p>
 </td>
       </tr>
       <tr>
@@ -3293,6 +5284,280 @@ block.</p>
     <tbody>
       <tr>
         <td><span class="parametername">TActual</span></td>
+        <td><p>Type of the expected exception</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
+  <h4 id="NUnit_Framework_Assert_Throws__1_NUnit_Framework_TestDelegate_" data-uid="NUnit.Framework.Assert.Throws``1(NUnit.Framework.TestDelegate)">Throws&lt;TExpected&gt;(TestDelegate)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws a particular exception when called. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static TExpected? Throws&lt;TExpected&gt;(TestDelegate code) where TExpected : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.TestDelegate.html">TestDelegate</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A TestDelegate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TExpected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TExpected</span></td>
+        <td><p>Type of the expected exception</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Delegate.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
+  <h4 id="NUnit_Framework_Assert_Throws__1_NUnit_Framework_TestDelegate_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Throws``1(NUnit.Framework.TestDelegate,System.String,System.Object[])">Throws&lt;TExpected&gt;(TestDelegate, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws a particular exception when called. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use overload with Action instead of TestDelegate&quot;)]
+public static TExpected? Throws&lt;TExpected&gt;(TestDelegate code, string message, params object?[]? args) where TExpected : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.TestDelegate.html">TestDelegate</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A TestDelegate</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TExpected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TExpected</span></td>
+        <td><p>Type of the expected exception</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
+  <h4 id="NUnit_Framework_Assert_Throws__1_System_Action_" data-uid="NUnit.Framework.Assert.Throws``1(System.Action)">Throws&lt;TExpected&gt;(Action)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws a particular exception when called. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TExpected? Throws&lt;TExpected&gt;(Action code) where TExpected : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TExpected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TExpected</span></td>
+        <td><p>Type of the expected exception</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.System.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assert_Throws_" data-uid="NUnit.Framework.Assert.Throws*"></a>
+  <h4 id="NUnit_Framework_Assert_Throws__1_System_Action_System_String_System_Object___" data-uid="NUnit.Framework.Assert.Throws``1(System.Action,System.String,System.Object[])">Throws&lt;TExpected&gt;(Action, string, params object?[]?)</h4>
+  <div class="markdown level1 summary"><p>Verifies that a delegate throws a particular exception when called. The returned exception may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when inside a multiple assert block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TExpected? Throws&lt;TExpected&gt;(Action code, string message, params object?[]? args) where TExpected : Exception</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code to execute</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Arguments to be used in formatting the message</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TExpected</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TExpected</span></td>
         <td><p>Type of the expected exception</p>
 </td>
       </tr>
@@ -3338,7 +5603,7 @@ block.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.cs" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assert.Exceptions.Async.Delegate.cs" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

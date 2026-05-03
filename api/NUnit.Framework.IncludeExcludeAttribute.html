@@ -251,7 +251,7 @@ with named property syntax.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IncludeExcludeAttribute()</code></pre>
+    <pre><code class="lang-csharp hljs">protected IncludeExcludeAttribute()</code></pre>
   </div>
 
   <span class="small pull-right mobile-hide">
@@ -264,7 +264,7 @@ with named property syntax.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IncludeExcludeAttribute(string? include)</code></pre>
+    <pre><code class="lang-csharp hljs">protected IncludeExcludeAttribute(string? include)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -280,6 +280,37 @@ with named property syntax.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">include</span></td>
         <td><p>Comma-delimited list of included items</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/IncludeExcludeAttribute.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_IncludeExcludeAttribute__ctor_" data-uid="NUnit.Framework.IncludeExcludeAttribute.#ctor*"></a>
+  <h4 id="NUnit_Framework_IncludeExcludeAttribute__ctor_System_String___" data-uid="NUnit.Framework.IncludeExcludeAttribute.#ctor(System.String[])">IncludeExcludeAttribute(string[])</h4>
+  <div class="markdown level1 summary"><p>Constructor taking an array of included items</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IncludeExcludeAttribute(string[] includes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td><span class="parametername">includes</span></td>
+        <td><p>Array included items</p>
 </td>
       </tr>
     </tbody>
@@ -319,6 +350,34 @@ may be given, separated by a comma.</p>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/IncludeExcludeAttribute.cs">View Source</a>
   </span>
+  <a id="NUnit_Framework_IncludeExcludeAttribute_Excludes_" data-uid="NUnit.Framework.IncludeExcludeAttribute.Excludes*"></a>
+  <h4 id="NUnit_Framework_IncludeExcludeAttribute_Excludes" data-uid="NUnit.Framework.IncludeExcludeAttribute.Excludes">Excludes</h4>
+  <div class="markdown level1 summary"><p>An array of items to be excluded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] Excludes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/IncludeExcludeAttribute.cs">View Source</a>
+  </span>
   <a id="NUnit_Framework_IncludeExcludeAttribute_Include_" data-uid="NUnit.Framework.IncludeExcludeAttribute.Include*"></a>
   <h4 id="NUnit_Framework_IncludeExcludeAttribute_Include" data-uid="NUnit.Framework.IncludeExcludeAttribute.Include">Include</h4>
   <div class="markdown level1 summary"><p>Name of the item that is needed in order for
@@ -341,6 +400,34 @@ separated by a comma.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/IncludeExcludeAttribute.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_IncludeExcludeAttribute_Includes_" data-uid="NUnit.Framework.IncludeExcludeAttribute.Includes*"></a>
+  <h4 id="NUnit_Framework_IncludeExcludeAttribute_Includes" data-uid="NUnit.Framework.IncludeExcludeAttribute.Includes">Includes</h4>
+  <div class="markdown level1 summary"><p>An array of items to be included.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] Includes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
         <td></td>
       </tr>
     </tbody>

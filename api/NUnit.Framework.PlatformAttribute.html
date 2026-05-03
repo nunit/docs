@@ -112,6 +112,12 @@
       <a class="xref" href="NUnit.Framework.IncludeExcludeAttribute.html#NUnit_Framework_IncludeExcludeAttribute_Exclude">IncludeExcludeAttribute.Exclude</a>
     </div>
     <div>
+      <a class="xref" href="NUnit.Framework.IncludeExcludeAttribute.html#NUnit_Framework_IncludeExcludeAttribute_Includes">IncludeExcludeAttribute.Includes</a>
+    </div>
+    <div>
+      <a class="xref" href="NUnit.Framework.IncludeExcludeAttribute.html#NUnit_Framework_IncludeExcludeAttribute_Excludes">IncludeExcludeAttribute.Excludes</a>
+    </div>
+    <div>
       <a class="xref" href="NUnit.Framework.IncludeExcludeAttribute.html#NUnit_Framework_IncludeExcludeAttribute_Reason">IncludeExcludeAttribute.Reason</a>
     </div>
     <div>
@@ -245,7 +251,7 @@
   <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
   <h5 id="NUnit_Framework_PlatformAttribute_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
+    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
 public class PlatformAttribute : IncludeExcludeAttribute, IApplyToTest</code></pre>
   </div>
   <h3 id="constructors">Constructors
@@ -291,6 +297,37 @@ with named property syntax.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">platforms</span></td>
         <td><p>Comma-delimited list of platforms</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Attributes/PlatformAttribute.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_PlatformAttribute__ctor_" data-uid="NUnit.Framework.PlatformAttribute.#ctor*"></a>
+  <h4 id="NUnit_Framework_PlatformAttribute__ctor_System_String___" data-uid="NUnit.Framework.PlatformAttribute.#ctor(System.String[])">PlatformAttribute(string[])</h4>
+  <div class="markdown level1 summary"><p>Constructor taking an array of included items</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlatformAttribute(string[] includes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td><span class="parametername">includes</span></td>
+        <td><p>Array included items</p>
 </td>
       </tr>
     </tbody>

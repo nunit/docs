@@ -228,6 +228,9 @@ for running tests.</p>
       <h4><a class="xref" href="NUnit.Framework.NetPlatformAttribute.html">NetPlatformAttribute</a></h4>
       <section><p>Marks an assembly, test fixture or test method as applying to a specific platform.</p>
 </section>
+      <h4><a class="xref" href="NUnit.Framework.NoTestsAttribute.html">NoTestsAttribute</a></h4>
+      <section><p>Indicates the default status of a parameterized test method or test fixture containing no executable child tests.</p>
+</section>
       <h4><a class="xref" href="NUnit.Framework.NonParallelizableAttribute.html">NonParallelizableAttribute</a></h4>
       <section><p>Marks tests that should NOT be run in parallel.</p>
 </section>
@@ -250,6 +253,20 @@ combined in such a way that all possible pairs of arguments are used.</p>
 </section>
       <h4><a class="xref" href="NUnit.Framework.PlatformAttribute.html">PlatformAttribute</a></h4>
       <section><p>Marks an assembly, test fixture or test method as applying to a specific platform.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.PlatformNames.html">PlatformNames</a></h4>
+      <section><p>
+Canonical platform names for use with <a class="xref" href="NUnit.Framework.PlatformAttribute.html">PlatformAttribute</a>. Note that
+the <code>platforms</code> argument to <a class="xref" href="NUnit.Framework.PlatformAttribute.html">PlatformAttribute</a> supports
+syntax beyond just naming platforms, such as comma-delimited lists, but using
+these constants ensure that the precise name of a platform cannot be mistyped
+or misspelled.
+</p>
+<pre><code class="lang-csharp">[Platform(Include = PlatformNames.Linux)]
+
+// or
+
+[Platform(Excludes = [PlatformNames.Mono,PlatformNames.MonoTouch])]</code></pre>
 </section>
       <h4><a class="xref" href="NUnit.Framework.PropertyAttribute.html">PropertyAttribute</a></h4>
       <section><p>Attaches information to a test assembly, fixture or method as a name/value pair.</p>
@@ -428,6 +445,9 @@ constraints that operate on exceptions.</p>
 When applied to a method, the test is cancelled if the timeout is exceeded.
 When applied to a class or assembly, the default timeout is set for all contained test methods.</p>
 </section>
+      <h4><a class="xref" href="NUnit.Framework.UnhandledExceptionHandlingAttribute.html">UnhandledExceptionHandlingAttribute</a></h4>
+      <section><p>Specifies the handling behavior for unhandled exceptions in the assembly, class, or method.</p>
+</section>
       <h4><a class="xref" href="NUnit.Framework.ValueSourceAttribute.html">ValueSourceAttribute</a></h4>
       <section><p>Indicates the source used to provide data for one parameter of a test method.</p>
 </section>
@@ -466,6 +486,9 @@ Enums
       <h4><a class="xref" href="NUnit.Framework.ParallelScope.html">ParallelScope</a></h4>
       <section><p>Specifies the degree to which a test, and its descendants,
 may be run in parallel.</p>
+</section>
+      <h4><a class="xref" href="NUnit.Framework.UnhandledExceptionHandling.html">UnhandledExceptionHandling</a></h4>
+      <section><p>Flag to change how NUnit deals with exceptions unhandled by the test code.</p>
 </section>
     <h3 id="delegates">
 Delegates

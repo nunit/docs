@@ -451,7 +451,8 @@ is satisfied and throwing an InconclusiveException on failure.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;TActual&gt; instead of ActualValueDelegate&lt;TActual&gt;&quot;)]
+public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -521,7 +522,8 @@ is satisfied and throwing an InconclusiveException on failure.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;TActual&gt; instead of ActualValueDelegate&lt;TActual&gt;&quot;)]
+public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -591,7 +593,8 @@ is satisfied and throwing an InconclusiveException on failure.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, Func&lt;string&gt; getExceptionMessage, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Func&lt;TActual&gt; instead of ActualValueDelegate&lt;TActual&gt;&quot;)]
+public static void That&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del, IResolveConstraint expr, Func&lt;string&gt; getExceptionMessage, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -607,6 +610,216 @@ is satisfied and throwing an InconclusiveException on failure.</p>
         <td><a class="xref" href="NUnit.Framework.Constraints.ActualValueDelegate-1.html">ActualValueDelegate</a>&lt;TActual&gt;</td>
         <td><span class="parametername">del</span></td>
         <td><p>An ActualValueDelegate returning the value to be tested</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">expr</span></td>
+        <td><p>A Constraint expression to be applied</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><span class="parametername">getExceptionMessage</span></td>
+        <td><p>A function to build the message included with the Exception</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actualExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">constraintExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td><p>The Type being compared.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assume.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assume_That_" data-uid="NUnit.Framework.Assume.That*"></a>
+  <h4 id="NUnit_Framework_Assume_That__1_System_Func___0__NUnit_Framework_Constraints_IResolveConstraint_NUnit_Framework_NUnitString_System_String_System_String_" data-uid="NUnit.Framework.Assume.That``1(System.Func{``0},NUnit.Framework.Constraints.IResolveConstraint,NUnit.Framework.NUnitString,System.String,System.String)">That&lt;TActual&gt;(Func&lt;TActual&gt;, IResolveConstraint, NUnitString, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to an actual value, succeeding if the constraint
+is satisfied and throwing an InconclusiveException on failure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(Func&lt;TActual&gt; code, IResolveConstraint expr, NUnitString message = default, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TActual&gt;</td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code returning the value to be tested</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">expr</span></td>
+        <td><p>A Constraint expression to be applied</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.NUnitString.html">NUnitString</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actualExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">constraintExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td><p>The Type being compared.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assume.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assume_That_" data-uid="NUnit.Framework.Assume.That*"></a>
+  <h4 id="NUnit_Framework_Assume_That__1_System_Func___0__NUnit_Framework_Constraints_IResolveConstraint_System_FormattableString_System_String_System_String_" data-uid="NUnit.Framework.Assume.That``1(System.Func{``0},NUnit.Framework.Constraints.IResolveConstraint,System.FormattableString,System.String,System.String)">That&lt;TActual&gt;(Func&lt;TActual&gt;, IResolveConstraint, FormattableString, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to an actual value, succeeding if the constraint
+is satisfied and throwing an InconclusiveException on failure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(Func&lt;TActual&gt; code, IResolveConstraint expr, FormattableString message, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TActual&gt;</td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code returning the value to be tested</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="NUnit.Framework.Constraints.IResolveConstraint.html">IResolveConstraint</a></td>
+        <td><span class="parametername">expr</span></td>
+        <td><p>A Constraint expression to be applied</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.formattablestring">FormattableString</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message that will be displayed on failure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">actualExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">constraintExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TActual</span></td>
+        <td><p>The Type being compared.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Assume.cs">View Source</a>
+  </span>
+  <a id="NUnit_Framework_Assume_That_" data-uid="NUnit.Framework.Assume.That*"></a>
+  <h4 id="NUnit_Framework_Assume_That__1_System_Func___0__NUnit_Framework_Constraints_IResolveConstraint_System_Func_System_String__System_String_System_String_" data-uid="NUnit.Framework.Assume.That``1(System.Func{``0},NUnit.Framework.Constraints.IResolveConstraint,System.Func{System.String},System.String,System.String)">That&lt;TActual&gt;(Func&lt;TActual&gt;, IResolveConstraint, Func&lt;string&gt;, string, string)</h4>
+  <div class="markdown level1 summary"><p>Apply a constraint to an actual value, succeeding if the constraint
+is satisfied and throwing an InconclusiveException on failure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void That&lt;TActual&gt;(Func&lt;TActual&gt; code, IResolveConstraint expr, Func&lt;string&gt; getExceptionMessage, string actualExpression = &quot;&quot;, string constraintExpression = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TActual&gt;</td>
+        <td><span class="parametername">code</span></td>
+        <td><p>A piece of code returning the value to be tested</p>
 </td>
       </tr>
       <tr>

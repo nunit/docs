@@ -245,7 +245,7 @@ When applied to a class or assembly, the default timeout is set for all containe
   <h6><strong>Assembly</strong>: nunit.framework.dll</h6>
   <h5 id="NUnit_Framework_TimeoutAttribute_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
+    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
 [Obsolete(&quot;.NET No longer supports aborting threads as it is not a safe thing to do. Update your tests to use CancelAfterAttribute instead&quot;)]
 public class TimeoutAttribute : PropertyAttribute, IApplyToTest, IApplyToContext</code></pre>
   </div>
