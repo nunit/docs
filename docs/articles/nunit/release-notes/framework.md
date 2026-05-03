@@ -71,7 +71,7 @@ There are 27 issues fixed in this release.
   > | `Action` / `Func<T>` (as variable)    | ❌ (type mismatch)              | ✅                 | ✅                 |✅                 |
   > | Explicit `TestDelegate` usage         | ✅                              | ❌ (breaking)      | ✅                 |✅                 |
   > | Evaluates functions | ❗  (success, but no eval) |  ✅ | ✅|✅         |
->
+  >
   > ---
   > Examples of explicit TestDelegate usages are:
   >
