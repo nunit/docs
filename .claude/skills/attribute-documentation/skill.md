@@ -11,7 +11,7 @@ This skill describes how to create and update documentation for NUnit attributes
 
 Each attribute documentation file in `docs/articles/nunit/writing-tests/attributes/` should follow this structure:
 
-```markdown
+````markdown
 # AttributeName
 
 Brief description of what the attribute does.
@@ -55,13 +55,13 @@ List where the attribute can be applied:
 ## See Also
 
 * [Related Attribute](relatedattribute.md)
-```
+````
 
 ### For Parameterless Attributes
 
 Use a simpler "Usage" section instead of Constructor/Properties:
 
-```markdown
+````markdown
 ## Usage
 
 This is a parameterless attribute that can only be applied to [target].
@@ -69,7 +69,7 @@ This is a parameterless attribute that can only be applied to [target].
 ```csharp
 [AttributeName]
 ```
-```
+````
 
 ## Workflow for Updating Attribute Documentation
 

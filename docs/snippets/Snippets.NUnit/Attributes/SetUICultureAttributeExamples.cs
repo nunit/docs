@@ -10,6 +10,14 @@ namespace Snippets.NUnit.Attributes
         [SetUICulture("fr-FR")]
         public class FrenchUITests
         {
+            private CultureInfo _originalCulture = null!;
+
+            [OneTimeSetUp]
+            public void SaveOriginalCulture()
+            {
+                _originalCulture = CultureInfo.CurrentCulture;
+            }
+
             [Test]
             public void TestResourceLoading()
             {
@@ -24,7 +32,7 @@ namespace Snippets.NUnit.Attributes
                 // SetUICulture does NOT affect CurrentCulture
                 // Formatting operations use CurrentCulture, not CurrentUICulture
                 Assert.That(CultureInfo.CurrentUICulture.Name, Is.EqualTo("fr-FR"));
-                Assert.That(CultureInfo.CurrentCulture.Name, Is.Not.EqualTo("fr-FR").Or.EqualTo("fr-FR"));
+                Assert.That(CultureInfo.CurrentCulture, Is.EqualTo(_originalCulture));
             }
         }
         #endregion
