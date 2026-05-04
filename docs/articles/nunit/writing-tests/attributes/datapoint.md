@@ -1,34 +1,55 @@
 # Datapoint
 
-The **Datapoint** attribute is used
-to provide data for **Theories** and is ignored for ordinary
-tests - including tests with parameters.
+`DatapointAttribute` is used to mark a field as providing a single data value for [Theory](theory.md) tests. When NUnit executes a Theory, it uses all fields of matching type annotated with `[Datapoint]` to supply argument values.
 
-When a Theory is loaded, NUnit creates arguments for each
-of its parameters by using any fields of the same type
-as the parameter annotated with the **DatapointAttribute**.
-Fields must be members of the class containing the Theory
-and their Type must exactly match the argument for which
-data is being supplied.
+This attribute is ignored for ordinary tests, including parameterized tests using `[TestCase]`.
+
+## Usage
+
+This is a parameterless attribute that can only be applied to fields.
+
+```csharp
+[Datapoint]
+```
+
+## Applies To
+
+- **Fields** - The field type must exactly match the Theory parameter type for which data is being supplied.
+
+## Examples
+
+### Basic Usage
+
+[!code-csharp[DatapointBasic](~/snippets/Snippets.NUnit/Attributes/DatapointAttributeExamples.cs#DatapointBasic)]
+
+### With Enums and Automatic Datapoints
+
+[!code-csharp[DatapointWithEnum](~/snippets/Snippets.NUnit/Attributes/DatapointAttributeExamples.cs#DatapointWithEnum)]
+
+### Multiple Types
+
+[!code-csharp[DatapointMultipleTypes](~/snippets/Snippets.NUnit/Attributes/DatapointAttributeExamples.cs#DatapointMultipleTypes)]
 
 ## Automatically Supplied Datapoints
 
-It is normally not necessary to specify datapoints for
-**boolean** or **enum** arguments.
-NUnit automatically supplies values of **true**
-and **false** for **boolean** arguments and will supply all
-defined values of any enumeration.
+NUnit automatically supplies datapoints for certain types:
 
-If for some reason you don't wish to use all possible values, you
-can override this behavior by supplying your own datapoints. If you
-supply any datapoints for an argument, automatic datapoint generation
-is suppressed.
+| Type | Automatic Values |
+|------|-----------------|
+| `bool` | `true`, `false` |
+| Any `enum` | All defined enum values |
 
-## Example
+If you supply any datapoints for a parameter type, automatic datapoint generation for that type is suppressed.
 
-For an example of use, see [Theory Attribute](theory.md)
+## Notes
+
+1. Fields must be members of the class containing the Theory.
+2. The field type must **exactly** match the parameter type - no implicit conversions are performed.
+3. Use `DatapointSource` when you need to provide multiple values from a single source (arrays, collections, or methods).
+4. Datapoints from multiple fields of the same type are combined.
 
 ## See Also
 
+* [DatapointSource Attribute](datapointsource.md)
 * [Theory Attribute](theory.md)
 * [Parameterized Tests](xref:parameterizedtests)
