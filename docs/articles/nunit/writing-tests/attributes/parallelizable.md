@@ -50,12 +50,12 @@ Named argument form:
 
 `ParallelScope` is a **[Flags]** enumeration. It applies to the attributed test and its subordinates. User-visible values:
 
- Value | Meaning | Valid On
--------|---------|---------
-`ParallelScope.Self`     | the test itself may be run in parallel with other tests | Classes, Methods
-`ParallelScope.Children` | child tests may be run in parallel with one another     | Assembly, Classes
-`ParallelScope.Fixtures` | fixtures may be run in parallel with one another        | Assembly, Classes
-`ParallelScope.All`      | the test and its descendants may be run in parallel with others at the same level | Classes, Methods
+| Value | Meaning | Valid On |
+| --- | --- | --- |
+| `ParallelScope.Self` | the test itself may be run in parallel with other tests | Classes, Methods |
+| `ParallelScope.Children` | child tests may be run in parallel with one another | Assembly, Classes |
+| `ParallelScope.Fixtures` | fixtures may be run in parallel with one another | Assembly, Classes |
+| `ParallelScope.All` | the test and its descendants may be run in parallel with others at the same level | Classes, Methods |
 
 ## Notes
 
