@@ -158,4 +158,3 @@ runner supports.
 | `--noshadow`       | Disable shadow copy                     | No longer supported. The console runner now disables shadow copy by default. use `--shadowcopy` on the command-line to turn it on. |
 | `--nothread`        | Disable use of a separate thread for tests  | No longer supported. |
 | `--nodots`          | Do not display dots as a progress indicator | No longer supported. |
-
