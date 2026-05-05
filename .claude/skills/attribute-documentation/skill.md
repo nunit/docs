@@ -77,7 +77,7 @@ This is a parameterless attribute that can only be applied to [target].
 
 Search for the attribute class in the NUnit framework:
 
-```bash
+```shell
 # Find the attribute source file
 grep -r "class AttributeNameAttribute" C:/repos/nunit/nunit --include="*.cs"
 ```
@@ -95,7 +95,7 @@ From the source file, extract:
 
 ### Step 3: Check for Existing Unit Tests
 
-```bash
+```shell
 # Find unit tests for the attribute
 grep -r "AttributeName" C:/repos/nunit/nunit/src/NUnitFramework/tests --include="*.cs"
 ```
@@ -157,7 +157,7 @@ Reference snippets using DocFX syntax:
 
 Always verify the snippets compile and tests pass:
 
-```bash
+```shell
 cd C:/repos/nunit/docs/docs/snippets
 
 # Build
@@ -193,6 +193,33 @@ Examples: `SingleThreaded`, `NonParallelizable`, `Combinatorial`
 Examples: `Parallelizable` (takes `ParallelScope`), `Apartment` (takes `ApartmentState`)
 
 Document the enum values in a table.
+
+## Command Line Documentation Guidelines
+
+When documenting command line usage:
+
+1. **Use appropriate code fences** - Use ` ```shell ` for command line examples, not ` ```shell ` or plain code blocks.
+
+2. **Prioritize `dotnet test`** - Always mention `dotnet test` before the NUnit console runner, as it is used far more frequently.
+
+3. **Include runsettings equivalents** - When mentioning console runner options (like `--timeout`, `--workers`, etc.), note that these settings can also be configured for `dotnet test` via the NUnit adapter's `.runsettings` file.
+
+Example:
+
+````markdown
+## Command Line Usage
+
+```shell
+# dotnet test (via NUnit adapter)
+dotnet test --filter "TestCategory=Fast"
+
+# Or via runsettings
+dotnet test --settings test.runsettings
+
+# NUnit Console Runner
+nunit3-console MyTests.dll --where "cat == Fast"
+```
+````
 
 ## Quality Checklist
 

@@ -4,74 +4,62 @@ uid: apartment-attribute
 
 # Apartment
 
-The `ApartmentAttribute` is used on a test method, class or assembly to specify that the tests should be run in a
-particular [apartment](https://learn.microsoft.com/en-us/windows/win32/com/processes--threads--and-apartments), either
-the STA or the MTA.
+`ApartmentAttribute` is used to specify that tests should run in a particular COM [apartment](https://learn.microsoft.com/en-us/windows/win32/com/processes--threads--and-apartments) state, either STA (Single-Threaded Apartment) or MTA (Multi-Threaded Apartment).
 
-When running tests in parallel, the test is simply scheduled to execute from a queue that uses the apartment specified.
-When the parallel feature is not in use, it causes creation of a new thread if the parent test is not already running in
-the correct apartment.
+This is primarily needed for tests that interact with COM objects, Windows Forms controls, or WPF components that require a specific apartment state.
 
-When this attribute is not specified, tests run in the MTA.
-
-This attribute replaces the RequiresMTA and RequiresSTA attributes, which are now considered obsolete.
-
-## Assembly Level Examples
+## Constructor
 
 ```csharp
-
-// All the tests in this assembly will use the MTA by default. Since
-// this is the general default, the attribute is not actually needed.
-[assembly:Apartment(ApartmentState.MTA)]
-
-...
-
-// All the tests in this assembly will use the STA by default
-[assembly:Apartment(ApartmentState.STA)]
-
+ApartmentAttribute(ApartmentState apartmentState)
 ```
 
-## Test Fixture Examples
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `apartmentState` | `ApartmentState` | The apartment state for the test. Must be `STA` or `MTA` (not `Unknown`). |
+
+## ApartmentState Values
+
+| Value | Description |
+|-------|-------------|
+| `ApartmentState.STA` | Single-Threaded Apartment. Required for most UI components (WinForms, WPF, COM controls). |
+| `ApartmentState.MTA` | Multi-Threaded Apartment. The default for NUnit tests. |
+
+## Applies To
+
+- **Assembly** - Sets the default apartment for all tests in the assembly
+- **Test Fixture (Class)** - Sets the apartment for all tests in the fixture
+- **Test Method** - Sets the apartment for a specific test
+
+When applied at multiple levels, the most specific level takes precedence.
+
+## Examples
+
+### Assembly Level
 
 ```csharp
-
-// TestFixture requiring use of the MTA. The attribute is not
-// needed unless the STA was specified at a higher level.
-[TestFixture, Apartment(ApartmentState.MTA)]
-public class FixtureRequiringMTA
-{
-  // All tests in the fixture will run in the MTA.
-}
-
-// TestFixture requiring use of the STA.
-[TestFixture, Apartment(ApartmentState.STA)]
-public class FixtureRequiringSTA
-{
-  // All tests in the fixture will run in the STA.
-}
-
+// All tests in this assembly will use the STA by default
+[assembly: Apartment(ApartmentState.STA)]
 ```
 
-## Test Method Examples
+### Test Fixture Level
 
-```csharp
-[TestFixture]
-public class AnotherFixture
-{
-  [Test, Apartment(ApartmentState.MTA)]
-  public void TestRequiringMTA()
-  {
-    // This test will run in the MTA.
-  }
-  
-  [Test, Apartment(ApartmentState.STA)]
-  public void TestRequiringSTA()
-  {
-    // This test will run in the STA.
-  }
-}
-```
+[!code-csharp[ApartmentFixture](~/snippets/Snippets.NUnit/Attributes/ApartmentAttributeExamples.cs#ApartmentFixture)]
+
+### Test Method Level
+
+[!code-csharp[ApartmentMethod](~/snippets/Snippets.NUnit/Attributes/ApartmentAttributeExamples.cs#ApartmentMethod)]
+
+## Notes
+
+1. When this attribute is not specified, tests run in the **MTA** by default.
+2. When running tests in parallel, tests are scheduled to execute on a thread with the specified apartment state.
+3. When parallel execution is disabled, a new thread may be created if the current thread doesn't have the correct apartment state.
+4. This attribute replaces the obsolete `RequiresMTA` and `RequiresSTA` attributes.
+5. The `ApartmentState.Unknown` value is not allowed and will cause an error.
 
 ## See Also
 
 * [RequiresThread Attribute](requiresthread.md)
+* [SingleThreaded Attribute](singlethreaded.md)
+* [Parallelizable Attribute](parallelizable.md)

@@ -1,59 +1,75 @@
+---
+uid: timeout-attribute
+---
+
 # Timeout
 
-> [!NOTE]
-> Starting from .NET 5, due to limitations in the runtime, the Timeout attribute works only partially. It will cancel the test
-> for the purposes of test results reporting and scheduling of further tests, but the test's code will continue to run on the test's
-> thread in the background. Starting from NUnit version 4.5, usage of Timeout attribute at all on .NET 5 or higher is reported
-> as a failure.
+> [!WARNING]
+> This attribute is **obsolete on .NET 5 and later**. Starting from NUnit 4.5, usage of the Timeout attribute on .NET 5+ is reported as a test failure. Use [CancelAfter](cancelafter.md) or [MaxTime](maxtime.md) instead.
 
-## Alternatives to the Timeout attribute for .NET 5 and above
+`TimeoutAttribute` is used to specify a timeout value in milliseconds for a test case. If the test runs longer than the specified time, it is immediately cancelled and reported as a failure.
 
-If you want to cancel the Test in the same manner, use the [CancelAfter Attribute](./cancelafter.md).
-It is cooperative cancelling, so your test needs to handle the CancellationToken.
+## Constructor
 
-If you just want to be informed of tests that have run over an expected time, use the [MaxTime Attribute](./maxtime.md).
+```csharp
+TimeoutAttribute(int timeout)
+```
 
-If you want to cancel the whole test run use the `dotnet test --blame-hang-timeout <TIMESPAN>`.
-Any test that use more than the TIMESPAN will abort the run.
-See [dotnet test docs](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test-vstest).
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `timeout` | `int` | The timeout value in milliseconds. |
 
-### Reason
+## Applies To
 
-The Timeout attribute uses the `Thread.Abort()` method to kill tests.  `Thread.Abort()` was removed in .NET 5 and replaced with
-cooperative cancellation.
+- **Assembly** - Sets the default timeout for all tests in the assembly
+- **Test Fixture (Class)** - Sets the default timeout for all tests in the fixture
+- **Test Method** - Sets the timeout for a specific test
 
-## For projects that target .NET Framework only
+## .NET 5+ Alternatives
 
-Normally, NUnit simply runs tests and waits for them to terminate -- the test is allowed to run indefinitely. For
-certain kinds of tests, however, it may be desirable to specify a timeout value.
+Since `Thread.Abort()` was removed in .NET 5, this attribute no longer works reliably. Use these alternatives:
 
-The **TimeoutAttribute** is used to specify a timeout value in milliseconds for a test case. If the test case runs
-longer than the time specified it is immediately cancelled and reported as a failure, with a message indicating that the
-timeout was exceeded.
+| Alternative | Description |
+|-------------|-------------|
+| [CancelAfter](cancelafter.md) | Cooperative cancellation via `CancellationToken`. Your test must handle the token. |
+| [MaxTime](maxtime.md) | Reports tests that exceed expected time, but doesn't cancel them. |
+| `dotnet test --blame-hang-timeout` | Aborts the entire test run if any test exceeds the timeout. |
 
-The specified timeout value covers the test setup and teardown as well as the test method itself. Before and after
-actions may also be included, depending on where they were specified. Since the timeout may occur during any of these
-execution phases, no guarantees can be made as to what will be run and any of these phases of execution may be
-incomplete. If only used on a test, once a test has timed out, its teardown methods are executed.
-
-The attribute may also be specified on a fixture or assembly, in which case it indicates the default timeout for any
-subordinate test cases. When using the console runner, it is also possible to specify a default timeout on the
-command-line.
-
-## Example
+## Example (.NET Framework Only)
 
 ```csharp
 [Test, Timeout(2000)]
 public void PotentiallyLongRunningTest()
 {
-    /* ... */
+    // Test will be cancelled if it runs longer than 2 seconds
+}
+
+[TestFixture, Timeout(5000)]
+public class TimeSensitiveTests
+{
+    [Test]
+    public void Test1()
+    {
+        // Inherits 5 second timeout from fixture
+    }
+
+    [Test, Timeout(1000)]
+    public void QuickTest()
+    {
+        // Overrides fixture timeout with 1 second
+    }
 }
 ```
 
-> [!NOTE]
-> When debugging a unit test, i.e. when a debugger is attached to the process, then the timeout is not enforced.
+## Notes
+
+1. **Deprecated on .NET 5+**: This attribute uses `Thread.Abort()`, which was removed in .NET 5. On .NET 5+, the test will be cancelled for reporting purposes, but the code continues running in the background.
+2. The timeout covers setup, teardown, and the test method itself. Before/after actions may also be included depending on where they were specified.
+3. When a timeout occurs during execution, no guarantees can be made about which phases completed.
+4. When debugging (debugger attached), the timeout is not enforced.
+5. A default timeout can also be set via the console runner's `--timeout` option or in a `.runsettings` file when using `dotnet test`.
 
 ## See Also
 
-* [MaxTime Attribute](./maxtime.md)
-* [CancelAfter Attribute](./cancelafter.md)
+* [CancelAfter Attribute](cancelafter.md)
+* [MaxTime Attribute](maxtime.md)

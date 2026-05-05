@@ -1,33 +1,61 @@
+---
+uid: testof-attribute
+---
+
 # TestOf
 
-The `TestOf` attribute adds information about the class that is being tested. It can be applied to test fixtures and to tests.
+`TestOfAttribute` is used to specify the class or type that a test fixture or test method is testing. This metadata helps document the relationship between tests and the code under test, and can be used by test runners and reporting tools to organize test results.
 
-The constructor takes the string name or the type of the class being tested. TestOf can also be specified on
-a TestFixture or Test attribute.
+## Constructors
 
 ```csharp
-[TestFixture]
-[TestOf(typeof(MyClass))]
-public class MyTests
-{
- [Test]
- public void Test1() { /* ... */ }
-
- [Test]
- [TestOf(nameof(MySubClass))]
- public void Test2() { /* ... */ }
-}
-
-[TestFixture(TestOf = typeof(MyClass))]
-public class MyOtherTests
-{
- [Test]
- public void Test1() { /* ... */ }
-
- [Test(TestOf = typeof(MySubClass))]
- public void Test2() { /* ... */ }
-}
+TestOfAttribute(Type type)
+TestOfAttribute(string typeName)
 ```
 
-> [!NOTE]
-> You can currently only have one TestOf attribute per fixture or test.
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `type` | `Type` | The type that is being tested. The full type name is stored. |
+| `typeName` | `string` | The name of the type that is being tested. |
+
+## Applies To
+
+- **Assembly** - Indicates the primary type tested by the assembly
+- **Test Fixture (Class)** - Indicates the type tested by the fixture
+- **Test Method** - Indicates the type tested by a specific test
+
+## Alternative Syntax
+
+`TestOf` can also be specified as a named parameter on `[TestFixture]` or `[Test]` attributes:
+
+```csharp
+[TestFixture(TestOf = typeof(MyClass))]
+[Test(TestOf = typeof(MyClass))]
+```
+
+## Examples
+
+### Using the Attribute
+
+[!code-csharp[TestOfBasic](~/snippets/Snippets.NUnit/Attributes/TestOfAttributeExamples.cs#TestOfBasic)]
+
+### Using String Names
+
+[!code-csharp[TestOfString](~/snippets/Snippets.NUnit/Attributes/TestOfAttributeExamples.cs#TestOfString)]
+
+### Using Named Parameter Syntax
+
+[!code-csharp[TestOfNamedParameter](~/snippets/Snippets.NUnit/Attributes/TestOfAttributeExamples.cs#TestOfNamedParameter)]
+
+## Notes
+
+1. This attribute inherits from `PropertyAttribute` and sets the `TestOf` property with the full type name.
+2. Using `typeof()` is preferred over string names as it provides compile-time type checking.
+3. For string names, consider using `nameof()` for compile-time safety when the type is accessible.
+4. Multiple `TestOf` attributes can be applied to the same element when a test covers multiple types.
+
+## See Also
+
+* [Property Attribute](property.md)
+* [Description Attribute](description.md)
+* [Category Attribute](category.md)

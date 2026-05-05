@@ -184,3 +184,13 @@ See `retry.md` for the completed template example with:
 | MaxTime | Done | Added Constructor, examples, comparison with CancelAfter |
 | Order | Done | Added Constructor, examples with gaps pattern |
 | Repeat | Done | Added Constructors, Properties table with StopOnFailure |
+| Random | Done | Added Constructors with type variants, Properties (Distinct), Supported Types table |
+| NonTestAssembly | Done | Assembly-level config, inline examples acceptable |
+| LevelOfParallelism | Done | Assembly-level config, inline examples acceptable |
+| Apartment | Done | Added Constructor, ApartmentState Values table, snippet examples |
+| TestOf | Done | Added Constructors (Type/string), snippet examples |
+| Author | Done | Added Constructors, Applies To, Alternative Syntax, existing snippet |
+| Description | Done | Added Constructor, snippet examples, named parameter syntax |
+| Category | Done | Added Constructors, Properties, command line usage (dotnet test + console) |
+| RequiresThread | Done | Added Constructors, snippet examples with apartment state |
+| Timeout | Done | Added Constructor, .NET 5+ alternatives table, deprecation warnings |

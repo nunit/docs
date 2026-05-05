@@ -4,14 +4,48 @@ uid: author-attribute
 
 # Author
 
-The **Author** Attribute adds information about the author of the tests. It can be applied to test fixtures and to
-tests.
+`AuthorAttribute` adds information about the author of tests. This metadata can be used by test runners and reporting tools to track test ownership and contact information.
 
-The constructor takes the name of the test author and optionally the author's email address. Author can also be
-specified on a TestFixture or Test attribute.
+## Constructors
+
+```csharp
+AuthorAttribute(string name)
+AuthorAttribute(string name, string email)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `name` | `string` | The name of the test author. |
+| `email` | `string` | The email address of the author. When provided, stored as `"name <email>"`. |
+
+## Applies To
+
+- **Assembly** - Identifies the author(s) of all tests in the assembly
+- **Test Fixture (Class)** - Identifies the author(s) of the fixture
+- **Test Method** - Identifies the author(s) of a specific test
+
+## Alternative Syntax
+
+`Author` can also be specified as a named parameter on `[TestFixture]` or `[Test]` attributes (name only, no email):
+
+```csharp
+[TestFixture(Author = "Jane Doe")]
+[Test(Author = "Joe Developer")]
+```
+
+## Example
 
 [!code-csharp[AuthorAttributeExample](~/snippets/Snippets.NUnit/Attributes/AuthorAttributeExamples.cs#AuthorAttributeExample)]
 
-> [!NOTE]
-> From NUnit version 3.7, you can have multiple Author attributes per fixture or test. Before version 3.7 you
-> could only have one Author attribute  per fixture or test.
+## Notes
+
+1. This attribute inherits from `PropertyAttribute` and sets the `Author` property.
+2. Multiple `Author` attributes can be applied to the same fixture or test (since **NUnit 3.7**).
+3. Prior to NUnit 3.7, only one Author attribute was allowed per fixture or test.
+4. When using the named parameter syntax (`Author = "name"`), only the name can be specified, not the email.
+
+## See Also
+
+* [Property Attribute](property.md)
+* [Description Attribute](description.md)
+* [TestOf Attribute](testof.md)
