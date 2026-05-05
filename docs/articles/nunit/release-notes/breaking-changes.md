@@ -1,7 +1,7 @@
 ---
 uid: breakingchanges
 ---
-
+<!-- markdownlint-disable MD012 -->
 # Breaking Changes
 
 ## NUnit 4.0
