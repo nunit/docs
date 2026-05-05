@@ -1,3 +1,7 @@
+---
+uid: levelofparallelismattribute
+---
+
 # LevelOfParallelism
 
 `LevelOfParallelismAttribute` is an assembly-level attribute used to specify the maximum number of worker threads that may execute tests simultaneously. This controls how many tests can run in parallel.
@@ -44,6 +48,6 @@ using NUnit.Framework;
 
 ## See Also
 
-* [Parallelizable Attribute](parallelizable.md)
-* [NonParallelizable Attribute](nonparallelizable.md)
+* [Parallelizable Attribute](xref:parallelizableattribute)
+* [NonParallelizable Attribute](xref:nonparallelizableattribute)
 * [Console Command Line](xref:consolecommandline)

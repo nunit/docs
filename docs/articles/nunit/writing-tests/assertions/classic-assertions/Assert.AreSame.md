@@ -1,3 +1,7 @@
+---
+uid: classic-assert-are-same
+---
+
 # Assert.AreSame
 
 **Assert.AreSame** tests that the two arguments reference the same object.

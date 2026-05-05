@@ -54,6 +54,6 @@ DescriptionAttribute(string description)
 
 ## See Also
 
-* [Property Attribute](property.md)
-* [Author Attribute](author.md)
-* [Category Attribute](category.md)
+* [Property Attribute](xref:propertyattribute)
+* [Author Attribute](xref:author-attribute)
+* [Category Attribute](xref:category-attribute)

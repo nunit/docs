@@ -1,3 +1,7 @@
+---
+uid: testfixturesourceattribute
+---
+
 # TestFixtureSource
 
 `TestFixtureSourceAttribute` is used on a parameterized fixture to identify the source from which the required

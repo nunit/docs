@@ -5,7 +5,7 @@ uid: timeout-attribute
 # Timeout
 
 > [!WARNING]
-> This attribute is **obsolete on .NET 5 and later**. Starting from NUnit 4.5, usage of the Timeout attribute on .NET 5+ is reported as a test failure. Use [CancelAfter](cancelafter.md) or [MaxTime](maxtime.md) instead.
+> This attribute is **obsolete on .NET 5 and later**. Starting from NUnit 4.5, usage of the Timeout attribute on .NET 5+ is reported as a test failure. Use [CancelAfter](xref:cancelafterattribute) or [MaxTime](xref:maxtimeattribute) instead.
 
 `TimeoutAttribute` is used to specify a timeout value in milliseconds for a test case. If the test runs longer than the specified time, it is immediately cancelled and reported as a failure.
 
@@ -31,8 +31,8 @@ Since `Thread.Abort()` was removed in .NET 5, this attribute no longer works rel
 
 | Alternative | Description |
 |-------------|-------------|
-| [CancelAfter](cancelafter.md) | Cooperative cancellation via `CancellationToken`. Your test must handle the token. |
-| [MaxTime](maxtime.md) | Reports tests that exceed expected time, but doesn't cancel them. |
+| [CancelAfter](xref:cancelafterattribute) | Cooperative cancellation via `CancellationToken`. Your test must handle the token. |
+| [MaxTime](xref:maxtimeattribute) | Reports tests that exceed expected time, but doesn't cancel them. |
 | `dotnet test --blame-hang-timeout` | Aborts the entire test run if any test exceeds the timeout. |
 
 ## Example (.NET Framework Only)
@@ -71,5 +71,5 @@ public class TimeSensitiveTests
 
 ## See Also
 
-* [CancelAfter Attribute](cancelafter.md)
-* [MaxTime Attribute](maxtime.md)
+* [CancelAfter Attribute](xref:cancelafterattribute)
+* [MaxTime Attribute](xref:maxtimeattribute)

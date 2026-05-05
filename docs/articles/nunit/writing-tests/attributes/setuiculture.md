@@ -1,3 +1,7 @@
+---
+uid: setuicultureattribute
+---
+
 # SetUICulture
 
 `SetUICultureAttribute` is used to set the current `CultureInfo.CurrentUICulture` for the duration of a test. The UI culture remains set until the test or fixture completes and is then reset to its original value.
@@ -49,5 +53,5 @@ Use both attributes when you need to test with different formatting and UI cultu
 
 ## See Also
 
-* [SetCulture Attribute](setculture.md)
-* [Culture Attribute](culture.md)
+* [SetCulture Attribute](xref:setcultureattribute)
+* [Culture Attribute](xref:cultureattribute)

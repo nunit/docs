@@ -1,3 +1,7 @@
+---
+uid: setcultureattribute
+---
+
 # SetCulture
 
 `SetCultureAttribute` is used to set the current `CultureInfo.CurrentCulture` for the duration of a test. The culture remains set until the test or fixture completes and is then reset to its original value.
@@ -47,5 +51,5 @@ When applied at multiple levels, the most specific level takes precedence. The a
 
 ## See Also
 
-* [SetUICulture Attribute](setuiculture.md)
-* [Culture Attribute](culture.md)
+* [SetUICulture Attribute](xref:setuicultureattribute)
+* [Culture Attribute](xref:cultureattribute)

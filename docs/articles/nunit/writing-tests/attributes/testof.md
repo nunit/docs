@@ -56,6 +56,6 @@ TestOfAttribute(string typeName)
 
 ## See Also
 
-* [Property Attribute](property.md)
-* [Description Attribute](description.md)
-* [Category Attribute](category.md)
+* [Property Attribute](xref:propertyattribute)
+* [Description Attribute](xref:description-attribute)
+* [Category Attribute](xref:category-attribute)

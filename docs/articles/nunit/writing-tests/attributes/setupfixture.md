@@ -77,7 +77,7 @@ The defined order is as follows...
 
 ## See Also
 
-* [SetUp Attribute](setup.md)
-* [TearDown Attribute](teardown.md)
-* [OneTimeSetUp Attribute](onetimesetup.md)
-* [OneTimeTearDown Attribute](onetimeteardown.md)
+* [SetUp Attribute](xref:setup-attribute)
+* [TearDown Attribute](xref:teardown-attribute)
+* [OneTimeSetUp Attribute](xref:onetimesetup-attribute)
+* [OneTimeTearDown Attribute](xref:onetimeteardown-attribute)

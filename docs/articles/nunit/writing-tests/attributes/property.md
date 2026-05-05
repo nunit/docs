@@ -67,5 +67,5 @@ You can define custom attributes that derive from `PropertyAttribute` for type-s
 
 * [TestContext](xref:testcontext)
 * [Test Selection Language](xref:testselectionlanguage)
-* [Category Attribute](category.md)
-* [Description Attribute](description.md)
+* [Category Attribute](xref:category-attribute)
+* [Description Attribute](xref:description-attribute)

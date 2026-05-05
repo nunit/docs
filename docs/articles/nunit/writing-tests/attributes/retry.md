@@ -1,3 +1,7 @@
+---
+uid: retryattribute
+---
+
 # Retry
 
 `RetryAttribute` is used on a test method to specify that it should be rerun on failure up to a maximum number of times.
@@ -44,4 +48,4 @@ When you need to retry on specific exception types (such as `TimeoutException` o
 
 ## See Also
 
-* [Repeat Attribute](repeat.md)
+* [Repeat Attribute](xref:repeatattribute)

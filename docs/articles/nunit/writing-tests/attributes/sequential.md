@@ -47,6 +47,6 @@ MyTest(3, null)
 
 ## See Also
 
-* [Combinatorial Attribute](combinatorial.md)
-* [Pairwise Attribute](pairwise.md)
-* [Values Attribute](values.md)
+* [Combinatorial Attribute](xref:combinatorialattribute)
+* [Pairwise Attribute](xref:pairwiseattribute)
+* [Values Attribute](xref:valuesattribute)

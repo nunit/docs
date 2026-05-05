@@ -15,7 +15,7 @@ Added in **NUnit 3.13**.
 Place the attribute on a **fixture class** to control that class, or on the **assembly** to set a default for all
 fixtures in that assembly. A class-level attribute **overrides** an assembly-level default.
 
-`InstancePerTestCase` is often combined with [Parallelizable](parallelizable.md). With a separate instance per test,
+`InstancePerTestCase` is often combined with [Parallelizable](xref:parallelizableattribute). With a separate instance per test,
 instance fields are not shared while tests run in parallel, which avoids a common source of interference and often makes
 **thread safety for instance state** easier—while still leaving you responsible for static state, shared singletons, and
 other resources outside the fixture instance.

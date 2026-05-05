@@ -46,6 +46,6 @@ AuthorAttribute(string name, string email)
 
 ## See Also
 
-* [Property Attribute](property.md)
-* [Description Attribute](description.md)
-* [TestOf Attribute](testof.md)
+* [Property Attribute](xref:propertyattribute)
+* [Description Attribute](xref:description-attribute)
+* [TestOf Attribute](xref:testof-attribute)

@@ -1,3 +1,7 @@
+---
+uid: cultureattribute
+---
+
 # Culture
 
 `CultureAttribute` is used to specify cultures for which a test or fixture should be run. It does **not** change the culture setting, but merely uses it to determine whether to run the test. If the specified culture requirements are not met, the test is skipped.
@@ -56,5 +60,5 @@ CultureAttribute(string cultures)
 
 ## See Also
 
-* [SetCulture Attribute](setculture.md)
-* [SetUICulture Attribute](setuiculture.md)
+* [SetCulture Attribute](xref:setcultureattribute)
+* [SetUICulture Attribute](xref:setuicultureattribute)

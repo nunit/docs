@@ -1,3 +1,7 @@
+---
+uid: repeatattribute
+---
+
 # Repeat
 
 `RepeatAttribute` is used on a test method to specify that it should be executed multiple times. By default, the test repeats until a failure occurs or all repetitions complete successfully.
@@ -48,4 +52,4 @@ RepeatAttribute(int count, bool stopOnFailure)
 
 ## See Also
 
-* [Retry Attribute](retry.md)
+* [Retry Attribute](xref:retryattribute)

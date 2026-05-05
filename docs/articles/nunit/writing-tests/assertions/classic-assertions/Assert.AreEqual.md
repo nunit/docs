@@ -1,3 +1,7 @@
+---
+uid: classic-assert-are-equal
+---
+
 # Assert.AreEqual
 
 **Assert.AreEqual** tests whether the two arguments are equal.
@@ -47,4 +51,4 @@ NUnit 3.0 adds the ability to compare generic collections and dictionaries.
 ## See Also
 
 * [Equal Constraint](xref:equalconstraint)
-* [DefaultFloatingPointTolerance Attribute](../../attributes/defaultfloatingpointtolerance.md)
+* [DefaultFloatingPointTolerance Attribute](xref:defaultfloatingpointtoleranceattribute)

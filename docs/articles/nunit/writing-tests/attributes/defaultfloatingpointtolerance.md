@@ -1,3 +1,7 @@
+---
+uid: defaultfloatingpointtoleranceattribute
+---
+
 # DefaultFloatingPointTolerance
 
 `DefaultFloatingPointToleranceAttribute` sets the default tolerance for floating-point equality comparisons (`float` and `double`) unless a comparison explicitly specifies a tolerance.
@@ -41,6 +45,5 @@ DefaultFloatingPointToleranceAttribute(double tolerance)
 
 ## See Also
 
-* [Assert.AreEqual](../assertions/classic-assertions/Assert.AreEqual.md)
-* [EqualConstraint](../constraints/EqualConstraint.md)
-* [Tolerance](xref:tolerance)
+* [Assert.AreEqual](xref:classic-assert-are-equal)
+* [EqualConstraint](xref:equalconstraint) — numeric **`Within`** tolerances and floating-point comparison behavior (including the **Comparing floating-point values** section)

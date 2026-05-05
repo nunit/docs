@@ -71,5 +71,5 @@ Named argument form:
 ## See Also
 
 * [FixtureLifeCycle Attribute](xref:fixturelifecycleattribute)
-* [NonParallelizable Attribute](nonparallelizable.md)
-* [LevelOfParallelism Attribute](levelofparallelism.md)
+* [NonParallelizable Attribute](xref:nonparallelizableattribute)
+* [LevelOfParallelism Attribute](xref:levelofparallelismattribute)

@@ -21,7 +21,7 @@ up to other attributes and ultimately NUnit itself.
 
 The following NUnit attributes currently implement `IParameterDataSource`:
 
-* [`RandomAttribute`](../writing-tests/attributes/random.md)
-* [`ValuesAttribute`](../writing-tests/attributes/values.md), with the derived class
-  * [`RangeAttribute`](../writing-tests/attributes/range.md)
-* [`ValueSourceAttribute`](../writing-tests/attributes/valuesource.md)
+* [`RandomAttribute`](xref:randomattribute)
+* [`ValuesAttribute`](xref:valuesattribute), with the derived class
+  * [`RangeAttribute`](xref:rangeattribute)
+* [`ValueSourceAttribute`](xref:valuesource)

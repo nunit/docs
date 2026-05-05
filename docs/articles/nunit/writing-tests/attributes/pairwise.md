@@ -50,5 +50,5 @@ as it can. Improvements may be made in the future.
 
 ## See Also
 
-* [Sequential Attribute](sequential.md)
-* [Combinatorial Attribute](combinatorial.md)
+* [Sequential Attribute](xref:sequentialattribute)
+* [Combinatorial Attribute](xref:combinatorialattribute)

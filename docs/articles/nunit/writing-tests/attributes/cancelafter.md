@@ -29,7 +29,7 @@ CancelAfterAttribute(int timeout)
 
 For .NET Core and later,
 [`Thread.Abort`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.abort?view=net-8.0) as used by the
-[`TimeoutAttribute`](./timeout.md) can no longer be used, and there is therefore no way to interrupt an endless loop.
+[`TimeoutAttribute`](xref:timeout-attribute) can no longer be used, and there is therefore no way to interrupt an endless loop.
 
 For all tests, one could use the `--blame-hang(-timeout)`  options of [`dotnet
 test`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test#options). However, this will stop any further
@@ -82,5 +82,5 @@ The `CancelAfterAttribute` supports cooperative cancellation in several test sty
 
 ## See Also
 
-* [Timeout Attribute](./timeout.md)
-* [MaxTime Attribute](./maxtime.md)
+* [Timeout Attribute](xref:timeout-attribute)
+* [MaxTime Attribute](xref:maxtimeattribute)

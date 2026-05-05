@@ -87,9 +87,9 @@ RandomAttribute(double min, double max, int count)
 
 ## See Also
 
-* [Values Attribute](values.md)
-* [Range Attribute](range.md)
-* [Sequential Attribute](sequential.md)
-* [Combinatorial Attribute](combinatorial.md)
-* [Pairwise Attribute](pairwise.md)
+* [Values Attribute](xref:valuesattribute)
+* [Range Attribute](xref:rangeattribute)
+* [Sequential Attribute](xref:sequentialattribute)
+* [Combinatorial Attribute](xref:combinatorialattribute)
+* [Pairwise Attribute](xref:pairwiseattribute)
 * [Randomizer Methods](xref:randomizermethods)

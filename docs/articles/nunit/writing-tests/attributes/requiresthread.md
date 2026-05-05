@@ -49,5 +49,5 @@ RequiresThreadAttribute(ApartmentState apartment)
 
 ## See Also
 
-* [Apartment Attribute](apartment.md)
-* [SingleThreaded Attribute](singlethreaded.md)
+* [Apartment Attribute](xref:apartment-attribute)
+* [SingleThreaded Attribute](xref:singlethreadedattribute)

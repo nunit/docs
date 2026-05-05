@@ -1,3 +1,7 @@
+---
+uid: singlethreadedattribute
+---
+
 # SingleThreaded
 
 `SingleThreadedAttribute` is used on a test fixture to ensure that `OneTimeSetUp`, `OneTimeTearDown`, and all child tests run on the same thread. This forces all child tests to be run sequentially on the current thread.
@@ -29,7 +33,7 @@ This is a parameterless attribute that can only be applied to test fixture class
 
 ## See Also
 
-* [Parallelizable Attribute](parallelizable.md)
-* [NonParallelizable Attribute](nonparallelizable.md)
-* [RequiresThread Attribute](requiresthread.md)
-* [Apartment Attribute](apartment.md)
+* [Parallelizable Attribute](xref:parallelizableattribute)
+* [NonParallelizable Attribute](xref:nonparallelizableattribute)
+* [RequiresThread Attribute](xref:requiresthread-attribute)
+* [Apartment Attribute](xref:apartment-attribute)

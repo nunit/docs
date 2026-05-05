@@ -958,7 +958,7 @@ If you use the `NUnit Console`, you will need version `3.15.3` or later (but not
 
 The minimum target framework supported is now dotnet framework `4.6.2`, and .net `6.0`.
 
-See the [planning notes](../Towards-NUnit4.md) for more information about the changes.
+See the [planning notes](xref:towardsnunit4) for more information about the changes.
 
 See the [migration guide](https://docs.nunit.org/articles/nunit/release-notes/Nunit4.0-MigrationGuide.html) for how to move your projects from NUnit 3 to NUnit 4.
 

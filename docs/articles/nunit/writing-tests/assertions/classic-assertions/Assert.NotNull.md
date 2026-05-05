@@ -1,3 +1,7 @@
+---
+uid: classic-assert-not-null
+---
+
 # Assert.NotNull
 
 **Assert.NotNull** and **Assert.IsNotNull** test that the specified object is non-null.

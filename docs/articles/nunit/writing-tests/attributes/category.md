@@ -82,4 +82,4 @@ nunit3-console MyTests.dll --where "cat == Unit || cat == Integration"
 ## See Also
 
 * [Console Command Line](xref:consolecommandline)
-* [Property Attribute](property.md)
+* [Property Attribute](xref:propertyattribute)

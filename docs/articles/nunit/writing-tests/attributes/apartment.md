@@ -60,6 +60,6 @@ When applied at multiple levels, the most specific level takes precedence.
 
 ## See Also
 
-* [RequiresThread Attribute](requiresthread.md)
-* [SingleThreaded Attribute](singlethreaded.md)
-* [Parallelizable Attribute](parallelizable.md)
+* [RequiresThread Attribute](xref:requiresthread-attribute)
+* [SingleThreaded Attribute](xref:singlethreadedattribute)
+* [Parallelizable Attribute](xref:parallelizableattribute)

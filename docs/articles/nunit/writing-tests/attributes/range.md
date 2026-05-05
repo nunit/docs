@@ -6,11 +6,11 @@ uid: rangeattribute
 
 `RangeAttribute` supplies a sequence of values for **one parameter** on a parameterized test method.
 
-Once you supply explicit data sources (such as `Range`, [`Values`](values.md), [`Random`](random.md), etc.) for **any**
+Once you supply explicit data sources (such as `Range`, [`Values`](xref:valuesattribute), [`Random`](xref:randomattribute), etc.) for **any**
 parameter on that method, you must specify **sources for every parameter**—see [Parameterized Tests](xref:parameterizedtests).
 
-By default, NUnit merges parameters **combinatorially** (every combination). Use [`Sequential`](sequential.md),
-[`Pairwise`](pairwise.md), or another combining strategy on the **method** to change pairing behavior.
+By default, NUnit merges parameters **combinatorially** (every combination). Use [`Sequential`](xref:sequentialattribute),
+[`Pairwise`](xref:pairwiseattribute), or another combining strategy on the **method** to change pairing behavior.
 
 ## Constructors
 
@@ -74,8 +74,8 @@ MyTest(3, 0.6)
 
 ## See Also
 
-* [Values Attribute](values.md)
-* [Random Attribute](random.md)
-* [Sequential Attribute](sequential.md)
-* [Combinatorial Attribute](combinatorial.md)
-* [Pairwise Attribute](pairwise.md)
+* [Values Attribute](xref:valuesattribute)
+* [Random Attribute](xref:randomattribute)
+* [Sequential Attribute](xref:sequentialattribute)
+* [Combinatorial Attribute](xref:combinatorialattribute)
+* [Pairwise Attribute](xref:pairwiseattribute)

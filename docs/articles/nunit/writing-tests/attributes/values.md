@@ -63,12 +63,12 @@ For **`bool`**, the same mechanism supplies **`false`** then **`true`**. For **`
 
 1. **`Values()`** with **no positional arguments** only auto-expands enums, Booleans (including **`bool?`**), and nullable enums; for other parameter types it yields nothing useful until you supply explicit values.
 2. Use method-level `Combinatorial`, `Sequential`, or `Pairwise` to control how values from multiple parameters combine.
-3. Values you pass to **`[Values(...)]`** are converted to the parameter type with the same attribute-argument conversion rules as **`[TestCase]`** (including **`Convert.ChangeType`** where applicable); see the opening note on **[TestCase](testcase.md)**.
+3. Values you pass to **`[Values(...)]`** are converted to the parameter type with the same attribute-argument conversion rules as **`[TestCase]`** (including **`Convert.ChangeType`** where applicable); see the opening note on **[TestCase](xref:testcaseattribute)**.
 
 ## See also
 
-* [Range Attribute](range.md)
-* [Random Attribute](random.md)
-* [Sequential Attribute](sequential.md)
-* [Combinatorial Attribute](combinatorial.md)
-* [Pairwise Attribute](pairwise.md)
+* [Range Attribute](xref:rangeattribute)
+* [Random Attribute](xref:randomattribute)
+* [Sequential Attribute](xref:sequentialattribute)
+* [Combinatorial Attribute](xref:combinatorialattribute)
+* [Pairwise Attribute](xref:pairwiseattribute)

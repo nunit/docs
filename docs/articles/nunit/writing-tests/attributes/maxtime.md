@@ -1,3 +1,7 @@
+---
+uid: maxtimeattribute
+---
+
 # MaxTime
 
 `MaxTimeAttribute` is used on test methods to specify a maximum time in milliseconds for a test case. If the test takes longer than the specified time to complete, it is reported as a failure.
@@ -34,11 +38,11 @@ MaxTimeAttribute(int milliseconds)
 
 1. Any assertion failures take precedence over the elapsed time check. If a test both fails an assertion and exceeds the time limit, the assertion failure is reported.
 2. This attribute does **not** cancel or abort the test if the time is exceeded. It waits for the test to complete, then compares the elapsed time to the maximum.
-3. For tests that need to be cancelled when they exceed a time limit, use [CancelAfter Attribute](cancelafter.md) instead.
+3. For tests that need to be cancelled when they exceed a time limit, use [CancelAfter Attribute](xref:cancelafterattribute) instead.
 4. The timing includes the test method execution only, not `SetUp` or `TearDown` methods.
-5. The [Timeout Attribute](timeout.md) uses `Thread.Abort` and only works on .NET Framework.
+5. The [Timeout Attribute](xref:timeout-attribute) uses `Thread.Abort` and only works on .NET Framework.
 
 ## See Also
 
-* [CancelAfter Attribute](cancelafter.md)
-* [Timeout Attribute](timeout.md)
+* [CancelAfter Attribute](xref:cancelafterattribute)
+* [Timeout Attribute](xref:timeout-attribute)

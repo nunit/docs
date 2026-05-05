@@ -1,3 +1,7 @@
+---
+uid: orderattribute
+---
+
 # Order
 
 `OrderAttribute` is used on test methods or fixtures to specify the order in which tests are run within their containing suite. Tests are started in ascending order of the `order` value.
@@ -46,5 +50,5 @@ OrderAttribute(int order)
 
 ## See Also
 
-* [Parallelizable Attribute](parallelizable.md)
-* [NonParallelizable Attribute](nonparallelizable.md)
+* [Parallelizable Attribute](xref:parallelizableattribute)
+* [NonParallelizable Attribute](xref:nonparallelizableattribute)

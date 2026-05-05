@@ -47,6 +47,6 @@ MyTest(3, "B")
 
 ## See Also
 
-* [Sequential Attribute](sequential.md)
-* [Pairwise Attribute](pairwise.md)
-* [Values Attribute](values.md)
+* [Sequential Attribute](xref:sequentialattribute)
+* [Pairwise Attribute](xref:pairwiseattribute)
+* [Values Attribute](xref:valuesattribute)

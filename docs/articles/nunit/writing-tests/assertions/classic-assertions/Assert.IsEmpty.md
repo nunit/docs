@@ -1,3 +1,7 @@
+---
+uid: classic-assert-is-empty
+---
+
 # Assert.IsEmpty
 
 **Assert.IsEmpty** may be used to test either a string or a collection or IEnumerable. When used with a string,

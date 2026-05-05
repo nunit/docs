@@ -509,5 +509,5 @@ But was:  "89031"
 
 ## See also
 
-* [Assert.AreEqual](../assertions/classic-assertions/Assert.AreEqual.md)
-* [DefaultFloatingPointTolerance Attribute](../attributes/defaultfloatingpointtolerance.md)
+* [Assert.AreEqual](xref:classic-assert-are-equal)
+* [DefaultFloatingPointTolerance Attribute](xref:defaultfloatingpointtoleranceattribute)

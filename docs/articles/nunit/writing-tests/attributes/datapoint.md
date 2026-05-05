@@ -1,6 +1,10 @@
+---
+uid: datapointattribute
+---
+
 # Datapoint
 
-`DatapointAttribute` is used to mark a field as providing a single data value for [Theory](theory.md) tests. When NUnit executes a Theory, it uses all fields of matching type annotated with `[Datapoint]` to supply argument values.
+`DatapointAttribute` is used to mark a field as providing a single data value for [Theory](xref:theoryattribute) tests. When NUnit executes a Theory, it uses all fields of matching type annotated with `[Datapoint]` to supply argument values.
 
 This attribute is ignored for ordinary tests, including parameterized tests using `[TestCase]`.
 
@@ -55,6 +59,6 @@ If you supply any datapoints for a parameter type, automatic datapoint generatio
 
 ## See Also
 
-* [DatapointSource Attribute](datapointsource.md)
-* [Theory Attribute](theory.md)
+* [DatapointSource Attribute](xref:datapointsourceattribute)
+* [Theory Attribute](xref:theoryattribute)
 * [Parameterized Tests](xref:parameterizedtests)

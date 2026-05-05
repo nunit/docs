@@ -1,3 +1,7 @@
+---
+uid: classic-assert-does-not-throw-async
+---
+
 # Assert.DoesNotThrowAsync
 
 **Assert.DoesNotThrowAsync** verifies that the delegate provided as an argument

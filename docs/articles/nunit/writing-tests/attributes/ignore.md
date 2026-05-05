@@ -69,6 +69,6 @@ individual test cases is possible, depending on how they are specified.
 
 ## See Also
 
-* [Explicit Attribute](explicit.md)
-* [TestCase Attribute](testcase.md)
-* [TestCaseSource Attribute](testcasesource.md)
+* [Explicit Attribute](xref:explicitattribute)
+* [TestCase Attribute](xref:testcaseattribute)
+* [TestCaseSource Attribute](xref:testcasesourceattribute)

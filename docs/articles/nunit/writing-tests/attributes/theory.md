@@ -34,8 +34,8 @@ TheoryAttribute(bool searchInDeclaringTypes = false)
 
 ## Data for Theories
 
-The primary source of data for a **Theory** is the [Datapoint Attribute](datapoint.md) or [DatapointSource
-Attribute](datapointsource.md). NUnit will use any class members of the required types, which are annotated with one of
+The primary source of data for a **Theory** is the [Datapoint Attribute](xref:datapointattribute) or [DatapointSource
+Attribute](xref:datapointsourceattribute). NUnit will use any class members of the required types, which are annotated with one of
 these attributes, to provide data for each parameter of the Theory. NUnit assembles the values for individual arguments
 combinatorially to provide test cases for the theory.
 
@@ -125,6 +125,6 @@ public class TheorySampleTestsGeneric<T>
 
 ## See also
 
-* [Datapoint Attribute](datapoint.md)
-* [DatapointSource Attribute](datapointsource.md)
+* [Datapoint Attribute](xref:datapointattribute)
+* [DatapointSource Attribute](xref:datapointsourceattribute)
 * [Parameterized Tests](xref:parameterizedtests)

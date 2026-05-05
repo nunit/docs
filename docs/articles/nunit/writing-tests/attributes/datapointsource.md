@@ -1,6 +1,10 @@
+---
+uid: datapointsourceattribute
+---
+
 # DatapointSource
 
-`DatapointSourceAttribute` is used to mark a field, property, or method as providing a collection of data values for [Theory](theory.md) tests. The source must return either an array of the required type or an `IEnumerable<T>`.
+`DatapointSourceAttribute` is used to mark a field, property, or method as providing a collection of data values for [Theory](xref:theoryattribute) tests. The source must return either an array of the required type or an `IEnumerable<T>`.
 
 This attribute is ignored for ordinary tests, including parameterized tests using `[TestCase]`.
 
@@ -46,6 +50,6 @@ If you supply any datapoints for a parameter type, automatic datapoint generatio
 
 ## See Also
 
-* [Datapoint Attribute](datapoint.md)
-* [Theory Attribute](theory.md)
+* [Datapoint Attribute](xref:datapointattribute)
+* [Theory Attribute](xref:theoryattribute)
 * [Parameterized Tests](xref:parameterizedtests)

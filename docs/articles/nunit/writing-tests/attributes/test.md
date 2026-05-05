@@ -27,9 +27,9 @@ Use **named parameters** (properties on the attribute) for metadata and for chec
 
 | Property | Type | Description | Default |
 |----------|------|-------------|---------|
-| `Description` | `string?` | Descriptive text for the test. Equivalent to applying [`Description`](description.md). | `null` |
-| `Author` | `string?` | Author metadata. Equivalent to applying [`Author`](author.md). | `null` |
-| `TestOf` | `Type?` | Type under test. Equivalent to applying [`TestOf`](testof.md). | `null` |
+| `Description` | `string?` | Descriptive text for the test. Equivalent to applying [`Description`](xref:description-attribute). | `null` |
+| `Author` | `string?` | Author metadata. Equivalent to applying [`Author`](xref:author-attribute). | `null` |
+| `TestOf` | `Type?` | Type under test. Equivalent to applying [`TestOf`](xref:testof-attribute). | `null` |
 | `ExpectedResult` | `object?` | Expected return value; NUnit compares it to the method result. **Not valid** if the test method has parameters. | (unset) |
 
 If the test method returns a value and you set `ExpectedResult`, NUnit checks equality with the return value.
@@ -52,6 +52,6 @@ If the test method returns a value and you set `ExpectedResult`, NUnit checks eq
 
 ## See Also
 
-* [TestCase Attribute](testcase.md)
-* [TestCaseSource Attribute](testcasesource.md)
-* [Theory Attribute](theory.md)
+* [TestCase Attribute](xref:testcaseattribute)
+* [TestCaseSource Attribute](xref:testcasesourceattribute)
+* [Theory Attribute](xref:theoryattribute)

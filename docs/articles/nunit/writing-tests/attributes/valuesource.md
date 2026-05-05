@@ -59,5 +59,5 @@ between different runs - except through the parameters themselves.
 
 ## See Also
 
-* [TestCaseSource Attribute](testcasesource.md)
-* [Values Attribute](values.md)
+* [TestCaseSource Attribute](xref:testcasesourceattribute)
+* [Values Attribute](xref:valuesattribute)

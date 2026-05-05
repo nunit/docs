@@ -91,6 +91,6 @@ The most specific level wins when multiple attributes apply.
 
 ## See Also
 
-* [TestCaseSource Attribute](testcasesource.md)
-* [TestCase Attribute](testcase.md)
-* [Theory Attribute](theory.md)
+* [TestCaseSource Attribute](xref:testcasesourceattribute)
+* [TestCase Attribute](xref:testcaseattribute)
+* [Theory Attribute](xref:theoryattribute)

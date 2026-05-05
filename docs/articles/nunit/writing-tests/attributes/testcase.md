@@ -13,7 +13,7 @@ The three `[TestCase(...)]` lines above yield **three** invocations—one set of
 > [!NOTE]
 > Because arguments to .NET attributes are limited in terms of the types that may be used, NUnit attempts to convert literal values using `Convert.ChangeType()` before passing them into the method.
 
-**`TestCaseAttribute`** may appear one or more times on a test method, which may also carry other data-providing attributes. Once **any** parameter has explicit data (`[TestCase]`, `[Values]`, `[Range]`, …), **every** parameter must have a data source—see [Parameterized Tests](xref:parameterizedtests). The method may optionally be marked with the [Test attribute](test.md) as well.
+**`TestCaseAttribute`** may appear one or more times on a test method, which may also carry other data-providing attributes. Once **any** parameter has explicit data (`[TestCase]`, `[Values]`, `[Range]`, …), **every** parameter must have a data source—see [Parameterized Tests](xref:parameterizedtests). The method may optionally be marked with the [Test attribute](xref:testattribute) as well.
 
 ## Constructors
 
@@ -53,16 +53,16 @@ Beyond arguments and `ExpectedResult`, each `TestCase` can set metadata and filt
 | `Author` | Author metadata for this **case**. |
 | `Category` | Comma-separated categories for this **case** only (not the whole fixture). |
 | `Description` | Case description surfaced in runners and XML. |
-| `ExcludePlatform` | Comma-separated platform identifiers to skip this case—see [Platform](platform.md). |
+| `ExcludePlatform` | Comma-separated platform identifiers to skip this case—see [Platform](xref:platformattribute). |
 | `ExpectedResult` | Expected return value; method must declare a compatible return type. |
 | `Explicit` | Makes this single case explicit; pair with **`Reason`** for messaging. |
 | `Ignore` / `IgnoreReason` | Ignores just this case; both set the skip reason (**`Ignore`** is an alias setter). |
-| `IncludePlatform` | Comma-separated identifiers where this **case** is allowed—see [Platform](platform.md). |
+| `IncludePlatform` | Comma-separated identifiers where this **case** is allowed—see [Platform](xref:platformattribute). |
 | `Reason` | Explanation for **`Explicit`** (or propagated as skip-reason metadata). |
 | `TestName` | Custom template for this case display name—see [Template Based Test Naming](xref:templatebasedtestnaming). |
 | `TestOf` | Documents the tested type (metadata only; not enforced by runners). |
 | `TypeArgs` | Explicit generic type arguments (**NUnit 4.1+**). |
-| `Until` | Time-boxed ignore; requires **`IgnoreReason`**—after the instant passes, the case runs normally (same rules as [`Ignore(..., Until = ...)`](ignore.md)). |
+| `Until` | Time-boxed ignore; requires **`IgnoreReason`**—after the instant passes, the case runs normally (same rules as [`Ignore(..., Until = ...)`](xref:ignoreattribute)). |
 
 Sections below reference **runnable** snippets for most switches. Some parameters (`Ignore`, `Explicit`, **`Category`**) are easy to misapply as **separate** attributes on the fixture—see **Naming collisions** after the examples.
 
@@ -72,7 +72,7 @@ Sections below reference **runnable** snippets for most switches. Some parameter
 
 ### Include / exclude platforms
 
-Per-case platform filters mirror the [Platform](platform.md) attribute. The sample uses **`ExcludePlatform`** so it keeps running on typical desktops; an `IncludePlatform` idea appears in a comment because it can legitimately skip hosts that lack a moniker:
+Per-case platform filters mirror the [Platform](xref:platformattribute) attribute. The sample uses **`ExcludePlatform`** so it keeps running on typical desktops; an `IncludePlatform` idea appears in a comment because it can legitimately skip hosts that lack a moniker:
 
 [!code-csharp[TestCaseWithPlatforms](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithPlatforms)]
 
@@ -99,7 +99,7 @@ Putting **`[Category]`** on the fixture (or elsewhere on the test type) assigns 
 
 ### `Until` with `IgnoreReason`
 
-`Until` follows the same constraints as [`Ignore(Until = ...)`](ignore.md): **`IgnoreReason` is mandatory**—without it, NUnit marks the metadata invalid.
+`Until` follows the same constraints as [`Ignore(Until = ...)`](xref:ignoreattribute): **`IgnoreReason` is mandatory**—without it, NUnit marks the metadata invalid.
 
 [!code-csharp[TestCaseWithIgnoreUntil](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithIgnoreUntil)]
 
@@ -170,11 +170,11 @@ You can mix generic and regular `TestCase` attributes on the same method:
 
 ## See Also
 
-* [Test Attribute](test.md)
-* [Values Attribute](values.md)
-* [Range Attribute](range.md)
-* [Random Attribute](random.md)
-* [Platform Attribute](platform.md)
-* [Ignore Attribute](ignore.md)
-* [Explicit Attribute](explicit.md)
-* [TestCaseSource Attribute](testcasesource.md)
+* [Test Attribute](xref:testattribute)
+* [Values Attribute](xref:valuesattribute)
+* [Range Attribute](xref:rangeattribute)
+* [Random Attribute](xref:randomattribute)
+* [Platform Attribute](xref:platformattribute)
+* [Ignore Attribute](xref:ignoreattribute)
+* [Explicit Attribute](xref:explicitattribute)
+* [TestCaseSource Attribute](xref:testcasesourceattribute)

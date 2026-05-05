@@ -1,3 +1,7 @@
+---
+uid: classic-assert-zero
+---
+
 # Assert.Zero
 
 **Assert.Zero** tests that a value is zero.

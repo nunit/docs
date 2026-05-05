@@ -1,3 +1,7 @@
+---
+uid: classic-assert-throws
+---
+
 # Assert.Throws
 
 The **Assert.Throws** method is pretty much in a class by itself. Rather than

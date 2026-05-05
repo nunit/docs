@@ -1,3 +1,7 @@
+---
+uid: classic-assert-is-assignable-from
+---
+
 # Assert.IsAssignableFrom
 
 **Assert.IsAssignableFrom** succeeds if the object provided may be assigned a value of the expected type.

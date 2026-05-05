@@ -1,3 +1,7 @@
+---
+uid: classic-file-assert
+---
+
 # FileAssert
 
 The FileAssert class provides methods for comparing or verifying the existence of files,

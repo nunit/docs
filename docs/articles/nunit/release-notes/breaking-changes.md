@@ -9,13 +9,13 @@ uid: breakingchanges
 See the [Migration Guide](xref:migrationguidance) for moving your tests from NUnit 3.x to NUnit 4.0 if you are using any
 of the following features:
 
-* The [Classic Asserts][def] have been moved to a separate library
+* The [Classic Asserts](xref:classicmodel) have been moved to a separate library
   and their namespace and their class name were renamed to: `NUnit.Framework.Legacy.ClassicAssert`.
 * The standalone assert classes have also been moved to the `NUnit.Framework.Legacy` namespace. These classes are:
-  * [CollectionAssert](../writing-tests/assertions/classic-assertions/Collection-Assert.md)
-  * [StringAssert](../writing-tests/assertions/classic-assertions/String-Assert.md)
-  * [DirectoryAssert](../writing-tests/assertions/classic-assertions/Directory-Assert.md)
-  * [FileAssert](../writing-tests/assertions/classic-assertions/File-Assert.md)
+  * [CollectionAssert](xref:classic-collection-assert)
+  * [StringAssert](xref:classic-string-assert)
+  * [DirectoryAssert](xref:classic-directory-assert)
+  * [FileAssert](xref:classic-file-assert)
 * Assert.That overloads with _format_ specification and `params` have been removed in favor of an overload using
   `FormattableString`.
 * The lowest framework version supported is now version 4.6.2 and .Net 6.0.
@@ -159,4 +159,3 @@ runner supports.
 | `--nothread`        | Disable use of a separate thread for tests  | No longer supported. |
 | `--nodots`          | Do not display dots as a progress indicator | No longer supported. |
 
-[def]: ../writing-tests/assertions/assertion-models/classic.md

@@ -160,5 +160,5 @@ When multiple levels specify the attribute, they are combined - each level's con
 
 ## See Also
 
-* [Assert.Throws](../assertions/classic-assertions/Assert.Throws.md)
-* [Assert.ThrowsAsync](../assertions/classic-assertions/Assert.ThrowsAsync.md)
+* [Assert.Throws](xref:classic-assert-throws)
+* [Assert.ThrowsAsync](xref:classic-assert-throws-async)

@@ -1,3 +1,7 @@
+---
+uid: classic-assert-are-not-same
+---
+
 # Assert.AreNotSame
 
 **Assert.AreNotSame** tests that the two arguments do not reference the same object.

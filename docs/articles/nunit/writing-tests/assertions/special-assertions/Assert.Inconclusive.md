@@ -1,3 +1,7 @@
+---
+uid: special-assert-inconclusive
+---
+
 # Assert.Inconclusive
 
 The **Assert.Inconclusive** method indicates that the test could not be

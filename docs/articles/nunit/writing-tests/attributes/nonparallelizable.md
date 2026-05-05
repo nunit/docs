@@ -18,7 +18,7 @@ uid: nonparallelizableattribute
 |--------------|--------------------------|----------|
 | ✅ | ✅ | ✅ |
 
-When used at assembly level, execution starts on the non-parallel queue; child suites or methods can still opt into parallelism with [Parallelizable](parallelizable.md).
+When used at assembly level, execution starts on the non-parallel queue; child suites or methods can still opt into parallelism with [Parallelizable](xref:parallelizableattribute).
 
 When used on a fixture or method, that test queues on the non-parallel queue and does not overlap with concurrent parallel-eligible tests.
 
@@ -30,5 +30,5 @@ does not support parallelization.
 
 ## See Also
 
-* [Parallelizable Attribute](parallelizable.md)
-* [LevelOfParallelism Attribute](levelofparallelism.md)
+* [Parallelizable Attribute](xref:parallelizableattribute)
+* [LevelOfParallelism Attribute](xref:levelofparallelismattribute)
