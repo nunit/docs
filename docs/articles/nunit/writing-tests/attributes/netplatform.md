@@ -19,6 +19,30 @@ skipped.
 > This attribute was introduced in NUnit 4.6 and provides better alignment with .NET's built-in platform checking
 > mechanisms compared to the older `PlatformAttribute`.
 
+## Constructors
+
+```csharp
+NetPlatformAttribute()
+NetPlatformAttribute(string platforms)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `platforms` | `string` | Comma-delimited list of included platforms. |
+
+## Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `Include` | `string` | Comma-delimited platform list that should run. | `null` |
+| `Exclude` | `string` | Comma-delimited platform list that should be skipped. | `null` |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
+
 ## Test Fixture Syntax
 
 [!code-csharp[NetPlatformFixture](~/snippets/Snippets.NUnit/Attributes/NetPlatformAttributeExamples.cs#NetPlatformFixture)]

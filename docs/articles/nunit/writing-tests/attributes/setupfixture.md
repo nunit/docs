@@ -4,12 +4,23 @@ uid: setupfixture-attribute
 
 # SetUpFixture
 
-This is the attribute that marks a class that contains the one-time
-setup or teardown methods for all the test fixtures in a given
-namespace including nested namespaces below, within an assembly.
+`SetUpFixtureAttribute` marks a class that provides one-time setup/teardown for all fixtures in a namespace (including nested namespaces) within an assembly.
 
-The class may contain at most one method marked with the
-OneTimeSetUpAttribute and one method marked with the OneTimeTearDownAttribute.
+The class may contain at most one `[OneTimeSetUp]` and one `[OneTimeTearDown]` method.
+
+## Usage
+
+This is a parameterless attribute that can only be applied to classes.
+
+```csharp
+[SetUpFixture]
+```
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly | Helper Classes |
+|--------------|--------------------------|----------|----------------|
+| ❌ | ❌ | ❌ | ✅ |
 
 There are a few restrictions on a class that is used as a setup fixture.
 
@@ -26,7 +37,7 @@ individual or fixture teardowns have completed execution.
 Multiple SetUpFixtures may be created in a given namespace. The order of execution
 of such fixtures is indeterminate.
 
-## Notes
+## Scope
 
 * The scope of a SetUpFixture is limited to an assembly.
 * A SetUpFixture in a namespace will apply to all tests in that namespace and all contained namespaces within the assembly.
@@ -34,29 +45,7 @@ of such fixtures is indeterminate.
 
 ## Example
 
-```csharp
-using System;
-using NUnit.Framework;
-
-namespace NUnit.Tests
-{
-  [SetUpFixture]
-  public class MySetUpClass
-  {
-    [OneTimeSetUp]
-    public void RunBeforeAnyTests()
-    {
-      // ...
-    }
-
-    [OneTimeTearDown]
-    public void RunAfterAnyTests()
-    {
-      // ...
-    }
-  }
-}
-```
+[!code-csharp[SetUpFixtureExample](~/snippets/Snippets.NUnit/Attributes/SetUpFixtureAttributeExamples.cs#SetUpFixtureExample)]
 
 ## Detailed explanation
 
@@ -80,16 +69,13 @@ The defined order is as follows...
 
 ## Notes
 
-1. About filtering on `SetUpFixture`s:
-   A `SetUpFixture` is normally not used for filtering tests.  However, if that is done, one should be aware that a
-   `SetUpFixture` encapsulates all tests to which it belongs.
-   If placed in a namespace it will encapsulate all tests in that namespace and contained namespaces.
-   If placed on the assembly level, it will encapsulate all tests in the assembly.
+1. `SetUpFixture` classes must be public and have a default constructor (or be static).
+2. `SetUp` and `TearDown` attributes are not valid inside a `SetUpFixture`.
+3. A setup fixture outside any namespace applies to the entire assembly.
+4. Multiple setup fixtures at the same namespace level execute in indeterminate order.
+5. Prior to NUnit 3.0, setup fixtures used `SetUp`/`TearDown`; NUnit 3+ uses `OneTimeSetUp`/`OneTimeTearDown`.
 
-2. Prior to NUnit 3.0, `SetUpFixture` used the `SetUp` and `TearDown` attributes rather than `OneTimeSetUp` and
-   `OneTimeTearDown`. The older attributes are no longer supported in SetUpFixtures in NUnit 3.0 and later.
-
-## See also
+## See Also
 
 * [SetUp Attribute](setup.md)
 * [TearDown Attribute](teardown.md)

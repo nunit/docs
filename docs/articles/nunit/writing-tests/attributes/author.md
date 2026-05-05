@@ -20,9 +20,9 @@ AuthorAttribute(string name, string email)
 
 ## Applies To
 
-- **Assembly** - Identifies the author(s) of all tests in the assembly
-- **Test Fixture (Class)** - Identifies the author(s) of the fixture
-- **Test Method** - Identifies the author(s) of a specific test
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 ## Alternative Syntax
 

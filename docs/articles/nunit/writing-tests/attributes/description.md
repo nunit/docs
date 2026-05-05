@@ -18,9 +18,9 @@ DescriptionAttribute(string description)
 
 ## Applies To
 
-- **Assembly** - Describes the overall purpose of the test assembly
-- **Test Fixture (Class)** - Describes the test fixture
-- **Test Method** - Describes a specific test
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 ## Alternative Syntax
 

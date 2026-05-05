@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 
 namespace Snippets.NUnit.Attributes
@@ -75,6 +76,28 @@ namespace Snippets.NUnit.Attributes
         public void CompileTimeSafeTest<T>(T value)
         {
             Assert.That(value, Is.InstanceOf<T>());
+        }
+        #endregion
+
+        #region TypeArgsComparedToGenericAttribute
+        [TestFixture]
+        public sealed class TypeArgsVsCompileTimeGeneric
+        {
+            /// <summary>Specify generic arguments at runtime (<c>TypeArgs</c>). Works on .NET Framework.</summary>
+            [TestCase(42, TypeArgs = new Type[] { typeof(int) })]
+            [TestCase("literal", TypeArgs = new Type[] { typeof(string) })]
+            public void ViaTypeArgs<T>(T value)
+            {
+                Assert.That(value, Is.InstanceOf<T>());
+            }
+
+            /// <summary>Prefer on .NET 6+ where generic attributes are available (NUnit 4.6+).</summary>
+            [TestCase<int>(2112)]
+            [TestCase<double>(42.42)]
+            public void ViaGenericAttribute<T>(T sample)
+            {
+                Assert.That(sample, Is.InstanceOf<T>());
+            }
         }
         #endregion
     }

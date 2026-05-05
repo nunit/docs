@@ -1,14 +1,26 @@
+---
+uid: nonparallelizableattribute
+---
+
 # NonParallelizable
 
-This attribute is used to indicate that the test on which it appears may not be run in parallel with any other tests.
-The attribute takes no arguments and may be used at the assembly, class or method level.
+`NonParallelizableAttribute` marks an assembly, fixture, or method so it is not run in parallel with anything else (`ParallelScope.None`). It inherits from `ParallelizableAttribute` and takes no constructor arguments.
 
-When used at the assembly level, its only effect is that execution begins on the non-parallel queue. Test suites,
-fixtures and test cases will continue to run on the same thread unless a fixture or method is marked with the
-[Parallelizable Attribute](parallelizable.md).
+## Usage
 
-When used on a test fixture or method, that test will be queued on the non-parallel queue and will not run while other
-tests marked as Parallelizable are being run.
+```csharp
+[NonParallelizable]
+```
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
+
+When used at assembly level, execution starts on the non-parallel queue; child suites or methods can still opt into parallelism with [Parallelizable](parallelizable.md).
+
+When used on a fixture or method, that test queues on the non-parallel queue and does not overlap with concurrent parallel-eligible tests.
 
 ## Platform Support
 

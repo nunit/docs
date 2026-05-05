@@ -21,6 +21,12 @@ RetryAttribute(int tryCount)
 > [!NOTE]
 > The `RetryExceptions` property was added in **NUnit 4.5.0**.
 
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ |
+
 ## Example
 
 [!code-csharp[Retry](~/snippets/Snippets.NUnit/Attributes/RetryAttributeExamples.cs#Retry)]

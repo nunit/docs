@@ -4,8 +4,28 @@ uid: cancelafterattribute
 
 # CancelAfter
 
-Normally, NUnit simply runs tests and waits for them to terminate -- the test is allowed to run indefinitely. For
-certain kinds of tests, however, it may be desirable to specify a timeout value.
+`CancelAfterAttribute` sets a timeout after which NUnit marks a `CancellationToken` as canceled. The test must observe that token (directly or indirectly) for cancellation to take effect.
+
+## Constructor
+
+```csharp
+CancelAfterAttribute(int timeout)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `timeout` | `int` | Timeout in milliseconds. When exceeded, the cancellation token supplied to the test is canceled (cooperative cancellation). |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ❌ |
+
+> [!NOTE]
+> Applying `CancelAfter` to a fixture sets the default timeout for tests in that fixture unless overridden at method level.
+
+## Background
 
 For .NET Core and later,
 [`Thread.Abort`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.abort?view=net-8.0) as used by the
@@ -17,7 +37,7 @@ execution of the remaining tests.
 
 To still be able to cancel tests, one has to move to cooperative cancellation. See [Cancellation in Managed
 Threads](https://learn.microsoft.com/en-us/dotnet/standard/threading/cancellation-in-managed-threads) using a
-[`CancellationToken``](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken?view=net-8.0).
+[`CancellationToken`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken?view=net-8.0).
 
 The `CancelAfterAttribute` is used to specify a timeout value in milliseconds for a test case. If the test case runs
 longer than the time specified, the supplied `CancellationToken` is set to canceled. It is however up to the test code
@@ -39,36 +59,26 @@ When used on test methods, NUnit automatically adds an extra argument to your me
 `CancellationToken`. If you want to check for cancellation in `SetUp` methods, you can use
 `TestContext.CurrentContext.CancellationToken`
 
-## Example
+## Examples
 
-The `CancelAfterAttribute` supports cancellation across a variety of ways to write tests.
+The `CancelAfterAttribute` supports cooperative cancellation in several test styles.
 
-A simple test, written using the `Test` attribute:
+### Simple test
 
 [!code-csharp[TestWithCancellationToken](~/snippets/Snippets.NUnit/Attributes/CancelAfterAttributeExamples.cs#TestWithCancellationToken)]
 
-A parameterized test written using the `TestCase` attribute:
+### Parameterized test with `TestCase`
 
-```csharp
-[CancelAfter(2000)]
-[TestCase("http://server1")]
-[TestCase("http://server2")]
-public async Task PotentiallyLongRunningTest(string uri, CancellationToken token)
-{
-    HttpClient client = _httpClientFactory.CreateClient();
-    HttpContent content = CreateContent();
-    await client.PostAync(uri, content, token);
-    HttpResponseMessage response = await client.GetAsync(uri, token);
-    /* */
-}
-```
+[!code-csharp[TestCaseWithCancellationToken](~/snippets/Snippets.NUnit/Attributes/CancelAfterAttributeExamples.cs#TestCaseWithCancellationToken)]
 
-A parameterized test written using the `TestCaseSource` attribute:
+### Parameterized test with `TestCaseSource`
 
 [!code-csharp[TestCaseSourceWithCancellationToken](~/snippets/Snippets.NUnit/Attributes/CancelAfterAttributeExamples.cs#TestCaseSourceWithCancellationToken)]
 
-> [!NOTE]
-> When debugging a unit test, i.e. when a debugger is attached to the process, the timeout is not enforced.
+## Notes
+
+1. When a debugger is attached, the timeout is not enforced.
+2. Use `TestContext.CurrentContext.CancellationToken` in `SetUp` / `TearDown` when you need the same token outside the test method.
 
 ## See Also
 

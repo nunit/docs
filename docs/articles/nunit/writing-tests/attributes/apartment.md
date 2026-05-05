@@ -27,9 +27,9 @@ ApartmentAttribute(ApartmentState apartmentState)
 
 ## Applies To
 
-- **Assembly** - Sets the default apartment for all tests in the assembly
-- **Test Fixture (Class)** - Sets the apartment for all tests in the fixture
-- **Test Method** - Sets the apartment for a specific test
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 When applied at multiple levels, the most specific level takes precedence.
 

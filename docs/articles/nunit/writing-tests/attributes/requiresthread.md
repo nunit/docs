@@ -19,9 +19,9 @@ RequiresThreadAttribute(ApartmentState apartment)
 
 ## Applies To
 
-- **Assembly** - All tests in the assembly run on separate threads
-- **Test Fixture (Class)** - All tests in the fixture run on a separate thread
-- **Test Method** - The specific test runs on a separate thread
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 ## Examples
 

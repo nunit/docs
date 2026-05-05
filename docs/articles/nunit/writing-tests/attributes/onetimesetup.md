@@ -4,43 +4,65 @@ uid: onetimesetup-attribute
 
 # OneTimeSetUp
 
-This attribute is to identify methods that are called once prior to executing any of the tests in a fixture. It may
-appear on methods of a TestFixture or a SetUpFixture.
+`OneTimeSetUpAttribute` marks a method that runs **once** before any **child tests** in its suite execute. Put it on a
+method inside a [`TestFixture`](testfixture.md) or a [`SetUpFixture`](setupfixture.md).
 
-OneTimeSetUp methods may be either static or instance methods and you may define more than one of them in a fixture.
-Normally, multiple OneTimeSetUp methods are only defined at different levels of an inheritance hierarchy, as explained
-below.
+Normally you define multiple `OneTimeSetUp` methods across an **inheritance chain** (base then derived). Defining several
+on the **same class** is allowed, but **order is undefined**—avoid unless you truly do not rely on ordering.
 
-If a OneTimeSetUp method fails or throws an exception, none of the tests in the fixture are executed and a failure or
-error is reported.
+## Static and instance methods
+
+A `OneTimeSetUp` method may be **static** or an **instance** method on the fixture type.
+
+With the default fixture life cycle ([`LifeCycle.SingleInstance`](fixturelifecycle.md)), an **instance** method runs on
+the shared fixture instance created for that suite—so it can safely touch **instance fields** shared by every test.
+
+With [`FixtureLifeCycle(LifeCycle.InstancePerTestCase)`](fixturelifecycle.md), `OneTimeSetUp` **must be static**. It runs
+once for the fixture while each test gets its own instance; keeping it static avoids relying on fields that reset
+between tests.
+
+Methods may be **async** (`Task` / `Task<T>`): NUnit will wait for completion like other async test infrastructure.
+
+## Test fixture versus SetUp fixture
+
+* **`TestFixture`** — `OneTimeSetUp` runs **once before all tests declared in that fixture** (including parameterized
+  cases sourced from that class). Each concrete fixture class gets its own one-time setup for its subtree.
+* **`SetUpFixture`** — `OneTimeSetUp` runs **once for the scope that setup fixture covers** (for example several fixtures
+  under the same namespace), as described in [SetUpFixture](setupfixture.md). Use this pattern when costly initialization
+  should run **once** for that whole slice of the hierarchy instead of repeating it on every concrete fixture class.
+
+If `OneTimeSetUp` lives on an **abstract or concrete base test class**, NUnit invokes it **for every derived fixture
+type** that inherits that hierarchy (along with setup on the descendants). When you truly need execution **exactly once
+for many unrelated fixtures**, prefer **`SetUpFixture`** or **`static`** initialization instead of repeating base-class
+`OneTimeSetUp` semantics.
+
+## Failures and exceptions
+
+If **`OneTimeSetUp` fails** — including an assertion failure (`Assert.*`) or **any thrown exception** — NUnit treats the
+setup as unsuccessful. Tests that would run **under that suite** are **not executed** (they are skipped as descendants of
+failed setup), and the run reports a **failure** or **error** for that setup/fixture subtree. NUnit still invokes
+**`OneTimeTearDown`** for that scope afterward (unless execution is aborted), which allows shared resources created during
+partial setup to be released; see [OneTimeTearDown](onetimeteardown.md).
+
+## Usage
+
+This is a parameterless attribute that can only be applied to methods.
+
+```csharp
+[OneTimeSetUp]
+```
+
+## Applies To
+
+| Lifecycle Methods | Test Methods | Test Fixtures (Classes) | Assembly |
+|-------------------|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ | ❌ |
 
 ## Example
 
-```csharp
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
+[!code-csharp[OneTimeSetUpExample](~/snippets/Snippets.NUnit/Attributes/OneTimeSetUpAttributeExamples.cs#OneTimeSetUpExample)]
 
-  [TestFixture]
-  public class SuccessTests
-  {
-    [OneTimeSetUp]
-    public void Init()
-    { /* ... */ }
-
-    [OneTimeTearDown]
-    public void Cleanup()
-    { /* ... */ }
-
-    [Test]
-    public void Add()
-    { /* ... */ }
-  }
-}
-```
-
-### Inheritance
+## Inheritance
 
 The OneTimeSetUp attribute is inherited from any base class. Therefore, if a base class has defined a OneTimeSetUp
 method, that method will be called before any methods in the derived class.
@@ -56,28 +78,15 @@ OneTimeSetUp methods before those in the derived classes.
 
 ## Notes
 
-* Although it is possible to define multiple [`OneTimeSetUp`](xref:onetimesetup-attribute) methods in the same class,
-  you should rarely do so. Unlike methods defined in separate classes in the inheritance hierarchy, the order in which
-  they are executed is not guaranteed.
-
-* [`OneTimeSetUp`](xref:onetimesetup-attribute) methods may be async if running under .NET 4.0 or higher.
-
-* [`OneTimeSetUp`](xref:onetimesetup-attribute) methods run in the context of the
-  [`TestFixture`](xref:testfixtureattribute) or [`SetUpFixture`](xref:setupfixture-attribute), which is separate from
-  the context of any individual test cases. It's important to keep this in mind when using
-  [`TestContext`](xref:testcontext) methods and properties within the method.
-
-* When using [`FixtureLifeCycle`](xref:fixturelifecycleattribute) with `LifeCycle.InstancePerTestCase`, the
-  [`OneTimeSetUp`](xref:onetimesetup-attribute) method must be static and is only called once. This is required so that
-  the setup method does not access instance fields or properties that are reset for every test.
-
-* When set on a base class the method is invoked for each fixture that inherits from this base class and its invoked for
-  the base class too if its not abstract. Use [`SetUpFixture`](xref:setupfixture-attribute) if this only needs to be run
-  once or put the code in a static constructor.
+1. **`TestContext`** — `OneTimeSetUp` executes in **fixture / setup-fixture** context, **not** the per-test-case context.
+   Be careful when calling [`TestContext`](xref:testcontext) APIs that assume an active test method.
+2. Multiple `OneTimeSetUp` methods in the **same** class run in arbitrary order unless you constrain them logically.
+3. Base-class `OneTimeSetUp` methods run **before** derived-class methods (see **Inheritance** above).
 
 ## See Also
 
 * [SetUp Attribute](setup.md)
 * [TearDown Attribute](teardown.md)
 * [OneTimeTearDown Attribute](onetimeteardown.md)
+* [SetUpFixture Attribute](setupfixture.md)
 * [FixtureLifeCycle Attribute](fixturelifecycle.md)

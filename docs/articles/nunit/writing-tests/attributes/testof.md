@@ -20,9 +20,9 @@ TestOfAttribute(string typeName)
 
 ## Applies To
 
-- **Assembly** - Indicates the primary type tested by the assembly
-- **Test Fixture (Class)** - Indicates the type tested by the fixture
-- **Test Method** - Indicates the type tested by a specific test
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 ## Alternative Syntax
 

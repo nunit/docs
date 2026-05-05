@@ -1,15 +1,40 @@
+---
+uid: explicitattribute
+---
+
 # Explicit
 
-The Explicit attribute causes a test or test fixture to be skipped unless it is explicitly selected for running. The
-test or fixture will be run if it is selected by name or if it is included by use of a filter. A **not** filter, which
-excludes certain tests, is not treated as an explicit selection and never causes an explicit test to be run. All other
-filters are considered to explicitly select the tests that they match. See examples below.
+`ExplicitAttribute` marks a test, fixture, or assembly so it is **not** run merely because an enclosing suite ran. It
+runs only when it is **explicitly selected**—for example by choosing that test or fixture by name, or by using a filter
+that counts as an explicit match for it.
 
-An optional string argument may be used to give the reason for marking the test Explicit.
+A filter that **excludes** tests (often written with **not**, such as `--where test!=My.Fixture`) is **not** treated as
+explicitly selecting what is left behind, so explicit tests remain skipped unless you chose them via a positive
+selection (direct name selection or filters that affirmatively match the test or a suite it lives under). The
+command-line examples below show forms that include or exclude explicit tests.
 
-If a test or fixture with the Explicit attribute is encountered in the course of running tests, it is skipped unless it
-has been specifically selected by one of the above means. The test does not affect the overall result of the test run.
-Explicit tests are displayed in the gui as skipped.
+You can pass an optional **reason** string; when the test is skipped as explicit, runners may show that text.
+
+If an explicit item is executed as part of a broad “run everything” session but was never explicitly selected, NUnit skips
+it with an **explicit** result. That outcome does not fail the run or count as an ordinary failure. Presentation in the UI
+(or console summary) varies by runner.
+
+## Constructors
+
+```csharp
+ExplicitAttribute()
+ExplicitAttribute(string reason)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `reason` | `string` | Optional reason shown in skip output. |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 > [!WARNING]
 > While the C# syntax allows you to place an Explicit attribute on a SetUpFixture class, the attribute is
@@ -74,114 +99,8 @@ dotnet test -- NUnit.ExplicitMode=None
 
 ## Test Fixture Syntax
 
-C#:
-
-```csharp
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture, Explicit]
-  public class ExplicitTests
-  {
-    // ...
-  }
-}
-```
-
-Visual Basic:
-
-```VB
-Imports System
-Imports NUnit.Framework
-
-Namespace NUnit.Tests
-
-  <TestFixture(), Explicit()>
-  Public Class ExplicitTests
-    ' ...
-  End Class
-End Namespace
-```
-
-C++:
-
-```cpp
-using namespace System;
-using namespace NUnit::Framework;
-
-namespace NUnitTests
-{
-  [TestFixture]
-  [Explicit]
-  public __gc class ExplicitTests
-  {
-    // ...
-  };
-}
-
-# include "cppsample.h"
-
-namespace NUnitTests {
-  // ...
-}
-```
+[!code-csharp[ExplicitFixtureExample](~/snippets/Snippets.NUnit/Attributes/ExplicitAttributeExamples.cs#ExplicitFixtureExample)]
 
 ## Test Syntax
 
-C#:
-
-```csharp
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
-    [Test, Explicit]
-    public void ExplicitTest()
-    { /* ... */ }
-}
-```
-
-Visual Basic:
-
-```vb
-Imports System
-Imports NUnit.Framework
-
-Namespace NUnit.Tests
-
-  <TestFixture()> Public Class SuccessTests
-    <Test(), Explicit()> Public Sub ExplicitTest()
-      ' ...
-    End Sub
-  End Class
-End Namespace
-```
-
-C++:
-
-```cpp
-# using <NUnit.Framework.dll>
-using namespace System;
-using namespace NUnit::Framework;
-
-namespace NUnitTests
-{
-  [TestFixture]
-  public __gc class SuccessTests
-  {
-    [Test][Explicit] void ExplicitTest();
-  };
-}
-
-# include "cppsample.h"
-
-namespace NUnitTests {
-  // ...
-}
-```
+[!code-csharp[ExplicitTestExample](~/snippets/Snippets.NUnit/Attributes/ExplicitAttributeExamples.cs#ExplicitTestExample)]

@@ -16,6 +16,22 @@ Tests](xref:parameterizedtests) at first glance. However, a Theory incorporates 
 arguments and allows special processing for assumptions about that data. The key difference, though, is that theories
 make general statements and are more than just a set of examples.
 
+## Constructor
+
+```csharp
+TheoryAttribute(bool searchInDeclaringTypes = false)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `searchInDeclaringTypes` | `bool` | When `true`, datapoints are resolved on declaring types as well. Default is `false`. |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ |
+
 ## Data for Theories
 
 The primary source of data for a **Theory** is the [Datapoint Attribute](datapoint.md) or [DatapointSource

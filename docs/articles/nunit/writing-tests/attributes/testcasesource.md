@@ -9,6 +9,51 @@ arguments will be provided. The attribute additionally identifies the method as 
 from the test itself and may be used by multiple test methods. See [Parameterized Tests](xref:parameterizedtests) for a
 general introduction to tests with arguments.
 
+## Constructors
+
+```csharp
+TestCaseSourceAttribute(string sourceName)
+TestCaseSourceAttribute(string sourceName, object?[]? methodParams)
+TestCaseSourceAttribute(Type sourceType, string sourceName)
+TestCaseSourceAttribute(Type sourceType, string sourceName, object?[]? methodParams)
+TestCaseSourceAttribute(Type sourceType)
+```
+
+See **Usage** below for when to use each form.
+
+## Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `Category` | `string?` | Assigns categories to **every** test case produced from this source. |
+| `SourceName` | `string?` | Resolved source member name (if applicable). |
+| `SourceType` | `Type?` | External type supplying the source (if applicable). |
+| `MethodParams` | `object?[]?` | Arguments forwarded to a parameterized source method. |
+
+## Named parameters
+
+Besides the positional constructor arguments, **`TestCaseSource`** exposes **`Category`** as its main **writable** named
+argument. Assign it inline on the **`[TestCaseSource(...)]`** clause—**do not** add a sibling `[Category]` attribute
+expecting case-level tagging; that attaches to the **fixture** metadata instead (similar caveats apply as on
+[TestCase named parameters](testcase.md#named-parameters-overview)).
+
+```csharp
+[TestCaseSource(nameof(MyCases), Category = "Fast,Smoke")]
+```
+
+* Separate multiple entries with commas, following the usual **[Category attribute](category.md)** rules (`"Smoke,Integration"`).
+* **Every generated test** from **that `[TestCaseSource]` application** inherits the supplied categories—you cannot cherry-pick categories per yielded row unless you bake them into **`TestCaseData`** / **`TestCaseParameters`** inside the enumerator.
+
+[!code-csharp[TestCaseSourceWithCategory](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#TestCaseSourceWithCategory)]
+
+`SourceName`, `SourceType`, and **`MethodParams`** are **constructor outputs** surfaced as read-only properties for introspection—they are **not** set manually in everyday tests.
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ |
+
 ## Usage
 
 Consider a test of the divide operation, taking three arguments: the numerator, the denominator and the expected result.
@@ -108,12 +153,6 @@ It is also possible to use a generic wrapper (or any custom wrapper) for the tes
 shown in the example below.
 
 [!code-csharp[TypedValuesWithExpectedInWrapperClass](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#TypedValuesWithExpectedInWrapperClass)]
-
-## Named Parameters
-
-TestCaseSourceAttribute supports one named parameter:
-
-* **Category** is used to assign one or more categories to every test case returned from this source.
 
 ## Test Case Construction
 

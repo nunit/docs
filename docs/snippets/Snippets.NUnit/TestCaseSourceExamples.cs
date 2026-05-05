@@ -174,4 +174,22 @@ public class TestCaseSourceExamples
         public TExp? Expected { get; set; }
     }
     #endregion
+
+    #region TestCaseSourceWithCategory
+    [TestFixture]
+    public sealed class TestCaseSourceCategoryFixture
+    {
+        public static IEnumerable<int> YieldTaggedCases()
+        {
+            yield return 1;
+            yield return 200;
+        }
+
+        [TestCaseSource(nameof(YieldTaggedCases), Category = "DocSample,Smoke")]
+        public void EveryCaseFromSourceSharesCategoryTags(int magnitude)
+        {
+            Assert.That(magnitude, Is.Positive);
+        }
+    }
+    #endregion
 }

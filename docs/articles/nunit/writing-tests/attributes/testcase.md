@@ -4,98 +4,142 @@ uid: testcaseattribute
 
 # TestCase
 
-`TestCaseAttribute` serves the dual purpose of marking a method with parameters as a test method and providing inline
-data to be used when invoking that method. Here is an example of a test being run three times, with three different sets
-of data:
+`TestCaseAttribute` marks a method with parameters as a test and supplies **inline arguments** for individual cases. You may apply the attribute multiple times to create several cases from one method.
 
 [!code-csharp[BasicTestCase](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#BasicTestCase)]
 
+The three `[TestCase(...)]` lines above yield **three** invocations—one set of arguments per attribute.
+
 > [!NOTE]
-> Because arguments to .NET attributes are limited in terms of the Types that may be used, NUnit will make some
-> attempt to convert the supplied values using `Convert.ChangeType()` before supplying it to the test.
+> Because arguments to .NET attributes are limited in terms of the types that may be used, NUnit attempts to convert literal values using `Convert.ChangeType()` before passing them into the method.
 
-**TestCaseAttribute** may appear one or more times on a test method, which may also carry other attributes providing
-test data. The method may optionally be marked with the [Test Attribute](test.md) as well.
+**`TestCaseAttribute`** may appear one or more times on a test method, which may also carry other data-providing attributes. Once **any** parameter has explicit data (`[TestCase]`, `[Values]`, `[Range]`, …), **every** parameter must have a data source—see [Parameterized Tests](xref:parameterizedtests). The method may optionally be marked with the [Test attribute](test.md) as well.
 
-By using the named parameter `ExpectedResult` this test set may be simplified further:
+## Constructors
+
+NUnit supplies arguments to the test method from the **positional** constructor parameters. You may repeat the attribute on the same method to provide multiple cases.
+
+```csharp
+TestCaseAttribute(params object?[]? arguments)
+TestCaseAttribute(object? arg)
+TestCaseAttribute(object? arg1, object? arg2)
+TestCaseAttribute(object? arg1, object? arg2, object? arg3)
+```
+
+On **.NET 6+**, generic forms such as `TestCaseAttribute<T>` offer compile-time typed arguments (see **Generic TestCase Attributes** below).
+
+Use **named parameters** on the attribute for per-case metadata (`ExpectedResult`, `Ignore`, `Explicit`, etc.).
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ |
+
+## Expected result
+
+When the method returns a value, `ExpectedResult` lets NUnit compare the return value instead of asserting inside the body:
 
 [!code-csharp[TestCaseWithExpectedResult](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithExpectedResult)]
 
-In the above example, NUnit checks that the return value of the method is equal to the expected result provided on the
-attribute.
+For those cases NUnit asserts that the **return value** equals the **`ExpectedResult`** specified on that attribute instance (rather than inspecting the attribute value inside the body).
 
-TestCaseAttribute supports a number of additional named parameters:
+## Named parameters overview
 
-* **Author** sets the author of the test.
-* **Category** provides a comma-delimited list of categories for this test.
-* **Description** sets the description property of the test.
-* **ExcludePlatform** specifies a comma-delimited list of platforms on which the test should not run.
-* **ExpectedResult** sets the expected result to be returned from the method, which must have a compatible return type.
-* **Explicit** is set to true in order to make the individual test case Explicit. Use **Reason** to explain why.
-* **Ignore** causes the test case to be ignored and specifies the reason.
-* **IgnoreReason** causes this test case to be ignored and specifies the reason.
-* **IncludePlatform** specifies a comma-delimited list of platforms on which the test should run.
-* **Reason** specifies the reason for not running this test case. Use in conjunction with **Explicit**.
-* **TestName** provides a name for the test. If not specified, a name is generated based on the method name and the
-  arguments provided. See [Template Based Test Naming](xref:templatebasedtestnaming).
-* **TestOf** specifies the Type that this test is testing (this is not used within NUnit during test execution,
-  but may serve a purpose for the test author)
-* **TypeArgs** specifies the `Type`s to be used when targeting a generic test method. (_NUnit 4.1+_)
+Beyond arguments and `ExpectedResult`, each `TestCase` can set metadata and filters:
 
-## Be aware of mixing the syntax for named parameters and attributes with the same name
+| Named parameter | Role |
+|-----------------|------|
+| `Author` | Author metadata for this **case**. |
+| `Category` | Comma-separated categories for this **case** only (not the whole fixture). |
+| `Description` | Case description surfaced in runners and XML. |
+| `ExcludePlatform` | Comma-separated platform identifiers to skip this case—see [Platform](platform.md). |
+| `ExpectedResult` | Expected return value; method must declare a compatible return type. |
+| `Explicit` | Makes this single case explicit; pair with **`Reason`** for messaging. |
+| `Ignore` / `IgnoreReason` | Ignores just this case; both set the skip reason (**`Ignore`** is an alias setter). |
+| `IncludePlatform` | Comma-separated identifiers where this **case** is allowed—see [Platform](platform.md). |
+| `Reason` | Explanation for **`Explicit`** (or propagated as skip-reason metadata). |
+| `TestName` | Custom template for this case display name—see [Template Based Test Naming](xref:templatebasedtestnaming). |
+| `TestOf` | Documents the tested type (metadata only; not enforced by runners). |
+| `TypeArgs` | Explicit generic type arguments (**NUnit 4.1+**). |
+| `Until` | Time-boxed ignore; requires **`IgnoreReason`**—after the instant passes, the case runs normally (same rules as [`Ignore(..., Until = ...)`](ignore.md)). |
 
-### Correct `Ignore` Attribute Usage, by Example
+Sections below reference **runnable** snippets for most switches. Some parameters (`Ignore`, `Explicit`, **`Category`**) are easy to misapply as **separate** attributes on the fixture—see **Naming collisions** after the examples.
+
+### Description, `Author`, and `TestOf`
+
+[!code-csharp[TestCaseWithDescriptionAuthorTestOf](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithDescriptionAuthorTestOf)]
+
+### Include / exclude platforms
+
+Per-case platform filters mirror the [Platform](platform.md) attribute. The sample uses **`ExcludePlatform`** so it keeps running on typical desktops; an `IncludePlatform` idea appears in a comment because it can legitimately skip hosts that lack a moniker:
+
+[!code-csharp[TestCaseWithPlatforms](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithPlatforms)]
+
+### Custom `TestName` templates
+
+Use template tokens such as `{m}`, `{c}`, `{a}`, `{0}`—see [Template Based Test Naming](xref:templatebasedtestnaming):
+
+[!code-csharp[TestCaseWithTestName](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithTestName)]
+
+### `Ignore`, `Explicit`, and `Category` (named parameters)
 
 > [!WARNING]
-> When using the `Ignore` parameter (and others, see below), note that this has to be a named parameter. It is easy to accidentally add another `Ignore` attribute after the `TestCase` attribute. That will be the same as adding it separately, and it will apply to the complete fixture. This may apply to other named parameters, with names equal to other attributes, like the `Explicit` and `Category` parameters.
-
-Correct example usage:
+> `Ignore`, `Explicit`, and `Category` **must appear as named properties on `[TestCase(...)]`.** A separate `[Ignore]` / `[Explicit]` line still decorates the **entire fixture**. See **Naming collisions** below.
 
 [!code-csharp[TestCaseWithIgnore](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithIgnore)]
 
-![TestCaseIgnoreDoneCorrect](../../../../images/TestCaseIgnoreDoneCorrect.png)
+[!code-csharp[TestCaseWithExplicit](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithExplicit)]
 
-> [!WARNING]
-> **Wrong way!** Below, we demonstrate an incorrect approach.
->
-> (1) Adding it on the same line is the same as adding it on a separate line (3), both results in the fixture being ignored (2).
+**`Reason`** is optional alongside `Explicit = true`; some runners omit or obscure explicit reasons—for example Visual Studio Test Explorer often does **not** show the explanatory text even when supplied.
 
-![TestCaseIgnoreGoneWrong](../../../../images/TestCaseIgnoreGoneWrong.png)
+[!code-csharp[TestCaseWithCategory](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithCategory)]
+
+Putting **`[Category]`** on the fixture (or elsewhere on the test type) assigns categories to **all** tests under that fixture, whereas **`Category = "..."`** on `[TestCase]` scopes the category **to that generated case**.
+
+### `Until` with `IgnoreReason`
+
+`Until` follows the same constraints as [`Ignore(Until = ...)`](ignore.md): **`IgnoreReason` is mandatory**—without it, NUnit marks the metadata invalid.
+
+[!code-csharp[TestCaseWithIgnoreUntil](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithIgnoreUntil)]
+
+### `TypeArgs` for generic test methods
+
+Runtime type substitution works on [.NET Framework](https://learn.microsoft.com/dotnet/standard/frameworks) and modern [.NET](https://learn.microsoft.com/dotnet/core/introduction):
+
+[!code-csharp[TestCaseWithTypeArgs](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithTypeArgs)]
+
+### Choosing `TypeArgs` vs generic `[TestCase<…>]`
+
+[!code-csharp[TypeArgsComparedToGenericAttribute](~/snippets/Snippets.NUnit/Attributes/TestCaseGenericExamples.cs#TypeArgsComparedToGenericAttribute)]
+
+**`TypeArgs`** keeps samples working on **.NET Framework** hosts. **`[TestCase<int>(…)]`** (through five type parameters) needs **.NET 6+** generic attribute support (**NUnit 4.6+**).
+
+## Naming collisions
+
+Adding a **second** `[Ignore]` _attribute_ beside `[TestCase]` binds to the enclosing fixture—even if visually on the same or next line—as if you ignored the entire class.
+
+![Correct TestCase Ignore usage](../../../../images/TestCaseIgnoreDoneCorrect.png)
+
+The wrong layouts below show how easy it is to ignore the fixture by accident: _(1)_ an extra `[Ignore]` on the **same line** after `[TestCase]`, _(2)_ the fixture disappears as ignored tests, _(3)_ a separate `[Ignore]` line behaves the same as _(1)._
+
+![Wrong TestCase Ignore usage](../../../../images/TestCaseIgnoreGoneWrong.png)
 
 <!-- cspell:disable-next-line -->
 _Thanks to [Geir Marius Gjul](https://github.com/GeirMG) for raising this question again._
 
-### Correct `Explicit` Attribute Usage, by Example
-
-`Explicit`, used correctly, looks like the following:
-
-[!code-csharp[TestCaseWithExplicit](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithExplicit)]
-
-Note that adding the `Reason` is optional, and Visual Studio TestExplorer will not even show it.
-
-### Correct `Category` Attribute Usage, by Example
-
-Categories can be applied to a single `TestCase` the same way, as a named parameter. Otherwise, it will apply to the whole fixture. Be sure what you're asking for!
-
-[!code-csharp[TestCaseWithCategory](~/snippets/Snippets.NUnit/Attributes/TestCaseAttributeExamples.cs#TestCaseWithCategory)]
-
 ## Order of Execution
 
-Individual test cases are executed in the order in which NUnit discovers them. This order does **not** necessarily
-follow the lexical order of the attributes and will often vary between different compilers or different versions of the
-CLR.
+Individual test cases are executed in the order in which NUnit discovers them. This order does **not** necessarily follow the lexical order of the attributes and will often vary between different compilers or different versions of the CLR.
 
-As a result, when **TestCaseAttribute** appears multiple times on a method or when other data-providing attributes are
-used in combination with **TestCaseAttribute**, the order of the test cases is undefined.
+As a result, when **TestCaseAttribute** appears multiple times on a method or when other data-providing attributes are used in combination with **TestCaseAttribute**, the order of the test cases is undefined.
 
 ## Generic TestCase Attributes
 
-NUnit provides generic versions of `TestCaseAttribute` that offer compile-time type safety for test arguments. These are
-available as `TestCaseAttribute<T>` through `TestCaseAttribute<T1, T2, T3, T4, T5>`, supporting up to 5 type parameters.
+NUnit provides generic versions of `TestCaseAttribute` that offer compile-time type safety for test arguments. These are available as `TestCaseAttribute<T>` through `TestCaseAttribute<T1, T2, T3, T4, T5>`, supporting up to five type parameters.
 
 > [!NOTE]
-> From NUnit 4.6
-> Generic TestCase attributes are only available on .NET 6.0 and later. They are not supported on .NET Framework.
+> From NUnit **4.6**, generic **`TestCase<>`** attributes require runtimes with generic attribute support (**not** classic **.NET Framework**). Use **`TypeArgs`** there instead.
 
 ### Single Type Parameter
 
@@ -124,21 +168,13 @@ You can mix generic and regular `TestCase` attributes on the same method:
 * **Clearer intent**: The expected types are explicit in the attribute declaration
 * **Refactoring safety**: Type changes are caught by the compiler
 
-### Comparison with TypeArgs
+## See Also
 
-The `TypeArgs` named parameter provides similar functionality but is specified at runtime:
-
-```csharp
-// Using TypeArgs (runtime type specification)
-[TestCase(42, TypeArgs = new[] { typeof(int) })]
-public void TestWithTypeArgs<T>(T value) { }
-
-// Using generic attribute (compile-time type specification)
-[TestCase<int>(42)]
-public void TestWithGenericAttribute<T>(T value) { }
-```
-
-Both approaches are valid; choose based on your needs:
-
-* Use **generic attributes** when you want compile-time type safety
-* Use **TypeArgs** when you need to specify types dynamically or when targeting .NET Framework
+* [Test Attribute](test.md)
+* [Values Attribute](values.md)
+* [Range Attribute](range.md)
+* [Random Attribute](random.md)
+* [Platform Attribute](platform.md)
+* [Ignore Attribute](ignore.md)
+* [Explicit Attribute](explicit.md)
+* [TestCaseSource Attribute](testcasesource.md)

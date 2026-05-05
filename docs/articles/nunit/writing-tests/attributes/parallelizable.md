@@ -4,13 +4,34 @@ uid: parallelizableattribute
 
 # Parallelizable
 
-Added in **NUnit 3.7**
+Added in **NUnit 3.7**.
 
-The `ParallelizableAttribute` is used to indicate that a test and/or its descendants may be run in parallel with other
-tests. By default, no parallel execution takes place.
+The `ParallelizableAttribute` marks an assembly, fixture, or method (and optionally its descendants) as eligible for parallel execution. By default, tests are not parallel.
 
-When used without an argument, `Parallelizable` causes the test fixture or method on which it is placed to be queued for
-execution in parallel with other parallelizable tests. It may be used at the assembly, class or method level.
+When used without an argument, scope defaults to `ParallelScope.Self`.
+
+## Constructors
+
+```csharp
+ParallelizableAttribute()
+ParallelizableAttribute(ParallelScope scope)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `scope` | `ParallelScope` | Controls what may run in parallel for this node and descendants. Defaults to `Self`. |
+
+## Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `Scope` | `ParallelScope` | Same as constructor `scope`. | `ParallelScope.Self` |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 > [!WARNING]
 > When tests are run in parallel, you are responsible for the thread safety of your tests. Tests that run at
@@ -19,9 +40,7 @@ execution in parallel with other parallelizable tests. It may be used at the ass
 > [`FixtureLifeCycleAttribute`](xref:fixturelifecycleattribute) to construct a new instance of a test fixture (class)
 > for each test that is run.
 
-The constructor takes an optional `ParallelScope` enumeration argument (see below), which indicates whether the
-attribute applies to the item itself, to its descendants or both. It defaults to `ParallelScope.Self`. The Scope may
-also be specified using the constructor argument `scope:`, for example;
+Named argument form:
 
 ```csharp
 [Parallelizable(scope: ParallelScope.All)]
@@ -29,8 +48,7 @@ also be specified using the constructor argument `scope:`, for example;
 
 ## ParallelScope Enumeration
 
-This is a **[Flags]** enumeration used to specify which tests may run in parallel. It applies to the test upon which it
-appears and any subordinate tests. The following values are available to users:
+`ParallelScope` is a **[Flags]** enumeration. It applies to the attributed test and its subordinates. User-visible values:
 
  Value | Meaning | Valid On
 -------|---------|---------

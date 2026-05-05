@@ -1,49 +1,55 @@
+---
+uid: platformattribute
+---
+
 # Platform
 
-The Platform attribute is used to specify platforms for which a test or fixture should be run. Platforms are specified
-using case-insensitive string values and may be either included or excluded from the run by use of the Include or
-Exclude properties respectively. Platforms to be included may alternatively be specified as an argument to the
-PlatformAttribute constructor. In either case, multiple comma-separated values may be specified.
+`PlatformAttribute` specifies platforms on which a test, fixture, or assembly should run. Platform names are
+case-insensitive. You can require platforms in any of these ways:
 
-If a test or fixture with the Platform attribute does not satisfy the specified platform requirements it is skipped. The
-test does not affect the outcome of the run at all: it is not considered as ignored and is not even counted in the total
-number of tests. _[Ed.: Check this.]_ In the gui, the tree node for the test remains gray and the status bar color is
-not affected.
+* Pass a comma-separated list to the constructor (treated as **included** platforms).
+* Set the `Include` property to a comma-separated list.
+* Set the `Exclude` property to a comma-separated list.
 
-## Test Fixture Syntax
+You can combine `Include` and `Exclude` where that makes sense for your scenario.
 
-```csharp
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
+If the current environment does **not** satisfy the attribute, NUnit marks the test as **skipped** (`RunState.Skipped`)
+with a skip reason—it does **not** mark it as ignored, and it does not fail the run. Skipped tests are omitted from the
+normal pass/fail counts in the same way as other skipped work. How your test runner displays skipped tests (for example
+in a tree view or status bar) depends on that runner.
 
-  [TestFixture]
-  [Platform("NET-2.0")]
-  public class DotNetTwoTests
-  {
-    // ...
-  }
-}
-```
+Invalid or unrecognized platform names can make a test **not runnable** instead of skipped; see your runner output for
+the reason.
 
-## Test Syntax
+## Constructors
 
 ```csharp
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
-    [Test]
-    [Platform(Exclude="Win98,WinME")]
-    public void SomeTest()
-    { /* ... */ }
-}
+PlatformAttribute()
+PlatformAttribute(string platforms)
+PlatformAttribute(string[] includes)
 ```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `platforms` | `string` | Comma-delimited platform list to include. |
+| `includes` | `string[]` | Platform identifiers to include. |
+
+## Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `Include` | `string` | Comma-delimited list of included platforms. | `null` |
+| `Exclude` | `string` | Comma-delimited list of excluded platforms. | `null` |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
+
+## Examples
+
+[!code-csharp[PlatformAttributeExamples](~/snippets/Snippets.NUnit/Attributes/PlatformAttributeExamples.cs#PlatformAttributeExamples)]
 
 ## Platform Specifiers
 

@@ -27,9 +27,9 @@ The protected parameterless constructor is used when creating custom category at
 
 ## Applies To
 
-- **Assembly** - Applies the category to all tests in the assembly
-- **Test Fixture (Class)** - Applies the category to all tests in the fixture
-- **Test Method** - Applies the category to a specific test
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 > [!WARNING]
 > While the C# syntax allows you to place a Category attribute on a SetUpFixture class, the attribute is ignored by NUnit and has no effect.

@@ -194,3 +194,36 @@ See `retry.md` for the completed template example with:
 | Category | Done | Added Constructors, Properties, command line usage (dotnet test + console) |
 | RequiresThread | Done | Added Constructors, snippet examples with apartment state |
 | Timeout | Done | Added Constructor, .NET 5+ alternatives table, deprecation warnings |
+| Combinatorial | Done | Added Usage, Applies To table, updated notes and examples |
+| DefaultFloatingPointTolerance | Done | Added Constructor table, Applies To table, clarified scope behavior |
+| Ignore | Done | Added Constructor, Properties (Until), Applies To table, individual case guidance |
+| Range | Done | Added Constructors table, parameter applicability, notes on combining strategy |
+| Sequential | Done | Added Usage, Applies To table, pairing behavior notes |
+| Pairwise | Done | Added Usage, Applies To table, snippet example, notes |
+| Values | Done | Added Constructors, parameter applicability, dedicated snippets |
+| ValueSource | Done | Added Constructors, parameter applicability, source requirements, snippet |
+| Platform | Done | Added Constructors/Properties, Applies To table, snippet example |
+| Explicit | Done | Added Constructors, Applies To table, snippet examples, retained CLI guidance |
+| SetUp | Done | Added Usage, applies-to table, snippet example, clarified lifecycle notes |
+| TearDown | Done | Added Usage, applies-to table, snippet example, clarified teardown guarantees |
+| OneTimeSetUp | Done | Added Usage, applies-to table, snippet example, fixture lifecycle notes |
+| OneTimeTearDown | Done | Added Usage, applies-to table, snippet example, fixture lifecycle notes |
+| SetUpFixture | Done | Added Usage, applies-to table, snippet example, setup fixture constraints |
+| TestFixtureSetUp | Done | Marked legacy status, added applies-to table, pointed to OneTimeSetUp |
+| TestFixtureTearDown | Done | Fixed deprecation text, added applies-to table, pointed to OneTimeTearDown |
+| TestAssemblyDirectoryResolve | Done | Added Applies To table and snippet-based example |
+| TestFixtureSource | Done | Added constructors/properties tables and applies-to section |
+| NetPlatform | Done | Added constructors/properties tables and applies-to section |
+| CancelAfter | Done | Constructor/applies-to, fixed CancellationToken link, TestCase snippet |
+| FixtureLifeCycle | Done | Constructor/properties/applies-to, aligned with SingleInstance/per-test |
+| NoTests | Done | Constructor/applies-to, TestStatus table, scenarios as snippets |
+| Parallelizable | Done | Constructors/properties/applies-to, kept ParallelScope docs |
+| NonParallelizable | Done | UID, Usage, applies-to, queue behavior |
+| Test | Done | UID, Usage, Properties, applies-to, snippet examples |
+| TestCase | Done | Constructors summary, applies-to (method-only) |
+| Theory | Done | Constructor (searchInDeclaringTypes), applies-to |
+| TestFixture | Done | Constructors summary, applies-to (class-only) |
+| TestCaseSource | Done | Constructors/Properties tables, applies-to; removed duplicate Named Parameters |
+| Author / Timeout / Category / Apartment / Description / RequiresThread / TestOf | Done | Bullet Applies To replaced with standard three-column table |
+| Retry | Done | Applies To table (method-only) |
+| UnhandledExceptionHandling | Done | Applies To table (method, fixture, assembly) |

@@ -4,6 +4,32 @@
 constructor arguments will be provided. The data is kept separate from the fixture itself and may be used by multiple
 fixtures. See [Parameterized Tests](xref:parameterizedtests) for a general introduction to tests with arguments.
 
+## Constructors
+
+```csharp
+TestFixtureSourceAttribute(string sourceName)
+TestFixtureSourceAttribute(Type sourceType, string sourceName)
+TestFixtureSourceAttribute(Type sourceType)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `sourceName` | `string` | Name of the source member used to provide fixture arguments. |
+| `sourceType` | `Type` | Type containing the source member, or implementing `IEnumerable` in form 3. |
+
+## Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `Category` | `string` | Category (or comma-separated categories) applied to each generated fixture. | `null` |
+| `TypeArgs` | `Type[]` | Explicit generic type arguments for generated fixture instances. | `null` |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ❌ | ✅ | ❌ |
+
 ## Usage
 
 Consider a test fixture class taking two parameters in its constructor, a string and an int. We can specify the test and

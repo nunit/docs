@@ -21,9 +21,9 @@ TimeoutAttribute(int timeout)
 
 ## Applies To
 
-- **Assembly** - Sets the default timeout for all tests in the assembly
-- **Test Fixture (Class)** - Sets the default timeout for all tests in the fixture
-- **Test Method** - Sets the timeout for a specific test
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 ## .NET 5+ Alternatives
 

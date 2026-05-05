@@ -30,5 +30,16 @@ namespace Snippets.NUnit.Attributes
             }
         }
         #endregion
+
+        #region TestCaseWithCancellationToken
+        [CancelAfter(2000)]
+        [TestCase("http://example.com/1")]
+        [TestCase("http://example.com/2")]
+        public async Task PotentiallyLongRunningTest(string uri, CancellationToken token)
+        {
+            await Task.Delay(10, token);
+            Assert.That(uri, Does.StartWith("http://"));
+        }
+        #endregion
     }
 }

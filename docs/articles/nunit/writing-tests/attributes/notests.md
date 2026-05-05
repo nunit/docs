@@ -8,21 +8,40 @@ The `NoTestsAttribute` specifies the default status for a parameterized test met
 executable child tests. This is useful when test cases are generated dynamically and may sometimes produce an empty
 set.
 
-By default, NUnit treats a `Theory` with no test cases as a failure. For other parameterized tests, the behavior may
-vary. The `NoTestsAttribute` allows you to explicitly control what status should be reported when no test cases are
-available.
+By default, NUnit treats a `Theory` with no test cases as a failure. For other parameterized tests, behavior may
+vary. `NoTestsAttribute` chooses the `TestStatus` reported when no executable child tests are produced.
 
 > [!NOTE]
-> This attribute was introduced in NUnit 4.6.
+> Introduced in **NUnit 4.6**.
 
-## Usage
+## Constructor
 
-The attribute accepts a `TestStatus` value that determines how the test should be reported when no child tests exist:
+```csharp
+NoTestsAttribute(TestStatus defaultStatus)
+```
 
-* `TestStatus.Skipped` - The test is marked as skipped
-* `TestStatus.Inconclusive` - The test is marked as inconclusive
-* `TestStatus.Passed` - The test is marked as passed (use with caution)
-* `TestStatus.Failed` - The test is marked as failed (default for Theory)
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `defaultStatus` | `TestStatus` | Result when no child tests exist (`Skipped`, `Inconclusive`, `Passed`, or `Failed`). |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
+
+Most specific scope (method) wins over fixture and assembly.
+
+## TestStatus Values
+
+Typical uses:
+
+| Value | Meaning |
+|-------|---------|
+| `TestStatus.Skipped` | Marked skipped when no cases |
+| `TestStatus.Inconclusive` | Indeterminate empty data |
+| `TestStatus.Passed` | Passed with no cases (use carefully) |
+| `TestStatus.Failed` | Default for `Theory` with no cases |
 
 ## Test Fixture Syntax
 
@@ -42,64 +61,33 @@ Use `TestStatus.Inconclusive` when empty test cases indicate an indeterminate st
 
 [!code-csharp[NoTestsInconclusive](~/snippets/Snippets.NUnit/Attributes/NoTestsAttributeExamples.cs#NoTestsInconclusive)]
 
-## Common Scenarios
+## Common scenarios
 
-### Dynamic Test Data
+### Dynamic test data
 
-When test cases come from external sources (databases, APIs, configuration files) that might be empty:
+Typical when test cases come from a source that can legitimately be empty (a database, API, config file, or similar).
 
-```csharp
-[TestFixture]
-[NoTests(TestStatus.Skipped)]
-public class DataDrivenTests
-{
-    [TestCaseSource(typeof(ExternalDataSource))]
-    public void ProcessData(DataRecord record)
-    {
-        // Test implementation
-    }
-}
-```
+[!code-csharp[NoTestsDynamicData](~/snippets/Snippets.NUnit/Attributes/NoTestsAttributeExamples.cs#NoTestsDynamicData)]
 
-### Conditional Test Execution
+### Conditional execution
 
-When test cases are only available under certain conditions:
+Typical when cases are only produced for some platforms, environments, or other prerequisites.
 
-```csharp
-[NoTests(TestStatus.Inconclusive)]
-[TestCaseSource(nameof(GetPlatformSpecificCases))]
-public void PlatformSpecificTest(string testCase)
-{
-    // Test only runs when platform-specific cases are available
-}
-```
+[!code-csharp[NoTestsConditionalExecution](~/snippets/Snippets.NUnit/Attributes/NoTestsAttributeExamples.cs#NoTestsConditionalExecution)]
 
-### Feature Flag Testing
+### Feature flags
 
-When tests depend on feature flags that may not be enabled:
+Typical when data-driven cases depend on feature flags or rollout state and may sometimes yield none.
 
-```csharp
-[TestFixture]
-[NoTests(TestStatus.Skipped)]
-public class FeatureFlagTests
-{
-    [TestCaseSource(nameof(GetEnabledFeatures))]
-    public void TestFeature(string featureName)
-    {
-        // Tests features that are currently enabled
-    }
-}
-```
+[!code-csharp[NoTestsFeatureFlag](~/snippets/Snippets.NUnit/Attributes/NoTestsAttributeExamples.cs#NoTestsFeatureFlag)]
 
-## Inheritance
+## Scope precedence
 
-The `NoTestsAttribute` can be applied at the assembly, class, or method level:
+* **Assembly** — parameterized tests across the assembly
+* **Fixture (class)** — parameterized tests in that fixture
+* **Method** — that method only
 
-* **Assembly level**: Affects all parameterized tests in the assembly
-* **Class level**: Affects all parameterized tests in the fixture
-* **Method level**: Affects only the specific test method
-
-When multiple levels specify the attribute, the most specific level (method) takes precedence.
+The most specific level wins when multiple attributes apply.
 
 ## See Also
 

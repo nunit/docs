@@ -1,51 +1,46 @@
 # DefaultFloatingPointTolerance
 
-The **DefaultFloatingPointToleranceAttribute** is used to indicate that
-comparisons of values of types `float` and `double` - within the test method,
-class, or assembly marked with the attribute - should use the tolerance
-specified in the constructor unless a specific tolerance is given for the
-comparison.
+`DefaultFloatingPointToleranceAttribute` sets the default tolerance for floating-point equality comparisons (`float` and `double`) unless a comparison explicitly specifies a tolerance.
+
+You can apply it at method, fixture, or assembly scope.
+
+## Constructor
+
+```csharp
+DefaultFloatingPointToleranceAttribute(double tolerance)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `tolerance` | `double` | The default tolerance used for floating-point comparisons when no explicit tolerance is specified. |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
+
+> [!NOTE]
+> When applied at fixture or assembly level, this default tolerance applies to all contained tests unless overridden by a more specific scope or by an explicit tolerance in an assertion.
 
 ## Examples
 
-```csharp
-[TestFixture]
-[DefaultFloatingPointTolerance(1)]
-public class ToleranceTest
-{
-    [Test]
-    public void ComparisonUsingDefaultFloatingPointToleranceFromFixture()
-    {
-        // Passes due to the DefaultFloatingPointToleranceAttribute from the fixture.
-        Assert.That(1f, Is.EqualTo(2));
-    }
+### Fixture Default Tolerance
 
-    [Test]
-    public void ComparisonOfIntegersDoNotUseTolerance()
-    {
-        // Fails as DefaultFloatingPointTolerance only effects comparisons
-        // of floats and doubles.
-        Assert.That(1, Is.EqualTo(2));
-    }
+[!code-csharp[DefaultFloatingPointToleranceFixture](~/snippets/Snippets.NUnit/Attributes/DefaultFloatingPointToleranceAttributeExamples.cs#DefaultFloatingPointToleranceFixture)]
 
-    [Test]
-    public void ComparisonUsingSpecificTolerance()
-    {
-        // Fails as 1 is not equal to 2 using the specified tolerance 0.
-        Assert.That(1f, Is.EqualTo(2).Within(0));
-    }
+### Method Override
 
-    [Test]
-    [DefaultFloatingPointTolerance(2)]
-    public void ComparisonUsingDefaultFloatingPointToleranceFromTest()
-    {
-        // Passes due to the  DefaultFloatingPointTolerance from the test.
-        Assert.That(2f, Is.EqualTo(4));
-    }
-}
-```
+[!code-csharp[DefaultFloatingPointToleranceMethodOverride](~/snippets/Snippets.NUnit/Attributes/DefaultFloatingPointToleranceAttributeExamples.cs#DefaultFloatingPointToleranceMethodOverride)]
+
+## Notes
+
+1. This attribute affects default tolerance for floating-point equality comparisons only.
+2. Integer comparisons are not affected.
+3. An explicit tolerance in an assertion (for example, `.Within(...)`) overrides the default tolerance.
 
 ## See Also
 
 * [Assert.AreEqual](../assertions/classic-assertions/Assert.AreEqual.md)
 * [EqualConstraint](../constraints/EqualConstraint.md)
+* [Tolerance](xref:tolerance)

@@ -14,7 +14,11 @@ LevelOfParallelismAttribute(int level)
 
 ## Applies To
 
-- **Assembly** - Typically placed in `AssemblyInfo.cs` or a global usings file.
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ❌ | ❌ | ✅ |
+
+Typically placed in `AssemblyInfo.cs` or a global usings file.
 
 ## Default Value
 

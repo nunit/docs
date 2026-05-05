@@ -28,6 +28,12 @@ The attribute accepts an `UnhandledExceptionHandling` enum value:
 | `Ignore` | Unhandled exceptions are ignored and do not affect the test result |
 | `Default` | Same as `Error` |
 
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
+
 ## Basic Usage
 
 ### Error Mode (Default)
