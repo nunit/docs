@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Threading;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 
@@ -189,6 +190,105 @@ public class TestCaseSourceExamples
         public void EveryCaseFromSourceSharesCategoryTags(int magnitude)
         {
             Assert.That(magnitude, Is.Positive);
+        }
+    }
+    #endregion
+
+    #region OptionalParameters
+    [TestFixture]
+    public class OptionalParametersFixture
+    {
+        [TestCaseSource(nameof(OptionalParameterCases))]
+        public void TestWithOptionalParameters(string first, string second = "default", int third = 42)
+        {
+            Assert.That(first, Is.Not.Null);
+            Assert.That(second, Is.Not.Null);
+            Assert.That(third, Is.GreaterThan(0));
+        }
+
+        private static IEnumerable<TestCaseData> OptionalParameterCases()
+        {
+            // Provide all three arguments
+            yield return new TestCaseData("a", "b", 100);
+
+            // Provide only two arguments - third uses default value of 42
+            yield return new TestCaseData("a", "b");
+
+            // Provide only one argument - second and third use defaults
+            yield return new TestCaseData("a");
+        }
+    }
+    #endregion
+
+    #region CancellationTokenSupport
+    [TestFixture]
+    public class CancellationTokenFixture
+    {
+        [TestCaseSource(nameof(TestCases))]
+        [CancelAfter(5000)]
+        public void TestWithCancellationToken(int value, CancellationToken cancellationToken)
+        {
+            // NUnit automatically provides the CancellationToken as the last parameter
+            // when [CancelAfter] is applied. The source only needs to provide the other arguments.
+            Assert.That(cancellationToken, Is.Not.EqualTo(default(CancellationToken)));
+            Assert.That(value, Is.Positive);
+        }
+
+        [TestCaseSource(nameof(TestCases))]
+        [CancelAfter(5000)]
+        public void TestWithOptionalCancellationToken(int value, CancellationToken cancellationToken = default)
+        {
+            // CancellationToken can also have a default value
+            Assert.That(cancellationToken, Is.Not.EqualTo(default(CancellationToken)));
+            Assert.That(value, Is.Positive);
+        }
+
+        private static IEnumerable<TestCaseData> TestCases()
+        {
+            // Note: Do NOT include CancellationToken in the test case data
+            // NUnit injects it automatically when [CancelAfter] is present
+            yield return new TestCaseData(1);
+            yield return new TestCaseData(2);
+        }
+    }
+    #endregion
+
+    #region AsyncEnumerableSource
+    [TestFixture]
+    public class AsyncEnumerableSourceFixture
+    {
+        [TestCaseSource(nameof(AsyncTestCases))]
+        public async Task TestWithAsyncEnumerableSource(int expected, int actual)
+        {
+            await Task.Delay(10); // Simulate async work
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        // Source method returns IAsyncEnumerable (NUnit 4+)
+        private static async IAsyncEnumerable<TestCaseData> AsyncTestCases()
+        {
+            await Task.Delay(10); // Simulate async data fetching
+            yield return new TestCaseData(1, 1);
+
+            await Task.Delay(10);
+            yield return new TestCaseData(42, 42);
+        }
+
+        [TestCaseSource(nameof(TaskReturningSource))]
+        public void TestWithTaskReturningSource(string value)
+        {
+            Assert.That(value, Is.Not.Empty);
+        }
+
+        // Source method returns Task<IEnumerable> (NUnit 3.14+)
+        private static async Task<IEnumerable<TestCaseData>> TaskReturningSource()
+        {
+            await Task.Delay(10); // Simulate async data fetching
+            return new[]
+            {
+                new TestCaseData("first"),
+                new TestCaseData("second")
+            };
         }
     }
     #endregion

@@ -76,8 +76,6 @@ It has the following characteristics:
 * It **must** be static. This is a change from NUnit 2.x.
 * It must return an `IEnumerable` or a type that implements `IEnumerable`. For fields an array is generally used. For
   properties and methods, you may return an array or implement your own iterator.
-  * Methods may also return an `IAsyncEnumerable` or a type that implements `IAsyncEnumerable`. (_NUnit 4+_)
-  * Methods may be async by wrapping the return type in a `Task<T>`. (_NUnit 3.14+_)
 * The individual items returned by the enumerator must be compatible with the signature of the method on which the
    attribute appears. See the **Test Case Construction** section below for details.
 
@@ -100,8 +98,6 @@ characteristics:
 * It **must** be static. This is a change from NUnit 2.x.
 * It must return an `IEnumerable` or a type that implements `IEnumerable`. For fields an array is generally used. For
   properties and methods, you may return an array or implement your own iterator.
-  * Methods may also return an `IAsyncEnumerable` or a type that implements `IAsyncEnumerable`. (_NUnit 4+_)
-  * Methods may be async by wrapping the return type in a `Task<T>`. (_NUnit 3.14+_)
 * The individual items returned by the enumerator must be compatible with the signature of the method on which the
    attribute appears. See the **Test Case Construction** section below for details.
 
@@ -117,7 +113,12 @@ the attribute appears. See the **Test Case Construction** section below for deta
 
 Note that it is not possible to pass parameters to the source, even if the source is a method.
 
-## Sources with expected result using TestCaseData
+## Using TestCaseData
+
+The `TestCaseData` class provides a fluent API for defining test cases with additional metadata such as expected
+results, categories, and explicit type arguments. See [TestCaseData](xref:testcasedata) for complete documentation.
+
+### Expected results
 
 As of NUnit 3.12, it is possible to use a typed source with an expected result. This is done by using the
 `TestCaseSource` attribute on a method that returns a `TestCaseData` object. The `TestCaseData` object can be
@@ -125,9 +126,7 @@ constructed with the expected result as a parameter.
 
 [!code-csharp[TypedSourceWithExpectedResult](~/snippets/Snippets.NUnit/TestCaseDataExample.cs#TestCaseDataExample)]
 
-See [TestCaseData](xref:testcasedata) for more information on the `TestCaseData` class.
-
-## Sources for generic methods using TestCaseData
+### Generic methods with TypeArgs
 
 As of NUnit 4.1, it is possible to explicitly specify the generic types to be used for a generic method. This
 may be useful when any of the test case arguments differ from the desired generic types. When omitted, NUnit will
@@ -135,15 +134,26 @@ infer the generic type arguments based on the passed values from the `TestCaseSo
 
 [!code-csharp[TypedSourceWithExplicitGenericTypes](~/snippets/Snippets.NUnit/TestCaseDataExample.cs#TestCaseDataTypeArgsExample)]
 
-See [TestCaseData](xref:testcasedata) for more information on the `TestCaseData` class.
+### Generic TestCaseData variants
 
-## Examples using TestCaseSource with Typed data and expected results
+As of NUnit 4.1, you can also use generic `TestCaseData<T>` variants that automatically set the `TypeArgs` property
+based on their type parameters. This provides a more concise syntax when working with generic test methods:
+
+* `TestCaseData<T>` - for single type parameter
+* `TestCaseData<T1, T2>` - for two type parameters
+* `TestCaseData<T1, T2, T3>` - for three type parameters
+* `TestCaseData<T1, T2, T3, T4>` - for four type parameters
+* `TestCaseData<T1, T2, T3, T4, T5>` - for five type parameters
+
+[!code-csharp[GenericTestCaseData](~/snippets/Snippets.NUnit/TestCaseDataExample.cs#GenericTestCaseDataExample)]
+
+### Typed data without TestCaseData
 
 It may seem from the examples above that TestCaseSource can only be used with simple data types or the base Object type.
 This is not the case. TestCaseSource can be used with typed data and also including expected results, also without using
 TestCaseData.
 
-In the example below the test method takes a single argument of a an anonymous tuple type with `Person` and an expected
+In the example below the test method takes a single argument of an anonymous tuple type with `Person` and an expected
 value of type `bool`. It can of course be any type, if that makes sense for the test. The TestCaseSource method returns
 an `IEnumerable<>` of the anonymous tuple type.
 
@@ -153,6 +163,36 @@ It is also possible to use a generic wrapper (or any custom wrapper) for the tes
 shown in the example below.
 
 [!code-csharp[TypedValuesWithExpectedInWrapperClass](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#TypedValuesWithExpectedInWrapperClass)]
+
+## Advanced Source Features
+
+### Async and IAsyncEnumerable sources
+
+Source methods can return async types for scenarios where test data needs to be fetched asynchronously (e.g., from a
+database or API):
+
+* `IAsyncEnumerable<T>` - for async iteration (_NUnit 4+_)
+* `Task<IEnumerable<T>>` - for async initialization (_NUnit 3.14+_)
+
+[!code-csharp[AsyncEnumerableSource](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#AsyncEnumerableSource)]
+
+### Optional parameters with default values
+
+When a test method has optional parameters with default values, the `TestCaseSource` can provide fewer arguments
+than the method signature requires. NUnit will use the default values for any parameters not supplied by the
+test case data.
+
+[!code-csharp[OptionalParameters](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#OptionalParameters)]
+
+### CancellationToken support
+
+When using `[CancelAfter]` with `TestCaseSource`, NUnit automatically injects a `CancellationToken` as the last
+parameter of the test method. The test case source should **not** include the `CancellationToken` in its data—NUnit
+provides it automatically.
+
+[!code-csharp[CancellationTokenSupport](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#CancellationTokenSupport)]
+
+See [CancelAfter](cancelafter.md) for more information on cancellation token handling.
 
 ## Test Case Construction
 
@@ -181,6 +221,10 @@ In constructing tests, NUnit uses each item returned by the enumerator as follow
    in the current release.
 3. The GetEnumerator method may use yield statements or simply return the enumerator for an array or other collection
    held by the class.
+4. If the source member is not static (i.e., an instance field, property, or method), NUnit will report an error
+   indicating that the source must be static.
+5. If the source throws an exception during enumeration, NUnit catches the exception and reports it as a test error,
+   showing which test cases were successfully loaded before the failure occurred.
 
 ### Order of Execution
 
