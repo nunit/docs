@@ -16,7 +16,9 @@ MaxTimeAttribute(int milliseconds)
 
 ## Applies To
 
-- **Test Methods** - Cannot be applied to fixtures or assemblies.
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ |
 
 ## Examples
 

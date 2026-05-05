@@ -14,11 +14,12 @@ This is a parameterless attribute that can be applied to fields, properties, or 
 
 ## Applies To
 
-- **Fields** - Must be an array or `IEnumerable<T>` of the required type
-- **Properties** - Must return an array or `IEnumerable<T>` of the required type
-- **Methods** - Must return an array or `IEnumerable<T>` of the required type (parameterless)
+| Field | Property | Parameterless Methods | Test Methods | Test Fixtures (Classes) | Assembly |
+|-------|----------|-----------------------|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
 
-The element type must exactly match the Theory parameter type for which data is being supplied.
+> [!NOTE]
+> Parameterless methods used with this attribute must return an array or `IEnumerable<T>`, and the element type must exactly match the Theory parameter type.
 
 ## Example
 

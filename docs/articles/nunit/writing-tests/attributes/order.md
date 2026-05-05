@@ -14,8 +14,12 @@ OrderAttribute(int order)
 
 ## Applies To
 
-- **Test Methods** - Orders tests within their containing fixture
-- **Test Fixtures (Classes)** - Orders fixtures within their containing namespace
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ❌ |
+
+> [!NOTE]
+> For fixtures, `Order` orders fixtures within their containing namespace. For test methods, it orders tests within their containing fixture.
 
 ## Examples
 

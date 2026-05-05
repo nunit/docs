@@ -16,7 +16,11 @@ This is a parameterless attribute that can only be applied at the assembly level
 
 ## Applies To
 
-- **Assembly** - Typically placed in `AssemblyInfo.cs` or a global usings file.
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ❌ | ❌ | ✅ |
+
+Typically placed in `AssemblyInfo.cs` or a global usings file.
 
 ## Example
 

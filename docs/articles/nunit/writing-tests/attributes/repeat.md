@@ -25,7 +25,9 @@ RepeatAttribute(int count, bool stopOnFailure)
 
 ## Applies To
 
-- **Test Methods** - Cannot be applied to fixtures or assemblies.
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ |
 
 ## Examples
 

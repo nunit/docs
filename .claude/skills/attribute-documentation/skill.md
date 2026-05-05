@@ -35,12 +35,17 @@ AttributeName(paramType paramName)
 > [!NOTE]
 > Version notes if applicable (e.g., "Added in **NUnit 4.5.0**").
 
-## Applies To (if relevant)
+## Applies To
 
-List where the attribute can be applied:
-- **Assembly** - Description
-- **Test Fixture (Class)** - Description
-- **Test Method** - Description
+Use a table with checkmarks to show where the attribute can be applied:
+
+| Target | Supported |
+|--------|-----------|
+| Test Methods | ✅ |
+| Test Fixtures (Classes) | ✅ |
+| Assemblies | ❌ |
+
+Use ✅ (green checkmark) where the attribute applies, ❌ (red X) where it doesn't.
 
 ## Example
 

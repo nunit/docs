@@ -14,7 +14,12 @@ This is a parameterless attribute that can only be applied to fields.
 
 ## Applies To
 
-- **Fields** - The field type must exactly match the Theory parameter type for which data is being supplied.
+| Field | Test Methods | Test Fixtures (Classes) | Assembly |
+|-------|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ | ❌ |
+
+> [!NOTE]
+> The field type must exactly match the Theory parameter type - no implicit conversions are performed.
 
 ## Examples
 

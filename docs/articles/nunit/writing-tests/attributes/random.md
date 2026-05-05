@@ -40,7 +40,11 @@ RandomAttribute(double min, double max, int count)
 
 ## Applies To
 
-- **Parameters** - Can only be applied to method parameters.
+| Method Parameters | Test Methods | Test Fixtures (Classes) | Assembly |
+|-------------------|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ | ❌ |
+
+
 
 ## Supported Types
 

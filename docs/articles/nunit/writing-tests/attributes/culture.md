@@ -25,11 +25,9 @@ CultureAttribute(string cultures)
 
 ## Applies To
 
-This attribute can be applied to:
-
-- **Assembly** - Sets the culture requirements for all tests in the assembly
-- **Test Fixture (Class)** - Sets the culture requirements for all tests in the fixture
-- **Test Method** - Sets the culture requirements for a specific test
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 ## Examples
 

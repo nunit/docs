@@ -27,11 +27,12 @@ PropertyAttribute(string propertyName, double propertyValue)
 
 ## Applies To
 
-This attribute can be applied to:
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
-- **Assembly** - Sets properties for all tests in the assembly
-- **Test Fixture (Class)** - Sets properties for all tests in the fixture
-- **Test Method** - Sets properties for a specific test
+> [!NOTE]
+> When applied to a fixture or assembly, the property is applied to all tests contained within that fixture or assembly.
 
 Multiple `PropertyAttribute` instances can be applied to the same element (`AllowMultiple = true`).
 

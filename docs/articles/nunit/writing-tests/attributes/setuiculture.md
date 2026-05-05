@@ -16,11 +16,12 @@ SetUICultureAttribute(string culture)
 
 ## Applies To
 
-This attribute can be applied to:
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
-- **Assembly** - Sets the default UI culture for all tests in the assembly
-- **Test Fixture (Class)** - Sets the UI culture for all tests in the fixture
-- **Test Method** - Sets the UI culture for a specific test
+> [!NOTE]
+> If `SetUICultureAttribute` is applied at fixture or assembly level, the UI culture setting applies to all contained tests.
 
 When applied at multiple levels, the most specific level takes precedence. The attribute is inherited by derived test fixtures.
 

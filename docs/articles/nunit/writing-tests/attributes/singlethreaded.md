@@ -10,6 +10,12 @@ This is a parameterless attribute that can only be applied to test fixture class
 [SingleThreaded]
 ```
 
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ❌ | ✅ | ❌ |
+
 ## Example
 
 [!code-csharp[SingleThreadedExample](~/snippets/Snippets.NUnit/Attributes/SingleThreadedAttributeExamples.cs#SingleThreadedExample)]
