@@ -78,17 +78,23 @@ This is a parameterless attribute that can only be applied to [target].
 
 ## Workflow for Updating Attribute Documentation
 
+> **Repository Layout Assumption**: This workflow assumes you have cloned both repositories as siblings:
+> - `<workspace>/nunit/` - The NUnit framework source code ([nunit/nunit](https://github.com/nunit/nunit))
+> - `<workspace>/docs/` - This documentation repository ([nunit/docs](https://github.com/nunit/docs))
+>
+> Adjust paths below to match your local setup.
+
 ### Step 1: Find the Source Code
 
 Search for the attribute class in the NUnit framework:
 
 ```shell
-# Find the attribute source file
-grep -r "class AttributeNameAttribute" C:/repos/nunit/nunit --include="*.cs"
+# Find the attribute source file (adjust path to your nunit repo location)
+grep -r "class AttributeNameAttribute" ../nunit --include="*.cs"
 ```
 
 The source is typically at:
-`C:\repos\nunit\nunit\src\NUnitFramework\framework\Attributes\AttributeNameAttribute.cs`
+`<nunit-repo>/src/NUnitFramework/framework/Attributes/AttributeNameAttribute.cs`
 
 ### Step 2: Analyze the Source Code
 
@@ -101,12 +107,12 @@ From the source file, extract:
 ### Step 3: Check for Existing Unit Tests
 
 ```shell
-# Find unit tests for the attribute
-grep -r "AttributeName" C:/repos/nunit/nunit/src/NUnitFramework/tests --include="*.cs"
+# Find unit tests for the attribute (adjust path to your nunit repo location)
+grep -r "AttributeName" ../nunit/src/NUnitFramework/tests --include="*.cs"
 ```
 
 Tests are typically at:
-`C:\repos\nunit\nunit\src\NUnitFramework\tests\Attributes\AttributeNameAttributeTests.cs`
+`<nunit-repo>/src/NUnitFramework/tests/Attributes/AttributeNameAttributeTests.cs`
 
 Unit tests provide good examples of usage patterns and edge cases.
 
@@ -160,19 +166,17 @@ Reference snippets using DocFX syntax:
 
 ### Step 6: Build and Test
 
-Always verify the snippets compile and tests pass:
+Always verify the snippets compile and tests pass. From the docs repository root:
 
 ```shell
-cd C:/repos/nunit/docs/docs/snippets
-
 # Build
-dotnet build Snippets.slnx
+dotnet build docs/snippets/Snippets.slnx
 
 # Run all tests
-dotnet test Snippets.slnx --no-build
+dotnet test docs/snippets/Snippets.slnx --no-build
 
 # Run specific tests
-dotnet test Snippets.slnx --no-build --filter "FullyQualifiedName~AttributeNameExamples" --verbosity normal
+dotnet test docs/snippets/Snippets.slnx --no-build --filter "FullyQualifiedName~AttributeNameExamples" --verbosity normal
 ```
 
 ### Step 7: Update the Plan File
@@ -203,7 +207,7 @@ Document the enum values in a table.
 
 When documenting command line usage:
 
-1. **Use appropriate code fences** - Use ` ```shell ` for command line examples, not ` ```shell ` or plain code blocks.
+1. **Use appropriate code fences** - Use ` ```shell ` for command line examples, not ` ```bash `, ` ```text `, or untagged code blocks.
 
 2. **Prioritize `dotnet test`** - Always mention `dotnet test` before the NUnit console runner, as it is used far more frequently.
 

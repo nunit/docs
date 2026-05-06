@@ -63,13 +63,13 @@ public class TestCaseDataExample
         private static IEnumerable<TestCaseData> GenericTestCases()
         {
             // Using TestCaseData<T> automatically sets TypeArgs to typeof(T)
-            // This ensures the generic method uses 'long' even though 2 is an int
+            // This ensures the generic method uses 'long'
             yield return new TestCaseData<long>(2L)
             {
                 ExpectedResult = typeof(long)
             };
 
-            // Multiple type parameters with TestCaseData<T1, T2>
+            // Another single type parameter example with TestCaseData<T>
             yield return new TestCaseData<int>(42)
             {
                 ExpectedResult = typeof(int)
