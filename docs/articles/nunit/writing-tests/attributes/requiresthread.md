@@ -1,5 +1,5 @@
 ---
-uid: requiresthread-attribute
+uid: attribute-requiresthread
 ---
 
 # RequiresThread
@@ -49,5 +49,5 @@ RequiresThreadAttribute(ApartmentState apartment)
 
 ## See Also
 
-* [Apartment Attribute](xref:apartment-attribute)
-* [SingleThreaded Attribute](xref:singlethreadedattribute)
+* [Apartment Attribute](xref:attribute-apartment)
+* [SingleThreaded Attribute](xref:attribute-singlethreaded)

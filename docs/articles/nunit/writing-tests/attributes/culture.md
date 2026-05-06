@@ -1,5 +1,5 @@
 ---
-uid: cultureattribute
+uid: attribute-culture
 ---
 
 # Culture
@@ -60,5 +60,5 @@ CultureAttribute(string cultures)
 
 ## See Also
 
-* [SetCulture Attribute](xref:setcultureattribute)
-* [SetUICulture Attribute](xref:setuicultureattribute)
+* [SetCulture Attribute](xref:attribute-setculture)
+* [SetUICulture Attribute](xref:attribute-setuiculture)

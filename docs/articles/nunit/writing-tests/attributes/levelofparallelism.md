@@ -1,5 +1,5 @@
 ---
-uid: levelofparallelismattribute
+uid: attribute-levelofparallelism
 ---
 
 # LevelOfParallelism
@@ -48,6 +48,6 @@ using NUnit.Framework;
 
 ## See Also
 
-* [Parallelizable Attribute](xref:parallelizableattribute)
-* [NonParallelizable Attribute](xref:nonparallelizableattribute)
+* [Parallelizable Attribute](xref:attribute-parallelizable)
+* [NonParallelizable Attribute](xref:attribute-nonparallelizable)
 * [Console Command Line](xref:consolecommandline)

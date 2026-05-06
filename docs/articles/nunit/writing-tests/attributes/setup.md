@@ -1,5 +1,5 @@
 ---
-uid: setup-attribute
+uid: attribute-setup
 ---
 
 # SetUp
@@ -7,8 +7,8 @@ uid: setup-attribute
 `SetUpAttribute` marks a method NUnit calls **immediately before each** `[Test]`, `[TestCase]`, `[Theory]`, etc. in the
 fixture. Use it to reset or prepare **per-test** instance state that should not leak between cases.
 
-The method lives on your [`TestFixture`](xref:testfixtureattribute) (or fixture base classes in the inheritance chain). Typical use is
-alongside **[`TearDown`](xref:teardown-attribute)** for symmetrical cleanup afterward.
+The method lives on your [`TestFixture`](xref:attribute-testfixture) (or fixture base classes in the inheritance chain). Typical use is
+alongside **[`TearDown`](xref:attribute-teardown)** for symmetrical cleanup afterward.
 
 Normally you scatter **multiple** `[SetUp]` methods across inheritance levels (**base**, then **derived**). Declaring several
 marked methods on **one class** is allowed, but mutual **order among them is undefined** unless you constrain them logically.
@@ -17,7 +17,7 @@ marked methods on **one class** is allowed, but mutual **order among them is und
 
 `SetUp` may be **`static`** or an **instance** method. Instance methods execute on **`context.TestObject`**, meaning the **same
 fixture instance** that receives the imminent test (`LifeCycle.SingleInstance`) or **a freshly constructed instance** before
-every test when [`LifeCycle.InstancePerTestCase`](xref:fixturelifecycleattribute) is in effect.
+every test when [`LifeCycle.InstancePerTestCase`](xref:attribute-fixturelifecycle) is in effect.
 
 Prefer **instance** `SetUp` for fields on the test object; use **`static`** only when the preparation truly applies without a
 specific instance (be careful with shared static state under parallel runs).
@@ -27,7 +27,7 @@ Methods may be **`async`** (`Task` / `Task<T>`); NUnit awaits them like other as
 ## Failures and assumptions
 
 If `SetUp` throws or an assertion fails, the **test method body is not run**; the result reflects a **setup** failure
-(`FailureSite.SetUp`). [`TearDown`](xref:teardown-attribute) for that same per-test scope **still runs afterwards** in normal operation
+(`FailureSite.SetUp`). [`TearDown`](xref:attribute-teardown) for that same per-test scope **still runs afterwards** in normal operation
 so you can release partially initialized resources—unless the run is **aborted** before teardown is reached.
 
 If you use **`Assume.That(...)`** in `SetUp`, a failed assumption also prevents the test body from running (treated like a
@@ -72,8 +72,8 @@ methods before those in the derived classes.
 
 ## See Also
 
-* [TearDown Attribute](xref:teardown-attribute)
-* [OneTimeSetUp Attribute](xref:onetimesetup-attribute)
-* [OneTimeTearDown Attribute](xref:onetimeteardown-attribute)
-* [FixtureLifeCycle Attribute](xref:fixturelifecycleattribute)
-* [TestFixture Attribute](xref:testfixtureattribute)
+* [TearDown Attribute](xref:attribute-teardown)
+* [OneTimeSetUp Attribute](xref:attribute-onetimesetup)
+* [OneTimeTearDown Attribute](xref:attribute-onetimeteardown)
+* [FixtureLifeCycle Attribute](xref:attribute-fixturelifecycle)
+* [TestFixture Attribute](xref:attribute-testfixture)

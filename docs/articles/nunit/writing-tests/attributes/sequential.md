@@ -1,5 +1,5 @@
 ---
-uid: sequentialattribute
+uid: attribute-sequential
 ---
 
 # Sequential
@@ -47,6 +47,6 @@ MyTest(3, null)
 
 ## See Also
 
-* [Combinatorial Attribute](xref:combinatorialattribute)
-* [Pairwise Attribute](xref:pairwiseattribute)
-* [Values Attribute](xref:valuesattribute)
+* [Combinatorial Attribute](xref:attribute-combinatorial)
+* [Pairwise Attribute](xref:attribute-pairwise)
+* [Values Attribute](xref:attribute-values)

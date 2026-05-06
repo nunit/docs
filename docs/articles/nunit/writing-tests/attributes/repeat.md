@@ -1,5 +1,5 @@
 ---
-uid: repeatattribute
+uid: attribute-repeat
 ---
 
 # Repeat
@@ -52,4 +52,4 @@ RepeatAttribute(int count, bool stopOnFailure)
 
 ## See Also
 
-* [Retry Attribute](xref:retryattribute)
+* [Retry Attribute](xref:attribute-retry)

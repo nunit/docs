@@ -1,5 +1,5 @@
 ---
-uid: platformattribute
+uid: attribute-platform
 ---
 
 # Platform

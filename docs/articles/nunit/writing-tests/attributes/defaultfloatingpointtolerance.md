@@ -1,5 +1,5 @@
 ---
-uid: defaultfloatingpointtoleranceattribute
+uid: attribute-defaultfloatingpointtolerance
 ---
 
 # DefaultFloatingPointTolerance

@@ -1,5 +1,5 @@
 ---
-uid: testof-attribute
+uid: attribute-testof
 ---
 
 # TestOf
@@ -56,6 +56,6 @@ TestOfAttribute(string typeName)
 
 ## See Also
 
-* [Property Attribute](xref:propertyattribute)
-* [Description Attribute](xref:description-attribute)
-* [Category Attribute](xref:category-attribute)
+* [Property Attribute](xref:attribute-property)
+* [Description Attribute](xref:attribute-description)
+* [Category Attribute](xref:attribute-category)

@@ -1,5 +1,5 @@
 ---
-uid: retryattribute
+uid: attribute-retry
 ---
 
 # Retry
@@ -48,4 +48,4 @@ When you need to retry on specific exception types (such as `TimeoutException` o
 
 ## See Also
 
-* [Repeat Attribute](xref:repeatattribute)
+* [Repeat Attribute](xref:attribute-repeat)

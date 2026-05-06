@@ -1,5 +1,5 @@
 ---
-uid: setcultureattribute
+uid: attribute-setculture
 ---
 
 # SetCulture
@@ -51,5 +51,5 @@ When applied at multiple levels, the most specific level takes precedence. The a
 
 ## See Also
 
-* [SetUICulture Attribute](xref:setuicultureattribute)
-* [Culture Attribute](xref:cultureattribute)
+* [SetUICulture Attribute](xref:attribute-setuiculture)
+* [Culture Attribute](xref:attribute-culture)

@@ -1,5 +1,5 @@
 ---
-uid: pairwiseattribute
+uid: attribute-pairwise
 ---
 
 # Pairwise
@@ -50,5 +50,5 @@ as it can. Improvements may be made in the future.
 
 ## See Also
 
-* [Sequential Attribute](xref:sequentialattribute)
-* [Combinatorial Attribute](xref:combinatorialattribute)
+* [Sequential Attribute](xref:attribute-sequential)
+* [Combinatorial Attribute](xref:attribute-combinatorial)

@@ -1,5 +1,5 @@
 ---
-uid: orderattribute
+uid: attribute-order
 ---
 
 # Order
@@ -50,5 +50,5 @@ OrderAttribute(int order)
 
 ## See Also
 
-* [Parallelizable Attribute](xref:parallelizableattribute)
-* [NonParallelizable Attribute](xref:nonparallelizableattribute)
+* [Parallelizable Attribute](xref:attribute-parallelizable)
+* [NonParallelizable Attribute](xref:attribute-nonparallelizable)

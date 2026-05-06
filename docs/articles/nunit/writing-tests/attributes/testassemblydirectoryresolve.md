@@ -1,5 +1,5 @@
 ---
-uid: testassemblydirectoryresolveattribute
+uid: attribute-testassemblydirectoryresolve
 ---
 
 # TestAssemblyDirectoryResolve
@@ -94,5 +94,5 @@ public class PluginTests
 
 ## See Also
 
-* [NonTestAssembly Attribute](xref:nontestassembly)
+* [NonTestAssembly Attribute](xref:attribute-nontestassembly)
 * [.NET Assembly Loading](https://learn.microsoft.com/en-us/dotnet/framework/deployment/how-the-runtime-locates-assemblies)

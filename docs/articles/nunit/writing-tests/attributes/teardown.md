@@ -1,11 +1,11 @@
 ---
-uid: teardown-attribute
+uid: attribute-teardown
 ---
 
 # TearDown
 
 `TearDownAttribute` marks a method NUnit calls **immediately after each** test case finishes under a
-[`TestFixture`](xref:testfixtureattribute). Pair it with [`SetUp`](xref:setup-attribute) to release **per-test** resources (files, handles, mock
+[`TestFixture`](xref:attribute-testfixture). Pair it with [`SetUp`](xref:attribute-setup) to release **per-test** resources (files, handles, mock
 substitutions, etc.).
 
 Like `SetUp`, you usually place tear-down helpers on **base classes** and **derived fixtures** rather than stacking many
@@ -15,7 +15,7 @@ methods on a single class (allowed, but **order among them is undefined**).
 
 `TearDown` may be **`static`** or an **instance** method and runs on the **same logical fixture object** NUnit used for that
 test’s `SetUp` and test body (including a **new** instance per test when
-[`LifeCycle.InstancePerTestCase`](xref:fixturelifecycleattribute) applies).
+[`LifeCycle.InstancePerTestCase`](xref:attribute-fixturelifecycle) applies).
 
 **`async`** `Task` / `Task<T>` methods are supported.
 
@@ -30,7 +30,7 @@ test’s `SetUp` and test body (including a **new** instance per test when
   exception separately if both occur.
 
 The only broad exception is an **abort** (`TestExecutionStatus.AbortRequested`), where NUnit may omit the teardown callback
-entirely—mirroring the behavior described for [`OneTimeTearDown`](xref:onetimeteardown-attribute).
+entirely—mirroring the behavior described for [`OneTimeTearDown`](xref:attribute-onetimeteardown).
 
 Teardown failures or assertions are attached to the test result as **teardown** issues (`FailureSite.TearDown`) while
 preserving the original test outcome when possible.
@@ -75,8 +75,8 @@ methods after those in the derived classes.
 
 ## See Also
 
-* [SetUp Attribute](xref:setup-attribute)
-* [OneTimeSetUp Attribute](xref:onetimesetup-attribute)
-* [OneTimeTearDown Attribute](xref:onetimeteardown-attribute)
-* [FixtureLifeCycle Attribute](xref:fixturelifecycleattribute)
-* [TestFixture Attribute](xref:testfixtureattribute)
+* [SetUp Attribute](xref:attribute-setup)
+* [OneTimeSetUp Attribute](xref:attribute-onetimesetup)
+* [OneTimeTearDown Attribute](xref:attribute-onetimeteardown)
+* [FixtureLifeCycle Attribute](xref:attribute-fixturelifecycle)
+* [TestFixture Attribute](xref:attribute-testfixture)

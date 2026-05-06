@@ -1279,11 +1279,11 @@ results file.
 
 ## NUnit 3.13 - January 7, 2021
 
-The [`FixtureLifeCycle`](xref:fixturelifecycleattribute) attribute has been added to indicate that an instance for a
+The [`FixtureLifeCycle`](xref:attribute-fixturelifecycle) attribute has been added to indicate that an instance for a
 test fixture or all test fixtures in an assembly should be constructed for each test within the fixture or assembly.
 
 This attribute may be applied to a test fixture (class) or to a test assembly. It is useful in combination with the
-[Parallelizable Attribute](xref:parallelizableattribute) so that a new instance of a test fixture is constructed for
+[Parallelizable Attribute](xref:attribute-parallelizable) so that a new instance of a test fixture is constructed for
 every test within the test fixture. This allows tests to run in isolation without sharing instance fields and properties
 during parallel test runs. This make running parallel tests easier because it is easier to make your tests thread safe.
 
@@ -1859,7 +1859,7 @@ prior to version 3.9.
 ## NUnit 3.7 - May 29, 2017
 
 This release of NUnit expands on parallel test execution to allow test methods to be run in parallel. Please see the
-[Parallelizable Attribute](xref:parallelizableattribute) for more information.
+[Parallelizable Attribute](xref:attribute-parallelizable) for more information.
 
 NUnit 3.7 also drops the Portable build of the framework and replaces it with a .NET Standard 1.3 version to compliment
 the .NET Standard 1.6 version. This change enables several constraints and other features in the .NET Standard builds

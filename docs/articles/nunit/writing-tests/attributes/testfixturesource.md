@@ -1,5 +1,5 @@
 ---
-uid: testfixturesourceattribute
+uid: attribute-testfixturesource
 ---
 
 # TestFixtureSource

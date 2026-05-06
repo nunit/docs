@@ -1,5 +1,5 @@
 ---
-uid: setuicultureattribute
+uid: attribute-setuiculture
 ---
 
 # SetUICulture
@@ -53,5 +53,5 @@ Use both attributes when you need to test with different formatting and UI cultu
 
 ## See Also
 
-* [SetCulture Attribute](xref:setcultureattribute)
-* [Culture Attribute](xref:cultureattribute)
+* [SetCulture Attribute](xref:attribute-setculture)
+* [Culture Attribute](xref:attribute-culture)

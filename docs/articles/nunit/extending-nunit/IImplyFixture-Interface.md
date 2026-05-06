@@ -12,7 +12,7 @@ If a class contains any method with an attribute that implements this interface,
 TestFixture without any `TestFixture` attribute being specified. The following NUnit attributes currently implement this
 interface:
 
-* [`TestAttribute`](xref:testattribute)
-* [`TestCaseAttribute`](xref:testcaseattribute)
-* [`TestCaseSourceAttribute`](xref:testcasesourceattribute)
-* [`TheoryAttribute`](xref:theoryattribute)
+* [`TestAttribute`](xref:attribute-test)
+* [`TestCaseAttribute`](xref:attribute-testcase)
+* [`TestCaseSourceAttribute`](xref:attribute-testcasesource)
+* [`TheoryAttribute`](xref:attribute-theory)

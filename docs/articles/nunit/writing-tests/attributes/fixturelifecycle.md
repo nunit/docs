@@ -1,5 +1,5 @@
 ---
-uid: fixturelifecycleattribute
+uid: attribute-fixturelifecycle
 ---
 
 # FixtureLifeCycle
@@ -15,7 +15,7 @@ Added in **NUnit 3.13**.
 Place the attribute on a **fixture class** to control that class, or on the **assembly** to set a default for all
 fixtures in that assembly. A class-level attribute **overrides** an assembly-level default.
 
-`InstancePerTestCase` is often combined with [Parallelizable](xref:parallelizableattribute). With a separate instance per test,
+`InstancePerTestCase` is often combined with [Parallelizable](xref:attribute-parallelizable). With a separate instance per test,
 instance fields are not shared while tests run in parallel, which avoids a common source of interference and often makes
 **thread safety for instance state** easier—while still leaving you responsible for static state, shared singletons, and
 other resources outside the fixture instance.
@@ -53,21 +53,21 @@ Assembly-level settings can be overridden by a class-level attribute.
 
 ## Notes
 
-* When using `LifeCycle.InstancePerTestCase`, the [`OneTimeSetUp`](xref:onetimesetup-attribute) and
-  [`OneTimeTearDown`](xref:onetimeteardown-attribute) methods must be static, and each are only called once. This is
+* When using `LifeCycle.InstancePerTestCase`, the [`OneTimeSetUp`](xref:attribute-onetimesetup) and
+  [`OneTimeTearDown`](xref:attribute-onetimeteardown) methods must be static, and each are only called once. This is
   required so that the setup or teardown methods do not access instance fields or properties that are reset for every
   test.
 
 * When using `LifeCycle.InstancePerTestCase`, a class's constructor will be called before every test is executed and
   `IDisposable` test fixtures will be disposed after the test is finished.
 
-* [`SetUp`](xref:setup-attribute) and [`TearDown`](xref:teardown-attribute) methods are called before and after every
+* [`SetUp`](xref:attribute-setup) and [`TearDown`](xref:attribute-teardown) methods are called before and after every
   test.
 
 * The `Order` attribute is respected.
 
 ## See Also
 
-* [Parallelizable Attribute](xref:parallelizableattribute)
-* [OneTimeSetUp Attribute](xref:onetimesetup-attribute)
-* [OneTimeTearDown Attribute](xref:onetimeteardown-attribute)
+* [Parallelizable Attribute](xref:attribute-parallelizable)
+* [OneTimeSetUp Attribute](xref:attribute-onetimesetup)
+* [OneTimeTearDown Attribute](xref:attribute-onetimeteardown)

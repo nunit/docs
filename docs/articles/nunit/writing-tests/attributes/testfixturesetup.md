@@ -1,11 +1,11 @@
 ---
-uid: testfixturesetupattribute
+uid: attribute-testfixturesetup
 ---
 
 # TestFixtureSetUp
 
 > [!IMPORTANT]
-> The TestFixtureSetUp attribute has been deprecated. Use [OneTimeSetUp Attribute](xref:onetimesetup-attribute) instead.
+> The TestFixtureSetUp attribute has been deprecated. Use [OneTimeSetUp Attribute](xref:attribute-onetimesetup) instead.
 
 `TestFixtureSetUpAttribute` was used in older NUnit versions for one-time setup before tests in a fixture.
 
@@ -21,5 +21,5 @@ This legacy attribute is deprecated and should be replaced with `[OneTimeSetUp]`
 
 ## See Also
 
-* [OneTimeSetUp Attribute](xref:onetimesetup-attribute)
-* [SetUp Attribute](xref:setup-attribute)
+* [OneTimeSetUp Attribute](xref:attribute-onetimesetup)
+* [SetUp Attribute](xref:attribute-setup)

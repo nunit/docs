@@ -26,9 +26,9 @@ arguments supplied to them. They are not called after the test is run and have n
 
 The NUnit attributes that implement `IApplyToContext` are as follows:
 
-* [`DefaultFloatingPointToleranceAttribute`](xref:defaultfloatingpointtoleranceattribute)
-* [`ParallelizableAttribute`](xref:parallelizableattribute)
-* [`SetCultureAttribute`](xref:setcultureattribute)
-* [`SetUICultureAttribute`](xref:setuicultureattribute)
-* [`SingleThreadedAttribute`](xref:singlethreadedattribute)
-* [`TimeoutAttribute`](xref:timeout-attribute)
+* [`DefaultFloatingPointToleranceAttribute`](xref:attribute-defaultfloatingpointtolerance)
+* [`ParallelizableAttribute`](xref:attribute-parallelizable)
+* [`SetCultureAttribute`](xref:attribute-setculture)
+* [`SetUICultureAttribute`](xref:attribute-setuiculture)
+* [`SingleThreadedAttribute`](xref:attribute-singlethreaded)
+* [`TimeoutAttribute`](xref:attribute-timeout)

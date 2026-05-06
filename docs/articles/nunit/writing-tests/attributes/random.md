@@ -1,5 +1,5 @@
 ---
-uid: randomattribute
+uid: attribute-random
 ---
 
 # Random
@@ -87,9 +87,9 @@ RandomAttribute(double min, double max, int count)
 
 ## See Also
 
-* [Values Attribute](xref:valuesattribute)
-* [Range Attribute](xref:rangeattribute)
-* [Sequential Attribute](xref:sequentialattribute)
-* [Combinatorial Attribute](xref:combinatorialattribute)
-* [Pairwise Attribute](xref:pairwiseattribute)
+* [Values Attribute](xref:attribute-values)
+* [Range Attribute](xref:attribute-range)
+* [Sequential Attribute](xref:attribute-sequential)
+* [Combinatorial Attribute](xref:attribute-combinatorial)
+* [Pairwise Attribute](xref:attribute-pairwise)
 * [Randomizer Methods](xref:randomizermethods)

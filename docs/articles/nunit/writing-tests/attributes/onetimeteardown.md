@@ -1,13 +1,13 @@
 ---
-uid: onetimeteardown-attribute
+uid: attribute-onetimeteardown
 ---
 
 # OneTimeTearDown
 
 `OneTimeTearDownAttribute` marks a method that runs **once** after **every child test finished** under a suite—for that
-fixture or setup-fixture scope. Pair it with [`OneTimeSetUp`](xref:onetimesetup-attribute).
+fixture or setup-fixture scope. Pair it with [`OneTimeSetUp`](xref:attribute-onetimesetup).
 
-Put it on a method inside a [`TestFixture`](xref:testfixtureattribute) or a [`SetUpFixture`](xref:setupfixture-attribute).
+Put it on a method inside a [`TestFixture`](xref:attribute-testfixture) or a [`SetUpFixture`](xref:attribute-setupfixture).
 
 Normally you declare multiple `OneTimeTearDown` methods spread across an **inheritance chain** (derived first at runtime,
 then base—see **Inheritance** below). Putting several methods on the **same class** is allowed, but execution **order among
@@ -17,11 +17,11 @@ them is undefined** unless you constrain them logically.
 
 `OneTimeTearDown` may be **static** or an **instance** method.
 
-With [`LifeCycle.SingleInstance`](xref:fixturelifecycleattribute), an **instance** method runs once on the same shared fixture instance
+With [`LifeCycle.SingleInstance`](xref:attribute-fixturelifecycle), an **instance** method runs once on the same shared fixture instance
 that held `OneTimeSetUp`/`SetUp`; use it for instance-field cleanup tied to shared setup.
 
-With [`FixtureLifeCycle(LifeCycle.InstancePerTestCase)`](xref:fixturelifecycleattribute), `OneTimeTearDown` **must be static**. It runs
-once after all tests despite each case having its **own** instance; instance teardown belongs in [`TearDown`](xref:teardown-attribute)
+With [`FixtureLifeCycle(LifeCycle.InstancePerTestCase)`](xref:attribute-fixturelifecycle), `OneTimeTearDown` **must be static**. It runs
+once after all tests despite each case having its **own** instance; instance teardown belongs in [`TearDown`](xref:attribute-teardown)
 per test instead.
 
 Methods may be **async** (`Task` / `Task<T>`); NUnit will wait for completion.
@@ -30,7 +30,7 @@ Methods may be **async** (`Task` / `Task<T>`); NUnit will wait for completion.
 
 * **`TestFixture`** — teardown runs **after all tests declared in that fixture** (every parameterized case rooted there)
 finish, failed or passed unless something aborts scheduling earlier.
-* **`SetUpFixture`** — teardown runs once after everything under that [**SetUpFixture**](xref:setupfixture-attribute) slice finishes,
+* **`SetUpFixture`** — teardown runs once after everything under that [**SetUpFixture**](xref:attribute-setupfixture) slice finishes,
 matching the broader “run once init / run once cleanup” workflow.
 
 Teardown semantics for **abstract or concrete bases** mirror setup: inheritance causes code to participate per derived
@@ -39,8 +39,8 @@ lifetime control.
 
 ## When teardown runs relative to failures
 
-* **After [`OneTimeSetUp`](xref:onetimesetup-attribute) fails** — once children are skipped, NUnit typically still invokes
-this fixture’s teardown chain so disposal paths can execute. See **[OneTimeSetUp — Failures and exceptions](xref:onetimesetup-attribute#failures-and-exceptions)**.
+* **After [`OneTimeSetUp`](xref:attribute-onetimesetup) fails** — once children are skipped, NUnit typically still invokes
+this fixture’s teardown chain so disposal paths can execute. See **[OneTimeSetUp — Failures and exceptions](xref:attribute-onetimesetup#failures-and-exceptions)**.
 
 * **`OneTimeTearDown` failures** — assertion failures or exceptions during teardown are recorded on the **fixture / suite**
   result as teardown failures. Individual child test outcomes are usually left as they were, but runners still surface the
@@ -95,8 +95,8 @@ OneTimeTearDown methods after those in the derived classes.
 
 ## See Also
 
-* [SetUp Attribute](xref:setup-attribute)
-* [TearDown Attribute](xref:teardown-attribute)
-* [OneTimeSetUp Attribute](xref:onetimesetup-attribute)
-* [SetUpFixture Attribute](xref:setupfixture-attribute)
-* [FixtureLifeCycle Attribute](xref:fixturelifecycleattribute)
+* [SetUp Attribute](xref:attribute-setup)
+* [TearDown Attribute](xref:attribute-teardown)
+* [OneTimeSetUp Attribute](xref:attribute-onetimesetup)
+* [SetUpFixture Attribute](xref:attribute-setupfixture)
+* [FixtureLifeCycle Attribute](xref:attribute-fixturelifecycle)

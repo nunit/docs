@@ -1,5 +1,5 @@
 ---
-uid: setupfixture-attribute
+uid: attribute-setupfixture
 ---
 
 # SetUpFixture
@@ -77,7 +77,7 @@ The defined order is as follows...
 
 ## See Also
 
-* [SetUp Attribute](xref:setup-attribute)
-* [TearDown Attribute](xref:teardown-attribute)
-* [OneTimeSetUp Attribute](xref:onetimesetup-attribute)
-* [OneTimeTearDown Attribute](xref:onetimeteardown-attribute)
+* [SetUp Attribute](xref:attribute-setup)
+* [TearDown Attribute](xref:attribute-teardown)
+* [OneTimeSetUp Attribute](xref:attribute-onetimesetup)
+* [OneTimeTearDown Attribute](xref:attribute-onetimeteardown)

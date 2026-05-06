@@ -1,11 +1,11 @@
 ---
-uid: netplatformattribute
+uid: attribute-netplatform
 ---
 
 # NetPlatform
 
 The `NetPlatformAttribute` is used to specify platforms for which a test or fixture should be run. It is a modern
-replacement for the [Platform](xref:platformattribute) attribute, using platform names based on the .NET `TargetFramework`
+replacement for the [Platform](xref:attribute-platform) attribute, using platform names based on the .NET `TargetFramework`
 conventions as documented in [CA1416: Validate platform
 compatibility](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416).
 
@@ -104,6 +104,6 @@ Platform names can include version numbers to specify minimum version requiremen
 
 ## See Also
 
-* [Platform Attribute](xref:platformattribute)
-* [Culture Attribute](xref:cultureattribute)
+* [Platform Attribute](xref:attribute-platform)
+* [Culture Attribute](xref:attribute-culture)
 * [CA1416: Validate platform compatibility](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416)

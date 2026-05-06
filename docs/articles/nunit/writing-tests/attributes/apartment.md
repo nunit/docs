@@ -1,5 +1,5 @@
 ---
-uid: apartment-attribute
+uid: attribute-apartment
 ---
 
 # Apartment
@@ -60,6 +60,6 @@ When applied at multiple levels, the most specific level takes precedence.
 
 ## See Also
 
-* [RequiresThread Attribute](xref:requiresthread-attribute)
-* [SingleThreaded Attribute](xref:singlethreadedattribute)
-* [Parallelizable Attribute](xref:parallelizableattribute)
+* [RequiresThread Attribute](xref:attribute-requiresthread)
+* [SingleThreaded Attribute](xref:attribute-singlethreaded)
+* [Parallelizable Attribute](xref:attribute-parallelizable)

@@ -1,5 +1,5 @@
 ---
-uid: unhandledexceptionhandlingattribute
+uid: attribute-unhandledexceptionhandling
 ---
 
 <!-- markdownlint-disable MD028 -->

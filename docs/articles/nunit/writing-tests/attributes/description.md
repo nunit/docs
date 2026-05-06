@@ -1,5 +1,5 @@
 ---
-uid: description-attribute
+uid: attribute-description
 ---
 
 # Description
@@ -54,6 +54,6 @@ DescriptionAttribute(string description)
 
 ## See Also
 
-* [Property Attribute](xref:propertyattribute)
-* [Author Attribute](xref:author-attribute)
-* [Category Attribute](xref:category-attribute)
+* [Property Attribute](xref:attribute-property)
+* [Author Attribute](xref:attribute-author)
+* [Category Attribute](xref:attribute-category)

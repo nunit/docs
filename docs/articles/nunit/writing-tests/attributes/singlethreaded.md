@@ -1,5 +1,5 @@
 ---
-uid: singlethreadedattribute
+uid: attribute-singlethreaded
 ---
 
 # SingleThreaded
@@ -33,7 +33,7 @@ This is a parameterless attribute that can only be applied to test fixture class
 
 ## See Also
 
-* [Parallelizable Attribute](xref:parallelizableattribute)
-* [NonParallelizable Attribute](xref:nonparallelizableattribute)
-* [RequiresThread Attribute](xref:requiresthread-attribute)
-* [Apartment Attribute](xref:apartment-attribute)
+* [Parallelizable Attribute](xref:attribute-parallelizable)
+* [NonParallelizable Attribute](xref:attribute-nonparallelizable)
+* [RequiresThread Attribute](xref:attribute-requiresthread)
+* [Apartment Attribute](xref:attribute-apartment)

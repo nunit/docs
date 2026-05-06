@@ -1,5 +1,5 @@
 ---
-uid: testfixtureattribute
+uid: attribute-testfixture
 ---
 
 # TestFixture

@@ -1,5 +1,5 @@
 ---
-uid: valuesource
+uid: attribute-valuesource
 ---
 
 # ValueSource
@@ -59,5 +59,5 @@ between different runs - except through the parameters themselves.
 
 ## See Also
 
-* [TestCaseSource Attribute](xref:testcasesourceattribute)
-* [Values Attribute](xref:valuesattribute)
+* [TestCaseSource Attribute](xref:attribute-testcasesource)
+* [Values Attribute](xref:attribute-values)

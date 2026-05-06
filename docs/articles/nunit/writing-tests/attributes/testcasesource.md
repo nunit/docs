@@ -1,5 +1,5 @@
 ---
-uid: testcasesourceattribute
+uid: attribute-testcasesource
 ---
 
 # TestCaseSource
@@ -35,13 +35,13 @@ See **Usage** below for when to use each form.
 Besides the positional constructor arguments, **`TestCaseSource`** exposes **`Category`** as its main **writable** named
 argument. Assign it inline on the **`[TestCaseSource(...)]`** clause—**do not** add a sibling `[Category]` attribute
 expecting case-level tagging; that attaches to the **fixture** metadata instead (similar caveats apply as on
-[TestCase named parameters](xref:testcaseattribute#named-parameters-overview)).
+[TestCase named parameters](xref:attribute-testcase#named-parameters-overview)).
 
 ```csharp
 [TestCaseSource(nameof(MyCases), Category = "Fast,Smoke")]
 ```
 
-* Separate multiple entries with commas, following the usual **[Category attribute](xref:category-attribute)** rules (`"Smoke,Integration"`).
+* Separate multiple entries with commas, following the usual **[Category attribute](xref:attribute-category)** rules (`"Smoke,Integration"`).
 * **Every generated test** from **that `[TestCaseSource]` application** inherits the supplied categories—you cannot cherry-pick categories per yielded row unless you bake them into **`TestCaseData`** / **`TestCaseParameters`** inside the enumerator.
 
 [!code-csharp[TestCaseSourceWithCategory](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#TestCaseSourceWithCategory)]
@@ -192,7 +192,7 @@ provides it automatically.
 
 [!code-csharp[CancellationTokenSupport](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#CancellationTokenSupport)]
 
-See [CancelAfter](xref:cancelafterattribute) for more information on cancellation token handling.
+See [CancelAfter](xref:attribute-cancelafter) for more information on cancellation token handling.
 
 ## Test Case Construction
 

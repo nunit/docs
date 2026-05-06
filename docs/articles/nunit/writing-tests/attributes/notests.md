@@ -1,5 +1,5 @@
 ---
-uid: notestsattribute
+uid: attribute-notests
 ---
 
 # NoTests
@@ -91,6 +91,6 @@ The most specific level wins when multiple attributes apply.
 
 ## See Also
 
-* [TestCaseSource Attribute](xref:testcasesourceattribute)
-* [TestCase Attribute](xref:testcaseattribute)
-* [Theory Attribute](xref:theoryattribute)
+* [TestCaseSource Attribute](xref:attribute-testcasesource)
+* [TestCase Attribute](xref:attribute-testcase)
+* [Theory Attribute](xref:attribute-theory)

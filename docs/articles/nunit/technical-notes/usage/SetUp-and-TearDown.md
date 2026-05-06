@@ -2,13 +2,13 @@
 
 ## Attribute Usage
 
-* [SetUpAttribute](xref:setup-attribute) is now used exclusively for per-test setup.
-* [TearDownAttribute](xref:teardown-attribute) is now used exclusively for per-test teardown.
-* [OneTimeSetUpAttribute](xref:onetimesetup-attribute) is used for one-time setup per test-run. If you run _n_ tests,
+* [SetUpAttribute](xref:attribute-setup) is now used exclusively for per-test setup.
+* [TearDownAttribute](xref:attribute-teardown) is now used exclusively for per-test teardown.
+* [OneTimeSetUpAttribute](xref:attribute-onetimesetup) is used for one-time setup per test-run. If you run _n_ tests,
   this event will only occur once.
-* [OneTimeTearDownAttribute](xref:onetimeteardown-attribute) is used for one-time teardown per test-run. If you run _n_
+* [OneTimeTearDownAttribute](xref:attribute-onetimeteardown) is used for one-time teardown per test-run. If you run _n_
   tests, this event will only occur once
-* [SetUpFixtureAttribute](xref:setupfixture-attribute) continues to be used as at before, but with changed method
+* [SetUpFixtureAttribute](xref:attribute-setupfixture) continues to be used as at before, but with changed method
   attributes.
 
 ### Attribute Usage by Fixture Type

@@ -16,9 +16,9 @@ create it.
 
 The following NUnit attributes currently implement this interface:
 
-* [`TestFixtureAttribute`](xref:testfixtureattribute)
-* [`TestFixtureSourceAttribute`](xref:testfixturesourceattribute)
-* [`SetUpFixtureAttribute`](xref:setupfixture-attribute)
+* [`TestFixtureAttribute`](xref:attribute-testfixture)
+* [`TestFixtureSourceAttribute`](xref:attribute-testfixturesource)
+* [`SetUpFixtureAttribute`](xref:attribute-setupfixture)
 
 **Notes:**
 

@@ -1,5 +1,5 @@
 ---
-uid: testattribute
+uid: attribute-test
 ---
 
 # Test
@@ -27,9 +27,9 @@ Use **named parameters** (properties on the attribute) for metadata and for chec
 
 | Property | Type | Description | Default |
 |----------|------|-------------|---------|
-| `Description` | `string?` | Descriptive text for the test. Equivalent to applying [`Description`](xref:description-attribute). | `null` |
-| `Author` | `string?` | Author metadata. Equivalent to applying [`Author`](xref:author-attribute). | `null` |
-| `TestOf` | `Type?` | Type under test. Equivalent to applying [`TestOf`](xref:testof-attribute). | `null` |
+| `Description` | `string?` | Descriptive text for the test. Equivalent to applying [`Description`](xref:attribute-description). | `null` |
+| `Author` | `string?` | Author metadata. Equivalent to applying [`Author`](xref:attribute-author). | `null` |
+| `TestOf` | `Type?` | Type under test. Equivalent to applying [`TestOf`](xref:attribute-testof). | `null` |
 | `ExpectedResult` | `object?` | Expected return value; NUnit compares it to the method result. **Not valid** if the test method has parameters. | (unset) |
 
 If the test method returns a value and you set `ExpectedResult`, NUnit checks equality with the return value.
@@ -52,6 +52,6 @@ If the test method returns a value and you set `ExpectedResult`, NUnit checks eq
 
 ## See Also
 
-* [TestCase Attribute](xref:testcaseattribute)
-* [TestCaseSource Attribute](xref:testcasesourceattribute)
-* [Theory Attribute](xref:theoryattribute)
+* [TestCase Attribute](xref:attribute-testcase)
+* [TestCaseSource Attribute](xref:attribute-testcasesource)
+* [Theory Attribute](xref:attribute-theory)

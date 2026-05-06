@@ -1,5 +1,5 @@
 ---
-uid: author-attribute
+uid: attribute-author
 ---
 
 # Author
@@ -46,6 +46,6 @@ AuthorAttribute(string name, string email)
 
 ## See Also
 
-* [Property Attribute](xref:propertyattribute)
-* [Description Attribute](xref:description-attribute)
-* [TestOf Attribute](xref:testof-attribute)
+* [Property Attribute](xref:attribute-property)
+* [Description Attribute](xref:attribute-description)
+* [TestOf Attribute](xref:attribute-testof)

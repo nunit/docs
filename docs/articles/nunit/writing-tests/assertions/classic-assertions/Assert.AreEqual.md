@@ -51,4 +51,4 @@ NUnit 3.0 adds the ability to compare generic collections and dictionaries.
 ## See Also
 
 * [Equal Constraint](xref:equalconstraint)
-* [DefaultFloatingPointTolerance Attribute](xref:defaultfloatingpointtoleranceattribute)
+* [DefaultFloatingPointTolerance Attribute](xref:attribute-defaultfloatingpointtolerance)

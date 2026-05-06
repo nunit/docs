@@ -1,11 +1,11 @@
 ---
-uid: testfixtureteardownattribute
+uid: attribute-testfixtureteardown
 ---
 
 # TestFixtureTearDown
 
 > [!IMPORTANT]
-> The TestFixtureTearDown attribute has been deprecated. Use [OneTimeTearDown Attribute](xref:onetimeteardown-attribute) instead.
+> The TestFixtureTearDown attribute has been deprecated. Use [OneTimeTearDown Attribute](xref:attribute-onetimeteardown) instead.
 
 `TestFixtureTearDownAttribute` was used in older NUnit versions for one-time teardown after all tests in a fixture.
 
@@ -21,5 +21,5 @@ This legacy attribute is deprecated and should be replaced with `[OneTimeTearDow
 
 ## See Also
 
-* [OneTimeTearDown Attribute](xref:onetimeteardown-attribute)
-* [TearDown Attribute](xref:teardown-attribute)
+* [OneTimeTearDown Attribute](xref:attribute-onetimeteardown)
+* [TearDown Attribute](xref:attribute-teardown)

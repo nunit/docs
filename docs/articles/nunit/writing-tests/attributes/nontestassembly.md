@@ -1,5 +1,5 @@
 ---
-uid: nontestassembly
+uid: attribute-nontestassembly
 ---
 
 # NonTestAssembly

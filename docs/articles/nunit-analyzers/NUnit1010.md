@@ -36,7 +36,7 @@ public void NUnit1010SampleTest()
 In the sample above, `ParallelScope.Fixtures` is specified.
 
 However, in the context of a test method, a scope of `Fixtures` does not make sense. This scope [only applies at the
-assembly or class level](xref:parallelizableattribute).
+assembly or class level](xref:attribute-parallelizable).
 
 ### Fix
 

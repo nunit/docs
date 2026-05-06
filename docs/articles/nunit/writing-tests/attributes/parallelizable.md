@@ -1,5 +1,5 @@
 ---
-uid: parallelizableattribute
+uid: attribute-parallelizable
 ---
 
 # Parallelizable
@@ -37,7 +37,7 @@ ParallelizableAttribute(ParallelScope scope)
 > When tests are run in parallel, you are responsible for the thread safety of your tests. Tests that run at
 > the same time and modify instance fields or properties without locks will cause unexpected behavior as they would in
 > any multi-threaded program. If you are using fields or properties between parallel tests consider using the
-> [`FixtureLifeCycleAttribute`](xref:fixturelifecycleattribute) to construct a new instance of a test fixture (class)
+> [`FixtureLifeCycleAttribute`](xref:attribute-fixturelifecycle) to construct a new instance of a test fixture (class)
 > for each test that is run.
 
 Named argument form:
@@ -70,6 +70,6 @@ Named argument form:
 
 ## See Also
 
-* [FixtureLifeCycle Attribute](xref:fixturelifecycleattribute)
-* [NonParallelizable Attribute](xref:nonparallelizableattribute)
-* [LevelOfParallelism Attribute](xref:levelofparallelismattribute)
+* [FixtureLifeCycle Attribute](xref:attribute-fixturelifecycle)
+* [NonParallelizable Attribute](xref:attribute-nonparallelizable)
+* [LevelOfParallelism Attribute](xref:attribute-levelofparallelism)

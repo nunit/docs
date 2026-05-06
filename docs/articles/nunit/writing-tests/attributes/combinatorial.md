@@ -1,5 +1,5 @@
 ---
-uid: combinatorialattribute
+uid: attribute-combinatorial
 ---
 
 # Combinatorial
@@ -47,6 +47,6 @@ MyTest(3, "B")
 
 ## See Also
 
-* [Sequential Attribute](xref:sequentialattribute)
-* [Pairwise Attribute](xref:pairwiseattribute)
-* [Values Attribute](xref:valuesattribute)
+* [Sequential Attribute](xref:attribute-sequential)
+* [Pairwise Attribute](xref:attribute-pairwise)
+* [Values Attribute](xref:attribute-values)

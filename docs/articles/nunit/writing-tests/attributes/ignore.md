@@ -1,5 +1,5 @@
 ---
-uid: ignoreattribute
+uid: attribute-ignore
 ---
 
 # Ignore
@@ -69,6 +69,6 @@ individual test cases is possible, depending on how they are specified.
 
 ## See Also
 
-* [Explicit Attribute](xref:explicitattribute)
-* [TestCase Attribute](xref:testcaseattribute)
-* [TestCaseSource Attribute](xref:testcasesourceattribute)
+* [Explicit Attribute](xref:attribute-explicit)
+* [TestCase Attribute](xref:attribute-testcase)
+* [TestCaseSource Attribute](xref:attribute-testcasesource)
