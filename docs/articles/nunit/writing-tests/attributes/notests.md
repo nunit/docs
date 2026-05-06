@@ -61,7 +61,7 @@ Use `TestStatus.Inconclusive` when empty test cases indicate an indeterminate st
 
 [!code-csharp[NoTestsInconclusive](~/snippets/Snippets.NUnit/Attributes/NoTestsAttributeExamples.cs#NoTestsInconclusive)]
 
-## Common scenarios
+## Common Scenarios
 
 ### Dynamic test data
 
