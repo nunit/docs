@@ -1,3 +1,7 @@
+---
+uid: constraint-regex
+---
+
 # RegexConstraint
 
 `RegexConstraint` tests that a pattern is matched.

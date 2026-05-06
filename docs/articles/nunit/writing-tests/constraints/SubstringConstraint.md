@@ -1,3 +1,7 @@
+---
+uid: constraint-substring
+---
+
 # Substring Constraint
 
 `SubstringConstraint` tests for a substring.

@@ -1,3 +1,7 @@
+---
+uid: constraint-emptystring
+---
+
 # EmptyString Constraint
 
 The `EmptyStringConstraint` tests if a string is empty.

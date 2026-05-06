@@ -1,3 +1,7 @@
+---
+uid: constraint-and
+---
+
 # And Constraint
 
 `AndConstraint` combines two other constraints and succeeds only if they both succeed.

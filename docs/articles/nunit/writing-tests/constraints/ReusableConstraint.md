@@ -1,3 +1,7 @@
+---
+uid: constraint-reusable
+---
+
 # Reusable Constraint
 
 Normally constraints just work. However, attempting to reuse the

@@ -1,3 +1,7 @@
+---
+uid: constraint-greaterthan
+---
+
 # GreaterThan Constraint
 
 `GreaterThanConstraint` tests that one value is greater than another.

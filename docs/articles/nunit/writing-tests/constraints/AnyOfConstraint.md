@@ -1,10 +1,14 @@
+---
+uid: constraint-anyof
+---
+
 # AnyOf Constraint
 
 `AnyOfConstraint` is used to determine whether a value is equal to any of the expected values.
 
 > [!NOTE]
 > Values provided must be as parameters to the method, not as e.g. a separate array. If you are instead looking
-> to see if a collection contains a value, see the [SomeItems Constraint](xref:someitemsconstraint).
+> to see if a collection contains a value, see the [SomeItems Constraint](xref:constraint-someitems).
 
 ## Constructor
 

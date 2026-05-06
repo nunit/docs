@@ -35,4 +35,4 @@ additional verification of the exception. Note that you do not need to await the
 * [Assert.Catch](Assert.Catch.md)
 * [Assert.CatchAsync](Assert.CatchAsync.md)
 * [Assert.Throws](Assert.Throws.md)
-* [ThrowsConstraint](xref:throwsconstraint)
+* [ThrowsConstraint](xref:constraint-throws)

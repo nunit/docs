@@ -1,5 +1,5 @@
 ---
-uid: someitemsconstraint
+uid: constraint-someitems
 ---
 # SomeItems Constraint
 

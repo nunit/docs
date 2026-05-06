@@ -1,3 +1,7 @@
+---
+uid: constraint-attribute
+---
+
 # Attribute Constraint
 
 `AttributeConstraint` tests for the existence of an attribute on a Type and then applies a constraint to that attribute.

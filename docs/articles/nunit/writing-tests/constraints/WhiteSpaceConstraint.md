@@ -1,3 +1,7 @@
+---
+uid: constraint-whitespace
+---
+
 # WhiteSpace Constraint
 
 The `WhiteSpaceConstraint` tests if a string contains only white-space.

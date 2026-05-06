@@ -1,3 +1,7 @@
+---
+uid: constraint-attributeexists
+---
+
 # AttributeExists Constraint
 
 `AttributeExistsConstraint` tests for the existence of an attribute on a Type.

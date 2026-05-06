@@ -1,3 +1,7 @@
+---
+uid: constraint-nan
+---
+
 # NaN Constraint
 
 `NaNConstraint` tests that a value is floating-point NaN.

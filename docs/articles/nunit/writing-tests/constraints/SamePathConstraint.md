@@ -1,3 +1,7 @@
+---
+uid: constraint-samepath
+---
+
 # SamePath Constraint
 
 `SamePathConstraint` tests that two paths are equivalent.

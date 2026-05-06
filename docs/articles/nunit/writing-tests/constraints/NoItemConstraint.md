@@ -1,3 +1,7 @@
+---
+uid: constraint-noitem
+---
+
 # NoItem Constraint
 
 `NoItemConstraint` applies a constraint to each item in a collection, succeeding only if all of them fail. An exception

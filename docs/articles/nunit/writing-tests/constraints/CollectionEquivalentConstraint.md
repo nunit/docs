@@ -1,3 +1,7 @@
+---
+uid: constraint-collectionequivalent
+---
+
 # CollectionEquivalent Constraint
 
 `CollectionEquivalentConstraint` tests that two `IEnumerables` are equivalent - that they contain

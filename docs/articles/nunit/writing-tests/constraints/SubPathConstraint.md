@@ -1,3 +1,7 @@
+---
+uid: constraint-subpath
+---
+
 # SubPath Constraint
 
 `SubPathConstraint` tests that one path is under another path.

@@ -1,3 +1,7 @@
+---
+uid: constraint-binaryserializable
+---
+
 # BinarySerializable Constraint
 
 `BinarySerializableConstraint` tests whether an object is serializable in binary format.

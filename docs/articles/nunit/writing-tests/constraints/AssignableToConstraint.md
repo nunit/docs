@@ -1,3 +1,7 @@
+---
+uid: constraint-assignableto
+---
+
 # AssignableTo Constraint
 
 `AssignableToConstraint` tests that one type is assignable to another

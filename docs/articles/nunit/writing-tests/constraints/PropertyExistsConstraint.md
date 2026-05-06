@@ -1,3 +1,7 @@
+---
+uid: constraint-propertyexists
+---
+
 # PropertyExists Constraint
 
 The `PropertyExistsConstraint` tests for the existence of a named property on an object.

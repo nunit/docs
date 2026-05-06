@@ -17,4 +17,4 @@ Assert.AreSame(object expected, object actual,
 
 ## See Also
 
-* [SameAs Constraint](xref:sameasconstraint)
+* [SameAs Constraint](xref:constraint-sameas)

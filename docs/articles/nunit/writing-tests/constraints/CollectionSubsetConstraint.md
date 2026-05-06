@@ -1,3 +1,7 @@
+---
+uid: constraint-collectionsubset
+---
+
 # CollectionSubset Constraint
 
 `CollectionSubsetConstraint` tests that one `IEnumerable` is a subset of another. If the actual value passed does not

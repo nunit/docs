@@ -1,3 +1,7 @@
+---
+uid: constraint-null
+---
+
 # Null Constraint
 
 `NullConstraint` tests that a value is null.

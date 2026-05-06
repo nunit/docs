@@ -1,3 +1,7 @@
+---
+uid: constraint-endswith
+---
+
 # EndsWith Constraint
 
 `EndsWithConstraint` tests for an ending string.

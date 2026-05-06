@@ -1,3 +1,7 @@
+---
+uid: constraint-range
+---
+
 # Range Constraint
 
 `RangeConstraint` tests that a value is in an (inclusive) range.

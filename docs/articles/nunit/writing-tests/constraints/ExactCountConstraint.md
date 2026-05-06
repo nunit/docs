@@ -1,3 +1,7 @@
+---
+uid: constraint-exactcount
+---
+
 # ExactCount Constraint
 
 `ExactCountConstraint` has two functions.

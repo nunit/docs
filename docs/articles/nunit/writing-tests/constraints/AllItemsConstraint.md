@@ -1,3 +1,7 @@
+---
+uid: constraint-allitems
+---
+
 # AllItems Constraint
 
 `AllItemsConstraint` applies a constraint to each item in an `IEnumerable`, succeeding only if all of them succeed. An

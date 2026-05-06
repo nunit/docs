@@ -1,3 +1,7 @@
+---
+uid: constraint-default
+---
+
 # DefaultConstraint
 
 `DefaultConstraint` tests that the actual value is the default value for the type.

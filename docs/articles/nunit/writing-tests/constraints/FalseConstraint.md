@@ -1,3 +1,7 @@
+---
+uid: constraint-false
+---
+
 # False Constraint
 
 `FalseConstraint` tests that a value is false.

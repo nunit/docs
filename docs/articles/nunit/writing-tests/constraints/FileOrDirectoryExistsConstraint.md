@@ -1,3 +1,7 @@
+---
+uid: constraint-fileordirectoryexists
+---
+
 # FileOrDirectoryExists Constraint
 
 `FileOrDirectoryExistsConstraint` tests that a File or Directory exists.
@@ -18,8 +22,8 @@ Does.Not.Exist
 ## Modifiers
 
 ```csharp
-IgnoreDirectories
-IgnoreFiles
+.IgnoreDirectories
+.IgnoreFiles
 ```
 
 ## Examples of Use

@@ -1,3 +1,7 @@
+---
+uid: constraint-true
+---
+
 # True Constraint
 
 `TrueConstraint` tests that a value is true.

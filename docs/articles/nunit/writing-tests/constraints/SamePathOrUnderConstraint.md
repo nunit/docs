@@ -1,3 +1,7 @@
+---
+uid: constraint-samepathorunder
+---
+
 # SamePathOrUnder Constraint
 
 `SamePathOrUnderConstraint` tests that one path is equivalent to another path or that it is under it.

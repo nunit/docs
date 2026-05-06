@@ -1,3 +1,7 @@
+---
+uid: constraint-not
+---
+
 # Not Constraint
 
 `NotConstraint` reverses the effect of another constraint. If the base constraint fails, NotConstraint succeeds. If the
@@ -17,4 +21,4 @@ Is.Not...
 
 ## Examples of Use
 
-[!code-csharp[NotConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#PropertyConstraintExamples)]
+[!code-csharp[NotConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#NotConstraintExamples)]

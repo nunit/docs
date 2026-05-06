@@ -1,5 +1,5 @@
 ---
-uid: equalconstraint
+uid: constraint-equal
 ---
 
 # Equal Constraint

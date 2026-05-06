@@ -1,3 +1,7 @@
+---
+uid: constraint-collectionsuperset
+---
+
 # CollectionSuperset Constraint
 
 `CollectionSupersetConstraint` tests that one `IEnumerable` is a superset of another. If the actual value passed does

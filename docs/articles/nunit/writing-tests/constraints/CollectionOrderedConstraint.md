@@ -1,3 +1,7 @@
+---
+uid: constraint-collectionordered
+---
+
 # CollectionOrdered Constraint
 
 `CollectionOrderedConstraint` tests that an `IEnumerable` is ordered. If the actual value passed does not implement

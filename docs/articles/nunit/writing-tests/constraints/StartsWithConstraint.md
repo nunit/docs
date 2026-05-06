@@ -1,3 +1,7 @@
+---
+uid: constraint-startswith
+---
+
 # StartsWith Constraint
 
 `StartsWithConstraint` tests for an initial string.

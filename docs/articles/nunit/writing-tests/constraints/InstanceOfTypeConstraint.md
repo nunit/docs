@@ -1,3 +1,7 @@
+---
+uid: constraint-instanceoftype
+---
+
 # InstanceOfType Constraint
 
 `InstanceOfTypeConstraint` tests that an object is of the type supplied or a derived type.
