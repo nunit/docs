@@ -24,7 +24,7 @@ With [`FixtureLifeCycle(LifeCycle.InstancePerTestCase)`](xref:fixturelifecycleat
 once after all tests despite each case having its **own** instance; instance teardown belongs in [`TearDown`](xref:teardown-attribute)
 per test instead.
 
-Methods may be **async** (`Task` / `Task<T>`): NUnit will wait for completion.
+Methods may be **async** (`Task` / `Task<T>`); NUnit will wait for completion.
 
 ## Test fixture versus SetUp fixture
 

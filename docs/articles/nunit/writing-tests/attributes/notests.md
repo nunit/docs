@@ -61,27 +61,27 @@ Use `TestStatus.Inconclusive` when empty test cases indicate an indeterminate st
 
 [!code-csharp[NoTestsInconclusive](~/snippets/Snippets.NUnit/Attributes/NoTestsAttributeExamples.cs#NoTestsInconclusive)]
 
-## Common scenarios
+## Common Scenarios
 
-### Dynamic test data
+### Dynamic Test Data
 
 Typical when test cases come from a source that can legitimately be empty (a database, API, config file, or similar).
 
 [!code-csharp[NoTestsDynamicData](~/snippets/Snippets.NUnit/Attributes/NoTestsAttributeExamples.cs#NoTestsDynamicData)]
 
-### Conditional execution
+### Conditional Execution
 
 Typical when cases are only produced for some platforms, environments, or other prerequisites.
 
 [!code-csharp[NoTestsConditionalExecution](~/snippets/Snippets.NUnit/Attributes/NoTestsAttributeExamples.cs#NoTestsConditionalExecution)]
 
-### Feature flags
+### Feature Flags
 
 Typical when data-driven cases depend on feature flags or rollout state and may sometimes yield none.
 
 [!code-csharp[NoTestsFeatureFlag](~/snippets/Snippets.NUnit/Attributes/NoTestsAttributeExamples.cs#NoTestsFeatureFlag)]
 
-## Scope precedence
+## Scope Precedence
 
 * **Assembly** — parameterized tests across the assembly
 * **Fixture (class)** — parameterized tests in that fixture
