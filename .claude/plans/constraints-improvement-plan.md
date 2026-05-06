@@ -218,11 +218,12 @@ Proposed: Keep single file but ensure:
 ### Phase 2: Priority 1 Constraints
 | Constraint | Status | Notes |
 |------------|--------|-------|
-| EqualConstraint | Pending | |
-| NullConstraint | Pending | |
-| TrueConstraint | Pending | |
-| FalseConstraint | Pending | |
-| GreaterThanConstraint | Pending | |
-| LessThanConstraint | Pending | |
-| ThrowsConstraint | Pending | |
-| CollectionEquivalentConstraint | Pending | |
+| EqualConstraint | Complete | Already excellent - UID fixed |
+| NullConstraint | Complete | Full rewrite with inline examples |
+| TrueConstraint | Complete | Full rewrite with inline examples |
+| FalseConstraint | Complete | Full rewrite with inline examples |
+| GreaterThanConstraint | Complete | Restructured with Usage section, inline examples |
+| LessThanConstraint | Complete | Restructured with Usage section, inline examples |
+| ThrowsConstraint | Complete | Added modifiers section, inline examples |
+| ContainsConstraint | Complete | **NEW** - Created doc explaining routing behavior |
+| CollectionEquivalentConstraint | Complete | Restructured with better examples |
