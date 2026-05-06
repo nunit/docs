@@ -1,26 +1,53 @@
+---
+uid: attribute-levelofparallelism
+---
+
 # LevelOfParallelism
 
-This is an _assembly-level_ attribute, which may be used to specify the level of parallelism, that is, the maximum
-number of worker threads executing tests in the assembly. It may be overridden using a command-line option in the
-console runner.
+`LevelOfParallelismAttribute` is an assembly-level attribute used to specify the maximum number of worker threads that may execute tests simultaneously. This controls how many tests can run in parallel.
 
-This attribute is optional. If it is not specified, NUnit uses the processor count or 2, whichever is greater. For
-example, on a four processor machine the default value is 4.
+## Constructor
+
+```csharp
+LevelOfParallelismAttribute(int level)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `level` | `int` | The maximum number of worker threads to be created by the framework for running tests. |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ❌ | ❌ | ✅ |
+
+Typically placed in `AssemblyInfo.cs` or a global usings file.
+
+## Default Value
+
+If this attribute is not specified, NUnit uses `Environment.ProcessorCount` or 2, whichever is greater. For example, on an 8-core machine, the default is 8 worker threads.
 
 ## Example
 
-The following code, which might be placed in AssemblyInfo.cs, sets the level of parallelism to 3:
+The following code, placed in `AssemblyInfo.cs`, limits parallel execution to 3 worker threads:
 
 ```csharp
-[assembly:LevelOfParallelism(3)]
+using NUnit.Framework;
+
+[assembly: LevelOfParallelism(3)]
 ```
 
-## Platform Support
+## Notes
 
-Parallel execution is supported by the NUnit framework on desktop .NET runtimes. It is not supported in our Portable or
-.NET Standard builds at this time, although the attributes are recognized without error in order to allow use in
-projects that build against multiple targets.
+1. This attribute controls the **maximum** number of parallel workers. The actual number may be lower depending on the tests and their parallelization settings.
+2. Tests must be marked with `[Parallelizable]` to actually run in parallel. This attribute only sets the upper limit on worker threads.
+3. Setting the level to 1 effectively disables parallelism (only one test runs at a time).
+4. This value can be overridden using the `--workers` command-line option in the NUnit console runner.
+5. Consider your test dependencies and shared resources when setting this value. Higher parallelism can cause issues with tests that share state.
 
 ## See Also
 
-* [Parallelizable Attribute](parallelizable.md)
+* [Parallelizable Attribute](xref:attribute-parallelizable)
+* [NonParallelizable Attribute](xref:attribute-nonparallelizable)
+* [Console Command Line](xref:consolecommandline)

@@ -45,7 +45,7 @@ public class MyTestClass
 In the sample above, `DivideCases` is not a `static` field.
 
 However, sources specified by `TestCaseSource`
-[must be `static`](xref:testcasesourceattribute).
+[must be `static`](xref:attribute-testcasesource).
 
 ### Fix
 

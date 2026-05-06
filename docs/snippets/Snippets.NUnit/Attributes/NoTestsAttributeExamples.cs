@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 
@@ -83,4 +85,61 @@ namespace Snippets.NUnit.Attributes
         }
         #endregion
     }
+
+    #region NoTestsDynamicData
+    [TestFixture]
+    [NoTests(TestStatus.Skipped)]
+    public class DataDrivenTests
+    {
+        [TestCaseSource(typeof(ExternalDataSource))]
+        public void ProcessData(int recordId)
+        {
+            Assert.That(recordId, Is.GreaterThan(0));
+        }
+    }
+
+    public sealed class ExternalDataSource : IEnumerable
+    {
+        public IEnumerator GetEnumerator()
+        {
+            yield break;
+        }
+    }
+    #endregion
+
+    [TestFixture]
+    public class NoTestsConditionalExamples
+    {
+        #region NoTestsConditionalExecution
+        [NoTests(TestStatus.Inconclusive)]
+        [TestCaseSource(nameof(GetPlatformSpecificCases))]
+        public void PlatformSpecificTest(string testCase)
+        {
+            Assert.That(testCase, Is.Not.Empty);
+        }
+
+        private static IEnumerable<string> GetPlatformSpecificCases()
+        {
+            yield break;
+        }
+        #endregion
+    }
+
+    #region NoTestsFeatureFlag
+    [TestFixture]
+    [NoTests(TestStatus.Skipped)]
+    public class FeatureFlagTests
+    {
+        [TestCaseSource(nameof(GetEnabledFeatures))]
+        public void TestFeature(string featureName)
+        {
+            Assert.That(featureName, Is.Not.Empty);
+        }
+
+        private static IEnumerable<string> GetEnabledFeatures()
+        {
+            yield break;
+        }
+    }
+    #endregion
 }

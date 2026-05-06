@@ -1,3 +1,7 @@
+---
+uid: classic-assert-negative
+---
+
 # Assert.Negative
 
 Asserts that a number is negative.

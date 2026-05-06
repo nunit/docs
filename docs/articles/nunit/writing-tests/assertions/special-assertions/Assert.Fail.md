@@ -1,3 +1,7 @@
+---
+uid: special-assert-fail
+---
+
 # Assert.Fail
 
 The **Assert.Fail** method provides you with the ability to generate a failure based

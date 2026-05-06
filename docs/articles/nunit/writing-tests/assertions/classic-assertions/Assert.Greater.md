@@ -1,3 +1,7 @@
+---
+uid: classic-assert-greater
+---
+
 # Assert.Greater
 
 **Assert.Greater** tests whether one object is greater than another.

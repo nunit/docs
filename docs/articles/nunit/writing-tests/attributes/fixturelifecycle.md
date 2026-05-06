@@ -1,49 +1,73 @@
 ---
-uid: fixturelifecycleattribute
+uid: attribute-fixturelifecycle
 ---
 
 # FixtureLifeCycle
 
-Added in **NUnit 3.13**
+Added in **NUnit 3.13**.
 
-The `FixtureLifeCycleAttribute` is used to indicate that an instance for a test fixture or all test fixtures in an
-assembly should be constructed for each test within the fixture or assembly.
+`FixtureLifeCycleAttribute` selects how NUnit constructs your fixture class:
 
-This attribute may be applied to a test fixture (class) or to a test assembly. It is useful in combination with the
-[Parallelizable Attribute](parallelizable.md) so that a new instance of a test fixture is constructed for every test
-within the test fixture. This allows tests to run in isolation without sharing instance fields and properties during
-parallel test runs. This make running parallel tests easier because it is easier to make your tests thread safe.
+* **`LifeCycle.SingleInstance`** — one instance is created and **shared** by every test in the fixture. This matches the
+  usual NUnit default when you do not use the attribute.
+* **`LifeCycle.InstancePerTestCase`** — a **new** instance is created for each test.
 
-This attribute can be applied to classes or to the entire test assembly. If applied to an assembly, it may be overridden
-at the class level.
+Place the attribute on a **fixture class** to control that class, or on the **assembly** to set a default for all
+fixtures in that assembly. A class-level attribute **overrides** an assembly-level default.
 
-## LifeCycle Enumeration
+`InstancePerTestCase` is often combined with [Parallelizable](xref:attribute-parallelizable). With a separate instance per test,
+instance fields are not shared while tests run in parallel, which avoids a common source of interference and often makes
+**thread safety for instance state** easier—while still leaving you responsible for static state, shared singletons, and
+other resources outside the fixture instance.
 
-The constructor of `FixtureLifeCycleAttribute` takes a `LifeCycle` attribute to indicate if a single instance of a test
-fixture should be created for all tests or if a new instance should be created for each test.
+## Constructor
 
- Value | Meaning
--------|---------
-`LifeCycle.SingleInstance`     | A single instance is created and shared for all test cases. This is the default.
-`LifeCycle.InstancePerTestCase` | A new instance is created for each test case
+```csharp
+FixtureLifeCycleAttribute(LifeCycle lifeCycle)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `lifeCycle` | `LifeCycle` | `SingleInstance` or `InstancePerTestCase`. |
+
+## Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `LifeCycle` | `LifeCycle` | Life cycle for the fixture or assembly. | _(from constructor)_ |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ❌ | ✅ | ✅ |
+
+Assembly-level settings can be overridden by a class-level attribute.
+
+## LifeCycle enumeration
+
+| Value | Meaning |
+|-------|---------|
+| `LifeCycle.SingleInstance` | A single instance is created and shared for all test cases. This is the default. |
+| `LifeCycle.InstancePerTestCase` | A new instance is created for each test case. |
 
 ## Notes
 
-* When using `LifeCycle.InstancePerTestCase`, the [`OneTimeSetUp`](xref:onetimesetup-attribute) and
-  [`OneTimeTearDown`](xref:onetimeteardown-attribute) methods must be static, and each are only called once. This is
+* When using `LifeCycle.InstancePerTestCase`, the [`OneTimeSetUp`](xref:attribute-onetimesetup) and
+  [`OneTimeTearDown`](xref:attribute-onetimeteardown) methods must be static, and each are only called once. This is
   required so that the setup or teardown methods do not access instance fields or properties that are reset for every
   test.
 
 * When using `LifeCycle.InstancePerTestCase`, a class's constructor will be called before every test is executed and
   `IDisposable` test fixtures will be disposed after the test is finished.
 
-* [`SetUp`](xref:setup-attribute) and [`TearDown`](xref:teardown-attribute) methods are called before and after every
+* [`SetUp`](xref:attribute-setup) and [`TearDown`](xref:attribute-teardown) methods are called before and after every
   test.
 
 * The `Order` attribute is respected.
 
 ## See Also
 
-* [Parallelizable Attribute](xref:parallelizableattribute)
-* [OneTimeSetUp Attribute](xref:onetimesetup-attribute)
-* [OneTimeTearDown Attribute](xref:onetimeteardown-attribute)
+* [Parallelizable Attribute](xref:attribute-parallelizable)
+* [OneTimeSetUp Attribute](xref:attribute-onetimesetup)
+* [OneTimeTearDown Attribute](xref:attribute-onetimeteardown)

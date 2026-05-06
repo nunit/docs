@@ -16,17 +16,17 @@ Ensure you use a compatible runner for NUnit Version 4.
 
 ## 3.x -> 4.x
 
-NUnit 4.0 has a few [breaking changes](../release-notes/breaking-changes.md#nunit-40) making it neither binary nor
+NUnit 4.0 has a few [breaking changes](xref:breakingchanges#nunit-40) making it neither binary nor
 source code compatible with NUnit 3.14.0
 
-* Change to [Classic Asserts](../writing-tests/assertions/assertion-models/classic.md)
+* Change to [Classic Asserts](xref:classicmodel)
 * Removal of `Assert.That` overloads with _format_ specification and `params`.
 
 ### Classic Assert migration
 
 There are different ways to migrate these to NUnit 4.0
 
-* Convert Classic Assert to the [Constraint model](../writing-tests/assertions/assertion-models/constraint.md)
+* Convert Classic Assert to the [Constraint model](xref:constraintmodel)
 * Update source code to new namespace and class name
 * Using `global using` aliases
   * In own source file
@@ -394,7 +394,7 @@ for each project with a contents similar to the one shown above.
 ### Assert.That with _format_ specification and `params` overload conversion
 
 These overloads were removed to allow for better messages in case of failure. See [The "Towards NUnit 4"
-article](../Towards-NUnit4.md#improved-assert-result-messages) for more information.
+article](xref:towardsnunit4#improved-assert-result-messages) for more information.
 
 NUnit 4.x has been optimized such that these formattable strings only get formatted in case the test is failing.
 

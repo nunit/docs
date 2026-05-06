@@ -50,7 +50,7 @@ class DivideCases : IEnumerable
 In the sample above, the class `DivideCases` does not have a default constructor - i.e. a constructor with no parameters.
 
 However, source types specified by `TestCaseSource`
-[must have a default constructor](xref:testcasesourceattribute).
+[must have a default constructor](xref:attribute-testcasesource).
 
 ### Fix
 

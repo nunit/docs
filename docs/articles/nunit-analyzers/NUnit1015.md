@@ -48,7 +48,7 @@ class DivideCases
 In the sample above, the class `DivideCases` does not implement `IEnumerable` nor `IAsyncEnumerable`
 
 However, source types specified by `TestCaseSource`
-[must implement `IEnumerable` or `IAsyncEnumerable`](xref:testcasesourceattribute).
+[must implement `IEnumerable` or `IAsyncEnumerable`](xref:attribute-testcasesource).
 
 ### Fix
 

@@ -16,11 +16,10 @@ public class RepeatAttributeExample
 
     private int count1;
     #region RepeatWithFaultAndOutputAttributeExample
-    [Test, Explicit("Issue 5031 must be fixed")]
+    [Test, Explicit("Demonstrates failure collection - intentionally fails on iterations 3 and 4")]
     [Repeat(5, StopOnFailure = false)]
     public void TestMethod2()
     {
-
         TestContext.Out.WriteLine(count1);
         count1++;
         Assert.That(count1, Is.Not.EqualTo(3).And.Not.EqualTo(4));

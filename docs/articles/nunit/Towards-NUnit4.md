@@ -189,7 +189,7 @@ the classic .NET Framework, it prevents `finally` clauses and other cleanup rout
 
 Cancellation is supposed to be done in a cooperative way.
 
-To achieve this in NUnit v4, we introduce a [CancelAfter Attribute](./writing-tests/attributes/cancelafter.md)
+To achieve this in NUnit v4, we introduce a [CancelAfter Attribute](xref:attribute-cancelafter)
 
 ## Nullability
 

@@ -1,31 +1,39 @@
 ---
-uid: valuesource
+uid: attribute-valuesource
 ---
 
 # ValueSource
 
-**ValueSourceAttribute** is used on individual parameters of a test method to identify a named source for the argument
-values to be supplied. The attribute has two public constructors.
+`ValueSourceAttribute` is used on individual parameters of a test method to identify a named data source for argument values.
+
+## Constructors
 
 ```csharp
-ValueSourceAttribute(Type sourceType, string sourceName);
-ValueSourceAttribute(string sourceName);
+ValueSourceAttribute(Type sourceType, string sourceName)
+ValueSourceAttribute(string sourceName)
 ```
 
-If **sourceType** is specified, it represents the class that provides the data.
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `sourceType` | `Type` | Type that provides the source member. Optional. |
+| `sourceName` | `string` | Name of source field, property, or method. |
 
-If **sourceType** is not specified, the class containing the test method is used.
+## Applies To
 
-The **sourceName**, represents the name of the source that will provide the arguments. It should have the following
-characteristics:
+| Method Parameters | Test Methods | Test Fixtures (Classes) | Assembly |
+|-------------------|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ | ❌ |
 
-* It may be a field, a non-indexed property or a method taking no arguments.
-* It must be a static member.
-* It must return an `IEnumerable` or a type that implements `IEnumerable`.
-  * Methods may also return an `IAsyncEnumerable` or a type that implements `IAsyncEnumerable`. (_NUnit 4+_)
-  * Methods may be async by wrapping the return type in a `Task<T>`. (_NUnit 3.14+_)
-* The individual items returned from the enumerator must be compatible with the type of the parameter on which the
-  attribute appears.
+## Example
+
+[!code-csharp[ValueSourceBasic](~/snippets/Snippets.NUnit/Attributes/ValueSourceAttributeExamples.cs#ValueSourceBasic)]
+
+## Source Requirements
+
+- Source may be a field, non-indexed property, or parameterless method.
+- Source member must be static.
+- Source must return `IEnumerable` (or async forms supported by NUnit).
+- Returned items must be compatible with the annotated parameter type.
 
 ## Order of Execution
 
@@ -48,3 +56,8 @@ If the data source is in the test fixture itself, the object is created using th
 fixture parameters provided on the **TestFixtureAttribute**, or the default constructor if no parameters were specified.
 Since this object is destroyed before the tests are run, no communication is possible between these two phases - or
 between different runs - except through the parameters themselves.
+
+## See Also
+
+* [TestCaseSource Attribute](xref:attribute-testcasesource)
+* [Values Attribute](xref:attribute-values)

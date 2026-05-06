@@ -45,7 +45,7 @@ beginning with 2.0. Without the V2 driver, only version 3.0 and higher tests may
 |`--dispose-runners` | Dispose each test runner after it has finished running its tests |
 |`--timeout=MILLISECONDS` | Set timeout for each test case in MILLISECONDS. |
 |`--seed=SEED` | Set the random SEED used to generate test cases. |
-|`--workers=NUMBER` | Specify the NUMBER of worker threads to be used in running tests. This setting is used to control running your tests in parallel and is used in conjunction with the [Parallelizable Attribute](xref:parallelizableattribute). If not specified, workers defaults to the number of processors on the machine, or 2, whichever is greater. |
+|`--workers=NUMBER` | Specify the NUMBER of worker threads to be used in running tests. This setting is used to control running your tests in parallel and is used in conjunction with the [Parallelizable Attribute](xref:attribute-parallelizable). If not specified, workers defaults to the number of processors on the machine, or 2, whichever is greater. |
 |`--stoponerror` | Stop run immediately upon any test failure or error. |
 |`--skipnontestassemblies` | Skip any non-test assemblies specified - or assemblies containing NUnit.Framework.NonTestAssemblyAttribute, without error. |
 |`--debug` | Causes NUnit to break into the debugger immediately before it executes your tests. This is particularly useful when the tests are running in a separate process to which you would otherwise have to attach. |

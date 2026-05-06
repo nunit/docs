@@ -1,3 +1,7 @@
+---
+uid: classic-assert-less
+---
+
 # Assert.Less
 
 **Assert.Less** tests whether one object is less than another.

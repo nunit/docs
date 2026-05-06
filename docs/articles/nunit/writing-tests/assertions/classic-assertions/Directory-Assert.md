@@ -1,3 +1,7 @@
+---
+uid: classic-directory-assert
+---
+
 # DirectoryAssert
 
 The DirectoryAssert class provides methods for comparing two directories

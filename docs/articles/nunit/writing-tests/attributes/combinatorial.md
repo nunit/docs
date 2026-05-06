@@ -1,27 +1,32 @@
 ---
-uid: combinatorialattribute
+uid: attribute-combinatorial
 ---
 
 # Combinatorial
 
-The **CombinatorialAttribute** is used on a test to specify that NUnit should
-generate test cases for all possible combinations of the individual
-data items provided for the parameters of a test. Since this is the
-default, use of this attribute is optional.
+`CombinatorialAttribute` is used on a test method to tell NUnit to generate test cases for all possible combinations of parameter values.
+
+This is NUnit's default combining strategy, so using this attribute is optional unless you want to be explicit.
+
+## Usage
+
+This is a parameterless attribute that can only be applied to test methods.
+
+```csharp
+[Combinatorial]
+```
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ |
 
 ## Example
 
-The following test will be executed six times:
+The following test is executed six times:
 
-```csharp
-[Test, Combinatorial]
-public void MyTest(
-    [Values(1, 2, 3)] int x,
-    [Values("A", "B")] string s)
-{
-    ...
-}
-```
+[!code-csharp[CombinatorialBasic](~/snippets/Snippets.NUnit/Attributes/CombinatorialAttributeExamples.cs#CombinatorialBasic)]
 
 MyTest is called six times, as follows:
 
@@ -34,14 +39,14 @@ MyTest(3, "A")
 MyTest(3, "B")
 ```
 
-## Limitations
+## Notes
 
-When used on a generic method the programmer must ensure that all
-possible combinations of arguments are valid. When multiple parameters
-use the same generic type (e.g.: T) this may not be possible and the
-attribute may generate invalid test cases.
+1. When used on a generic method, ensure all combinations of generated arguments are valid.
+2. If multiple parameters share the same generic type (for example, `T`), some generated combinations may be invalid.
+3. Use `Sequential` or `Pairwise` when combinatorial generation produces too many or unsuitable combinations.
 
 ## See Also
 
-* [Sequential Attribute](sequential.md)
-* [Pairwise Attribute](pairwise.md)
+* [Sequential Attribute](xref:attribute-sequential)
+* [Pairwise Attribute](xref:attribute-pairwise)
+* [Values Attribute](xref:attribute-values)

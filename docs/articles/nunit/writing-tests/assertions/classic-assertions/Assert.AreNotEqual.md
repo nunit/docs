@@ -1,3 +1,7 @@
+---
+uid: classic-assert-are-not-equal
+---
+
 # Assert.AreNotEqual
 
 **Assert.AreNotEqual** tests whether the two arguments are unequal.

@@ -1,41 +1,57 @@
 ---
-uid: teardown-attribute
+uid: attribute-teardown
 ---
 
 # TearDown
 
-This attribute is used inside a [TestFixture](xref:testfixtureattribute) to provide a common set of functions that are
-performed after each test method.
+`TearDownAttribute` marks a method NUnit calls **immediately after each** test case finishes under a
+[`TestFixture`](xref:attribute-testfixture). Pair it with [`SetUp`](xref:attribute-setup) to release **per-test** resources (files, handles, mock
+substitutions, etc.).
 
-TearDown methods may be either static or instance methods and you may define more than one of them in a fixture.
-Normally, multiple TearDown methods are only defined at different levels of an inheritance hierarchy, as explained
-below.
+Like `SetUp`, you usually place tear-down helpers on **base classes** and **derived fixtures** rather than stacking many
+methods on a single class (allowed, but **order among them is undefined**).
 
-So long as any SetUp method runs without error, the TearDown method is guaranteed to run. For example, it is not
-guaranteed to run if a SetUp method fails or throws an exception.
+## Static and instance methods
+
+`TearDown` may be **`static`** or an **instance** method and runs on the **same logical fixture object** NUnit used for that
+test’s `SetUp` and test body (including a **new** instance per test when
+[`LifeCycle.InstancePerTestCase`](xref:attribute-fixturelifecycle) applies).
+
+**`async`** `Task` / `Task<T>` methods are supported.
+
+## When TearDown runs
+
+* **After a successful `SetUp` and test** — always in normal execution (unless the run is **aborted** before teardown is
+  dispatched).
+* **After `SetUp` fails** — `TearDown` **still runs** so partially constructed state can be unwound. The **test method is
+  skipped** and the result shows a **setup** failure, but teardown for that level is **not** skipped solely because setup
+  failed.
+* **After the test throws or fails** — `TearDown` still runs; the framework records the test failure **and** any teardown
+  exception separately if both occur.
+
+The only broad exception is an **abort** (`TestExecutionStatus.AbortRequested`), where NUnit may omit the teardown callback
+entirely—mirroring the behavior described for [`OneTimeTearDown`](xref:attribute-onetimeteardown).
+
+Teardown failures or assertions are attached to the test result as **teardown** issues (`FailureSite.TearDown`) while
+preserving the original test outcome when possible.
+
+## Usage
+
+This is a parameterless attribute that can only be applied to methods.
+
+```csharp
+[TearDown]
+```
+
+## Applies To
+
+| Lifecycle Methods | Test Methods | Test Fixtures (Classes) | Assembly |
+|-------------------|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ | ❌ |
 
 ## Example
 
-```csharp
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
-    [SetUp] public void Init()
-    { /* ... */ }
-
-    [TearDown] public void Cleanup()
-    { /* ... */ }
-
-    [Test] public void Add()
-    { /* ... */ }
-  }
-}
-```
+[!code-csharp[TearDownExample](~/snippets/Snippets.NUnit/Attributes/TearDownAttributeExamples.cs#TearDownExample)]
 
 ## Inheritance
 
@@ -53,15 +69,14 @@ methods after those in the derived classes.
 
 ## Notes
 
-1. Although it is possible to define multiple TearDown methods in the same class, you should rarely do so. Unlike
-   methods defined in separate classes in the inheritance hierarchy, the order in which they are executed is not
-   guaranteed.
+1. **`TestContext`** — still **per-test** scope, but executed **after** the test method returns or throws.
+2. Multiple `TearDown` methods on the **same** class are unordered relative to one another.
+3. **Derived** `TearDown` runs **before** base-class `TearDown` when both apply (see **Inheritance**).
 
-2. TearDown methods may be async if running under .NET 4.0 or higher.
+## See Also
 
-## See also
-
-* [SetUp Attribute](setup.md)
-* [OneTimeSetUp Attribute](onetimesetup.md)
-* [OneTimeTearDown Attribute](onetimeteardown.md)
-* [TestFixture Attribute](testfixture.md)
+* [SetUp Attribute](xref:attribute-setup)
+* [OneTimeSetUp Attribute](xref:attribute-onetimesetup)
+* [OneTimeTearDown Attribute](xref:attribute-onetimeteardown)
+* [FixtureLifeCycle Attribute](xref:attribute-fixturelifecycle)
+* [TestFixture Attribute](xref:attribute-testfixture)

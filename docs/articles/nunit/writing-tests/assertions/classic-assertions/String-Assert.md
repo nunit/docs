@@ -1,3 +1,7 @@
+---
+uid: classic-string-assert
+---
+
 # StringAssert
 
 The StringAssert class provides a number of methods that are useful

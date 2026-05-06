@@ -1,11 +1,11 @@
 ---
-uid: netplatformattribute
+uid: attribute-netplatform
 ---
 
 # NetPlatform
 
 The `NetPlatformAttribute` is used to specify platforms for which a test or fixture should be run. It is a modern
-replacement for the [Platform](platform.md) attribute, using platform names based on the .NET `TargetFramework`
+replacement for the [Platform](xref:attribute-platform) attribute, using platform names based on the .NET `TargetFramework`
 conventions as documented in [CA1416: Validate platform
 compatibility](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416).
 
@@ -18,6 +18,30 @@ skipped.
 > [!NOTE]
 > This attribute was introduced in NUnit 4.6 and provides better alignment with .NET's built-in platform checking
 > mechanisms compared to the older `PlatformAttribute`.
+
+## Constructors
+
+```csharp
+NetPlatformAttribute()
+NetPlatformAttribute(string platforms)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `platforms` | `string` | Comma-delimited list of included platforms. |
+
+## Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `Include` | `string` | Comma-delimited platform list that should run. | `null` |
+| `Exclude` | `string` | Comma-delimited platform list that should be skipped. | `null` |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 ## Test Fixture Syntax
 
@@ -80,6 +104,6 @@ Platform names can include version numbers to specify minimum version requiremen
 
 ## See Also
 
-* [Platform Attribute](platform.md)
-* [Culture Attribute](culture.md)
+* [Platform Attribute](xref:attribute-platform)
+* [Culture Attribute](xref:attribute-culture)
 * [CA1416: Validate platform compatibility](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416)
