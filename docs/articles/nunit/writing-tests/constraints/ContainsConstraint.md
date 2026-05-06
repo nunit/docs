@@ -17,10 +17,14 @@ Does.Not.Contain(object expected)
 ## Modifiers
 
 ```csharp
-.IgnoreCase                  // Case-insensitive matching
-.IgnoreWhiteSpace            // Ignore whitespace differences (collections only)
-.IgnoreLineEndingFormat      // Ignore line ending differences (collections only)
+.IgnoreCase                  // Case-insensitive matching (strings and collections)
+.IgnoreWhiteSpace            // Ignore whitespace in item equality (collections only)
+.IgnoreLineEndingFormat      // Ignore line endings in item equality (collections only)
 ```
+
+> [!NOTE]
+> `.IgnoreWhiteSpace` and `.IgnoreLineEndingFormat` only work when testing collection membership, not substring
+> containment. For strings, these modifiers throw an `InvalidOperationException`.
 
 ## Examples
 
@@ -61,9 +65,15 @@ Assert.That(names, Does.Contain("bob").IgnoreCase);
 
 1. When testing strings, the expected value must also be a string. For type safety, consider using
    `Does.Contain(string)` explicitly.
-2. The `.IgnoreWhiteSpace` and `.IgnoreLineEndingFormat` modifiers only work with collections, not strings. Using them
-   with string containment will throw an `InvalidOperationException`.
-3. For more explicit control, use the specific constraints directly:
+2. **Important**: `.IgnoreWhiteSpace` and `.IgnoreLineEndingFormat` only work with collections, not strings. When used
+   with string containment, they throw `InvalidOperationException`. This is because `SubstringConstraint` doesn't
+   support these modifiers, while `EqualConstraint` (used for collection item comparison) does.
+3. For collections of strings, `.IgnoreWhiteSpace` affects item equality comparison:
+   ```csharp
+   // Works: checks if any item equals "hello world" ignoring whitespace
+   Assert.That(new[] { "hello  world" }, Does.Contain("hello world").IgnoreWhiteSpace);
+   ```
+4. For more explicit control, use the specific constraints directly:
    - [SubstringConstraint](SubstringConstraint.md) for string containment
    - [SomeItemsConstraint](SomeItemsConstraint.md) for collection membership
 
