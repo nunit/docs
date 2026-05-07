@@ -16,17 +16,7 @@ Is.Not.Null
 
 ## Examples
 
-```csharp
-object? obj = null;
-Assert.That(obj, Is.Null);
-
-string? name = GetName();
-Assert.That(name, Is.Not.Null);
-
-// Combining with other constraints
-Assert.That(result, Is.Not.Null.And.Not.Empty);
-Assert.That(GetOptionalValue(), Is.Null.Or.GreaterThan(0));
-```
+[!code-csharp[NullConstraintExamples](~/snippets/Snippets.NUnit/Constraints/ComparisonConstraintSnippets.cs#NullConstraintExamples)]
 
 ## Notes
 

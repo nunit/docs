@@ -227,3 +227,63 @@ Proposed: Keep single file but ensure:
 | ThrowsConstraint | Complete | Added modifiers section, inline examples |
 | ContainsConstraint | Complete | **NEW** - Created doc explaining routing behavior |
 | CollectionEquivalentConstraint | Complete | Restructured with better examples |
+
+### Phase 3: Priority 2-4 Constraints
+| Constraint | Status | Notes |
+|------------|--------|-------|
+| GreaterThanOrEqualConstraint | Complete | Added Is.AtLeast alias, inline examples |
+| LessThanOrEqualConstraint | Complete | Added Is.AtMost alias, inline examples |
+| RangeConstraint | Complete | Added inline examples, noted inclusive bounds |
+| SameAsConstraint | Complete | Added reference equality examples |
+| StartsWithConstraint | Complete | Minor cleanup, added See Also |
+| EndsWithConstraint | Complete | Minor cleanup, added See Also |
+| SubstringConstraint | Complete | Minor cleanup, added See Also |
+| RegexConstraint | Complete | Added common pattern examples |
+| EmptyStringConstraint | Complete | Full rewrite with null-or-empty patterns |
+| WhiteSpaceConstraint | Complete | Full rewrite, clarified null behavior |
+| AllItemsConstraint | Complete | Full rewrite with inline examples |
+| SomeItemsConstraint | Complete | Restructured, clarified membership aliases |
+| NoItemConstraint | Complete | Full rewrite with inline examples |
+| UniqueItemsConstraint | Complete | Restructured, added custom comparison examples |
+| CollectionOrderedConstraint | Complete | Restructured with clearer examples |
+| CollectionSubsetConstraint | Complete | Restructured with inline examples |
+| CollectionSupersetConstraint | Complete | Restructured with inline examples |
+| ExactCountConstraint | Complete | Restructured with inline examples |
+| EmptyCollectionConstraint | Complete | Restructured with inline examples |
+
+### Phase 4: Priority 5-10 Constraints
+| Constraint | Status | Notes |
+|------------|--------|-------|
+| InstanceOfTypeConstraint | Complete | Full rewrite with inline examples |
+| ExactTypeConstraint | Complete | Full rewrite with inline examples |
+| AssignableFromConstraint | Complete | Full rewrite with inline examples |
+| AssignableToConstraint | Complete | Full rewrite with inline examples |
+| AttributeConstraint | Complete | Restructured with clearer examples |
+| AttributeExistsConstraint | Complete | Restructured with inline examples |
+| DictionaryContainsKeyConstraint | Complete | Restructured, clarified comparer behavior |
+| DictionaryContainsValueConstraint | Complete | Restructured with inline examples |
+| DictionaryContainsKeyValuePairConstraint | Complete | Restructured with inline examples |
+| PropertyConstraint | Complete | Full rewrite with shortcuts and examples |
+| PropertyExistsConstraint | Complete | Restructured with inline examples |
+| FileOrDirectoryExistsConstraint | Complete | Restructured with inline examples |
+| EmptyDirectoryConstraint | Complete | Restructured with inline examples |
+| AndConstraint | Complete | Full rewrite with precedence examples |
+| OrConstraint | Complete | Full rewrite with precedence examples |
+| NotConstraint | Complete | Full rewrite with inline examples |
+| DelayedConstraint | Complete | Restructured with polling and time examples |
+| ThrowsNothingConstraint | Complete | Restructured with inline examples |
+| NaNConstraint | Complete | Restructured with inline examples |
+| AnyOfConstraint | Complete | Restructured with inline examples |
+
+### Phase 5: Missing Constraint Documentation
+| Constraint | Status | Notes |
+|------------|--------|-------|
+| MultipleOfConstraint | Complete | **NEW** - Created doc for Is.MultipleOf, Is.Even, Is.Odd |
+| ContainsConstraint | Complete | Created in Phase 2 - explains routing behavior |
+
+### Phase 6: Feature Documentation
+| Feature | Status | Notes |
+|---------|--------|-------|
+| AsyncConstraints.md | Complete | **NEW** - Guide for using constraints with async code |
+| ContainsHelper.md | Complete | **NEW** - Documentation for Contains.* syntax helper |
+| Constraints.md updates | Complete | Added links to new pages, added missing constraints to lists |

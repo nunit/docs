@@ -27,14 +27,7 @@ Is.SamePathOrUnder(string expectedPath)
 
 ## Examples of Use
 
-```csharp
-Assert.That("/folder1/./junk/../folder2", Is.SamePathOrUnder("/folder1/folder2"));
-Assert.That("/folder1/junk/../folder2/./folder3", Is.SamePathOrUnder("/folder1/folder2"));
-Assert.That("/folder1/junk/folder2/folder3", Is.Not.SamePathOrUnder("/folder1/folder2"));
-
-Assert.That(@"C:\folder1\folder2\folder3", Is.SamePathOrUnder(@"C:\Folder1\Folder2").IgnoreCase);
-Assert.That("/folder1/folder2/folder3", Is.Not.SamePathOrUnder("/Folder1/Folder2").RespectCase);
-```
+[!code-csharp[SamePathOrUnderConstraintExamples](~/snippets/Snippets.NUnit/Constraints/PathConstraintSnippets.cs#SamePathOrUnderConstraintExamples)]
 
 ## Notes
 

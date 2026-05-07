@@ -2,40 +2,39 @@
 uid: constraint-regex
 ---
 
-# RegexConstraint
+# Regex Constraint
 
-`RegexConstraint` tests that a pattern is matched.
+`RegexConstraint` tests that a string matches a regular expression pattern.
 
-## Constructor
-
-```csharp
-RegexConstraint(string pattern)
-```
-
-## Syntax
+## Usage
 
 ```csharp
 Does.Match(string pattern)
-Matches(string pattern)
+Does.Not.Match(string pattern)
 ```
 
 ## Modifiers
 
 ```csharp
-...IgnoreCase
+.IgnoreCase
 ```
 
-## Examples of Use
+## Examples
 
-```csharp
-string phrase = "Make your tests fail before passing!";
+[!code-csharp[RegexConstraintExamples](~/snippets/Snippets.NUnit/Constraints/StringConstraintSnippets.cs#RegexConstraintExamples)]
 
-Assert.That(phrase, Does.Match("Make.*tests.*pass"));
-Assert.That(phrase, Does.Match("make.*tests.*PASS").IgnoreCase);
-Assert.That(phrase, Does.Not.Match("your.*passing.*tests"));
-```
+### Common Pattern Examples
+
+[!code-csharp[RegexConstraintPatternExamples](~/snippets/Snippets.NUnit/Constraints/StringConstraintSnippets.cs#RegexConstraintPatternExamples)]
 
 ## Notes
 
-1. **Matches** may appear only in the body of a constraint
-   expression or when the inherited syntax is used.
+1. The pattern uses .NET regular expression syntax.
+2. The entire string does not need to match - use `^` and `$` anchors if you need a full match.
+3. For simple substring matching, consider using [SubstringConstraint](SubstringConstraint.md) instead.
+
+## See Also
+
+* [Substring Constraint](SubstringConstraint.md)
+* [StartsWith Constraint](StartsWithConstraint.md)
+* [EndsWith Constraint](EndsWithConstraint.md)

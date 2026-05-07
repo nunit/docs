@@ -32,25 +32,13 @@ Does.Not.Contain(object expected)
 
 When the actual value is a string, `Does.Contain` tests for a substring:
 
-```csharp
-Assert.That("Hello World", Does.Contain("World"));
-Assert.That("Hello World", Does.Contain("world").IgnoreCase);
-Assert.That("Hello World", Does.Not.Contain("Goodbye"));
-```
+[!code-csharp[ContainsConstraintStringExamples](~/snippets/Snippets.NUnit/Constraints/ComparisonConstraintSnippets.cs#ContainsConstraintStringExamples)]
 
 ### Collection Membership
 
 When the actual value is a collection, `Does.Contain` tests for item membership:
 
-```csharp
-int[] numbers = { 1, 2, 3, 4, 5 };
-Assert.That(numbers, Does.Contain(3));
-Assert.That(numbers, Does.Not.Contain(99));
-
-string[] names = { "Alice", "Bob", "Charlie" };
-Assert.That(names, Does.Contain("Bob"));
-Assert.That(names, Does.Contain("bob").IgnoreCase);
-```
+[!code-csharp[ContainsConstraintCollectionExamples](~/snippets/Snippets.NUnit/Constraints/ComparisonConstraintSnippets.cs#ContainsConstraintCollectionExamples)]
 
 ## How It Works
 

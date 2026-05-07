@@ -26,17 +26,7 @@ Is.Positive                      // Equivalent to Is.GreaterThan(0)
 
 ## Examples
 
-```csharp
-Assert.That(7, Is.GreaterThan(3));
-Assert.That(5, Is.Positive);
-Assert.That(-3, Is.Not.Positive);
-
-// With DateTime
-Assert.That(DateTime.Now, Is.GreaterThan(DateTime.Today));
-
-// With tolerance
-Assert.That(10.5, Is.GreaterThan(10.0).Within(0.1));
-```
+[!code-csharp[GreaterThanConstraintExamples](~/snippets/Snippets.NUnit/Constraints/ComparisonConstraintSnippets.cs#GreaterThanConstraintExamples)]
 
 ### Using Custom Comparers
 

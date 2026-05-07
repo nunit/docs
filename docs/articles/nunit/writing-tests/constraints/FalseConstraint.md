@@ -16,15 +16,7 @@ Is.Not.False  // equivalent to Is.True
 
 ## Examples
 
-```csharp
-Assert.That(2 + 2 == 5, Is.False);
-Assert.That(isDisabled, Is.False);
-Assert.That(list.IsReadOnly, Is.False);
-
-// With nullable booleans
-bool? isDeleted = false;
-Assert.That(isDeleted, Is.False);
-```
+[!code-csharp[FalseConstraintExamples](~/snippets/Snippets.NUnit/Constraints/ComparisonConstraintSnippets.cs#FalseConstraintExamples)]
 
 ## Notes
 

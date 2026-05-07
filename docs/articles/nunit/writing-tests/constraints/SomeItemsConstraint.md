@@ -1,58 +1,52 @@
 ---
 uid: constraint-someitems
 ---
+
 # SomeItems Constraint
 
-`SomeItemsConstraint` applies a constraint to each item in an `IEnumerable`, succeeding if at least one of them
-succeeds. An exception is thrown if the actual value passed does not implement `IEnumerable`.
+`SomeItemsConstraint` applies a constraint to each item in an `IEnumerable`, succeeding if at least one item satisfies
+the constraint. An exception is thrown if the actual value does not implement `IEnumerable`.
 
-This constraint will also cover `Contains` functionality. See examples below.
-
-## Constructor
+## Usage
 
 ```csharp
-SomeItemsConstraint(Constraint itemConstraint)
-```
-
-## Syntax
-
-```csharp
-Has.Some...
-Has.Member(object)
-Contains.Item(object)
-Does.Contain(object)
+Has.Some.<constraint>
+Has.Member(object expected)
+Contains.Item(object expected)
+Does.Contain(object expected)
 ```
 
 ## Modifiers
 
 ```csharp
-...IgnoreCase
-...IgnoreWhiteSpace  // From version 4.2
-...Using(IEqualityComparer comparer)
-...Using(IComparer comparer)
-...Using<T>(IEqualityComparer<T> comparer)
-...Using<T>(IComparer<T> comparer)
-...Using<T>(Comparison<T> comparer)
-...Using<TActualCollectionElement, TExpectedElement>(Func<TActualCollectionElement, TExpectedElement, bool> comparer)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func<PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration> configure) // From version 4.4
+.IgnoreCase
+.IgnoreWhiteSpace              // NUnit 4.2+
+.Using(IComparer comparer)
+.Using(IEqualityComparer comparer)
+.Using<T>(IComparer<T> comparer)
+.Using<T>(IEqualityComparer<T> comparer)
+.Using<T>(Comparison<T> comparer)
+.Using<T>(Func<T, T, bool> comparer)
+.UsingPropertiesComparer()     // NUnit 4.1+
 ```
 
-## Examples of Use
+## Examples
 
-```csharp
-int[] iarray = new int[] { 1, 2, 3 };
-string[] sarray = new string[] { "a", "b", "c" };
-Assert.That(iarray, Has.Some.GreaterThan(2));
-Assert.That(sarray, Has.Some.Length.EqualTo(1));
-```
+[!code-csharp[SomeItemsConstraintExamples](~/snippets/Snippets.NUnit/Constraints/CollectionConstraintSnippets.cs#SomeItemsConstraintExamples)]
 
 ### Contains examples
 
 [!code-csharp[Collection Contains Examples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#CollectionContainsExamples)]
 
-## Note
+## Notes
 
-`Has.Member()`, `Contains.Item()` and `Does.Contain()` work the same as `Has.Some.EqualTo()`.
+1. `Has.Member()`, `Contains.Item()`, and `Does.Contain()` are all equivalent to `Has.Some.EqualTo()`.
+2. The constraint succeeds as soon as the first matching item is found.
+3. An empty collection always fails this constraint.
+4. For testing substring containment in strings, see [SubstringConstraint](SubstringConstraint.md).
+
+## See Also
+
+* [AllItems Constraint](AllItemsConstraint.md) - All items must match
+* [NoItem Constraint](NoItemConstraint.md) - No items match
+* [Contains Constraint](ContainsConstraint.md) - Polymorphic containment testing

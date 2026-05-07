@@ -26,17 +26,7 @@ Is.Negative                     // Equivalent to Is.LessThan(0)
 
 ## Examples
 
-```csharp
-Assert.That(3, Is.LessThan(7));
-Assert.That(-5, Is.Negative);
-Assert.That(5, Is.Not.Negative);
-
-// With DateTime
-Assert.That(DateTime.Today, Is.LessThan(DateTime.Now));
-
-// With tolerance
-Assert.That(9.5, Is.LessThan(10.0).Within(0.1));
-```
+[!code-csharp[LessThanConstraintExamples](~/snippets/Snippets.NUnit/Constraints/ComparisonConstraintSnippets.cs#LessThanConstraintExamples)]
 
 ### Using Custom Comparers
 

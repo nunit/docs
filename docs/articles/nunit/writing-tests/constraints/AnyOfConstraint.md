@@ -4,46 +4,44 @@ uid: constraint-anyof
 
 # AnyOf Constraint
 
-`AnyOfConstraint` is used to determine whether a value is equal to any of the expected values.
+`AnyOfConstraint` tests that a value equals any one of a set of expected values.
 
 > [!NOTE]
-> Values provided must be as parameters to the method, not as e.g. a separate array. If you are instead looking
-> to see if a collection contains a value, see the [SomeItems Constraint](xref:constraint-someitems).
+> Pass expected values as individual parameters, not as an array. To test if a collection contains a specific
+> value, use [SomeItemsConstraint](SomeItemsConstraint.md) instead.
 
-## Constructor
-
-```csharp
-AnyOfConstraint(object[] expected)
-```
-
-## Syntax
+## Usage
 
 ```csharp
-Is.AnyOf(object[] expected)
+Is.AnyOf(params object[] expected)
 ```
 
 ## Modifiers
 
 ```csharp
-...IgnoreCase
-...IgnoreWhiteSpace  // From version 4.2
-...Using(IEqualityComparer comparer)
-...Using(IComparer comparer)
-...Using<T>(IEqualityComparer<T> comparer)
-...Using<T>(IComparer<T> comparer)
-...Using<T>(Comparison<T> comparer)
-...Using<T>(Func<T, T, bool> comparer)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func<PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration> configure) // From version 4.4
+.IgnoreCase
+.IgnoreWhiteSpace              // NUnit 4.2+
+.Using(IComparer comparer)
+.Using(IEqualityComparer comparer)
+.Using<T>(IComparer<T> comparer)
+.Using<T>(IEqualityComparer<T> comparer)
+.Using<T>(Comparison<T> comparer)
+.Using<T>(Func<T, T, bool> comparer)
+.UsingPropertiesComparer()     // NUnit 4.1+
 ```
 
-## Examples of Use
+## Examples
 
-```csharp
-Assert.That(42, Is.AnyOf(0, -1, 42, 100));
+[!code-csharp[AnyOfConstraintExamples](~/snippets/Snippets.NUnit/Constraints/SpecialConstraintSnippets.cs#AnyOfConstraintExamples)]
 
-// You can use a custom comparer as well
-Assert.That(myOwnObject, Is.AnyOf(myArray).Using(myComparer));
-```
+## Notes
+
+1. This is for testing a single value against multiple options.
+2. For testing if a collection contains a value, use `Has.Member()` or `Does.Contain()`.
+3. All comparison modifiers apply to the equality check between the actual and each expected value.
+
+## See Also
+
+* [SomeItems Constraint](SomeItemsConstraint.md) - Test if collection contains a value
+* [Equal Constraint](EqualConstraint.md) - Test equality with single value
+* [Or Constraint](OrConstraint.md) - Alternative way to express multiple options

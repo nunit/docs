@@ -38,21 +38,7 @@ Throws.Nothing
 
 ## Examples
 
-```csharp
-// Test for specific exception type
-Assert.That(() => MethodThatThrows(), Throws.TypeOf<ArgumentException>());
-Assert.That(() => MethodThatThrows(), Throws.InstanceOf<Exception>());
-
-// Test exception message
-Assert.That(() => throw new ArgumentException("bad value"),
-    Throws.ArgumentException.With.Message.EqualTo("bad value"));
-
-// Test with lambda expression
-Assert.That(() => int.Parse("abc"), Throws.TypeOf<FormatException>());
-
-// Assert no exception is thrown
-Assert.That(() => SafeMethod(), Throws.Nothing);
-```
+[!code-csharp[ThrowsConstraintBasicExamples](~/snippets/Snippets.NUnit/Constraints/ComparisonConstraintSnippets.cs#ThrowsConstraintBasicExamples)]
 
 ### Additional Examples
 

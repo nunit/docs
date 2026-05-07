@@ -16,15 +16,7 @@ Is.Not.True  // equivalent to Is.False
 
 ## Examples
 
-```csharp
-Assert.That(2 + 2 == 4, Is.True);
-Assert.That(isValid, Is.True);
-Assert.That(list.Contains(item), Is.True);
-
-// With nullable booleans
-bool? hasValue = true;
-Assert.That(hasValue, Is.True);
-```
+[!code-csharp[TrueConstraintExamples](~/snippets/Snippets.NUnit/Constraints/ComparisonConstraintSnippets.cs#TrueConstraintExamples)]
 
 ## Notes
 
