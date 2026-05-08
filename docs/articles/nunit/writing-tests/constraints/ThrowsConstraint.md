@@ -56,5 +56,5 @@ Throws.Nothing
 ## See Also
 
 * [ThrowsNothing Constraint](ThrowsNothingConstraint.md)
-* [Assert.Throws](xref:classicassertthrows)
-* [Assert.ThrowsAsync](xref:classicassertthrowsasync)
+* [Assert.Throws](../assertions/classic-assertions/Assert.Throws.md)
+* [Assert.ThrowsAsync](../assertions/classic-assertions/Assert.ThrowsAsync.md)
