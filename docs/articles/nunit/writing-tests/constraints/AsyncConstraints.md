@@ -96,11 +96,13 @@ Assert.That(await ToListAsync(service.GetItemsAsync()), Has.Some.GreaterThan(100
 ## Best Practices
 
 1. **Use async lambdas** when testing methods that return `Task` or `Task<T>`:
+
    ```csharp
    Assert.That(async () => await method(), constraint);
    ```
 
 2. **Avoid blocking calls** like `.Result` or `.Wait()` - they can cause deadlocks:
+
    ```csharp
    // BAD - can deadlock
    Assert.That(service.GetValueAsync().Result, Is.EqualTo(42));
@@ -110,11 +112,13 @@ Assert.That(await ToListAsync(service.GetItemsAsync()), Has.Some.GreaterThan(100
    ```
 
 3. **Use `Throws.Nothing`** to explicitly verify async code doesn't throw:
+
    ```csharp
    Assert.That(async () => await service.ProcessAsync(), Throws.Nothing);
    ```
 
 4. **Use `DelayedConstraint`** for eventually-consistent operations instead of `Task.Delay`:
+
    ```csharp
    // BAD - arbitrary wait
    await Task.Delay(1000);

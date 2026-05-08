@@ -57,10 +57,12 @@ When the actual value is a collection, `Does.Contain` tests for item membership:
    with string containment, they throw `InvalidOperationException`. This is because `SubstringConstraint` doesn't
    support these modifiers, while `EqualConstraint` (used for collection item comparison) does.
 3. For collections of strings, `.IgnoreWhiteSpace` affects item equality comparison:
+
    ```csharp
    // Works: checks if any item equals "hello world" ignoring whitespace
    Assert.That(new[] { "hello  world" }, Does.Contain("hello world").IgnoreWhiteSpace);
    ```
+
 4. For more explicit control, use the specific constraints directly:
    - [SubstringConstraint](SubstringConstraint.md) for string containment
    - [SomeItemsConstraint](SomeItemsConstraint.md) for collection membership
