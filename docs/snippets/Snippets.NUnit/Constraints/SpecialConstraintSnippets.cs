@@ -1,3 +1,4 @@
+using System.Threading;
 using NUnit.Framework;
 
 #pragma warning disable NUnit2045
@@ -88,15 +89,16 @@ public class SpecialConstraintSnippets
     [Test]
     public void DelayedConstraint_Examples()
     {
-        var flag = false;
+        var flag = 0; // Use int for Interlocked
         Task.Run(async () =>
         {
             await Task.Delay(50);
-            flag = true;
+            Interlocked.Exchange(ref flag, 1);
         });
 
         // Poll until condition is true (or timeout)
-        Assert.That(() => flag, Is.True.After(500).MilliSeconds.PollEvery(50).MilliSeconds);
+        Assert.That(() => Interlocked.CompareExchange(ref flag, 0, 0) == 1,
+            Is.True.After(500).MilliSeconds.PollEvery(50).MilliSeconds);
     }
     #endregion
 
@@ -108,11 +110,12 @@ public class SpecialConstraintSnippets
         Task.Run(async () =>
         {
             await Task.Delay(50);
-            counter = 10;
+            Interlocked.Exchange(ref counter, 10);
         });
 
         // Fluent time syntax
-        Assert.That(() => counter, Is.GreaterThan(0).After(1).Seconds.PollEvery(100).MilliSeconds);
+        Assert.That(() => Interlocked.CompareExchange(ref counter, 0, 0),
+            Is.GreaterThan(0).After(1).Seconds.PollEvery(100).MilliSeconds);
     }
     #endregion
 
