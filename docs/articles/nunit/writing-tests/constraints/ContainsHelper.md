@@ -23,49 +23,15 @@ Contains.Substring(string expected) // String contains substring
 
 ## String Containment
 
-```csharp
-string text = "Hello World";
-
-// Test for substring
-Assert.That(text, Contains.Substring("World"));
-Assert.That(text, Contains.Substring("WORLD").IgnoreCase);
-
-// Equivalent to Does.Contain for strings
-Assert.That(text, Does.Contain("World"));
-```
+[!code-csharp[ContainsHelperStringExamples](~/snippets/Snippets.NUnit/Constraints/ContainsHelperSnippets.cs#ContainsHelperStringExamples)]
 
 ## Collection Containment
 
-```csharp
-int[] numbers = { 1, 2, 3, 4, 5 };
-
-// Test for item in collection
-Assert.That(numbers, Contains.Item(3));
-Assert.That(numbers, Contains.Item(3).And.Contains.Item(5));
-
-// Equivalent forms
-Assert.That(numbers, Does.Contain(3));
-Assert.That(numbers, Has.Member(3));
-```
+[!code-csharp[ContainsHelperCollectionExamples](~/snippets/Snippets.NUnit/Constraints/ContainsHelperSnippets.cs#ContainsHelperCollectionExamples)]
 
 ## Dictionary Containment
 
-```csharp
-var dict = new Dictionary<string, int>
-{
-    ["Alice"] = 30,
-    ["Bob"] = 25
-};
-
-// Test for key
-Assert.That(dict, Contains.Key("Alice"));
-
-// Test for value
-Assert.That(dict, Contains.Value(30));
-
-// Test for key-value pair
-Assert.That(dict, Contains.Key("Alice").WithValue(30));
-```
+[!code-csharp[ContainsHelperDictionaryExamples](~/snippets/Snippets.NUnit/Constraints/ContainsHelperSnippets.cs#ContainsHelperDictionaryExamples)]
 
 ## Comparison with Other Helpers
 
@@ -82,17 +48,7 @@ Assert.That(dict, Contains.Key("Alice").WithValue(30));
 
 `Does.Contain()` automatically routes to the appropriate constraint:
 
-```csharp
-// String -> SubstringConstraint
-Assert.That("Hello World", Does.Contain("World"));
-
-// Collection -> SomeItemsConstraint
-Assert.That(new[] { 1, 2, 3 }, Does.Contain(2));
-
-// Dictionary key check
-Assert.That(dict, Does.ContainKey("Alice"));
-Assert.That(dict, Does.ContainValue(30));
-```
+[!code-csharp[ContainsHelperSmartRoutingExamples](~/snippets/Snippets.NUnit/Constraints/ContainsHelperSnippets.cs#ContainsHelperSmartRoutingExamples)]
 
 ## Modifiers
 
