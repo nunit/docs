@@ -29,6 +29,7 @@ Is.InRange(IComparable from, IComparable to)
 
 1. The range is **inclusive** on both ends: `Is.InRange(1, 10)` passes for values 1, 10, and everything in between.
 2. For exclusive bounds, combine `Is.GreaterThan` and `Is.LessThan` with `And`:
+
    ```csharp
    Assert.That(5, Is.GreaterThan(1).And.LessThan(10));  // Exclusive bounds
    ```
