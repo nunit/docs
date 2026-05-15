@@ -83,34 +83,50 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-collectionsuperset">
 <h1 id="collectionsuperset-constraint">CollectionSuperset Constraint</h1>
 
-<p><code>CollectionSupersetConstraint</code> tests that one <code>IEnumerable</code> is a superset of another. If the actual value passed does
-not implement <code>IEnumerable</code>, an exception is thrown.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">CollectionSupersetConstraint(IEnumerable)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Is.SupersetOf(IEnumerable)
+<p><code>CollectionSupersetConstraint</code> tests that one <code>IEnumerable</code> is a superset of another. Every item in the expected
+collection must be present in the actual collection. An exception is thrown if the actual value does not implement
+<code>IEnumerable</code>.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Is.SupersetOf(IEnumerable expected)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...Using(IEqualityComparer comparer)
-...Using(IComparer comparer)
-...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
-...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
-...Using&lt;TSupersetElement, TSubsetElement&gt;(Func&lt;TSupersetElement, TSubsetElement, bool&gt; comparison)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func&lt;PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration&gt; configure) // From version 4.4
+<pre><code class="lang-csharp">.Using(IComparer comparer)
+.Using(IEqualityComparer comparer)
+.Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+.Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
+.UsingPropertiesComparer()     // NUnit 4.1+
 </code></pre>
-<h2 id="example-of-use">Example of Use</h2>
-<pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };
-Assert.That(iarray, Is.SupersetOf(new int[] { 1, 3 }));
-</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="CollectionSupersetConstraintExamples">[Test]
+public void CollectionSupersetConstraint_Examples()
+{
+    int[] actual = { 1, 2, 3, 4, 5 };
+
+    Assert.That(actual, Is.SupersetOf(new[] { 1, 3 }));       // Passes
+    Assert.That(actual, Is.SupersetOf(new[] { 1, 2, 3, 4, 5 })); // Passes (equal sets)
+    Assert.That(actual, Is.SupersetOf(new int[] { }));        // Passes (superset of empty)
+    Assert.That(actual, Is.Not.SupersetOf(new[] { 1, 6 }));   // Passes (missing 6)
+
+    // Case-insensitive string comparison
+    string[] colors = { &quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;, &quot;Yellow&quot; };
+    Assert.That(colors, Is.SupersetOf(new[] { &quot;red&quot;, &quot;blue&quot; }).Using((IEqualityComparer&lt;string&gt;)StringComparer.OrdinalIgnoreCase));
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>A set is always a superset of itself.</li>
+<li>Every set is a superset of the empty set.</li>
+<li>Duplicate items are considered: <code>{1, 2}</code> is not a superset of <code>{1, 1}</code>.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="CollectionSubsetConstraint.html">CollectionSubset Constraint</a> - Test that collection is a subset</li>
+<li><a href="CollectionEquivalentConstraint.html">CollectionEquivalent Constraint</a> - Test exact equivalence</li>
+</ul>
 
 </article>
           </div>

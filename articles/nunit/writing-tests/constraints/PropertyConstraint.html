@@ -83,45 +83,61 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-property">
 <h1 id="property-constraint">Property Constraint</h1>
 
-<p><code>PropertyConstraint</code> tests for the existence of a named property on an object and then applies a constraint test to the
-property value.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">PropertyConstraint(string name, IConstraint baseConstraint)
+<p><code>PropertyConstraint</code> tests the value of a named property on an object against a further constraint.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Has.Property(string propertyName).&lt;constraint&gt;
+Has.Length.&lt;constraint&gt;
+Has.Count.&lt;constraint&gt;
+Has.Message.&lt;constraint&gt;
+Has.InnerException.&lt;constraint&gt;
 </code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Has.Property(string name)... // followed by further constraint syntax
-</code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
+<h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp" name="PropertyConstraintExamples">public class Person
 {
     public string Name { get; set; } = &quot;&quot;;
     public int Age { get; set; }
-    public string Email { get; set; } = &quot;&quot;;
 }
 
 [Test]
 public void PropertyConstraint_Examples()
 {
-    var person = new Person { Name = &quot;John&quot;, Age = 25, Email = &quot;john@example.com&quot; };
+    // Test property values
+    Assert.That(&quot;Hello&quot;, Has.Property(&quot;Length&quot;).EqualTo(5));
+    Assert.That(new int[] { 1, 2, 3 }, Has.Property(&quot;Length&quot;).EqualTo(3));
 
-    Assert.That(person, Has.Property(&quot;Name&quot;).EqualTo(&quot;John&quot;));
+    // Common properties have shortcuts
+    Assert.That(&quot;Hello&quot;, Has.Length.EqualTo(5));
+    Assert.That(new List&lt;int&gt; { 1, 2, 3 }, Has.Count.EqualTo(3));
+
+    // Exception properties
+    var ex = new InvalidOperationException(&quot;Test error&quot;, new ArgumentException());
+    Assert.That(ex, Has.Message.EqualTo(&quot;Test error&quot;));
+    Assert.That(ex, Has.InnerException.InstanceOf&lt;ArgumentException&gt;());
+
+    // Custom object properties
+    var person = new Person { Name = &quot;Alice&quot;, Age = 30 };
+    Assert.That(person, Has.Property(&quot;Name&quot;).EqualTo(&quot;Alice&quot;));
     Assert.That(person, Has.Property(&quot;Age&quot;).GreaterThan(18));
-    Assert.That(person, Has.Property(&quot;Email&quot;).Contains(&quot;@&quot;));
 }
+</code></pre><h3 id="built-in-property-shortcuts">Built-in Property Shortcuts</h3>
+<pre><code class="lang-csharp">Has.Length       // Equivalent to Has.Property(&quot;Length&quot;)
+Has.Count        // Equivalent to Has.Property(&quot;Count&quot;)
+Has.Message      // Equivalent to Has.Property(&quot;Message&quot;)
+Has.InnerException // Equivalent to Has.Property(&quot;InnerException&quot;)
 </code></pre>
-<p>As shown in the example, certain common properties are known to NUnit and may be tested using a shorter form. The
-following properties are supported:</p>
-<pre><code class="lang-csharp">Has.Length...
-Has.Count...
-Has.Message...
-Has.InnerException...
-</code></pre>
-<h2 id="see-also">See also</h2>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>If no constraint follows <code>Has.Property()</code>, it becomes a <a href="PropertyExistsConstraint.html">PropertyExistsConstraint</a>.</li>
+<li>The property must be public and readable.</li>
+<li>If the property doesn't exist, the constraint fails with a descriptive message.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="PropertyExistsConstraint.html">PropertyExistsConstraint</a></li>
+<li><a href="PropertyExistsConstraint.html">PropertyExists Constraint</a> - Just test for property existence</li>
+<li><a href="ExactCountConstraint.html">ExactCount Constraint</a> - Count items matching a constraint</li>
 </ul>
 
 </article>

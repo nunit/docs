@@ -83,35 +83,52 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-uniqueitems">
 <h1 id="uniqueitems-constraint">UniqueItems Constraint</h1>
 
-<p><strong>UniqueItemsConstraint</strong> tests that an array, collection or other IEnumerable is composed
-of unique items with no duplicates.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">UniqueItemsConstraint()
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>UniqueItemsConstraint</code> tests that an <code>IEnumerable</code> contains no duplicate items.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.Unique
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...IgnoreCase
-...IgnoreWhiteSpace  // From version 4.2
-...Using(IEqualityComparer comparer)
-...Using(IComparer comparer)
-...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
-...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func&lt;PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration&gt; configure) // From version 4.4
+<pre><code class="lang-csharp">.IgnoreCase
+.IgnoreWhiteSpace              // NUnit 4.2+
+.Using(IComparer comparer)
+.Using(IEqualityComparer comparer)
+.Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+.Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
+.UsingPropertiesComparer()     // NUnit 4.1+
 </code></pre>
-<h2 id="example-of-use">Example of Use</h2>
-<pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };
-Assert.That(iarray, Is.Unique);
-</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="UniqueItemsConstraintExamples">[Test]
+public void UniqueItemsConstraint_Examples()
+{
+    int[] numbers = { 1, 2, 3, 4, 5 };
+    string[] names = { &quot;Alice&quot;, &quot;Bob&quot;, &quot;Carol&quot; };
+
+    // Basic uniqueness check
+    Assert.That(numbers, Is.Unique);
+    Assert.That(names, Is.Unique);
+
+    // Fails: contains duplicates
+    Assert.That(new[] { 1, 2, 2, 3 }, Is.Not.Unique);
+
+    // Case-insensitive uniqueness
+    Assert.That(new[] { &quot;Alice&quot;, &quot;ALICE&quot; }, Is.Unique);               // Passes: different case
+    Assert.That(new[] { &quot;Alice&quot;, &quot;ALICE&quot; }, Is.Not.Unique.IgnoreCase); // Passes: same when ignoring case
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>An empty collection is considered unique (no duplicates possible).</li>
+<li>Duplicates are determined using the default equality comparer unless a custom comparer is specified.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="CollectionEquivalentConstraint.html">CollectionEquivalent Constraint</a> - Test collection equivalence</li>
+<li><a href="AllItemsConstraint.html">AllItems Constraint</a> - Test all items against a constraint</li>
+</ul>
 
 </article>
           </div>

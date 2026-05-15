@@ -83,33 +83,53 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-and">
 <h1 id="and-constraint">And Constraint</h1>
 
-<p><code>AndConstraint</code> combines two other constraints and succeeds only if they both succeed.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">AndConstraint(Constraint left, Constraint right)
+<p><code>AndConstraint</code> combines two constraints and succeeds only if both succeed.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">&lt;constraint&gt;.And.&lt;constraint&gt;
 </code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">&lt;Constraint&gt;.And.&lt;Constraint&gt;
-</code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
+<h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp" name="AndConstraintExamples">[Test]
 public void AndConstraint_Examples()
 {
-    Assert.That(2.3, Is.GreaterThan(2.0).And.LessThan(3.0));
+    int value = 42;
 
-    int? i = 10;
-    Assert.That(i, Is.Not.Null.And.GreaterThan(9));
+    // Both conditions must be true
+    Assert.That(value, Is.GreaterThan(0).And.LessThan(100));
+    Assert.That(value, Is.Positive.And.LessThanOrEqualTo(50).Or.GreaterThanOrEqualTo(40));
+
+    // String constraints
+    Assert.That(&quot;Hello World&quot;, Does.StartWith(&quot;Hello&quot;).And.EndWith(&quot;World&quot;));
+    Assert.That(&quot;test@example.com&quot;, Does.Contain(&quot;@&quot;).And.EndWith(&quot;.com&quot;));
+
+    // Null checking pattern (check null first!)
+    int? nullable = 42;
+    Assert.That(nullable, Is.Not.Null.And.GreaterThan(0));
+
+    // Collection constraints
+    Assert.That(new[] { 1, 2, 3 }, Is.Not.Empty.And.All.Positive);
 }
 </code></pre><h2 id="evaluation-order-and-precedence">Evaluation Order and Precedence</h2>
-<p>Note that the constraint evaluates the sub-constraints left to right, meaning that <code>Assert.That(i, Is.Not.Null.And.GreaterThan(9));</code> where <code>i</code> is a nullable <code>int</code> will work for <code>10</code>, but fail for <code>null</code> with the message
-<code>Expected: not null and greater than 9. But was:  null</code>. <code>Assert.That(i, Is.GreaterThan(9).And.Not.Null);</code> will also
-succeed for <code>10</code>, but throw an exception for <code>null</code>, as <code>null</code> cannot be compared to <code>9</code>.</p>
-<p>The <strong>OrConstraint</strong> has precedence over the <strong>AndConstraint</strong>.</p>
-<h2 id="see-also">See also</h2>
+<p>Constraints are evaluated <strong>left to right</strong>. This is important for null checks:</p>
+<pre><code class="lang-csharp" name="AndConstraintNullCheckExamples">[Test]
+public void AndConstraint_NullCheck_Examples()
+{
+    int? value = 42;
+
+    // CORRECT: Check null first - fails gracefully with message for null
+    Assert.That(value, Is.Not.Null.And.GreaterThan(9));
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>Or</code> has higher precedence than <code>And</code>. The expression <code>A.And.B.Or.C</code> is evaluated as <code>A.And.(B.Or.C)</code>.</p>
+</div>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="OrConstraint.html">OrConstraint</a></li>
+<li><a href="OrConstraint.html">Or Constraint</a> - Either condition must be true</li>
+<li><a href="NotConstraint.html">Not Constraint</a> - Negate a constraint</li>
 </ul>
 
 </article>

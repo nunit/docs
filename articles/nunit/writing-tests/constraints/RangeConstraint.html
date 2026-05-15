@@ -83,31 +83,54 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-range">
 <h1 id="range-constraint">Range Constraint</h1>
 
-<p><code>RangeConstraint</code> tests that a value is in an (inclusive) range.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">RangeConstraint(IComparable from, IComparable to)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>RangeConstraint</code> tests that a value falls within an inclusive range. Both the lower and upper bounds are included in
+the valid range.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.InRange(IComparable from, IComparable to)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...Using(IComparer comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+<pre><code class="lang-csharp">.Using(IComparer comparer)
+.Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
+<h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp" name="RangeConstraintExamples">[Test]
 public void RangeConstraint_Examples()
 {
-    int[] intArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // Numeric ranges (inclusive)
     Assert.That(5, Is.InRange(1, 10));
-    Assert.That(42, Is.Not.InRange(1, 10));
-    Assert.That(intArray, Has.All.InRange(1, 10));
+    Assert.That(1, Is.InRange(1, 10));   // Lower bound is included
+    Assert.That(10, Is.InRange(1, 10));  // Upper bound is included
+    Assert.That(0, Is.Not.InRange(1, 10));
+
+    // DateTime ranges
+    var start = new DateTime(2024, 1, 1);
+    var end = new DateTime(2024, 12, 31);
+    Assert.That(new DateTime(2024, 6, 15), Is.InRange(start, end));
+
+    // String ranges (alphabetical comparison)
+    Assert.That(&quot;banana&quot;, Is.InRange(&quot;apple&quot;, &quot;cherry&quot;));
 }
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><p>The range is <strong>inclusive</strong> on both ends: <code>Is.InRange(1, 10)</code> passes for values 1, 10, and everything in between.</p>
+</li>
+<li><p>For exclusive bounds, combine <code>Is.GreaterThan</code> and <code>Is.LessThan</code> with <code>And</code>:</p>
+<pre><code class="lang-csharp">Assert.That(5, Is.GreaterThan(1).And.LessThan(10));  // Exclusive bounds
 </code></pre>
+</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="GreaterThanConstraint.html">GreaterThan Constraint</a></li>
+<li><a href="LessThanConstraint.html">LessThan Constraint</a></li>
+<li><a href="GreaterThanOrEqualConstraint.html">GreaterThanOrEqual Constraint</a></li>
+<li><a href="LessThanOrEqualConstraint.html">LessThanOrEqual Constraint</a></li>
+</ul>
+
 </article>
           </div>
 

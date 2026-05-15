@@ -83,50 +83,68 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-dictionarycontainskey">
 <h1 id="dictionarycontainskey-constraint">DictionaryContainsKey Constraint</h1>
 
-<p><code>DictionaryContainsKeyConstraint</code> is used to test whether a dictionary
-contains an expected object as a key.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">DictionaryContainsKeyConstraint(object)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Contains.Key(object)
-Does.ContainKey(object)
-Does.Not.ContainKey(object)
+<p><code>DictionaryContainsKeyConstraint</code> tests whether a dictionary contains an expected key.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Contains.Key(object expectedKey)
+Does.ContainKey(object expectedKey)
+Does.Not.ContainKey(object expectedKey)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...WithValue(object expectedValue)
+<pre><code class="lang-csharp">.WithValue(object expectedValue)   // Also check the corresponding value
 </code></pre>
-<p>As of version 4.4.0 of NUnit the other modifiers were removed as they were non-functional.
-NUnit's <code>ContainKey</code> works the same as the <code>ContainsKey</code> method on <code>Dictionary</code>
-It uses the comparer specified when the dictionary was created.</p>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">var caseSensitiveDictionary = new Dictionary&lt;string, string&gt;(StringComparer.Ordinal)
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="DictionaryContainsKeyConstraintExamples">[Test]
+public void DictionaryContainsKeyConstraint_Examples()
 {
-    [&quot;Hello&quot;] = &quot;World&quot;,
-};
+    var dictionary = new Dictionary&lt;string, int&gt;
+    {
+        [&quot;Alice&quot;] = 30,
+        [&quot;Bob&quot;] = 25
+    };
 
-Assert.That(caseSensitiveDictionary, Does.ContainKey(&quot;Hello&quot;));
-Assert.That(caseSensitiveDictionary, Does.Not.ContainKey(&quot;hello&quot;));
+    // Basic key checks
+    Assert.That(dictionary, Contains.Key(&quot;Alice&quot;));
+    Assert.That(dictionary, Does.ContainKey(&quot;Bob&quot;));
+    Assert.That(dictionary, Does.Not.ContainKey(&quot;Carol&quot;));
 
-var caseInsensitiveDictionary = new Dictionary&lt;string, string&gt;(StringComparer.OrdinalIgnoreCase)
+    // Check key with corresponding value
+    Assert.That(dictionary, Does.ContainKey(&quot;Alice&quot;).WithValue(30));
+    Assert.That(dictionary, Does.ContainKey(&quot;Bob&quot;).WithValue(25));
+}
+</code></pre><h3 id="dictionary-comparer-behavior">Dictionary Comparer Behavior</h3>
+<p>Key comparison uses the dictionary's own comparer:</p>
+<pre><code class="lang-csharp" name="DictionaryContainsKeyComparerExamples">[Test]
+public void DictionaryContainsKey_Comparer_Examples()
 {
-    [&quot;Hello&quot;] = &quot;World&quot;,
-};
+    // Case-sensitive dictionary (default)
+    var caseSensitive = new Dictionary&lt;string, string&gt; { [&quot;Hello&quot;] = &quot;World&quot; };
+    Assert.That(caseSensitive, Does.ContainKey(&quot;Hello&quot;));
+    Assert.That(caseSensitive, Does.Not.ContainKey(&quot;hello&quot;));  // Different case
 
-Assert.That(caseInsensitiveDictionary, Does.ContainKey(&quot;Hello&quot;));
-Assert.That(caseInsensitiveDictionary, Does.ContainKey(&quot;hello&quot;));
-Assert.That(caseInsensitiveDictionary, Does.Not.ContainKey(&quot;hallo&quot;));
+    // Case-insensitive dictionary
+    var caseInsensitive = new Dictionary&lt;string, string&gt;(StringComparer.OrdinalIgnoreCase)
+    {
+        [&quot;Hello&quot;] = &quot;World&quot;
+    };
+    Assert.That(caseInsensitive, Does.ContainKey(&quot;Hello&quot;));
+    Assert.That(caseInsensitive, Does.ContainKey(&quot;hello&quot;));    // Same due to comparer
 
-// Note that the 'IgnoreCase' here is on the Value part, not the Key.
-Assert.That(caseInsensitiveDictionary, Does.ContainKey(&quot;hello&quot;).WithValue(&quot;world&quot;).IgnoreCase);
-</code></pre>
-<h2 id="see-also">See also</h2>
+    // Note: .IgnoreCase on WithValue applies to the VALUE, not the key
+    Assert.That(caseInsensitive, Does.ContainKey(&quot;hello&quot;).WithValue(&quot;world&quot;).IgnoreCase);
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>Key comparison always uses the dictionary's comparer, not NUnit's modifiers.</li>
+<li>The <code>.WithValue()</code> modifier converts this to a key-value pair check.</li>
+<li>As of NUnit 4.4, comparison modifiers on keys were removed as they were non-functional.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="DictionaryContainsValueConstraint.html">DictionaryContainsValueConstraint</a></li>
-<li><a href="DictionaryContainsKeyValuePairConstraint.html">DictionaryContainsKeyValuePairConstraint</a></li>
+<li><a href="DictionaryContainsValueConstraint.html">DictionaryContainsValue Constraint</a></li>
+<li><a href="DictionaryContainsKeyValuePairConstraint.html">DictionaryContainsKeyValuePair Constraint</a></li>
 </ul>
 
 </article>

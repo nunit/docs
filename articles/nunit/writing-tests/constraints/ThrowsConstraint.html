@@ -83,34 +83,56 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="throwsconstraint">
+            <article class="content wrap" id="_content" data-uid="constraint-throws">
 <h1 id="throws-constraint">Throws Constraint</h1>
 
-<p><code>ThrowsConstraint</code> is used to test that some code, represented as a delegate,
-throws a particular exception. It may be used alone, to merely test the type
-of constraint, or with an additional constraint to be applied to the exception
-specified as an argument.</p>
-<p>The related <a href="ThrowsNothingConstraint.html">ThrowsNothingConstraint</a> simply asserts that the delegate
-does not throw an exception.</p>
-<h2 id="constructors">Constructors</h2>
-<pre><code class="lang-csharp">ThrowsConstraint(Type expectedType)
-ThrowsConstraint&lt;T&gt;()
-ThrowsConstraint(Type expectedType, Constraint constraint)
-ThrowsConstraint&lt;T&gt;(Constraint constraint)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>ThrowsConstraint</code> is used to test that code, represented as a delegate, throws a particular exception. It may be used
+alone to test the exception type, or with additional constraints applied to the exception itself. The related
+<a href="ThrowsNothingConstraint.html">ThrowsNothingConstraint</a> asserts that the delegate does not throw.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Throws.Exception
-Throws.TargetInvocationException
+Throws.TypeOf&lt;T&gt;()
+Throws.TypeOf(Type expectedType)
+Throws.InstanceOf&lt;T&gt;()
+Throws.InstanceOf(Type expectedType)
+
+// Common exception shortcuts
 Throws.ArgumentException
 Throws.ArgumentNullException
 Throws.InvalidOperationException
-Throws.TypeOf(Type expectedType)
-Throws.TypeOf&lt;T&gt;()
-Throws.InstanceOf(Type expectedType)
-Throws.InstanceOf&lt;T&gt;()
-Throws.InnerException
+Throws.TargetInvocationException
+
+// For testing nothing is thrown
+Throws.Nothing
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
+<h2 id="modifiers">Modifiers</h2>
+<pre><code class="lang-csharp">.With.Message.EqualTo(string)     // Test exception message
+.With.Message.Contains(string)    // Test message contains substring
+.With.Property(&quot;Name&quot;).EqualTo(x) // Test exception property
+.With.InnerException.TypeOf&lt;T&gt;()  // Test inner exception
+</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="ThrowsConstraintBasicExamples">[Test]
+public void ThrowsConstraint_Basic_Examples()
+{
+    // Test for specific exception type
+    Assert.That(() =&gt; ThrowArgumentException(), Throws.TypeOf&lt;ArgumentException&gt;());
+    Assert.That(() =&gt; ThrowArgumentException(), Throws.InstanceOf&lt;Exception&gt;());
+
+    // Test exception message
+    Assert.That(() =&gt; throw new ArgumentException(&quot;bad value&quot;),
+        Throws.ArgumentException.With.Message.EqualTo(&quot;bad value&quot;));
+
+    // Test with lambda expression
+    Assert.That(() =&gt; int.Parse(&quot;abc&quot;), Throws.TypeOf&lt;FormatException&gt;());
+
+    // Assert no exception is thrown
+    Assert.That(() =&gt; SafeMethod(), Throws.Nothing);
+}
+
+private static void ThrowArgumentException() =&gt; throw new ArgumentException(&quot;test&quot;);
+private static void SafeMethod() { }
+</code></pre><h3 id="additional-examples">Additional Examples</h3>
 <pre><code class="lang-csharp" name="ThrowsConstraintExamples">[Test]
 public void ThrowsConstraint_Examples()
 {
@@ -121,27 +143,19 @@ public void ThrowsConstraint_Examples()
 }
 </code></pre><h2 id="notes">Notes</h2>
 <ol>
-<li><p><strong>Throws.Exception</strong> may be followed by further constraints,
-which are applied to the exception itself as shown in the last two
-examples above. It may also be used alone to verify that some
-exception has been thrown, without regard to type. This is
-not a recommended practice since you should normally know
-what exception you are expecting.</p>
-</li>
-<li><p><strong>Throws.TypeOf</strong> and <strong>Throws.InstanceOf</strong> are provided
-as a shorter syntax for this common test. They work exactly like
-the corresponding forms following <strong>Throws.Exception</strong>.</p>
-</li>
-<li><p><strong>Throws.TargetInvocationException</strong>, <strong>Throws.ArgumentException</strong>
-and <strong>Throws.InvalidOperationException</strong> provide a shortened form
-for some common exceptions.</p>
-</li>
-<li><p>Used alone, <strong>Throws.InnerException</strong> simply tests the InnerException
-value of the thrown exception. More commonly, it will be used in
-combination with a test for the type of the outer exception as shown
-in the examples above.</p>
-</li>
+<li><strong>Throws.TypeOf</strong> requires an exact type match. Use <strong>Throws.InstanceOf</strong> to allow derived exception types.</li>
+<li><strong>Throws.Exception</strong> can be followed by additional constraints on the exception object. Avoid using it alone without
+type checking, as you should generally know what exception to expect.</li>
+<li>For async code, use <code>Assert.ThrowsAsync</code> or test the async delegate directly with <code>Throws</code>.</li>
+<li><strong>Throws.InnerException</strong> tests the InnerException property. Combine it with outer exception type tests for full
+validation.</li>
 </ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="ThrowsNothingConstraint.html">ThrowsNothing Constraint</a></li>
+<li><a href="../assertions/classic-assertions/Assert.Throws.html">Assert.Throws</a></li>
+<li><a href="../assertions/classic-assertions/Assert.ThrowsAsync.html">Assert.ThrowsAsync</a></li>
+</ul>
 
 </article>
           </div>

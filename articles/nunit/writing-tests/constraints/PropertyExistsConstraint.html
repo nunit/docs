@@ -83,22 +83,37 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-propertyexists">
 <h1 id="propertyexists-constraint">PropertyExists Constraint</h1>
 
-<p>The <code>PropertyExistsConstraint</code> tests for the existence of a named property on an object.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">PropertyExistsConstraint(string name)
+<p><code>PropertyExistsConstraint</code> tests for the existence of a named property on an object.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Has.Property(string propertyName)
 </code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Has.Property(string)
-</code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(someObject, Has.Property(&quot;Version&quot;));
-</code></pre>
-<h2 id="see-also">See also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="PropertyExistsConstraintExamples">[Test]
+public void PropertyExistsConstraint_Examples()
+{
+    // Check that property exists
+    Assert.That(&quot;Hello&quot;, Has.Property(&quot;Length&quot;));
+    Assert.That(new List&lt;int&gt;(), Has.Property(&quot;Count&quot;));
+
+    // Negative test
+    Assert.That(&quot;Hello&quot;, Has.No.Property(&quot;NonExistent&quot;));
+
+    // Check that multiple properties exist
+    var person = new Person { Name = &quot;Alice&quot;, Age = 30 };
+    Assert.That(person, Has.Property(&quot;Name&quot;).And.Property(&quot;Age&quot;));
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>When no constraint is chained after <code>Has.Property()</code>, it creates a <code>PropertyExistsConstraint</code>.</li>
+<li>When a constraint follows (e.g., <code>.EqualTo(5)</code>), it becomes a <a href="PropertyConstraint.html">PropertyConstraint</a>.</li>
+<li>The property must be public and readable.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="PropertyConstraint.html">PropertyConstraint</a></li>
+<li><a href="PropertyConstraint.html">Property Constraint</a> - Test property values</li>
 </ul>
 
 </article>

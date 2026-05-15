@@ -83,51 +83,38 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-greaterthan">
 <h1 id="greaterthan-constraint">GreaterThan Constraint</h1>
 
-<p><code>GreaterThanConstraint</code> tests that one value is greater than another.</p>
-<p>It works with numeric types, <code>DateTime</code>, <code>TimeSpan</code>, and any type implementing <code>IComparable</code>. For custom types, a
-user-specified comparer can be provided using the <code>Using</code> modifier.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">GreaterThanConstraint(object expected)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>GreaterThanConstraint</code> tests that one value is greater than another. It works with numeric types, <code>DateTime</code>,
+<code>TimeSpan</code>, and any type implementing <code>IComparable</code>. For custom types, a user-specified comparer can be provided using
+the <code>Using</code> modifier.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.GreaterThan(object expected)
-Is.Positive // Equivalent to Is.GreaterThan(0)
+Is.Positive                      // Equivalent to Is.GreaterThan(0)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...Using(IComparer comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
-...Within(object tolerance)
+<pre><code class="lang-csharp">.Using(IComparer comparer)
+.Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+.Within(object tolerance)
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp" name="GreaterThanExamples">[Test]
-public void GreaterThan_Examples()
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="GreaterThanConstraintExamples">[Test]
+public void GreaterThanConstraint_Examples()
 {
     Assert.That(7, Is.GreaterThan(3));
-    Assert.That(42, Is.Positive);
+    Assert.That(5, Is.Positive);
+    Assert.That(-3, Is.Not.Positive);
 
-    var expectedDateTime = DateTime.Now.AddMinutes(-1);
-    var myDateTime = DateTime.Now;
-    Assert.That(myDateTime, Is.GreaterThan(expectedDateTime).Within(TimeSpan.FromSeconds(1)));
+    // With DateTime
+    Assert.That(DateTime.Now, Is.GreaterThan(DateTime.Today));
 
-    var myOwnObject = new MyOwnObject(42);
-
-    // Using an untyped comparer that can handle both MyOwnObject and int types, comparing based on the Age property of MyOwnObject instances.
-    var myComparer = new MyComparerUntyped();
-    Assert.That(myOwnObject, Is.GreaterThan(41).Using(myComparer));
-
-    // Using a lambda expression to compare MyOwnObject instances based on their Age property
-    var myParentObject = new MyOwnObject(84);
-    Assert.That(myParentObject, Is.GreaterThan(myOwnObject).Using&lt;MyOwnObject&gt;((x, y) =&gt; x.Age.CompareTo(y.Age)));
-
-    // Using a typed comparer
-    var myTypedComparer = new MyComparerTyped();
-    Assert.That(myParentObject, Is.GreaterThan(myOwnObject).Using(myTypedComparer));
+    // With tolerance
+    Assert.That(10.5, Is.GreaterThan(10.0).Within(0.1));
 }
-</code></pre><pre><code class="lang-csharp" name="With Comparer">public class MyOwnObject(int age)
+</code></pre><h3 id="using-custom-comparers">Using Custom Comparers</h3>
+<pre><code class="lang-csharp" name="With Comparer">public class MyOwnObject(int age)
 {
     public int Age =&gt; age;
 }
@@ -166,7 +153,18 @@ public class MyComparerTyped : IComparer&lt;MyOwnObject&gt;
     }
 }
 
-</code></pre>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>When comparing floating-point numbers, consider using <code>.Within()</code> to specify a tolerance.</li>
+<li><code>Is.Positive</code> is a convenience shorthand for <code>Is.GreaterThan(0)</code>.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="LessThanConstraint.html">LessThan Constraint</a></li>
+<li><a href="GreaterThanOrEqualConstraint.html">GreaterThanOrEqual Constraint</a></li>
+<li><a href="RangeConstraint.html">Range Constraint</a></li>
+</ul>
+
 </article>
           </div>
 

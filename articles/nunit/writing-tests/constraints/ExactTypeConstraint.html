@@ -83,28 +83,45 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-exacttype">
 <h1 id="exacttype-constraint">ExactType Constraint</h1>
 
-<p><code>ExactTypeConstraint</code> tests that an object is an exact Type.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">ExactTypeConstraint(Type)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Is.TypeOf(Type)
+<p><code>ExactTypeConstraint</code> tests that an object is exactly the specified type, not a derived type.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Is.TypeOf(Type expectedType)
 Is.TypeOf&lt;T&gt;()
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp" name="TypeConstraintExamples">[Test]
-public void TypeConstraint_Examples()
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="ExactTypeConstraintExamples">[Test]
+public void ExactTypeConstraint_Examples()
 {
-    Assert.That(&quot;Hello&quot;, Is.TypeOf&lt;string&gt;());
+    // Exact type match
     Assert.That(&quot;Hello&quot;, Is.TypeOf(typeof(string)));
-    Assert.That(&quot;Hello&quot;, Is.InstanceOf&lt;string&gt;());
-    Assert.That(&quot;Hello&quot;, Is.InstanceOf&lt;object&gt;());
-    Assert.That(&quot;Hello&quot;, Is.AssignableTo&lt;object&gt;());
+    Assert.That(&quot;Hello&quot;, Is.TypeOf&lt;string&gt;());
+    Assert.That(42, Is.TypeOf&lt;int&gt;());
+
+    // Derived types fail - exact match required
+    Assert.That(&quot;Hello&quot;, Is.Not.TypeOf&lt;object&gt;());         // string is not exactly object
+    Assert.That(new List&lt;int&gt;(), Is.TypeOf&lt;List&lt;int&gt;&gt;());
+    Assert.That(new List&lt;int&gt;(), Is.Not.TypeOf&lt;IList&lt;int&gt;&gt;()); // List&lt;int&gt; is not exactly IList&lt;int&gt;
+
+    // Common use: distinguish between value types
+    Assert.That(42, Is.TypeOf&lt;int&gt;());
+    Assert.That(42L, Is.TypeOf&lt;long&gt;());
+    Assert.That(42L, Is.Not.TypeOf&lt;int&gt;());
 }
-</code></pre>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>Is.TypeOf&lt;T&gt;()</code> checks that <code>actual.GetType() == typeof(T)</code>.</li>
+<li>For inheritance-aware type checking (like C# <code>is</code>), use <a href="InstanceOfTypeConstraint.html">InstanceOfTypeConstraint</a>.</li>
+<li><code>null</code> values throw an exception since they have no type.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="InstanceOfTypeConstraint.html">InstanceOfType Constraint</a> - Inheritance-aware type checking</li>
+<li><a href="AssignableToConstraint.html">AssignableTo Constraint</a> - Type assignability check</li>
+</ul>
+
 </article>
           </div>
 

@@ -83,7 +83,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-subpath">
 <h1 id="subpath-constraint">SubPath Constraint</h1>
 
 <p><code>SubPathConstraint</code> tests that one path is under another path.</p>
@@ -98,13 +98,16 @@
 ...RespectCase
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(&quot;/folder1/./junk/../folder2&quot;, Is.SubPathOf(&quot;/folder1/&quot;));
-Assert.That(&quot;/folder1/junk/folder2&quot;, Is.Not.SubPathOf(&quot;/folder1/folder2&quot;));
+<pre><code class="lang-csharp" name="SubPathConstraintExamples">[Test]
+public void SubPathConstraint_Examples()
+{
+    Assert.That(&quot;/folder1/./junk/../folder2&quot;, Is.SubPathOf(&quot;/folder1/&quot;));
+    Assert.That(&quot;/folder1/junk/folder2&quot;, Is.Not.SubPathOf(&quot;/folder1/folder2&quot;));
 
-Assert.That(@&quot;C:\folder1\folder2\Folder3&quot;, Is.SubPathOf(@&quot;C:\Folder1\Folder2&quot;).IgnoreCase);
-Assert.That(&quot;/folder1/folder2/folder3&quot;, Is.Not.SubPathOf(&quot;/Folder1/Folder2/Folder3&quot;).RespectCase);
-</code></pre>
-<h2 id="notes">Notes</h2>
+    Assert.That(@&quot;C:\folder1\folder2\Folder3&quot;, Is.SubPathOf(@&quot;C:\Folder1\Folder2&quot;).IgnoreCase);
+    Assert.That(&quot;/folder1/folder2/folder3&quot;, Is.Not.SubPathOf(&quot;/Folder1/Folder2/Folder3&quot;).RespectCase);
+}
+</code></pre><h2 id="notes">Notes</h2>
 <ol>
 <li><p>Path constraints perform tests on paths, without reference to any
 actual files or directories. This allows testing paths that are

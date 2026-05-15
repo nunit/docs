@@ -83,25 +83,46 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-emptydirectory">
 <h1 id="emptydirectory-constraint">EmptyDirectory Constraint</h1>
 
-<p>The <code>EmptyDirectoryConstraint</code> tests if a Directory is empty.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">EmptyDirectoryConstraint()
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>EmptyDirectoryConstraint</code> tests that a directory contains no files or subdirectories.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.Empty
+Is.Not.Empty
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(new DirectoryInfo(actual), Is.Empty);
-Assert.That(new DirectoryInfo(actual), Is.Not.Empty);
-</code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p><code>Is.Empty</code> actually creates an <code>EmptyConstraint</code>. Subsequently applying it to a <code>DirectoryInfo</code> causes an
-<code>EmptyDirectoryConstraint</code> to be created.</p>
-</div>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="EmptyDirectoryConstraintExamples">[Test]
+public void EmptyDirectoryConstraint_Examples()
+{
+    var tempDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+    Directory.CreateDirectory(tempDir);
+
+    try
+    {
+        // Test directory is empty
+        Assert.That(new DirectoryInfo(tempDir), Is.Empty);
+
+        // Add a file and verify not empty
+        File.WriteAllText(Path.Combine(tempDir, &quot;test.txt&quot;), &quot;content&quot;);
+        Assert.That(new DirectoryInfo(tempDir), Is.Not.Empty);
+    }
+    finally
+    {
+        Directory.Delete(tempDir, recursive: true);
+    }
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>Is.Empty</code> is a polymorphic constraint that works on strings, collections, and directories.</li>
+<li>When applied to a <code>DirectoryInfo</code>, it checks for both files and subdirectories.</li>
+<li>The directory must exist - passing a non-existent directory throws an exception.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="EmptyConstraint.html">Empty Constraint</a> - Polymorphic empty constraint</li>
+<li><a href="FileOrDirectoryExistsConstraint.html">FileOrDirectoryExists Constraint</a> - Test existence</li>
+</ul>
 
 </article>
           </div>

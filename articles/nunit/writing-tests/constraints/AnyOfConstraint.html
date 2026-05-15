@@ -83,41 +83,55 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-anyof">
 <h1 id="anyof-constraint">AnyOf Constraint</h1>
 
-<p><code>AnyOfConstraint</code> is used to determine whether a value is equal to any of the expected values.</p>
+<p><code>AnyOfConstraint</code> tests that a value equals any one of a set of expected values.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Values provided must be as parameters to the method, not as e.g. a separate array. If you are instead looking
-to see if a collection contains a value, see the <a class="xref" href="SomeItemsConstraint.html">SomeItems Constraint</a>.</p>
+<p>Pass expected values as individual parameters, not as an array. To test if a collection contains a specific
+value, use <a href="SomeItemsConstraint.html">SomeItemsConstraint</a> instead.</p>
 </div>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">AnyOfConstraint(object[] expected)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Is.AnyOf(object[] expected)
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Is.AnyOf(params object[] expected)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...IgnoreCase
-...IgnoreWhiteSpace  // From version 4.2
-...Using(IEqualityComparer comparer)
-...Using(IComparer comparer)
-...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
-...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func&lt;PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration&gt; configure) // From version 4.4
+<pre><code class="lang-csharp">.IgnoreCase
+.IgnoreWhiteSpace              // NUnit 4.2+
+.Using(IComparer comparer)
+.Using(IEqualityComparer comparer)
+.Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+.Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
+.UsingPropertiesComparer()     // NUnit 4.1+
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(42, Is.AnyOf(0, -1, 42, 100));
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="AnyOfConstraintExamples">[Test]
+public void AnyOfConstraint_Examples()
+{
+    // Value must equal one of the options
+    Assert.That(42, Is.AnyOf(0, -1, 42, 100));
+    Assert.That(&quot;red&quot;, Is.AnyOf(&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;));
 
-// You can use a custom comparer as well
-Assert.That(myOwnObject, Is.AnyOf(myArray).Using(myComparer));
-</code></pre>
+    // With string comparison modifiers
+    Assert.That(&quot;RED&quot;, Is.AnyOf(&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;).IgnoreCase);
+
+    // Negative test
+    Assert.That(&quot;yellow&quot;, Is.Not.AnyOf(&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;));
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>This is for testing a single value against multiple options.</li>
+<li>For testing if a collection contains a value, use <code>Has.Member()</code> or <code>Does.Contain()</code>.</li>
+<li>All comparison modifiers apply to the equality check between the actual and each expected value.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="SomeItemsConstraint.html">SomeItems Constraint</a> - Test if collection contains a value</li>
+<li><a href="EqualConstraint.html">Equal Constraint</a> - Test equality with single value</li>
+<li><a href="OrConstraint.html">Or Constraint</a> - Alternative way to express multiple options</li>
+</ul>
 
 </article>
           </div>

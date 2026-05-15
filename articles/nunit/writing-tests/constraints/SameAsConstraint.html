@@ -83,25 +83,44 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="sameasconstraint">
+            <article class="content wrap" id="_content" data-uid="constraint-sameas">
 <h1 id="sameas-constraint">SameAs Constraint</h1>
 
-<p>A <code>SameAsConstraint</code> is used to test whether the object passed
-as an actual value has the same identity as the object supplied
-in its constructor.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">SameAsConstraint(object expected)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>SameAsConstraint</code> tests whether the actual value is the same object instance as the expected value (reference
+equality). This is different from <code>Is.EqualTo</code>, which tests for value equality.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.SameAs(object expected)
+Is.Not.SameAs(object expected)
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Exception ex1 = new Exception();
-Exception ex2 = ex1;
-Assert.That(ex2, Is.SameAs(ex1));
-Exception ex3 = new Exception();
-Assert.That(ex3, Is.Not.SameAs(ex1));
-</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="SameAsConstraintExamples">[Test]
+public void SameAsConstraint_Examples()
+{
+    var obj1 = new object();
+    var obj2 = obj1;
+    var obj3 = new object();
+
+    // Same reference
+    Assert.That(obj2, Is.SameAs(obj1));
+
+    // Different objects (even if equal)
+    Assert.That(obj3, Is.Not.SameAs(obj1));
+
+    // String interning example
+    var str1 = &quot;Hello&quot;;
+    var str2 = &quot;Hello&quot;;
+    Assert.That(str2, Is.SameAs(str1));  // Interned strings are same reference
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>Is.SameAs</code> uses <code>object.ReferenceEquals()</code> internally - it tests object identity, not equality.</li>
+<li>For value types, <code>Is.SameAs</code> will always fail because value types are boxed into different objects.</li>
+<li>Use <code>Is.EqualTo</code> when you want to compare values; use <code>Is.SameAs</code> when you need to verify the exact same instance.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="EqualConstraint.html">Equal Constraint</a> - For value equality</li>
+</ul>
 
 </article>
           </div>

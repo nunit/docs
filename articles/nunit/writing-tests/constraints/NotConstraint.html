@@ -83,35 +83,54 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-not">
 <h1 id="not-constraint">Not Constraint</h1>
 
-<p><code>NotConstraint</code> reverses the effect of another constraint. If the base constraint fails, NotConstraint succeeds. If the
-base constraint succeeds, NotConstraint fails.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">NotConstraint()
+<p><code>NotConstraint</code> negates another constraint. It succeeds when the inner constraint fails, and fails when the inner
+constraint succeeds.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Is.Not.&lt;constraint&gt;
+Does.Not.&lt;constraint&gt;
+Has.No.&lt;constraint&gt;
 </code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Is.Not...
-</code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp" name="NotConstraintExamples">public class Person
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="NotConstraintExamples">[Test]
+public void NotConstraint_Examples()
 {
-    public string Name { get; set; } = &quot;&quot;;
-    public int Age { get; set; }
-    public string Email { get; set; } = &quot;&quot;;
-}
+    // Basic negation
+    Assert.That(42, Is.Not.EqualTo(0));
+    Assert.That(&quot;Hello&quot;, Is.Not.Null);
+    Assert.That(&quot;Hello&quot;, Is.Not.Empty);
 
-[Test]
-public void PropertyConstraint_Examples()
-{
-    var person = new Person { Name = &quot;John&quot;, Age = 25, Email = &quot;john@example.com&quot; };
+    // String negation
+    Assert.That(&quot;Hello World&quot;, Does.Not.Contain(&quot;Goodbye&quot;));
+    Assert.That(&quot;test.txt&quot;, Does.Not.EndWith(&quot;.pdf&quot;));
 
-    Assert.That(person, Has.Property(&quot;Name&quot;).EqualTo(&quot;John&quot;));
-    Assert.That(person, Has.Property(&quot;Age&quot;).GreaterThan(18));
-    Assert.That(person, Has.Property(&quot;Email&quot;).Contains(&quot;@&quot;));
+    // Collection negation
+    Assert.That(new[] { 1, 2, 3 }, Has.No.Member(0));
+    Assert.That(new[] { 1, 2, 3 }, Is.Not.Empty);
+    Assert.That(new[] { 1, 2, 3 }, Has.None.Negative);
+
+    // Type negation
+    Assert.That(&quot;Hello&quot;, Is.Not.InstanceOf&lt;int&gt;());
+
+    // Combined with And/Or
+    object obj = 42;
+    Assert.That(obj, Is.Not.Null.And.InstanceOf&lt;int&gt;());
+    Assert.That(&quot;test&quot;, Is.Not.Null.And.Not.Empty);
 }
-</code></pre>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>Is.Not</code>, <code>Does.Not</code>, and <code>Has.No</code> are all ways to negate constraints.</li>
+<li><code>Has.No</code> is specifically for collection constraints (equivalent to <code>Has.None</code>).</li>
+<li>Negation applies to the immediately following constraint.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="AndConstraint.html">And Constraint</a> - Combine constraints</li>
+<li><a href="OrConstraint.html">Or Constraint</a> - Alternative constraints</li>
+</ul>
+
 </article>
           </div>
 

@@ -83,32 +83,53 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-or">
 <h1 id="or-constraint">Or Constraint</h1>
 
-<p><code>OrConstraint</code> combines two other constraints and succeeds if either of them succeeds.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">OrConstraint(Constraint left, Constraint right)
+<p><code>OrConstraint</code> combines two constraints and succeeds if either one succeeds.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">&lt;constraint&gt;.Or.&lt;constraint&gt;
 </code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">&lt;Constraint&gt;.Or.&lt;Constraint&gt;
-</code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
+<h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp" name="OrConstraintExamples">[Test]
 public void OrConstraint_Examples()
 {
-    Assert.That(3, Is.LessThan(5).Or.GreaterThan(10));
-    Assert.That(12, Is.LessThan(5).Or.GreaterThan(10));
+    int value = 42;
+
+    // Either condition can be true
+    Assert.That(value, Is.LessThan(10).Or.GreaterThan(40));
+    Assert.That(value, Is.EqualTo(0).Or.Positive);
+
+    // String constraints
+    Assert.That(&quot;test&quot;, Does.StartWith(&quot;te&quot;).Or.EndWith(&quot;ing&quot;));
+
+    // Multiple alternatives
+    Assert.That(value, Is.EqualTo(1).Or.EqualTo(42).Or.EqualTo(100));
 }
 </code></pre><h2 id="evaluation-order-and-precedence">Evaluation Order and Precedence</h2>
-<p>Note that the constraint evaluates the sub-constraints left to right, meaning that
-<code>Assert.That(i,Is.Null.Or.GreaterThan(9));</code> where <code>i</code> is a nullable <code>int</code> will work for both <code>12</code> and <code>null</code>. On the
-other hand, <code>Assert.That(i, Is.GreaterThan(9).Or.Null);</code> will only work for <code>12</code>, but throw an exception for <code>null</code>, as
-<code>null</code> cannot be compared to <code>9</code>.</p>
-<p>The <strong>OrConstraint</strong> has precedence over the <strong>AndConstraint</strong>.</p>
-<h2 id="see-also">See also</h2>
+<p>Constraints are evaluated <strong>left to right</strong> and short-circuit when one succeeds:</p>
+<pre><code class="lang-csharp" name="OrConstraintNullPatternExamples">[Test]
+public void OrConstraint_NullPattern_Examples()
+{
+    int? nullable = null;
+
+    // Null-or-value pattern (check null first!)
+    Assert.That(nullable, Is.Null.Or.GreaterThan(0));  // Passes for null
+
+    // Collection: empty or contains specific item
+    var items = new List&lt;int&gt;();
+    Assert.That(items, Is.Empty.Or.Contains(1));
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>Or</code> has higher precedence than <code>And</code>. The expression <code>A.And.B.Or.C</code> is evaluated as <code>A.And.(B.Or.C)</code>.</p>
+</div>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="AndConstraint.html">AndConstraint</a></li>
+<li><a href="AndConstraint.html">And Constraint</a> - Both conditions must be true</li>
+<li><a href="NotConstraint.html">Not Constraint</a> - Negate a constraint</li>
+<li><a href="AnyOfConstraint.html">AnyOf Constraint</a> - Value equals any of several options</li>
 </ul>
 
 </article>

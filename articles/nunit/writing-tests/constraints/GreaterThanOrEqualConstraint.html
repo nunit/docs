@@ -83,56 +83,38 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-greaterthanorequal">
 <h1 id="greaterthanorequal-constraint">GreaterThanOrEqual Constraint</h1>
 
-<p><code>GreaterThanOrEqualConstraint</code> tests that one value is greater than or equal to another.</p>
-<p>It works with numeric types, <code>DateTime</code>, <code>TimeSpan</code>, and any type implementing <code>IComparable</code>. For custom types, a
-user-specified comparer can be provided using the <code>Using</code> modifier.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">GreaterThanOrEqualConstraint(object expected)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>GreaterThanOrEqualConstraint</code> tests that one value is greater than or equal to another. It works with numeric types,
+<code>DateTime</code>, <code>TimeSpan</code>, and any type implementing <code>IComparable</code>. For custom types, a user-specified comparer can be
+provided using the <code>Using</code> modifier.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.GreaterThanOrEqualTo(object expected)
-Is.AtLeast(object expected)
+Is.AtLeast(object expected)              // Alias for GreaterThanOrEqualTo
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...Using(IComparer comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
-...Within(object tolerance)
+<pre><code class="lang-csharp">.Using(IComparer comparer)
+.Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+.Within(object tolerance)
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp" name="GreaterThanOrEqualExamples">[Test]
-public void GreaterThanOrEqual_Examples()
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="GreaterThanOrEqualConstraintExamples">[Test]
+public void GreaterThanOrEqualConstraint_Examples()
 {
-    Assert.That(7, Is.GreaterThan(3));
-    Assert.That(42, Is.Positive);
-
-    var expectedDateTime = DateTime.Now;
-    var myDateTime = DateTime.Now;
-    Assert.That(myDateTime, Is.GreaterThan(expectedDateTime).Within(TimeSpan.FromSeconds(1)));
-
-    Assert.That(7, Is.GreaterThanOrEqualTo(3));
-    Assert.That(7, Is.AtLeast(3));
     Assert.That(7, Is.GreaterThanOrEqualTo(7));
+    Assert.That(7, Is.GreaterThanOrEqualTo(3));
     Assert.That(7, Is.AtLeast(7));
 
-    var myOwnObject = new MyOwnObject(42);
+    // With DateTime
+    Assert.That(DateTime.Now, Is.GreaterThanOrEqualTo(DateTime.Today));
 
-    // Using an untyped comparer that can handle both MyOwnObject and int types, comparing based on the Age property of MyOwnObject instances.
-    var myComparer = new MyComparerUntyped();
-    Assert.That(myOwnObject, Is.GreaterThanOrEqualTo(42).Using(myComparer));
-
-    // Using a lambda expression to compare MyOwnObject instances based on their Age property
-    var myParentObject = new MyOwnObject(84);
-    Assert.That(myParentObject, Is.GreaterThanOrEqualTo(myOwnObject).Using&lt;MyOwnObject&gt;((x, y) =&gt; x.Age.CompareTo(y.Age)));
-
-    // Using a typed comparer
-    var myTypedComparer = new MyComparerTyped();
-    Assert.That(myParentObject, Is.GreaterThanOrEqualTo(myOwnObject).Using(myTypedComparer));
+    // With tolerance
+    Assert.That(10.1, Is.GreaterThanOrEqualTo(10.0).Within(0.5));
 }
-</code></pre><pre><code class="lang-csharp" name="With Comparer">public class MyOwnObject(int age)
+</code></pre><h3 id="using-custom-comparers">Using Custom Comparers</h3>
+<pre><code class="lang-csharp" name="With Comparer">public class MyOwnObject(int age)
 {
     public int Age =&gt; age;
 }
@@ -171,7 +153,18 @@ public class MyComparerTyped : IComparer&lt;MyOwnObject&gt;
     }
 }
 
-</code></pre>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>Is.AtLeast</code> is a more readable alias for <code>Is.GreaterThanOrEqualTo</code>.</li>
+<li>When comparing floating-point numbers, consider using <code>.Within()</code> to specify a tolerance.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="GreaterThanConstraint.html">GreaterThan Constraint</a></li>
+<li><a href="LessThanOrEqualConstraint.html">LessThanOrEqual Constraint</a></li>
+<li><a href="RangeConstraint.html">Range Constraint</a></li>
+</ul>
+
 </article>
           </div>
 

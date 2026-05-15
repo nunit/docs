@@ -83,28 +83,49 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-instanceoftype">
 <h1 id="instanceoftype-constraint">InstanceOfType Constraint</h1>
 
-<p><code>InstanceOfTypeConstraint</code> tests that an object is of the type supplied or a derived type.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">InstanceOfTypeConstraint(Type)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Is.InstanceOf(Type)
+<p><code>InstanceOfTypeConstraint</code> tests that an object is an instance of the specified type or any derived type. This is
+equivalent to the C# <code>is</code> operator.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Is.InstanceOf(Type expectedType)
 Is.InstanceOf&lt;T&gt;()
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp" name="TypeConstraintExamples">[Test]
-public void TypeConstraint_Examples()
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="InstanceOfTypeConstraintExamples">[Test]
+public void InstanceOfTypeConstraint_Examples()
 {
-    Assert.That(&quot;Hello&quot;, Is.TypeOf&lt;string&gt;());
-    Assert.That(&quot;Hello&quot;, Is.TypeOf(typeof(string)));
+    // Basic type checking
+    Assert.That(&quot;Hello&quot;, Is.InstanceOf(typeof(string)));
     Assert.That(&quot;Hello&quot;, Is.InstanceOf&lt;string&gt;());
-    Assert.That(&quot;Hello&quot;, Is.InstanceOf&lt;object&gt;());
-    Assert.That(&quot;Hello&quot;, Is.AssignableTo&lt;object&gt;());
+    Assert.That(42, Is.InstanceOf&lt;int&gt;());
+
+    // Inheritance: derived types pass
+    Assert.That(&quot;Hello&quot;, Is.InstanceOf&lt;object&gt;());         // string derives from object
+    Assert.That(new List&lt;int&gt;(), Is.InstanceOf&lt;IEnumerable&lt;int&gt;&gt;());
+
+    // Interface checking
+    Assert.That(new List&lt;int&gt;(), Is.InstanceOf&lt;IList&lt;int&gt;&gt;());
+    Assert.That(new Dictionary&lt;string, int&gt;(), Is.InstanceOf&lt;IDictionary&lt;string, int&gt;&gt;());
+
+    // Negative tests
+    Assert.That(&quot;Hello&quot;, Is.Not.InstanceOf&lt;int&gt;());
+    Assert.That(null, Is.Not.InstanceOf&lt;string&gt;());        // null is not an instance of any type
 }
-</code></pre>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>Is.InstanceOf&lt;T&gt;()</code> is equivalent to C#'s <code>value is T</code> expression.</li>
+<li>For exact type matching (no inheritance), use <a href="ExactTypeConstraint.html">ExactTypeConstraint</a>.</li>
+<li><code>null</code> always fails <code>Is.InstanceOf</code> for any type.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="ExactTypeConstraint.html">ExactType Constraint</a> - Exact type match, no inheritance</li>
+<li><a href="AssignableToConstraint.html">AssignableTo Constraint</a> - Type assignability check</li>
+<li><a href="AssignableFromConstraint.html">AssignableFrom Constraint</a> - Reverse assignability check</li>
+</ul>
+
 </article>
           </div>
 

@@ -83,7 +83,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-samepath">
 <h1 id="samepath-constraint">SamePath Constraint</h1>
 
 <p><code>SamePathConstraint</code> tests that two paths are equivalent.</p>
@@ -98,13 +98,16 @@
 ...RespectCase
 </code></pre>
 <h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(&quot;/folder1/./junk/../folder2&quot;, Is.SamePath(&quot;/folder1/folder2&quot;));
-Assert.That(&quot;/folder1/./junk/../folder2/x&quot;, Is.Not.SamePath(&quot;/folder1/folder2&quot;));
+<pre><code class="lang-csharp" name="SamePathConstraintExamples">[Test]
+public void SamePathConstraint_Examples()
+{
+    Assert.That(&quot;/folder1/./junk/../folder2&quot;, Is.SamePath(&quot;/folder1/folder2&quot;));
+    Assert.That(&quot;/folder1/./junk/../folder2/x&quot;, Is.Not.SamePath(&quot;/folder1/folder2&quot;));
 
-Assert.That(@&quot;C:\folder1\folder2&quot;, Is.SamePath(@&quot;C:\Folder1\Folder2&quot;).IgnoreCase);
-Assert.That(&quot;/folder1/folder2&quot;, Is.Not.SamePath(&quot;/Folder1/Folder2&quot;).RespectCase);
-</code></pre>
-<h2 id="notes">Notes</h2>
+    Assert.That(@&quot;C:\folder1\folder2&quot;, Is.SamePath(@&quot;C:\Folder1\Folder2&quot;).IgnoreCase);
+    Assert.That(&quot;/folder1/folder2&quot;, Is.Not.SamePath(&quot;/Folder1/Folder2&quot;).RespectCase);
+}
+</code></pre><h2 id="notes">Notes</h2>
 <ol>
 <li><p>Path constraints perform tests on paths, without reference to any
 actual files or directories. This allows testing paths that are

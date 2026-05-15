@@ -83,40 +83,56 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-fileordirectoryexists">
 <h1 id="fileordirectoryexists-constraint">FileOrDirectoryExists Constraint</h1>
 
-<p><code>FileOrDirectoryExistsConstraint</code> tests that a File or Directory exists.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">FileOrDirectoryExistsConstraint()
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>FileOrDirectoryExistsConstraint</code> tests that a file or directory exists at the specified path.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Does.Exist
 Does.Not.Exist
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">IgnoreDirectories
-IgnoreFiles
+<pre><code class="lang-csharp">.IgnoreDirectories   // Only check for file existence
+.IgnoreFiles         // Only check for directory existence
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp" name="FileConstraintExamples">[Test]
-public void FileConstraint_Examples()
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="FileOrDirectoryExistsConstraintExamples">[Test]
+public void FileOrDirectoryExistsConstraint_Examples()
 {
     var tempFile = Path.GetTempFileName();
-    File.WriteAllText(tempFile, &quot;test content&quot;);
+    var tempDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+    Directory.CreateDirectory(tempDir);
 
     try
     {
+        // Test file or directory existence
         Assert.That(tempFile, Does.Exist);
+        Assert.That(tempDir, Does.Exist);
         Assert.That(&quot;nonexistent.txt&quot;, Does.Not.Exist);
+
+        // Test with FileInfo/DirectoryInfo
+        Assert.That(new FileInfo(tempFile), Does.Exist);
+        Assert.That(new DirectoryInfo(tempDir), Does.Exist);
     }
     finally
     {
-        if (File.Exists(tempFile))
-            File.Delete(tempFile);
+        File.Delete(tempFile);
+        Directory.Delete(tempDir);
     }
 }
-</code></pre>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>The constraint accepts string paths, <code>FileInfo</code>, or <code>DirectoryInfo</code> objects.</li>
+<li>By default, the constraint passes if either a file or directory exists at the path.</li>
+<li>Use <code>.IgnoreDirectories</code> to require a file specifically.</li>
+<li>Use <code>.IgnoreFiles</code> to require a directory specifically.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="EmptyDirectoryConstraint.html">EmptyDirectory Constraint</a> - Test if directory is empty</li>
+<li><a href="SamePathConstraint.html">SamePath Constraint</a> - Compare paths</li>
+</ul>
+
 </article>
           </div>
 

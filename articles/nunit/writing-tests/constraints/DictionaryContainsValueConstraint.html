@@ -83,44 +83,58 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-dictionarycontainsvalue">
 <h1 id="dictionarycontainsvalue-constraint">DictionaryContainsValue Constraint</h1>
 
-<p><code>DictionaryContainsValueConstraint</code> is used to test whether a dictionary
-contains an expected object as a value.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">DictionaryContainsValueConstraint(object)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Contains.Value(object)
-Does.ContainValue(object)
-Does.Not.ContainValue(object)
+<p><code>DictionaryContainsValueConstraint</code> tests whether a dictionary contains an expected value.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Contains.Value(object expectedValue)
+Does.ContainValue(object expectedValue)
+Does.Not.ContainValue(object expectedValue)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...Using(IComparer comparer)
-...Using(IEqualityComparer comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
-...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
-...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
-...Using&lt;TActualValueElement, TExpected&gt;(Func&lt;TActualValueElement, TExpected, bool&gt; comparison)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func&lt;PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration&gt; configure) // From version 4.4
+<pre><code class="lang-csharp">.IgnoreCase
+.Using(IComparer comparer)
+.Using(IEqualityComparer comparer)
+.Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+.Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
+.UsingPropertiesComparer()     // NUnit 4.1+
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">IDictionary&lt;int, int&gt; idict = new IDictionary&lt;int, int&gt; { { 1, 4 }, { 2, 5 } };
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="DictionaryContainsValueConstraintExamples">[Test]
+public void DictionaryContainsValueConstraint_Examples()
+{
+    var scores = new Dictionary&lt;string, int&gt;
+    {
+        [&quot;Alice&quot;] = 100,
+        [&quot;Bob&quot;] = 85,
+        [&quot;Carol&quot;] = 100
+    };
 
-Assert.That(idict, Contains.Value(4));
-Assert.That(idict, Does.ContainValue(5));
-Assert.That(idict, Does.Not.ContainValue(3));
-Assert.That(mydict, Contains.Value(myOwnObject).Using(myComparer));
-</code></pre>
-<h2 id="see-also">See also</h2>
+    // Basic value checks
+    Assert.That(scores, Contains.Value(100));
+    Assert.That(scores, Does.ContainValue(85));
+    Assert.That(scores, Does.Not.ContainValue(50));
+
+    // String values with case-insensitive comparison
+    var names = new Dictionary&lt;int, string&gt;
+    {
+        [1] = &quot;Alice&quot;,
+        [2] = &quot;Bob&quot;
+    };
+    Assert.That(names, Does.ContainValue(&quot;alice&quot;).IgnoreCase);
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>Unlike key comparison, value comparison can use NUnit's comparison modifiers.</li>
+<li>The constraint checks if any value in the dictionary matches.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="DictionaryContainsKeyConstraint.html">DictionaryContainsKeyConstraint</a></li>
-<li><a href="DictionaryContainsKeyValuePairConstraint.html">DictionaryContainsKeyValuePairConstraint.md</a></li>
+<li><a href="DictionaryContainsKeyConstraint.html">DictionaryContainsKey Constraint</a></li>
+<li><a href="DictionaryContainsKeyValuePairConstraint.html">DictionaryContainsKeyValuePair Constraint</a></li>
 </ul>
 
 </article>

@@ -83,27 +83,39 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-null">
 <h1 id="null-constraint">Null Constraint</h1>
 
-<p><code>NullConstraint</code> tests that a value is null.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">NullConstraint()
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>NullConstraint</code> tests that a value is <code>null</code>. This is one of the most commonly used constraints for verifying that
+references have not been assigned or have been explicitly set to <code>null</code>.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.Null
+Is.Not.Null
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
+<h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp" name="NullConstraintExamples">[Test]
 public void NullConstraint_Examples()
 {
-    object anObject = null;
-    Assert.That(anObject, Is.Null);
+    object? obj = null;
+    Assert.That(obj, Is.Null);
 
-    anObject = &quot;something&quot;;
-    Assert.That(anObject, Is.Not.Null);
+    string name = &quot;Alice&quot;;
+    Assert.That(name, Is.Not.Null);
+
+    // Combining with other constraints
+    object? result = &quot;value&quot;;
+    Assert.That(result, Is.Not.Null.And.Not.EqualTo(&quot;&quot;));
 }
-</code></pre>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>For value types, consider using <code>Is.Default</code> instead, which tests for the default value of the type.</li>
+<li>When testing nullable value types (<code>int?</code>, <code>bool?</code>, etc.), <code>Is.Null</code> works as expected.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="DefaultConstraint.html">Default Constraint</a></li>
+</ul>
+
 </article>
           </div>
 

@@ -83,20 +83,39 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-nan">
 <h1 id="nan-constraint">NaN Constraint</h1>
 
-<p><code>NaNConstraint</code> tests that a value is floating-point NaN.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">NaNConstraint()
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>NaNConstraint</code> tests that a floating-point value is <code>NaN</code> (Not a Number).</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.NaN
+Is.Not.NaN
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(aDouble, Is.NaN);
-Assert.That(aDouble, Is.Not.NaN);
-</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="NaNConstraintExamples">[Test]
+public void NaNConstraint_Examples()
+{
+    // NaN results from undefined operations
+    Assert.That(double.NaN, Is.NaN);
+    Assert.That(float.NaN, Is.NaN);
+    Assert.That(0.0 / 0.0, Is.NaN);
+    Assert.That(Math.Sqrt(-1), Is.NaN);
+
+    // Regular numbers are not NaN
+    Assert.That(42.0, Is.Not.NaN);
+    Assert.That(double.PositiveInfinity, Is.Not.NaN);
+    Assert.That(double.NegativeInfinity, Is.Not.NaN);
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>NaN is the only value that is not equal to itself (<code>NaN != NaN</code> is true).</li>
+<li>Both <code>double.NaN</code> and <code>float.NaN</code> are supported.</li>
+<li>Infinity values are not NaN.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="EqualConstraint.html">EqualConstraint</a> - For numeric comparisons with tolerance</li>
+</ul>
 
 </article>
           </div>

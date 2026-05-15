@@ -83,51 +83,38 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-lessthan">
 <h1 id="lessthan-constraint">LessThan Constraint</h1>
 
-<p><code>LessThanConstraint</code> tests that one value is less than another.</p>
-<p>It works with numeric types, <code>DateTime</code>, <code>TimeSpan</code>, and any type implementing <code>IComparable</code>. For custom types, a
-user-specified comparer can be provided using the <code>Using</code> modifier.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">LessThanConstraint(object expected)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>LessThanConstraint</code> tests that one value is less than another. It works with numeric types, <code>DateTime</code>, <code>TimeSpan</code>, and
+any type implementing <code>IComparable</code>. For custom types, a user-specified comparer can be provided using the <code>Using</code>
+modifier.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.LessThan(object expected)
-Is.Negative // Equivalent to Is.LessThan(0)
+Is.Negative                     // Equivalent to Is.LessThan(0)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...Using(IComparer comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
-...Within(object tolerance)
+<pre><code class="lang-csharp">.Using(IComparer comparer)
+.Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+.Within(object tolerance)
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp" name="LessThanExamples">[Test]
-public void LessThan_Examples()
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="LessThanConstraintExamples">[Test]
+public void LessThanConstraint_Examples()
 {
     Assert.That(3, Is.LessThan(7));
     Assert.That(-5, Is.Negative);
+    Assert.That(5, Is.Not.Negative);
 
-    var myDateTime = DateTime.Now;
-    var expectedDateTime = DateTime.Now;
-    Assert.That(myDateTime, Is.LessThan(expectedDateTime).Within(TimeSpan.FromSeconds(1)));
+    // With DateTime
+    Assert.That(DateTime.Today, Is.LessThan(DateTime.Now));
 
-    var myOwnObject = new MyOwnObject(42);
-
-    // Using an untyped comparer that can handle both MyOwnObject and int types, comparing based on the Age property of MyOwnObject instances.
-    var myComparer = new MyComparerUntyped();
-    Assert.That(myOwnObject, Is.LessThan(43).Using(myComparer));
-
-    // Using a lambda expression to compare MyOwnObject instances based on their Age property
-    var myParentObject = new MyOwnObject(84);
-    Assert.That(myOwnObject, Is.LessThan(myParentObject).Using&lt;MyOwnObject&gt;((x, y) =&gt; x.Age.CompareTo(y.Age)));
-
-    // Using a typed comparer
-    var myTypedComparer = new MyComparerTyped();
-    Assert.That(myOwnObject, Is.LessThan(myParentObject).Using(myTypedComparer));
+    // With tolerance
+    Assert.That(9.5, Is.LessThan(10.0).Within(0.1));
 }
-</code></pre><pre><code class="lang-csharp" name="With Comparer">public class MyOwnObject(int age)
+</code></pre><h3 id="using-custom-comparers">Using Custom Comparers</h3>
+<pre><code class="lang-csharp" name="With Comparer">public class MyOwnObject(int age)
 {
     public int Age =&gt; age;
 }
@@ -166,7 +153,18 @@ public class MyComparerTyped : IComparer&lt;MyOwnObject&gt;
     }
 }
 
-</code></pre>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>When comparing floating-point numbers, consider using <code>.Within()</code> to specify a tolerance.</li>
+<li><code>Is.Negative</code> is a convenience shorthand for <code>Is.LessThan(0)</code>.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="GreaterThanConstraint.html">GreaterThan Constraint</a></li>
+<li><a href="LessThanOrEqualConstraint.html">LessThanOrEqual Constraint</a></li>
+<li><a href="RangeConstraint.html">Range Constraint</a></li>
+</ul>
+
 </article>
           </div>
 

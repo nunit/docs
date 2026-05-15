@@ -83,24 +83,39 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-true">
 <h1 id="true-constraint">True Constraint</h1>
 
-<p><code>TrueConstraint</code> tests that a value is true.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">TrueConstraint()
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>TrueConstraint</code> tests that a value is <code>true</code>. Use this constraint when asserting boolean conditions or the result of
+boolean expressions.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.True
+Is.Not.True  // equivalent to Is.False
 </code></pre>
-<h2 id="example-of-use">Example of Use</h2>
+<h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp" name="TrueConstraintExamples">[Test]
 public void TrueConstraint_Examples()
 {
     Assert.That(2 + 2 == 4, Is.True);
-    Assert.That(2 + 2 == 5, Is.False);
+    var isValid = true;
+    Assert.That(isValid, Is.True);
+    var list = new List&lt;int&gt; { 1, 2, 3 };
+    Assert.That(list.Contains(2), Is.True);
+
+    // With nullable booleans
+    bool? hasValue = true;
+    Assert.That(hasValue, Is.True);
 }
-</code></pre>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>Is.Not.True</code> is equivalent to <code>Is.False</code> for non-nullable booleans.</li>
+<li>For nullable booleans (<code>bool?</code>), <code>Is.True</code> only passes when the value is exactly <code>true</code>, not when it's <code>null</code>.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="FalseConstraint.html">False Constraint</a></li>
+</ul>
+
 </article>
           </div>
 

@@ -83,26 +83,42 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-attribute">
 <h1 id="attribute-constraint">Attribute Constraint</h1>
 
-<p><code>AttributeConstraint</code> tests for the existence of an attribute on a Type and then applies a constraint to that attribute.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">AttributeConstraint(Type type, IConstraint baseConstraint)
+<p><code>AttributeConstraint</code> tests for the existence of an attribute on a type and then applies a further constraint to that
+attribute's properties.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Has.Attribute(Type attributeType).&lt;constraint&gt;
+Has.Attribute&lt;TAttribute&gt;().&lt;constraint&gt;
 </code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Has.Attribute(typeof(TestFixtureAttribute))...
-Has.Attribute&lt;TestFixtureAttribute&gt;()...
-</code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(someObject, Has.Attribute(typeof(TestFixtureAttribute))
-    .Property(&quot;Description&quot;).EqualTo(&quot;My description&quot;));
-Assert.That(someObject, Has.Attribute&lt;TestFixtureAttribute&gt;()
-    .Property(&quot;Description&quot;).EqualTo(&quot;My description&quot;));
-</code></pre>
-<h2 id="see-also">See also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="AttributeConstraintExamples">[TestFixture(Description = &quot;Integration tests&quot;)]
+[Category(&quot;Database&quot;)]
+public class AttributeConstraintExamplesFixture
+{
+    [Test]
+    public void AttributeConstraint_Examples()
+    {
+        // Test that a type has an attribute with specific properties
+        Assert.That(typeof(AttributeConstraintExamplesFixture), Has.Attribute&lt;TestFixtureAttribute&gt;()
+            .Property(&quot;Description&quot;).EqualTo(&quot;Integration tests&quot;));
+
+        Assert.That(typeof(AttributeConstraintExamplesFixture), Has.Attribute(typeof(CategoryAttribute))
+            .Property(&quot;Name&quot;).EqualTo(&quot;Database&quot;));
+    }
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>The constraint first checks that the attribute exists, then applies the chained constraint to the attribute instance.</li>
+<li>To only check for attribute existence without testing its properties, use
+<a href="AttributeExistsConstraint.html">AttributeExistsConstraint</a>.</li>
+<li>The constraint works on both <code>Type</code> objects and instances (testing the instance's type).</li>
+</ol>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="AttributeExistsConstraint.html">AttributeExistsConstraint</a></li>
+<li><a href="AttributeExistsConstraint.html">AttributeExists Constraint</a> - Just test for attribute presence</li>
+<li><a href="PropertyConstraint.html">Property Constraint</a> - Test property values</li>
 </ul>
 
 </article>

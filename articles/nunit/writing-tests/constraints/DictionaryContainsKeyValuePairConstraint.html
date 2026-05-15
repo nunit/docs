@@ -12,9 +12,9 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>DictionaryContainsKeyValuePairConstraint Constraint | NUnit Docs </title>
+      <title>DictionaryContainsKeyValuePair Constraint | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="DictionaryContainsKeyValuePairConstraint Constraint | NUnit Docs ">
+      <meta name="title" content="DictionaryContainsKeyValuePair Constraint | NUnit Docs ">
     
     
       <link rel="shortcut icon" href="../../../../favicon.ico">
@@ -83,48 +83,56 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="dictionarycontainskeyvaluepairconstraint-constraint">DictionaryContainsKeyValuePairConstraint Constraint</h1>
+            <article class="content wrap" id="_content" data-uid="constraint-dictionarycontainskeyvaluepair">
+<h1 id="dictionarycontainskeyvaluepair-constraint">DictionaryContainsKeyValuePair Constraint</h1>
 
-<p><code>DictionaryContainsKeyValuePairConstraint</code> is used to test whether a dictionary
-contains an expected key along with an expected corresponding value.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">public DictionaryContainsKeyValuePairConstraint(object key, object value)
-    : this(new KeyValuePair&lt;object, object&gt;(key, value))
-{
-}
-
-protected DictionaryContainsKeyValuePairConstraint(KeyValuePair&lt;object, object&gt; arg)
-    : base(arg)
-{
-    Expected = arg;
-}
-</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint(&quot;Hi&quot;, &quot;Universe&quot;));
-Assert.That(dictionary, Does.ContainKey(&quot;Hola&quot;).WithValue(&quot;Mundo&quot;));
-Assert.That(dictionary, Does.Not.ContainKey(&quot;Hello&quot;).WithValue(&quot;NotValue&quot;));
-Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint(&quot;HI&quot;, &quot;UNIVERSE&quot;).IgnoreCase);
-Assert.That(dictionary, new DictionaryContainsKeyValuePairConstraint(&quot;HI&quot;, &quot;UNIVERSE&quot;).Using&lt;string&gt;((x, y) =&gt; string.Compare(x, y, StringComparison.CurrentCultureIgnoreCase)));
+<p><code>DictionaryContainsKeyValuePairConstraint</code> tests whether a dictionary contains a specific key-value pair.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Does.ContainKey(object key).WithValue(object value)
+Does.Not.ContainKey(object key).WithValue(object value)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...IgnoreCase
-...IgnoreWhiteSpace  // From version 4.2
-...Using(IComparer comparer)
-...Using(IEqualityComparer comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
-...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
-...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func&lt;PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration&gt; configure) // From version 4.4
+<p>These modifiers apply to the <strong>value</strong> comparison:</p>
+<pre><code class="lang-csharp">.IgnoreCase
+.IgnoreWhiteSpace              // NUnit 4.2+
+.Using(IComparer comparer)
+.Using(IEqualityComparer comparer)
+.Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+.Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
+.UsingPropertiesComparer()     // NUnit 4.1+
 </code></pre>
-<h2 id="see-also">See also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="DictionaryContainsKeyValuePairConstraintExamples">[Test]
+public void DictionaryContainsKeyValuePairConstraint_Examples()
+{
+    var translations = new Dictionary&lt;string, string&gt;
+    {
+        [&quot;Hello&quot;] = &quot;World&quot;,
+        [&quot;Hola&quot;] = &quot;Mundo&quot;
+    };
+
+    // Check for specific key-value pair
+    Assert.That(translations, Does.ContainKey(&quot;Hello&quot;).WithValue(&quot;World&quot;));
+    Assert.That(translations, Does.ContainKey(&quot;Hola&quot;).WithValue(&quot;Mundo&quot;));
+
+    // Negative: key exists but value doesn't match
+    Assert.That(translations, Does.Not.ContainKey(&quot;Hello&quot;).WithValue(&quot;Universe&quot;));
+
+    // Case-insensitive value comparison
+    Assert.That(translations, Does.ContainKey(&quot;Hello&quot;).WithValue(&quot;WORLD&quot;).IgnoreCase);
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>Key comparison uses the dictionary's comparer (cannot be overridden).</li>
+<li>Value comparison modifiers (<code>.IgnoreCase</code>, <code>.Using()</code>, etc.) only apply to the value.</li>
+<li>The preferred syntax is <code>Does.ContainKey(key).WithValue(value)</code> rather than the constructor form.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="DictionaryContainsValueConstraint.html">DictionaryContainsValueConstraint</a></li>
-<li><a href="DictionaryContainsKeyConstraint.html">DictionaryContainsKeyConstraint</a></li>
+<li><a href="DictionaryContainsKeyConstraint.html">DictionaryContainsKey Constraint</a></li>
+<li><a href="DictionaryContainsValueConstraint.html">DictionaryContainsValue Constraint</a></li>
 </ul>
 
 </article>

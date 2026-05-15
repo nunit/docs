@@ -83,29 +83,31 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-endswith">
 <h1 id="endswith-constraint">EndsWith Constraint</h1>
 
-<p><code>EndsWithConstraint</code> tests for an ending string.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">EndsWithConstraint(string expected)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>EndsWithConstraint</code> tests that a string ends with the expected substring.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Does.EndWith(string expected)
-EndsWith(string expected)
+Does.Not.EndWith(string expected)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...IgnoreCase
-...Using(StringComparison comparisonType)
-...Using(CultureInfo culture)
+<pre><code class="lang-csharp">.IgnoreCase
+.Using(StringComparison comparisonType)
+.Using(CultureInfo culture)
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">string phrase = &quot;Make your tests fail before passing!&quot;;
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="EndsWithConstraintExamples">[Test]
+public void EndsWithConstraint_Examples()
+{
+    string phrase = &quot;Make your tests fail before passing!&quot;;
 
-Assert.That(phrase, Does.EndWith(&quot;!&quot;));
-Assert.That(phrase, Does.EndWith(&quot;PASSING!&quot;).IgnoreCase);
-</code></pre>
-<h3 id="specifying-a-stringcomparison">Specifying a StringComparison</h3>
+    Assert.That(phrase, Does.EndWith(&quot;!&quot;));
+    Assert.That(phrase, Does.EndWith(&quot;passing!&quot;));
+    Assert.That(phrase, Does.EndWith(&quot;PASSING!&quot;).IgnoreCase);
+    Assert.That(phrase, Does.Not.EndWith(&quot;failing&quot;));
+}
+</code></pre><h3 id="specifying-a-stringcomparison">Specifying a StringComparison</h3>
 <pre><code class="lang-csharp">Assert.That(&quot;Hello World!&quot;, Does.EndWith(&quot;WORLD!&quot;).Using(StringComparison.OrdinalIgnoreCase));
 Assert.That(&quot;Hello World!&quot;, Does.EndWith(&quot;World!&quot;).Using(StringComparison.Ordinal));
 </code></pre>
@@ -120,10 +122,15 @@ Assert.That(&quot;Main Straße&quot;, Does.EndWith(&quot;Straße&quot;).Using(ne
 </code></pre>
 <h2 id="notes">Notes</h2>
 <ol>
-<li><strong>EndsWith</strong> may appear only in the body of a constraint expression or when the inherited syntax is used.</li>
-<li>Only one <code>Using</code> modifier may be specified. Attempting to use multiple <code>Using</code> modifiers
-will throw an <code>InvalidOperationException</code>.</li>
+<li>Only one <code>Using</code> modifier may be specified. Attempting to use multiple <code>Using</code> modifiers will throw an
+<code>InvalidOperationException</code>.</li>
 </ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="StartsWithConstraint.html">StartsWith Constraint</a></li>
+<li><a href="SubstringConstraint.html">Substring Constraint</a></li>
+<li><a href="RegexConstraint.html">Regex Constraint</a></li>
+</ul>
 
 </article>
           </div>

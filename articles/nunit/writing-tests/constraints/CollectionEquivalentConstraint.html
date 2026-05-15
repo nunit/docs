@@ -83,42 +83,56 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-collectionequivalent">
 <h1 id="collectionequivalent-constraint">CollectionEquivalent Constraint</h1>
 
-<p><code>CollectionEquivalentConstraint</code> tests that two <code>IEnumerables</code> are equivalent - that they contain
-the same items, in any order. If the actual value passed does not implement <code>IEnumerable</code> an exception is thrown.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">CollectionEquivalentConstraint(IEnumerable other)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Is.EquivalentTo(IEnumerable other)
+<p><code>CollectionEquivalentConstraint</code> tests that two <code>IEnumerables</code> are equivalent - that they contain the same items, in any
+order. Two collections are equivalent if they have the same number of elements and every element in one collection has a
+matching element in the other.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Is.EquivalentTo(IEnumerable expected)
+Is.Not.EquivalentTo(IEnumerable expected)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...IgnoreCase
-...IgnoreWhiteSpace  // From version 4.2
-...Using(IEqualityComparer comparer)
-...Using(IComparer comparer)
-...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
-...Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
-...Using&lt;TActualElement, TExpectedElement&gt;(Func&lt;TActualElement, TExpectedElement, bool&gt; comparison)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func&lt;PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration&gt; configure) // From version 4.4
+<pre><code class="lang-csharp">.IgnoreCase
+.IgnoreWhiteSpace                     // From version 4.2
+.Using(IEqualityComparer comparer)
+.Using(IComparer comparer)
+.Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+.Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
+.UsingPropertiesComparer()            // From version 4.1
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };
-string[] sarray = new string[] { &quot;a&quot;, &quot;b&quot;, &quot;c&quot; };
-Assert.That(new string[] { &quot;c&quot;, &quot;a&quot;, &quot;b&quot; }, Is.EquivalentTo(sarray));
-Assert.That(new int[] { 1, 2, 2 }, Is.Not.EquivalentTo(iarray));
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp">// Basic equivalence - order doesn't matter
+int[] expected = { 1, 2, 3 };
+Assert.That(new[] { 3, 1, 2 }, Is.EquivalentTo(expected));
+
+// Not equivalent - different counts matter
+Assert.That(new[] { 1, 2, 2 }, Is.Not.EquivalentTo(expected));
+
+// String comparison with case insensitivity
+string[] names = { &quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot; };
+Assert.That(new[] { &quot;alice&quot;, &quot;BOB&quot;, &quot;CHARLIE&quot; }, Is.EquivalentTo(names).IgnoreCase);
+
+// With custom comparer for complex objects
+Assert.That(actualPeople, Is.EquivalentTo(expectedPeople).UsingPropertiesComparer());
 </code></pre>
 <h2 id="notes">Notes</h2>
 <ol>
-<li>To compare items in order, use Is.EqualTo().</li>
+<li>To compare items in a specific order, use <code>Is.EqualTo()</code> instead.</li>
+<li>Duplicate items matter: <code>{1, 2, 2}</code> is not equivalent to <code>{1, 2, 3}</code> even though they have the same length.</li>
+<li>The constraint checks that each item in one collection has exactly one matching item in the other, accounting for
+duplicates correctly.</li>
 </ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="EqualConstraint.html">Equal Constraint</a> - For ordered comparison</li>
+<li><a href="CollectionSubsetConstraint.html">CollectionSubset Constraint</a></li>
+<li><a href="CollectionSupersetConstraint.html">CollectionSuperset Constraint</a></li>
+<li><a href="AllItemsConstraint.html">AllItems Constraint</a></li>
+</ul>
 
 </article>
           </div>

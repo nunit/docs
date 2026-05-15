@@ -83,19 +83,38 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-false">
 <h1 id="false-constraint">False Constraint</h1>
 
-<p><code>FalseConstraint</code> tests that a value is false.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">FalseConstraint()
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>FalseConstraint</code> tests that a value is <code>false</code>. Use this constraint when asserting that a boolean condition or
+expression evaluates to <code>false</code>.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.False
+Is.Not.False  // equivalent to Is.True
 </code></pre>
-<h2 id="example-of-use">Example of Use</h2>
-<pre><code class="lang-csharp">Assert.That(condition, Is.False);
-</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="FalseConstraintExamples">[Test]
+public void FalseConstraint_Examples()
+{
+    Assert.That(2 + 2 == 5, Is.False);
+    var isDisabled = false;
+    Assert.That(isDisabled, Is.False);
+    ICollection&lt;int&gt; list = new List&lt;int&gt;();
+    Assert.That(list.IsReadOnly, Is.False);
+
+    // With nullable booleans
+    bool? isDeleted = false;
+    Assert.That(isDeleted, Is.False);
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>Is.Not.False</code> is equivalent to <code>Is.True</code> for non-nullable booleans.</li>
+<li>For nullable booleans (<code>bool?</code>), <code>Is.False</code> only passes when the value is exactly <code>false</code>, not when it's <code>null</code>.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="TrueConstraint.html">True Constraint</a></li>
+</ul>
 
 </article>
           </div>

@@ -83,26 +83,41 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-emptycollection">
 <h1 id="emptycollection-constraint">EmptyCollection Constraint</h1>
 
-<p>The <strong>EmptyCollectionConstraint</strong> tests if a Collection or other <code>IEnumerable</code> is empty. An <code>ArgumentException</code> is
-thrown if the actual value is not an <code>IEnumerable</code> or is null.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">EmptyCollectionConstraint()
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>EmptyCollectionConstraint</code> tests that an <code>IEnumerable</code> contains no items. An <code>ArgumentException</code> is thrown if the
+actual value is not an <code>IEnumerable</code> or is null.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Is.Empty
+Is.Not.Empty
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(new int[] { }, Is.Empty);
-Assert.That(new int[] { 1, 2, 3 }, Is.Not.Empty);
-</code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p><code>Is.Empty</code> actually creates an <code>EmptyConstraint</code>. Subsequently applying it to an <code>IEnumerable</code> or
-<code>ICollection</code> causes an <code>EmptyCollectionConstraint</code> to be created.</p>
-</div>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="EmptyCollectionConstraintExamples">[Test]
+public void EmptyCollectionConstraint_Examples()
+{
+    // Empty collections
+    Assert.That(new int[] { }, Is.Empty);
+    Assert.That(new List&lt;string&gt;(), Is.Empty);
+    Assert.That(Array.Empty&lt;int&gt;(), Is.Empty);
+    Assert.That(Enumerable.Empty&lt;string&gt;(), Is.Empty);
+
+    // Non-empty collections
+    Assert.That(new[] { 1, 2, 3 }, Is.Not.Empty);
+    Assert.That(new List&lt;string&gt; { &quot;item&quot; }, Is.Not.Empty);
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>Is.Empty</code> is a polymorphic constraint that works with strings, collections, and directories.</li>
+<li>When applied to an <code>IEnumerable</code>, it creates an <code>EmptyCollectionConstraint</code> internally.</li>
+<li>Passing <code>null</code> throws an <code>ArgumentException</code>. Use <code>Is.Null.Or.Empty</code> pattern if null is acceptable.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="EmptyConstraint.html">Empty Constraint</a> - Polymorphic empty constraint</li>
+<li><a href="EmptyStringConstraint.html">EmptyString Constraint</a> - For string-specific empty tests</li>
+<li><a href="ExactCountConstraint.html">ExactCount Constraint</a> - Test for specific item count</li>
+</ul>
 
 </article>
           </div>

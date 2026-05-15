@@ -83,24 +83,43 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-whitespace">
 <h1 id="whitespace-constraint">WhiteSpace Constraint</h1>
 
-<p>The <code>WhiteSpaceConstraint</code> tests if a string contains only white-space.</p>
-<p>The constraint is the equivalent of
-<a href="https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace?view=net-8.0">String.IsNullOrWhiteSpace</a></p>
-<p>White-space characters are defined by the Unicode standard as interpreted by
-<a href="https://learn.microsoft.com/en-us/dotnet/api/system.char.iswhitespace?view=net-8.0">Char.IsWhiteSpace</a> method.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">WhiteSpaceConstraint()
+<p><code>WhiteSpaceConstraint</code> tests that a string is null, empty, or contains only whitespace characters. It is equivalent to
+<code>string.IsNullOrWhiteSpace()</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This constraint was added in NUnit 4.2.</p>
+</div>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Is.WhiteSpace
+Is.Not.WhiteSpace
 </code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Is.WhiteSpace  // From version 4.2
-</code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(&quot; &quot;, Is.WhiteSpace);
-Assert.That(&quot;A String&quot;, Is.Not.WhiteSpace);
-</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="WhiteSpaceConstraintExamples">[Test]
+public void WhiteSpaceConstraint_Examples()
+{
+    Assert.That(&quot;&quot;, Is.WhiteSpace);           // Empty string
+    Assert.That(&quot; &quot;, Is.WhiteSpace);          // Space
+    Assert.That(&quot;  \t\n&quot;, Is.WhiteSpace);     // Mixed whitespace
+    Assert.That(null, Is.WhiteSpace);         // Null
+
+    Assert.That(&quot;Hello&quot;, Is.Not.WhiteSpace);
+    Assert.That(&quot; Hello &quot;, Is.Not.WhiteSpace);  // Has non-whitespace content
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>Whitespace characters are defined by the Unicode standard as interpreted by <code>Char.IsWhiteSpace()</code>.</li>
+<li>Unlike <code>Is.Empty</code>, <code>Is.WhiteSpace</code> also returns true for <code>null</code> values.</li>
+<li>Common whitespace characters include: space (<code> </code>), tab (<code>\t</code>), newline (<code>\n</code>), carriage return (<code>\r</code>).</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="EmptyStringConstraint.html">EmptyString Constraint</a></li>
+<li><a href="EmptyConstraint.html">Empty Constraint</a></li>
+<li><a href="NullConstraint.html">Null Constraint</a></li>
+</ul>
 
 </article>
           </div>

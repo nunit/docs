@@ -83,42 +83,51 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="someitemsconstraint">
+            <article class="content wrap" id="_content" data-uid="constraint-someitems">
 <h1 id="someitems-constraint">SomeItems Constraint</h1>
 
-<p><code>SomeItemsConstraint</code> applies a constraint to each item in an <code>IEnumerable</code>, succeeding if at least one of them
-succeeds. An exception is thrown if the actual value passed does not implement <code>IEnumerable</code>.</p>
-<p>This constraint will also cover <code>Contains</code> functionality. See examples below.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">SomeItemsConstraint(Constraint itemConstraint)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Has.Some...
-Has.Member(object)
-Contains.Item(object)
-Does.Contain(object)
+<p><code>SomeItemsConstraint</code> applies a constraint to each item in an <code>IEnumerable</code>, succeeding if at least one item satisfies
+the constraint. An exception is thrown if the actual value does not implement <code>IEnumerable</code>.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Has.Some.&lt;constraint&gt;
+Has.Member(object expected)
+Contains.Item(object expected)
+Does.Contain(object expected)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...IgnoreCase
-...IgnoreWhiteSpace  // From version 4.2
-...Using(IEqualityComparer comparer)
-...Using(IComparer comparer)
-...Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
-...Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
-...Using&lt;TActualCollectionElement, TExpectedElement&gt;(Func&lt;TActualCollectionElement, TExpectedElement, bool&gt; comparer)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func&lt;PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration&gt; configure) // From version 4.4
+<pre><code class="lang-csharp">.IgnoreCase
+.IgnoreWhiteSpace              // NUnit 4.2+
+.Using(IComparer comparer)
+.Using(IEqualityComparer comparer)
+.Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(IEqualityComparer&lt;T&gt; comparer)
+.Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
+.Using&lt;T&gt;(Func&lt;T, T, bool&gt; comparer)
+.UsingPropertiesComparer()     // NUnit 4.1+
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">int[] iarray = new int[] { 1, 2, 3 };
-string[] sarray = new string[] { &quot;a&quot;, &quot;b&quot;, &quot;c&quot; };
-Assert.That(iarray, Has.Some.GreaterThan(2));
-Assert.That(sarray, Has.Some.Length.EqualTo(1));
-</code></pre>
-<h3 id="contains-examples">Contains examples</h3>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="SomeItemsConstraintExamples">[Test]
+public void SomeItemsConstraint_Examples()
+{
+    int[] numbers = { 1, 2, 3, 4, 5 };
+    string[] names = { &quot;Alice&quot;, &quot;Bob&quot;, &quot;Carol&quot; };
+
+    // At least one item must satisfy the constraint
+    Assert.That(numbers, Has.Some.GreaterThan(3));      // At least one &gt; 3
+    Assert.That(numbers, Has.Some.EqualTo(3));          // Contains 3
+    Assert.That(names, Has.Some.Length.EqualTo(3));     // At least one 3-char name
+
+    // Collection membership (all equivalent)
+    Assert.That(numbers, Has.Member(3));
+    Assert.That(numbers, Contains.Item(3));
+    Assert.That(numbers, Does.Contain(3));
+    Assert.That(numbers, Has.Some.EqualTo(3));
+
+    // Custom comparison for membership
+    Assert.That(names, Has.Some.EqualTo(&quot;alice&quot;).IgnoreCase);
+    Assert.That(names, Has.Some.EqualTo(&quot;bob&quot;).Using(StringComparer.OrdinalIgnoreCase));
+}
+</code></pre><h3 id="contains-examples">Contains examples</h3>
 <pre><code class="lang-csharp" name="Collection Contains Examples">[Test]
 public void CollectionContains_Examples()
 {
@@ -131,8 +140,19 @@ public void CollectionContains_Examples()
     Assert.That(stringArray, Has.No.Member(&quot;x&quot;));
     Assert.That(intArray, Does.Contain(3));
 }
-</code></pre><h2 id="note">Note</h2>
-<p><code>Has.Member()</code>, <code>Contains.Item()</code> and <code>Does.Contain()</code> work the same as <code>Has.Some.EqualTo()</code>.</p>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>Has.Member()</code>, <code>Contains.Item()</code>, and <code>Does.Contain()</code> are all equivalent to <code>Has.Some.EqualTo()</code>.</li>
+<li>The constraint succeeds as soon as the first matching item is found.</li>
+<li>An empty collection always fails this constraint.</li>
+<li>For testing substring containment in strings, see <a href="SubstringConstraint.html">SubstringConstraint</a>.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="AllItemsConstraint.html">AllItems Constraint</a> - All items must match</li>
+<li><a href="NoItemConstraint.html">NoItem Constraint</a> - No items match</li>
+<li><a href="ContainsConstraint.html">Contains Constraint</a> - Polymorphic containment testing</li>
+</ul>
 
 </article>
           </div>

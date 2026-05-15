@@ -83,60 +83,66 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-delayed">
 <h1 id="delayed-constraint">Delayed Constraint</h1>
 
-<p><code>DelayedConstraint</code> delays the application of another constraint until a certain
-amount of time has passed. In its simplest form, it replaces use of a Sleep
-in the code but it also supports polling, which may allow use of a longer
-maximum time while still keeping the tests as fast as possible.</p>
-<p>The <strong>After</strong> modifier is permitted on any constraint, and the delay applies to
-the entire expression up to the point where <strong>After</strong> appears.</p>
-<p>Use of a <strong>DelayedConstraint</strong> with a value argument makes no sense, since
-the value will be extracted at the point of call. Its intended use is with
-delegates and references. If a delegate is used with polling, it may be called
-multiple times so only methods without side effects should be used in this way.</p>
-<table>
-<thead>
-<tr>
-<th>Syntax Helper</th>
-<th>Constructor</th>
-<th>Operation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>After(int)</td>
-<td>DelayedConstraint(Constraint, int)</td>
-<td>tests that a constraint is satisfied after a delay.</td>
-</tr>
-<tr>
-<td>After(int, int)</td>
-<td>DelayedConstraint(Constraint, int, int)</td>
-<td>tests that a constraint is satisfied after a delay using polling.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="enhanced-syntax">Enhanced Syntax</h2>
-<p>With NUnit 3.6, an enhanced syntax is available that allows expressing the delay and polling interval more fluently.</p>
-<pre><code class="lang-csharp">   After(4).Seconds
-   After(1).Minutes.PollEvery(500).MilliSeconds
+<p><code>DelayedConstraint</code> delays evaluation of another constraint, optionally polling until the constraint passes or the
+timeout expires. This is useful for testing asynchronous operations or eventual consistency.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">&lt;constraint&gt;.After(int delayInMilliseconds)
+&lt;constraint&gt;.After(int delayInMilliseconds, int pollingInterval)
+&lt;constraint&gt;.After(int delay).Seconds
+&lt;constraint&gt;.After(int delay).Minutes.PollEvery(int interval).MilliSeconds
 </code></pre>
-<p>Only Minutes, Seconds and MilliSeconds (note capital-S) are accepted as time modifiers. The default is to use MilliSeconds.</p>
-<h2 id="examples-of-use">Examples of Use</h2>
+<h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp" name="DelayedConstraintExamples">[Test]
 public void DelayedConstraint_Examples()
 {
-    var flag = false;
+    var flag = 0; // Use int for Interlocked
     Task.Run(async () =&gt;
     {
-        await Task.Delay(100);
-        flag = true;
+        await Task.Delay(50);
+        Interlocked.Exchange(ref flag, 1);
     });
 
-    Assert.That(() =&gt; flag, Is.True.After(200).MilliSeconds);
+    // Poll until condition is true (or timeout)
+    Assert.That(() =&gt; Interlocked.CompareExchange(ref flag, 0, 0) == 1,
+        Is.True.After(500).MilliSeconds.PollEvery(50).MilliSeconds);
 }
+</code></pre><h3 id="fluent-time-syntax">Fluent Time Syntax</h3>
+<pre><code class="lang-csharp" name="DelayedConstraintFluentExamples">[Test]
+public void DelayedConstraint_Fluent_Examples()
+{
+    var counter = 0;
+    Task.Run(async () =&gt;
+    {
+        await Task.Delay(50);
+        Interlocked.Exchange(ref counter, 10);
+    });
+
+    // Fluent time syntax
+    Assert.That(() =&gt; Interlocked.CompareExchange(ref counter, 0, 0),
+        Is.GreaterThan(0).After(1).Seconds.PollEvery(100).MilliSeconds);
+}
+</code></pre><h2 id="time-modifiers">Time Modifiers</h2>
+<pre><code class="lang-csharp">.Seconds
+.Minutes
+.MilliSeconds    // Note capital 'S'
 </code></pre>
+<p>Default unit is milliseconds when no modifier is specified.</p>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>Use delegates (<code>() =&gt; value</code>) not direct values, since values are captured at call time.</li>
+<li>When polling, the delegate may be called multiple times - avoid side effects.</li>
+<li>The <code>.After()</code> modifier applies to the entire constraint expression preceding it.</li>
+<li>Without polling, the constraint waits the full delay before checking once.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="ThrowsConstraint.html">Throws Constraint</a> - For exception testing</li>
+<li><a href="TrueConstraint.html">True Constraint</a> - For boolean conditions</li>
+</ul>
+
 </article>
           </div>
 

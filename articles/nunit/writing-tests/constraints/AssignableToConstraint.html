@@ -83,21 +83,45 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-assignableto">
 <h1 id="assignableto-constraint">AssignableTo Constraint</h1>
 
-<p><code>AssignableToConstraint</code> tests that one type is assignable to another</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">AssignableToConstraint(Type)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Is.AssignableTo(Type)
+<p><code>AssignableToConstraint</code> tests that the actual value can be assigned to a variable of the specified type. In other
+words, the actual value's type derives from or implements the expected type.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Is.AssignableTo(Type expectedType)
 Is.AssignableTo&lt;T&gt;()
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(&quot;Hello&quot;, Is.AssignableTo(typeof(object)));
-Assert.That(5, Is.Not.AssignableTo(typeof(string)));
-</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="AssignableToConstraintExamples">[Test]
+public void AssignableToConstraint_Examples()
+{
+    // A string can be assigned to object (string derives from object)
+    Assert.That(&quot;Hello&quot;, Is.AssignableTo(typeof(object)));
+    Assert.That(&quot;Hello&quot;, Is.AssignableTo&lt;object&gt;());
+
+    // A string can be assigned to IEnumerable&lt;char&gt;
+    Assert.That(&quot;Hello&quot;, Is.AssignableTo&lt;IEnumerable&lt;char&gt;&gt;());
+
+    // A List&lt;int&gt; can be assigned to IList&lt;int&gt;
+    Assert.That(new List&lt;int&gt;(), Is.AssignableTo&lt;IList&lt;int&gt;&gt;());
+    Assert.That(new List&lt;int&gt;(), Is.AssignableTo&lt;IEnumerable&lt;int&gt;&gt;());
+
+    // Negative: an int cannot be assigned to string
+    Assert.That(5, Is.Not.AssignableTo(typeof(string)));
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>Is.AssignableTo&lt;T&gt;()</code> is true when <code>typeof(T).IsAssignableFrom(actual.GetType())</code>.</li>
+<li>This tests &quot;can this value be assigned to a variable of type T?&quot;.</li>
+<li>This is the reverse of <a href="AssignableFromConstraint.html">AssignableFromConstraint</a>.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="AssignableFromConstraint.html">AssignableFrom Constraint</a> - Reverse direction check</li>
+<li><a href="InstanceOfTypeConstraint.html">InstanceOfType Constraint</a> - Test if object is instance of type</li>
+<li><a href="ExactTypeConstraint.html">ExactType Constraint</a> - Test for exact type match</li>
+</ul>
 
 </article>
           </div>

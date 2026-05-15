@@ -83,33 +83,37 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-startswith">
 <h1 id="startswith-constraint">StartsWith Constraint</h1>
 
-<p><code>StartsWithConstraint</code> tests for an initial string.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">StartsWithConstraint(string expected)
-</code></pre>
-<h2 id="syntax">Syntax</h2>
+<p><code>StartsWithConstraint</code> tests that a string begins with the expected substring.</p>
+<h2 id="usage">Usage</h2>
 <pre><code class="lang-csharp">Does.StartWith(string expected)
-StartsWith(string expected)
+Does.Not.StartWith(string expected)
 </code></pre>
 <h2 id="modifiers">Modifiers</h2>
-<pre><code class="lang-csharp">...IgnoreCase
-...Using(StringComparison comparisonType)
-...Using(CultureInfo culture)
+<pre><code class="lang-csharp">.IgnoreCase
+.Using(StringComparison comparisonType)
+.Using(CultureInfo culture)
 </code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">string phrase = &quot;Make your tests fail before passing!&quot;;
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="StartsWithConstraintExamples">[Test]
+public void StartsWithConstraint_Examples()
+{
+    string phrase = &quot;Make your tests fail before passing!&quot;;
 
-Assert.That(phrase, Does.StartWith(&quot;Make&quot;));
-Assert.That(phrase, Does.Not.StartWith(&quot;Break&quot;));
-</code></pre>
-<h3 id="specifying-a-stringcomparison">Specifying a StringComparison</h3>
-<pre><code class="lang-csharp">Assert.That(&quot;Hello World!&quot;, Does.StartWith(&quot;HELLO&quot;).Using(StringComparison.OrdinalIgnoreCase));
-Assert.That(&quot;Hello World!&quot;, Does.StartWith(&quot;Hello&quot;).Using(StringComparison.Ordinal));
-</code></pre>
-<h3 id="specifying-a-cultureinfo">Specifying a CultureInfo</h3>
+    Assert.That(phrase, Does.StartWith(&quot;Make&quot;));
+    Assert.That(phrase, Does.StartWith(&quot;MAKE&quot;).IgnoreCase);
+    Assert.That(phrase, Does.Not.StartWith(&quot;Break&quot;));
+}
+</code></pre><h3 id="specifying-a-stringcomparison">Specifying a StringComparison</h3>
+<pre><code class="lang-csharp" name="StartsWithConstraintStringComparisonExamples">[Test]
+public void StartsWithConstraint_StringComparison_Examples()
+{
+    Assert.That(&quot;Hello World!&quot;, Does.StartWith(&quot;HELLO&quot;).Using(StringComparison.OrdinalIgnoreCase));
+    Assert.That(&quot;Hello World!&quot;, Does.StartWith(&quot;Hello&quot;).Using(StringComparison.Ordinal));
+}
+</code></pre><h3 id="specifying-a-cultureinfo">Specifying a CultureInfo</h3>
 <p>The <code>Using(CultureInfo)</code> modifier allows for culture-specific string comparisons.
 It can be combined with <code>.IgnoreCase</code> for case-insensitive culture-aware comparisons:</p>
 <pre><code class="lang-csharp">// Using Turkish culture where 'i' and 'I' have special casing rules
@@ -120,11 +124,15 @@ Assert.That(&quot;Straße Street&quot;, Does.StartWith(&quot;Straße&quot;).Usin
 </code></pre>
 <h2 id="notes">Notes</h2>
 <ol>
-<li><strong>StartsWith</strong> may appear only in the body of a constraint
-expression or when the inherited syntax is used.</li>
-<li>Only one <code>Using</code> modifier may be specified. Attempting to use multiple <code>Using</code> modifiers
-will throw an <code>InvalidOperationException</code>.</li>
+<li>Only one <code>Using</code> modifier may be specified. Attempting to use multiple <code>Using</code> modifiers will throw an
+<code>InvalidOperationException</code>.</li>
 </ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="EndsWithConstraint.html">EndsWith Constraint</a></li>
+<li><a href="SubstringConstraint.html">Substring Constraint</a></li>
+<li><a href="RegexConstraint.html">Regex Constraint</a></li>
+</ul>
 
 </article>
           </div>

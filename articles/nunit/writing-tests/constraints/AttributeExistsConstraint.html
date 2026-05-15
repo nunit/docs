@@ -83,21 +83,38 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="constraint-attributeexists">
 <h1 id="attributeexists-constraint">AttributeExists Constraint</h1>
 
-<p><code>AttributeExistsConstraint</code> tests for the existence of an attribute on a Type.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-csharp">AttributeExistsConstraint(Type type)
+<p><code>AttributeExistsConstraint</code> tests for the existence of an attribute on a type.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">Has.Attribute(Type attributeType)
+Has.Attribute&lt;TAttribute&gt;()
 </code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="lang-csharp">Has.Attribute(typeof(TestFixtureAttribute))
-Has.Attribute&lt;TestFixtureAttribute&gt;()
-</code></pre>
-<h2 id="examples-of-use">Examples of Use</h2>
-<pre><code class="lang-csharp">Assert.That(someObject, Has.Attribute(typeof(TestFixtureAttribute)));
-Assert.That(someObject, Has.Attribute&lt;TestFixtureAttribute&gt;());
-</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="AttributeExistsConstraintExamples">[Serializable]
+public class SerializableClass { }
+
+[Test]
+public void AttributeExistsConstraint_Examples()
+{
+    // Test that a type has an attribute
+    Assert.That(typeof(SerializableClass), Has.Attribute&lt;SerializableAttribute&gt;());
+
+    // Negative test
+    Assert.That(typeof(TypeConstraintSnippets), Has.No.Attribute&lt;SerializableAttribute&gt;());
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>When no further constraint is chained, <code>Has.Attribute</code> creates an <code>AttributeExistsConstraint</code>.</li>
+<li>When a constraint is chained (e.g., <code>.Property(&quot;Name&quot;)</code>), it becomes an
+<a href="AttributeConstraint.html">AttributeConstraint</a>.</li>
+<li>The constraint works on both <code>Type</code> objects and instances (testing the instance's type).</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="AttributeConstraint.html">Attribute Constraint</a> - Test attribute properties</li>
+</ul>
 
 </article>
           </div>
