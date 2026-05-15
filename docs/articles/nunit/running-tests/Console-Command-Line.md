@@ -36,6 +36,7 @@ beginning with 2.0. Without the V2 driver, only version 3.0 and higher tests may
 |`--testparam:PARAMETER, --tp:PARAMETER` | A test PARAMETER specified in the form NAME=VALUE for consumption by tests. Multiple parameters must be specified separated using a `--testparam` or `--tp` option for each. |
 |`--params=PARAMETER, --p=PARAMETER` | (**NOTE:** _this is deprecated and will be removed in a future release. Please use --testparam instead_.) A test PARAMETER specified in the form NAME=VALUE for consumption by tests. Multiple parameters may be specified, separated by semicolons or by repeating the --params option multiple times. Case-sensitive. |
 |`--config=NAME` | NAME of a project configuration to load (e.g.: Debug). |
+|`--configfile=/path/to/custom.app.config` | Location to load an application configuration file from if outside dll directory. (_Console Runner 3.8+_) |
 |`--process=PROCESS` | PROCESS isolation for test assemblies. Values: Single, Separate, Multiple. If not specified, defaults to Separate for a single assembly or Multiple for more than one. By default, processes are run in parallel. |
 |`--inprocess` | This option is a synonym for --process=Single |
 |`--agents=NUMBER` | NUMBER of agents that may be allowed to run simultaneously assuming you are not running inprocess. If not specified, all agent processes run tests at the same time, whatever the number of assemblies. This setting is used to control running your assemblies in parallel. |
