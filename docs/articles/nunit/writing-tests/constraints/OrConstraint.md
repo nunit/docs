@@ -1,32 +1,32 @@
+---
+uid: constraint-or
+---
+
 # Or Constraint
 
-`OrConstraint` combines two other constraints and succeeds if either of them succeeds.
+`OrConstraint` combines two constraints and succeeds if either one succeeds.
 
-## Constructor
-
-```csharp
-OrConstraint(Constraint left, Constraint right)
-```
-
-## Syntax
+## Usage
 
 ```csharp
-<Constraint>.Or.<Constraint>
+<constraint>.Or.<constraint>
 ```
 
-## Examples of Use
+## Examples
 
-[!code-csharp[OrConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#OrConstraintExamples)]
+[!code-csharp[OrConstraintExamples](~/snippets/Snippets.NUnit/Constraints/CompoundConstraintSnippets.cs#OrConstraintExamples)]
 
 ## Evaluation Order and Precedence
 
-Note that the constraint evaluates the sub-constraints left to right, meaning that
-`Assert.That(i,Is.Null.Or.GreaterThan(9));` where `i` is a nullable `int` will work for both `12` and `null`. On the
-other hand, `Assert.That(i, Is.GreaterThan(9).Or.Null);` will only work for `12`, but throw an exception for `null`, as
-`null` cannot be compared to `9`.
+Constraints are evaluated **left to right** and short-circuit when one succeeds:
 
-The **OrConstraint** has precedence over the **AndConstraint**.
+[!code-csharp[OrConstraintNullPatternExamples](~/snippets/Snippets.NUnit/Constraints/CompoundConstraintSnippets.cs#OrConstraintNullPatternExamples)]
 
-## See also
+> [!NOTE]
+> `Or` has higher precedence than `And`. The expression `A.And.B.Or.C` is evaluated as `A.And.(B.Or.C)`.
 
-* [AndConstraint](AndConstraint.md)
+## See Also
+
+* [And Constraint](AndConstraint.md) - Both conditions must be true
+* [Not Constraint](NotConstraint.md) - Negate a constraint
+* [AnyOf Constraint](AnyOfConstraint.md) - Value equals any of several options

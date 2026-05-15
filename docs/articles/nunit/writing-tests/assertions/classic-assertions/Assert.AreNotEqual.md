@@ -20,4 +20,4 @@ See [Assert.AreEqual](Assert.AreEqual.md) for details of how NUnit performs equa
 ## See Also
 
 * [Assert.AreEqual](Assert.AreEqual.md)
-* [Equal Constraint](xref:equalconstraint)
+* [Equal Constraint](xref:constraint-equal)

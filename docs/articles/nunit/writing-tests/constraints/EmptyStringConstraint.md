@@ -1,26 +1,32 @@
+---
+uid: constraint-emptystring
+---
+
 # EmptyString Constraint
 
-The `EmptyStringConstraint` tests if a string is empty.
+`EmptyStringConstraint` tests that a string has zero length. This is a specialized constraint created when `Is.Empty` is
+applied to a string value.
 
-## Constructor
-
-```csharp
-EmptyStringConstraint()
-```
-
-## Syntax
+## Usage
 
 ```csharp
 Is.Empty
+Is.Not.Empty
 ```
 
-## Examples of Use
+## Examples
 
-```csharp
-Assert.That(string.Empty, Is.Empty);
-Assert.That("A String", Is.Not.Empty);
-```
+[!code-csharp[EmptyStringConstraintExamples](~/snippets/Snippets.NUnit/Constraints/StringConstraintSnippets.cs#EmptyStringConstraintExamples)]
 
-> [!NOTE]
-> `Is.Empty` actually creates an `EmptyConstraint`. Subsequently applying it to a `string` causes an
-> `EmptyStringConstraint` to be created.
+## Notes
+
+1. `Is.Empty` is a polymorphic constraint that tests for empty strings, collections, or directories depending on the
+   actual value type.
+2. For checking null-or-empty strings, you can combine constraints: `Is.Null.Or.Empty`.
+3. To test for whitespace-only strings, use [WhiteSpaceConstraint](WhiteSpaceConstraint.md).
+
+## See Also
+
+* [Empty Constraint](EmptyConstraint.md) - Polymorphic constraint for strings, collections, directories
+* [WhiteSpace Constraint](WhiteSpaceConstraint.md)
+* [Null Constraint](NullConstraint.md)

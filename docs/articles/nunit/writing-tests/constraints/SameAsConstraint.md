@@ -1,31 +1,29 @@
 ---
-uid: sameasconstraint
+uid: constraint-sameas
 ---
 
 # SameAs Constraint
 
-A `SameAsConstraint` is used to test whether the object passed
-as an actual value has the same identity as the object supplied
-in its constructor.
+`SameAsConstraint` tests whether the actual value is the same object instance as the expected value (reference
+equality). This is different from `Is.EqualTo`, which tests for value equality.
 
-## Constructor
-
-```csharp
-SameAsConstraint(object expected)
-```
-
-## Syntax
+## Usage
 
 ```csharp
 Is.SameAs(object expected)
+Is.Not.SameAs(object expected)
 ```
 
-## Examples of Use
+## Examples
 
-```csharp
-Exception ex1 = new Exception();
-Exception ex2 = ex1;
-Assert.That(ex2, Is.SameAs(ex1));
-Exception ex3 = new Exception();
-Assert.That(ex3, Is.Not.SameAs(ex1));
-```
+[!code-csharp[SameAsConstraintExamples](~/snippets/Snippets.NUnit/Constraints/SpecialConstraintSnippets.cs#SameAsConstraintExamples)]
+
+## Notes
+
+1. `Is.SameAs` uses `object.ReferenceEquals()` internally - it tests object identity, not equality.
+2. For value types, `Is.SameAs` will always fail because value types are boxed into different objects.
+3. Use `Is.EqualTo` when you want to compare values; use `Is.SameAs` when you need to verify the exact same instance.
+
+## See Also
+
+* [Equal Constraint](EqualConstraint.md) - For value equality

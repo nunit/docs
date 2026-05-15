@@ -1,28 +1,34 @@
+---
+uid: constraint-whitespace
+---
+
 # WhiteSpace Constraint
 
-The `WhiteSpaceConstraint` tests if a string contains only white-space.
+`WhiteSpaceConstraint` tests that a string is null, empty, or contains only whitespace characters. It is equivalent to
+`string.IsNullOrWhiteSpace()`.
 
-The constraint is the equivalent of
-[String.IsNullOrWhiteSpace](https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace?view=net-8.0)
+> [!NOTE]
+> This constraint was added in NUnit 4.2.
 
-White-space characters are defined by the Unicode standard as interpreted by
-[Char.IsWhiteSpace](https://learn.microsoft.com/en-us/dotnet/api/system.char.iswhitespace?view=net-8.0) method.
-
-## Constructor
+## Usage
 
 ```csharp
-WhiteSpaceConstraint()
+Is.WhiteSpace
+Is.Not.WhiteSpace
 ```
 
-## Syntax
+## Examples
 
-```csharp
-Is.WhiteSpace  // From version 4.2
-```
+[!code-csharp[WhiteSpaceConstraintExamples](~/snippets/Snippets.NUnit/Constraints/StringConstraintSnippets.cs#WhiteSpaceConstraintExamples)]
 
-## Examples of Use
+## Notes
 
-```csharp
-Assert.That(" ", Is.WhiteSpace);
-Assert.That("A String", Is.Not.WhiteSpace);
-```
+1. Whitespace characters are defined by the Unicode standard as interpreted by `Char.IsWhiteSpace()`.
+2. Unlike `Is.Empty`, `Is.WhiteSpace` also returns true for `null` values.
+3. Common whitespace characters include: space (` `), tab (`\t`), newline (`\n`), carriage return (`\r`).
+
+## See Also
+
+* [EmptyString Constraint](EmptyStringConstraint.md)
+* [Empty Constraint](EmptyConstraint.md)
+* [Null Constraint](NullConstraint.md)

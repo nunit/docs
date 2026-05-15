@@ -1,37 +1,33 @@
+---
+uid: constraint-substring
+---
+
 # Substring Constraint
 
-`SubstringConstraint` tests for a substring.
+`SubstringConstraint` tests that a string contains the expected substring.
 
-## Constructor
-
-```csharp
-SubstringConstraint(string expected)
-```
-
-## Syntax
+## Usage
 
 ```csharp
 Does.Contain(string expected)
+Does.Not.Contain(string expected)
 ```
 
 ## Modifiers
 
 ```csharp
-...IgnoreCase
-...Using(StringComparison comparisonType)
-...Using(CultureInfo culture)
+.IgnoreCase
+.Using(StringComparison comparisonType)
+.Using(CultureInfo culture)
 ```
 
-## Examples of Use
+## Examples
 
-[!code-csharp[StringConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#StringConstraintExamples)]
+[!code-csharp[SubstringConstraintExamples](~/snippets/Snippets.NUnit/Constraints/StringConstraintSnippets.cs#SubstringConstraintExamples)]
 
 ### Specifying a StringComparison
 
-```csharp
-Assert.That("Hello World!", Does.Contain("WORLD").Using(StringComparison.OrdinalIgnoreCase));
-Assert.That("Hello World!", Does.Contain("World").Using(StringComparison.Ordinal));
-```
+[!code-csharp[SubstringConstraintStringComparisonExamples](~/snippets/Snippets.NUnit/Constraints/StringConstraintSnippets.cs#SubstringConstraintStringComparisonExamples)]
 
 ### Specifying a CultureInfo
 
@@ -48,5 +44,14 @@ Assert.That("Straße Street", Does.Contain("Straße").Using(new CultureInfo("de-
 
 ## Notes
 
-1. Only one `Using` modifier may be specified. Attempting to use multiple `Using` modifiers
-   will throw an `InvalidOperationException`.
+1. Only one `Using` modifier may be specified. Attempting to use multiple `Using` modifiers will throw an
+   `InvalidOperationException`.
+2. When using `Does.Contain()` with a non-string actual value, it tests for collection membership instead. See
+   [ContainsConstraint](ContainsConstraint.md) for details.
+
+## See Also
+
+* [StartsWith Constraint](StartsWithConstraint.md)
+* [EndsWith Constraint](EndsWithConstraint.md)
+* [Regex Constraint](RegexConstraint.md)
+* [Contains Constraint](ContainsConstraint.md)
