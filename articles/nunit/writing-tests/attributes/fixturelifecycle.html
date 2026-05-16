@@ -83,21 +83,79 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="fixturelifecycleattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-fixturelifecycle">
 <h1 id="fixturelifecycle">FixtureLifeCycle</h1>
 
-<p>Added in <strong>NUnit 3.13</strong></p>
-<p>The <code>FixtureLifeCycleAttribute</code> is used to indicate that an instance for a test fixture or all test fixtures in an
-assembly should be constructed for each test within the fixture or assembly.</p>
-<p>This attribute may be applied to a test fixture (class) or to a test assembly. It is useful in combination with the
-<a href="parallelizable.html">Parallelizable Attribute</a> so that a new instance of a test fixture is constructed for every test
-within the test fixture. This allows tests to run in isolation without sharing instance fields and properties during
-parallel test runs. This make running parallel tests easier because it is easier to make your tests thread safe.</p>
-<p>This attribute can be applied to classes or to the entire test assembly. If applied to an assembly, it may be overridden
-at the class level.</p>
-<h2 id="lifecycle-enumeration">LifeCycle Enumeration</h2>
-<p>The constructor of <code>FixtureLifeCycleAttribute</code> takes a <code>LifeCycle</code> attribute to indicate if a single instance of a test
-fixture should be created for all tests or if a new instance should be created for each test.</p>
+<p>Added in <strong>NUnit 3.13</strong>.</p>
+<p><code>FixtureLifeCycleAttribute</code> selects how NUnit constructs your fixture class:</p>
+<ul>
+<li><strong><code>LifeCycle.SingleInstance</code></strong> — one instance is created and <strong>shared</strong> by every test in the fixture. This matches the
+usual NUnit default when you do not use the attribute.</li>
+<li><strong><code>LifeCycle.InstancePerTestCase</code></strong> — a <strong>new</strong> instance is created for each test.</li>
+</ul>
+<p>Place the attribute on a <strong>fixture class</strong> to control that class, or on the <strong>assembly</strong> to set a default for all
+fixtures in that assembly. A class-level attribute <strong>overrides</strong> an assembly-level default.</p>
+<p><code>InstancePerTestCase</code> is often combined with <a class="xref" href="parallelizable.html">Parallelizable</a>. With a separate instance per test,
+instance fields are not shared while tests run in parallel, which avoids a common source of interference and often makes
+<strong>thread safety for instance state</strong> easier—while still leaving you responsible for static state, shared singletons, and
+other resources outside the fixture instance.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">FixtureLifeCycleAttribute(LifeCycle lifeCycle)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lifeCycle</code></td>
+<td><code>LifeCycle</code></td>
+<td><code>SingleInstance</code> or <code>InstancePerTestCase</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LifeCycle</code></td>
+<td><code>LifeCycle</code></td>
+<td>Life cycle for the fixture or assembly.</td>
+<td><em>(from constructor)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>Assembly-level settings can be overridden by a class-level attribute.</p>
+<h2 id="lifecycle-enumeration">LifeCycle enumeration</h2>
 <table>
 <thead>
 <tr>
@@ -112,7 +170,7 @@ fixture should be created for all tests or if a new instance should be created f
 </tr>
 <tr>
 <td><code>LifeCycle.InstancePerTestCase</code></td>
-<td>A new instance is created for each test case</td>
+<td>A new instance is created for each test case.</td>
 </tr>
 </tbody>
 </table>

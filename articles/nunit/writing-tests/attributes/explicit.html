@@ -83,17 +83,57 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-explicit">
 <h1 id="explicit">Explicit</h1>
 
-<p>The Explicit attribute causes a test or test fixture to be skipped unless it is explicitly selected for running. The
-test or fixture will be run if it is selected by name or if it is included by use of a filter. A <strong>not</strong> filter, which
-excludes certain tests, is not treated as an explicit selection and never causes an explicit test to be run. All other
-filters are considered to explicitly select the tests that they match. See examples below.</p>
-<p>An optional string argument may be used to give the reason for marking the test Explicit.</p>
-<p>If a test or fixture with the Explicit attribute is encountered in the course of running tests, it is skipped unless it
-has been specifically selected by one of the above means. The test does not affect the overall result of the test run.
-Explicit tests are displayed in the gui as skipped.</p>
+<p><code>ExplicitAttribute</code> marks a test, fixture, or assembly so it is <strong>not</strong> run merely because an enclosing suite ran. It
+runs only when it is <strong>explicitly selected</strong>—for example by choosing that test or fixture by name, or by using a filter
+that counts as an explicit match for it.</p>
+<p>A filter that <strong>excludes</strong> tests (often written with <strong>not</strong>, such as <code>--where test!=My.Fixture</code>) is <strong>not</strong> treated as
+explicitly selecting what is left behind, so explicit tests remain skipped unless you chose them via a positive
+selection (direct name selection or filters that affirmatively match the test or a suite it lives under). The
+command-line examples below show forms that include or exclude explicit tests.</p>
+<p>You can pass an optional <strong>reason</strong> string; when the test is skipped as explicit, runners may show that text.</p>
+<p>If an explicit item is executed as part of a broad “run everything” session but was never explicitly selected, NUnit skips
+it with an <strong>explicit</strong> result. That outcome does not fail the run or count as an ordinary failure. Presentation in the UI
+(or console summary) varies by runner.</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">ExplicitAttribute()
+ExplicitAttribute(string reason)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reason</code></td>
+<td><code>string</code></td>
+<td>Optional reason shown in skip output.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
 <div class="WARNING">
 <h5>Warning</h5>
 <p>While the C# syntax allows you to place an Explicit attribute on a SetUpFixture class, the attribute is
@@ -138,100 +178,24 @@ You can do this either in a .runsettings file, or as a command line parameter</p
 </code></pre>
 <p>(From version 5.2.0)</p>
 <h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
-<p>C#:</p>
-<pre><code class="lang-csharp">namespace NUnit.Tests
+<pre><code class="lang-csharp" name="ExplicitFixtureExample">[TestFixture]
+[Explicit(&quot;Manual verification fixture&quot;)]
+public class ExplicitFixture
 {
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture, Explicit]
-  public class ExplicitTests
-  {
-    // ...
-  }
+    [Test]
+    public void FixtureExplicitTest()
+    {
+        Assert.Pass();
+    }
 }
-</code></pre>
-<p>Visual Basic:</p>
-<pre><code class="lang-VB">Imports System
-Imports NUnit.Framework
-
-Namespace NUnit.Tests
-
-  &lt;TestFixture(), Explicit()&gt;
-  Public Class ExplicitTests
-    ' ...
-  End Class
-End Namespace
-</code></pre>
-<p>C++:</p>
-<pre><code class="lang-cpp">using namespace System;
-using namespace NUnit::Framework;
-
-namespace NUnitTests
+</code></pre><h2 id="test-syntax">Test Syntax</h2>
+<pre><code class="lang-csharp" name="ExplicitTestExample">[Test]
+[Explicit(&quot;Run only when explicitly selected&quot;)]
+public void ExplicitTest()
 {
-  [TestFixture]
-  [Explicit]
-  public __gc class ExplicitTests
-  {
-    // ...
-  };
-}
-
-# include &quot;cppsample.h&quot;
-
-namespace NUnitTests {
-  // ...
+    Assert.Pass();
 }
 </code></pre>
-<h2 id="test-syntax">Test Syntax</h2>
-<p>C#:</p>
-<pre><code class="lang-csharp">namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
-    [Test, Explicit]
-    public void ExplicitTest()
-    { /* ... */ }
-}
-</code></pre>
-<p>Visual Basic:</p>
-<pre><code class="lang-vb">Imports System
-Imports NUnit.Framework
-
-Namespace NUnit.Tests
-
-  &lt;TestFixture()&gt; Public Class SuccessTests
-    &lt;Test(), Explicit()&gt; Public Sub ExplicitTest()
-      ' ...
-    End Sub
-  End Class
-End Namespace
-</code></pre>
-<p>C++:</p>
-<pre><code class="lang-cpp"># using &lt;NUnit.Framework.dll&gt;
-using namespace System;
-using namespace NUnit::Framework;
-
-namespace NUnitTests
-{
-  [TestFixture]
-  public __gc class SuccessTests
-  {
-    [Test][Explicit] void ExplicitTest();
-  };
-}
-
-# include &quot;cppsample.h&quot;
-
-namespace NUnitTests {
-  // ...
-}
-</code></pre>
-
 </article>
           </div>
 

@@ -83,67 +83,115 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="apartment-attribute">
+            <article class="content wrap" id="_content" data-uid="attribute-apartment">
 <h1 id="apartment">Apartment</h1>
 
-<p>The <code>ApartmentAttribute</code> is used on a test method, class or assembly to specify that the tests should be run in a
-particular <a href="https://learn.microsoft.com/en-us/windows/win32/com/processes--threads--and-apartments">apartment</a>, either
-the STA or the MTA.</p>
-<p>When running tests in parallel, the test is simply scheduled to execute from a queue that uses the apartment specified.
-When the parallel feature is not in use, it causes creation of a new thread if the parent test is not already running in
-the correct apartment.</p>
-<p>When this attribute is not specified, tests run in the MTA.</p>
-<p>This attribute replaces the RequiresMTA and RequiresSTA attributes, which are now considered obsolete.</p>
-<h2 id="assembly-level-examples">Assembly Level Examples</h2>
-<pre><code class="lang-csharp">
-// All the tests in this assembly will use the MTA by default. Since
-// this is the general default, the attribute is not actually needed.
-[assembly:Apartment(ApartmentState.MTA)]
-
-...
-
-// All the tests in this assembly will use the STA by default
-[assembly:Apartment(ApartmentState.STA)]
-
+<p><code>ApartmentAttribute</code> is used to specify that tests should run in a particular COM <a href="https://learn.microsoft.com/en-us/windows/win32/com/processes--threads--and-apartments">apartment</a> state, either STA (Single-Threaded Apartment) or MTA (Multi-Threaded Apartment).</p>
+<p>This is primarily needed for tests that interact with COM objects, Windows Forms controls, or WPF components that require a specific apartment state.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">ApartmentAttribute(ApartmentState apartmentState)
 </code></pre>
-<h2 id="test-fixture-examples">Test Fixture Examples</h2>
-<pre><code class="lang-csharp">
-// TestFixture requiring use of the MTA. The attribute is not
-// needed unless the STA was specified at a higher level.
-[TestFixture, Apartment(ApartmentState.MTA)]
-public class FixtureRequiringMTA
-{
-  // All tests in the fixture will run in the MTA.
-}
-
-// TestFixture requiring use of the STA.
-[TestFixture, Apartment(ApartmentState.STA)]
-public class FixtureRequiringSTA
-{
-  // All tests in the fixture will run in the STA.
-}
-
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apartmentState</code></td>
+<td><code>ApartmentState</code></td>
+<td>The apartment state for the test. Must be <code>STA</code> or <code>MTA</code> (not <code>Unknown</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="apartmentstate-values">ApartmentState Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ApartmentState.STA</code></td>
+<td>Single-Threaded Apartment. Required for most UI components (WinForms, WPF, COM controls).</td>
+</tr>
+<tr>
+<td><code>ApartmentState.MTA</code></td>
+<td>Multi-Threaded Apartment. The default for NUnit tests.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>When applied at multiple levels, the most specific level takes precedence.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="assembly-level">Assembly Level</h3>
+<pre><code class="lang-csharp">// All tests in this assembly will use the STA by default
+[assembly: Apartment(ApartmentState.STA)]
 </code></pre>
-<h2 id="test-method-examples">Test Method Examples</h2>
-<pre><code class="lang-csharp">[TestFixture]
-public class AnotherFixture
+<h3 id="test-fixture-level">Test Fixture Level</h3>
+<pre><code class="lang-csharp" name="ApartmentFixture">[TestFixture]
+[Apartment(ApartmentState.STA)]
+public class WinFormsTests
 {
-  [Test, Apartment(ApartmentState.MTA)]
-  public void TestRequiringMTA()
-  {
-    // This test will run in the MTA.
-  }
-  
-  [Test, Apartment(ApartmentState.STA)]
-  public void TestRequiringSTA()
-  {
-    // This test will run in the STA.
-  }
+    [Test]
+    public void TestRunsInSTA()
+    {
+        // All tests in this fixture run in the STA
+        Assert.That(Thread.CurrentThread.GetApartmentState(), Is.EqualTo(ApartmentState.STA));
+    }
 }
-</code></pre>
+</code></pre><h3 id="test-method-level">Test Method Level</h3>
+<pre><code class="lang-csharp" name="ApartmentMethod">[TestFixture]
+public class MixedApartmentTests
+{
+    [Test]
+    [Apartment(ApartmentState.STA)]
+    public void TestRequiringSTA()
+    {
+        Assert.That(Thread.CurrentThread.GetApartmentState(), Is.EqualTo(ApartmentState.STA));
+    }
+
+    [Test]
+    [Apartment(ApartmentState.MTA)]
+    public void TestRequiringMTA()
+    {
+        Assert.That(Thread.CurrentThread.GetApartmentState(), Is.EqualTo(ApartmentState.MTA));
+    }
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>When this attribute is not specified, tests run in the <strong>MTA</strong> by default.</li>
+<li>When running tests in parallel, tests are scheduled to execute on a thread with the specified apartment state.</li>
+<li>When parallel execution is disabled, a new thread may be created if the current thread doesn't have the correct apartment state.</li>
+<li>This attribute replaces the obsolete <code>RequiresMTA</code> and <code>RequiresSTA</code> attributes.</li>
+<li>The <code>ApartmentState.Unknown</code> value is not allowed and will cause an error.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="requiresthread.html">RequiresThread Attribute</a></li>
+<li><a class="xref" href="requiresthread.html">RequiresThread Attribute</a></li>
+<li><a class="xref" href="singlethreaded.html">SingleThreaded Attribute</a></li>
+<li><a class="xref" href="parallelizable.html">Parallelizable Attribute</a></li>
 </ul>
 
 </article>

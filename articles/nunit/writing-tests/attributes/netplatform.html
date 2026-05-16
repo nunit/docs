@@ -83,11 +83,11 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="netplatformattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-netplatform">
 <h1 id="netplatform">NetPlatform</h1>
 
 <p>The <code>NetPlatformAttribute</code> is used to specify platforms for which a test or fixture should be run. It is a modern
-replacement for the <a href="platform.html">Platform</a> attribute, using platform names based on the .NET <code>TargetFramework</code>
+replacement for the <a class="xref" href="platform.html">Platform</a> attribute, using platform names based on the .NET <code>TargetFramework</code>
 conventions as documented in <a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416">CA1416: Validate platform
 compatibility</a>.</p>
 <p>Platforms are specified using case-insensitive string values and may be either included or excluded from the run by use
@@ -99,6 +99,68 @@ skipped.</p>
 <p>This attribute was introduced in NUnit 4.6 and provides better alignment with .NET's built-in platform checking
 mechanisms compared to the older <code>PlatformAttribute</code>.</p>
 </div>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">NetPlatformAttribute()
+NetPlatformAttribute(string platforms)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>platforms</code></td>
+<td><code>string</code></td>
+<td>Comma-delimited list of included platforms.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Include</code></td>
+<td><code>string</code></td>
+<td>Comma-delimited platform list that should run.</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>Exclude</code></td>
+<td><code>string</code></td>
+<td>Comma-delimited platform list that should be skipped.</td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
 <h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
 <pre><code class="lang-csharp" name="NetPlatformFixture">[TestFixture]
 [NetPlatform(Include = &quot;windows&quot;)]
@@ -237,8 +299,8 @@ numbers for compatibility checking.</p>
 </table>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="platform.html">Platform Attribute</a></li>
-<li><a href="culture.html">Culture Attribute</a></li>
+<li><a class="xref" href="platform.html">Platform Attribute</a></li>
+<li><a class="xref" href="culture.html">Culture Attribute</a></li>
 <li><a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416">CA1416: Validate platform compatibility</a></li>
 </ul>
 

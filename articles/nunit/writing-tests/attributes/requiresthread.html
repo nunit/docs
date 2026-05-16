@@ -83,50 +83,103 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-requiresthread">
 <h1 id="requiresthread">RequiresThread</h1>
 
-<p>The <strong>RequiresThreadAttribute</strong> is used to indicate that a test method, class or assembly should be run on a separate
-thread. Optionally, the desired apartment for the thread may be specified in the constructor.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>This attribute, used with or without an ApartmentState argument will <strong>always</strong> result in creation of a new
-thread. To create a thread <strong>only</strong> if the current ApartmentState is not appropriate, use the <strong>ApartmentAttribute</strong>.</p>
-</div>
-<h2 id="examples">Examples</h2>
-<pre><code class="lang-csharp">// A thread will be created and used to run
-// all the tests in the assembly
-[assembly:RequiresThread]
-
-/* ... */
-
-// TestFixture requiring a separate thread
-[TestFixture, RequiresThread]
-public class FixtureOnThread
-{
-  // A separate thread will be created and all
-  // tests in the fixture will run on it.
-}
-
-[TestFixture]
-public class AnotherFixture
-{
-  [Test, RequiresThread]
-  public void TestRequiringThread()
-  {
-    // A separate thread will be created for this test
-  }
-  
-  [Test, RequiresThread(ApartmentState.STA)]
-  public void TestRequiringSTAThread()
-  {
-    // A separate STA thread will be created for this test.
-  }
-}
+<p><code>RequiresThreadAttribute</code> is used to indicate that a test method, class, or assembly should always run on a separate thread. Optionally, the desired apartment state for the thread may be specified.</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">RequiresThreadAttribute()
+RequiresThreadAttribute(ApartmentState apartment)
 </code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apartment</code></td>
+<td><code>ApartmentState</code></td>
+<td>The apartment state for the thread. Must be <code>STA</code> or <code>MTA</code> (not <code>Unknown</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<h3 id="fixture-level">Fixture Level</h3>
+<pre><code class="lang-csharp" name="RequiresThreadFixture">[TestFixture]
+[RequiresThread]
+public class FixtureOnSeparateThread
+{
+    [Test]
+    public void TestRunsOnSeparateThread()
+    {
+        // All tests in this fixture run on a dedicated thread
+        Assert.That(Thread.CurrentThread.IsThreadPoolThread, Is.False);
+    }
+}
+</code></pre><h3 id="method-level-with-apartment-state">Method Level with Apartment State</h3>
+<pre><code class="lang-csharp" name="RequiresThreadMethod">[TestFixture]
+public class MixedThreadTests
+{
+    [Test]
+    [RequiresThread]
+    public void TestOnSeparateThread()
+    {
+        // This test runs on a separate thread
+        Assert.Pass();
+    }
+
+    [Test]
+    [RequiresThread(ApartmentState.STA)]
+    public void TestOnSTAThread()
+    {
+        // This test runs on a separate STA thread
+        Assert.That(Thread.CurrentThread.GetApartmentState(), Is.EqualTo(ApartmentState.STA));
+    }
+
+    [Test]
+    [RequiresThread(ApartmentState.MTA)]
+    public void TestOnMTAThread()
+    {
+        // This test runs on a separate MTA thread
+        Assert.That(Thread.CurrentThread.GetApartmentState(), Is.EqualTo(ApartmentState.MTA));
+    }
+}
+</code></pre><h3 id="assembly-level">Assembly Level</h3>
+<pre><code class="lang-csharp">// All tests in this assembly will run on separate threads
+[assembly: RequiresThread]
+</code></pre>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>This attribute <strong>always</strong> creates a new thread, regardless of the current thread's apartment state.</li>
+<li>To create a thread <strong>only</strong> when the current apartment state is not appropriate, use the <code>[Apartment]</code> attribute instead.</li>
+<li>When used without an <code>ApartmentState</code> argument, the thread uses the default apartment state (MTA).</li>
+<li>This attribute is useful for tests that modify thread-local state or require isolation from other tests.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="apartment.html">Apartment Attribute</a></li>
+<li><a class="xref" href="apartment.html">Apartment Attribute</a></li>
+<li><a class="xref" href="singlethreaded.html">SingleThreaded Attribute</a></li>
 </ul>
 
 </article>

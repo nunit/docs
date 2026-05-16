@@ -117,9 +117,11 @@ public class MyDataClass
 <ul>
 <li><strong>Explicit()</strong> or <strong>Explicit(string)</strong> causes the test case to be marked explicit, optionally specifying the reason
 for doing so.</li>
-<li><strong>Ignore(string)</strong> causes the test case to be ignored and specifies the reason, which is required.</li>
+<li><strong>Ignore(string)</strong> causes the test case to be ignored and specifies the reason, which is required. Can be chained
+with <strong>Until(DateTimeOffset)</strong> to specify a date after which the test should run again.</li>
 <li><strong>Returns</strong> specifies the expected result to be returned from the method, which must have a compatible return type.</li>
 <li><strong>SetArgDisplayNames(string[])</strong> sets the list of display names to use as the parameters in the test name.</li>
+<li><strong>SetArgDisplayNames(object[])</strong> sets the list of display names using objects that are automatically formatted.</li>
 <li><strong>SetCategory(string)</strong> applies a category to the test.</li>
 <li><strong>SetDescription(string)</strong> sets the description property of the test.</li>
 <li><strong>SetName(string)</strong> provides a name for the test. If not specified, a name is generated based on the method name and
@@ -127,8 +129,150 @@ the arguments provided. See <a class="xref" href="../running-tests/Template-Base
 <li><strong>SetProperty(string, string)</strong>, <strong>SetProperty(string, int)</strong> and <strong>SetProperty(string, double)</strong> apply a named
 property and value to the test.</li>
 <li><strong>TypeArgs</strong> specifies the <code>Type</code>s to be used when targeting a generic test method. (<em>NUnit 4.1+</em>)</li>
+<li><strong>Until(DateTimeOffset)</strong> can be chained after <strong>Ignore(string)</strong> to specify a date after which the test case
+should no longer be ignored. Once the date passes, the test will run automatically. (<em>NUnit 4+</em>)</li>
 </ul>
+<h2 id="temporarily-ignoring-test-cases-with-until">Temporarily ignoring test cases with Until</h2>
+<p>The <strong>Until</strong> method allows you to temporarily ignore a test case until a specific date. This is useful for tests
+that are known to fail due to external factors (e.g., waiting for an API release, known bug in a dependency) but
+should automatically start running again after a certain date.</p>
+<pre><code class="lang-csharp" name="IgnoreUntilExample">[TestFixture]
+public class IgnoreUntilTests
+{
+    [TestCaseSource(nameof(IgnoredTestCases))]
+    public void TestWithTemporaryIgnore(int value)
+    {
+        Assert.That(value, Is.Positive);
+    }
 
+    private static IEnumerable&lt;TestCaseData&gt; IgnoredTestCases()
+    {
+        // This test case runs normally
+        yield return new TestCaseData(1);
+
+        // This test case is ignored indefinitely
+        yield return new TestCaseData(2)
+            .Ignore(&quot;Known bug - see issue #123&quot;);
+
+        // This test case is ignored until the specified date
+        // After the date passes, the test will run automatically
+        yield return new TestCaseData(3)
+            .Ignore(&quot;Waiting for API v2 release&quot;)
+            .Until(new DateTimeOffset(2025, 6, 1, 0, 0, 0, TimeSpan.Zero));
+
+        // This test was ignored in the past - it now runs because the date has passed
+        yield return new TestCaseData(4)
+            .Ignore(&quot;Was waiting for feature X&quot;)
+            .Until(new DateTimeOffset(2020, 1, 1, 0, 0, 0, TimeSpan.Zero));
+    }
+}
+</code></pre><h2 id="generic-testcasedata-variants">Generic TestCaseData variants</h2>
+<p>As of NUnit 4.1, generic versions of <code>TestCaseData</code> are available that automatically set the <code>TypeArgs</code> property
+based on their type parameters. This provides a more concise syntax when working with generic test methods:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TestCaseData&lt;T&gt;</code></td>
+<td>Single type parameter</td>
+</tr>
+<tr>
+<td><code>TestCaseData&lt;T1, T2&gt;</code></td>
+<td>Two type parameters</td>
+</tr>
+<tr>
+<td><code>TestCaseData&lt;T1, T2, T3&gt;</code></td>
+<td>Three type parameters</td>
+</tr>
+<tr>
+<td><code>TestCaseData&lt;T1, T2, T3, T4&gt;</code></td>
+<td>Four type parameters</td>
+</tr>
+<tr>
+<td><code>TestCaseData&lt;T1, T2, T3, T4, T5&gt;</code></td>
+<td>Five type parameters</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-csharp" name="GenericTestCaseDataExample">[TestFixture]
+public class GenericTestCaseDataTests
+{
+    [TestCaseSource(nameof(GenericTestCases))]
+    public Type GenericMethodWithExplicitType&lt;T&gt;(T input)
+    {
+        return typeof(T);
+    }
+
+    private static IEnumerable&lt;TestCaseData&gt; GenericTestCases()
+    {
+        // Using TestCaseData&lt;T&gt; automatically sets TypeArgs to typeof(T)
+        // This ensures the generic method uses 'long'
+        yield return new TestCaseData&lt;long&gt;(2L)
+        {
+            ExpectedResult = typeof(long)
+        };
+
+        // Another single type parameter example with TestCaseData&lt;T&gt;
+        yield return new TestCaseData&lt;int&gt;(42)
+        {
+            ExpectedResult = typeof(int)
+        };
+    }
+
+    [TestCaseSource(nameof(TwoTypeParameterCases))]
+    public void GenericMethodWithTwoTypes&lt;T1, T2&gt;(T1 first, T2 second)
+    {
+        Assert.That(first, Is.TypeOf&lt;T1&gt;());
+        Assert.That(second, Is.TypeOf&lt;T2&gt;());
+    }
+
+    private static IEnumerable&lt;TestCaseData&gt; TwoTypeParameterCases()
+    {
+        // TestCaseData&lt;T1, T2&gt; sets TypeArgs = [typeof(T1), typeof(T2)]
+        yield return new TestCaseData&lt;string, int&gt;(&quot;hello&quot;, 42);
+        yield return new TestCaseData&lt;double, bool&gt;(3.14, true);
+    }
+}
+</code></pre><h2 id="setargdisplaynames-with-objects">SetArgDisplayNames with objects</h2>
+<p>The <code>SetArgDisplayNames</code> method has an overload that accepts <code>object[]</code> instead of <code>string[]</code>. Objects passed to
+this overload are automatically formatted using NUnit's value formatting logic, which is the same logic used for
+default test names.</p>
+<pre><code class="lang-csharp" name="SetArgDisplayNamesObjectExample">[TestFixture]
+public class SetArgDisplayNamesObjectTests
+{
+    [TestCaseSource(nameof(DisplayNameCases))]
+    public void TestWithCustomDisplayNames(Person person, int expectedAge)
+    {
+        Assert.That(person.Age, Is.EqualTo(expectedAge));
+    }
+
+    private static IEnumerable&lt;TestCaseData&gt; DisplayNameCases()
+    {
+        var john = new Person { Name = &quot;John&quot;, Age = 30 };
+        var jane = new Person { Name = &quot;Jane&quot;, Age = 25 };
+
+        // SetArgDisplayNames with strings
+        yield return new TestCaseData(john, 30)
+            .SetArgDisplayNames(&quot;John Doe&quot;, &quot;30&quot;);
+
+        // SetArgDisplayNames with objects - they are automatically formatted
+        // This is useful when you want the display name to match the object's ToString()
+        yield return new TestCaseData(jane, 25)
+            .SetArgDisplayNames(jane.Name, jane.Age);
+    }
+
+    public class Person
+    {
+        public string Name { get; set; } = &quot;&quot;;
+        public int Age { get; set; }
+    }
+}
+</code></pre>
 </article>
           </div>
 

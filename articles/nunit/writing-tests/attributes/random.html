@@ -83,62 +83,232 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="randomattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-random">
 <h1 id="random">Random</h1>
 
-<p>The <strong>RandomAttribute</strong> is used to specify a set of random values to be provided for an individual numeric parameter, or
-<code>Guid</code> of a parameterized test method. Since NUnit combines the data provided for each parameter into a set of test
-cases, data must be provided for all parameters if it is provided for any of them.</p>
-<p>By default, NUnit creates test cases from all possible combinations of the datapoints provided on parameters - the
-combinatorial approach. This default may be modified by use of specific attributes on the test method itself.</p>
-<p>RandomAttribute supports the following constructors:</p>
-<pre><code class="lang-csharp">public Random(int count);
-public Random(int min, int max, int count);
-public Random(uint min, uint max, int count);
-public Random(long min, long max, int count);
-public Random(ulong min, ulong max, int count);
-public Random(short min, short max, int count);
-public Random(ushort min, ushort max, int count);
-public Random(byte min, byte max, int count);
-public Random(sbyte min, sbyte max, int count);
-public Random(double min, double max, int count);
-public Random(float min, float max, int count);
+<p><code>RandomAttribute</code> is used to specify a set of random values to be provided for an individual parameter of a parameterized test method. It supports numeric types, <code>Guid</code>, and enums.</p>
+<h2 id="constructors">Constructors</h2>
+<h3 id="count-only-auto-detect-type">Count Only (Auto-detect Type)</h3>
+<pre><code class="lang-csharp">RandomAttribute(int count)
 </code></pre>
-<p>In the first form, without minimum and maximum values, the attribute automatically generates values of the appropriate
-numeric Type or <code>Guid</code> for the argument provided, using the <code>Randomizer</code> object associated with the current context. See
-<a class="xref" href="../Randomizer-Methods.html">Randomizer Methods</a> for details.</p>
-<p>In general, the forms that specify a minimum and maximum should be used on arguments of the same type. However, the
-following exceptions are supported:</p>
-<ul>
-<li><p>You may use an int range on arguments of type short, ushort, byte, sbyte and decimal.</p>
-</li>
-<li><p>You may use a double range on arguments of type decimal.</p>
-</li>
-</ul>
-<p>Note that there is no constructor taking decimal values for min and max. This is because .NET does not support use of
-decimal in an attribute constructor.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p><code>Guid</code> support for <code>RandomAttribute</code> is available from version 4.0 onwards.</p>
-</div>
-<h2 id="example">Example</h2>
-<p>The following test will be executed fifteen times, three times for each value of x, each combined with 5 random doubles
-from -1.0 to +1.0.</p>
-<pre><code class="lang-csharp">[Test]
-public void MyTest(
-    [Values(1, 2, 3)] int x,
-    [Random(-1.0, 1.0, 5)] double d)
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>count</code></td>
+<td><code>int</code></td>
+<td>The number of random values to generate. The type is inferred from the parameter.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="with-range-type-specific">With Range (Type-specific)</h3>
+<pre><code class="lang-csharp">RandomAttribute(int min, int max, int count)
+RandomAttribute(double min, double max, int count)
+// Also available for: uint, long, ulong, short, ushort, byte, sbyte, float
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>min</code></td>
+<td>varies</td>
+<td>The minimum value (inclusive).</td>
+</tr>
+<tr>
+<td><code>max</code></td>
+<td>varies</td>
+<td>The maximum value (exclusive).</td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td><code>int</code></td>
+<td>The number of random values to generate.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Distinct</code></td>
+<td><code>bool</code></td>
+<td>When <code>true</code>, no value will be repeated among the generated values.</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Method Parameters</th>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id="supported-types">Supported Types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Count-only</th>
+<th>With Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code>, <code>uint</code>, <code>long</code>, <code>ulong</code></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>short</code>, <code>ushort</code>, <code>byte</code>, <code>sbyte</code></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>double</code>, <code>float</code></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>decimal</code></td>
+<td>Yes</td>
+<td>No (use <code>int</code> or <code>double</code> range)</td>
+</tr>
+<tr>
+<td><code>Guid</code></td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>enum</code></td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<pre><code class="lang-csharp" name="RandomBasic">[TestFixture]
+public class RandomBasicTests
 {
-    ...
+    [Test]
+    public void TestWithRandomInts([Random(5)] int value)
+    {
+        // Generates 5 random int values across the full int range
+        TestContext.Out.WriteLine($&quot;Testing with value: {value}&quot;);
+        Assert.That(value, Is.TypeOf&lt;int&gt;());
+    }
+
+    [Test]
+    public void TestWithRandomDoubles([Random(3)] double value)
+    {
+        // Generates 3 random doubles between 0.0 and 1.0
+        TestContext.Out.WriteLine($&quot;Testing with value: {value}&quot;);
+        Assert.That(value, Is.InRange(0.0, 1.0));
+    }
 }
-</code></pre>
+</code></pre><h3 id="with-range">With Range</h3>
+<pre><code class="lang-csharp" name="RandomWithRange">[TestFixture]
+public class RandomRangeTests
+{
+    [Test]
+    public void TestWithIntRange([Random(1, 100, 5)] int value)
+    {
+        // Generates 5 random ints between 1 and 100 (exclusive)
+        Assert.That(value, Is.InRange(1, 99));
+    }
+
+    [Test]
+    public void TestWithDoubleRange([Random(-1.0, 1.0, 3)] double value)
+    {
+        // Generates 3 random doubles between -1.0 and 1.0
+        Assert.That(value, Is.InRange(-1.0, 1.0));
+    }
+}
+</code></pre><h3 id="distinct-values">Distinct Values</h3>
+<pre><code class="lang-csharp" name="RandomDistinct">[TestFixture]
+public class RandomDistinctTests
+{
+    [Test]
+    public void TestWithDistinctValues([Random(1, 10, 5, Distinct = true)] int value)
+    {
+        // Generates 5 distinct random ints - no value will repeat
+        Assert.That(value, Is.InRange(1, 9));
+    }
+}
+</code></pre><h3 id="random-guids">Random GUIDs</h3>
+<pre><code class="lang-csharp" name="RandomGuid">[TestFixture]
+public class RandomGuidTests
+{
+    [Test]
+    public void TestWithRandomGuid([Random(3)] Guid value)
+    {
+        // Generates 3 random GUIDs
+        // Note: Guid does not support min/max range
+        Assert.That(value, Is.Not.EqualTo(Guid.Empty));
+    }
+}
+</code></pre><h3 id="combined-with-other-attributes">Combined with Other Attributes</h3>
+<pre><code class="lang-csharp" name="RandomCombined">[TestFixture]
+public class RandomCombinedTests
+{
+    [Test]
+    public void TestWithMultipleRandomParams(
+        [Values(1, 2, 3)] int x,
+        [Random(-1.0, 1.0, 2)] double d)
+    {
+        // Creates 6 test cases: 3 x values * 2 random doubles
+        Assert.That(d, Is.InRange(-1.0, 1.0));
+    }
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>By default, NUnit creates test cases from all combinations of parameter values (combinatorial). Use <code>[Sequential]</code> to pair values in order instead.</li>
+<li>There is no constructor for <code>decimal</code> min/max because .NET does not support decimal in attribute constructors. Use an <code>int</code> or <code>double</code> range instead - values will be converted.</li>
+<li><code>Guid</code> does not support min/max ranges - only the count-only constructor works.</li>
+<li>When using <code>Distinct = true</code>, ensure the range is large enough to provide the requested number of distinct values.</li>
+<li><code>Guid</code> support was added in <strong>NUnit 4.0</strong>.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="values.html">Values Attribute</a></li>
-<li><a href="range.html">Range Attribute</a></li>
-<li><a href="sequential.html">Sequential Attribute</a></li>
-<li><a href="combinatorial.html">Combinatorial Attribute</a></li>
-<li><a href="pairwise.html">Pairwise Attribute</a></li>
+<li><a class="xref" href="values.html">Values Attribute</a></li>
+<li><a class="xref" href="range.html">Range Attribute</a></li>
+<li><a class="xref" href="sequential.html">Sequential Attribute</a></li>
+<li><a class="xref" href="combinatorial.html">Combinatorial Attribute</a></li>
+<li><a class="xref" href="pairwise.html">Pairwise Attribute</a></li>
+<li><a class="xref" href="../Randomizer-Methods.html">Randomizer Methods</a></li>
 </ul>
 
 </article>

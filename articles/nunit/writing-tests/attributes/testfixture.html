@@ -83,10 +83,34 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="testfixtureattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-testfixture">
 <h1 id="testfixture">TestFixture</h1>
 
 <p>This is the attribute that marks a class that contains tests and, optionally, setup or teardown methods.</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">TestFixtureAttribute()
+TestFixtureAttribute(params object?[]? arguments)
+</code></pre>
+<p>The <code>arguments</code> overload supplies constructor arguments and/or leading <code>System.Type</code> values used as generic type
+arguments for the fixture. Named parameters on the attribute (such as <strong>Ignore</strong>, <strong>Category</strong>, <strong>TypeArgs</strong>) are covered
+below.</p>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 <p>Most restrictions on a class that is used as a test fixture have now been eliminated. A test fixture class:</p>
 <ul>
 <li>May be public, protected, private or internal.</li>

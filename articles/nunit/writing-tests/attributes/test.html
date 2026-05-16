@@ -83,67 +83,133 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-test">
 <h1 id="test">Test</h1>
 
-<p>The <code>Test</code> attribute is one way of marking a method inside a TestFixture class as a test. It is normally used for simple
-(non-parameterized) tests but may also be applied to parameterized tests without causing any extra test cases to be
-generated. See <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a> for more info.</p>
+<p>The <code>Test</code> attribute marks a method inside a test fixture as a test. It is normally used for simple (non-parameterized)
+tests but may also be applied to parameterized tests without causing extra test cases to be generated. See
+<a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a> for more information.</p>
 <p>The test method may be either an instance or a static method.</p>
-<p>Test methods targeting .Net 4.0 or higher may be marked as <strong>async</strong> and NUnit will wait for the method to complete
-before recording the result and moving on to the next test. Async test methods must return <code>Task</code> if no value is
-returned, or <code>Task&lt;T&gt;</code> if a value of type T is returned.</p>
-<p>If the programmer marks a test method that does not have the correct signature it will be considered as not runnable.</p>
-<p>If the test method returns a value, you must pass in the <code>ExpectedResult</code> named parameter to the Test attribute. This
-expected return value will be checked for equality with the return value of the test method.</p>
-<p>The test <code>Description</code> may be specified as a named parameter. This is exactly equivalent to using the
-<code>DescriptionAttribute</code> on the test.</p>
-<h2 id="examples">Examples</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
+<p>Test methods may be <strong>async</strong>; NUnit waits for the method to complete before recording the result. Async test methods
+must return <code>Task</code> or <code>Task&lt;T&gt;</code>.</p>
+<p>If a test method does not have a valid signature, it is treated as not runnable.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">[Test]
+</code></pre>
+<p>Use <strong>named parameters</strong> (properties on the attribute) for metadata and for checking a return value.</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Description</code></td>
+<td><code>string?</code></td>
+<td>Descriptive text for the test. Equivalent to applying <a class="xref" href="description.html"><code>Description</code></a>.</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>Author</code></td>
+<td><code>string?</code></td>
+<td>Author metadata. Equivalent to applying <a class="xref" href="author.html"><code>Author</code></a>.</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>TestOf</code></td>
+<td><code>Type?</code></td>
+<td>Type under test. Equivalent to applying <a class="xref" href="testof.html"><code>TestOf</code></a>.</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>ExpectedResult</code></td>
+<td><code>object?</code></td>
+<td>Expected return value; NUnit compares it to the method result. <strong>Not valid</strong> if the test method has parameters.</td>
+<td>(unset)</td>
+</tr>
+</tbody>
+</table>
+<p>If the test method returns a value and you set <code>ExpectedResult</code>, NUnit checks equality with the return value.</p>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp" name="BasicTest">[TestFixture]
+public sealed class BasicTests
 {
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
-    // A simple test
     [Test]
     public void Add()
-    { /* ... */ }
+    {
+        Assert.That(2 + 2, Is.EqualTo(4));
+    }
+}
+</code></pre><pre><code class="lang-csharp" name="TestWithDescription">[TestFixture]
+public sealed class DescriptionTests
+{
+    [Test(Description = &quot;My really cool test&quot;)]
+    public void Add_WithDescriptionOnAttribute()
+    {
+        Assert.That(2 + 2, Is.EqualTo(4));
+    }
 
-    // A test with a description property
-    [Test(Description=&quot;My really cool test&quot;)]
-    public void Add()
-    { /* ... */ }
-
-    // Alternate way to specify description as a separate attribute
-    [Test, Description(&quot;My really really cool test&quot;)]
-    public void Add()
-    { /* ... */ }
-
-    // A simple async test
+    [Test]
+    [Description(&quot;My really really cool test&quot;)]
+    public void Add_WithDescriptionAttribute()
+    {
+        Assert.That(2 + 2, Is.EqualTo(4));
+    }
+}
+</code></pre><pre><code class="lang-csharp" name="AsyncTest">[TestFixture]
+public sealed class AsyncTests
+{
     [Test]
     public async Task AddAsync()
-    { /* ... */ }
-
-    // Test with an expected result
+    {
+        await Task.Delay(1);
+        Assert.That(2 + 2, Is.EqualTo(4));
+    }
+}
+</code></pre><pre><code class="lang-csharp" name="ExpectedResultTest">[TestFixture]
+public sealed class ExpectedResultTests
+{
     [Test(ExpectedResult = 4)]
     public int TestAdd()
     {
         return 2 + 2;
     }
 
-    // Async test with an expected result
     [Test(ExpectedResult = 4)]
-    public async Task&lt;int&gt; TestAdd()
+    public async Task&lt;int&gt; TestAddAsync()
     {
-        await ...
+        await Task.Delay(1);
         return 2 + 2;
     }
-  }
 }
-</code></pre>
+</code></pre><h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="testcase.html">TestCase Attribute</a></li>
+<li><a class="xref" href="testcasesource.html">TestCaseSource Attribute</a></li>
+<li><a class="xref" href="theory.html">Theory Attribute</a></li>
+</ul>
 
 </article>
           </div>

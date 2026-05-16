@@ -83,48 +83,171 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-culture">
 <h1 id="culture">Culture</h1>
 
-<p>The Culture attribute is used to specify cultures for which a test or fixture should be run. It does not affect the
-culture setting, but merely uses it to determine whether to run the test. If you wish to change the culture when running
-a test, use the SetCulture attribute instead.</p>
-<p>If the specified culture requirements for a test are not met it is skipped. In the gui, the tree node for the test
-remains gray and the status bar color is not affected.</p>
-<p>One use of the Culture attribute is to provide alternative tests under different cultures. You may specify either
-specific cultures, like &quot;en-GB&quot; or neutral cultures like &quot;de&quot;.</p>
-<h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  [Culture(&quot;fr-FR&quot;)]
-  public class FrenchCultureTests
-  {
-    // ...
-  }
-}
+<p><code>CultureAttribute</code> is used to specify cultures for which a test or fixture should be run. It does <strong>not</strong> change the culture setting, but merely uses it to determine whether to run the test. If the specified culture requirements are not met, the test is skipped.</p>
+<p>This attribute is useful for providing alternative tests under different cultures, or for skipping tests that are not applicable to certain cultures.</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">CultureAttribute()
+CultureAttribute(string cultures)
 </code></pre>
-<h2 id="test-syntax">Test Syntax</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cultures</code></td>
+<td><code>string</code></td>
+<td>A comma-delimited list of culture names to include. You may specify either specific cultures like <code>&quot;en-GB&quot;</code> or neutral cultures like <code>&quot;de&quot;</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Include</code></td>
+<td><code>string</code></td>
+<td>Comma-delimited list of cultures on which the test should run.</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>Exclude</code></td>
+<td><code>string</code></td>
+<td>Comma-delimited list of cultures on which the test should <strong>not</strong> run.</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>Reason</code></td>
+<td><code>string</code></td>
+<td>The reason for including or excluding the test. Displayed when the test is skipped.</td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<h3 id="including-specific-cultures">Including Specific Cultures</h3>
+<pre><code class="lang-csharp" name="CultureInclude">[TestFixture]
+public class FrenchOnlyTests
 {
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
     [Test]
-    [Culture(Exclude=&quot;en,de&quot;)]
-    public void SomeTest()
-    { /* ... */ }
+    [Culture(&quot;fr-FR&quot;)]
+    public void TestForFrenchCulture()
+    {
+        // This test only runs when current culture is fr-FR
+        Assert.That(CultureInfo.CurrentCulture.Name, Is.EqualTo(&quot;fr-FR&quot;));
+    }
+
+    [Test]
+    [Culture(&quot;fr-FR,fr-CA&quot;)]
+    public void TestForFrenchCultures()
+    {
+        // This test runs when current culture is fr-FR or fr-CA
+        Assert.That(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, Is.EqualTo(&quot;fr&quot;));
+    }
+
+    [Test]
+    [Culture(&quot;fr&quot;)]
+    public void TestForAnyFrenchCulture()
+    {
+        // Using neutral culture matches any French variant (fr-FR, fr-CA, etc.)
+        Assert.That(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, Is.EqualTo(&quot;fr&quot;));
+    }
 }
-</code></pre>
+</code></pre><h3 id="excluding-cultures">Excluding Cultures</h3>
+<pre><code class="lang-csharp" name="CultureExclude">[TestFixture]
+public class ExcludeCultureTests
+{
+    [Test]
+    [Culture(Exclude = &quot;en&quot;)]
+    public void TestExcludingEnglish()
+    {
+        // This test runs on any culture EXCEPT English variants
+        Assert.That(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, Is.Not.EqualTo(&quot;en&quot;));
+    }
+
+    [Test]
+    [Culture(Exclude = &quot;en,de&quot;)]
+    public void TestExcludingEnglishAndGerman()
+    {
+        // This test is skipped when culture is English or German
+        var lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+        Assert.That(lang, Is.Not.EqualTo(&quot;en&quot;).And.Not.EqualTo(&quot;de&quot;));
+    }
+}
+</code></pre><h3 id="applying-to-a-fixture">Applying to a Fixture</h3>
+<pre><code class="lang-csharp" name="CultureOnFixture">[TestFixture]
+[Culture(&quot;en-US,en-GB&quot;)]
+public class EnglishCultureTests
+{
+    [Test]
+    public void Test1()
+    {
+        // All tests in this fixture only run on en-US or en-GB
+        Assert.That(CultureInfo.CurrentCulture.Name,
+            Is.EqualTo(&quot;en-US&quot;).Or.EqualTo(&quot;en-GB&quot;));
+    }
+
+    [Test]
+    public void Test2()
+    {
+        Assert.That(CultureInfo.CurrentCulture.TwoLetterISOLanguageName, Is.EqualTo(&quot;en&quot;));
+    }
+}
+</code></pre><h3 id="providing-a-reason">Providing a Reason</h3>
+<pre><code class="lang-csharp" name="CultureWithReason">[TestFixture]
+public class CultureWithReasonTests
+{
+    [Test]
+    [Culture(Include = &quot;ja-JP&quot;, Reason = &quot;This test uses Japanese-specific date formatting&quot;)]
+    public void TestJapaneseDateFormat()
+    {
+        // The reason is shown when the test is skipped
+        Assert.That(CultureInfo.CurrentCulture.Name, Is.EqualTo(&quot;ja-JP&quot;));
+    }
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>When specifying a neutral culture (e.g., <code>&quot;fr&quot;</code>), the test will run on any specific culture variant (e.g., <code>fr-FR</code>, <code>fr-CA</code>, <code>fr-BE</code>).</li>
+<li>If both <code>Include</code> and <code>Exclude</code> are specified, <code>Include</code> is evaluated first.</li>
+<li>This attribute does <strong>not</strong> change the culture. To change the culture for a test, use <code>SetCulture</code> or <code>SetUICulture</code> instead.</li>
+<li>Tests that are skipped due to culture requirements appear as &quot;Skipped&quot; in test results with the reason displayed.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="setculture.html">SetCulture Attribute</a></li>
+<li><a class="xref" href="setculture.html">SetCulture Attribute</a></li>
+<li><a class="xref" href="setuiculture.html">SetUICulture Attribute</a></li>
 </ul>
 
 </article>

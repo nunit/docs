@@ -83,43 +83,131 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-order">
 <h1 id="order">Order</h1>
 
-<p>The <strong>OrderAttribute</strong> may be placed on a test method or fixture to specify the order in which tests are run within the
-fixture or other suite in which they are contained. Ordering is given by the required <code>order</code> argument to the attribute,
-an <code>int</code>.</p>
-<h2 id="example">Example</h2>
-<p>The following tests will be run in the order:</p>
-<ul>
-<li>TestA</li>
-<li>TestB</li>
-<li>TestC</li>
-</ul>
-<pre><code class="lang-csharp">public class MyFixture
+<p><code>OrderAttribute</code> is used on test methods or fixtures to specify the order in which tests are run within their containing suite. Tests are started in ascending order of the <code>order</code> value.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">OrderAttribute(int order)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>order</code></td>
+<td><code>int</code></td>
+<td>The order value. Tests are started in ascending order of this value. Lower values run first.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For fixtures, <code>Order</code> orders fixtures within their containing namespace. For test methods, it orders tests within their containing fixture.</p>
+</div>
+<h2 id="examples">Examples</h2>
+<h3 id="basic-ordering">Basic Ordering</h3>
+<pre><code class="lang-csharp" name="OrderBasic">[TestFixture]
+public class OrderedTests
 {
-    [Test, Order(1)]
-    public void TestA() { /* ... */ }
+    private static int _executionOrder;
 
+    [OneTimeSetUp]
+    public void Setup() =&gt; _executionOrder = 0;
+
+    [Test, Order(1)]
+    public void FirstTest()
+    {
+        _executionOrder++;
+        Assert.That(_executionOrder, Is.EqualTo(1));
+    }
 
     [Test, Order(2)]
-    public void TestB() { /* ... */ }
+    public void SecondTest()
+    {
+        _executionOrder++;
+        Assert.That(_executionOrder, Is.EqualTo(2));
+    }
+
+    [Test, Order(3)]
+    public void ThirdTest()
+    {
+        _executionOrder++;
+        Assert.That(_executionOrder, Is.EqualTo(3));
+    }
 
     [Test]
-    public void TestC() { /* ... */ }
+    public void UnorderedTest()
+    {
+        // Tests without Order run after all ordered tests
+        _executionOrder++;
+        Assert.That(_executionOrder, Is.EqualTo(4));
+    }
 }
-</code></pre>
-<h2 id="notes">Notes</h2>
+</code></pre><h3 id="ordering-fixtures">Ordering Fixtures</h3>
+<pre><code class="lang-csharp" name="OrderOnFixtures">[TestFixture, Order(1)]
+public class FirstFixture
+{
+    [Test]
+    public void Test() =&gt; Assert.Pass();
+}
+
+[TestFixture, Order(2)]
+public class SecondFixture
+{
+    [Test]
+    public void Test() =&gt; Assert.Pass();
+}
+</code></pre><h3 id="using-gaps-for-future-insertions">Using Gaps for Future Insertions</h3>
+<pre><code class="lang-csharp" name="OrderWithGaps">[TestFixture]
+public class OrderWithGapsTests
+{
+    // Using gaps allows inserting tests later without renumbering
+    [Test, Order(10)]
+    public void InitializationTest() =&gt; Assert.Pass();
+
+    [Test, Order(20)]
+    public void ProcessingTest() =&gt; Assert.Pass();
+
+    [Test, Order(30)]
+    public void CleanupTest() =&gt; Assert.Pass();
+}
+</code></pre><h2 id="notes">Notes</h2>
 <ol>
-<li>As stated, ordering is local to the test that contains the ordered tests. For test cases (methods) ordering applies
-within the containing fixture. For fixtures it applies within the containing namespace. There is no facility in NUnit
-to order tests globally.</li>
-<li>Tests with an <code>OrderAttribute</code> argument are started before any tests without the attribute.</li>
-<li>Ordered tests are started in ascending order of the <code>order</code> argument.</li>
-<li>Among tests with the same <code>order</code> value or without the attribute, execution order is indeterminate.</li>
-<li>Tests do not wait for prior tests to finish. If multiple threads are in use, a test may be started while some earlier
-tests are still being run.</li>
+<li>Ordering is <strong>local</strong> to the containing suite. For test methods, ordering applies within the fixture. For fixtures, it applies within the namespace. There is no facility to order tests globally.</li>
+<li>Tests with <code>[Order]</code> are started <strong>before</strong> any tests without the attribute.</li>
+<li>Ordered tests are started in <strong>ascending</strong> order of the <code>order</code> value.</li>
+<li>Among tests with the same <code>order</code> value, or among tests without the attribute, execution order is indeterminate.</li>
+<li>Tests do <strong>not</strong> wait for prior tests to finish. When using parallel execution, a test may start while earlier tests are still running.</li>
+<li>Negative order values are valid and will run before positive values.</li>
 </ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="parallelizable.html">Parallelizable Attribute</a></li>
+<li><a class="xref" href="nonparallelizable.html">NonParallelizable Attribute</a></li>
+</ul>
 
 </article>
           </div>

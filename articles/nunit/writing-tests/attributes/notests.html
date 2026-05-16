@@ -83,27 +83,83 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="notestsattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-notests">
 <h1 id="notests">NoTests</h1>
 
 <p>The <code>NoTestsAttribute</code> specifies the default status for a parameterized test method or test fixture when it contains no
 executable child tests. This is useful when test cases are generated dynamically and may sometimes produce an empty
 set.</p>
-<p>By default, NUnit treats a <code>Theory</code> with no test cases as a failure. For other parameterized tests, the behavior may
-vary. The <code>NoTestsAttribute</code> allows you to explicitly control what status should be reported when no test cases are
-available.</p>
+<p>By default, NUnit treats a <code>Theory</code> with no test cases as a failure. For other parameterized tests, behavior may
+vary. <code>NoTestsAttribute</code> chooses the <code>TestStatus</code> reported when no executable child tests are produced.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>This attribute was introduced in NUnit 4.6.</p>
+<p>Introduced in <strong>NUnit 4.6</strong>.</p>
 </div>
-<h2 id="usage">Usage</h2>
-<p>The attribute accepts a <code>TestStatus</code> value that determines how the test should be reported when no child tests exist:</p>
-<ul>
-<li><code>TestStatus.Skipped</code> - The test is marked as skipped</li>
-<li><code>TestStatus.Inconclusive</code> - The test is marked as inconclusive</li>
-<li><code>TestStatus.Passed</code> - The test is marked as passed (use with caution)</li>
-<li><code>TestStatus.Failed</code> - The test is marked as failed (default for Theory)</li>
-</ul>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">NoTestsAttribute(TestStatus defaultStatus)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>defaultStatus</code></td>
+<td><code>TestStatus</code></td>
+<td>Result when no child tests exist (<code>Skipped</code>, <code>Inconclusive</code>, <code>Passed</code>, or <code>Failed</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>Most specific scope (method) wins over fixture and assembly.</p>
+<h2 id="teststatus-values">TestStatus Values</h2>
+<p>Typical uses:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TestStatus.Skipped</code></td>
+<td>Marked skipped when no cases</td>
+</tr>
+<tr>
+<td><code>TestStatus.Inconclusive</code></td>
+<td>Indeterminate empty data</td>
+</tr>
+<tr>
+<td><code>TestStatus.Passed</code></td>
+<td>Passed with no cases (use carefully)</td>
+</tr>
+<tr>
+<td><code>TestStatus.Failed</code></td>
+<td>Default for <code>Theory</code> with no cases</td>
+</tr>
+</tbody>
+</table>
 <h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
 <p>Apply to a fixture to affect all parameterized tests within it:</p>
 <pre><code class="lang-csharp" name="NoTestsSkipped">[TestFixture]
@@ -167,53 +223,67 @@ public class ConditionalTestsFixture
 }
 </code></pre><h2 id="common-scenarios">Common Scenarios</h2>
 <h3 id="dynamic-test-data">Dynamic Test Data</h3>
-<p>When test cases come from external sources (databases, APIs, configuration files) that might be empty:</p>
-<pre><code class="lang-csharp">[TestFixture]
+<p>Typical when test cases come from a source that can legitimately be empty (a database, API, config file, or similar).</p>
+<pre><code class="lang-csharp" name="NoTestsDynamicData">[TestFixture]
 [NoTests(TestStatus.Skipped)]
 public class DataDrivenTests
 {
     [TestCaseSource(typeof(ExternalDataSource))]
-    public void ProcessData(DataRecord record)
+    public void ProcessData(int recordId)
     {
-        // Test implementation
+        Assert.That(recordId, Is.GreaterThan(0));
     }
 }
-</code></pre>
-<h3 id="conditional-test-execution">Conditional Test Execution</h3>
-<p>When test cases are only available under certain conditions:</p>
-<pre><code class="lang-csharp">[NoTests(TestStatus.Inconclusive)]
+
+public sealed class ExternalDataSource : IEnumerable
+{
+    public IEnumerator GetEnumerator()
+    {
+        yield break;
+    }
+}
+</code></pre><h3 id="conditional-execution">Conditional Execution</h3>
+<p>Typical when cases are only produced for some platforms, environments, or other prerequisites.</p>
+<pre><code class="lang-csharp" name="NoTestsConditionalExecution">[NoTests(TestStatus.Inconclusive)]
 [TestCaseSource(nameof(GetPlatformSpecificCases))]
 public void PlatformSpecificTest(string testCase)
 {
-    // Test only runs when platform-specific cases are available
+    Assert.That(testCase, Is.Not.Empty);
 }
-</code></pre>
-<h3 id="feature-flag-testing">Feature Flag Testing</h3>
-<p>When tests depend on feature flags that may not be enabled:</p>
-<pre><code class="lang-csharp">[TestFixture]
+
+private static IEnumerable&lt;string&gt; GetPlatformSpecificCases()
+{
+    yield break;
+}
+</code></pre><h3 id="feature-flags">Feature Flags</h3>
+<p>Typical when data-driven cases depend on feature flags or rollout state and may sometimes yield none.</p>
+<pre><code class="lang-csharp" name="NoTestsFeatureFlag">[TestFixture]
 [NoTests(TestStatus.Skipped)]
 public class FeatureFlagTests
 {
     [TestCaseSource(nameof(GetEnabledFeatures))]
     public void TestFeature(string featureName)
     {
-        // Tests features that are currently enabled
+        Assert.That(featureName, Is.Not.Empty);
+    }
+
+    private static IEnumerable&lt;string&gt; GetEnabledFeatures()
+    {
+        yield break;
     }
 }
-</code></pre>
-<h2 id="inheritance">Inheritance</h2>
-<p>The <code>NoTestsAttribute</code> can be applied at the assembly, class, or method level:</p>
+</code></pre><h2 id="scope-precedence">Scope Precedence</h2>
 <ul>
-<li><strong>Assembly level</strong>: Affects all parameterized tests in the assembly</li>
-<li><strong>Class level</strong>: Affects all parameterized tests in the fixture</li>
-<li><strong>Method level</strong>: Affects only the specific test method</li>
+<li><strong>Assembly</strong> — parameterized tests across the assembly</li>
+<li><strong>Fixture (class)</strong> — parameterized tests in that fixture</li>
+<li><strong>Method</strong> — that method only</li>
 </ul>
-<p>When multiple levels specify the attribute, the most specific level (method) takes precedence.</p>
+<p>The most specific level wins when multiple attributes apply.</p>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="testcasesource.html">TestCaseSource Attribute</a></li>
-<li><a href="testcase.html">TestCase Attribute</a></li>
-<li><a href="theory.html">Theory Attribute</a></li>
+<li><a class="xref" href="testcasesource.html">TestCaseSource Attribute</a></li>
+<li><a class="xref" href="testcase.html">TestCase Attribute</a></li>
+<li><a class="xref" href="theory.html">Theory Attribute</a></li>
 </ul>
 
 </article>

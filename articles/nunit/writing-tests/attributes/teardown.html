@@ -83,37 +83,76 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="teardown-attribute">
+            <article class="content wrap" id="_content" data-uid="attribute-teardown">
 <h1 id="teardown">TearDown</h1>
 
-<p>This attribute is used inside a <a class="xref" href="testfixture.html">TestFixture</a> to provide a common set of functions that are
-performed after each test method.</p>
-<p>TearDown methods may be either static or instance methods and you may define more than one of them in a fixture.
-Normally, multiple TearDown methods are only defined at different levels of an inheritance hierarchy, as explained
-below.</p>
-<p>So long as any SetUp method runs without error, the TearDown method is guaranteed to run. For example, it is not
-guaranteed to run if a SetUp method fails or throws an exception.</p>
-<h2 id="example">Example</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
-    [SetUp] public void Init()
-    { /* ... */ }
-
-    [TearDown] public void Cleanup()
-    { /* ... */ }
-
-    [Test] public void Add()
-    { /* ... */ }
-  }
-}
+<p><code>TearDownAttribute</code> marks a method NUnit calls <strong>immediately after each</strong> test case finishes under a
+<a class="xref" href="testfixture.html"><code>TestFixture</code></a>. Pair it with <a class="xref" href="setup.html"><code>SetUp</code></a> to release <strong>per-test</strong> resources (files, handles, mock
+substitutions, etc.).</p>
+<p>Like <code>SetUp</code>, you usually place tear-down helpers on <strong>base classes</strong> and <strong>derived fixtures</strong> rather than stacking many
+methods on a single class (allowed, but <strong>order among them is undefined</strong>).</p>
+<h2 id="static-and-instance-methods">Static and instance methods</h2>
+<p><code>TearDown</code> may be <strong><code>static</code></strong> or an <strong>instance</strong> method and runs on the <strong>same logical fixture object</strong> NUnit used for that
+test’s <code>SetUp</code> and test body (including a <strong>new</strong> instance per test when
+<a class="xref" href="fixturelifecycle.html"><code>LifeCycle.InstancePerTestCase</code></a> applies).</p>
+<p><strong><code>async</code></strong> <code>Task</code> / <code>Task&lt;T&gt;</code> methods are supported.</p>
+<h2 id="when-teardown-runs">When TearDown runs</h2>
+<ul>
+<li><strong>After a successful <code>SetUp</code> and test</strong> — always in normal execution (unless the run is <strong>aborted</strong> before teardown is
+dispatched).</li>
+<li><strong>After <code>SetUp</code> fails</strong> — <code>TearDown</code> <strong>still runs</strong> so partially constructed state can be unwound. The <strong>test method is
+skipped</strong> and the result shows a <strong>setup</strong> failure, but teardown for that level is <strong>not</strong> skipped solely because setup
+failed.</li>
+<li><strong>After the test throws or fails</strong> — <code>TearDown</code> still runs; the framework records the test failure <strong>and</strong> any teardown
+exception separately if both occur.</li>
+</ul>
+<p>The only broad exception is an <strong>abort</strong> (<code>TestExecutionStatus.AbortRequested</code>), where NUnit may omit the teardown callback
+entirely—mirroring the behavior described for <a class="xref" href="onetimeteardown.html"><code>OneTimeTearDown</code></a>.</p>
+<p>Teardown failures or assertions are attached to the test result as <strong>teardown</strong> issues (<code>FailureSite.TearDown</code>) while
+preserving the original test outcome when possible.</p>
+<h2 id="usage">Usage</h2>
+<p>This is a parameterless attribute that can only be applied to methods.</p>
+<pre><code class="lang-csharp">[TearDown]
 </code></pre>
-<h2 id="inheritance">Inheritance</h2>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Lifecycle Methods</th>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp" name="TearDownExample">[SetUp]
+public void Init()
+{
+    _testRan = false;
+}
+
+[TearDown]
+public void Cleanup()
+{
+    Assert.That(_testRan, Is.True);
+}
+
+[Test]
+public void Add()
+{
+    _testRan = true;
+    Assert.That(2 + 2, Is.EqualTo(4));
+}
+</code></pre><h2 id="inheritance">Inheritance</h2>
 <p>The TearDown attribute is inherited from any base class. Therefore, if a base class has defined a TearDown method, that
 method will be called after each test method in the derived class.</p>
 <p>You may define a TearDown method in the base class and another in the derived class. NUnit will call base class TearDown
@@ -127,19 +166,17 @@ correct order.</p>
 </div>
 <h2 id="notes">Notes</h2>
 <ol>
-<li><p>Although it is possible to define multiple TearDown methods in the same class, you should rarely do so. Unlike
-methods defined in separate classes in the inheritance hierarchy, the order in which they are executed is not
-guaranteed.</p>
-</li>
-<li><p>TearDown methods may be async if running under .NET 4.0 or higher.</p>
-</li>
+<li><strong><code>TestContext</code></strong> — still <strong>per-test</strong> scope, but executed <strong>after</strong> the test method returns or throws.</li>
+<li>Multiple <code>TearDown</code> methods on the <strong>same</strong> class are unordered relative to one another.</li>
+<li><strong>Derived</strong> <code>TearDown</code> runs <strong>before</strong> base-class <code>TearDown</code> when both apply (see <strong>Inheritance</strong>).</li>
 </ol>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="setup.html">SetUp Attribute</a></li>
-<li><a href="onetimesetup.html">OneTimeSetUp Attribute</a></li>
-<li><a href="onetimeteardown.html">OneTimeTearDown Attribute</a></li>
-<li><a href="testfixture.html">TestFixture Attribute</a></li>
+<li><a class="xref" href="setup.html">SetUp Attribute</a></li>
+<li><a class="xref" href="onetimesetup.html">OneTimeSetUp Attribute</a></li>
+<li><a class="xref" href="onetimeteardown.html">OneTimeTearDown Attribute</a></li>
+<li><a class="xref" href="fixturelifecycle.html">FixtureLifeCycle Attribute</a></li>
+<li><a class="xref" href="testfixture.html">TestFixture Attribute</a></li>
 </ul>
 
 </article>

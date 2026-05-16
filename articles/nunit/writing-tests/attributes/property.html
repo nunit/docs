@@ -83,45 +83,128 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="propertyattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-property">
 <h1 id="property">Property</h1>
 
-<p><strong>PropertyAttribute</strong> provides a generalized approach to setting named
-properties on any test case or fixture, using a name/value pair.
-In the example below, the fixture class MathTests is given a Location
-value of 723 while the test case AdditionTest is given a Severity
-of &quot;Critical&quot;</p>
-<h2 id="example">Example</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture, Property(&quot;Location&quot;, 723)]
-  public class MathTests
-  {
-    [Test, Property(&quot;Severity&quot;, &quot;Critical&quot;)]
-    public void AdditionTest()
-    { /* ... */ }
-  }
-}
+<p><code>PropertyAttribute</code> provides a generalized approach to setting named properties on any test case or fixture, using a name/value pair. Properties can be used for test filtering, reporting, and custom test organization.</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">PropertyAttribute(string propertyName, string propertyValue)
+PropertyAttribute(string propertyName, int propertyValue)
+PropertyAttribute(string propertyName, double propertyValue)
 </code></pre>
-<h2 id="usage-note">Usage Note</h2>
-<p>The PropertyAttribute is not currently used for any purpose by NUnit itself, other
-than to display them in the XML output file and in the Test Properties
-dialog of the gui. You may also use properties with the <code>--where</code> option on the
-command-line in order to select tests to run. See <a class="xref" href="../../running-tests/Test-Selection-Language.html">Test Selection Language</a>. Note
-that his filtering will only work for properties where the values have type string.</p>
-<p>User tests may access properties through the <a class="xref" href="../TestContext.html">TestContext</a> or by reflection.</p>
-<h2 id="custom-property-attributes">Custom Property Attributes</h2>
-<p>Users can define custom attributes that derive from <strong>PropertyAttribute</strong>
-and have them recognized by NUnit. PropertyAttribute provides a protected constructor
-that takes the value of the property and sets the property name to the
-name of the derived class with the 'Attribute' suffix removed.</p>
-<p>Here's an example that creates a Severity property. It works
-just like any other property, but has a simpler syntax and is type-safe.
-A custom test reporting system might make use of the property to provide special reports.</p>
-<pre><code class="lang-csharp">public enum SeverityLevel
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>propertyName</code></td>
+<td><code>string</code></td>
+<td>The name of the property.</td>
+</tr>
+<tr>
+<td><code>propertyValue</code></td>
+<td><code>string</code>, <code>int</code>, or <code>double</code></td>
+<td>The value of the property.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Properties</code></td>
+<td><code>IPropertyBag</code></td>
+<td>Gets the property dictionary for this attribute.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When applied to a fixture or assembly, the property is applied to all tests contained within that fixture or assembly.</p>
+</div>
+<p>Multiple <code>PropertyAttribute</code> instances can be applied to the same element (<code>AllowMultiple = true</code>).</p>
+<h2 id="examples">Examples</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<pre><code class="lang-csharp" name="BasicProperty">[TestFixture]
+[Property(&quot;Location&quot;, 723)]
+public class MathTests
+{
+    [Test]
+    [Property(&quot;Severity&quot;, &quot;Critical&quot;)]
+    public void AdditionTest()
+    {
+        Assert.That(2 + 2, Is.EqualTo(4));
+    }
+
+    [Test]
+    [Property(&quot;Severity&quot;, &quot;Normal&quot;)]
+    [Property(&quot;Author&quot;, &quot;John Doe&quot;)]
+    public void SubtractionTest()
+    {
+        // Multiple properties can be applied to a single test
+        Assert.That(5 - 3, Is.EqualTo(2));
+    }
+}
+</code></pre><h3 id="different-property-value-types">Different Property Value Types</h3>
+<pre><code class="lang-csharp" name="PropertyTypes">[TestFixture]
+public class PropertyTypesTests
+{
+    [Test]
+    [Property(&quot;StringProp&quot;, &quot;value&quot;)]
+    [Property(&quot;IntProp&quot;, 42)]
+    [Property(&quot;DoubleProp&quot;, 3.14)]
+    public void TestWithDifferentPropertyTypes()
+    {
+        // Properties can be string, int, or double
+        Assert.Pass();
+    }
+}
+</code></pre><h3 id="accessing-properties-in-tests">Accessing Properties in Tests</h3>
+<pre><code class="lang-csharp" name="AccessingProperties">[TestFixture]
+public class AccessingPropertiesTests
+{
+    [Test]
+    [Property(&quot;Priority&quot;, &quot;High&quot;)]
+    public void TestAccessingProperty()
+    {
+        // Access properties via TestContext
+        var priority = TestContext.CurrentContext.Test.Properties.Get(&quot;Priority&quot;);
+        Assert.That(priority, Is.EqualTo(&quot;High&quot;));
+    }
+}
+</code></pre><h3 id="custom-property-attributes">Custom Property Attributes</h3>
+<p>You can define custom attributes that derive from <code>PropertyAttribute</code> for type-safe, domain-specific properties:</p>
+<pre><code class="lang-csharp" name="CustomPropertyAttribute">// Define a custom severity level enum
+public enum SeverityLevel
 {
     Critical,
     Major,
@@ -129,22 +212,50 @@ A custom test reporting system might make use of the property to provide special
     Minor
 }
 
-[AttributeUsage(AttributeTargets.Method, AllowMultiple=false)]
+// Create a custom property attribute
+[AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, AllowMultiple = false)]
 public class SeverityAttribute : PropertyAttribute
 {
     public SeverityAttribute(SeverityLevel level)
-      : base(level.ToString()) {}
+        : base(level.ToString())
+    {
+    }
 }
 
-...
+[TestFixture]
+public class CustomPropertyTests
+{
+    [Test]
+    [Severity(SeverityLevel.Critical)]
+    public void CriticalTest()
+    {
+        // The property name is &quot;Severity&quot; (derived from attribute name)
+        var severity = TestContext.CurrentContext.Test.Properties.Get(&quot;Severity&quot;);
+        Assert.That(severity, Is.EqualTo(&quot;Critical&quot;));
+    }
 
-[Test, Severity(SeverityLevel.Critical)]
-public void MyTest()
-{ /*...*/ }
-</code></pre>
-<p>A PropertyAttribute may contain
-multiple name/value pairs. This capability is not exposed publicly
-but may be used by derived property classes.</p>
+    [Test]
+    [Severity(SeverityLevel.Minor)]
+    public void MinorTest()
+    {
+        var severity = TestContext.CurrentContext.Test.Properties.Get(&quot;Severity&quot;);
+        Assert.That(severity, Is.EqualTo(&quot;Minor&quot;));
+    }
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><code>PropertyAttribute</code> is not used by NUnit itself for test execution. Properties are displayed in XML output and the Test Properties dialog.</li>
+<li>You can use properties with the <code>--where</code> option on the command-line to select tests to run. See <a class="xref" href="../../running-tests/Test-Selection-Language.html">Test Selection Language</a>. Filtering only works for properties with <code>string</code> values.</li>
+<li>Tests can access properties through <a class="xref" href="../TestContext.html">TestContext</a> using <code>TestContext.CurrentContext.Test.Properties</code>.</li>
+<li>When creating custom property attributes, the property name is derived from the class name with the &quot;Attribute&quot; suffix removed (e.g., <code>SeverityAttribute</code> becomes property name <code>&quot;Severity&quot;</code>).</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="../TestContext.html">TestContext</a></li>
+<li><a class="xref" href="../../running-tests/Test-Selection-Language.html">Test Selection Language</a></li>
+<li><a class="xref" href="category.html">Category Attribute</a></li>
+<li><a class="xref" href="description.html">Description Attribute</a></li>
+</ul>
 
 </article>
           </div>

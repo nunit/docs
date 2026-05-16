@@ -83,13 +83,58 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="author-attribute">
+            <article class="content wrap" id="_content" data-uid="attribute-author">
 <h1 id="author">Author</h1>
 
-<p>The <strong>Author</strong> Attribute adds information about the author of the tests. It can be applied to test fixtures and to
-tests.</p>
-<p>The constructor takes the name of the test author and optionally the author's email address. Author can also be
-specified on a TestFixture or Test attribute.</p>
+<p><code>AuthorAttribute</code> adds information about the author of tests. This metadata can be used by test runners and reporting tools to track test ownership and contact information.</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">AuthorAttribute(string name)
+AuthorAttribute(string name, string email)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>The name of the test author.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>The email address of the author. When provided, stored as <code>&quot;name &lt;email&gt;&quot;</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="alternative-syntax">Alternative Syntax</h2>
+<p><code>Author</code> can also be specified as a named parameter on <code>[TestFixture]</code> or <code>[Test]</code> attributes (name only, no email):</p>
+<pre><code class="lang-csharp">[TestFixture(Author = &quot;Jane Doe&quot;)]
+[Test(Author = &quot;Joe Developer&quot;)]
+</code></pre>
+<h2 id="example">Example</h2>
 <pre><code class="lang-csharp" name="AuthorAttributeExample">[TestFixture]
 [Author(&quot;Jane Doe&quot;, &quot;jane.doe@example.com&quot;)]
 [Author(&quot;Another Developer&quot;, &quot;email@example.com&quot;)]
@@ -113,12 +158,19 @@ public class MyOtherTests
     [Test(Author = &quot;Joe Developer&quot;)]
     public void Test2() { /* ... */ }
 }
-</code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p>From NUnit version 3.7, you can have multiple Author attributes per fixture or test. Before version 3.7 you
-could only have one Author attribute  per fixture or test.</p>
-</div>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>This attribute inherits from <code>PropertyAttribute</code> and sets the <code>Author</code> property.</li>
+<li>Multiple <code>Author</code> attributes can be applied to the same fixture or test (since <strong>NUnit 3.7</strong>).</li>
+<li>Prior to NUnit 3.7, only one Author attribute was allowed per fixture or test.</li>
+<li>When using the named parameter syntax (<code>Author = &quot;name&quot;</code>), only the name can be specified, not the email.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="property.html">Property Attribute</a></li>
+<li><a class="xref" href="description.html">Description Attribute</a></li>
+<li><a class="xref" href="testof.html">TestOf Attribute</a></li>
+</ul>
 
 </article>
           </div>

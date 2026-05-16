@@ -83,7 +83,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="theoryattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-theory">
 <h1 id="theory">Theory</h1>
 
 <p>A Theory is a special type of test, used to verify a general statement about the system under development. Normal tests
@@ -96,8 +96,44 @@ satisfying certain assumptions.</p>
 Tests</a> at first glance. However, a Theory incorporates additional data sources for its
 arguments and allows special processing for assumptions about that data. The key difference, though, is that theories
 make general statements and are more than just a set of examples.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">TheoryAttribute(bool searchInDeclaringTypes = false)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>searchInDeclaringTypes</code></td>
+<td><code>bool</code></td>
+<td>When <code>true</code>, datapoints are resolved on declaring types as well. Default is <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 <h2 id="data-for-theories">Data for Theories</h2>
-<p>The primary source of data for a <strong>Theory</strong> is the <a href="datapoint.html">Datapoint Attribute</a> or <a href="datapointsource.html">DatapointSource
+<p>The primary source of data for a <strong>Theory</strong> is the <a class="xref" href="datapoint.html">Datapoint Attribute</a> or <a class="xref" href="datapointsource.html">DatapointSource
 Attribute</a>. NUnit will use any class members of the required types, which are annotated with one of
 these attributes, to provide data for each parameter of the Theory. NUnit assembles the values for individual arguments
 combinatorially to provide test cases for the theory.</p>
@@ -176,8 +212,8 @@ public class TheorySampleTestsGeneric&lt;T&gt;
 </code></pre>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><a href="datapoint.html">Datapoint Attribute</a></li>
-<li><a href="datapointsource.html">DatapointSource Attribute</a></li>
+<li><a class="xref" href="datapoint.html">Datapoint Attribute</a></li>
+<li><a class="xref" href="datapointsource.html">DatapointSource Attribute</a></li>
 <li><a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a></li>
 </ul>
 

@@ -83,12 +83,89 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-singlethreaded">
 <h1 id="singlethreaded">SingleThreaded</h1>
 
-<p><code>SingleThreadedAttribute</code> is used on a TestFixture and indicates that the OneTimeSetUp, OneTimeTearDown and all the
-child tests must run on the same thread.</p>
-<p>When using this attribute, any <code>ParallelScope</code> setting is ignored.</p>
+<p><code>SingleThreadedAttribute</code> is used on a test fixture to ensure that <code>OneTimeSetUp</code>, <code>OneTimeTearDown</code>, and all child tests run on the same thread. This forces all child tests to be run sequentially on the current thread.</p>
+<h2 id="usage">Usage</h2>
+<p>This is a parameterless attribute that can only be applied to test fixture classes.</p>
+<pre><code class="lang-csharp">[SingleThreaded]
+</code></pre>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp" name="SingleThreadedExample">[TestFixture]
+[SingleThreaded]
+public class DatabaseTests
+{
+    private DbConnection? _connection;
+
+    [OneTimeSetUp]
+    public void OneTimeSetUp()
+    {
+        // Connection created on this thread
+        _connection = new DbConnection();
+        _connection.Open();
+    }
+
+    [Test]
+    public void Test1()
+    {
+        // Guaranteed to run on the same thread as OneTimeSetUp
+        _connection!.Execute(&quot;SELECT 1&quot;);
+    }
+
+    [Test]
+    public void Test2()
+    {
+        // Also runs on the same thread
+        _connection!.Execute(&quot;SELECT 2&quot;);
+    }
+
+    [OneTimeTearDown]
+    public void OneTimeTearDown()
+    {
+        // Runs on the same thread, safe to close connection
+        _connection?.Close();
+    }
+}
+
+// Simple stub classes for the example
+private class DbConnection
+{
+    public void Open() { }
+    public void Execute(string sql) { }
+    public void Close() { }
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>When this attribute is applied, any <code>ParallelScope</code> setting on the fixture or its child tests is ignored.</li>
+<li>This attribute is inherited by derived test fixture classes.</li>
+<li>Use this attribute when your tests share resources that have thread affinity, such as database connections, COM objects, or UI components.</li>
+<li>This attribute only affects the fixture it is applied to. Other fixtures in the same assembly can still run in parallel with this fixture (unless assembly-level parallelization is disabled).</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="parallelizable.html">Parallelizable Attribute</a></li>
+<li><a class="xref" href="nonparallelizable.html">NonParallelizable Attribute</a></li>
+<li><a class="xref" href="requiresthread.html">RequiresThread Attribute</a></li>
+<li><a class="xref" href="apartment.html">Apartment Attribute</a></li>
+</ul>
 
 </article>
           </div>

@@ -83,10 +83,70 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-retry">
 <h1 id="retry">Retry</h1>
 
-<p>RetryAttribute is used on a test method to specify that it should be rerun if it fails, up to a maximum number of times.</p>
+<p><code>RetryAttribute</code> is used on a test method to specify that it should be rerun on failure up to a maximum number of times.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">RetryAttribute(int tryCount)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tryCount</code></td>
+<td><code>int</code></td>
+<td>The maximum number of times the test should be run if it fails. This is the total number of attempts, <strong>not</strong> the number of retries after an initial failure. Therefore, <code>[Retry(1)]</code> does nothing and should not be used.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RetryExceptions</code></td>
+<td><code>Type[]</code></td>
+<td>An array of exception types that trigger a retry when thrown. These are in addition to the normal behavior of retrying only on an assertion failure.</td>
+<td><code>[]</code> (empty array)</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>RetryExceptions</code> property was added in <strong>NUnit 4.5.0</strong>.</p>
+</div>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
 <pre><code class="lang-csharp" name="Retry">[TestFixture]
 public sealed class RetryTests
 {
@@ -111,20 +171,8 @@ public sealed class RetryTests
         return &quot;Actual Result&quot;; // Simulate a response
     }
 }
-</code></pre>
-<p>Notes:</p>
-<ol>
-<li><p>The argument you specify is the total number of attempts and <strong>not</strong> the number of retries after an initial failure.
-So <code>[Retry(1)]</code> does nothing and should not be used.</p>
-</li>
-<li><p>It is not currently possible to use <code>RetryAttribute</code> on a <code>TestFixture</code> or any other type of test suite.
-Only single tests may be repeated.</p>
-</li>
-<li><p>If a test has an unexpected exception, an error result is returned and it is not retried.</p>
-<p>From NUnit 4.5.0 you can enable retry on an expected exception such as <code>TimeoutException</code>
-by setting the <code>RetryExceptions</code> property. The value of this property is an array of anticipated exceptions that should be retried.</p>
-</li>
-</ol>
+</code></pre><h3 id="using-retryexceptions">Using RetryExceptions</h3>
+<p>When you need to retry on specific exception types (such as <code>TimeoutException</code> or <code>OperationCanceledException</code>), you can set the <code>RetryExceptions</code> property:</p>
 <pre><code class="lang-csharp" name="RetryWithRetryExceptions">[TestFixture]
 public sealed class Retry
 {
@@ -156,7 +204,16 @@ public sealed class Retry
         return &quot;Actual Result&quot;; // Simulate a response
     }
 }
-</code></pre>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>It is not currently possible to use <code>RetryAttribute</code> on a <code>TestFixture</code> or any other type of test suite. Only single test methods may be retried.</li>
+<li>If a test has an unexpected exception, an error result is returned and it is not retried — unless that exception type is specified in the <code>RetryExceptions</code> property.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="repeat.html">Repeat Attribute</a></li>
+</ul>
+
 </article>
           </div>
 

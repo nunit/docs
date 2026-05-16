@@ -83,29 +83,78 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="rangeattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-range">
 <h1 id="range">Range</h1>
 
-<p>The <strong>RangeAttribute</strong> is used to specify a range of values to be provided
-for an individual parameter of a parameterized test method. Since
-NUnit combines the data provided for each parameter into a set of
-test cases, data must be provided for all parameters if it is
-provided for any of them.</p>
-<p>By default, NUnit creates test cases from all possible combinations
-of the datapoints provided on parameters - the combinatorial approach.
-This default may be modified by use of specific attributes on the
-test method itself.</p>
-<p>RangeAttribute supports the following constructors:</p>
-<pre><code class="lang-csharp">public RangeAttribute(int from, int to);
-public RangeAttribute(int from, int to, int step);
-public RangeAttribute(long from, long to, long step);
-public RangeAttribute(float from, float to, float step);
-public RangeAttribute(double from, double to, double step);
+<p><code>RangeAttribute</code> supplies a sequence of values for <strong>one parameter</strong> on a parameterized test method.</p>
+<p>Once you supply explicit data sources (such as <code>Range</code>, <a class="xref" href="values.html"><code>Values</code></a>, <a class="xref" href="random.html"><code>Random</code></a>, etc.) for <strong>any</strong>
+parameter on that method, you must specify <strong>sources for every parameter</strong>—see <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a>.</p>
+<p>By default, NUnit merges parameters <strong>combinatorially</strong> (every combination). Use <a class="xref" href="sequential.html"><code>Sequential</code></a>,
+<a class="xref" href="pairwise.html"><code>Pairwise</code></a>, or another combining strategy on the <strong>method</strong> to change pairing behavior.</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">RangeAttribute(int from, int to)
+RangeAttribute(uint from, uint to)
+RangeAttribute(long from, long to)
+RangeAttribute(ulong from, ulong to)
+RangeAttribute(int from, int to, int step)
+RangeAttribute(uint from, uint to, uint step)
+RangeAttribute(long from, long to, long step)
+RangeAttribute(ulong from, ulong to, ulong step)
+RangeAttribute(float from, float to, float step)
+RangeAttribute(double from, double to, double step)
 </code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>from</code></td>
+<td>numeric</td>
+<td>First yielded value</td>
+</tr>
+<tr>
+<td><code>to</code></td>
+<td>numeric</td>
+<td>End of the progression; yielded while stepping <strong>toward</strong> this bound without crossing it</td>
+</tr>
+<tr>
+<td><code>step</code></td>
+<td>numeric</td>
+<td>Increment between values (<strong>required</strong> for <code>float</code>/<code>double</code>; when omitted on signed integral types <code>from</code>/<code>to</code>, NUnit uses <strong>1 or −1</strong>, matching whether <code>from</code> &lt; <code>to</code> or <code>from</code> &gt; <code>to</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Unsigned <code>uint</code> / <code>ulong</code> ranges require <strong><code>to</code> ≥ <code>from</code></strong> and a <strong>positive</strong> <code>step</code> (no automatic downward ranges).
+Floating-point generators stop at the <strong>last</strong> value reached before arithmetic would overshoot <code>to</code>; if <code>from</code>/<code>to</code>/step
+produce no exact landing on <code>to</code>, <strong><code>to</code> itself might not appear</strong>.</p>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Method Parameters</th>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example">Example</h2>
 <p>The following test will be executed nine times.</p>
 <pre><code class="lang-csharp" name="RangeAttributeExample">[Test]
-public void RangeAttribute_Example(
+public void MyTest(
     [Values(1, 2, 3)] int x,
     [Range(0.2, 0.6, 0.2)] double d)
 {
@@ -124,13 +173,22 @@ MyTest(3, 0.2)
 MyTest(3, 0.4)
 MyTest(3, 0.6)
 </code></pre>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>Annotate <strong><code>[Range]</code> directly on the method parameter</strong>. <code>AllowMultiple</code> is <strong>true</strong>, so repeat the attribute if you want
+several disjoint spans merged for the same argument.</li>
+<li><strong>Signed</strong> integral two-argument constructors pick default step <strong><code>+1</code> or −1</strong>, so <strong><code>[Range(5, 1)]</code></strong> yields a descending sequence.
+<strong>Unsigned</strong> constructors throw if <code>from</code> &gt; <code>to</code>.</li>
+<li>Resulting Cartesian products still depend on whichever combining attributes appear on the test method (<strong>Combinatorial</strong> by default).</li>
+<li><code>float</code>/<code>double</code> overloads always require an explicit <strong><code>step</code></strong>; there is <strong>no two-argument</strong> floating-point shortcut.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="values.html">Values Attribute</a></li>
-<li><a href="random.html">Random Attribute</a></li>
-<li><a href="sequential.html">Sequential Attribute</a></li>
-<li><a href="combinatorial.html">Combinatorial Attribute</a></li>
-<li><a href="pairwise.html">Pairwise Attribute</a></li>
+<li><a class="xref" href="values.html">Values Attribute</a></li>
+<li><a class="xref" href="random.html">Random Attribute</a></li>
+<li><a class="xref" href="sequential.html">Sequential Attribute</a></li>
+<li><a class="xref" href="combinatorial.html">Combinatorial Attribute</a></li>
+<li><a class="xref" href="pairwise.html">Pairwise Attribute</a></li>
 </ul>
 
 </article>

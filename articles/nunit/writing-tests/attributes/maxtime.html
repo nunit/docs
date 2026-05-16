@@ -83,34 +83,102 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-maxtime">
 <h1 id="maxtime">MaxTime</h1>
 
-<p>The <strong>MaxTimeAttribute</strong> is used on test methods to specify a maximum time
-in milliseconds for a test case. If the test case takes longer than the
-specified time to complete, it is reported as a failure.</p>
-<h2 id="example">Example</h2>
-<pre><code class="lang-csharp">[Test, MaxTime(2000)]
-public void TimedTest()
-{
-    /* ... */
-}
+<p><code>MaxTimeAttribute</code> is used on test methods to specify a maximum time in milliseconds for a test case. If the test takes longer than the specified time to complete, it is reported as a failure.</p>
+<p>Unlike <code>CancelAfter</code>, this attribute does <strong>not</strong> cancel the test - it waits for the test to complete and then checks the elapsed time.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">MaxTimeAttribute(int milliseconds)
 </code></pre>
-<h2 id="notes">Notes</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>milliseconds</code></td>
+<td><code>int</code></td>
+<td>The maximum elapsed time in milliseconds. If the test exceeds this time, it fails.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<pre><code class="lang-csharp" name="MaxTimeBasic">[TestFixture]
+public class PerformanceTests
+{
+    [Test]
+    [MaxTime(1000)]
+    public void OperationCompletesWithinOneSecond()
+    {
+        // This test fails if it takes more than 1000ms
+        var result = PerformQuickCalculation();
+        Assert.That(result, Is.Not.Null);
+    }
+
+    [Test]
+    [MaxTime(5000)]
+    public async Task AsyncOperationCompletesWithinFiveSeconds()
+    {
+        // MaxTime also works with async tests
+        await Task.Delay(100);
+        Assert.Pass();
+    }
+
+    private object PerformQuickCalculation()
+    {
+        // Simulate a quick calculation
+        return new object();
+    }
+}
+</code></pre><h3 id="assertion-failures-take-precedence">Assertion Failures Take Precedence</h3>
+<pre><code class="lang-csharp" name="MaxTimeVsAssertions">[TestFixture]
+public class MaxTimeVsAssertionTests
+{
+    [Test]
+    [MaxTime(2000)]
+    public void AssertionFailuresTakePrecedence()
+    {
+        // If both assertion fails AND time exceeds,
+        // the assertion failure is reported
+        var result = 2 + 2;
+        Assert.That(result, Is.EqualTo(4));
+    }
+}
+</code></pre><h2 id="notes">Notes</h2>
 <ol>
-<li><p>Any assertion failures take precedence over the elapsed time check.</p>
-</li>
-<li><p>This attribute does not cancel the test if the time
-is exceeded. It merely waits for the test to complete and then
-compares the elapsed time to the specified maximum. If you want to
-cancel long-running tests, see <a href="cancelafter.html">CancelAfter Attribute</a>.
-The <a href="timeout.html">Timeout Attribute</a> only works for .NET Framework and will give a test error if used for .NET.</p>
-</li>
+<li>Any assertion failures take precedence over the elapsed time check. If a test both fails an assertion and exceeds the time limit, the assertion failure is reported.</li>
+<li>This attribute does <strong>not</strong> cancel or abort the test if the time is exceeded. It waits for the test to complete, then compares the elapsed time to the maximum.</li>
+<li>For tests that need to be cancelled when they exceed a time limit, use <a class="xref" href="cancelafter.html">CancelAfter Attribute</a> instead.</li>
+<li>The timing includes the test method execution only, not <code>SetUp</code> or <code>TearDown</code> methods.</li>
+<li>The <a class="xref" href="timeout.html">Timeout Attribute</a> uses <code>Thread.Abort</code> and only works on .NET Framework.</li>
 </ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="cancelafter.html">CancelAfter Attribute</a></li>
-<li><a href="timeout.html">Timeout Attribute</a></li>
+<li><a class="xref" href="cancelafter.html">CancelAfter Attribute</a></li>
+<li><a class="xref" href="timeout.html">Timeout Attribute</a></li>
 </ul>
 
 </article>

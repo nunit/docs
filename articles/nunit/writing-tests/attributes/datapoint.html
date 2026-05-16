@@ -83,33 +83,160 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-datapoint">
 <h1 id="datapoint">Datapoint</h1>
 
-<p>The <strong>Datapoint</strong> attribute is used
-to provide data for <strong>Theories</strong> and is ignored for ordinary
-tests - including tests with parameters.</p>
-<p>When a Theory is loaded, NUnit creates arguments for each
-of its parameters by using any fields of the same type
-as the parameter annotated with the <strong>DatapointAttribute</strong>.
-Fields must be members of the class containing the Theory
-and their Type must exactly match the argument for which
-data is being supplied.</p>
-<h2 id="automatically-supplied-datapoints">Automatically Supplied Datapoints</h2>
-<p>It is normally not necessary to specify datapoints for
-<strong>boolean</strong> or <strong>enum</strong> arguments.
-NUnit automatically supplies values of <strong>true</strong>
-and <strong>false</strong> for <strong>boolean</strong> arguments and will supply all
-defined values of any enumeration.</p>
-<p>If for some reason you don't wish to use all possible values, you
-can override this behavior by supplying your own datapoints. If you
-supply any datapoints for an argument, automatic datapoint generation
-is suppressed.</p>
-<h2 id="example">Example</h2>
-<p>For an example of use, see <a href="theory.html">Theory Attribute</a></p>
+<p><code>DatapointAttribute</code> is used to mark a field as providing a single data value for <a class="xref" href="theory.html">Theory</a> tests. When NUnit executes a Theory, it uses all fields of matching type annotated with <code>[Datapoint]</code> to supply argument values.</p>
+<p>This attribute is ignored for ordinary tests, including parameterized tests using <code>[TestCase]</code>.</p>
+<h2 id="usage">Usage</h2>
+<p>This is a parameterless attribute that can only be applied to fields.</p>
+<pre><code class="lang-csharp">[Datapoint]
+</code></pre>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The field type must exactly match the Theory parameter type - no implicit conversions are performed.</p>
+</div>
+<h2 id="examples">Examples</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<pre><code class="lang-csharp" name="DatapointBasic">[TestFixture]
+public class SquareRootTests
+{
+    // Individual datapoints for double arguments
+    [Datapoint]
+    public double Zero = 0;
+
+    [Datapoint]
+    public double Positive = 1;
+
+    [Datapoint]
+    public double Negative = -1;
+
+    [Datapoint]
+    public double Max = double.MaxValue;
+
+    [Theory]
+    public void SquareRootIsPositive(double value)
+    {
+        // NUnit will call this theory with each datapoint: 0, 1, -1, MaxValue
+        Assume.That(value &gt;= 0);
+        Assert.That(Math.Sqrt(value), Is.GreaterThanOrEqualTo(0));
+    }
+}
+</code></pre><h3 id="with-enums-and-automatic-datapoints">With Enums and Automatic Datapoints</h3>
+<pre><code class="lang-csharp" name="DatapointWithEnum">public enum Color
+{
+    Red,
+    Green,
+    Blue
+}
+
+[TestFixture]
+public class EnumTheoryTests
+{
+    // No need to define datapoints for enums - NUnit supplies them automatically
+    [Theory]
+    public void ColorIsValid(Color color)
+    {
+        // NUnit automatically tests with Red, Green, and Blue
+        Assert.That(Enum.IsDefined(typeof(Color), color), Is.True);
+    }
+
+    // Override automatic enum values with specific datapoints
+    [Datapoint]
+    public Color OnlyRed = Color.Red;
+
+    [Theory]
+    public void TestOnlyRed(Color color)
+    {
+        // When datapoints are defined, automatic enum values are suppressed
+        Assert.That(color, Is.EqualTo(Color.Red));
+    }
+}
+</code></pre><h3 id="multiple-types">Multiple Types</h3>
+<pre><code class="lang-csharp" name="DatapointMultipleTypes">[TestFixture]
+public class MultipleTypeTests
+{
+    // Datapoints for string arguments
+    [Datapoint]
+    public string Empty = &quot;&quot;;
+
+    [Datapoint]
+    public string NonEmpty = &quot;hello&quot;;
+
+    // Datapoints for int arguments
+    [Datapoint]
+    public int Zero2 = 0;
+
+    [Datapoint]
+    public int Positive2 = 42;
+
+    [Theory]
+    public void StringLengthMatchesCount(string value)
+    {
+        // Only uses string datapoints
+        Assume.That(value, Is.Not.Null);
+        Assert.That(value.Length, Is.GreaterThanOrEqualTo(0));
+    }
+
+    [Theory]
+    public void IntIsNonNegative(int value)
+    {
+        // Only uses int datapoints
+        Assume.That(value &gt;= 0);
+        Assert.That(value, Is.GreaterThanOrEqualTo(0));
+    }
+}
+</code></pre><h2 id="automatically-supplied-datapoints">Automatically Supplied Datapoints</h2>
+<p>NUnit automatically supplies datapoints for certain types:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Automatic Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td>Any <code>enum</code></td>
+<td>All defined enum values</td>
+</tr>
+</tbody>
+</table>
+<p>If you supply any datapoints for a parameter type, automatic datapoint generation for that type is suppressed.</p>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>Fields must be members of the class containing the Theory.</li>
+<li>The field type must <strong>exactly</strong> match the parameter type - no implicit conversions are performed.</li>
+<li>Use <code>DatapointSource</code> when you need to provide multiple values from a single source (arrays, collections, or methods).</li>
+<li>Datapoints from multiple fields of the same type are combined.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="theory.html">Theory Attribute</a></li>
+<li><a class="xref" href="datapointsource.html">DatapointSource Attribute</a></li>
+<li><a class="xref" href="theory.html">Theory Attribute</a></li>
 <li><a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a></li>
 </ul>
 

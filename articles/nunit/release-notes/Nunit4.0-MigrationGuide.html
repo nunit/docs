@@ -115,16 +115,16 @@
 </tbody>
 </table>
 <h2 id="3x---4x">3.x -&gt; 4.x</h2>
-<p>NUnit 4.0 has a few <a href="breaking-changes.html#nunit-40">breaking changes</a> making it neither binary nor
+<p>NUnit 4.0 has a few <a class="xref" href="breaking-changes.html#nunit-40">breaking changes</a> making it neither binary nor
 source code compatible with NUnit 3.14.0</p>
 <ul>
-<li>Change to <a href="../writing-tests/assertions/assertion-models/classic.html">Classic Asserts</a></li>
+<li>Change to <a class="xref" href="../writing-tests/assertions/assertion-models/classic.html">Classic Asserts</a></li>
 <li>Removal of <code>Assert.That</code> overloads with <em>format</em> specification and <code>params</code>.</li>
 </ul>
 <h3 id="classic-assert-migration">Classic Assert migration</h3>
 <p>There are different ways to migrate these to NUnit 4.0</p>
 <ul>
-<li>Convert Classic Assert to the <a href="../writing-tests/assertions/assertion-models/constraint.html">Constraint model</a></li>
+<li>Convert Classic Assert to the <a class="xref" href="../writing-tests/assertions/assertion-models/constraint.html">Constraint model</a></li>
 <li>Update source code to new namespace and class name</li>
 <li>Using <code>global using</code> aliases
 <ul>
@@ -456,7 +456,7 @@ file which will be used by all projects in a repository:</p>
 <p>The build process now automatically creates a <code>${Project}.GlobalUsings.g.cs</code> file
 for each project with a contents similar to the one shown above.</p>
 <h3 id="assertthat-with-format-specification-and-params-overload-conversion">Assert.That with <em>format</em> specification and <code>params</code> overload conversion</h3>
-<p>These overloads were removed to allow for better messages in case of failure. See <a href="../Towards-NUnit4.html#improved-assert-result-messages">The &quot;Towards NUnit 4&quot;
+<p>These overloads were removed to allow for better messages in case of failure. See <a class="xref" href="../Towards-NUnit4.html#improved-assert-result-messages">The &quot;Towards NUnit 4&quot;
 article</a> for more information.</p>
 <p>NUnit 4.x has been optimized such that these formattable strings only get formatted in case the test is failing.</p>
 <pre><code class="lang-csharp">int actual = SomeCalculation();

@@ -83,19 +83,59 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="cancelafterattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-cancelafter">
 <h1 id="cancelafter">CancelAfter</h1>
 
-<p>Normally, NUnit simply runs tests and waits for them to terminate -- the test is allowed to run indefinitely. For
-certain kinds of tests, however, it may be desirable to specify a timeout value.</p>
+<p><code>CancelAfterAttribute</code> sets a timeout after which NUnit marks a <code>CancellationToken</code> as canceled. The test must observe that token (directly or indirectly) for cancellation to take effect.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">CancelAfterAttribute(int timeout)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timeout</code></td>
+<td><code>int</code></td>
+<td>Timeout in milliseconds. When exceeded, the cancellation token supplied to the test is canceled (cooperative cancellation).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Applying <code>CancelAfter</code> to a fixture sets the default timeout for tests in that fixture unless overridden at method level.</p>
+</div>
+<h2 id="background">Background</h2>
 <p>For .NET Core and later,
 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.abort?view=net-8.0"><code>Thread.Abort</code></a> as used by the
-<a href="timeout.html"><code>TimeoutAttribute</code></a> can no longer be used, and there is therefore no way to interrupt an endless loop.</p>
+<a class="xref" href="timeout.html"><code>TimeoutAttribute</code></a> can no longer be used, and there is therefore no way to interrupt an endless loop.</p>
 <p>For all tests, one could use the <code>--blame-hang(-timeout)</code>  options of <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test#options"><code>dotnet test</code></a>. However, this will stop any further
 execution of the remaining tests.</p>
 <p>To still be able to cancel tests, one has to move to cooperative cancellation. See <a href="https://learn.microsoft.com/en-us/dotnet/standard/threading/cancellation-in-managed-threads">Cancellation in Managed
 Threads</a> using a
-<a href="https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken?view=net-8.0">`CancellationToken``</a>.</p>
+<a href="https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken?view=net-8.0"><code>CancellationToken</code></a>.</p>
 <p>The <code>CancelAfterAttribute</code> is used to specify a timeout value in milliseconds for a test case. If the test case runs
 longer than the time specified, the supplied <code>CancellationToken</code> is set to canceled. It is however up to the test code
 to check this token, either directly or indirectly.</p>
@@ -112,9 +152,9 @@ test cases. When using the console runner, it is also possible to specify a defa
 <p>When used on test methods, NUnit automatically adds an extra argument to your method containing the NUnit
 <code>CancellationToken</code>. If you want to check for cancellation in <code>SetUp</code> methods, you can use
 <code>TestContext.CurrentContext.CancellationToken</code></p>
-<h2 id="example">Example</h2>
-<p>The <code>CancelAfterAttribute</code> supports cancellation across a variety of ways to write tests.</p>
-<p>A simple test, written using the <code>Test</code> attribute:</p>
+<h2 id="examples">Examples</h2>
+<p>The <code>CancelAfterAttribute</code> supports cooperative cancellation in several test styles.</p>
+<h3 id="simple-test">Simple test</h3>
 <pre><code class="lang-csharp" name="TestWithCancellationToken">[Test, CancelAfter(2_000)]
 public void RunningTestUntilCanceled(CancellationToken cancellationToken)
 {
@@ -123,21 +163,16 @@ public void RunningTestUntilCanceled(CancellationToken cancellationToken)
         /* */
     }
 }
-</code></pre>
-<p>A parameterized test written using the <code>TestCase</code> attribute:</p>
-<pre><code class="lang-csharp">[CancelAfter(2000)]
-[TestCase(&quot;http://server1&quot;)]
-[TestCase(&quot;http://server2&quot;)]
+</code></pre><h3 id="parameterized-test-with-testcase">Parameterized test with <code>TestCase</code></h3>
+<pre><code class="lang-csharp" name="TestCaseWithCancellationToken">[CancelAfter(2000)]
+[TestCase(&quot;http://example.com/1&quot;)]
+[TestCase(&quot;http://example.com/2&quot;)]
 public async Task PotentiallyLongRunningTest(string uri, CancellationToken token)
 {
-    HttpClient client = _httpClientFactory.CreateClient();
-    HttpContent content = CreateContent();
-    await client.PostAync(uri, content, token);
-    HttpResponseMessage response = await client.GetAsync(uri, token);
-    /* */
+    await Task.Delay(10, token);
+    Assert.That(uri, Does.StartWith(&quot;http://&quot;));
 }
-</code></pre>
-<p>A parameterized test written using the <code>TestCaseSource</code> attribute:</p>
+</code></pre><h3 id="parameterized-test-with-testcasesource">Parameterized test with <code>TestCaseSource</code></h3>
 <pre><code class="lang-csharp" name="TestCaseSourceWithCancellationToken">private static int[] _simpleValues = [2, 4, 6, 8];
 
 [TestCaseSource(nameof(_simpleValues)), CancelAfter(1_000)]
@@ -150,15 +185,15 @@ public void TestCaseSourceWithCancellationToken(int a, CancellationToken cancell
         /* */
     }
 }
-</code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p>When debugging a unit test, i.e. when a debugger is attached to the process, the timeout is not enforced.</p>
-</div>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>When a debugger is attached, the timeout is not enforced.</li>
+<li>Use <code>TestContext.CurrentContext.CancellationToken</code> in <code>SetUp</code> / <code>TearDown</code> when you need the same token outside the test method.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="timeout.html">Timeout Attribute</a></li>
-<li><a href="maxtime.html">MaxTime Attribute</a></li>
+<li><a class="xref" href="timeout.html">Timeout Attribute</a></li>
+<li><a class="xref" href="maxtime.html">MaxTime Attribute</a></li>
 </ul>
 
 </article>

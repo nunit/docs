@@ -83,14 +83,68 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="parallelizableattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-parallelizable">
 <h1 id="parallelizable">Parallelizable</h1>
 
-<p>Added in <strong>NUnit 3.7</strong></p>
-<p>The <code>ParallelizableAttribute</code> is used to indicate that a test and/or its descendants may be run in parallel with other
-tests. By default, no parallel execution takes place.</p>
-<p>When used without an argument, <code>Parallelizable</code> causes the test fixture or method on which it is placed to be queued for
-execution in parallel with other parallelizable tests. It may be used at the assembly, class or method level.</p>
+<p>Added in <strong>NUnit 3.7</strong>.</p>
+<p>The <code>ParallelizableAttribute</code> marks an assembly, fixture, or method (and optionally its descendants) as eligible for parallel execution. By default, tests are not parallel.</p>
+<p>When used without an argument, scope defaults to <code>ParallelScope.Self</code>.</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">ParallelizableAttribute()
+ParallelizableAttribute(ParallelScope scope)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scope</code></td>
+<td><code>ParallelScope</code></td>
+<td>Controls what may run in parallel for this node and descendants. Defaults to <code>Self</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Scope</code></td>
+<td><code>ParallelScope</code></td>
+<td>Same as constructor <code>scope</code>.</td>
+<td><code>ParallelScope.Self</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
 <div class="WARNING">
 <h5>Warning</h5>
 <p>When tests are run in parallel, you are responsible for the thread safety of your tests. Tests that run at
@@ -99,14 +153,11 @@ any multi-threaded program. If you are using fields or properties between parall
 <a class="xref" href="fixturelifecycle.html"><code>FixtureLifeCycleAttribute</code></a> to construct a new instance of a test fixture (class)
 for each test that is run.</p>
 </div>
-<p>The constructor takes an optional <code>ParallelScope</code> enumeration argument (see below), which indicates whether the
-attribute applies to the item itself, to its descendants or both. It defaults to <code>ParallelScope.Self</code>. The Scope may
-also be specified using the constructor argument <code>scope:</code>, for example;</p>
+<p>Named argument form:</p>
 <pre><code class="lang-csharp">[Parallelizable(scope: ParallelScope.All)]
 </code></pre>
 <h2 id="parallelscope-enumeration">ParallelScope Enumeration</h2>
-<p>This is a <strong>[Flags]</strong> enumeration used to specify which tests may run in parallel. It applies to the test upon which it
-appears and any subordinate tests. The following values are available to users:</p>
+<p><code>ParallelScope</code> is a <strong>[Flags]</strong> enumeration. It applies to the attributed test and its subordinates. User-visible values:</p>
 <table>
 <thead>
 <tr>
@@ -153,8 +204,8 @@ lower level tests, unless those lower-level tests override the inherited setting
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a class="xref" href="fixturelifecycle.html">FixtureLifeCycle Attribute</a></li>
-<li><a href="nonparallelizable.html">NonParallelizable Attribute</a></li>
-<li><a href="levelofparallelism.html">LevelOfParallelism Attribute</a></li>
+<li><a class="xref" href="nonparallelizable.html">NonParallelizable Attribute</a></li>
+<li><a class="xref" href="levelofparallelism.html">LevelOfParallelism Attribute</a></li>
 </ul>
 
 </article>

@@ -83,25 +83,77 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-category">
 <h1 id="category">Category</h1>
 
-<p>The Category attribute provides an alternative to suites for dealing with groups of tests. Either individual test cases
-or fixtures may be identified as belonging to a particular category. Some runners, including the Console Runner, allow
-specifying categories to be included in or excluded from the run. When categories are used, only the tests in the
-selected categories will be run. Those tests in categories that are not selected are not reported at all.</p>
+<p><code>CategoryAttribute</code> provides a way to group tests into categories. Categories can be used to include or exclude specific groups of tests when running from the command line or test runners. When categories are used to filter tests, only tests in the selected categories will be run, and excluded tests are not reported.</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">CategoryAttribute(string name)
+protected CategoryAttribute()  // For derived classes
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>The name of the category. May not contain <code>,</code>, <code>+</code>, <code>-</code>, or <code>!</code> characters.</td>
+</tr>
+</tbody>
+</table>
+<p>The protected parameterless constructor is used when creating custom category attributes - it sets the category name to the derived class name (minus the &quot;Attribute&quot; suffix).</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Name</code></td>
+<td><code>string</code></td>
+<td>Gets the name of the category.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>While the C# syntax allows you to place a Category attribute on a SetUpFixture class, the attribute is
-ignored by NUnit and has no effect in current releases.</p>
+<p>While the C# syntax allows you to place a Category attribute on a SetUpFixture class, the attribute is ignored by NUnit and has no effect.</p>
 </div>
-<h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
+<h2 id="examples">Examples</h2>
+<h3 id="test-fixture-level">Test Fixture Level</h3>
 <pre><code class="lang-csharp" name="CategoryTestFixtureExample">[Test]
 public void Test_InLongRunningCategory()
 {
     Assert.Pass(&quot;This test is in the LongRunning category&quot;);
 }
-</code></pre><h2 id="test-syntax">Test Syntax</h2>
+</code></pre><h3 id="test-method-level">Test Method Level</h3>
 <pre><code class="lang-csharp" name="CategoryTestExample">[Test]
 [Category(&quot;Fast&quot;)]
 public void FastTest()
@@ -117,10 +169,7 @@ public void SlowDatabaseTest()
     Assert.Pass(&quot;This test has multiple categories&quot;);
 }
 </code></pre><h3 id="custom-category-attributes">Custom Category Attributes</h3>
-<p>Custom attributes that derive from <strong>CategoryAttribute</strong> will be recognized by NUnit. The default protected constructor
-of CategoryAttribute sets the category name to the name of your class.</p>
-<p>Here's an example that creates a category of Critical tests. It works just like any other category, but has a simpler
-syntax. A test reporting system might make use of the attribute to provide special reports.</p>
+<p>Custom attributes that derive from <code>CategoryAttribute</code> will be recognized by NUnit. The default protected constructor sets the category name to the name of your class (minus &quot;Attribute&quot;).</p>
 <pre><code class="lang-csharp" name="CustomCategoryAttribute">[AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
 public class CriticalAttribute : CategoryAttribute
 { }
@@ -131,7 +180,37 @@ public void CriticalTest()
 {
     Assert.Pass(&quot;This test uses a custom category attribute&quot;);
 }
+</code></pre><h2 id="command-line-usage">Command Line Usage</h2>
+<p>Categories can be filtered using <code>dotnet test</code> or the NUnit console runner:</p>
+<pre><code class="lang-shell"># dotnet test (via NUnit adapter)
+dotnet test --filter &quot;TestCategory=Fast&quot;
+dotnet test -- NUnit.Where=&quot;cat == Fast&quot;
+
+# Exclude a category
+dotnet test --filter &quot;TestCategory!=Slow&quot;
+
+# Multiple categories
+dotnet test --filter &quot;TestCategory=Unit|TestCategory=Integration&quot;
+
+# NUnit Console Runner
+nunit3-console MyTests.dll --where &quot;cat == Fast&quot;
+nunit3-console MyTests.dll --where &quot;cat != Slow&quot;
+nunit3-console MyTests.dll --where &quot;cat == Unit || cat == Integration&quot;
 </code></pre>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>Multiple <code>Category</code> attributes can be applied to the same test or fixture.</li>
+<li>Category names may not contain the characters <code>,</code>, <code>+</code>, <code>-</code>, or <code>!</code> as these are used as operators in category expressions.</li>
+<li>Categories are inherited - a test inherits all categories from its fixture and assembly.</li>
+<li>Category names are case-sensitive.</li>
+<li>When no category filter is specified, all tests run regardless of their categories.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="../../running-tests/Console-Command-Line.html">Console Command Line</a></li>
+<li><a class="xref" href="property.html">Property Attribute</a></li>
+</ul>
+
 </article>
           </div>
 

@@ -83,35 +83,132 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-setculture">
 <h1 id="setculture">SetCulture</h1>
 
-<p>The SetCulture attribute is used to set the current Culture for the duration
-of a test. It may be specified at the level of a test, fixture or assembly. The culture
-remains set until the test or fixture completes and is then reset to its original
-value. If you wish to use the current culture setting to decide whether to run
-a test, use the Culture attribute instead of this one.</p>
-<p>Only one culture may be specified. Running a test under
-multiple cultures is a planned future enhancement. At this time, you can
-achieve the same result by factoring out your test code into a private method
-that is called by each individual test method.</p>
-<h2 id="examples">Examples</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  [SetCulture(&quot;fr-FR&quot;)]
-  public class FrenchCultureTests
-  {
-    // ...
-  }
-}
+<p><code>SetCultureAttribute</code> is used to set the current <code>CultureInfo.CurrentCulture</code> for the duration of a test. The culture remains set until the test or fixture completes and is then reset to its original value.</p>
+<p>This attribute affects formatting operations such as number formatting, date formatting, and string comparisons that depend on culture settings.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">SetCultureAttribute(string culture)
 </code></pre>
-<h2 id="see-also">See also</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>culture</code></td>
+<td><code>string</code></td>
+<td>The name of the culture to use (e.g., <code>&quot;fr-FR&quot;</code>, <code>&quot;de-DE&quot;</code>, <code>&quot;en-US&quot;</code>). Must be a valid culture name recognized by <code>CultureInfo</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If <code>SetCultureAttribute</code> is applied at fixture or assembly level, the culture setting applies to all contained tests.</p>
+</div>
+<p>When applied at multiple levels, the most specific level takes precedence. The attribute is inherited by derived test fixtures.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="setting-culture-on-a-fixture">Setting Culture on a Fixture</h3>
+<pre><code class="lang-csharp" name="SetCultureOnFixture">[TestFixture]
+[SetCulture(&quot;fr-FR&quot;)]
+public class FrenchCultureTests
+{
+    [Test]
+    public void TestDateFormatting()
+    {
+        // This test runs with French culture
+        var date = new DateTime(2024, 12, 25);
+        string formatted = date.ToString(&quot;d&quot;);
+
+        // French date format: dd/MM/yyyy
+        Assert.That(CultureInfo.CurrentCulture.Name, Is.EqualTo(&quot;fr-FR&quot;));
+    }
+
+    [Test]
+    public void TestNumberFormatting()
+    {
+        // French uses comma as decimal separator
+        double value = 1234.56;
+        string formatted = value.ToString(&quot;N2&quot;);
+
+        Assert.That(formatted, Does.Contain(&quot;,&quot;));
+    }
+}
+</code></pre><h3 id="setting-culture-on-individual-methods">Setting Culture on Individual Methods</h3>
+<pre><code class="lang-csharp" name="SetCultureOnMethod">[TestFixture]
+public class MixedCultureTests
+{
+    [Test]
+    [SetCulture(&quot;de-DE&quot;)]
+    public void TestWithGermanCulture()
+    {
+        // Only this test runs with German culture
+        Assert.That(CultureInfo.CurrentCulture.Name, Is.EqualTo(&quot;de-DE&quot;));
+    }
+
+    [Test]
+    [SetCulture(&quot;ja-JP&quot;)]
+    public void TestWithJapaneseCulture()
+    {
+        // Only this test runs with Japanese culture
+        Assert.That(CultureInfo.CurrentCulture.Name, Is.EqualTo(&quot;ja-JP&quot;));
+    }
+
+    [Test]
+    public void TestWithDefaultCulture()
+    {
+        // This test runs with the system's default culture
+        Assert.That(CultureInfo.CurrentCulture, Is.Not.Null);
+    }
+}
+</code></pre><h3 id="combining-with-setuiculture">Combining with SetUICulture</h3>
+<pre><code class="lang-csharp" name="SetCultureWithSetUICulture">[TestFixture]
+public class CombinedCultureTests
+{
+    [Test]
+    [SetCulture(&quot;fr-FR&quot;)]
+    [SetUICulture(&quot;de-DE&quot;)]
+    public void TestWithDifferentCultures()
+    {
+        // Culture affects formatting (numbers, dates)
+        Assert.That(CultureInfo.CurrentCulture.Name, Is.EqualTo(&quot;fr-FR&quot;));
+
+        // UICulture affects resource loading (UI strings)
+        Assert.That(CultureInfo.CurrentUICulture.Name, Is.EqualTo(&quot;de-DE&quot;));
+    }
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>Only one culture may be specified per attribute. To test with multiple cultures, create separate test methods or use parameterized tests.</li>
+<li><code>SetCulture</code> affects <code>CultureInfo.CurrentCulture</code>, which controls formatting operations. Use <code>SetUICulture</code> to control <code>CultureInfo.CurrentUICulture</code> for resource loading.</li>
+<li>If you need to conditionally run tests based on the current culture (rather than setting it), use the <code>Culture</code> attribute instead.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="culture.html">Culture Attribute</a></li>
+<li><a class="xref" href="setuiculture.html">SetUICulture Attribute</a></li>
+<li><a class="xref" href="culture.html">Culture Attribute</a></li>
 </ul>
 
 </article>

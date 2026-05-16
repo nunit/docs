@@ -83,47 +83,104 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-platform">
 <h1 id="platform">Platform</h1>
 
-<p>The Platform attribute is used to specify platforms for which a test or fixture should be run. Platforms are specified
-using case-insensitive string values and may be either included or excluded from the run by use of the Include or
-Exclude properties respectively. Platforms to be included may alternatively be specified as an argument to the
-PlatformAttribute constructor. In either case, multiple comma-separated values may be specified.</p>
-<p>If a test or fixture with the Platform attribute does not satisfy the specified platform requirements it is skipped. The
-test does not affect the outcome of the run at all: it is not considered as ignored and is not even counted in the total
-number of tests. <em>[Ed.: Check this.]</em> In the gui, the tree node for the test remains gray and the status bar color is
-not affected.</p>
-<h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  [Platform(&quot;NET-2.0&quot;)]
-  public class DotNetTwoTests
-  {
-    // ...
-  }
-}
+<p><code>PlatformAttribute</code> specifies platforms on which a test, fixture, or assembly should run. Platform names are
+case-insensitive. You can require platforms in any of these ways:</p>
+<ul>
+<li>Pass a comma-separated list to the constructor (treated as <strong>included</strong> platforms).</li>
+<li>Set the <code>Include</code> property to a comma-separated list.</li>
+<li>Set the <code>Exclude</code> property to a comma-separated list.</li>
+</ul>
+<p>You can combine <code>Include</code> and <code>Exclude</code> where that makes sense for your scenario.</p>
+<p>If the current environment does <strong>not</strong> satisfy the attribute, NUnit marks the test as <strong>skipped</strong> (<code>RunState.Skipped</code>)
+with a skip reason—it does <strong>not</strong> mark it as ignored, and it does not fail the run. Skipped tests are omitted from the
+normal pass/fail counts in the same way as other skipped work. How your test runner displays skipped tests (for example
+in a tree view or status bar) depends on that runner.</p>
+<p>Invalid or unrecognized platform names can make a test <strong>not runnable</strong> instead of skipped; see your runner output for
+the reason.</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">PlatformAttribute()
+PlatformAttribute(string platforms)
+PlatformAttribute(string[] includes)
 </code></pre>
-<h2 id="test-syntax">Test Syntax</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>platforms</code></td>
+<td><code>string</code></td>
+<td>Comma-delimited platform list to include.</td>
+</tr>
+<tr>
+<td><code>includes</code></td>
+<td><code>string[]</code></td>
+<td>Platform identifiers to include.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Include</code></td>
+<td><code>string</code></td>
+<td>Comma-delimited list of included platforms.</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>Exclude</code></td>
+<td><code>string</code></td>
+<td>Comma-delimited list of excluded platforms.</td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="PlatformAttributeExamples">[TestFixture]
+[Platform(&quot;Win, Linux, MacOsX&quot;)]
+public class PortableTests
 {
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
     [Test]
-    [Platform(Exclude=&quot;Win98,WinME&quot;)]
+    [Platform(Exclude = &quot;Win98,WinME&quot;)]
     public void SomeTest()
-    { /* ... */ }
+    {
+        Assert.Pass(&quot;Runs only on supported platforms.&quot;);
+    }
 }
-</code></pre>
-<h2 id="platform-specifiers">Platform Specifiers</h2>
+</code></pre><h2 id="platform-specifiers">Platform Specifiers</h2>
 <p>The following values are recognized as platform specifiers. They may be expressed in upper, lower or mixed case.</p>
 <h3 id="operating-system">Operating System</h3>
 <ul>

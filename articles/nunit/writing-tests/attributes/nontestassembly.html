@@ -83,18 +83,45 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="nontestassembly">
+            <article class="content wrap" id="_content" data-uid="attribute-nontestassembly">
 <h1 id="nontestassembly">NonTestAssembly</h1>
 
-<p>This is an <em>assembly-level</em> attribute, which may be used to specify that even though
-the assembly refers to NUnit it does not contain any tests. This attribute can be
-used in connection with the command line option <code>--skipnontestassemblies</code> of the
-console to skip assemblies without failing.</p>
-<h2 id="example">Example</h2>
-<p>The following code, which might be placed in AssemblyInfo.cs, specifies that the
-assembly does not contain any tests.</p>
+<p><code>NonTestAssemblyAttribute</code> is used to mark an assembly that references NUnit but does not contain any tests. This is useful for third-party frameworks, extensions, or other software that depend on NUnit but should not be loaded as test assemblies.</p>
+<h2 id="usage">Usage</h2>
+<p>This is a parameterless attribute that can only be applied at the assembly level.</p>
 <pre><code class="lang-csharp">[assembly: NonTestAssembly]
 </code></pre>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>Typically placed in <code>AssemblyInfo.cs</code> or a global usings file.</p>
+<h2 id="example">Example</h2>
+<p>The following code, placed in <code>AssemblyInfo.cs</code>, marks the assembly as not containing tests:</p>
+<pre><code class="lang-csharp">using NUnit.Framework;
+
+[assembly: NonTestAssembly]
+</code></pre>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>Use this attribute when your assembly references <code>NUnit.Framework</code> but is not intended to be run as a test assembly (e.g., test utilities, custom assertions, or framework extensions).</li>
+<li>When used with the console runner's <code>--skipnontestassemblies</code> option, assemblies marked with this attribute are skipped without generating an error.</li>
+<li>Recognition of this attribute depends on the individual test runner. Not all runners may honor it.</li>
+<li>This attribute is marked <code>[EditorBrowsable(EditorBrowsableState.Never)]</code> to reduce IntelliSense noise in typical test projects.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><code>--skipnontestassemblies</code> in <a class="xref" href="../../running-tests/Console-Command-Line.html">Console Command Line</a></li>

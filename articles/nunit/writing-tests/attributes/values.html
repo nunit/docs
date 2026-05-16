@@ -83,18 +83,57 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="valuesattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-values">
 <h1 id="values">Values</h1>
 
-<p>The <code>ValuesAttribute</code> is used to specify a set of values to be provided
-for an individual parameter of a parameterized test method. Since
-NUnit combines the data provided for each parameter into a set of
-test cases, data must be provided for all parameters if it is
-provided for any of them.</p>
-<p>By default, NUnit creates test cases from all possible combinations
-of the data values provided on parameters - the combinatorial approach.
-This default may be modified by use of specific attributes on the
-test method itself.</p>
+<p><code>ValuesAttribute</code> specifies literal values for a parameter of a parameterized test method.</p>
+<p>By default, NUnit combines values across parameters combinatorially unless the method is marked with a different combining attribute.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Once <strong>any</strong> parameter on a parameterized test specifies data (<code>[Values]</code>, <code>[Range]</code>, <code>[TestCase]</code>, …), <strong>every</strong> parameter must have a data source—the framework builds Cartesian products (or pairwise/sequential variants) across parameters. See <a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a>.</p>
+</div>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">ValuesAttribute()
+ValuesAttribute(object arg1)
+ValuesAttribute(object arg1, object arg2)
+ValuesAttribute(object arg1, object arg2, object arg3)
+ValuesAttribute(params object[] args)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>args</code></td>
+<td><code>object[]</code></td>
+<td>Literal values supplied for the parameter.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Method Parameters</th>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example">Example</h2>
 <pre><code class="lang-csharp" name="ValuesAttributeExample">[Test]
 public void ValuesAttribute_BasicExample([Values(1, 2, 3)] int x, [Values(&quot;A&quot;, &quot;B&quot;)] string s)
@@ -111,8 +150,8 @@ MyTest(2, &quot;B&quot;)
 MyTest(3, &quot;A&quot;)
 MyTest(3, &quot;B&quot;)
 </code></pre>
-<h2 id="values-with-enum-or-boolean">Values with Enum or Boolean</h2>
-<p>The values attribute works in a special way with Enums and Boolean parameters.</p>
+<h2 id="values-with-enum-or-bool">Values with enum or bool</h2>
+<p>Parameterless <strong><code>[Values]</code></strong> expands enums and Booleans differently from other parameter types:</p>
 <p>When used without any arguments, the <strong>[Values]</strong> attribute on an enum parameter
 will automatically include all possible values of the enumeration.</p>
 <pre><code class="lang-csharp" name="ValuesAttributeEnumExample">public enum MyEnumType
@@ -128,21 +167,25 @@ public void ValuesAttribute_EnumExample([Values] MyEnumType myEnumArgument)
     Assert.That(myEnumArgument, Is.TypeOf&lt;MyEnumType&gt;());
 }
 </code></pre>
-<p>There is the same support for Boolean values. Add the <strong>[Values]</strong> attribute to a bool
-and the method will be run with true and false.</p>
+<p>For <strong><code>bool</code></strong>, the same mechanism supplies <strong><code>false</code></strong> then <strong><code>true</code></strong>. For <strong><code>bool?</code></strong>, NUnit adds <strong><code>null</code></strong> alongside those flags. For <strong><code>Nullable&lt;T&gt;</code> enums</strong>, every enum constant <strong>plus null</strong> are generated.</p>
 <pre><code class="lang-csharp" name="ValuesAttributeBoolExample">[Test]
 public void ValuesAttribute_BoolExample([Values] bool value)
 {
-    // This test will run twice: once with true, once with false
-    Assert.That(value is true or false);
+    Assert.That(value, Is.EqualTo(true).Or.EqualTo(false));
 }
-</code></pre><h2 id="see-also">See also</h2>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li><strong><code>Values()</code></strong> with <strong>no positional arguments</strong> only auto-expands enums, Booleans (including <strong><code>bool?</code></strong>), and nullable enums; for other parameter types it yields nothing useful until you supply explicit values.</li>
+<li>Use method-level <code>Combinatorial</code>, <code>Sequential</code>, or <code>Pairwise</code> to control how values from multiple parameters combine.</li>
+<li>Values you pass to <strong><code>[Values(...)]</code></strong> are converted to the parameter type with the same attribute-argument conversion rules as <strong><code>[TestCase]</code></strong> (including <strong><code>Convert.ChangeType</code></strong> where applicable); see the opening note on <strong><a class="xref" href="testcase.html">TestCase</a></strong>.</li>
+</ol>
+<h2 id="see-also">See also</h2>
 <ul>
-<li><a href="range.html">Range Attribute</a></li>
-<li><a href="random.html">Random Attribute</a></li>
-<li><a href="sequential.html">Sequential Attribute</a></li>
-<li><a href="combinatorial.html">Combinatorial Attribute</a></li>
-<li><a href="pairwise.html">Pairwise Attribute</a></li>
+<li><a class="xref" href="range.html">Range Attribute</a></li>
+<li><a class="xref" href="random.html">Random Attribute</a></li>
+<li><a class="xref" href="sequential.html">Sequential Attribute</a></li>
+<li><a class="xref" href="combinatorial.html">Combinatorial Attribute</a></li>
+<li><a class="xref" href="pairwise.html">Pairwise Attribute</a></li>
 </ul>
 
 </article>

@@ -83,24 +83,104 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-description">
 <h1 id="description">Description</h1>
 
-<p>The Description attribute is used to apply descriptive text to a Test, TestFixture or Assembly. The text appears in the
-XML output file.</p>
-<h2 id="example">Example</h2>
-<pre><code class="lang-csharp" name="DescriptionTestExample">[Test]
-[Description(&quot;This test should always pass&quot;)]
-public void AlwaysPassingTest()
-{
-    Assert.Pass(&quot;Test passed as expected&quot;);
-}
+<p><code>DescriptionAttribute</code> is used to apply descriptive text to a test, test fixture, or assembly. The description appears in test output and XML result files, providing additional context about what a test does.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">DescriptionAttribute(string description)
 </code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p>The Test and TestFixture attributes continue to support an optional Description property. The Description
-attribute should be used for new applications. If both are used, the Description attribute takes precedence.</p>
-</div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>The descriptive text for the test or fixture.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="alternative-syntax">Alternative Syntax</h2>
+<p><code>Description</code> can also be specified as a named parameter on <code>[TestFixture]</code> or <code>[Test]</code> attributes:</p>
+<pre><code class="lang-csharp">[TestFixture(Description = &quot;Tests for user authentication&quot;)]
+[Test(Description = &quot;Verifies login with valid credentials&quot;)]
+</code></pre>
+<h2 id="examples">Examples</h2>
+<h3 id="fixture-level">Fixture Level</h3>
+<pre><code class="lang-csharp" name="DescriptionFixture">[TestFixture]
+[Description(&quot;Tests for the shopping cart functionality&quot;)]
+public class ShoppingCartTests
+{
+    [Test]
+    public void AddItem_EmptyCart_ItemAdded()
+    {
+        Assert.Pass();
+    }
+}
+</code></pre><h3 id="method-level">Method Level</h3>
+<pre><code class="lang-csharp" name="DescriptionMethod">[TestFixture]
+public class PaymentTests
+{
+    [Test]
+    [Description(&quot;Verifies that valid credit card payments are processed successfully&quot;)]
+    public void ProcessPayment_ValidCard_ReturnsSuccess()
+    {
+        Assert.Pass();
+    }
+
+    [Test]
+    [Description(&quot;Ensures expired cards are rejected with appropriate error&quot;)]
+    public void ProcessPayment_ExpiredCard_ReturnsError()
+    {
+        Assert.Pass();
+    }
+}
+</code></pre><h3 id="using-named-parameter-syntax">Using Named Parameter Syntax</h3>
+<pre><code class="lang-csharp" name="DescriptionNamedParameter">[TestFixture(Description = &quot;Integration tests for the user registration flow&quot;)]
+public class UserRegistrationTests
+{
+    [Test(Description = &quot;Tests complete registration with all required fields&quot;)]
+    public void Register_AllFieldsValid_CreatesUser()
+    {
+        Assert.Pass();
+    }
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>This attribute inherits from <code>PropertyAttribute</code> and sets the <code>Description</code> property.</li>
+<li>Only one description can be applied per element (<code>AllowMultiple = false</code>).</li>
+<li>If both the <code>[Description]</code> attribute and the <code>Description</code> property on <code>[Test]</code>/<code>[TestFixture]</code> are used, the <code>[Description]</code> attribute takes precedence.</li>
+<li>Descriptions are useful for generating readable test reports and documentation.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="property.html">Property Attribute</a></li>
+<li><a class="xref" href="author.html">Author Attribute</a></li>
+<li><a class="xref" href="category.html">Category Attribute</a></li>
+</ul>
 
 </article>
           </div>

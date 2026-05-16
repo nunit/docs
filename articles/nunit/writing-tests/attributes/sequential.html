@@ -83,11 +83,31 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="sequentialattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-sequential">
 <h1 id="sequential">Sequential</h1>
 
-<p>The <strong>SequentialAttribute</strong> is used on a test to specify that NUnit should generate test cases by selecting individual
-data items provided for the parameters of the test, without generating additional combinations.</p>
+<p><code>SequentialAttribute</code> tells NUnit to generate test cases by matching parameter values by index rather than creating additional combinations.</p>
+<h2 id="usage">Usage</h2>
+<p>This is a parameterless attribute that can only be applied to test methods.</p>
+<pre><code class="lang-csharp">[Sequential]
+</code></pre>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 <div class="NOTE">
 <h5>Note</h5>
 <p>If parameter data is provided by multiple attributes, the order in which NUnit uses the data items is not
@@ -95,13 +115,15 @@ guaranteed. However, it can be expected to remain constant for a given runtime a
 with <strong>SequentialAttribute</strong> use only one data attribute on each parameter.</p>
 </div>
 <h2 id="example">Example</h2>
-<p>The following test will be executed three times.</p>
-<pre><code class="lang-csharp">[Test, Sequential]
+<p>The following test is executed three times.</p>
+<pre><code class="lang-csharp" name="SequentialBasic">[Test]
+[Sequential]
 public void MyTest(
     [Values(1, 2, 3)] int x,
     [Values(&quot;A&quot;, &quot;B&quot;)] string s)
 {
-    /* ... */
+    Assert.That(x, Is.GreaterThan(0));
+    Assert.That(s is null || s.Length &gt; 0);
 }
 </code></pre>
 <p>MyTest is called three times, as follows:</p>
@@ -109,10 +131,17 @@ public void MyTest(
 MyTest(2, &quot;B&quot;)
 MyTest(3, null)
 </code></pre>
-<h2 id="see-also">See also</h2>
+<h2 id="notes">Notes</h2>
+<ol>
+<li><code>Sequential</code> pairs values from each parameter by position (<code>index 0</code> with <code>index 0</code>, and so on).</li>
+<li>If parameter data lengths differ, missing entries are filled using the default value for that parameter type.</li>
+<li>Prefer one data-providing attribute per parameter when using <code>Sequential</code> to avoid ordering ambiguities.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="combinatorial.html">Combinatorial Attribute</a></li>
-<li><a href="pairwise.html">Pairwise Attribute</a></li>
+<li><a class="xref" href="combinatorial.html">Combinatorial Attribute</a></li>
+<li><a class="xref" href="pairwise.html">Pairwise Attribute</a></li>
+<li><a class="xref" href="values.html">Values Attribute</a></li>
 </ul>
 
 </article>

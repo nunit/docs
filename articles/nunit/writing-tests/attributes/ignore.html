@@ -83,45 +83,96 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-ignore">
 <h1 id="ignore">Ignore</h1>
 
-<p><strong>IgnoreAttribute</strong> is used to indicate that a test should not be executed for some reason. Note that with NUnit 3, the
-reason must be specified. Ignored tests are displayed by the runners as warnings in order to provide a reminder that the
-test needs to be corrected or otherwise changed and re-instated.</p>
-<p>Note that the <strong>IgnoreAttribute</strong> is attached to a method. If you have multiple test cases using the same method, adding
-it will ignore all the cases. To ignore individual test cases see <a href="#ignoring-individual-test-cases">Ignoring Individual Test
-Cases</a> below.</p>
-<h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  [Ignore(&quot;Ignore a fixture&quot;)]
-  public class SuccessTests
-  {
-    // ...
-  }
-}
+<p><code>IgnoreAttribute</code> indicates that a test should not be executed. In NUnit 3 and later, a reason must be provided.</p>
+<p>Ignored tests are shown as warnings by runners, which helps highlight tests that need to be fixed or re-enabled.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">IgnoreAttribute(string reason)
 </code></pre>
-<h2 id="test-syntax">Test Syntax</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reason</code></td>
+<td><code>string</code></td>
+<td>The reason the test or fixture is ignored. This value is required.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Until</code></td>
+<td><code>string</code></td>
+<td>Optional date/time string. The test is ignored until this date/time, then runs normally.</td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When applied to a fixture or assembly, all contained tests are ignored.</p>
+</div>
+<h2 id="test-fixture-syntax">Test Fixture Syntax</h2>
+<pre><code class="lang-csharp" name="IgnoreFixtureExample">[TestFixture]
+[Ignore(&quot;Ignored until dependency issue is resolved&quot;)]
+public class IgnoredFixture
+{
+    [Test]
+    public void FixtureTest()
+    {
+        Assert.Fail(&quot;Ignored fixture should not execute.&quot;);
+    }
+}
+</code></pre><h2 id="test-syntax">Test Syntax</h2>
 <pre><code class="lang-csharp" name="IgnoreTestExample">[Test]
-[Ignore(&quot;Test is not ready yet&quot;)]
+[Ignore(&quot;Temporarily ignored while bug fix is in progress&quot;)]
 public void IgnoredTest()
 {
-    Assert.Fail(&quot;This test is ignored and should not run&quot;);
+    Assert.Fail(&quot;Ignored test should not execute.&quot;);
 }
 </code></pre><h2 id="ignore-until">Ignore Until</h2>
 <p>The <code>Until</code> named parameter allows you to ignore a test for a specific period of time, after which the test will run
 normally. The until date must be a string that can be parsed to a date.</p>
-<pre><code class="lang-csharp">[TestFixture]
-[Ignore(&quot;Waiting for Joe to fix his bugs&quot;, Until = &quot;2014-07-31 12:00:00Z&quot;)]
-public class MyTests
+<pre><code class="lang-csharp" name="IgnoreUntilExample">[Test]
+[Ignore(&quot;Waiting for external fix&quot;, Until = &quot;2099-12-31 00:00:00Z&quot;)]
+public void IgnoredUntilDate()
 {
- [Test]
- public void Test1() { /* ... */ }
+    Assert.Fail(&quot;Test remains ignored until the specified date.&quot;);
 }
 </code></pre>
 <p>In the above example, it's assumed that the test would fail if run. With the IgnoreAttribute, it will give a warning
@@ -139,14 +190,26 @@ individual test cases is possible, depending on how they are specified.</p>
 <tbody>
 <tr>
 <td><strong>TestCase</strong></td>
-<td>Use the <strong>Ignore</strong> named parameter of the <strong>TestCaseAttribute.</strong></td>
+<td>Use the <strong>Ignore</strong> named parameter of <code>TestCaseAttribute</code>.</td>
 </tr>
 <tr>
 <td><strong>TestCaseSource</strong></td>
-<td>Use <strong>TestCaseData</strong> for the source and set the <strong>Ignore</strong> property.</td>
+<td>Use <code>TestCaseData</code> for the source and set the <strong>Ignore</strong> property.</td>
 </tr>
 </tbody>
 </table>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>Applying <code>IgnoreAttribute</code> to a test method ignores all test cases produced by that method.</li>
+<li>To ignore individual cases, use <code>Ignore</code> on <code>TestCaseAttribute</code> or <code>TestCaseData</code>.</li>
+<li>The <code>Until</code> value must be parseable as a date/time; after that instant, the test runs normally.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="explicit.html">Explicit Attribute</a></li>
+<li><a class="xref" href="testcase.html">TestCase Attribute</a></li>
+<li><a class="xref" href="testcasesource.html">TestCaseSource Attribute</a></li>
+</ul>
 
 </article>
           </div>

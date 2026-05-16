@@ -83,37 +83,109 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-datapointsource">
 <h1 id="datapointsource">DatapointSource</h1>
 
-<p>The <strong>DatapointSource</strong> attribute is used
-to provide data for <strong>Theories</strong> and is ignored for ordinary
-tests - including tests with parameters.</p>
-<p>Collections of datapoints may be provided by use of the <strong>DatapointSourceAttribute</strong>.
-This attribute may be placed on methods or
-properties in addition to fields. The returned value must be
-either an array of the required type or an <code>IEnumerable&lt;T&gt;</code> returning an enumeration
-of the required type. The data Type must exactly match the argument
-for which data is being supplied.</p>
-<blockquote>
-<p>In earlier versions of NUnit, the obsolete <strong>DatapointsAttribute</strong>
-was used in place of <strong>DatapointSourceAttribute</strong>.</p>
-</blockquote>
-<h2 id="automatically-supplied-datapoints">Automatically Supplied Datapoints</h2>
-<p>It is normally not necessary to specify datapoints for
-<strong>boolean</strong> or <strong>enum</strong> arguments.
-NUnit automatically supplies values of <strong>true</strong>
-and <strong>false</strong> for <strong>boolean</strong> arguments and will supply all
-defined values of any enumeration.</p>
-<p>If for some reason you don't wish to use all possible values, you
-can override this behavior by supplying your own datapoints. If you
-supply any datapoints for an argument, automatic datapoint generation
-is suppressed.</p>
+<p><code>DatapointSourceAttribute</code> is used to mark a field, property, or method as providing a collection of data values for <a class="xref" href="theory.html">Theory</a> tests. The source must return either an array of the required type or an <code>IEnumerable&lt;T&gt;</code>.</p>
+<p>This attribute is ignored for ordinary tests, including parameterized tests using <code>[TestCase]</code>.</p>
+<h2 id="usage">Usage</h2>
+<p>This is a parameterless attribute that can be applied to fields, properties, or methods.</p>
+<pre><code class="lang-csharp">[DatapointSource]
+</code></pre>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Property</th>
+<th>Parameterless Methods</th>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Parameterless methods used with this attribute must return an array or <code>IEnumerable&lt;T&gt;</code>, and the element type must exactly match the Theory parameter type.</p>
+</div>
 <h2 id="example">Example</h2>
-<p>For an example of use, see <a href="theory.html">Theory Attribute</a></p>
+<pre><code class="lang-csharp" name="DatapointSource">[TestFixture]
+public class PrimeNumberTests
+{
+    // DatapointSource on a field returning an array
+    [DatapointSource]
+    public int[] SmallPrimes = { 2, 3, 5, 7, 11, 13 };
+
+    // DatapointSource on a property returning IEnumerable&lt;T&gt;
+    [DatapointSource]
+    public IEnumerable&lt;int&gt; MorePrimes
+    {
+        get
+        {
+            yield return 17;
+            yield return 19;
+            yield return 23;
+        }
+    }
+
+    // DatapointSource on a method
+    [DatapointSource]
+    public int[] GetPrimesUnder100()
+    {
+        return new[] { 29, 31, 37, 41, 43, 47 };
+    }
+
+    [Theory]
+    public void PrimeIsOddOrTwo(int prime)
+    {
+        // NUnit combines all datapoint sources for int type
+        Assert.That(prime == 2 || prime % 2 != 0);
+    }
+}
+</code></pre><h2 id="automatically-supplied-datapoints">Automatically Supplied Datapoints</h2>
+<p>NUnit automatically supplies datapoints for certain types:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Automatic Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td>Any <code>enum</code></td>
+<td>All defined enum values</td>
+</tr>
+</tbody>
+</table>
+<p>If you supply any datapoints for a parameter type, automatic datapoint generation for that type is suppressed.</p>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>The data source must be a member of the class containing the Theory.</li>
+<li>The element type must <strong>exactly</strong> match the parameter type - no implicit conversions are performed.</li>
+<li>Multiple <code>DatapointSource</code> attributes of the same type are combined.</li>
+<li>Use <code>Datapoint</code> when you only need to provide a single value from a field.</li>
+<li>The obsolete <code>DatapointsAttribute</code> was replaced by <code>DatapointSourceAttribute</code> in earlier versions.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="theory.html">Theory Attribute</a></li>
+<li><a class="xref" href="datapoint.html">Datapoint Attribute</a></li>
+<li><a class="xref" href="theory.html">Theory Attribute</a></li>
 <li><a class="xref" href="../../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a></li>
 </ul>
 

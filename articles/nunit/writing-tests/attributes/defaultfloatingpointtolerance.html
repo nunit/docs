@@ -83,54 +83,91 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-defaultfloatingpointtolerance">
 <h1 id="defaultfloatingpointtolerance">DefaultFloatingPointTolerance</h1>
 
-<p>The <strong>DefaultFloatingPointToleranceAttribute</strong> is used to indicate that
-comparisons of values of types <code>float</code> and <code>double</code> - within the test method,
-class, or assembly marked with the attribute - should use the tolerance
-specified in the constructor unless a specific tolerance is given for the
-comparison.</p>
+<p><code>DefaultFloatingPointToleranceAttribute</code> sets the default tolerance for floating-point equality comparisons (<code>float</code> and <code>double</code>) unless a comparison explicitly specifies a tolerance.</p>
+<p>You can apply it at method, fixture, or assembly scope.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">DefaultFloatingPointToleranceAttribute(double tolerance)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tolerance</code></td>
+<td><code>double</code></td>
+<td>The default tolerance used for floating-point comparisons when no explicit tolerance is specified.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When applied at fixture or assembly level, this default tolerance applies to all contained tests unless overridden by a more specific scope or by an explicit tolerance in an assertion.</p>
+</div>
 <h2 id="examples">Examples</h2>
-<pre><code class="lang-csharp">[TestFixture]
+<h3 id="fixture-default-tolerance">Fixture Default Tolerance</h3>
+<pre><code class="lang-csharp" name="DefaultFloatingPointToleranceFixture">[TestFixture]
 [DefaultFloatingPointTolerance(1)]
-public class ToleranceTest
+public class ToleranceFixtureTests
 {
     [Test]
-    public void ComparisonUsingDefaultFloatingPointToleranceFromFixture()
+    public void ComparisonUsingFixtureDefaultTolerance()
     {
-        // Passes due to the DefaultFloatingPointToleranceAttribute from the fixture.
         Assert.That(1f, Is.EqualTo(2));
     }
 
     [Test]
-    public void ComparisonOfIntegersDoNotUseTolerance()
+    public void ExplicitToleranceOverridesDefault()
     {
-        // Fails as DefaultFloatingPointTolerance only effects comparisons
-        // of floats and doubles.
-        Assert.That(1, Is.EqualTo(2));
+        Assert.That(1f, Is.EqualTo(1.2f).Within(0.3));
     }
-
-    [Test]
-    public void ComparisonUsingSpecificTolerance()
-    {
-        // Fails as 1 is not equal to 2 using the specified tolerance 0.
-        Assert.That(1f, Is.EqualTo(2).Within(0));
-    }
-
+}
+</code></pre><h3 id="method-override">Method Override</h3>
+<pre><code class="lang-csharp" name="DefaultFloatingPointToleranceMethodOverride">[TestFixture]
+[DefaultFloatingPointTolerance(1)]
+public class ToleranceMethodOverrideTests
+{
     [Test]
     [DefaultFloatingPointTolerance(2)]
-    public void ComparisonUsingDefaultFloatingPointToleranceFromTest()
+    public void MethodToleranceOverridesFixtureTolerance()
     {
-        // Passes due to the  DefaultFloatingPointTolerance from the test.
         Assert.That(2f, Is.EqualTo(4));
     }
 }
-</code></pre>
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>This attribute affects default tolerance for floating-point equality comparisons only.</li>
+<li>Integer comparisons are not affected.</li>
+<li>An explicit tolerance in an assertion (for example, <code>.Within(...)</code>) overrides the default tolerance.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="../assertions/classic-assertions/Assert.AreEqual.html">Assert.AreEqual</a></li>
-<li><a href="../constraints/EqualConstraint.html">EqualConstraint</a></li>
+<li><a class="xref" href="../assertions/classic-assertions/Assert.AreEqual.html">Assert.AreEqual</a></li>
+<li><a class="xref" href="../constraints/EqualConstraint.html">EqualConstraint</a> — numeric <strong><code>Within</code></strong> tolerances and floating-point comparison behavior (including the <strong>Comparing floating-point values</strong> section)</li>
 </ul>
 
 </article>

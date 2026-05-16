@@ -83,14 +83,34 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="setupfixture-attribute">
+            <article class="content wrap" id="_content" data-uid="attribute-setupfixture">
 <h1 id="setupfixture">SetUpFixture</h1>
 
-<p>This is the attribute that marks a class that contains the one-time
-setup or teardown methods for all the test fixtures in a given
-namespace including nested namespaces below, within an assembly.</p>
-<p>The class may contain at most one method marked with the
-OneTimeSetUpAttribute and one method marked with the OneTimeTearDownAttribute.</p>
+<p><code>SetUpFixtureAttribute</code> marks a class that provides one-time setup/teardown for all fixtures in a namespace (including nested namespaces) within an assembly.</p>
+<p>The class may contain at most one <code>[OneTimeSetUp]</code> and one <code>[OneTimeTearDown]</code> method.</p>
+<h2 id="usage">Usage</h2>
+<p>This is a parameterless attribute that can only be applied to classes.</p>
+<pre><code class="lang-csharp">[SetUpFixture]
+</code></pre>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+<th>Helper Classes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
 <p>There are a few restrictions on a class that is used as a setup fixture.</p>
 <ul>
 <li>It must be a publicly exported type or NUnit will not see it.</li>
@@ -104,36 +124,27 @@ RunAfterAnyTests() is called after all the tests in the namespace as well as the
 individual or fixture teardowns have completed execution.</p>
 <p>Multiple SetUpFixtures may be created in a given namespace. The order of execution
 of such fixtures is indeterminate.</p>
-<h2 id="notes">Notes</h2>
+<h2 id="scope">Scope</h2>
 <ul>
 <li>The scope of a SetUpFixture is limited to an assembly.</li>
 <li>A SetUpFixture in a namespace will apply to all tests in that namespace and all contained namespaces within the assembly.</li>
 <li>A SetUpFixture outside of any namespace provides SetUp and TearDown for the entire assembly.</li>
 </ul>
 <h2 id="example">Example</h2>
-<pre><code class="lang-csharp">using System;
-using NUnit.Framework;
-
-namespace NUnit.Tests
+<pre><code class="lang-csharp" name="SetUpFixtureExample">[SetUpFixture]
+public class MySetUpClass
 {
-  [SetUpFixture]
-  public class MySetUpClass
-  {
     [OneTimeSetUp]
     public void RunBeforeAnyTests()
     {
-      // ...
     }
 
     [OneTimeTearDown]
     public void RunAfterAnyTests()
     {
-      // ...
     }
-  }
 }
-</code></pre>
-<h2 id="detailed-explanation">Detailed explanation</h2>
+</code></pre><h2 id="detailed-explanation">Detailed explanation</h2>
 <p>With respect to the order of execution of setup (also one-time setup) it's deterministic between namespaces (including
 nested namespaces) but non-deterministic if you have two setups at the same level, e.g. two methods in the same class
 marked [SetUp]. That's, however, a usage that should only come up in limited situations and is easy to avoid.</p>
@@ -150,24 +161,20 @@ derived class.</li>
 </ol>
 <p>[Items 6 and 7 rarely come into play but the features are available for situations like code generation, where it may
 be more convenient to have multiple setup fixtures and/or methods.]</p>
-<h2 id="notes-1">Notes</h2>
+<h2 id="notes">Notes</h2>
 <ol>
-<li><p>About filtering on <code>SetUpFixture</code>s:
-A <code>SetUpFixture</code> is normally not used for filtering tests.  However, if that is done, one should be aware that a
-<code>SetUpFixture</code> encapsulates all tests to which it belongs.
-If placed in a namespace it will encapsulate all tests in that namespace and contained namespaces.
-If placed on the assembly level, it will encapsulate all tests in the assembly.</p>
-</li>
-<li><p>Prior to NUnit 3.0, <code>SetUpFixture</code> used the <code>SetUp</code> and <code>TearDown</code> attributes rather than <code>OneTimeSetUp</code> and
-<code>OneTimeTearDown</code>. The older attributes are no longer supported in SetUpFixtures in NUnit 3.0 and later.</p>
-</li>
+<li><code>SetUpFixture</code> classes must be public and have a default constructor (or be static).</li>
+<li><code>SetUp</code> and <code>TearDown</code> attributes are not valid inside a <code>SetUpFixture</code>.</li>
+<li>A setup fixture outside any namespace applies to the entire assembly.</li>
+<li>Multiple setup fixtures at the same namespace level execute in indeterminate order.</li>
+<li>Prior to NUnit 3.0, setup fixtures used <code>SetUp</code>/<code>TearDown</code>; NUnit 3+ uses <code>OneTimeSetUp</code>/<code>OneTimeTearDown</code>.</li>
 </ol>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="setup.html">SetUp Attribute</a></li>
-<li><a href="teardown.html">TearDown Attribute</a></li>
-<li><a href="onetimesetup.html">OneTimeSetUp Attribute</a></li>
-<li><a href="onetimeteardown.html">OneTimeTearDown Attribute</a></li>
+<li><a class="xref" href="setup.html">SetUp Attribute</a></li>
+<li><a class="xref" href="teardown.html">TearDown Attribute</a></li>
+<li><a class="xref" href="onetimesetup.html">OneTimeSetUp Attribute</a></li>
+<li><a class="xref" href="onetimeteardown.html">OneTimeTearDown Attribute</a></li>
 </ul>
 
 </article>

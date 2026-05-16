@@ -83,24 +83,44 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="pairwiseattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-pairwise">
 <h1 id="pairwise">Pairwise</h1>
 
-<p>The <strong>PairwiseAttribute</strong> is used on a test to specify that NUnit should
-generate test cases in such a way that all possible pairs of
-values are used. This is a well-known approach for combatting
-the combinatorial explosion of test cases when more than
-two features (parameters) are involved.</p>
+<p><code>PairwiseAttribute</code> tells NUnit to generate test cases so all possible pairs of parameter values are covered, while using fewer cases than full combinatorial generation.</p>
+<h2 id="usage">Usage</h2>
+<p>This is a parameterless attribute that can only be applied to test methods.</p>
+<pre><code class="lang-csharp">[Pairwise]
+</code></pre>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example">Example</h2>
 <p>Using the Combinatorial attribute, the following test would be executed 12 (3x2x2) times.
 With <strong>Pairwise</strong> it is executed only enough times so that each possible pair is covered..</p>
-<pre><code class="lang-csharp">[Test, Pairwise]
+<pre><code class="lang-csharp" name="PairwiseBasic">[Test]
+[Pairwise]
 public void MyTest(
     [Values(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)] string a,
     [Values(&quot;+&quot;, &quot;-&quot;)] string b,
     [Values(&quot;x&quot;, &quot;y&quot;)] string c)
 {
-    Console.WriteLine(&quot;{0} {1} {2}&quot;, a, b, c);
+    Assert.That(a, Is.Not.Null);
+    Assert.That(b, Is.Not.Null);
+    Assert.That(c, Is.Not.Null);
 }
 </code></pre>
 <p>For this test, NUnit currently calls the method six times, producing the following output:</p>
@@ -114,15 +134,16 @@ c + y
 <p>Note that this is not the optimal output. The pairs (-, x) and (+, y)
 appear twice. NUnit uses a heuristic algorithm to reduce the number of test cases as much
 as it can. Improvements may be made in the future.</p>
-<h2 id="limitations">Limitations</h2>
-<p>When used on a generic method the programmer must ensure that all
-possible combinations of arguments are valid. When multiple parameters
-use the same generic type (e.g.: T) this may not be possible and the
-attribute may generate invalid test cases.</p>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>Pairwise generation is heuristic and may not produce the theoretical minimum number of test cases.</li>
+<li>When used on generic methods, ensure generated combinations are valid for all type constraints.</li>
+<li>Use <code>Combinatorial</code> when you need full coverage of all combinations.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="sequential.html">Sequential Attribute</a></li>
-<li><a href="combinatorial.html">Combinatorial Attribute</a></li>
+<li><a class="xref" href="sequential.html">Sequential Attribute</a></li>
+<li><a class="xref" href="combinatorial.html">Combinatorial Attribute</a></li>
 </ul>
 
 </article>

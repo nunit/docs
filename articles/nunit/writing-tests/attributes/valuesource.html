@@ -83,29 +83,66 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="valuesource">
+            <article class="content wrap" id="_content" data-uid="attribute-valuesource">
 <h1 id="valuesource">ValueSource</h1>
 
-<p><strong>ValueSourceAttribute</strong> is used on individual parameters of a test method to identify a named source for the argument
-values to be supplied. The attribute has two public constructors.</p>
-<pre><code class="lang-csharp">ValueSourceAttribute(Type sourceType, string sourceName);
-ValueSourceAttribute(string sourceName);
+<p><code>ValueSourceAttribute</code> is used on individual parameters of a test method to identify a named data source for argument values.</p>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">ValueSourceAttribute(Type sourceType, string sourceName)
+ValueSourceAttribute(string sourceName)
 </code></pre>
-<p>If <strong>sourceType</strong> is specified, it represents the class that provides the data.</p>
-<p>If <strong>sourceType</strong> is not specified, the class containing the test method is used.</p>
-<p>The <strong>sourceName</strong>, represents the name of the source that will provide the arguments. It should have the following
-characteristics:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sourceType</code></td>
+<td><code>Type</code></td>
+<td>Type that provides the source member. Optional.</td>
+</tr>
+<tr>
+<td><code>sourceName</code></td>
+<td><code>string</code></td>
+<td>Name of source field, property, or method.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Method Parameters</th>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp" name="ValueSourceBasic">[Test]
+public void TestUsingValueSource([ValueSource(nameof(Numbers))] int value)
+{
+    Assert.That(value, Is.GreaterThan(0));
+}
+</code></pre><h2 id="source-requirements">Source Requirements</h2>
 <ul>
-<li>It may be a field, a non-indexed property or a method taking no arguments.</li>
-<li>It must be a static member.</li>
-<li>It must return an <code>IEnumerable</code> or a type that implements <code>IEnumerable</code>.
-<ul>
-<li>Methods may also return an <code>IAsyncEnumerable</code> or a type that implements <code>IAsyncEnumerable</code>. (<em>NUnit 4+</em>)</li>
-<li>Methods may be async by wrapping the return type in a <code>Task&lt;T&gt;</code>. (<em>NUnit 3.14+</em>)</li>
-</ul>
-</li>
-<li>The individual items returned from the enumerator must be compatible with the type of the parameter on which the
-attribute appears.</li>
+<li>Source may be a field, non-indexed property, or parameterless method.</li>
+<li>Source member must be static.</li>
+<li>Source must return <code>IEnumerable</code> (or async forms supported by NUnit).</li>
+<li>Returned items must be compatible with the annotated parameter type.</li>
 </ul>
 <h2 id="order-of-execution">Order of Execution</h2>
 <p>Individual test cases are executed in the order in which NUnit discovers them. This order does <strong>not</strong> follow the
@@ -122,6 +159,11 @@ all tests are loaded.</p>
 fixture parameters provided on the <strong>TestFixtureAttribute</strong>, or the default constructor if no parameters were specified.
 Since this object is destroyed before the tests are run, no communication is possible between these two phases - or
 between different runs - except through the parameters themselves.</p>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a class="xref" href="testcasesource.html">TestCaseSource Attribute</a></li>
+<li><a class="xref" href="values.html">Values Attribute</a></li>
+</ul>
 
 </article>
           </div>

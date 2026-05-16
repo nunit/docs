@@ -83,7 +83,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="testassemblydirectoryresolveattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-testassemblydirectoryresolve">
 <h1 id="testassemblydirectoryresolve">TestAssemblyDirectoryResolve</h1>
 
 <p>The <code>TestAssemblyDirectoryResolveAttribute</code> marks a test assembly as needing a special assembly resolution hook. When
@@ -106,19 +106,34 @@ running in their own AppDomain.</p>
 <pre><code class="lang-csharp">[assembly: TestAssemblyDirectoryResolve]
 </code></pre>
 <p>This is typically placed in a file like <code>AssemblyInfo.cs</code> or a dedicated assembly attributes file.</p>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example">Example</h2>
-<h3 id="assemblyinfocs">AssemblyInfo.cs</h3>
-<pre><code class="lang-csharp">using NUnit.Framework;
+<pre><code class="lang-csharp" name="VerifyAttributeExists">[Test]
+public void VerifyTestAssemblyDirectoryResolveAttributeExists()
+{
+    // Verify the attribute type exists and can be instantiated
+    var attribute = new TestAssemblyDirectoryResolveAttribute();
 
-[assembly: TestAssemblyDirectoryResolve]
-</code></pre>
-<h3 id="or-in-a-dedicated-file-assemblyattributescs">Or in a dedicated file (AssemblyAttributes.cs)</h3>
-<pre><code class="lang-csharp">using NUnit.Framework;
-
-// Enable explicit assembly directory resolution for this test assembly
-[assembly: TestAssemblyDirectoryResolve]
-</code></pre>
-<h2 id="how-it-works">How It Works</h2>
+    Assert.That(attribute, Is.Not.Null);
+    Assert.That(attribute, Is.InstanceOf&lt;NUnitAttribute&gt;());
+}
+</code></pre><h2 id="how-it-works">How It Works</h2>
 <p>When this attribute is present on a test assembly:</p>
 <ol>
 <li>NUnit registers an assembly resolution handler before running tests</li>
@@ -168,7 +183,7 @@ public void VerifyTestAssemblyDirectoryResolveAttributeExists()
 </ul>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="nontestassembly.html">NonTestAssembly Attribute</a></li>
+<li><a class="xref" href="nontestassembly.html">NonTestAssembly Attribute</a></li>
 <li><a href="https://learn.microsoft.com/en-us/dotnet/framework/deployment/how-the-runtime-locates-assemblies">.NET Assembly Loading</a></li>
 </ul>
 

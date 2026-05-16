@@ -83,36 +83,133 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="attribute-setuiculture">
 <h1 id="setuiculture">SetUICulture</h1>
 
-<p>The SetUICulture attribute is used to set the current UI Culture for the duration
-of a test. It may be specified at the level of a test or a fixture. The UI culture
-remains set until the test or fixture completes and is then reset to its original
-value. If you wish to use the current culture setting to decide whether to run
-a test, use the Culture attribute instead of this one.</p>
-<p>Only one culture may be specified. Running a test under
-multiple cultures is a planned future enhancement. At this time, you can
-achieve the same result by factoring out your test code into a private method
-that is called by each individual test method.</p>
-<h2 id="examples">Examples</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  [SetUICulture(&quot;fr-FR&quot;)]
-  public class FrenchCultureTests
-  {
-    // ...
-  }
-}
+<p><code>SetUICultureAttribute</code> is used to set the current <code>CultureInfo.CurrentUICulture</code> for the duration of a test. The UI culture remains set until the test or fixture completes and is then reset to its original value.</p>
+<p>This attribute affects resource loading operations. When your application uses <code>ResourceManager</code> to load localized strings, images, or other resources, it uses <code>CurrentUICulture</code> to determine which localized resources to load.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code class="lang-csharp">SetUICultureAttribute(string culture)
 </code></pre>
-<h2 id="see-also">See also</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>culture</code></td>
+<td><code>string</code></td>
+<td>The name of the UI culture to use (e.g., <code>&quot;fr-FR&quot;</code>, <code>&quot;de-DE&quot;</code>, <code>&quot;en-US&quot;</code>). Must be a valid culture name recognized by <code>CultureInfo</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If <code>SetUICultureAttribute</code> is applied at fixture or assembly level, the UI culture setting applies to all contained tests.</p>
+</div>
+<p>When applied at multiple levels, the most specific level takes precedence. The attribute is inherited by derived test fixtures.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="setting-ui-culture-on-a-fixture">Setting UI Culture on a Fixture</h3>
+<pre><code class="lang-csharp" name="SetUICultureOnFixture">[TestFixture]
+[SetUICulture(&quot;fr-FR&quot;)]
+public class FrenchUITests
+{
+    private CultureInfo _originalCulture = null!;
+
+    [OneTimeSetUp]
+    public void SaveOriginalCulture()
+    {
+        _originalCulture = CultureInfo.CurrentCulture;
+    }
+
+    [Test]
+    public void TestResourceLoading()
+    {
+        // UI Culture affects resource manager lookups
+        // e.g., ResourceManager will look for French resources
+        Assert.That(CultureInfo.CurrentUICulture.Name, Is.EqualTo(&quot;fr-FR&quot;));
+    }
+
+    [Test]
+    public void CurrentCultureUnchanged()
+    {
+        // SetUICulture does NOT affect CurrentCulture
+        // Formatting operations use CurrentCulture, not CurrentUICulture
+        Assert.That(CultureInfo.CurrentUICulture.Name, Is.EqualTo(&quot;fr-FR&quot;));
+        Assert.That(CultureInfo.CurrentCulture, Is.EqualTo(_originalCulture));
+    }
+}
+</code></pre><h3 id="setting-ui-culture-on-individual-methods">Setting UI Culture on Individual Methods</h3>
+<pre><code class="lang-csharp" name="SetUICultureOnMethod">[TestFixture]
+public class MixedUITests
+{
+    [Test]
+    [SetUICulture(&quot;de-DE&quot;)]
+    public void TestWithGermanUI()
+    {
+        Assert.That(CultureInfo.CurrentUICulture.Name, Is.EqualTo(&quot;de-DE&quot;));
+    }
+
+    [Test]
+    [SetUICulture(&quot;es-ES&quot;)]
+    public void TestWithSpanishUI()
+    {
+        Assert.That(CultureInfo.CurrentUICulture.Name, Is.EqualTo(&quot;es-ES&quot;));
+    }
+}
+</code></pre><h3 id="using-both-setculture-and-setuiculture">Using Both SetCulture and SetUICulture</h3>
+<p>Use both attributes when you need to test with different formatting and UI cultures:</p>
+<pre><code class="lang-csharp" name="BothCultures">[TestFixture]
+public class LocalizationTests
+{
+    [Test]
+    [SetCulture(&quot;en-US&quot;)]
+    [SetUICulture(&quot;fr-FR&quot;)]
+    public void TestWithDifferentCultures()
+    {
+        // CurrentCulture: affects formatting (numbers, dates, currency)
+        Assert.That(CultureInfo.CurrentCulture.Name, Is.EqualTo(&quot;en-US&quot;));
+
+        // CurrentUICulture: affects resource loading (UI strings, messages)
+        Assert.That(CultureInfo.CurrentUICulture.Name, Is.EqualTo(&quot;fr-FR&quot;));
+
+        // Example: Format a number using CurrentCulture (en-US)
+        double price = 1234.56;
+        string formatted = price.ToString(&quot;C&quot;); // Uses en-US currency format
+        Assert.That(formatted, Does.Contain(&quot;$&quot;));
+    }
+}
+</code></pre><h2 id="notes">Notes</h2>
+<ol>
+<li>Only one UI culture may be specified per attribute. To test with multiple cultures, create separate test methods or use parameterized tests.</li>
+<li><code>SetUICulture</code> affects <code>CultureInfo.CurrentUICulture</code>, which controls resource loading. It does <strong>not</strong> affect <code>CultureInfo.CurrentCulture</code> (formatting). Use <code>SetCulture</code> for formatting operations.</li>
+<li>If you need to conditionally run tests based on the current culture (rather than setting it), use the <code>Culture</code> attribute instead.</li>
+</ol>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="culture.html">Culture Attribute</a>]</li>
-<li><a href="setculture.html">SetCulture Attribute</a></li>
+<li><a class="xref" href="setculture.html">SetCulture Attribute</a></li>
+<li><a class="xref" href="culture.html">Culture Attribute</a></li>
 </ul>
 
 </article>

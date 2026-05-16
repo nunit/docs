@@ -83,21 +83,42 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="combinatorialattribute">
+            <article class="content wrap" id="_content" data-uid="attribute-combinatorial">
 <h1 id="combinatorial">Combinatorial</h1>
 
-<p>The <strong>CombinatorialAttribute</strong> is used on a test to specify that NUnit should
-generate test cases for all possible combinations of the individual
-data items provided for the parameters of a test. Since this is the
-default, use of this attribute is optional.</p>
+<p><code>CombinatorialAttribute</code> is used on a test method to tell NUnit to generate test cases for all possible combinations of parameter values.</p>
+<p>This is NUnit's default combining strategy, so using this attribute is optional unless you want to be explicit.</p>
+<h2 id="usage">Usage</h2>
+<p>This is a parameterless attribute that can only be applied to test methods.</p>
+<pre><code class="lang-csharp">[Combinatorial]
+</code></pre>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example">Example</h2>
-<p>The following test will be executed six times:</p>
-<pre><code class="lang-csharp">[Test, Combinatorial]
+<p>The following test is executed six times:</p>
+<pre><code class="lang-csharp" name="CombinatorialBasic">[Test]
+[Combinatorial]
 public void MyTest(
     [Values(1, 2, 3)] int x,
     [Values(&quot;A&quot;, &quot;B&quot;)] string s)
 {
-    ...
+    Assert.That(x, Is.GreaterThan(0));
+    Assert.That(s, Is.Not.Null);
 }
 </code></pre>
 <p>MyTest is called six times, as follows:</p>
@@ -108,15 +129,17 @@ MyTest(2, &quot;B&quot;)
 MyTest(3, &quot;A&quot;)
 MyTest(3, &quot;B&quot;)
 </code></pre>
-<h2 id="limitations">Limitations</h2>
-<p>When used on a generic method the programmer must ensure that all
-possible combinations of arguments are valid. When multiple parameters
-use the same generic type (e.g.: T) this may not be possible and the
-attribute may generate invalid test cases.</p>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>When used on a generic method, ensure all combinations of generated arguments are valid.</li>
+<li>If multiple parameters share the same generic type (for example, <code>T</code>), some generated combinations may be invalid.</li>
+<li>Use <code>Sequential</code> or <code>Pairwise</code> when combinatorial generation produces too many or unsuitable combinations.</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="sequential.html">Sequential Attribute</a></li>
-<li><a href="pairwise.html">Pairwise Attribute</a></li>
+<li><a class="xref" href="sequential.html">Sequential Attribute</a></li>
+<li><a class="xref" href="pairwise.html">Pairwise Attribute</a></li>
+<li><a class="xref" href="values.html">Values Attribute</a></li>
 </ul>
 
 </article>

@@ -83,40 +83,75 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="onetimesetup-attribute">
+            <article class="content wrap" id="_content" data-uid="attribute-onetimesetup">
 <h1 id="onetimesetup">OneTimeSetUp</h1>
 
-<p>This attribute is to identify methods that are called once prior to executing any of the tests in a fixture. It may
-appear on methods of a TestFixture or a SetUpFixture.</p>
-<p>OneTimeSetUp methods may be either static or instance methods and you may define more than one of them in a fixture.
-Normally, multiple OneTimeSetUp methods are only defined at different levels of an inheritance hierarchy, as explained
-below.</p>
-<p>If a OneTimeSetUp method fails or throws an exception, none of the tests in the fixture are executed and a failure or
-error is reported.</p>
-<h2 id="example">Example</h2>
-<pre><code class="lang-csharp">namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture]
-  public class SuccessTests
-  {
-    [OneTimeSetUp]
-    public void Init()
-    { /* ... */ }
-
-    [OneTimeTearDown]
-    public void Cleanup()
-    { /* ... */ }
-
-    [Test]
-    public void Add()
-    { /* ... */ }
-  }
-}
+<p><code>OneTimeSetUpAttribute</code> marks a method that runs <strong>once</strong> before any <strong>child tests</strong> in its suite execute. Put it on a
+method inside a <a class="xref" href="testfixture.html"><code>TestFixture</code></a> or a <a class="xref" href="setupfixture.html"><code>SetUpFixture</code></a>.</p>
+<p>Normally you define multiple <code>OneTimeSetUp</code> methods across an <strong>inheritance chain</strong> (base then derived). Defining several
+on the <strong>same class</strong> is allowed, but <strong>order is undefined</strong>—avoid unless you truly do not rely on ordering.</p>
+<h2 id="static-and-instance-methods">Static and instance methods</h2>
+<p>A <code>OneTimeSetUp</code> method may be <strong>static</strong> or an <strong>instance</strong> method on the fixture type.</p>
+<p>With the default fixture life cycle (<a class="xref" href="fixturelifecycle.html"><code>LifeCycle.SingleInstance</code></a>), an <strong>instance</strong> method runs on
+the shared fixture instance created for that suite—so it can safely touch <strong>instance fields</strong> shared by every test.</p>
+<p>With <a class="xref" href="fixturelifecycle.html"><code>FixtureLifeCycle(LifeCycle.InstancePerTestCase)</code></a>, <code>OneTimeSetUp</code> <strong>must be static</strong>. It runs
+once for the fixture while each test gets its own instance; keeping it static avoids relying on fields that reset
+between tests.</p>
+<p>Methods may be <strong>async</strong> (<code>Task</code> / <code>Task&lt;T&gt;</code>): NUnit will wait for completion like other async test infrastructure.</p>
+<h2 id="test-fixture-versus-setup-fixture">Test fixture versus SetUp fixture</h2>
+<ul>
+<li><strong><code>TestFixture</code></strong> — <code>OneTimeSetUp</code> runs <strong>once before all tests declared in that fixture</strong> (including parameterized
+cases sourced from that class). Each concrete fixture class gets its own one-time setup for its subtree.</li>
+<li><strong><code>SetUpFixture</code></strong> — <code>OneTimeSetUp</code> runs <strong>once for the scope that setup fixture covers</strong> (for example several fixtures
+under the same namespace), as described in <a class="xref" href="setupfixture.html">SetUpFixture</a>. Use this pattern when costly initialization
+should run <strong>once</strong> for that whole slice of the hierarchy instead of repeating it on every concrete fixture class.</li>
+</ul>
+<p>If <code>OneTimeSetUp</code> lives on an <strong>abstract or concrete base test class</strong>, NUnit invokes it <strong>for every derived fixture
+type</strong> that inherits that hierarchy (along with setup on the descendants). When you truly need execution <strong>exactly once
+for many unrelated fixtures</strong>, prefer <strong><code>SetUpFixture</code></strong> or <strong><code>static</code></strong> initialization instead of repeating base-class
+<code>OneTimeSetUp</code> semantics.</p>
+<h2 id="failures-and-exceptions">Failures and exceptions</h2>
+<p>If <strong><code>OneTimeSetUp</code> fails</strong> — including an assertion failure (<code>Assert.*</code>) or <strong>any thrown exception</strong> — NUnit treats the
+setup as unsuccessful. Tests that would run <strong>under that suite</strong> are <strong>not executed</strong> (they are skipped as descendants of
+failed setup), and the run reports a <strong>failure</strong> or <strong>error</strong> for that setup/fixture subtree. NUnit still invokes
+<strong><code>OneTimeTearDown</code></strong> for that scope afterward (unless execution is aborted), which allows shared resources created during
+partial setup to be released; see <a class="xref" href="onetimeteardown.html">OneTimeTearDown</a>.</p>
+<h2 id="usage">Usage</h2>
+<p>This is a parameterless attribute that can only be applied to methods.</p>
+<pre><code class="lang-csharp">[OneTimeSetUp]
 </code></pre>
-<h3 id="inheritance">Inheritance</h3>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Lifecycle Methods</th>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp" name="OneTimeSetUpExample">[OneTimeSetUp]
+public void Init()
+{
+    _sharedValue = 42;
+}
+
+[Test]
+public void UsesInitializedState()
+{
+    Assert.That(_sharedValue, Is.EqualTo(42));
+}
+</code></pre><h2 id="inheritance">Inheritance</h2>
 <p>The OneTimeSetUp attribute is inherited from any base class. Therefore, if a base class has defined a OneTimeSetUp
 method, that method will be called before any methods in the derived class.</p>
 <p>You may define a OneTimeSetUp method in the base class and another in the derived class. NUnit will call base class
@@ -129,33 +164,19 @@ different name for each method; as long as both have the <code>[OneTimeSetUp]</c
 the correct order.</p>
 </div>
 <h2 id="notes">Notes</h2>
-<ul>
-<li><p>Although it is possible to define multiple <a class="xref" href="onetimesetup.html"><code>OneTimeSetUp</code></a> methods in the same class,
-you should rarely do so. Unlike methods defined in separate classes in the inheritance hierarchy, the order in which
-they are executed is not guaranteed.</p>
-</li>
-<li><p><a class="xref" href="onetimesetup.html"><code>OneTimeSetUp</code></a> methods may be async if running under .NET 4.0 or higher.</p>
-</li>
-<li><p><a class="xref" href="onetimesetup.html"><code>OneTimeSetUp</code></a> methods run in the context of the
-<a class="xref" href="testfixture.html"><code>TestFixture</code></a> or <a class="xref" href="setupfixture.html"><code>SetUpFixture</code></a>, which is separate from
-the context of any individual test cases. It's important to keep this in mind when using
-<a class="xref" href="../TestContext.html"><code>TestContext</code></a> methods and properties within the method.</p>
-</li>
-<li><p>When using <a class="xref" href="fixturelifecycle.html"><code>FixtureLifeCycle</code></a> with <code>LifeCycle.InstancePerTestCase</code>, the
-<a class="xref" href="onetimesetup.html"><code>OneTimeSetUp</code></a> method must be static and is only called once. This is required so that
-the setup method does not access instance fields or properties that are reset for every test.</p>
-</li>
-<li><p>When set on a base class the method is invoked for each fixture that inherits from this base class and its invoked for
-the base class too if its not abstract. Use <a class="xref" href="setupfixture.html"><code>SetUpFixture</code></a> if this only needs to be run
-once or put the code in a static constructor.</p>
-</li>
-</ul>
+<ol>
+<li><strong><code>TestContext</code></strong> — <code>OneTimeSetUp</code> executes in <strong>fixture / setup-fixture</strong> context, <strong>not</strong> the per-test-case context.
+Be careful when calling <a class="xref" href="../TestContext.html"><code>TestContext</code></a> APIs that assume an active test method.</li>
+<li>Multiple <code>OneTimeSetUp</code> methods in the <strong>same</strong> class run in arbitrary order unless you constrain them logically.</li>
+<li>Base-class <code>OneTimeSetUp</code> methods run <strong>before</strong> derived-class methods (see <strong>Inheritance</strong> above).</li>
+</ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="setup.html">SetUp Attribute</a></li>
-<li><a href="teardown.html">TearDown Attribute</a></li>
-<li><a href="onetimeteardown.html">OneTimeTearDown Attribute</a></li>
-<li><a href="fixturelifecycle.html">FixtureLifeCycle Attribute</a></li>
+<li><a class="xref" href="setup.html">SetUp Attribute</a></li>
+<li><a class="xref" href="teardown.html">TearDown Attribute</a></li>
+<li><a class="xref" href="onetimeteardown.html">OneTimeTearDown Attribute</a></li>
+<li><a class="xref" href="setupfixture.html">SetUpFixture Attribute</a></li>
+<li><a class="xref" href="fixturelifecycle.html">FixtureLifeCycle Attribute</a></li>
 </ul>
 
 </article>

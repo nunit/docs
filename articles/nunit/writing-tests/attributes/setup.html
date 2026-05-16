@@ -83,45 +83,63 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="setup-attribute">
+            <article class="content wrap" id="_content" data-uid="attribute-setup">
 <h1 id="setup">SetUp</h1>
 
-<p>This attribute is used inside a <a class="xref" href="testfixture.html">TestFixture</a> to provide a common set of functions that are
-performed just before each test method is called.</p>
-<p>SetUp methods may be either static or instance methods and you may define more than one of them in a fixture. Normally,
-multiple SetUp methods are only defined at different levels of an inheritance hierarchy, as explained below.</p>
-<p>If a SetUp method fails or throws an exception, the test is not executed and a failure or error is reported.</p>
+<p><code>SetUpAttribute</code> marks a method NUnit calls <strong>immediately before each</strong> <code>[Test]</code>, <code>[TestCase]</code>, <code>[Theory]</code>, etc. in the
+fixture. Use it to reset or prepare <strong>per-test</strong> instance state that should not leak between cases.</p>
+<p>The method lives on your <a class="xref" href="testfixture.html"><code>TestFixture</code></a> (or fixture base classes in the inheritance chain). Typical use is
+alongside <strong><a class="xref" href="teardown.html"><code>TearDown</code></a></strong> for symmetrical cleanup afterward.</p>
+<p>Normally you scatter <strong>multiple</strong> <code>[SetUp]</code> methods across inheritance levels (<strong>base</strong>, then <strong>derived</strong>). Declaring several
+marked methods on <strong>one class</strong> is allowed, but mutual <strong>order among them is undefined</strong> unless you constrain them logically.</p>
+<h2 id="static-and-instance-methods">Static and instance methods</h2>
+<p><code>SetUp</code> may be <strong><code>static</code></strong> or an <strong>instance</strong> method. Instance methods execute on <strong><code>context.TestObject</code></strong>, meaning the <strong>same
+fixture instance</strong> that receives the imminent test (<code>LifeCycle.SingleInstance</code>) or <strong>a freshly constructed instance</strong> before
+every test when <a class="xref" href="fixturelifecycle.html"><code>LifeCycle.InstancePerTestCase</code></a> is in effect.</p>
+<p>Prefer <strong>instance</strong> <code>SetUp</code> for fields on the test object; use <strong><code>static</code></strong> only when the preparation truly applies without a
+specific instance (be careful with shared static state under parallel runs).</p>
+<p>Methods may be <strong><code>async</code></strong> (<code>Task</code> / <code>Task&lt;T&gt;</code>); NUnit awaits them like other async test infrastructure.</p>
+<h2 id="failures-and-assumptions">Failures and assumptions</h2>
+<p>If <code>SetUp</code> throws or an assertion fails, the <strong>test method body is not run</strong>; the result reflects a <strong>setup</strong> failure
+(<code>FailureSite.SetUp</code>). <a class="xref" href="teardown.html"><code>TearDown</code></a> for that same per-test scope <strong>still runs afterwards</strong> in normal operation
+so you can release partially initialized resources—unless the run is <strong>aborted</strong> before teardown is reached.</p>
+<p>If you use <strong><code>Assume.That(...)</code></strong> in <code>SetUp</code>, a failed assumption also prevents the test body from running (treated like a
+setup outcome). Teardown behavior matches the normal path above.</p>
+<h2 id="usage">Usage</h2>
+<p>This is a parameterless attribute that can only be applied to methods.</p>
+<pre><code class="lang-csharp">[SetUp]
+</code></pre>
+<h2 id="applies-to">Applies To</h2>
+<table>
+<thead>
+<tr>
+<th>Lifecycle Methods</th>
+<th>Test Methods</th>
+<th>Test Fixtures (Classes)</th>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example">Example</h2>
-<pre><code class="lang-csharp" name="SetUpTearDownExample">[TestFixture]
-public class SetupTeardownExamples
+<pre><code class="lang-csharp" name="SetUpExample">[SetUp]
+public void Init()
 {
-    private int _counter;
+    _counter = 0;
+}
 
-    [SetUp]
-    public void Init()
-    {
-        _counter = 0;
-        Console.WriteLine(&quot;SetUp method called before each test&quot;);
-    }
-    [TearDown]
-    public void Cleanup()
-    {
-        Console.WriteLine(&quot;TearDown method called after each test&quot;);
-    }
-
-    [Test]
-    public void TestMethod1()
-    {
-        _counter++;
-        Assert.That(_counter, Is.EqualTo(1));
-    }
-
-    [Test]
-    public void TestMethod2()
-    {
-        _counter++;
-        Assert.That(_counter, Is.EqualTo(1));
-    }
+[Test]
+public void TestMethod()
+{
+    _counter++;
+    Assert.That(_counter, Is.EqualTo(1));
 }
 </code></pre><h2 id="inheritance">Inheritance</h2>
 <p>The SetUp attribute is inherited from any base class. Therefore, if a base class has defined a SetUp method, that method
@@ -136,18 +154,17 @@ for each method; as long as both have the <code>[SetUp]</code> attribute present
 </div>
 <h2 id="notes">Notes</h2>
 <ol>
-<li><p>Although it is possible to define multiple SetUp methods in the same class, you should rarely do so. Unlike methods
-defined in separate classes in the inheritance hierarchy, the order in which they are executed is not guaranteed.</p>
-</li>
-<li><p>You may specify an async method (<code>async</code> keyword in c#) if necessary, when running under .NET 4.0 or higher.</p>
-</li>
+<li><strong><code>TestContext</code></strong> — <code>SetUp</code> runs in <strong>per-test</strong> context; most <code>TestContext</code> APIs reflect the <strong>about-to-run</strong> test.</li>
+<li>Multiple <code>SetUp</code> methods on the <strong>same</strong> declaration have <strong>no guaranteed</strong> relative order.</li>
+<li>Base-class <code>SetUp</code> runs <strong>before</strong> derived-class <code>SetUp</code> (see <strong>Inheritance</strong>).</li>
 </ol>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="teardown.html">TearDown Attribute</a></li>
-<li><a href="onetimesetup.html">OneTimeSetUp Attribute</a></li>
-<li><a href="onetimeteardown.html">OneTimeTearDown Attribute</a></li>
-<li><a href="testfixture.html">testfixture attribute</a></li>
+<li><a class="xref" href="teardown.html">TearDown Attribute</a></li>
+<li><a class="xref" href="onetimesetup.html">OneTimeSetUp Attribute</a></li>
+<li><a class="xref" href="onetimeteardown.html">OneTimeTearDown Attribute</a></li>
+<li><a class="xref" href="fixturelifecycle.html">FixtureLifeCycle Attribute</a></li>
+<li><a class="xref" href="testfixture.html">TestFixture Attribute</a></li>
 </ul>
 
 </article>
