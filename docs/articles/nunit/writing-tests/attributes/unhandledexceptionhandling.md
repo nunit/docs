@@ -1,5 +1,5 @@
 ---
-uid: unhandledexceptionhandlingattribute
+uid: attribute-unhandledexceptionhandling
 ---
 
 <!-- markdownlint-disable MD028 -->
@@ -27,6 +27,12 @@ The attribute accepts an `UnhandledExceptionHandling` enum value:
 | `Error` | Unhandled exceptions cause the test to fail (default behavior) |
 | `Ignore` | Unhandled exceptions are ignored and do not affect the test result |
 | `Default` | Same as `Error` |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
 ## Basic Usage
 
@@ -154,5 +160,5 @@ When multiple levels specify the attribute, they are combined - each level's con
 
 ## See Also
 
-* [Assert.Throws](../assertions/classic-assertions/Assert.Throws.md)
-* [Assert.ThrowsAsync](../assertions/classic-assertions/Assert.ThrowsAsync.md)
+* [Assert.Throws](xref:classic-assert-throws)
+* [Assert.ThrowsAsync](xref:classic-assert-throws-async)

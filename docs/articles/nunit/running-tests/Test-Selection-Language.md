@@ -105,7 +105,7 @@ the Category property currently accomplishes the same thing as the cat keyword. 
 these properties by NUnit is considered an implementation detail and they may change in the future.
 
 We envision that most filtering by property will be based on user-defined properties, created for this purpose by
-inheriting from [Property Attribute](xref:propertyattribute). When defining a property, you should keep the limitation
+inheriting from [Property Attribute](xref:attribute-property). When defining a property, you should keep the limitation
 to string values in mind. For example, a PriorityAttribute taking values of "High", "Medium" and "Low" could be used for
 filtering, while one that took the integers 1, 2 and 3 could not.
 

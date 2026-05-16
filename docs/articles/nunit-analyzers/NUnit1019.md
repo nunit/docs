@@ -40,7 +40,7 @@ In the sample above, the source specified by `TestCaseSource` - the field `testC
 `I(Async)Enumerable` or a type that implements `I(Async)Enumerable`, instead it returns an `int`.
 
 However, sources specified by `TestCaseSource`
-[must return an `I(Async)Enumerable` or a type that implements `I(Async)Enumerable`.](xref:testcasesourceattribute).
+[must return an `I(Async)Enumerable` or a type that implements `I(Async)Enumerable`.](xref:attribute-testcasesource).
 
 ### Fix
 

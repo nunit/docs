@@ -1,5 +1,5 @@
 ---
-uid: theoryattribute
+uid: attribute-theory
 ---
 
 # Theory
@@ -16,10 +16,26 @@ Tests](xref:parameterizedtests) at first glance. However, a Theory incorporates 
 arguments and allows special processing for assumptions about that data. The key difference, though, is that theories
 make general statements and are more than just a set of examples.
 
+## Constructor
+
+```csharp
+TheoryAttribute(bool searchInDeclaringTypes = false)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `searchInDeclaringTypes` | `bool` | When `true`, datapoints are resolved on declaring types as well. Default is `false`. |
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ |
+
 ## Data for Theories
 
-The primary source of data for a **Theory** is the [Datapoint Attribute](datapoint.md) or [DatapointSource
-Attribute](datapointsource.md). NUnit will use any class members of the required types, which are annotated with one of
+The primary source of data for a **Theory** is the [Datapoint Attribute](xref:attribute-datapoint) or [DatapointSource
+Attribute](xref:attribute-datapointsource). NUnit will use any class members of the required types, which are annotated with one of
 these attributes, to provide data for each parameter of the Theory. NUnit assembles the values for individual arguments
 combinatorially to provide test cases for the theory.
 
@@ -109,6 +125,6 @@ public class TheorySampleTestsGeneric<T>
 
 ## See also
 
-* [Datapoint Attribute](datapoint.md)
-* [DatapointSource Attribute](datapointsource.md)
+* [Datapoint Attribute](xref:attribute-datapoint)
+* [DatapointSource Attribute](xref:attribute-datapointsource)
 * [Parameterized Tests](xref:parameterizedtests)

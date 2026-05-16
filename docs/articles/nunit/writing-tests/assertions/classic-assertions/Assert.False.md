@@ -1,3 +1,7 @@
+---
+uid: classic-assert-false
+---
+
 # Assert.False
 
 **Assert.False** and **Assert.IsFalse** test that the specified condition is false.

@@ -1,3 +1,7 @@
+---
+uid: classic-assert-is-instance-of
+---
+
 # Assert.IsInstanceOf
 
 **Assert.IsInstanceOf** succeeds if the object provided as an actual value is an instance of the expected type.

@@ -39,7 +39,7 @@ public class MyTestClass
 
 In the sample above, `Numbers` is not a `static` property.
 
-However, sources specified by `ValueSource` [must be `static`](xref:valuesource).
+However, sources specified by `ValueSource` [must be `static`](xref:attribute-valuesource).
 
 ### Fix
 

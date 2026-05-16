@@ -1,3 +1,7 @@
+---
+uid: classic-assert-catch-async
+---
+
 # Assert.CatchAsync
 
 **Assert.CatchAsync** is similar to [Assert.ThrowsAsync](Assert.ThrowsAsync.md) but will pass for an exception

@@ -1,3 +1,7 @@
+---
+uid: classic-assert-is-nan
+---
+
 # Assert.IsNaN
 
 **Assert.IsNaN** tests that the specified double value is NaN.

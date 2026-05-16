@@ -1,5 +1,5 @@
 ---
-uid: testassemblydirectoryresolveattribute
+uid: attribute-testassemblydirectoryresolve
 ---
 
 # TestAssemblyDirectoryResolve
@@ -31,24 +31,15 @@ Apply the attribute at the assembly level in your test project:
 
 This is typically placed in a file like `AssemblyInfo.cs` or a dedicated assembly attributes file.
 
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ❌ | ❌ | ✅ |
+
 ## Example
 
-### AssemblyInfo.cs
-
-```csharp
-using NUnit.Framework;
-
-[assembly: TestAssemblyDirectoryResolve]
-```
-
-### Or in a dedicated file (AssemblyAttributes.cs)
-
-```csharp
-using NUnit.Framework;
-
-// Enable explicit assembly directory resolution for this test assembly
-[assembly: TestAssemblyDirectoryResolve]
-```
+[!code-csharp[VerifyAttributeExists](~/snippets/Snippets.NUnit/Attributes/TestAssemblyDirectoryResolveAttributeExamples.cs#VerifyAttributeExists)]
 
 ## How It Works
 
@@ -103,5 +94,5 @@ public class PluginTests
 
 ## See Also
 
-* [NonTestAssembly Attribute](nontestassembly.md)
+* [NonTestAssembly Attribute](xref:attribute-nontestassembly)
 * [.NET Assembly Loading](https://learn.microsoft.com/en-us/dotnet/framework/deployment/how-the-runtime-locates-assemblies)

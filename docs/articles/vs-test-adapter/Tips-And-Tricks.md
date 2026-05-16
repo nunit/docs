@@ -115,7 +115,7 @@ see the [NUnit Tracelevel documentation](xref:internaltracespec)
 
 #### NumberOfTestWorkers
 
-This  setting is sent to NUnit to determine how  [parallelization](xref:parallelizableattribute) should be performed.  
+This  setting is sent to NUnit to determine how  [parallelization](xref:attribute-parallelizable) should be performed.  
 Note in particular that NUnit can either run directly or for parallel runs use queue of threads.  Set to 0, it will run
 directly, set to 1 it will use a queue with a single thread.  
 
@@ -287,7 +287,7 @@ are: `Passed`, `Failed` or `Skipped`.
 If the attribute `NonTestAssembly` is added in an assembly, it will be skipped from further testing.  If
 [RTD](https://devblogs.microsoft.com/dotnet/real-time-test-discovery/) is enabled in Visual Studio, the tests will be
 displayed, but running will skip them.  
-See explanation for the [NonTestAssembly Attribute](xref:nontestassembly), and [Issue explanation
+See explanation for the [NonTestAssembly Attribute](xref:attribute-nontestassembly), and [Issue explanation
 here](https://github.com/nunit/nunit3-vs-adapter/issues/758).
 
 (From version 3.17.0) (Default changed to true from 4.0.0)

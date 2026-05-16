@@ -1,3 +1,7 @@
+---
+uid: special-assert-ignore
+---
+
 # Assert.Ignore
 
 The **Assert.Ignore** method provides you with the ability to dynamically cause a

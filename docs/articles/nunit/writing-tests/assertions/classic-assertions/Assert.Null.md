@@ -1,3 +1,7 @@
+---
+uid: classic-assert-null
+---
+
 # Assert.Null
 
 **Assert.Null** and **Assert.IsNull** test that the specified object is null.

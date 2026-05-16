@@ -33,8 +33,8 @@ the implementation of `MaxTimeAttribute`.
 
 The following NUnit attributes implement the `IWrapSetUpTearDown` interface:
 
-* [`MaxTimeAttribute`](../writing-tests/attributes/maxtime.md)
-* [`RepeatAttribute`](../writing-tests/attributes/repeat.md)
-* [`RetryAttribute`](../writing-tests/attributes/retry.md)
+* [`MaxTimeAttribute`](xref:attribute-maxtime)
+* [`RepeatAttribute`](xref:attribute-repeat)
+* [`RetryAttribute`](xref:attribute-retry)
 
 The `IWrapTestMethod`interface is not currently used by any NUnit attributes.

@@ -1,3 +1,7 @@
+---
+uid: classic-assert-is-not-instance-of
+---
+
 # Assert.IsNotInstanceOf
 
 **Assert.IsNotInstanceOf** succeeds if the object provided as an actual value is not an instance of the expected type.

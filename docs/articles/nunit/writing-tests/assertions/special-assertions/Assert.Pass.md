@@ -1,3 +1,7 @@
+---
+uid: special-assert-pass
+---
+
 # Assert.Pass
 
 The **Assert.Pass** method allows you to immediately end the test, recording

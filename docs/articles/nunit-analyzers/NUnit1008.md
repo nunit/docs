@@ -31,7 +31,7 @@ In `AssemblyInfo.cs`:
 
 ### Explanation
 
-`ParallelScope.Self` [only applies to classes and methods](xref:parallelizableattribute),
+`ParallelScope.Self` [only applies to classes and methods](xref:attribute-parallelizable),
 not to assemblies.
 
 ### Fix

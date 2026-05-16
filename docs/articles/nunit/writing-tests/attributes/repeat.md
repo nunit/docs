@@ -1,25 +1,55 @@
+---
+uid: attribute-repeat
+---
+
 # Repeat
 
-**RepeatAttribute** is used on a test method to specify that it should be
-executed multiple times.
+`RepeatAttribute` is used on a test method to specify that it should be executed multiple times. By default, the test repeats until a failure occurs or all repetitions complete successfully.
 
-By default, the test is repeated until a failure occurs. If no failures occur, it runs for the specified number of repetitions.
+## Constructors
 
-You can change this behavior in case of a failure, so that it continues to run after the failure by setting the property `StopOnFailure` to `false`.  (From version 4.3.0)
+```csharp
+RepeatAttribute(int count)
+RepeatAttribute(int count, bool stopOnFailure)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `count` | `int` | The number of times to run the test. |
+| `stopOnFailure` | `bool` | Whether to stop repeating when a test fails. Default is `true`. |
+
+## Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `StopOnFailure` | `bool` | Whether to stop repeating when a test fails. When `false`, all repetitions run regardless of failures. | `true` |
+
+> [!NOTE]
+> The `StopOnFailure` property was added in **NUnit 4.3.0**.
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ |
 
 ## Examples
 
-### The default behavior
+### Default Behavior (Stop on Failure)
 
 [!code-csharp[RepeatDefaultAttributeExample](~/snippets/Snippets.NUnit/Attributes/RepeatAttributeExample.cs#RepeatDefaultAttributeExample)]
 
-### Run all regardless of failures
+### Continue on Failure
 
 [!code-csharp[RepeatWithFaultAttributeExample](~/snippets/Snippets.NUnit/Attributes/RepeatAttributeExample.cs#RepeatWithFaultAttributeExample)]
 
-> [!WARNING]
-> There is currently (as of 4.4.0) a [bug](https://github.com/nunit/nunit/issues/5031) which causes only the last successful console statement to be output.  Also, in case of failures, only the latest failure is shown.
-> [!NOTE]
-> If RepeatAttribute is used on a parameterized method,
-> each individual test case created for that method is repeated.
-> It is not currently possible to use RepeatAttribute on a TestFixture or any higher level suite. Only test cases may be repeated.
+## Notes
+
+1. When `StopOnFailure` is `true` (default), the test stops at the first failure.
+2. When `StopOnFailure` is `false`, all repetitions run and all failures are collected.
+3. If `RepeatAttribute` is used on a parameterized method, each individual test case is repeated.
+4. It is not currently possible to use `RepeatAttribute` on a `TestFixture` or any higher level suite. Only test methods may be repeated.
+
+## See Also
+
+* [Retry Attribute](xref:attribute-retry)

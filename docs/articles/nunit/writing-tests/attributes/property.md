@@ -1,77 +1,71 @@
 ---
-uid: propertyattribute
+uid: attribute-property
 ---
 
 # Property
 
-**PropertyAttribute** provides a generalized approach to setting named
-properties on any test case or fixture, using a name/value pair.
-In the example below, the fixture class MathTests is given a Location
-value of 723 while the test case AdditionTest is given a Severity
-of "Critical"
+`PropertyAttribute` provides a generalized approach to setting named properties on any test case or fixture, using a name/value pair. Properties can be used for test filtering, reporting, and custom test organization.
 
-## Example
+## Constructors
 
 ```csharp
-namespace NUnit.Tests
-{
-  using System;
-  using NUnit.Framework;
-
-  [TestFixture, Property("Location", 723)]
-  public class MathTests
-  {
-    [Test, Property("Severity", "Critical")]
-    public void AdditionTest()
-    { /* ... */ }
-  }
-}
+PropertyAttribute(string propertyName, string propertyValue)
+PropertyAttribute(string propertyName, int propertyValue)
+PropertyAttribute(string propertyName, double propertyValue)
 ```
 
-## Usage Note
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `propertyName` | `string` | The name of the property. |
+| `propertyValue` | `string`, `int`, or `double` | The value of the property. |
 
-The PropertyAttribute is not currently used for any purpose by NUnit itself, other
-than to display them in the XML output file and in the Test Properties
-dialog of the gui. You may also use properties with the `--where` option on the
-command-line in order to select tests to run. See [Test Selection Language](xref:testselectionlanguage). Note
-that his filtering will only work for properties where the values have type string.
+## Properties
 
-User tests may access properties through the [TestContext](xref:testcontext) or by reflection.
+| Property | Type | Description |
+|----------|------|-------------|
+| `Properties` | `IPropertyBag` | Gets the property dictionary for this attribute. |
 
-## Custom Property Attributes
+## Applies To
 
-Users can define custom attributes that derive from **PropertyAttribute**
-and have them recognized by NUnit. PropertyAttribute provides a protected constructor
-that takes the value of the property and sets the property name to the
-name of the derived class with the 'Attribute' suffix removed.
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ✅ | ✅ | ✅ |
 
-Here's an example that creates a Severity property. It works
-just like any other property, but has a simpler syntax and is type-safe.
-A custom test reporting system might make use of the property to provide special reports.
+> [!NOTE]
+> When applied to a fixture or assembly, the property is applied to all tests contained within that fixture or assembly.
 
-```csharp
-public enum SeverityLevel
-{
-    Critical,
-    Major,
-    Normal,
-    Minor
-}
+Multiple `PropertyAttribute` instances can be applied to the same element (`AllowMultiple = true`).
 
-[AttributeUsage(AttributeTargets.Method, AllowMultiple=false)]
-public class SeverityAttribute : PropertyAttribute
-{
-    public SeverityAttribute(SeverityLevel level)
-      : base(level.ToString()) {}
-}
+## Examples
 
-...
+### Basic Usage
 
-[Test, Severity(SeverityLevel.Critical)]
-public void MyTest()
-{ /*...*/ }
-```
+[!code-csharp[BasicProperty](~/snippets/Snippets.NUnit/Attributes/PropertyAttributeExamples.cs#BasicProperty)]
 
-A PropertyAttribute may contain
-multiple name/value pairs. This capability is not exposed publicly
-but may be used by derived property classes.
+### Different Property Value Types
+
+[!code-csharp[PropertyTypes](~/snippets/Snippets.NUnit/Attributes/PropertyAttributeExamples.cs#PropertyTypes)]
+
+### Accessing Properties in Tests
+
+[!code-csharp[AccessingProperties](~/snippets/Snippets.NUnit/Attributes/PropertyAttributeExamples.cs#AccessingProperties)]
+
+### Custom Property Attributes
+
+You can define custom attributes that derive from `PropertyAttribute` for type-safe, domain-specific properties:
+
+[!code-csharp[CustomPropertyAttribute](~/snippets/Snippets.NUnit/Attributes/PropertyAttributeExamples.cs#CustomPropertyAttribute)]
+
+## Notes
+
+1. `PropertyAttribute` is not used by NUnit itself for test execution. Properties are displayed in XML output and the Test Properties dialog.
+2. You can use properties with the `--where` option on the command-line to select tests to run. See [Test Selection Language](xref:testselectionlanguage). Filtering only works for properties with `string` values.
+3. Tests can access properties through [TestContext](xref:testcontext) using `TestContext.CurrentContext.Test.Properties`.
+4. When creating custom property attributes, the property name is derived from the class name with the "Attribute" suffix removed (e.g., `SeverityAttribute` becomes property name `"Severity"`).
+
+## See Also
+
+* [TestContext](xref:testcontext)
+* [Test Selection Language](xref:testselectionlanguage)
+* [Category Attribute](xref:attribute-category)
+* [Description Attribute](xref:attribute-description)

@@ -1,3 +1,7 @@
+---
+uid: classic-assert-true
+---
+
 # Assert.True
 
 **Assert.True** and **Assert.IsTrue** test that the specified condition is true.

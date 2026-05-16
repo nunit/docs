@@ -1,3 +1,7 @@
+---
+uid: classic-assert-less-or-equal
+---
+
 # Assert.LessOrEqual
 
 **Assert.LessOrEqual** tests whether one object is less than or equal to another.

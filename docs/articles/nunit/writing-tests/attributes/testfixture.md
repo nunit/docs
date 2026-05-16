@@ -1,10 +1,27 @@
 ---
-uid: testfixtureattribute
+uid: attribute-testfixture
 ---
 
 # TestFixture
 
 This is the attribute that marks a class that contains tests and, optionally, setup or teardown methods.
+
+## Constructors
+
+```csharp
+TestFixtureAttribute()
+TestFixtureAttribute(params object?[]? arguments)
+```
+
+The `arguments` overload supplies constructor arguments and/or leading `System.Type` values used as generic type
+arguments for the fixture. Named parameters on the attribute (such as **Ignore**, **Category**, **TypeArgs**) are covered
+below.
+
+## Applies To
+
+| Test Methods | Test Fixtures (Classes) | Assembly |
+|--------------|--------------------------|----------|
+| ❌ | ✅ | ❌ |
 
 Most restrictions on a class that is used as a test fixture have now been eliminated. A test fixture class:
 

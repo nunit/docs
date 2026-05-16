@@ -1,68 +1,95 @@
 ---
-uid: randomattribute
+uid: attribute-random
 ---
 
 # Random
 
-The **RandomAttribute** is used to specify a set of random values to be provided for an individual numeric parameter, or
-`Guid` of a parameterized test method. Since NUnit combines the data provided for each parameter into a set of test
-cases, data must be provided for all parameters if it is provided for any of them.
+`RandomAttribute` is used to specify a set of random values to be provided for an individual parameter of a parameterized test method. It supports numeric types, `Guid`, and enums.
 
-By default, NUnit creates test cases from all possible combinations of the datapoints provided on parameters - the
-combinatorial approach. This default may be modified by use of specific attributes on the test method itself.
+## Constructors
 
-RandomAttribute supports the following constructors:
+### Count Only (Auto-detect Type)
 
 ```csharp
-public Random(int count);
-public Random(int min, int max, int count);
-public Random(uint min, uint max, int count);
-public Random(long min, long max, int count);
-public Random(ulong min, ulong max, int count);
-public Random(short min, short max, int count);
-public Random(ushort min, ushort max, int count);
-public Random(byte min, byte max, int count);
-public Random(sbyte min, sbyte max, int count);
-public Random(double min, double max, int count);
-public Random(float min, float max, int count);
+RandomAttribute(int count)
 ```
 
-In the first form, without minimum and maximum values, the attribute automatically generates values of the appropriate
-numeric Type or `Guid` for the argument provided, using the `Randomizer` object associated with the current context. See
-[Randomizer Methods](xref:randomizermethods) for details.
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `count` | `int` | The number of random values to generate. The type is inferred from the parameter. |
 
-In general, the forms that specify a minimum and maximum should be used on arguments of the same type. However, the
-following exceptions are supported:
-
-* You may use an int range on arguments of type short, ushort, byte, sbyte and decimal.
-
-* You may use a double range on arguments of type decimal.
-
-Note that there is no constructor taking decimal values for min and max. This is because .NET does not support use of
-decimal in an attribute constructor.
-
-> [!NOTE]
-> `Guid` support for `RandomAttribute` is available from version 4.0 onwards.
-
-## Example
-
-The following test will be executed fifteen times, three times for each value of x, each combined with 5 random doubles
-from -1.0 to +1.0.
+### With Range (Type-specific)
 
 ```csharp
-[Test]
-public void MyTest(
-    [Values(1, 2, 3)] int x,
-    [Random(-1.0, 1.0, 5)] double d)
-{
-    ...
-}
+RandomAttribute(int min, int max, int count)
+RandomAttribute(double min, double max, int count)
+// Also available for: uint, long, ulong, short, ushort, byte, sbyte, float
 ```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `min` | varies | The minimum value (inclusive). |
+| `max` | varies | The maximum value (exclusive). |
+| `count` | `int` | The number of random values to generate. |
+
+## Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `Distinct` | `bool` | When `true`, no value will be repeated among the generated values. | `false` |
+
+## Applies To
+
+| Method Parameters | Test Methods | Test Fixtures (Classes) | Assembly |
+|-------------------|--------------|--------------------------|----------|
+| ✅ | ❌ | ❌ | ❌ |
+
+## Supported Types
+
+| Type | Count-only | With Range |
+|------|------------|------------|
+| `int`, `uint`, `long`, `ulong` | Yes | Yes |
+| `short`, `ushort`, `byte`, `sbyte` | Yes | Yes |
+| `double`, `float` | Yes | Yes |
+| `decimal` | Yes | No (use `int` or `double` range) |
+| `Guid` | Yes | No |
+| `enum` | Yes | No |
+
+## Examples
+
+### Basic Usage
+
+[!code-csharp[RandomBasic](~/snippets/Snippets.NUnit/Attributes/RandomAttributeExamples.cs#RandomBasic)]
+
+### With Range
+
+[!code-csharp[RandomWithRange](~/snippets/Snippets.NUnit/Attributes/RandomAttributeExamples.cs#RandomWithRange)]
+
+### Distinct Values
+
+[!code-csharp[RandomDistinct](~/snippets/Snippets.NUnit/Attributes/RandomAttributeExamples.cs#RandomDistinct)]
+
+### Random GUIDs
+
+[!code-csharp[RandomGuid](~/snippets/Snippets.NUnit/Attributes/RandomAttributeExamples.cs#RandomGuid)]
+
+### Combined with Other Attributes
+
+[!code-csharp[RandomCombined](~/snippets/Snippets.NUnit/Attributes/RandomAttributeExamples.cs#RandomCombined)]
+
+## Notes
+
+1. By default, NUnit creates test cases from all combinations of parameter values (combinatorial). Use `[Sequential]` to pair values in order instead.
+2. There is no constructor for `decimal` min/max because .NET does not support decimal in attribute constructors. Use an `int` or `double` range instead - values will be converted.
+3. `Guid` does not support min/max ranges - only the count-only constructor works.
+4. When using `Distinct = true`, ensure the range is large enough to provide the requested number of distinct values.
+5. `Guid` support was added in **NUnit 4.0**.
 
 ## See Also
 
-* [Values Attribute](values.md)
-* [Range Attribute](range.md)
-* [Sequential Attribute](sequential.md)
-* [Combinatorial Attribute](combinatorial.md)
-* [Pairwise Attribute](pairwise.md)
+* [Values Attribute](xref:attribute-values)
+* [Range Attribute](xref:attribute-range)
+* [Sequential Attribute](xref:attribute-sequential)
+* [Combinatorial Attribute](xref:attribute-combinatorial)
+* [Pairwise Attribute](xref:attribute-pairwise)
+* [Randomizer Methods](xref:randomizermethods)

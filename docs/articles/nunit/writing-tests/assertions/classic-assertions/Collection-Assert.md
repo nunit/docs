@@ -1,3 +1,7 @@
+---
+uid: classic-collection-assert
+---
+
 # CollectionAssert
 
 The CollectionAssert class provides a number of methods that are useful when examining collections and their contents or

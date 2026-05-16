@@ -1,3 +1,7 @@
+---
+uid: classic-assert-catch
+---
+
 # Assert.Catch
 
 **Assert.Catch** is similar to **Assert.Throws** but will pass for an exception
