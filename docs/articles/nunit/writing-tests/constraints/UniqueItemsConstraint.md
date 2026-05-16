@@ -1,15 +1,12 @@
+---
+uid: constraint-uniqueitems
+---
+
 # UniqueItems Constraint
 
-**UniqueItemsConstraint** tests that an array, collection or other IEnumerable is composed
-of unique items with no duplicates.
+`UniqueItemsConstraint` tests that an `IEnumerable` contains no duplicate items.
 
-## Constructor
-
-```csharp
-UniqueItemsConstraint()
-```
-
-## Syntax
+## Usage
 
 ```csharp
 Is.Unique
@@ -18,23 +15,27 @@ Is.Unique
 ## Modifiers
 
 ```csharp
-...IgnoreCase
-...IgnoreWhiteSpace  // From version 4.2
-...Using(IEqualityComparer comparer)
-...Using(IComparer comparer)
-...Using<T>(IEqualityComparer<T> comparer)
-...Using<T>(IComparer<T> comparer)
-...Using<T>(Comparison<T> comparer)
-...Using<T>(Func<T, T, bool> comparer)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func<PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration> configure) // From version 4.4
+.IgnoreCase
+.IgnoreWhiteSpace              // NUnit 4.2+
+.Using(IComparer comparer)
+.Using(IEqualityComparer comparer)
+.Using<T>(IComparer<T> comparer)
+.Using<T>(IEqualityComparer<T> comparer)
+.Using<T>(Comparison<T> comparer)
+.Using<T>(Func<T, T, bool> comparer)
+.UsingPropertiesComparer()     // NUnit 4.1+
 ```
 
-## Example of Use
+## Examples
 
-```csharp
-int[] iarray = new int[] { 1, 2, 3 };
-Assert.That(iarray, Is.Unique);
-```
+[!code-csharp[UniqueItemsConstraintExamples](~/snippets/Snippets.NUnit/Constraints/CollectionConstraintSnippets.cs#UniqueItemsConstraintExamples)]
+
+## Notes
+
+1. An empty collection is considered unique (no duplicates possible).
+2. Duplicates are determined using the default equality comparer unless a custom comparer is specified.
+
+## See Also
+
+* [CollectionEquivalent Constraint](CollectionEquivalentConstraint.md) - Test collection equivalence
+* [AllItems Constraint](AllItemsConstraint.md) - Test all items against a constraint

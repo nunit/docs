@@ -1,50 +1,42 @@
+---
+uid: constraint-dictionarycontainsvalue
+---
+
 # DictionaryContainsValue Constraint
 
-`DictionaryContainsValueConstraint` is used to test whether a dictionary
-contains an expected object as a value.
+`DictionaryContainsValueConstraint` tests whether a dictionary contains an expected value.
 
-## Constructor
-
-```csharp
-DictionaryContainsValueConstraint(object)
-```
-
-## Syntax
+## Usage
 
 ```csharp
-Contains.Value(object)
-Does.ContainValue(object)
-Does.Not.ContainValue(object)
+Contains.Value(object expectedValue)
+Does.ContainValue(object expectedValue)
+Does.Not.ContainValue(object expectedValue)
 ```
 
 ## Modifiers
 
 ```csharp
-...Using(IComparer comparer)
-...Using(IEqualityComparer comparer)
-...Using<T>(IComparer<T> comparer)
-...Using<T>(Comparison<T> comparer)
-...Using<T>(Func<T, T, bool> comparer)
-...Using<T>(IEqualityComparer<T> comparer)
-...Using<TActualValueElement, TExpected>(Func<TActualValueElement, TExpected, bool> comparison)
-...UsingPropertiesComparer()  // From version 4.1
-...UsingPropertiesComparer(
-      Func<PropertiesComparerConfiguration,
-           PropertiesComparerConfiguration> configure) // From version 4.4
+.IgnoreCase
+.Using(IComparer comparer)
+.Using(IEqualityComparer comparer)
+.Using<T>(IComparer<T> comparer)
+.Using<T>(IEqualityComparer<T> comparer)
+.Using<T>(Comparison<T> comparer)
+.Using<T>(Func<T, T, bool> comparer)
+.UsingPropertiesComparer()     // NUnit 4.1+
 ```
 
-## Examples of Use
+## Examples
 
-```csharp
-IDictionary<int, int> idict = new IDictionary<int, int> { { 1, 4 }, { 2, 5 } };
+[!code-csharp[DictionaryContainsValueConstraintExamples](~/snippets/Snippets.NUnit/Constraints/DictionaryConstraintSnippets.cs#DictionaryContainsValueConstraintExamples)]
 
-Assert.That(idict, Contains.Value(4));
-Assert.That(idict, Does.ContainValue(5));
-Assert.That(idict, Does.Not.ContainValue(3));
-Assert.That(mydict, Contains.Value(myOwnObject).Using(myComparer));
-```
+## Notes
 
-## See also
+1. Unlike key comparison, value comparison can use NUnit's comparison modifiers.
+2. The constraint checks if any value in the dictionary matches.
 
-* [DictionaryContainsKeyConstraint](DictionaryContainsKeyConstraint.md)
-* [DictionaryContainsKeyValuePairConstraint.md](DictionaryContainsKeyValuePairConstraint.md)
+## See Also
+
+* [DictionaryContainsKey Constraint](DictionaryContainsKeyConstraint.md)
+* [DictionaryContainsKeyValuePair Constraint](DictionaryContainsKeyValuePairConstraint.md)

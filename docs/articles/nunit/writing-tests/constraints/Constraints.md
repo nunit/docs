@@ -9,6 +9,11 @@ This page lists all the constraints available in NUnit.
 * [Alphabetical List of Constraints](#alphabetical-list-of-constraints)
 * [Constraints by Category](#constraints-by-category)
 
+For additional topics, see:
+
+* [Async Constraint Support](AsyncConstraints.md) - Using constraints with async code
+* [Contains Helper](ContainsHelper.md) - The Contains.* syntax helper
+
 ## Alphabetical List of Constraints
 
 Constraint Name                      |
@@ -25,6 +30,8 @@ Constraint Name                      |
 [CollectionOrderedConstraint](CollectionOrderedConstraint.md)      |
 [CollectionSubsetConstraint](CollectionSubsetConstraint.md)       |
 [CollectionSupersetConstraint](CollectionSupersetConstraint.md)     |
+[ContainsConstraint](ContainsConstraint.md)               |
+[DefaultConstraint](DefaultConstraint.md)                |
 [DelayedConstraint](DelayedConstraint.md)                |
 [DictionaryContainsKeyConstraint](DictionaryContainsKeyConstraint.md)  |
 [DictionaryContainsKeyValuePairConstraint](DictionaryContainsKeyValuePairConstraint.md)  |
@@ -44,6 +51,7 @@ Constraint Name                      |
 [InstanceOfTypeConstraint](InstanceOfTypeConstraint.md)         |
 [LessThanConstraint](LessThanConstraint.md)               |
 [LessThanOrEqualConstraint](LessThanOrEqualConstraint.md)        |
+[MultipleOfConstraint](MultipleOfConstraint.md)             |
 [NaNConstraint](NaNConstraint.md)                    |
 [NoItemConstraint](NoItemConstraint.md)                 |
 [NotConstraint](NotConstraint.md)                    |
@@ -97,6 +105,7 @@ Constraint Name                      |
 [GreaterThanOrEqualConstraint](GreaterThanOrEqualConstraint.md)     |
 [LessThanConstraint](LessThanConstraint.md)               |
 [LessThanOrEqualConstraint](LessThanOrEqualConstraint.md)        |
+[MultipleOfConstraint](MultipleOfConstraint.md)             |
 [RangeConstraint](RangeConstraint.md)                  |
 
 ### Compound Constraints
@@ -111,6 +120,7 @@ Constraint Name                      |
 
 Constraint Name                      |
 -------------------------------------|
+[DefaultConstraint](DefaultConstraint.md)                |
 [EmptyConstraint](EmptyConstraint.md)                  |
 [FalseConstraint](FalseConstraint.md)                  |
 [NaNConstraint](NaNConstraint.md)                    |
@@ -132,6 +142,7 @@ Constraint Name                      |
 
 Constraint Name                      |
 -------------------------------------|
+[ContainsConstraint](ContainsConstraint.md)               |
 [EmptyStringConstraint](EmptyStringConstraint.md)            |
 [EndsWithConstraint](EndsWithConstraint.md)               |
 [RegexConstraint](RegexConstraint.md)                  |

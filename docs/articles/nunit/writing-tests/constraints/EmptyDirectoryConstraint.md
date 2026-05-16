@@ -1,26 +1,29 @@
+---
+uid: constraint-emptydirectory
+---
+
 # EmptyDirectory Constraint
 
-The `EmptyDirectoryConstraint` tests if a Directory is empty.
+`EmptyDirectoryConstraint` tests that a directory contains no files or subdirectories.
 
-## Constructor
-
-```csharp
-EmptyDirectoryConstraint()
-```
-
-## Syntax
+## Usage
 
 ```csharp
 Is.Empty
+Is.Not.Empty
 ```
 
-## Examples of Use
+## Examples
 
-```csharp
-Assert.That(new DirectoryInfo(actual), Is.Empty);
-Assert.That(new DirectoryInfo(actual), Is.Not.Empty);
-```
+[!code-csharp[EmptyDirectoryConstraintExamples](~/snippets/Snippets.NUnit/Constraints/SpecialConstraintSnippets.cs#EmptyDirectoryConstraintExamples)]
 
-> [!NOTE]
-> `Is.Empty` actually creates an `EmptyConstraint`. Subsequently applying it to a `DirectoryInfo` causes an
-> `EmptyDirectoryConstraint` to be created.
+## Notes
+
+1. `Is.Empty` is a polymorphic constraint that works on strings, collections, and directories.
+2. When applied to a `DirectoryInfo`, it checks for both files and subdirectories.
+3. The directory must exist - passing a non-existent directory throws an exception.
+
+## See Also
+
+* [Empty Constraint](EmptyConstraint.md) - Polymorphic empty constraint
+* [FileOrDirectoryExists Constraint](FileOrDirectoryExistsConstraint.md) - Test existence

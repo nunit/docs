@@ -1,3 +1,7 @@
+---
+uid: constraint-samepath
+---
+
 # SamePath Constraint
 
 `SamePathConstraint` tests that two paths are equivalent.
@@ -23,13 +27,7 @@ Is.SamePath(string expectedPath)
 
 ## Examples of Use
 
-```csharp
-Assert.That("/folder1/./junk/../folder2", Is.SamePath("/folder1/folder2"));
-Assert.That("/folder1/./junk/../folder2/x", Is.Not.SamePath("/folder1/folder2"));
-
-Assert.That(@"C:\folder1\folder2", Is.SamePath(@"C:\Folder1\Folder2").IgnoreCase);
-Assert.That("/folder1/folder2", Is.Not.SamePath("/Folder1/Folder2").RespectCase);
-```
+[!code-csharp[SamePathConstraintExamples](~/snippets/Snippets.NUnit/Constraints/PathConstraintSnippets.cs#SamePathConstraintExamples)]
 
 ## Notes
 

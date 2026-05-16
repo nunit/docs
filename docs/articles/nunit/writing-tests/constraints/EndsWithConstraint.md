@@ -1,36 +1,29 @@
+---
+uid: constraint-endswith
+---
+
 # EndsWith Constraint
 
-`EndsWithConstraint` tests for an ending string.
+`EndsWithConstraint` tests that a string ends with the expected substring.
 
-## Constructor
-
-```csharp
-EndsWithConstraint(string expected)
-```
-
-## Syntax
+## Usage
 
 ```csharp
 Does.EndWith(string expected)
-EndsWith(string expected)
+Does.Not.EndWith(string expected)
 ```
 
 ## Modifiers
 
 ```csharp
-...IgnoreCase
-...Using(StringComparison comparisonType)
-...Using(CultureInfo culture)
+.IgnoreCase
+.Using(StringComparison comparisonType)
+.Using(CultureInfo culture)
 ```
 
-## Examples of Use
+## Examples
 
-```csharp
-string phrase = "Make your tests fail before passing!";
-
-Assert.That(phrase, Does.EndWith("!"));
-Assert.That(phrase, Does.EndWith("PASSING!").IgnoreCase);
-```
+[!code-csharp[EndsWithConstraintExamples](~/snippets/Snippets.NUnit/Constraints/StringConstraintSnippets.cs#EndsWithConstraintExamples)]
 
 ### Specifying a StringComparison
 
@@ -54,6 +47,11 @@ Assert.That("Main Straße", Does.EndWith("Straße").Using(new CultureInfo("de-DE
 
 ## Notes
 
-1. **EndsWith** may appear only in the body of a constraint expression or when the inherited syntax is used.
-2. Only one `Using` modifier may be specified. Attempting to use multiple `Using` modifiers
-   will throw an `InvalidOperationException`.
+1. Only one `Using` modifier may be specified. Attempting to use multiple `Using` modifiers will throw an
+   `InvalidOperationException`.
+
+## See Also
+
+* [StartsWith Constraint](StartsWithConstraint.md)
+* [Substring Constraint](SubstringConstraint.md)
+* [Regex Constraint](RegexConstraint.md)

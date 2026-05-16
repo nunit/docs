@@ -1,20 +1,29 @@
+---
+uid: constraint-exacttype
+---
+
 # ExactType Constraint
 
-`ExactTypeConstraint` tests that an object is an exact Type.
+`ExactTypeConstraint` tests that an object is exactly the specified type, not a derived type.
 
-## Constructor
-
-```csharp
-ExactTypeConstraint(Type)
-```
-
-## Syntax
+## Usage
 
 ```csharp
-Is.TypeOf(Type)
+Is.TypeOf(Type expectedType)
 Is.TypeOf<T>()
 ```
 
-## Examples of Use
+## Examples
 
-[!code-csharp[TypeConstraintExamples](~/snippets/Snippets.NUnit/ConstraintExamples.cs#TypeConstraintExamples)]
+[!code-csharp[ExactTypeConstraintExamples](~/snippets/Snippets.NUnit/Constraints/TypeConstraintSnippets.cs#ExactTypeConstraintExamples)]
+
+## Notes
+
+1. `Is.TypeOf<T>()` checks that `actual.GetType() == typeof(T)`.
+2. For inheritance-aware type checking (like C# `is`), use [InstanceOfTypeConstraint](InstanceOfTypeConstraint.md).
+3. `null` values throw an exception since they have no type.
+
+## See Also
+
+* [InstanceOfType Constraint](InstanceOfTypeConstraint.md) - Inheritance-aware type checking
+* [AssignableTo Constraint](AssignableToConstraint.md) - Type assignability check

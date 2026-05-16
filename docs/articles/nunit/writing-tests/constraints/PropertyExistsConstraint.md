@@ -1,25 +1,27 @@
+---
+uid: constraint-propertyexists
+---
+
 # PropertyExists Constraint
 
-The `PropertyExistsConstraint` tests for the existence of a named property on an object.
+`PropertyExistsConstraint` tests for the existence of a named property on an object.
 
-## Constructor
-
-```csharp
-PropertyExistsConstraint(string name)
-```
-
-## Syntax
+## Usage
 
 ```csharp
-Has.Property(string)
+Has.Property(string propertyName)
 ```
 
-## Examples of Use
+## Examples
 
-```csharp
-Assert.That(someObject, Has.Property("Version"));
-```
+[!code-csharp[PropertyExistsConstraintExamples](~/snippets/Snippets.NUnit/Constraints/SpecialConstraintSnippets.cs#PropertyExistsConstraintExamples)]
 
-## See also
+## Notes
 
-* [PropertyConstraint](PropertyConstraint.md)
+1. When no constraint is chained after `Has.Property()`, it creates a `PropertyExistsConstraint`.
+2. When a constraint follows (e.g., `.EqualTo(5)`), it becomes a [PropertyConstraint](PropertyConstraint.md).
+3. The property must be public and readable.
+
+## See Also
+
+* [Property Constraint](PropertyConstraint.md) - Test property values

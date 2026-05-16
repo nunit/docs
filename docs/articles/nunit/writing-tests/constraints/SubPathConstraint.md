@@ -1,3 +1,7 @@
+---
+uid: constraint-subpath
+---
+
 # SubPath Constraint
 
 `SubPathConstraint` tests that one path is under another path.
@@ -23,13 +27,7 @@ Is.SubPathOf(string expectedPath)
 
 ## Examples of Use
 
-```csharp
-Assert.That("/folder1/./junk/../folder2", Is.SubPathOf("/folder1/"));
-Assert.That("/folder1/junk/folder2", Is.Not.SubPathOf("/folder1/folder2"));
-
-Assert.That(@"C:\folder1\folder2\Folder3", Is.SubPathOf(@"C:\Folder1\Folder2").IgnoreCase);
-Assert.That("/folder1/folder2/folder3", Is.Not.SubPathOf("/Folder1/Folder2/Folder3").RespectCase);
-```
+[!code-csharp[SubPathConstraintExamples](~/snippets/Snippets.NUnit/Constraints/PathConstraintSnippets.cs#SubPathConstraintExamples)]
 
 ## Notes
 
