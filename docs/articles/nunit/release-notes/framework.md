@@ -7,9 +7,9 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
-## ## NUnit 4.6.1 - May 18, 2026
+## NUnit 4.6.1 - May 18, 2026
 
-This is a hotfix relkease for two regression bugs.
+This is a hotfix release for two regression bugs.
 
 ### Bug fixes
 
