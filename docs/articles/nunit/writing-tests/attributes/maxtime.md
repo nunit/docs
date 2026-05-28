@@ -22,7 +22,7 @@ MaxTimeAttribute(int milliseconds)
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `WarningTime` | `int` | An optional warning threshold in milliseconds. If the test takes longer than this time but less than the maximum time, the test result is set to `Warning`. A value of `0` (the default) disables the warning threshold. (**NUnit 5**) |
+| `WarningTime` | `int` | An optional warning threshold in milliseconds. If the test takes longer than this time but less than the maximum time, the test result is set to `Warning`. A value of `0` (the default) disables the warning threshold. (**NUnit 5+**) |
 
 ## Applies To
 
@@ -51,7 +51,7 @@ MaxTimeAttribute(int milliseconds)
 3. For tests that need to be cancelled when they exceed a time limit, use [CancelAfter Attribute](xref:attribute-cancelafter) instead.
 4. The timing includes the test method execution only, not `SetUp` or `TearDown` methods.
 5. The [Timeout Attribute](xref:attribute-timeout) uses `Thread.Abort` and only works on .NET Framework.
-6. The optional `WarningTime` named parameter (added in **NUnit 5**) sets a soft threshold: if the test exceeds it but still passes within the maximum time, the result is `Warning` rather than `Failure`.
+6. The optional `WarningTime` named parameter (added in **NUnit 5+**) sets a soft threshold: if the test exceeds it but still passes within the maximum time, the result is `Warning` rather than `Failure`.
 
 ## See Also
 

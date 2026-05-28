@@ -61,12 +61,8 @@ namespace Snippets.NUnit.Attributes
             {
                 // Test passes if it completes within 1000ms.
                 // If it takes more than 200ms but less than 1000ms, the result is Warning.
-                PerformOperation();
-            }
-
-            private void PerformOperation()
-            {
-                // Simulate an operation
+                int delay = Random.Shared.Next(100, 1500);
+                Thread.Sleep(delay);
             }
         }
         #endregion
