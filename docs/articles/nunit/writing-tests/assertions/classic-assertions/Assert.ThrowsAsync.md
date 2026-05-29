@@ -32,7 +32,7 @@ This example shows use of the return value to perform additional verification of
 
 [!code-csharp[AssertThrowsAsync](~/snippets/Snippets.NUnit/AssertThrowsAsync.cs#UsingReturnValue)]
 
-## Behavior in NUnit 4 and earlier
+## NUnit 4 and earlier
 
 In NUnit 4 and earlier this assertion would not need to be awaited and would return the `Exception` or `TActual` instance directly. The callback to invoke would also be passed as an `AsyncTestDelegate` instead of a `Func<Task>`. These behaviors were both changed in NUnit 5 to better align the API with
 modern .NET standards and conventions.
