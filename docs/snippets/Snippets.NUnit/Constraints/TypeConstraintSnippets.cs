@@ -25,7 +25,7 @@ public class TypeConstraintSnippets
 
         // Negative tests
         Assert.That("Hello", Is.Not.InstanceOf<int>());
-        Assert.That(null, Is.Not.InstanceOf<string>());        // null is not an instance of any type
+        Assert.That((string?)null, Is.Not.InstanceOf<string>());        // null is not an instance of any type
     }
     #endregion
 
