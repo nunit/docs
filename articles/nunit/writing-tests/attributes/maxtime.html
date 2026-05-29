@@ -107,6 +107,23 @@
 </tr>
 </tbody>
 </table>
+<h2 id="named-parameters">Named Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WarningTime</code></td>
+<td><code>int</code></td>
+<td>An optional warning threshold in milliseconds. If the test takes longer than this time but less than the maximum time, the test result is set to <code>Warning</code>. A value of <code>0</code> (the default) disables the warning threshold. (<strong>NUnit 5+</strong>)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="applies-to">Applies To</h2>
 <table>
 <thead>
@@ -167,6 +184,19 @@ public class MaxTimeVsAssertionTests
         Assert.That(result, Is.EqualTo(4));
     }
 }
+</code></pre><h3 id="warning-threshold">Warning Threshold</h3>
+<pre><code class="lang-csharp" name="MaxTimeWarningThreshold">[TestFixture]
+public class MaxTimeWarningThresholdTests
+{
+    [Test]
+    [MaxTime(1000, WarningTime = 200)]
+    public void OperationWithWarningThreshold()
+    {
+        // Test passes if it completes within 1000ms.
+        // If it takes more than 200ms but less than 1000ms, the result is Warning.
+        Thread.Sleep(201);
+    }
+}
 </code></pre><h2 id="notes">Notes</h2>
 <ol>
 <li>Any assertion failures take precedence over the elapsed time check. If a test both fails an assertion and exceeds the time limit, the assertion failure is reported.</li>
@@ -174,6 +204,7 @@ public class MaxTimeVsAssertionTests
 <li>For tests that need to be cancelled when they exceed a time limit, use <a class="xref" href="cancelafter.html">CancelAfter Attribute</a> instead.</li>
 <li>The timing includes the test method execution only, not <code>SetUp</code> or <code>TearDown</code> methods.</li>
 <li>The <a class="xref" href="timeout.html">Timeout Attribute</a> uses <code>Thread.Abort</code> and only works on .NET Framework.</li>
+<li>The optional <code>WarningTime</code> named parameter (added in <strong>NUnit 5+</strong>) sets a soft threshold: if the test exceeds it but still passes within the maximum time, the result is <code>Warning</code> rather than <code>Failure</code>.</li>
 </ol>
 <h2 id="see-also">See Also</h2>
 <ul>
