@@ -21,6 +21,7 @@ Certain NUnit Test Adapter settings are configurable using a .runsettings file. 
 | PrivateBinPath                                                        | string | directory1;directory2;etc                                                     | ?                             |
 | RandomSeed                                                            | int    | seed integer                                                                  | random                        |
 | DefaultTimeout                                                        | int    | timeout in mS, 0 means infinite. Not for .net >5.0, error with NUnit 4.5.0    | 0                             |
+| [DefaultMaxTime](#defaultmaxtime)                                     | int    | Default maximum time in mS for a test. A test exceeding this time will fail. 0 means no limit.    | 0                             |
 | [DefaultTestNamePattern](#defaulttestnamepattern)                     | string | Pattern for display name                                                      | {m}{a}                        |
 | [WorkDirectory](#workdirectory)                                       | string | specify directory                                                             | Test assembly location        |
 | [TestOutputXml](#testoutputxml)                                       | string | specify directory                                                             | Test Result Xml output folder |
@@ -407,6 +408,13 @@ load the assemblies into the default assembly loading context.  This is mandator
 If set to `false`, the engine will load assemblies based on its own algorithm, also taking isolation into account.
 
 (From version 6.1)
+
+#### DefaultMaxTime
+
+Sets the default maximum time in milliseconds for all tests. If a test exceeds this time, it will be marked as failed.
+A value of 0 means no limit is applied. This corresponds to the NUnit [MaxTime attribute](xref:attribute-maxtime) being applied globally to all tests.
+
+(From version 6.3)
 
 ---
 
