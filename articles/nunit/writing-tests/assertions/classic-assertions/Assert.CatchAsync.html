@@ -86,8 +86,22 @@
             <article class="content wrap" id="_content" data-uid="classic-assert-catch-async">
 <h1 id="assertcatchasync">Assert.CatchAsync</h1>
 
-<p><strong>Assert.CatchAsync</strong> is similar to <a href="Assert.ThrowsAsync.html">Assert.ThrowsAsync</a> but will pass for an exception
-that is derived from the one specified.</p>
+<p><strong>Assert.CatchAsync</strong> is similar to <a href="Assert.ThrowsAsync.html">Assert.ThrowsAsync</a> but will pass for an exception that is derived from the one specified.</p>
+<pre><code class="lang-csharp">Task&lt;Exception&gt; Assert.CatchAsync(Func&lt;Task&gt; asyncCode);
+Task&lt;Exception&gt; Assert.CatchAsync(Func&lt;Task&gt; asyncCode,
+                            string message, params object[] params);
+
+Task&lt;Exception&gt; Assert.CatchAsync(Type expectedExceptionType, Func&lt;Task&gt; asyncCode);
+Task&lt;Exception&gt; Assert.CatchAsync(Type expectedExceptionType, Func&lt;Task&gt; asyncCode,
+                            string message, params object[] params);
+
+Task&lt;T&gt; Assert.CatchAsync&lt;T&gt;(Func&lt;Task&gt; asyncCode);
+Task&lt;T&gt; Assert.CatchAsync&lt;T&gt;(Func&lt;Task&gt; asyncCode,
+                       string message, params object[] params);
+</code></pre>
+<h2 id="nunit-4-and-earlier">NUnit 4 and earlier</h2>
+<p>In NUnit 4 and earlier this assertion would not need to be awaited and would return the <code>Exception</code> or <code>TActual</code> instance directly. The callback to invoke would also be passed as an <code>AsyncTestDelegate</code> instead of a <code>Func&lt;Task&gt;</code>. These behaviors were both changed in NUnit 5 to better align the API with
+modern .NET standards and conventions.</p>
 <pre><code class="lang-csharp">Exception Assert.CatchAsync(AsyncTestDelegate code);
 Exception Assert.CatchAsync(AsyncTestDelegate code,
                             string message, params object[] params);

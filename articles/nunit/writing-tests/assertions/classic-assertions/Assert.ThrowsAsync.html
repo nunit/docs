@@ -88,6 +88,60 @@
 
 <p>The <strong>Assert.ThrowsAsync</strong> is the async equivalent to <a href="Assert.Throws.html">Assert.Throws</a>
 for asynchronous code. See <a href="Assert.Throws.html">Assert.Throws</a> for more information.</p>
+<pre><code class="lang-csharp">Task&lt;Exception&gt; Assert.ThrowsAsync(Type expectedExceptionType, Func&lt;Task&gt; asyncCode);
+Task&lt;Exception&gt; Assert.ThrowsAsync(Type expectedExceptionType, Func&lt;Task&gt; asyncCode,
+                             string message, params object[] params);
+
+Task&lt;Exception&gt; Assert.ThrowsAsync(IResolveConstraint constraint, Func&lt;Task&gt; asyncCode);
+Task&lt;Exception&gt; Assert.ThrowsAsync(IResolveConstraint constraint, Func&lt;Task&gt; asyncCode,
+                             string message, params object[] params);
+
+Task&lt;TActual&gt; Assert.ThrowsAsync&lt;TActual&gt;(Func&lt;Task&gt; asyncCode);
+Task&lt;TActual&gt; Assert.ThrowsAsync&lt;TActual&gt;(Func&lt;Task&gt; asyncCode,
+                                    string message, params object[] params);
+</code></pre>
+<p>In the above code <code>Func&lt;Task&gt;</code> is an async delegate, which is used to execute the code
+in question. This will likely be a lambda expression.</p>
+<p>The following example shows the most common way of writing tests.</p>
+<pre><code class="lang-csharp" name="AssertThrowsAsync">[TestFixture]
+public class AssertThrowsTests
+{
+    [Test]
+    public async Task Tests()
+    {
+        // Using a method as a delegate
+        await Assert.ThrowsAsync&lt;ArgumentException&gt;(async () =&gt; await MethodThatThrows());
+    }
+
+    private async Task MethodThatThrows()
+    {
+        await Task.Delay(100);
+        throw new ArgumentException();
+    }
+}
+</code></pre>
+<p>This example shows use of the return value to perform additional verification of the exception.</p>
+<pre><code class="lang-csharp" name="AssertThrowsAsync">[TestFixture]
+public class UsingReturnValue
+{
+    [Test]
+    public async Task TestException()
+    {
+        MyException ex = await Assert.ThrowsAsync&lt;MyException&gt;(async () =&gt; await MethodThatThrows());
+
+        Assert.That(ex.Message, Is.EqualTo(&quot;message&quot;));
+        Assert.That(ex.MyParam, Is.EqualTo(42));
+    }
+
+    private async Task MethodThatThrows()
+    {
+        await Task.Delay(100);
+        throw new MyException(&quot;message&quot;, 42);
+    }
+}
+</code></pre><h2 id="nunit-4-and-earlier">NUnit 4 and earlier</h2>
+<p>In NUnit 4 and earlier this assertion would not need to be awaited and would return the <code>Exception</code> or <code>TActual</code> instance directly. The callback to invoke would also be passed as an <code>AsyncTestDelegate</code> instead of a <code>Func&lt;Task&gt;</code>. These behaviors were both changed in NUnit 5 to better align the API with
+modern .NET standards and conventions.</p>
 <pre><code class="lang-csharp">Exception Assert.ThrowsAsync(Type expectedExceptionType, AsyncTestDelegate code);
 Exception Assert.ThrowsAsync(Type expectedExceptionType, AsyncTestDelegate code,
                              string message, params object[] params);
@@ -100,48 +154,39 @@ TActual Assert.ThrowsAsync&lt;TActual&gt;(AsyncTestDelegate code);
 TActual Assert.ThrowsAsync&lt;TActual&gt;(AsyncTestDelegate code,
                                     string message, params object[] params);
 </code></pre>
-<p>In the above code <strong>AsyncTestDelegate</strong> is a delegate of the form
-<strong>Task AsyncTestDelegate()</strong>, which is used to execute the code
-in question. This will likely be a lambda expression.</p>
-<p>The following example shows the most common way of writing tests.</p>
-<pre><code class="lang-csharp" name="AssertThrowsAsync">[TestFixture]
-public class AssertThrowsTests
+<p>For example:</p>
+<p>The following example shows the previous way to simply assert that an exception of a given type was thrown.</p>
+<pre><code class="lang-csharp">[Test]
+public void Tests()
 {
-    [Test]
-    public void Tests()
-    {
-        // Using a method as a delegate
-        Assert.ThrowsAsync&lt;ArgumentException&gt;(async () =&gt; await MethodThatThrows());
-    }
+    // Using a method as a delegate
+    Assert.ThrowsAsync&lt;ArgumentException&gt;(async () =&gt; await MethodThatThrows());
+}
 
-    private async Task MethodThatThrows()
-    {
-        await Task.Delay(100);
-        throw new ArgumentException();
-    }
+private async Task MethodThatThrows()
+{
+    await Task.Delay(100);
+    throw new ArgumentException();
+}
+
+</code></pre>
+<p>This example shows use of the return value to perform additional verification of the exception.</p>
+<pre><code class="lang-csharp">[Test]
+public void TestException()
+{
+    MyException ex = Assert.ThrowsAsync&lt;MyException&gt;(async () =&gt; await MethodThatThrows());
+
+    Assert.That(ex.Message, Is.EqualTo(&quot;message&quot;));
+    Assert.That(ex.MyParam, Is.EqualTo(42));
+}
+
+private async Task MethodThatThrows()
+{
+    await Task.Delay(100);
+    throw new MyException(&quot;message&quot;, 42);
 }
 </code></pre>
-<p>This example shows use of the return value to perform
-additional verification of the exception. Note that you do not need to await the result.</p>
-<pre><code class="lang-csharp" name="AssertThrowsAsync">[TestFixture]
-public class UsingReturnValue
-{
-    [Test]
-    public void TestException()
-    {
-        MyException ex = Assert.ThrowsAsync&lt;MyException&gt;(async () =&gt; await MethodThatThrows());
-
-        Assert.That(ex.Message, Is.EqualTo(&quot;message&quot;));
-        Assert.That(ex.MyParam, Is.EqualTo(42));
-    }
-
-    private async Task MethodThatThrows()
-    {
-        await Task.Delay(100);
-        throw new MyException(&quot;message&quot;, 42);
-    }
-}
-</code></pre><h2 id="see-also">See Also</h2>
+<h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="Assert.Catch.html">Assert.Catch</a></li>
 <li><a href="Assert.CatchAsync.html">Assert.CatchAsync</a></li>

@@ -111,7 +111,7 @@ public void InstanceOfTypeConstraint_Examples()
 
     // Negative tests
     Assert.That(&quot;Hello&quot;, Is.Not.InstanceOf&lt;int&gt;());
-    Assert.That(null, Is.Not.InstanceOf&lt;string&gt;());        // null is not an instance of any type
+    Assert.That((string?)null, Is.Not.InstanceOf&lt;string&gt;());        // null is not an instance of any type
 }
 </code></pre><h2 id="notes">Notes</h2>
 <ol>

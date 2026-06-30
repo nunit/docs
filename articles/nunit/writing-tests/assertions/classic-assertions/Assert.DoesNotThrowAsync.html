@@ -88,6 +88,13 @@
 
 <p><strong>Assert.DoesNotThrowAsync</strong> verifies that the delegate provided as an argument
 does not throw an exception. See <a href="Assert.DoesNotThrow.html">Assert.DoesNotThrow</a> for synchronous code.</p>
+<pre><code class="lang-csharp">Task Assert.DoesNotThrowAsync(Func&lt;Task&gt; asyncCode);
+Task Assert.DoesNotThrowAsync(Func&lt;Task&gt; asyncCode,
+                              string message, params object[] params);
+</code></pre>
+<h2 id="nunit-4-and-earlier">NUnit 4 and earlier</h2>
+<p>In NUnit 4 and earlier this assertion would not need to be awaited and would return <code>void</code> instead of <code>Task</code>. The callback to invoke would also be passed as an <code>AsyncTestDelegate</code> instead of a <code>Func&lt;Task&gt;</code>. These behaviors were both changed in NUnit 5 to better align the API with
+modern .NET standards and conventions.</p>
 <pre><code class="lang-csharp">void Assert.DoesNotThrowAsync(AsyncTestDelegate code);
 void Assert.DoesNotThrowAsync(AsyncTestDelegate code,
                               string message, params object[] params);

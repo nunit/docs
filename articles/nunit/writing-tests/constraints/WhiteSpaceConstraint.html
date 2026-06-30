@@ -103,7 +103,7 @@ public void WhiteSpaceConstraint_Examples()
     Assert.That(&quot;&quot;, Is.WhiteSpace);           // Empty string
     Assert.That(&quot; &quot;, Is.WhiteSpace);          // Space
     Assert.That(&quot;  \t\n&quot;, Is.WhiteSpace);     // Mixed whitespace
-    Assert.That(null, Is.WhiteSpace);         // Null
+    Assert.That((string?)null, Is.WhiteSpace);         // Null
 
     Assert.That(&quot;Hello&quot;, Is.Not.WhiteSpace);
     Assert.That(&quot; Hello &quot;, Is.Not.WhiteSpace);  // Has non-whitespace content
