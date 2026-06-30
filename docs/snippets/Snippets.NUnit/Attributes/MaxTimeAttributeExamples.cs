@@ -50,5 +50,20 @@ namespace Snippets.NUnit.Attributes
             }
         }
         #endregion
+
+        #region MaxTimeWarningThreshold
+        [TestFixture]
+        public class MaxTimeWarningThresholdTests
+        {
+            [Test]
+            [MaxTime(1000, WarningTime = 200)]
+            public void OperationWithWarningThreshold()
+            {
+                // Test passes if it completes within 1000ms.
+                // If it takes more than 200ms but less than 1000ms, the result is Warning.
+                Thread.Sleep(201);
+            }
+        }
+        #endregion
     }
 }
