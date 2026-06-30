@@ -154,6 +154,12 @@
 <td>0</td>
 </tr>
 <tr>
+<td><a href="#defaultmaxtime">DefaultMaxTime</a></td>
+<td>int</td>
+<td>Default maximum time in mS for a test. A test exceeding this time will fail. 0 means no limit.</td>
+<td>0</td>
+</tr>
+<tr>
 <td><a href="#defaulttestnamepattern">DefaultTestNamePattern</a></td>
 <td>string</td>
 <td>Pattern for display name</td>
@@ -554,6 +560,10 @@ is attached. The default is <code>false</code>.<br>
 load the assemblies into the default assembly loading context.  This is mandatory for MTP.
 If set to <code>false</code>, the engine will load assemblies based on its own algorithm, also taking isolation into account.</p>
 <p>(From version 6.1)</p>
+<h4 id="defaultmaxtime">DefaultMaxTime</h4>
+<p>Sets the default maximum time in milliseconds for all tests. If a test exceeds this time, it will be marked as failed.
+A value of 0 means no limit is applied. This corresponds to the NUnit <a class="xref" href="../nunit/writing-tests/attributes/maxtime.html">MaxTime attribute</a> being applied globally to all tests.</p>
+<p>(From version 6.3)</p>
 <hr>
 <h3 id="some-further-information-on-directories">Some further information on directories</h3>
 <p>(From <a href="https://github.com/nunit/nunit3-vs-adapter/issues/575#issuecomment-445786421">comment on issue 575</a> by
