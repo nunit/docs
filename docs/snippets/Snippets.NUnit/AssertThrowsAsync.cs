@@ -13,10 +13,10 @@ public class AssertThrowsAsync
     public class AssertThrowsTests
     {
         [Test]
-        public void Tests()
+        public async Task Tests()
         {
             // Using a method as a delegate
-            Assert.ThrowsAsync<ArgumentException>(async () => await MethodThatThrows());
+            await Assert.ThrowsAsync<ArgumentException>(async () => await MethodThatThrows());
         }
 
         private async Task MethodThatThrows()
@@ -32,9 +32,9 @@ public class AssertThrowsAsync
     public class UsingReturnValue
     {
         [Test]
-        public void TestException()
+        public async Task TestException()
         {
-            MyException ex = Assert.ThrowsAsync<MyException>(async () => await MethodThatThrows());
+            MyException ex = await Assert.ThrowsAsync<MyException>(async () => await MethodThatThrows());
 
             Assert.That(ex.Message, Is.EqualTo("message"));
             Assert.That(ex.MyParam, Is.EqualTo(42));

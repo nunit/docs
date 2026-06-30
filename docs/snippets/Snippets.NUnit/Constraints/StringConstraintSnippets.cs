@@ -120,7 +120,7 @@ public class StringConstraintSnippets
         Assert.That("", Is.WhiteSpace);           // Empty string
         Assert.That(" ", Is.WhiteSpace);          // Space
         Assert.That("  \t\n", Is.WhiteSpace);     // Mixed whitespace
-        Assert.That(null, Is.WhiteSpace);         // Null
+        Assert.That((string?)null, Is.WhiteSpace);         // Null
 
         Assert.That("Hello", Is.Not.WhiteSpace);
         Assert.That(" Hello ", Is.Not.WhiteSpace);  // Has non-whitespace content
