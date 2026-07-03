@@ -129,11 +129,28 @@ RepeatAttribute(int count, bool stopOnFailure)
 <td>Whether to stop repeating when a test fails. When <code>false</code>, all repetitions run regardless of failures.</td>
 <td><code>true</code></td>
 </tr>
+<tr>
+<td><code>RequiredPassPercentage</code></td>
+<td><code>int</code></td>
+<td>The minimum percentage of runs (1–100) that must pass for the test to succeed. When set below 100, <code>StopOnFailure</code> is treated as <code>false</code> (and must not be explicitly set to <code>true</code>); iterations run up to the repeat count unless <code>StopWhenOverallResultDetermined</code> is enabled.</td>
+<td><code>100</code></td>
+</tr>
+<tr>
+<td><code>StopWhenOverallResultDetermined</code></td>
+<td><code>bool</code></td>
+<td>When <code>true</code> and <code>RequiredPassPercentage</code> is below 100, stops iterating as soon as the final outcome is determined — either because the pass threshold is already guaranteed or can no longer be reached.</td>
+<td><code>false</code></td>
+</tr>
 </tbody>
 </table>
+<hr>
 <div class="NOTE">
 <h5>Note</h5>
-<p>The <code>StopOnFailure</code> property was added in <strong>NUnit 4.3.0</strong>.</p>
+</div>
+<h2 id="the-stoponfailure-property-was-added-in-nunit-430">The <code>StopOnFailure</code> property was added in <strong>NUnit 4.3.0</strong>.</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>RequiredPassPercentage</code> and <code>StopWhenOverallResultDetermined</code> properties were added in <strong>NUnit 5.0</strong>.</p>
 </div>
 <h2 id="applies-to">Applies To</h2>
 <table>
@@ -171,11 +188,43 @@ public void TestMethod3()
     count2++;
     Assert.That(count2, Is.Not.EqualTo(3)); // Intentional failure on 3rd iteration
 }
+</code></pre><h3 id="pass-threshold">Pass Threshold</h3>
+<p>When testing non-deterministic systems (such as LLM-based tests or flaky integrations), you can allow a percentage of runs to fail. The test passes as long as at least <code>RequiredPassPercentage</code> percent of the runs succeed.</p>
+<pre><code class="lang-csharp" name="RepeatWithPassThresholdExample">// The test passes if at least 80% of the 10 runs succeed.
+// Useful for non-deterministic systems where some variation is acceptable.
+[Test]
+[Repeat(10, RequiredPassPercentage = 80)]
+public void NonDeterministicTest()
+{
+    bool result = CallFlakyService();
+    Assert.That(result, Is.True);
+}
+
+private bool CallFlakyService() =&gt; true; // placeholder
+</code></pre><h3 id="early-stop-when-outcome-is-determined">Early Stop When Outcome Is Determined</h3>
+<p>When <code>StopWhenOverallResultDetermined</code> is <code>true</code>, NUnit stops iterating as soon as it knows whether the threshold will be met or missed, saving unnecessary test runs.</p>
+<pre><code class="lang-csharp" name="RepeatWithStopWhenDeterminedExample">// Stops as soon as NUnit can guarantee pass or failure:
+//  - Early success: enough passes accumulated (threshold already guaranteed).
+//  - Early failure: too many failures (threshold no longer achievable).
+[Test]
+[Repeat(10, RequiredPassPercentage = 80, StopWhenOverallResultDetermined = true)]
+public void NonDeterministicTestWithEarlyStop()
+{
+    bool result = CallFlakyService();
+    Assert.That(result, Is.True);
+}
 </code></pre><h2 id="notes">Notes</h2>
 <ol>
 <li>When <code>StopOnFailure</code> is <code>true</code> (default), the test stops at the first failure.</li>
 <li>When <code>StopOnFailure</code> is <code>false</code>, all repetitions run and all failures are collected.</li>
-<li>If <code>RepeatAttribute</code> is used on a parameterized method, each individual test case is repeated.</li>
+<li>When <code>RequiredPassPercentage</code> is set below 100, <code>StopOnFailure</code> must not be explicitly set to <code>true</code> — combining the two is a configuration error that produces <code>ResultState.Error</code> without running the test. Setting <code>StopOnFailure=false</code> explicitly alongside a threshold is valid. When <code>StopOnFailure</code> is left at its default (not explicitly set), it is silently treated as <code>false</code> so repetitions continue after failures (unless <code>StopWhenOverallResultDetermined</code> is enabled).</li>
+<li>When <code>RequiredPassPercentage</code> is below 100 and <code>StopWhenOverallResultDetermined</code> is <code>true</code>, NUnit exits the loop as soon as the result is certain:
+<ul>
+<li><strong>Early success</strong>: the number of passes already guarantees the threshold regardless of the remaining runs.</li>
+<li><strong>Early failure</strong>: even if all remaining runs pass, the threshold can no longer be reached.</li>
+</ul>
+</li>
+<li>If <code>RepeatAttribute</code> is used on a parameterized method, each individual test case is repeated independently.</li>
 <li>It is not currently possible to use <code>RepeatAttribute</code> on a <code>TestFixture</code> or any higher level suite. Only test methods may be repeated.</li>
 </ol>
 <h2 id="see-also">See Also</h2>
