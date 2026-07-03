@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 
 namespace Snippets.NUnit.Attributes;
 
@@ -29,7 +29,7 @@ public class RepeatAttributeExample
     #region RepeatWithFaultAttributeExample
 
     private int count2;
-    
+
     [Test,Explicit]  // Marking the test as Explicit to avoid failing our doc build. You can skip this.
     [Repeat(5, StopOnFailure = false)]
     public void TestMethod3()
@@ -38,4 +38,33 @@ public class RepeatAttributeExample
         Assert.That(count2, Is.Not.EqualTo(3)); // Intentional failure on 3rd iteration
     }
     #endregion
+
+#if NUNIT_REPEAT_THRESHOLD
+    #region RepeatWithPassThresholdExample
+    // The test passes if at least 80% of the 10 runs succeed.
+    // Useful for non-deterministic systems where some variation is acceptable.
+    [Test]
+    [Repeat(10, RequiredPassPercentage = 80)]
+    public void NonDeterministicTest()
+    {
+        bool result = CallFlakyService();
+        Assert.That(result, Is.True);
+    }
+
+    private bool CallFlakyService() => true; // placeholder
+    #endregion
+
+    #region RepeatWithStopWhenDeterminedExample
+    // Stops as soon as NUnit can guarantee pass or failure:
+    //  - Early success: enough passes accumulated (threshold already guaranteed).
+    //  - Early failure: too many failures (threshold no longer achievable).
+    [Test]
+    [Repeat(10, RequiredPassPercentage = 80, StopWhenOverallResultDetermined = true)]
+    public void NonDeterministicTestWithEarlyStop()
+    {
+        bool result = CallFlakyService();
+        Assert.That(result, Is.True);
+    }
+    #endregion
+#endif
 }
