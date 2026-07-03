@@ -23,7 +23,7 @@ Has.Attribute<TAttribute>().<constraint>
 1. The constraint first checks that the attribute exists, then applies the chained constraint to the attribute instance.
 2. To only check for attribute existence without testing its properties, use
    [AttributeExistsConstraint](AttributeExistsConstraint.md).
-3. The constraint works on both `Type` objects and instances (testing the instance's type).
+3. The constraint works on any object that implements `ICustomAttributeProvider`, such as `Type`, `MethodInfo`, and `Assembly`. Passing an arbitrary class instance that does not implement `ICustomAttributeProvider` will result in an error.
 
 ## See Also
 

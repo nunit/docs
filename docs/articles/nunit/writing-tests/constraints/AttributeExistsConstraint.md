@@ -22,7 +22,7 @@ Has.Attribute<TAttribute>()
 1. When no further constraint is chained, `Has.Attribute` creates an `AttributeExistsConstraint`.
 2. When a constraint is chained (e.g., `.Property("Name")`), it becomes an
    [AttributeConstraint](AttributeConstraint.md).
-3. The constraint works on both `Type` objects and instances (testing the instance's type).
+3. The constraint works on any object that implements `ICustomAttributeProvider`, such as `Type`, `MethodInfo`, and `Assembly`. Passing an arbitrary class instance that does not implement `ICustomAttributeProvider` will result in an error.
 
 ## See Also
 
