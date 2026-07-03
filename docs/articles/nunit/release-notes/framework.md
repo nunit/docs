@@ -9,11 +9,14 @@ uid: frameworkreleasenotes
 
 ## NUnit 5.0.0-beta.1 - TBD
 
-There are 25 issues fixed in this release.
+There are 29 issues fixed in this release.
 
 ### Enhancements
 
+* [5323](https://github.com/nunit/nunit/issues/5323) Report compiler error when asserting non-attribute in `Has.Attribute<T>()`. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5322](https://github.com/nunit/nunit/pull/5322)
+* [5316](https://github.com/nunit/nunit/issues/5316) Add .net 10 as target. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5317](https://github.com/nunit/nunit/pull/5317)
 * [5260](https://github.com/nunit/nunit/issues/5260) Add a "warning" threshold to the `MaxTime` attribute. Thanks to [Ricardo Macedo](https://github.com/RicardoMacedo-prj) for [PR 5261](https://github.com/nunit/nunit/pull/5261)
+* [5220](https://github.com/nunit/nunit/issues/5220) Repeat test cases with threshold-based success/failure. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5318](https://github.com/nunit/nunit/pull/5318)
 * [4857](https://github.com/nunit/nunit/issues/4857) Drop .NET 6 as a build target of the framework. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 4884](https://github.com/nunit/nunit/pull/4884)
 * [4717](https://github.com/nunit/nunit/issues/4717) Provide generic type definitions for `TestCaseData` to make it type safe. Thanks to [Jonathan Gilbert](https://github.com/logiclrd) for [PR 5138](https://github.com/nunit/nunit/pull/5138)
 * [4384](https://github.com/nunit/nunit/issues/4384) Assert.ThrowsAsync, Assert.CatchAsync, and Assert.DoesNotThrowAsync should be awaitable. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5268](https://github.com/nunit/nunit/pull/5268)
@@ -21,6 +24,7 @@ There are 25 issues fixed in this release.
 
 ### Bug fixes
 
+* [5324](https://github.com/nunit/nunit/issues/5324) C++/CLI compiler warning C4642 in EqualNumericConstraint and EqualNumericWithoutUsingConstraint. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5321](https://github.com/nunit/nunit/pull/5321)
 * [5273](https://github.com/nunit/nunit/issues/5273) Verify that generic AssignableToConstraint and AssignableFromConstraint works as expected. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5277](https://github.com/nunit/nunit/pull/5277)
 * [5252](https://github.com/nunit/nunit/issues/5252) Upgrade to 4.6.0 containing #4824 is source-incompatible in F# even on net9.
 * [5247](https://github.com/nunit/nunit/issues/5247) Assert for null-valued `dynamic` variables doesn't work in 4.6.0.
@@ -58,6 +62,7 @@ There are 25 issues fixed in this release.
 
 ### The following issues are marked as breaking changes
 
+* [5323](https://github.com/nunit/nunit/issues/5323) Report compiler error when asserting non-attribute in `Has.Attribute&lt;T&gt;()`. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5322](https://github.com/nunit/nunit/pull/5322)
 * [5265](https://github.com/nunit/nunit/issues/5265) 4.6 breaks our tests because of TestDelegate / Action ambiguity.
 * [5263](https://github.com/nunit/nunit/issues/5263) Deprecate non-generic CollectionTally class and move the result class out of nested class. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5310](https://github.com/nunit/nunit/pull/5310)
 * [5253](https://github.com/nunit/nunit/issues/5253) Remove TestDelegate and ActualValueDelegate. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5262](https://github.com/nunit/nunit/pull/5262)
