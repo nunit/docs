@@ -113,7 +113,7 @@ public class AttributeConstraintExamplesFixture
 <li>The constraint first checks that the attribute exists, then applies the chained constraint to the attribute instance.</li>
 <li>To only check for attribute existence without testing its properties, use
 <a href="AttributeExistsConstraint.html">AttributeExistsConstraint</a>.</li>
-<li>The constraint works on both <code>Type</code> objects and instances (testing the instance's type).</li>
+<li>The constraint works on any object that implements <code>ICustomAttributeProvider</code>, such as <code>Type</code>, <code>MethodInfo</code>, and <code>Assembly</code>.</li>
 </ol>
 <h2 id="see-also">See Also</h2>
 <ul>

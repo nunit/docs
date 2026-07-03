@@ -109,7 +109,7 @@ public void AttributeExistsConstraint_Examples()
 <li>When no further constraint is chained, <code>Has.Attribute</code> creates an <code>AttributeExistsConstraint</code>.</li>
 <li>When a constraint is chained (e.g., <code>.Property(&quot;Name&quot;)</code>), it becomes an
 <a href="AttributeConstraint.html">AttributeConstraint</a>.</li>
-<li>The constraint works on both <code>Type</code> objects and instances (testing the instance's type).</li>
+<li>The constraint works on any object that implements <code>ICustomAttributeProvider</code>, such as <code>Type</code>, <code>MethodInfo</code>, and <code>Assembly</code>.</li>
 </ol>
 <h2 id="see-also">See Also</h2>
 <ul>
