@@ -90,10 +90,13 @@
 <!-- markdownlint-disable-file MD060 -->
 
 <h2 id="nunit-500-beta1---tbd">NUnit 5.0.0-beta.1 - TBD</h2>
-<p>There are 25 issues fixed in this release.</p>
+<p>There are 29 issues fixed in this release.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/5323">5323</a> Report compiler error when asserting non-attribute in <code>Has.Attribute&lt;T&gt;()</code>. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5322">PR 5322</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5316">5316</a> Add .net 10 as target. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5317">PR 5317</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5260">5260</a> Add a &quot;warning&quot; threshold to the <code>MaxTime</code> attribute. Thanks to <a href="https://github.com/RicardoMacedo-prj">Ricardo Macedo</a> for <a href="https://github.com/nunit/nunit/pull/5261">PR 5261</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5220">5220</a> Repeat test cases with threshold-based success/failure. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5318">PR 5318</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4857">4857</a> Drop .NET 6 as a build target of the framework. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4884">PR 4884</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4717">4717</a> Provide generic type definitions for <code>TestCaseData</code> to make it type safe. Thanks to <a href="https://github.com/logiclrd">Jonathan Gilbert</a> for <a href="https://github.com/nunit/nunit/pull/5138">PR 5138</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4384">4384</a> Assert.ThrowsAsync, Assert.CatchAsync, and Assert.DoesNotThrowAsync should be awaitable. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5268">PR 5268</a></li>
@@ -101,6 +104,7 @@
 </ul>
 <h3 id="bug-fixes">Bug fixes</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/5324">5324</a> C++/CLI compiler warning C4642 in EqualNumericConstraint and EqualNumericWithoutUsingConstraint. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5321">PR 5321</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5273">5273</a> Verify that generic AssignableToConstraint and AssignableFromConstraint works as expected. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5277">PR 5277</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5252">5252</a> Upgrade to 4.6.0 containing #4824 is source-incompatible in F# even on net9.</li>
 <li><a href="https://github.com/nunit/nunit/issues/5247">5247</a> Assert for null-valued <code>dynamic</code> variables doesn't work in 4.6.0.</li>
@@ -138,6 +142,8 @@
 </ul>
 <h3 id="the-following-issues-are-marked-as-breaking-changes">The following issues are marked as breaking changes</h3>
 <ul>
+<li><p><a href="https://github.com/nunit/nunit/issues/5323">5323</a> Report compiler error when asserting non-attribute in <code>Has.Attribute&amp;lt;T&amp;gt;()</code>. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5322">PR 5322</a></p>
+</li>
 <li><p><a href="https://github.com/nunit/nunit/issues/5265">5265</a> 4.6 breaks our tests because of TestDelegate / Action ambiguity.</p>
 </li>
 <li><p><a href="https://github.com/nunit/nunit/issues/5263">5263</a> Deprecate non-generic CollectionTally class and move the result class out of nested class. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5310">PR 5310</a></p>
