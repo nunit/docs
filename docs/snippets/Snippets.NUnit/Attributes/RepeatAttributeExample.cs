@@ -39,8 +39,6 @@ public class RepeatAttributeExample
     }
     #endregion
 
-    // TODO: Remove the #if guard and update the package reference to the NUnit version that
-    // ships RequiredPassPercentage and StopWhenOverallResultDetermined.
 #if NUNIT_REPEAT_THRESHOLD
     #region RepeatWithPassThresholdExample
     // The test passes if at least 80% of the 10 runs succeed.
