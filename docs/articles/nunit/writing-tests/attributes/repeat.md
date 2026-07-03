@@ -26,9 +26,10 @@ RepeatAttribute(int count, bool stopOnFailure)
 | `RequiredPassPercentage` | `int` | The minimum percentage of runs (1–100) that must pass for the test to succeed. When set below 100, `StopOnFailure` is ignored and all runs always execute. | `100` |
 | `StopWhenOverallResultDetermined` | `bool` | When `true` and `RequiredPassPercentage` is below 100, stops iterating as soon as the final outcome is determined — either because the pass threshold is already guaranteed or can no longer be reached. | `false` |
 
+-----
 > [!NOTE]
 > The `StopOnFailure` property was added in **NUnit 4.3.0**.
-
+-----
 > [!NOTE]
 > The `RequiredPassPercentage` and `StopWhenOverallResultDetermined` properties were added in **NUnit 5.0**.
 
@@ -73,4 +74,4 @@ When `StopWhenOverallResultDetermined` is `true`, NUnit stops iterating as soon 
 
 ## See Also
 
-* [Retry Attribute](xref:attribute-retry)
+- [Retry Attribute](xref:attribute-retry)
