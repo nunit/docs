@@ -13,7 +13,7 @@ There are 29 issues fixed in this release.
 
 ### Enhancements
 
-* [5323](https://github.com/nunit/nunit/issues/5323) Report compiler error when asserting non-attribute in `Has.Attribute&lt;T&gt;()`. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5322](https://github.com/nunit/nunit/pull/5322)
+* [5323](https://github.com/nunit/nunit/issues/5323) Report compiler error when asserting non-attribute in `Has.Attribute<T>()`. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5322](https://github.com/nunit/nunit/pull/5322)
 * [5316](https://github.com/nunit/nunit/issues/5316) Add .net 10 as target. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5317](https://github.com/nunit/nunit/pull/5317)
 * [5260](https://github.com/nunit/nunit/issues/5260) Add a "warning" threshold to the `MaxTime` attribute. Thanks to [Ricardo Macedo](https://github.com/RicardoMacedo-prj) for [PR 5261](https://github.com/nunit/nunit/pull/5261)
 * [5220](https://github.com/nunit/nunit/issues/5220) Repeat test cases with threshold-based success/failure. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5318](https://github.com/nunit/nunit/pull/5318)
