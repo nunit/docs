@@ -55,7 +55,7 @@ PlatformAttribute(string[] includes)
 
 ## Platform Specifiers
 
-The following values are recognized as platform specifiers. They may be expressed in upper, lower or mixed case.
+The following values are recognized as platform specifiers. They may be expressed in upper, lower or mixed case. A list of supported identifiers can also be referenced from the named constants in the [`PlatformNames`](/api/NUnit.Framework.PlatformNames.html) class. _(NUnit 4.6+)_.
 
 ### Operating System
 
@@ -89,8 +89,6 @@ The following values are recognized as platform specifiers. They may be expresse
 * Linux
 * MacOsX
 * XBox
-
-A list of supported identifiers can also be referenced from the named constants in the `PlatformNames` class. _(NUnit 4.6+)_.
 
 ### Architecture
 
