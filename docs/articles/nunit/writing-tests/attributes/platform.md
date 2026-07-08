@@ -88,9 +88,7 @@ The following values are recognized as platform specifiers. They may be expresse
 * MacOsX
 * XBox
 
-A list of supported platform identifiers can also be obtained from the constant string `PlatformHelper.OSPlatforms` of
-the NUnit assembly you use. Note that this is for informational purposes only, because the `PlatformHelper` is
-considered an internal type and shall not be used in production.
+A list of supported identifiers can also be referenced from the named constants in the `PlatformNames` class. (_NUnit 4.6+_).
 
 ### Architecture
 
@@ -103,39 +101,34 @@ considered an internal type and shall not be used in production.
 
 ### Runtime
 
-#### Modern .NET
-
 * Net
 * NETCore
 * DotNET
 * DotNETCore
+* NETFramework (_NUnit 5+_)
+* DotNETFramework (_NUnit 5+_)
 
 > [!NOTE]
-> Version specifiers (for example, `Net-5.0`) are **not** supported for modern .NET identifiers.
-
-#### .NET Framework
-
-* NETFramework
-* DotNETFramework
-
-A version number can be appended using a dash, for example `NETFramework-4.0` or `NETFramework-4.5`.
+> The meaning of `Net` and `DotNET` has changed in NUnit 5. These identifiers previously targeted .NET Framework and now
+> target modern .NET (.NET 5+, .NET Core). For more information please see the **Breaking Changes** section below.
 
 #### Other Runtimes
 
 * SSCLI
 * Rotor
 * Mono
-* Mono-1.0
-* Mono-2.0
-* Mono-3.0 (1)
-* Mono-3.5 (2)
-* Mono-4.0
 * MonoTouch
 
-## Notes
+#### Runtime Version Specifiers
 
-1. Includes Mono-2.0
-2. Includes Mono-2.0 and Mono-3.0
+> [!NOTE]
+> Version specifiers (for example, `Net-5.0`) are **not** supported for modern .NET identifiers.
+
+A runtime version number can be appended using a dash, for example `NETFramework-4.0`, `NETFramework-4.5`, or `Mono-3.0`. These relate to the underlying Common Language Runtime (CLR) version and are inclusive of lower runtime versions which target the same CLR.
+
+For example:
+
+`NETFramework-4.5` will include `NETFramework-4.0` as both run on version 4 of the CLR. Similarly, `Mono-3.5` will include `Mono-2.0` and `Mono-3.0` as all run on version 2 of the MonoCLR.
 
 ## Breaking Changes in NUnit 5
 
