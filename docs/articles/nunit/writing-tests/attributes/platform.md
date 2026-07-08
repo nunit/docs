@@ -88,7 +88,7 @@ The following values are recognized as platform specifiers. They may be expresse
 * MacOsX
 * XBox
 
-A list of supported identifiers can also be referenced from the named constants in the `PlatformNames` class. (_NUnit 4.6+_).
+A list of supported identifiers can also be referenced from the named constants in the `PlatformNames` class. _(NUnit 4.6+)_.
 
 ### Architecture
 
@@ -105,8 +105,8 @@ A list of supported identifiers can also be referenced from the named constants 
 * NETCore
 * DotNET
 * DotNETCore
-* NETFramework (_NUnit 5+_)
-* DotNETFramework (_NUnit 5+_)
+* NETFramework _(NUnit 5+)_
+* DotNETFramework _(NUnit 5+)_
 
 > [!NOTE]
 > The meaning of `Net` and `DotNET` has changed in NUnit 5. These identifiers previously targeted .NET Framework and now
@@ -141,9 +141,9 @@ For example:
 |------------|---------|---------|
 | `NET` | .NET Framework | Modern .NET |
 | `NETFramework` | Not supported | .NET Framework |
-| `NETCore` | Modern .NET | Modern .NET *(unchanged)* |
+| `NETCore` | Modern .NET | Modern .NET _(unchanged)_ |
 | `DotNET` | .NET Framework | Modern .NET |
-| `DotNETCore` | Modern .NET | Modern .NET *(unchanged)* |
+| `DotNETCore` | Modern .NET | Modern .NET _(unchanged)_ |
 | `DotNETFramework` | Not supported | .NET Framework |
 
 If you were using `[Platform("NET")]` or `[Platform("DotNET")]` to target .NET Framework,
