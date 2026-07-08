@@ -40,6 +40,8 @@ PlatformAttribute(string[] includes)
 |----------|------|-------------|---------|
 | `Include` | `string` | Comma-delimited list of included platforms. | `null` |
 | `Exclude` | `string` | Comma-delimited list of excluded platforms. | `null` |
+| `Includes` | `string[]` | Array of included platforms. | `null` |
+| `Excludes` | `string[]` | Array of excluded platforms. | `null` |
 
 ## Applies To
 
@@ -108,9 +110,10 @@ A list of supported identifiers can also be referenced from the named constants 
 * NETFramework _(NUnit 5+)_
 * DotNETFramework _(NUnit 5+)_
 
-> [!NOTE]
-> The meaning of `Net` and `DotNET` has changed in NUnit 5. These identifiers previously targeted .NET Framework and now
-> target modern .NET (.NET 5+, .NET Core). For more information please see the **Breaking Changes** section below.
+> [!IMPORTANT]
+> **Breaking change in NUnit 5:** The meaning of `NET` and `DotNET` has changed to better align with
+> Microsoft's terminology. These identifiers previously targeted .NET Framework and now
+> target modern .NET (.NET 5+, .NET Core). For more information please see the [**Breaking Changes**](#breaking-changes-in-nunit-5) section below.
 
 #### Other Runtimes
 
@@ -132,10 +135,8 @@ For example:
 
 ## Breaking Changes in NUnit 5
 
-> [!IMPORTANT]
-> **Breaking change in NUnit 5:** The meaning of `NET` and `DotNET` has changed to better align with
-> Microsoft's current .NET terminology. These identifiers previously targeted .NET Framework and now
-> target modern .NET (.NET 5+, .NET Core).
+The meaning of `NET` and `DotNET` has changed to better align with Microsoft's current .NET terminology. These identifiers previously targeted .NET Framework and now
+target modern .NET (.NET 5+, .NET Core).
 
 | Identifier | NUnit 4 | NUnit 5 |
 |------------|---------|---------|
