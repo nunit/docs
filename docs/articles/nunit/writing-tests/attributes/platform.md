@@ -145,8 +145,8 @@ target modern .NET (.NET 5+, .NET Core).
 | `DotNETCore` | Modern .NET | Modern .NET _(unchanged)_ |
 | `DotNETFramework` | Not supported | .NET Framework |
 
-If you were using `[Platform("NET")]` or `[Platform("DotNET")]` to target .NET Framework,
-update those usages to `[Platform("NETFramework")]` or `[Platform("DotNETFramework")]`.
+If you were using `[Platform(PlatformNames.NET)]` or `[Platform(PlatformNames.DotNET)]` to target .NET Framework,
+update those usages to `[Platform(PlatformNames.NETFramework)]` or `[Platform(PlatformNames.DotNETFramework)]`.
 
 Additionally, version-specific .NET targeting using `Net-X.X` (for example, `Net-4.0`, `Net-4.5`)
 is no longer supported. Use `NETFramework-X.X` instead (for example, `NETFramework-4.0`,
