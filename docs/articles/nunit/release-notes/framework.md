@@ -7,12 +7,15 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
-## NUnit 5.0.0-beta.1 - TBD
+## NUnit 5.0.0-beta.2 - TBD
 
-There are 29 issues fixed in this release.
+There are 33 issues fixed in this release.
 
 ### Enhancements
 
+* [5354](https://github.com/nunit/nunit/issues/5354) Expose a property for ActiveTests in the TestContext. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5355](https://github.com/nunit/nunit/pull/5355)
+* [5349](https://github.com/nunit/nunit/issues/5349) Use ArgumentOutOfRangeException throw helper and remove CA1512 diagnostic. Thanks to [Shaurya Srivastava](https://github.com/Shaurya2k06) for [PR 5350](https://github.com/nunit/nunit/pull/5350)
+* [5348](https://github.com/nunit/nunit/issues/5348) Use ArgumentNullException throw helper and remove CA1510 diagnostic. Thanks to [ANSH SINGH](https://github.com/SinghAnsh07) for [PR 5351](https://github.com/nunit/nunit/pull/5351)
 * [5323](https://github.com/nunit/nunit/issues/5323) Report compiler error when asserting non-attribute in `Has.Attribute<T>()`. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5322](https://github.com/nunit/nunit/pull/5322)
 * [5316](https://github.com/nunit/nunit/issues/5316) Add .net 10 as target. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5317](https://github.com/nunit/nunit/pull/5317)
 * [5260](https://github.com/nunit/nunit/issues/5260) Add a "warning" threshold to the `MaxTime` attribute. Thanks to [Ricardo Macedo](https://github.com/RicardoMacedo-prj) for [PR 5261](https://github.com/nunit/nunit/pull/5261)
@@ -24,6 +27,7 @@ There are 29 issues fixed in this release.
 
 ### Bug fixes
 
+* [5341](https://github.com/nunit/nunit/issues/5341) Confusing difference in Run Settings display between NUnitLite and ConsoleRunner. Thanks to [Amir Tahan](https://github.com/AmirTahan80) for [PR 5361](https://github.com/nunit/nunit/pull/5361)
 * [5324](https://github.com/nunit/nunit/issues/5324) C++/CLI compiler warning C4642 in EqualNumericConstraint and EqualNumericWithoutUsingConstraint. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5321](https://github.com/nunit/nunit/pull/5321)
 * [5273](https://github.com/nunit/nunit/issues/5273) Verify that generic AssignableToConstraint and AssignableFromConstraint works as expected. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5277](https://github.com/nunit/nunit/pull/5277)
 * [5252](https://github.com/nunit/nunit/issues/5252) Upgrade to 4.6.0 containing #4824 is source-incompatible in F# even on net9.
@@ -136,37 +140,42 @@ and to the commenters who engaged in discussions and offered further insights:
 
 <table>
 <tr>
+<td><a href="https://github.com/AmirTahan80">Amir Tahan</a></td>
+<td><a href="https://github.com/SinghAnsh07">ANSH SINGH</a></td>
 <td><a href="https://github.com/CharliePoole">CharliePoole</a></td>
 <td><a href="https://github.com/hfickes">HF</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/joeldickson">Joel Dickson</a></td>
 <td><a href="https://github.com/logiclrd">Jonathan Gilbert</a></td>
-</tr>
-<tr>
 <td><a href="https://github.com/jnm2">Joseph Musser</a></td>
 <td><a href="https://github.com/m4ggo">m4ggo</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/MaceWindu">MaceWindu</a></td>
 <td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
-</tr>
-<tr>
 <td><a href="https://github.com/MartinFayRAX">MartinFayRAX</a></td>
 <td><a href="https://github.com/mikeparker">Mike Parker</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a></td>
 <td><a href="https://github.com/seky16">Ondřej Sekáč</a></td>
-</tr>
-<tr>
 <td><a href="https://github.com/Smaug123">Patrick Stevens</a></td>
 <td><a href="https://github.com/provegard">Per Rovegård</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/rmiller-glrealitylabs">R. Miller</a></td>
 <td><a href="https://github.com/rachied">Rachid</a></td>
-</tr>
-<tr>
 <td><a href="https://github.com/RicardoMacedo-prj">Ricardo Macedo</a></td>
 <td><a href="https://github.com/rprouse">Rob Prouse</a></td>
-<td><a href="https://github.com/mr-russ">Russell Smith</a></td>
-<td><a href="https://github.com/Will-thom">Silva Dev BR</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/mr-russ">Russell Smith</a></td>
+<td><a href="https://github.com/Shaurya2k06">Shaurya Srivastava</a></td>
+<td><a href="https://github.com/Will-thom">Silva Dev BR</a></td>
 <td><a href="https://github.com/stevenaw">Steven Weerdenburg</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 </tr>
 </table>
