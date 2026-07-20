@@ -13,7 +13,7 @@ There are 33 issues fixed in this release.
 
 ### Enhancements
 
-* [5354](https://github.com/nunit/nunit/issues/5354) Expose a property for ActiveTests in the TestContext. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5355](https://github.com/nunit/nunit/pull/5355)
+* [5354](https://github.com/nunit/nunit/issues/5354) Expose an `ActiveTests` property on `TestContext`. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5355](https://github.com/nunit/nunit/pull/5355)
 * [5349](https://github.com/nunit/nunit/issues/5349) Use ArgumentOutOfRangeException throw helper and remove CA1512 diagnostic. Thanks to [Shaurya Srivastava](https://github.com/Shaurya2k06) for [PR 5350](https://github.com/nunit/nunit/pull/5350)
 * [5348](https://github.com/nunit/nunit/issues/5348) Use ArgumentNullException throw helper and remove CA1510 diagnostic. Thanks to [ANSH SINGH](https://github.com/SinghAnsh07) for [PR 5351](https://github.com/nunit/nunit/pull/5351)
 * [5323](https://github.com/nunit/nunit/issues/5323) Report compiler error when asserting non-attribute in `Has.Attribute<T>()`. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5322](https://github.com/nunit/nunit/pull/5322)
