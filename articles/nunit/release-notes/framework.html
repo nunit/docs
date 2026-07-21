@@ -89,10 +89,13 @@
 <!-- markdownlint-disable-file MD033 -->
 <!-- markdownlint-disable-file MD060 -->
 
-<h2 id="nunit-500-beta1---tbd">NUnit 5.0.0-beta.1 - TBD</h2>
-<p>There are 29 issues fixed in this release.</p>
+<h2 id="nunit-500-beta2---tbd">NUnit 5.0.0-beta.2 - TBD</h2>
+<p>There are 33 issues fixed in this release.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/5354">5354</a> Expose an <code>ActiveTests</code> property on <code>TestContext</code>. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5355">PR 5355</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5349">5349</a> Use ArgumentOutOfRangeException throw helper and remove CA1512 diagnostic. Thanks to <a href="https://github.com/Shaurya2k06">Shaurya Srivastava</a> for <a href="https://github.com/nunit/nunit/pull/5350">PR 5350</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5348">5348</a> Use ArgumentNullException throw helper and remove CA1510 diagnostic. Thanks to <a href="https://github.com/SinghAnsh07">ANSH SINGH</a> for <a href="https://github.com/nunit/nunit/pull/5351">PR 5351</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5323">5323</a> Report compiler error when asserting non-attribute in <code>Has.Attribute&lt;T&gt;()</code>. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5322">PR 5322</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5316">5316</a> Add .net 10 as target. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5317">PR 5317</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5260">5260</a> Add a &quot;warning&quot; threshold to the <code>MaxTime</code> attribute. Thanks to <a href="https://github.com/RicardoMacedo-prj">Ricardo Macedo</a> for <a href="https://github.com/nunit/nunit/pull/5261">PR 5261</a></li>
@@ -104,6 +107,7 @@
 </ul>
 <h3 id="bug-fixes">Bug fixes</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/5341">5341</a> Confusing difference in Run Settings display between NUnitLite and ConsoleRunner. Thanks to <a href="https://github.com/AmirTahan80">Amir Tahan</a> for <a href="https://github.com/nunit/nunit/pull/5361">PR 5361</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5324">5324</a> C++/CLI compiler warning C4642 in EqualNumericConstraint and EqualNumericWithoutUsingConstraint. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5321">PR 5321</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5273">5273</a> Verify that generic AssignableToConstraint and AssignableFromConstraint works as expected. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5277">PR 5277</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5252">5252</a> Upgrade to 4.6.0 containing #4824 is source-incompatible in F# even on net9.</li>
@@ -252,37 +256,42 @@ Your efforts help make NUnit better for the entire community.</p>
 <p>and to the commenters who engaged in discussions and offered further insights:</p>
 <table>
 <tr>
+<td><a href="https://github.com/AmirTahan80">Amir Tahan</a></td>
+<td><a href="https://github.com/SinghAnsh07">ANSH SINGH</a></td>
 <td><a href="https://github.com/CharliePoole">CharliePoole</a></td>
 <td><a href="https://github.com/hfickes">HF</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/joeldickson">Joel Dickson</a></td>
 <td><a href="https://github.com/logiclrd">Jonathan Gilbert</a></td>
-</tr>
-<tr>
 <td><a href="https://github.com/jnm2">Joseph Musser</a></td>
 <td><a href="https://github.com/m4ggo">m4ggo</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/MaceWindu">MaceWindu</a></td>
 <td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
-</tr>
-<tr>
 <td><a href="https://github.com/MartinFayRAX">MartinFayRAX</a></td>
 <td><a href="https://github.com/mikeparker">Mike Parker</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a></td>
 <td><a href="https://github.com/seky16">Ondřej Sekáč</a></td>
-</tr>
-<tr>
 <td><a href="https://github.com/Smaug123">Patrick Stevens</a></td>
 <td><a href="https://github.com/provegard">Per Rovegård</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/rmiller-glrealitylabs">R. Miller</a></td>
 <td><a href="https://github.com/rachied">Rachid</a></td>
-</tr>
-<tr>
 <td><a href="https://github.com/RicardoMacedo-prj">Ricardo Macedo</a></td>
 <td><a href="https://github.com/rprouse">Rob Prouse</a></td>
-<td><a href="https://github.com/mr-russ">Russell Smith</a></td>
-<td><a href="https://github.com/Will-thom">Silva Dev BR</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/mr-russ">Russell Smith</a></td>
+<td><a href="https://github.com/Shaurya2k06">Shaurya Srivastava</a></td>
+<td><a href="https://github.com/Will-thom">Silva Dev BR</a></td>
 <td><a href="https://github.com/stevenaw">Steven Weerdenburg</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 </tr>
 </table>
