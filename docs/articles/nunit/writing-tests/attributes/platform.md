@@ -40,6 +40,8 @@ PlatformAttribute(string[] includes)
 |----------|------|-------------|---------|
 | `Include` | `string` | Comma-delimited list of included platforms. | `null` |
 | `Exclude` | `string` | Comma-delimited list of excluded platforms. | `null` |
+| `Includes` | `string[]` | Array of included platforms. | `null` |
+| `Excludes` | `string[]` | Array of excluded platforms. | `null` |
 
 ## Applies To
 
@@ -53,7 +55,7 @@ PlatformAttribute(string[] includes)
 
 ## Platform Specifiers
 
-The following values are recognized as platform specifiers. They may be expressed in upper, lower or mixed case.
+The following values are recognized as platform specifiers. They may be expressed in upper, lower or mixed case. A list of supported identifiers can also be referenced from the named constants in the [`PlatformNames`](/api/NUnit.Framework.PlatformNames.html) class. _(NUnit 4.6+)_.
 
 ### Operating System
 
@@ -88,10 +90,6 @@ The following values are recognized as platform specifiers. They may be expresse
 * MacOsX
 * XBox
 
-A list of supported platform identifiers can also be obtained from the constant string `PlatformHelper.OSPlatforms` of
-the NUnit assembly you use. Note that this is for informational purposes only, because the `PlatformHelper` is
-considered an internal type and shall not be used in production.
-
 ### Architecture
 
 * 32-Bit
@@ -104,30 +102,55 @@ considered an internal type and shall not be used in production.
 ### Runtime
 
 * Net
-* Net-1.0
-* Net-1.1
-* Net-2.0
-* Net-3.0 (1)
-* Net-3.5 (2)
-* Net-4.0
-* Net-4.5 (3)
-* NetCF
+* NETCore
+* DotNET
+* DotNETCore
+* NETFramework _(NUnit 5+)_
+* DotNETFramework _(NUnit 5+)_
+
+> [!IMPORTANT]
+> **Breaking change in NUnit 5:** The meaning of `NET` and `DotNET` has changed to better align with
+> Microsoft's terminology. These identifiers previously targeted .NET Framework and now
+> target modern .NET (.NET 5+, .NET Core). For more information please see the [**Breaking Changes**](#breaking-changes-in-nunit-5) section below.
+
+#### Other Runtimes
+
 * SSCLI
 * Rotor
 * Mono
-* Mono-1.0
-* Mono-2.0
-* Mono-3.0 (4)
-* Mono-3.5 (5)
-* Mono-4.0
+* MonoTouch
 
-## Notes
+#### Runtime Version Specifiers
 
-1. Includes Net-2.0
-2. Includes Net-2.0 and Net-3.0
-3. Includes Net-4.0
-4. Includes Mono-2.0
-5. Includes Mono-2.0 and Mono-3.0
+> [!NOTE]
+> Version specifiers (for example, `Net-5.0`) are **not** supported for modern .NET identifiers.
+
+A runtime version number can be appended using a dash, for example `NETFramework-4.0`, `NETFramework-4.5`, or `Mono-3.0`. These relate to the underlying Common Language Runtime (CLR) version and are inclusive of lower runtime versions which target the same CLR.
+
+For example:
+
+`NETFramework-4.5` will include `NETFramework-4.0` as both run on version 4 of the CLR. Similarly, `Mono-3.5` will include `Mono-2.0` and `Mono-3.0` as all run on version 2 of the MonoCLR.
+
+## Breaking Changes in NUnit 5
+
+The meaning of `NET` and `DotNET` has changed to better align with Microsoft's current .NET terminology. These identifiers previously targeted .NET Framework and now
+target modern .NET (.NET 5+, .NET Core).
+
+| Identifier | NUnit 4 | NUnit 5 |
+|------------|---------|---------|
+| `NET` | .NET Framework | Modern .NET |
+| `NETFramework` | Not supported | .NET Framework |
+| `NETCore` | Modern .NET | Modern .NET _(unchanged)_ |
+| `DotNET` | .NET Framework | Modern .NET |
+| `DotNETCore` | Modern .NET | Modern .NET _(unchanged)_ |
+| `DotNETFramework` | Not supported | .NET Framework |
+
+If you were using `[Platform(PlatformNames.NET)]` or `[Platform(PlatformNames.DotNET)]` to target .NET Framework,
+update those usages to `[Platform(PlatformNames.NETFramework)]` or `[Platform(PlatformNames.DotNETFramework)]`.
+
+Additionally, version-specific .NET targeting using `Net-X.X` (for example, `Net-4.0`, `Net-4.5`)
+is no longer supported. Use `NETFramework-X.X` instead (for example, `NETFramework-4.0`,
+`NETFramework-4.5`).
 
 ## `[SupportedOSPlatformAttribute]` and `[UnsupportedOSPlatformAttribute]` support
 
