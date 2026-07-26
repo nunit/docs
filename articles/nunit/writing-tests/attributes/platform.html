@@ -149,6 +149,18 @@ PlatformAttribute(string[] includes)
 <td>Comma-delimited list of excluded platforms.</td>
 <td><code>null</code></td>
 </tr>
+<tr>
+<td><code>Includes</code></td>
+<td><code>string[]</code></td>
+<td>Array of included platforms.</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>Excludes</code></td>
+<td><code>string[]</code></td>
+<td>Array of excluded platforms.</td>
+<td><code>null</code></td>
+</tr>
 </tbody>
 </table>
 <h2 id="applies-to">Applies To</h2>
@@ -174,14 +186,25 @@ PlatformAttribute(string[] includes)
 public class PortableTests
 {
     [Test]
-    [Platform(Exclude = &quot;Win98,WinME&quot;)]
+    [Platform(Excludes = [&quot;Win98&quot;, &quot;WinME&quot;])]
     public void SomeTest()
     {
         Assert.Pass(&quot;Runs only on supported platforms.&quot;);
     }
 }
+
+[TestFixture]
+public class RuntimeSpecificTests
+{
+    [Test]
+    [Platform([PlatformNames.NETFramework])]
+    public void SomeTest()
+    {
+        Assert.Pass(&quot;Runs only on .NET Framework&quot;);
+    }
+}
 </code></pre><h2 id="platform-specifiers">Platform Specifiers</h2>
-<p>The following values are recognized as platform specifiers. They may be expressed in upper, lower or mixed case.</p>
+<p>The following values are recognized as platform specifiers. They may be expressed in upper, lower or mixed case. A list of supported identifiers can also be referenced from the named constants in the <a href="/api/NUnit.Framework.PlatformNames.html"><code>PlatformNames</code></a> class. <em>(NUnit 4.6+)</em>.</p>
 <h3 id="operating-system">Operating System</h3>
 <ul>
 <li>Win</li>
@@ -215,9 +238,6 @@ public class PortableTests
 <li>MacOsX</li>
 <li>XBox</li>
 </ul>
-<p>A list of supported platform identifiers can also be obtained from the constant string <code>PlatformHelper.OSPlatforms</code> of
-the NUnit assembly you use. Note that this is for informational purposes only, because the <code>PlatformHelper</code> is
-considered an internal type and shall not be used in production.</p>
 <h3 id="architecture">Architecture</h3>
 <ul>
 <li>32-Bit</li>
@@ -230,31 +250,82 @@ considered an internal type and shall not be used in production.</p>
 <h3 id="runtime">Runtime</h3>
 <ul>
 <li>Net</li>
-<li>Net-1.0</li>
-<li>Net-1.1</li>
-<li>Net-2.0</li>
-<li>Net-3.0 (1)</li>
-<li>Net-3.5 (2)</li>
-<li>Net-4.0</li>
-<li>Net-4.5 (3)</li>
-<li>NetCF</li>
+<li>NETCore</li>
+<li>DotNET</li>
+<li>DotNETCore</li>
+<li>NETFramework <em>(NUnit 5+)</em></li>
+<li>DotNETFramework <em>(NUnit 5+)</em></li>
+</ul>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p><strong>Breaking change in NUnit 5:</strong> The meaning of <code>NET</code> and <code>DotNET</code> has changed to better align with
+Microsoft's terminology. These identifiers previously targeted .NET Framework and now
+target modern .NET (.NET 5+, .NET Core). For more information please see the <a href="#breaking-changes-in-nunit-5"><strong>Breaking Changes</strong></a> section below.</p>
+</div>
+<h4 id="other-runtimes">Other Runtimes</h4>
+<ul>
 <li>SSCLI</li>
 <li>Rotor</li>
 <li>Mono</li>
-<li>Mono-1.0</li>
-<li>Mono-2.0</li>
-<li>Mono-3.0 (4)</li>
-<li>Mono-3.5 (5)</li>
-<li>Mono-4.0</li>
+<li>MonoTouch</li>
 </ul>
-<h2 id="notes">Notes</h2>
-<ol>
-<li>Includes Net-2.0</li>
-<li>Includes Net-2.0 and Net-3.0</li>
-<li>Includes Net-4.0</li>
-<li>Includes Mono-2.0</li>
-<li>Includes Mono-2.0 and Mono-3.0</li>
-</ol>
+<h4 id="runtime-version-specifiers">Runtime Version Specifiers</h4>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Version specifiers (for example, <code>Net-5.0</code>) are <strong>not</strong> supported for modern .NET identifiers.</p>
+</div>
+<p>A runtime version number can be appended using a dash, for example <code>NETFramework-4.0</code>, <code>NETFramework-4.5</code>, or <code>Mono-3.0</code>. These relate to the underlying Common Language Runtime (CLR) version and are inclusive of lower runtime versions which target the same CLR.</p>
+<p>For example:</p>
+<p><code>NETFramework-4.5</code> will include <code>NETFramework-4.0</code> as both run on version 4 of the CLR. Similarly, <code>Mono-3.5</code> will include <code>Mono-2.0</code> and <code>Mono-3.0</code> as all run on version 2 of the MonoCLR.</p>
+<h2 id="breaking-changes-in-nunit-5">Breaking Changes in NUnit 5</h2>
+<p>The meaning of <code>NET</code> and <code>DotNET</code> has changed to better align with Microsoft's current .NET terminology. These identifiers previously targeted .NET Framework and now
+target modern .NET (.NET 5+, .NET Core).</p>
+<table>
+<thead>
+<tr>
+<th>Identifier</th>
+<th>NUnit 4</th>
+<th>NUnit 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NET</code></td>
+<td>.NET Framework</td>
+<td>Modern .NET</td>
+</tr>
+<tr>
+<td><code>NETFramework</code></td>
+<td>Not supported</td>
+<td>.NET Framework</td>
+</tr>
+<tr>
+<td><code>NETCore</code></td>
+<td>Modern .NET</td>
+<td>Modern .NET <em>(unchanged)</em></td>
+</tr>
+<tr>
+<td><code>DotNET</code></td>
+<td>.NET Framework</td>
+<td>Modern .NET</td>
+</tr>
+<tr>
+<td><code>DotNETCore</code></td>
+<td>Modern .NET</td>
+<td>Modern .NET <em>(unchanged)</em></td>
+</tr>
+<tr>
+<td><code>DotNETFramework</code></td>
+<td>Not supported</td>
+<td>.NET Framework</td>
+</tr>
+</tbody>
+</table>
+<p>If you were using <code>[Platform(PlatformNames.NET)]</code> or <code>[Platform(PlatformNames.DotNET)]</code> to target .NET Framework,
+update those usages to <code>[Platform(PlatformNames.NETFramework)]</code> or <code>[Platform(PlatformNames.DotNETFramework)]</code>.</p>
+<p>Additionally, version-specific .NET targeting using <code>Net-X.X</code> (for example, <code>Net-4.0</code>, <code>Net-4.5</code>)
+is no longer supported. Use <code>NETFramework-X.X</code> instead (for example, <code>NETFramework-4.0</code>,
+<code>NETFramework-4.5</code>).</p>
 <h2 id="supportedosplatformattribute-and-unsupportedosplatformattribute-support"><code>[SupportedOSPlatformAttribute]</code> and <code>[UnsupportedOSPlatformAttribute]</code> support</h2>
 <p>The <a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1416"><code>[SupportedOSPlatform]</code> and <code>[UnsupportedOSPlatform]</code></a> attributes are also supported,
 however they are only supported on a subset of dotnet versions compared to <code>[Platform]</code>. See the docs from Microsoft for more information about <code>[SupportedOSPlatform]</code> and <code>[UnsupportedOSPlatform]</code>.</p>
