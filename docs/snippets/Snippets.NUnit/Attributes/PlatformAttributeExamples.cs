@@ -10,10 +10,21 @@ namespace Snippets.NUnit.Attributes
         public class PortableTests
         {
             [Test]
-            [Platform(Exclude = "Win98,WinME")]
+            [Platform(Excludes = ["Win98", "WinME"])]
             public void SomeTest()
             {
                 Assert.Pass("Runs only on supported platforms.");
+            }
+        }
+
+        [TestFixture]
+        public class RuntimeSpecificTests
+        {
+            [Test]
+            [Platform([PlatformNames.NETFramework])]
+            public void SomeTest()
+            {
+                Assert.Pass("Runs only on .NET Framework");
             }
         }
         #endregion
