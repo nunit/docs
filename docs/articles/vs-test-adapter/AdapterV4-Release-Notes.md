@@ -22,7 +22,7 @@ There are 5 issues fixed in this release.
 ### Others
 
 * [1455](https://github.com/nunit/nunit3-vs-adapter/issues/1455) Microsoft.Testing.Platform: emit public TestMethodIdentifierProperty and stop relying on the vstestProvider capability. Thanks to [Amaury Levé](https://github.com/Evangelink) for [PR 1456](https://github.com/nunit/nunit3-vs-adapter/pull/1456)
-* [1450](https://github.com/nunit/nunit3-vs-adapter/issues/1450) Unwanted console log debug messages in Nuget version 6.2.0. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 1454](https://github.com/nunit/nunit3-vs-adapter/pull/1454)
+* [1450](https://github.com/nunit/nunit3-vs-adapter/issues/1450) Unwanted console log debug messages in NuGet version 6.2.0. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 1454](https://github.com/nunit/nunit3-vs-adapter/pull/1454)
 * [1418](https://github.com/nunit/nunit3-vs-adapter/issues/1418) Add runsetting parameter:   DefaultMaxTime. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 1460](https://github.com/nunit/nunit3-vs-adapter/pull/1460)
 
 ### The following issues are marked as breaking changes
