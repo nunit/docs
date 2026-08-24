@@ -13,7 +13,7 @@ There are 5 issues fixed in this release.
 
 ### Enhancements
 
-* [1351](https://github.com/nunit/nunit3-vs-adapter/issues/1351) Test class name missing in TRX report for parametrized fixture when running through MTP. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 1449](https://github.com/nunit/nunit3-vs-adapter/pull/1449)
+* [1351](https://github.com/nunit/nunit3-vs-adapter/issues/1351) Test class name missing in TRX report for parameterized fixture when running through MTP. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 1449](https://github.com/nunit/nunit3-vs-adapter/pull/1449)
 
 ### Bug fixes
 
