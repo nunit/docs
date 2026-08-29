@@ -13,9 +13,9 @@ However, sometimes you need just the little extra!
 You can find the latest release package itself at [Nuget](https://www.nuget.org/packages/NUnit), here you will also
 find earlier versions, and instructions on how to install using different tools.
 
-This is our latest release ![](https://img.shields.io/github/release-date/nunit/nunit.svg?style=flat),
+This is our latest release ![Release date](https://img.shields.io/github/release-date/nunit/nunit.svg?style=flat),
 [![NuGet Version](https://img.shields.io/nuget/v/NUnit.svg)](https://www.nuget.org/packages/NUnit/).  And it has a
-high number of ![](https://img.shields.io/nuget/dt/NUnit.svg?style=flat).
+high number of ![Downloads](https://img.shields.io/nuget/dt/NUnit.svg?style=flat).
 
 You can also find the release package at the [Release section](https://github.com/nunit/nunit/releases) in
 our [github repo](https://github.com/nunit/nunit).
@@ -24,13 +24,13 @@ The repo is also where you can raise issues, download code, join discussion or j
 
 ## Developer versions
 
-We also release developer versions, they are called `alpha` versions, and you find them at our place at [Myget](https://img.shields.io/myget/nunit/vpre/NUnit.svg?label=MyGet%3A%20Latest%20pre-release&style=flat)](<https://www.myget.org/feed/nunit/package/nuget/NUnit>).
+We also release developer versions, they are called `alpha` versions, and you find them at our place at [MyGet](https://img.shields.io/myget/nunit/vpre/NUnit.svg?label=MyGet%3A%20Latest%20pre-release&style=flat)](<https://www.myget.org/feed/nunit/package/nuget/NUnit>).
 
 A new developer version is created every time we merge a new Pull Request into our main branch.
 
-The easiest way to get the developer versions, is to add it to your nuget.config file, or if you dont have it, just create one.  
+The easiest way to get the developer versions, is to add it to your nuget.config file, or if you don't have it, just create one.  
 
-The code snippet below is the full content of a nuget.config file which includes the Myget feed.
+The code snippet below is the full content of a nuget.config file which includes the MyGet feed.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
