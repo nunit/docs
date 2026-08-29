@@ -24,7 +24,7 @@ The repo is also where you can raise issues, download code, join discussion or j
 
 ## Developer versions
 
-We also release developer versions, they are called `alpha` versions, and you find them at our place at [MyGet](https://img.shields.io/myget/nunit/vpre/NUnit.svg?label=MyGet%3A%20Latest%20pre-release&style=flat)](<https://www.myget.org/feed/nunit/package/nuget/NUnit>).
+We also release developer versions, they are called `alpha` versions, and you find them at our place at [[MyGet](https://img.shields.io/myget/nunit/vpre/NUnit.svg?label=MyGet%3A%20Latest%20pre-release&style=flat)](<https://www.myget.org/feed/nunit/package/nuget/NUnit>).
 
 A new developer version is created every time we merge a new Pull Request into our main branch.
 
