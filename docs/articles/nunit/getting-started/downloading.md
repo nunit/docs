@@ -10,8 +10,8 @@ However, sometimes you need just the little extra!
 
 ## Release versions
 
-You can find the latest release package itself at [Nuget](https://www.nuget.org/packages/NUnit), here you will also
-find earlier versions, and instructions on how to install using different tools.
+You can find the latest release package at [NuGet](https://www.nuget.org/packages/NUnit). There you will also
+find earlier versions and instructions on how to install using different tools.
 
 This is our latest release ![Release date](https://img.shields.io/github/release-date/nunit/nunit.svg?style=flat),
 [![NuGet Version](https://img.shields.io/nuget/v/NUnit.svg)](https://www.nuget.org/packages/NUnit/).  And it has a
