@@ -15,6 +15,10 @@ application, information about the tests may be returned for display, as is done
 
 The following interfaces are called at load time.
 
+> [!WARNING]
+> Parameter values injected into test methods by by an `ITestBuilder` are marshalled cross-process to the test execution process.
+> This can cause unexpected behaviour if there are attempts to use that value outside of the test scope.
+
 | Interface              | Used By |
 |------------------------|---------|
 | [IFixtureBuilder](IFixtureBuilder-Interface.md)       | Attributes that know how to build a fixture from a test class |
