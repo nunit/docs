@@ -3,6 +3,14 @@
   "extends": [
     "config:recommended"
   ],
+  "packageRules": [
+    {
+      "matchManagers": ["nuget"],
+      "matchPackageNames": ["NUnit", "NUnitLite", "NUnit3TestAdapter", "NUnit.Analyzers"],
+      "groupName": "NUnit ecosystem updates",
+      "schedule": ["* 0-8 * * *"]
+    }
+  ],
   "customManagers": [
     {
       "customType": "regex",
