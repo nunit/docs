@@ -13,12 +13,12 @@ dependent fixture can run.
 ## Constructor
 
 ```csharp
-DependsOnFixtureAttribute(Type dependantFixture)
+DependsOnFixtureAttribute(Type dependencyFixture)
 ```
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `dependantFixture` | `Type` | The fixture that must finish before the current fixture starts. |
+| `dependencyFixture` | `Type` | The fixture that must finish before the current fixture starts. |
 
 ## Properties
 
