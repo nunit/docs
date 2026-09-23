@@ -34,28 +34,7 @@ DependsOnTestAttribute(string testName)
 
 ## Example
 
-```csharp
-[TestFixture]
-public class DependencyExamples
-{
-    [Test]
-    public void CreateSharedData()
-    {
-    }
-
-    [Test]
-    [DependsOnTest(nameof(CreateSharedData))]
-    public void ValidateSharedData()
-    {
-    }
-
-    [Test]
-    [DependsOnTest(nameof(CreateSharedData), AllowFailure = true)]
-    public void CleanupSharedData()
-    {
-    }
-}
-```
+[!code-csharp[DependsOnTest](~/snippets/Snippets.NUnit/Attributes/DependsOnTestAttributeExamples.cs#DependsOnTest)]
 
 ## Notes
 

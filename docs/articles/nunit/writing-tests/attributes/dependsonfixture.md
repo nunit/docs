@@ -34,36 +34,7 @@ DependsOnFixtureAttribute(Type dependencyFixture)
 
 ## Example
 
-```csharp
-[TestFixture]
-public class DatabaseFixture
-{
-    [Test]
-    public void CreateSchema()
-    {
-    }
-}
-
-[TestFixture]
-[DependsOnFixture(typeof(DatabaseFixture))]
-public class ReportingFixture
-{
-    [Test]
-    public void GenerateReport()
-    {
-    }
-}
-
-[TestFixture]
-[DependsOnFixture(typeof(DatabaseFixture), AllowFailure = true)]
-public class CleanupFixture
-{
-    [Test]
-    public void RemoveTemporaryFiles()
-    {
-    }
-}
-```
+[!code-csharp[DependsOnFixture](~/snippets/Snippets.NUnit/Attributes/DependsOnFixtureAttributeExamples.cs#DependsOnFixture)]
 
 ## Notes
 
