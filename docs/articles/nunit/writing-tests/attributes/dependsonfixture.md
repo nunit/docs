@@ -73,8 +73,8 @@ public class CleanupFixture
    the dependency fixture fails.
 3. Misconfiguration—such as referencing a fixture that is not present in the
    current run, creating a circular dependency, or combining the dependency
-   chain with `[Order]` or `[Parallelizable]`—causes the affected tests to be
-   marked **Failed** as invalid.
+   chain with `[Order]` or `[Parallelizable]`—causes the affected fixtures to
+   be marked **Failed** as invalid.
 4. `DependsOnFixture` is an explicit dependency mechanism and is generally a
    better fit than numeric ordering when one fixture truly depends on another.
 
