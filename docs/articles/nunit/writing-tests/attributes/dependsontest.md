@@ -64,9 +64,10 @@ public class DependencyExamples
 2. If `AllowFailure = true`, NUnit still runs the dependent test even when the
    dependency test fails.
 3. Misconfiguration—such as referencing a test that is not present in the
-   current run, creating a circular dependency, or combining the dependency
-   chain with `[Order]` or `[Parallelizable]`—causes the affected tests to be
-   marked **Failed** as invalid.
+   current run, creating a circular dependency, using `[Order]` anywhere in
+   the same dependency chain, or configuring tests in that dependency chain for
+   parallel execution—causes the affected tests to be marked **Failed** as
+   invalid.
 4. Use `nameof(...)` where possible so dependency names stay aligned with test
    method renames.
 
