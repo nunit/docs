@@ -17,6 +17,8 @@ This table lists all the attributes supported by NUnit.
 | [Datapoint Attribute](xref:attribute-datapoint)           | Provides data for [Theories](xref:attribute-theory). |
 | [DatapointSource Attribute](xref:attribute-datapointsource)     | Provides data for [Theories](xref:attribute-theory). |
 | [DefaultFloatingPointTolerance Attribute](xref:attribute-defaultfloatingpointtolerance) | Indicates that the test should use the specified tolerance as default for float and double comparisons. |
+| [DependsOnFixture Attribute](xref:attribute-dependsonfixture) | Specifies that a fixture must run after another fixture. |
+| [DependsOnTest Attribute](xref:attribute-dependsontest) | Specifies that a test must run after another test. |
 | [Description Attribute](xref:attribute-description)         | Applies descriptive text to a Test, TestFixture or Assembly. |
 | [Explicit Attribute](xref:attribute-explicit)            | Indicates that a test should be skipped unless explicitly run. |
 | [FixtureLifeCycle Attribute](xref:attribute-fixturelifecycle)  | Specifies the lifecycle of a fixture allowing a new instance of a test fixture to be constructed for each test case. Useful in situations where test case parallelism is important. |
