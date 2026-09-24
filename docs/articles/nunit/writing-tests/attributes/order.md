@@ -8,7 +8,7 @@ uid: attribute-order
 > `OrderAttribute` is deprecated in NUnit 5 and may be removed in a future
 > version. Prefer [DependsOnTest Attribute](xref:attribute-dependsontest) or
 > [DependsOnFixture Attribute](xref:attribute-dependsonfixture) when the
-> intended ordering reflects a true dependency rather than simple sequencing.
+> intended ordering reflects a true dependency.
 
 `OrderAttribute` is used on test methods or fixtures to specify the order in which tests are run within their containing suite. Tests are started in ascending order of the `order` value.
 
