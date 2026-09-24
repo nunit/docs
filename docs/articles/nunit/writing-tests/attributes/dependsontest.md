@@ -8,7 +8,7 @@ Added in **NUnit 5.0**.
 
 `DependsOnTestAttribute` specifies that a test must run after another test. By
 default, the referenced test must run and pass before the dependent test can
-run.
+run.  This can be overridden by setting `AllowFailure` to `true`.
 
 ## Constructor
 

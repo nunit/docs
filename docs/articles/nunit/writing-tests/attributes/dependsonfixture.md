@@ -8,7 +8,8 @@ Added in **NUnit 5.0**.
 
 `DependsOnFixtureAttribute` specifies that a fixture must run after another
 fixture. By default, the referenced fixture must run and pass before the
-dependent fixture can run.
+dependent fixture can run. This can be overridden by setting `AllowFailure`
+to `true`.
 
 ## Constructor
 
@@ -47,8 +48,6 @@ DependsOnFixtureAttribute(Type dependencyFixture)
    the same dependency chain, or configuring fixtures in that dependency chain
    for parallel execution—causes the affected fixtures to be marked
    **Failed** as invalid.
-4. `DependsOnFixture` is an explicit dependency mechanism and is generally a
-   better fit than numeric ordering when one fixture truly depends on another.
 
 ## See Also
 
