@@ -20,6 +20,8 @@ DependsOnTestAttribute(string testName)
 |-----------|------|-------------|
 | `testName` | `string` | The name of the test that must finish before the current test starts. |
 
+In order to avoid mismatches prefer to use `nameof(mytest)`, where `mytest` is the method name of the test.
+See examples below.
 ## Properties
 
 | Property | Type | Description | Default |
