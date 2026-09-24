@@ -7,6 +7,11 @@ uid: classic-string-assert
 The StringAssert class provides a number of methods that are useful
 when examining string values.
 
+> [!NOTE]
+> From version 5, `StringAssert` is in the `NUnit.Framework` namespace, so `using NUnit.Framework;` is enough. In NUnit 4, it
+> is in the `NUnit.Framework.Legacy` namespace and needs `using NUnit.Framework.Legacy;`. It still ships in
+> `nunit.framework.legacy.dll`, which is part of the NUnit package.
+
 ```csharp
 StringAssert.Contains(string expected, string actual);
 StringAssert.Contains(string expected, string actual,

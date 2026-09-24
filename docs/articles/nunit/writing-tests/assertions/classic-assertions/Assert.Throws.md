@@ -19,23 +19,25 @@ The Type format is available in both a non-generic and generic form.
 If the code under test is async, you must use [Assert.ThrowsAsync](Assert.ThrowsAsync.md).
 
 ```csharp
-Exception Assert.Throws(Type expectedExceptionType, TestDelegate code);
-Exception Assert.Throws(Type expectedExceptionType, TestDelegate code,
+Exception Assert.Throws(Type expectedExceptionType, Action code);
+Exception Assert.Throws(Type expectedExceptionType, Action code,
                         string message, params object[] params);
 
-Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code);
-Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code,
+Exception Assert.Throws(IResolveConstraint constraint, Action code);
+Exception Assert.Throws(IResolveConstraint constraint, Action code,
                         string message, params object[] params);
 
-Assert.Throws<T>(TestDelegate code);
-Assert.Throws<T>(TestDelegate code,
-                 string message, params object[] params);
+T Assert.Throws<T>(Action code);
+T Assert.Throws<T>(Action code,
+                   string message, params object[] params);
 ```
 
-In the above code **TestDelegate** is a delegate of the form
-**void TestDelegate()**, which is used to execute the code
-in question. This may be an anonymous delegate or, when compiling
-under C# 3.0 or greater, a lambda expression.
+In the above code `Action` is the delegate used to execute the code in question. This will usually be a lambda
+expression.
+
+> [!NOTE]
+> From version 5, the code to execute is passed as an `Action`. See [NUnit 4 and earlier](#nunit-4-and-earlier) for
+> the `TestDelegate` signatures that were used before.
 
 The following example shows different ways of writing the
 same test.
@@ -79,6 +81,26 @@ Assert.Catch<ApplicationException>(code);
 
 // Allow any kind of exception
 Assert.Catch(code);
+```
+
+## NUnit 4 and earlier
+
+In NUnit 4 and earlier, the code to execute was passed as a `TestDelegate`, a delegate of the form
+`void TestDelegate()`. `TestDelegate` was removed in NUnit 5. Code that passes a lambda works unchanged, but explicit
+uses of `TestDelegate` must be changed to `Action`.
+
+```csharp
+Exception Assert.Throws(Type expectedExceptionType, TestDelegate code);
+Exception Assert.Throws(Type expectedExceptionType, TestDelegate code,
+                        string message, params object[] params);
+
+Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code);
+Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code,
+                        string message, params object[] params);
+
+Assert.Throws<T>(TestDelegate code);
+Assert.Throws<T>(TestDelegate code,
+                 string message, params object[] params);
 ```
 
 ## See Also

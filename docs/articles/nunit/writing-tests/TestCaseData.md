@@ -54,6 +54,22 @@ based on their type parameters. This provides a more concise syntax when working
 
 [!code-csharp[GenericTestCaseDataExample](~/snippets/Snippets.NUnit/TestCaseDataExample.cs#GenericTestCaseDataExample)]
 
+## Typed expected results (From version 5)
+
+The generic variants also support a typed expected result. Calling `Returns` on a `TestCaseData<T1, ...>` returns a
+`TestCaseDataWithReturn<T1, ..., TReturn>`, which checks the type of the expected result at compile time.
+`TestCaseData.Create(...)` infers the argument types, so you don't have to write them out. Fluent methods such as
+`SetName` and `SetCategory` keep the generic type, so you can call them in any order.
+
+A generic instance can still be returned from a source declared as `IEnumerable<TestCaseData>`, because it is
+converted to `TestCaseData` automatically.
+
+[!code-csharp[TypedReturnsExample](~/snippets/Snippets.NUnit/TestCaseDataExample.cs#TypedReturnsExample)]
+
+> [!NOTE]
+> In NUnit 4, `TestCaseData<T>` and the other generic variants derived from `TestCaseData`. Their fluent methods
+> returned a plain `TestCaseData`, and `Returns` took an `object`.
+
 ## SetArgDisplayNames with objects
 
 The `SetArgDisplayNames` method has an overload that accepts `object[]` instead of `string[]`. Objects passed to

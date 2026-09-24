@@ -10,9 +10,8 @@ have used and tested for building everything and creating the release packages. 
 them.
 
 1. Visual Studio 2026 18.0 or newer with the NuGet Package manager.
-2. .NET 6.0 SDK
-3. .NET 8.0 SDK
-4. .NET 10.0 SDK
+2. .NET 8.0 SDK
+3. .NET 10.0 SDK
 
 ## Preparing for Release
 

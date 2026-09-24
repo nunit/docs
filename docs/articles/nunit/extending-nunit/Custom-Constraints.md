@@ -26,14 +26,19 @@ namespace NUnit.Framework.Constraints
         protected Constraint(params object[] args) {}
         public abstract ConstraintResult ApplyTo<TActual>(TActual actual);
         /* ... */
-        public virtual ConstraintResult ApplyTo<TActual>(ActualValueDelegate<TActual> del) {}
-        public virtual ConstraintResult ApplyTo<TActual>(ref TActual actual) {}
-        protected virtual object GetTestObject<TActual>(ActualValueDelegate<TActual> del) {}
+        public virtual ConstraintResult ApplyTo<TActual>(Func<TActual> code) {}
+        public virtual Task<ConstraintResult> ApplyToAsync<TActual>(Func<Task<TActual>> taskDel) {}
+        protected virtual object GetTestObject<TActual>(Func<TActual> code) {}
         public virtual string Description { get; protected set; }
         protected virtual string GetStringRepresentation() {}
     }
 }
 ```
+
+> [!NOTE]
+> From version 5, the delegate overloads take a `Func<TActual>`. In NUnit 4 and earlier they took an
+> `ActualValueDelegate<TActual>`, which was removed in NUnit 5. The `ApplyTo<TActual>(ref TActual actual)` overload
+> was also removed in NUnit 5. Custom constraints that override these methods must be updated.
 
 ## `Constraint` Constructor
 
@@ -64,19 +69,19 @@ message provided upon failure, as described below.
 ## `ApplyTo` Overloads
 
 Constraints may be called with a delegate to return the actual value instead of the actual value itself. This serves to
-delay evaluation of the value. The default implementation of `ApplyTo<TActual>(ActualValueDelegate<TActual> del)` waits
+delay evaluation of the value. The default implementation of `ApplyTo<TActual>(Func<TActual> code)` waits
 for the delegate to complete if it's an async operation, other immediately calls the delegate if synchronous, and then
 calls the abstract `ApplyTo<TActual>(TActual actual)` method with the value.
 
-Another overload also exists, `ApplyTo<TActual>(ref TActual actual)`. The default implementation dereferences the value
-and then calls the abstract `ApplyTo<TActual>(TActual actual)` method with the value. This public virtual method is
-available by use from calling code but currently is not used from any framework calls within NUnit itself.
+In NUnit 4 and earlier, another overload also existed, `ApplyTo<TActual>(ref TActual actual)`. The default
+implementation dereferenced the value and then called the abstract `ApplyTo<TActual>(TActual actual)` method with the
+value. It was not used by NUnit itself, and was removed in NUnit 5.
 
 ## `GetTestObject` Optional Override
 
-The default implementation of `ApplyTo<TActual>(ActualValueDelegate<TActual> del)` does not simply execute the delegate
-but actually calls out to another virtual method, `GetTestObject<TActual>(ActualValueDelegate<TActual> del)`. This
-method can be overridden to keep the default behavior of `ApplyTo<TActual>(ActualValueDelegate<TActual> del)` while
+The default implementation of `ApplyTo<TActual>(Func<TActual> code)` does not simply execute the delegate
+but actually calls out to another virtual method, `GetTestObject<TActual>(Func<TActual> code)`. This
+method can be overridden to keep the default behavior of `ApplyTo<TActual>(Func<TActual> code)` while
 still customizing how the actual value delegate is invoked.
 
 ## `Description` Property
