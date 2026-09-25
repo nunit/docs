@@ -14,7 +14,7 @@ typesafe NUnit.
 
 The breaking changes are summarily documented more clearly in [NUnit 5 - Breaking Changes]("link coming").
 
-There are also a series of enhancementsm, which are summarily documented in  [NUnit 5 - New Features]("link coming").
+There are also a series of enhancements, which are summarily documented in  [NUnit 5 - New Features]("link coming").
 
 There are in total 48 issues fixed in this release.
 
