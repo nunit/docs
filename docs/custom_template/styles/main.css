@@ -86,61 +86,67 @@ div.across ul li
 .nh-hero-code pre code { white-space: pre; word-wrap: normal; background: none; color: inherit; padding: 0; }
 
 /* Sections */
-.nh-section { margin-top: 48px; }
-.nh-section > h2 { font-size: 24px; margin: 0 0 4px; }
-.nh-section-lead { color: var(--nh-muted); margin: 0 0 20px; }
+.nh-section { margin-top: 40px; }
 .nh-grid { display: grid; gap: 16px; }
-.nh-grid-4 { grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr)); }
-.nh-grid-3 { grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); }
-.nh-grid-links { grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); gap: 12px; }
+.nh-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: row dense; }
 
 /* Cards */
-.nh-card, .nh-panel {
+.nh-card {
     background: var(--nh-surface); border: 1px solid var(--nh-border); border-radius: var(--nh-radius);
-    padding: 20px; transition: border-color .15s, box-shadow .15s, transform .15s;
+    padding: 20px; transition: border-color .15s, box-shadow .15s;
 }
-.nh-card:hover, .nh-card-link:focus {
+.nh-card:hover, .nh-card:focus-within {
     border-color: var(--nh-green); box-shadow: 0 6px 20px rgba(0, 91, 12, .12);
 }
-.nh-card-link { display: block; color: inherit !important; }
-.nh-card-link:hover { transform: translateY(-2px); }
-.nh-card h3 { font-size: 17px; margin: 12px 0 6px; }
-.nh-card h3 a, .nh-card-link h3 { color: var(--nh-ink); }
+.nh-card h2 { font-size: 18px; margin: 12px 0 4px; }
+.nh-card h2 a { color: var(--nh-ink); }
+.nh-card h2 a:hover { color: var(--nh-green); }
+.nh-card h3 {
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--nh-muted); margin: 16px 0 6px;
+}
 .nh-card p { color: var(--nh-muted); margin: 0 0 12px; }
-.nh-card-link p { margin: 0; }
-.nh-card ul, .nh-panel ul { list-style: none; padding: 0; margin: 0; }
-.nh-card li, .nh-panel li { padding: 3px 0; }
-.nh-card li a, .nh-panel li a { color: var(--nh-green); }
-.nh-card li a::before, .nh-panel li a::before { content: "\203A"; margin-right: 8px; opacity: .6; }
-.nh-card li a:hover, .nh-panel li a:hover { text-decoration: underline; }
+.nh-card ul { list-style: none; padding: 0; margin: 0; }
+.nh-card li { padding: 3px 0; }
+.nh-card li a { color: var(--nh-green); }
+.nh-card li a::before { content: "\203A"; margin-right: 8px; opacity: .6; }
+.nh-card li a:hover { text-decoration: underline; }
+
+/* Writing tests is the main message, so it gets the tall, highlighted card */
+.nh-card-featured {
+    grid-row: span 2; border: 2px solid var(--nh-green);
+    background: linear-gradient(180deg, var(--nh-green-soft) 0%, var(--nh-surface) 55%);
+}
+.nh-card-featured h2 { font-size: 22px; }
+.nh-card-featured > ul:first-of-type li { padding: 5px 0; font-size: 16px; font-weight: 600; }
+
 .nh-icon {
     display: inline-flex; align-items: center; justify-content: center;
     width: 40px; height: 40px; border-radius: 10px; background: var(--nh-green-soft);
 }
+.nh-card-featured .nh-icon { background: var(--nh-green); }
+.nh-card-featured .nh-icon svg { stroke: #fff; }
 .nh-icon svg {
     width: 22px; height: 22px; fill: none; stroke: var(--nh-green);
     stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
 }
 
-/* Reference quick links */
-.nh-link {
-    display: flex; flex-direction: column; padding: 14px 16px;
-    border: 1px solid var(--nh-border); border-left: 4px solid var(--nh-green); border-radius: 8px;
-    color: var(--nh-ink) !important; transition: background .15s;
-}
-.nh-link:hover, .nh-link:focus { background: var(--nh-green-soft); }
-.nh-link span { color: var(--nh-muted); font-size: 13px; }
-
-/* Bottom panels */
-.nh-split { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 16px; }
-.nh-panel { background: #f6f8fa; }
-.nh-panel h2 { font-size: 18px; margin: 12px 0 8px; }
+.nh-community { margin-top: 32px; text-align: center; color: var(--nh-muted); }
+.nh-community a { color: var(--nh-green); font-weight: 600; }
 
 @media (max-width: 991px) {
     .nh-hero { grid-template-columns: minmax(0, 1fr); padding: 28px 20px; }
     .nh-hero h1 { font-size: 30px; }
+    .nh-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+    .nh-grid-3 { grid-template-columns: minmax(0, 1fr); }
+    .nh-card-featured { grid-row: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
-    .nh-card, .nh-card-link, .nh-link, .nh-btn { transition: none; }
-    .nh-card-link:hover { transform: none; }
+    .nh-card, .nh-btn { transition: none; }
 }
+
+/* Archive: a low-key, full-width strip at the bottom */
+.nh-card-wide { grid-column: 1 / -1; background: #f6f8fa; }
+.nh-card-wide ul { columns: 3 220px; column-gap: 24px; }
