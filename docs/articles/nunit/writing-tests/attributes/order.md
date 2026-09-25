@@ -4,6 +4,12 @@ uid: attribute-order
 
 # Order
 
+> [!IMPORTANT]
+> `OrderAttribute` is deprecated in NUnit 5 and may be removed in a future
+> version. Prefer [DependsOnTest Attribute](xref:attribute-dependsontest) or
+> [DependsOnFixture Attribute](xref:attribute-dependsonfixture) when the
+> intended ordering reflects a true dependency.
+
 `OrderAttribute` is used on test methods or fixtures to specify the order in which tests are run within their containing suite. Tests are started in ascending order of the `order` value.
 
 ## Constructor
@@ -50,5 +56,7 @@ OrderAttribute(int order)
 
 ## See Also
 
+* [DependsOnTest Attribute](xref:attribute-dependsontest)
+* [DependsOnFixture Attribute](xref:attribute-dependsonfixture)
 * [Parallelizable Attribute](xref:attribute-parallelizable)
 * [NonParallelizable Attribute](xref:attribute-nonparallelizable)
