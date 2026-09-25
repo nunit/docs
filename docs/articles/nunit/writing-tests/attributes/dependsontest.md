@@ -22,6 +22,7 @@ DependsOnTestAttribute(string testName)
 
 In order to avoid mismatches prefer to use `nameof(mytest)`, where `mytest` is the method name of the test.
 See examples below.
+
 ## Properties
 
 | Property | Type | Description | Default |
