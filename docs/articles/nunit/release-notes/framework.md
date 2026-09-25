@@ -9,8 +9,8 @@ uid: frameworkreleasenotes
 
 ## NUnit 5.0.0
 
-NUnit 5.0 is a major release, with a series of breaking changes which are following ups on version 4 towards a more
-typesafe NUnit.  
+NUnit 5 is a major release, with a series of breaking changes that follow up on version 4's move towards a more
+type-safe NUnit.  
 
 The breaking changes are summarily documented more clearly in [NUnit 5 - Breaking Changes]("link coming").
 
