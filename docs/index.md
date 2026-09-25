@@ -1,5 +1,11 @@
 # NUnit Documentation Site
 
+<!-- markdownlint-disable MD033 -->
+> [!TIP]
+> We are working on a new home page for these docs. <a href="home.md" data-nh-layout="new">Try the preview</a>, and
+> share your feedback in [this discussion](https://github.com/nunit/docs/discussions/1023).
+<!-- markdownlint-restore -->
+
 This web site contains the documentation for all active NUnit projects as well as developer documentation for those
 working on NUnit or wishing to do so.
 

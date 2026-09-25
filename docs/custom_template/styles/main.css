@@ -10,3 +10,137 @@ div.across ul li
     display:block;
     width:9em
 }
+/* ------------------------------------------------------------------
+   New landing page (home.md). Everything is scoped under .nh so the
+   rest of the site is unaffected.
+   ------------------------------------------------------------------ */
+.nh {
+    --nh-green: #005b0c;
+    --nh-green-dark: #003d08;
+    --nh-green-soft: #e8f3ea;
+    --nh-ink: #1b1f23;
+    --nh-muted: #57606a;
+    --nh-border: #d8dee4;
+    --nh-surface: #ffffff;
+    --nh-radius: 12px;
+    color: var(--nh-ink);
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 48px;
+}
+.nh a { text-decoration: none; }
+.nh h1, .nh h2, .nh h3 { font-weight: 600; letter-spacing: -0.01em; }
+.nh code { background: var(--nh-green-soft); color: var(--nh-green-dark); padding: 1px 5px; border-radius: 4px; }
+
+/* Preview banner / layout switch */
+.nh-switch {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+    margin: 8px 0 20px; padding: 10px 16px;
+    border: 1px dashed var(--nh-border); border-radius: var(--nh-radius);
+    color: var(--nh-muted); font-size: 14px;
+}
+.nh-switch a { margin-left: auto; font-weight: 600; color: var(--nh-green); }
+.nh-badge {
+    background: var(--nh-green); color: #fff; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .06em; padding: 2px 8px; border-radius: 999px;
+}
+
+/* Hero */
+.nh-hero {
+    display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 32px; align-items: center;
+    padding: 40px; border-radius: 16px; color: #fff;
+    background:
+        radial-gradient(circle at 85% 15%, rgba(255, 255, 255, .12), transparent 45%),
+        linear-gradient(135deg, var(--nh-green-dark) 0%, var(--nh-green) 55%, #0a7a3b 100%);
+}
+.nh-eyebrow { margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .8; }
+.nh-hero h1 { margin: 0 0 16px; font-size: 40px; line-height: 1.15; color: #fff; }
+.nh-lead { font-size: 17px; margin: 0 0 24px; opacity: .92; max-width: 36em; }
+.nh-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.nh-btn {
+    display: inline-block; padding: 9px 18px; border-radius: 8px; font-weight: 600;
+    color: #fff !important; border: 1px solid rgba(255, 255, 255, .45); transition: background .15s;
+}
+.nh-btn:hover, .nh-btn:focus { background: rgba(255, 255, 255, .12); }
+.nh-btn-primary { background: #fff; border-color: #fff; color: var(--nh-green-dark) !important; }
+.nh-btn-primary:hover, .nh-btn-primary:focus { background: var(--nh-green-soft); }
+.nh-popular { margin: 0; font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.nh-popular span { opacity: .75; margin-right: 2px; }
+.nh-popular a {
+    color: #fff; background: rgba(255, 255, 255, .12); padding: 3px 10px; border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .2);
+}
+.nh-popular a:hover, .nh-popular a:focus { background: rgba(255, 255, 255, .22); }
+.nh-hero-code {
+    background: #fff; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .25);
+}
+.nh-code-title {
+    display: flex; align-items: center; gap: 6px; padding: 8px 12px;
+    background: #f3f5f7; border-bottom: 1px solid var(--nh-border); color: var(--nh-muted); font-size: 12px;
+}
+.nh-code-title span { width: 10px; height: 10px; border-radius: 50%; background: #d0d7de; }
+.nh-code-title span:nth-child(3) { margin-right: 6px; }
+.nh-hero-code { min-width: 0; }
+.nh-hero-code pre { overflow-x: auto; word-wrap: normal; white-space: pre; margin: 0; border: 0; border-radius: 0; background: #fff; font-size: 13px; }
+.nh-hero-code pre code { white-space: pre; word-wrap: normal; background: none; color: inherit; padding: 0; }
+
+/* Sections */
+.nh-section { margin-top: 48px; }
+.nh-section > h2 { font-size: 24px; margin: 0 0 4px; }
+.nh-section-lead { color: var(--nh-muted); margin: 0 0 20px; }
+.nh-grid { display: grid; gap: 16px; }
+.nh-grid-4 { grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr)); }
+.nh-grid-3 { grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); }
+.nh-grid-links { grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); gap: 12px; }
+
+/* Cards */
+.nh-card, .nh-panel {
+    background: var(--nh-surface); border: 1px solid var(--nh-border); border-radius: var(--nh-radius);
+    padding: 20px; transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+.nh-card:hover, .nh-card-link:focus {
+    border-color: var(--nh-green); box-shadow: 0 6px 20px rgba(0, 91, 12, .12);
+}
+.nh-card-link { display: block; color: inherit !important; }
+.nh-card-link:hover { transform: translateY(-2px); }
+.nh-card h3 { font-size: 17px; margin: 12px 0 6px; }
+.nh-card h3 a, .nh-card-link h3 { color: var(--nh-ink); }
+.nh-card p { color: var(--nh-muted); margin: 0 0 12px; }
+.nh-card-link p { margin: 0; }
+.nh-card ul, .nh-panel ul { list-style: none; padding: 0; margin: 0; }
+.nh-card li, .nh-panel li { padding: 3px 0; }
+.nh-card li a, .nh-panel li a { color: var(--nh-green); }
+.nh-card li a::before, .nh-panel li a::before { content: "\203A"; margin-right: 8px; opacity: .6; }
+.nh-card li a:hover, .nh-panel li a:hover { text-decoration: underline; }
+.nh-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; border-radius: 10px; background: var(--nh-green-soft);
+}
+.nh-icon svg {
+    width: 22px; height: 22px; fill: none; stroke: var(--nh-green);
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Reference quick links */
+.nh-link {
+    display: flex; flex-direction: column; padding: 14px 16px;
+    border: 1px solid var(--nh-border); border-left: 4px solid var(--nh-green); border-radius: 8px;
+    color: var(--nh-ink) !important; transition: background .15s;
+}
+.nh-link:hover, .nh-link:focus { background: var(--nh-green-soft); }
+.nh-link span { color: var(--nh-muted); font-size: 13px; }
+
+/* Bottom panels */
+.nh-split { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 16px; }
+.nh-panel { background: #f6f8fa; }
+.nh-panel h2 { font-size: 18px; margin: 12px 0 8px; }
+
+@media (max-width: 991px) {
+    .nh-hero { grid-template-columns: minmax(0, 1fr); padding: 28px 20px; }
+    .nh-hero h1 { font-size: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .nh-card, .nh-card-link, .nh-link, .nh-btn { transition: none; }
+    .nh-card-link:hover { transform: none; }
+}
