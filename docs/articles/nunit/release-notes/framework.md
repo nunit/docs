@@ -20,7 +20,7 @@ There are in total 48 issues fixed in this release.
 
 ### Enhancements
 
-* [5396](https://github.com/nunit/nunit/issues/5396) Allow filtered test dependencies to run when dependant can run. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5421](https://github.com/nunit/nunit/pull/5421)
+* [5396](https://github.com/nunit/nunit/issues/5396) Allow filtered test dependencies to run when dependent can run. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5421](https://github.com/nunit/nunit/pull/5421)
 * [5387](https://github.com/nunit/nunit/issues/5387) Add internal "Lock" polyfill. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5388](https://github.com/nunit/nunit/pull/5388)
 * [5354](https://github.com/nunit/nunit/issues/5354) Expose a property for ActiveTests in the TestContext. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5355](https://github.com/nunit/nunit/pull/5355)
 * [5349](https://github.com/nunit/nunit/issues/5349) Use ArgumentOutOfRangeException throw helper and remove CA1512 diagnostic. Thanks to [Shaurya Srivastava](https://github.com/Shaurya2k06) for [PR 5350](https://github.com/nunit/nunit/pull/5350)
