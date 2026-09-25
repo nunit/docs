@@ -72,7 +72,7 @@ There are in total 48 issues fixed in this release.
 
 * [5378](https://github.com/nunit/nunit/issues/5378) Deprecate the `Order` attribute. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5384](https://github.com/nunit/nunit/pull/5384)
 * [5373](https://github.com/nunit/nunit/issues/5373) Eliminate forced stop from the API. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5374](https://github.com/nunit/nunit/pull/5374)
-* [5265](https://github.com/nunit/nunit/issues/5265) 4.6 breaks our tests because of TestDelegate / Action ambiguity. Thanks to [CharliePoole](https://github.com/CharliePoole) for [PR 53](https://github.com/nunit/nunit/pull/53)
+* [5265](https://github.com/nunit/nunit/issues/5265) 4.6 breaks our tests because of TestDelegate / Action ambiguity.
 * [5263](https://github.com/nunit/nunit/issues/5263) Deprecate non-generic CollectionTally class and move the result class out of nested class. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5310](https://github.com/nunit/nunit/pull/5310)
 * [5253](https://github.com/nunit/nunit/issues/5253) Remove TestDelegate and ActualValueDelegate. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5262](https://github.com/nunit/nunit/pull/5262)
 
