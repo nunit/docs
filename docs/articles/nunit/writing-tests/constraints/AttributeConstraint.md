@@ -14,6 +14,10 @@ Has.Attribute(Type attributeType).<constraint>
 Has.Attribute<TAttribute>().<constraint>
 ```
 
+> [!NOTE]
+> From version 5, the generic form requires `TAttribute : Attribute`. Passing a type that isn't an attribute is a
+> compiler error. In NUnit 4 and earlier it compiled, but failed when the test ran.
+
 ## Examples
 
 [!code-csharp[AttributeConstraintExamples](~/snippets/Snippets.NUnit/Constraints/TypeConstraintSnippets.cs#AttributeConstraintExamples)]

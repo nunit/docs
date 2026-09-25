@@ -225,6 +225,16 @@ The following is a list of outcomes currently produced by NUnit. Others may be a
 * Explicit: the test was not run because it is marked Explicit. (Status=Skipped, Label=Explicit)
 * Skipped: the test was skipped for some other reason. (Status=Skipped, Label=empty)
 
+### ActiveTests (From version 5)
+
+Gets the list of test cases under the current suite that will run, after any filter has been applied. It is available
+in `OneTimeSetUp` and `OneTimeTearDown` methods, and returns `null` everywhere else.
+
+This lets a `SetUpFixture` or a fixture skip expensive setup, such as starting a database, when none of the tests that
+need it will run. It works the same way with every runner, for example `dotnet test`, the NUnit Console or an IDE.
+
+[!code-csharp[ActiveTestsExample](~/snippets/Snippets.NUnit/ActiveTestsExample.cs#ActiveTestsExample)]
+
 ### TestDirectory
 
 Gets the full path of the directory containing the current test assembly.

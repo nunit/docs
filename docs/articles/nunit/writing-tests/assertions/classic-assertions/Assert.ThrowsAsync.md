@@ -21,6 +21,10 @@ Task<TActual> Assert.ThrowsAsync<TActual>(Func<Task> asyncCode,
                                     string message, params object[] params);
 ```
 
+> [!NOTE]
+> From version 5, this assertion returns a `Task` and must be awaited. If it isn't awaited, the assertion is not
+> evaluated. See [NUnit 4 and earlier](#nunit-4-and-earlier) for the previous behavior.
+
 In the above code `Func<Task>` is an async delegate, which is used to execute the code
 in question. This will likely be a lambda expression.
 

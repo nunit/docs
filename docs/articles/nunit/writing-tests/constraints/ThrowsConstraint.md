@@ -34,7 +34,19 @@ Throws.Nothing
 .With.Message.Contains(string)    // Test message contains substring
 .With.Property("Name").EqualTo(x) // Test exception property
 .With.InnerException.TypeOf<T>()  // Test inner exception
+.ParamName.EqualTo(string)        // Test ArgumentException.ParamName (From version 5)
 ```
+
+### ParamName (From version 5)
+
+For `ArgumentException` and derived types, the generic exception constraints have a `ParamName` property. It checks
+which parameter caused the exception, without needing `.With.Property("ParamName")`. It is available after
+`Throws.TypeOf<T>()`, `Throws.InstanceOf<T>()`, `Throws.ArgumentException` and `Throws.ArgumentNullException`, and
+must come directly after them in the constraint expression.
+
+`ParamName` is a C# 14 extension property, so your test project must use C# 14 or later.
+
+[!code-csharp[ThrowsConstraintParamNameExamples](~/snippets/Snippets.NUnit/Constraints/ComparisonConstraintSnippets.cs#ThrowsConstraintParamNameExamples)]
 
 ## Examples
 
