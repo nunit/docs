@@ -12,9 +12,9 @@ uid: frameworkreleasenotes
 NUnit 5 is a major release, with a series of breaking changes that follow up on version 4's move towards a more
 type-safe NUnit.  
 
-The breaking changes are summarily documented more clearly in [NUnit 5 - Breaking Changes]("link coming").
+The breaking changes are summarily documented more clearly in [NUnit 5 - Breaking Changes](xref:v5breakingchanges).
 
-There are also a series of enhancements, which are summarily documented in  [NUnit 5 - New Features]("link coming").
+There are also a series of enhancements, which are summarily documented in [NUnit 5 - New Features](xref:v5newfeatures).
 
 There are in total 48 issues fixed in this release.
 
