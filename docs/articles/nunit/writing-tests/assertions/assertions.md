@@ -34,6 +34,10 @@ approach have all been implemented internally using constraints. For example...
 
 ### Some notes on the Classic/Legacy asserts
 
+**From version 5**
+`StringAssert`, `CollectionAssert`, `FileAssert` and `DirectoryAssert` are back in the `NUnit.Framework` namespace.
+You no longer need `using NUnit.Framework.Legacy;` for these. `ClassicAssert` remains in `NUnit.Framework.Legacy`.
+
 **From version 4.5**
 The Classic assertions are back in the `NUnit.Framework` namespace.  
 You don't need to add what is described below for these.

@@ -185,4 +185,25 @@ public class ComparisonConstraintSnippets
     private static void ThrowArgumentException() => throw new ArgumentException("test");
     private static void SafeMethod() { }
     #endregion
+
+    #region ThrowsConstraintParamNameExamples
+    [Test]
+    public void ThrowsConstraint_ParamName_Examples()
+    {
+        // ParamName is available on constraints for ArgumentException and derived types
+        Assert.That(() => Greet(null!), Throws.ArgumentNullException.ParamName.EqualTo("name"));
+        Assert.That(() => Greet(""), Throws.TypeOf<ArgumentException>().ParamName.EqualTo("name"));
+
+        // InstanceOf also accepts derived types, such as ArgumentNullException
+        Assert.That(() => Greet(null!), Throws.InstanceOf<ArgumentException>().ParamName.EqualTo("name"));
+    }
+
+    private static string Greet(string name)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+        if (name.Length == 0)
+            throw new ArgumentException("Name cannot be empty.", nameof(name));
+        return $"Hello, {name}";
+    }
+    #endregion
 }
