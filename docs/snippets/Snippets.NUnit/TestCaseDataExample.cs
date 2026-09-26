@@ -92,6 +92,37 @@ public class TestCaseDataExample
     }
     #endregion
 
+    #region TypedReturnsExample
+    [TestFixture]
+    public class TypedReturnsTests
+    {
+        [TestCaseSource(nameof(AddCases))]
+        public int Add(int a, int b) => a + b;
+
+        private static IEnumerable<TestCaseDataWithReturn<int, int, int>> AddCases()
+        {
+            // TestCaseData.Create infers the argument types, and Returns infers the expected result type
+            yield return TestCaseData.Create(1, 2).Returns(3);
+
+            // Fluent methods keep the generic type, so Returns can still be called afterwards
+            yield return TestCaseData.Create(2, 3).SetName("Two plus three").Returns(5);
+
+            // The typed class can also be constructed directly
+            yield return new TestCaseDataWithReturn<int, int, int>(4, 5).Returns(9);
+        }
+
+        [TestCaseSource(nameof(MixedCases))]
+        public string RepeatText(string text, int count) => string.Concat(Enumerable.Repeat(text, count));
+
+        // A generic instance can still be returned from a source declared with the non-generic type
+        private static IEnumerable<TestCaseData> MixedCases()
+        {
+            yield return TestCaseData.Create("ab", 2).Returns("abab");
+            yield return new TestCaseData("x", 3).Returns("xxx");
+        }
+    }
+    #endregion
+
     #region IgnoreUntilExample
     [TestFixture]
     public class IgnoreUntilTests
