@@ -96,7 +96,7 @@ public class CalculatorTests
 <li><a href="articles/nunit/release-notes/framework.md">NUnit framework</a></li>
 <li><a href="articles/vs-test-adapter/AdapterV4-Release-Notes.md">Test adapter</a></li>
 <li><a href="https://github.com/nunit/nunit.analyzers/blob/master/CHANGES.md">NUnit Analyzers</a></li>
-<li><a href="https://github.com/nunit/nunit-console/releases">Console and engine</a></li>
+<li><a href="articles/nunit-engine/github-release-notes.md">Console and engine</a></li>
 <li><a href="articles/vs-test-generator/TestGenerator-Release-Notes.md">VS Test Generator</a></li>
 </ul>
 </div>
@@ -108,7 +108,6 @@ public class CalculatorTests
 <li><a href="articles/vs-test-adapter/Index.md">Visual Studio, Rider and dotnet test</a></li>
 <li><a href="articles/nunit/running-tests/Console-Runner.md">Command line console</a></li>
 <li><a href="articles/nunit/running-tests/NUnitLite-Runner.md">Self-running test programs</a></li>
-<li><a href="articles/xamarin-runners/index.md">Mobile devices</a></li>
 <li><a href="articles/nunit/running-tests/Test-Selection-Language.md">Choosing which tests to run</a></li>
 </ul>
 </div>
@@ -174,6 +173,7 @@ public class CalculatorTests
 <li><a href="articles/nunit/release-notes/Nunit4.0-MigrationGuide.md">Migrating to NUnit 4</a></li>
 <li><a href="articles/nunit/getting-started/upgrading.md">Upgrading from NUnit 2 and 3</a></li>
 <li><a href="articles/nunit/getting-started/dotnet-core-and-dotnet-standard.md">.NET Core and .NET Standard</a></li>
+<li><a href="articles/xamarin-runners/index.md">Xamarin runners for mobile devices</a></li>
 <li><a href="articles/vs-test-adapter/AdapterV3-Release-Notes.md">Test adapter V3 release notes</a></li>
 <li><a href="articles/vs-test-adapter/AdapterV2-Release-Notes.md">Test adapter V2 release notes</a></li>
 </ul>
