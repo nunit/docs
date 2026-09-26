@@ -89,24 +89,36 @@
 <!-- markdownlint-disable-file MD033 -->
 <!-- markdownlint-disable-file MD060 -->
 
-<h2 id="nunit-500-beta2---tbd">NUnit 5.0.0-beta.2 - TBD</h2>
-<p>There are 33 issues fixed in this release.</p>
+<h2 id="nunit-500---sept-27-2026">NUnit 5.0.0 - Sept 27, 2026</h2>
+<p>NUnit 5 is a major release, with a series of breaking changes that follow up on version 4's move towards a more
+type-safe NUnit.</p>
+<p>The breaking changes are summarily documented more clearly in <a class="xref" href="../V5BreakingChanges.html">NUnit 5 - Breaking Changes</a>.</p>
+<p>There are also a series of enhancements, which are summarily documented in <a class="xref" href="../V5NewFeatures.html">NUnit 5 - New Features</a>.</p>
+<p>There are in total 48 issues fixed in this release.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
-<li><a href="https://github.com/nunit/nunit/issues/5354">5354</a> Expose an <code>ActiveTests</code> property on <code>TestContext</code>. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5355">PR 5355</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5396">5396</a> Allow filtered test dependencies to run when dependent can run. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5421">PR 5421</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5387">5387</a> Add internal &quot;Lock&quot; polyfill. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5388">PR 5388</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5354">5354</a> Expose a property for ActiveTests in the TestContext. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5355">PR 5355</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5349">5349</a> Use ArgumentOutOfRangeException throw helper and remove CA1512 diagnostic. Thanks to <a href="https://github.com/Shaurya2k06">Shaurya Srivastava</a> for <a href="https://github.com/nunit/nunit/pull/5350">PR 5350</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5348">5348</a> Use ArgumentNullException throw helper and remove CA1510 diagnostic. Thanks to <a href="https://github.com/SinghAnsh07">ANSH SINGH</a> for <a href="https://github.com/nunit/nunit/pull/5351">PR 5351</a></li>
-<li><a href="https://github.com/nunit/nunit/issues/5323">5323</a> Report compiler error when asserting non-attribute in <code>Has.Attribute&lt;T&gt;()</code>. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5322">PR 5322</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5323">5323</a> Report compiler error when asserting non-attribute in <code>Has.Attribute&amp;lt;T&amp;gt;()</code>. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5322">PR 5322</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5316">5316</a> Add .net 10 as target. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5317">PR 5317</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5267">5267</a> Remove the <code>OverloadResolutionPriority</code> attributes added to support the transition to Action and Func-based APIs.</li>
 <li><a href="https://github.com/nunit/nunit/issues/5260">5260</a> Add a &quot;warning&quot; threshold to the <code>MaxTime</code> attribute. Thanks to <a href="https://github.com/RicardoMacedo-prj">Ricardo Macedo</a> for <a href="https://github.com/nunit/nunit/pull/5261">PR 5261</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5220">5220</a> Repeat test cases with threshold-based success/failure. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5318">PR 5318</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4857">4857</a> Drop .NET 6 as a build target of the framework. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/4884">PR 4884</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4717">4717</a> Provide generic type definitions for <code>TestCaseData</code> to make it type safe. Thanks to <a href="https://github.com/logiclrd">Jonathan Gilbert</a> for <a href="https://github.com/nunit/nunit/pull/5138">PR 5138</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4384">4384</a> Assert.ThrowsAsync, Assert.CatchAsync, and Assert.DoesNotThrowAsync should be awaitable. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5268">PR 5268</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3947">3947</a> Simplify asserting ArgumentException.ParamName. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5304">PR 5304</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/51">51</a> Test Dependency Attribute. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5386">PR 5386</a></li>
 </ul>
 <h3 id="bug-fixes">Bug fixes</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/5415">5415</a> DelayedConstraintTests reuses a disposed static wait handle on a second fixture execution. Thanks to <a href="https://github.com/oznetmaster">Neil Colvin</a> for <a href="https://github.com/nunit/nunit/pull/5417">PR 5417</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5414">5414</a> Stream equality compares stale pooled-buffer bytes beyond the end of the streams. Thanks to <a href="https://github.com/oznetmaster">Neil Colvin</a> for <a href="https://github.com/nunit/nunit/pull/5416">PR 5416</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5406">5406</a> Assert.Ignore: Warnings should be displayed. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5405">PR 5405</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5401">5401</a> A by-ref-returning property on an exception crashes the test host on .NET Framework. Thanks to <a href="https://github.com/lahma">Marko Lahma</a> for <a href="https://github.com/nunit/nunit/pull/5402">PR 5402</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5341">5341</a> Confusing difference in Run Settings display between NUnitLite and ConsoleRunner. Thanks to <a href="https://github.com/AmirTahan80">Amir Tahan</a> for <a href="https://github.com/nunit/nunit/pull/5361">PR 5361</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5324">5324</a> C++/CLI compiler warning C4642 in EqualNumericConstraint and EqualNumericWithoutUsingConstraint. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5321">PR 5321</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5273">5273</a> Verify that generic AssignableToConstraint and AssignableFromConstraint works as expected. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5277">PR 5277</a></li>
@@ -114,31 +126,37 @@
 <li><a href="https://github.com/nunit/nunit/issues/5247">5247</a> Assert for null-valued <code>dynamic</code> variables doesn't work in 4.6.0.</li>
 <li><a href="https://github.com/nunit/nunit/issues/4320">4320</a> AssemblyHelper throws Exception when loading dynamically compiled Assemblies. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5308">PR 5308</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3849">3849</a> Assert.Catch inside Assert.Multiple gives unclear failure message. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5280">PR 5280</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/3248">3248</a> Null dereference in TestWorkerThreadProc. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5374">PR 5374</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/2789">2789</a> No tests run when nested classes in generic fixture. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5370">PR 5370</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/1001">1001</a> Too many Inconclusive test results. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5251">PR 5251</a></li>
 </ul>
 <h3 id="refactorings">Refactorings</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit/issues/5273">5273</a> Verify that generic AssignableToConstraint and AssignableFromConstraint works as expected. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5277">PR 5277</a></li>
-<li><a href="https://github.com/nunit/nunit/issues/5222">5222</a> AssemblyVersion.</li>
 <li><a href="https://github.com/nunit/nunit/issues/5180">5180</a> Change namespace for legacy String-, Collection-, File- and DirectoryAssert classes. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5181">PR 5181</a></li>
 </ul>
 <h3 id="internal-fixes">Internal fixes</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/5425">5425</a> Remove remaining .NET 6 build references. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5426">PR 5426</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5398">5398</a> Suppress namespace messages where it is intentional. Also suppress primary constructor warnings. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5399">PR 5399</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5301">5301</a> Update README and nuspec files for NUnit 5. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5302">PR 5302</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5228">5228</a> Set assembly version to Minver default for the 5.0.0.0 release. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5299">PR 5299</a></li>
-<li><a href="https://github.com/nunit/nunit/issues/5222">5222</a> AssemblyVersion.</li>
+<li><a href="https://github.com/nunit/nunit/issues/5222">5222</a> Follow the .NET versioning guidance for assembly versions: <code>AssemblyVersion</code> is now Major.0.0.0, so it stays 5.0.0.0 for all NUnit 5.x releases.</li>
 <li><a href="https://github.com/nunit/nunit/issues/5197">5197</a> Add files to support AI agent coding. Thanks to <a href="https://github.com/joeldickson">Joel Dickson</a> for <a href="https://github.com/nunit/nunit/pull/5225">PR 5225</a></li>
 </ul>
 <h3 id="deprecated-features">Deprecated features</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/5378">5378</a> Deprecate the <code>Order</code> attribute. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5384">PR 5384</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5373">5373</a> Eliminate forced stop from the API. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5374">PR 5374</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5265">5265</a> 4.6 breaks our tests because of TestDelegate / Action ambiguity.</li>
 <li><a href="https://github.com/nunit/nunit/issues/5263">5263</a> Deprecate non-generic CollectionTally class and move the result class out of nested class. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5310">PR 5310</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5253">5253</a> Remove TestDelegate and ActualValueDelegate. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit/pull/5262">PR 5262</a></li>
 </ul>
 <h3 id="others">Others</h3>
 <ul>
+<li><a href="https://github.com/nunit/nunit/issues/5391">5391</a> Add missing test coverage for method dependencies on generic methods. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5392">PR 5392</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/5367">5367</a> Eliminate StopRun(bool) method from .NET Core builds. Thanks to <a href="https://github.com/CharliePoole">CharliePoole</a> for <a href="https://github.com/nunit/nunit/pull/5369">PR 5369</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5271">5271</a> Update Collection Equivalency performance tests to use MaxTime. Thanks to <a href="https://github.com/Will-thom">Silva Dev BR</a> for <a href="https://github.com/nunit/nunit/pull/5276">PR 5276</a></li>
-<li><a href="https://github.com/nunit/nunit/issues/5267">5267</a> Remove the <code>OverloadResolutionPriority</code> attributes added to support the transition to Action and Func-based APIs.</li>
 <li><a href="https://github.com/nunit/nunit/issues/5218">5218</a> Feat/allow custom comparer null self.</li>
 <li><a href="https://github.com/nunit/nunit/issues/5145">5145</a> Remove the <code>object?</code> overloads for <code>Is.SameAs</code> and underlying constraint. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5160">PR 5160</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5007">5007</a> Create generic type checking constraints. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5191">PR 5191</a></li>
@@ -146,6 +164,10 @@
 </ul>
 <h3 id="the-following-issues-are-marked-as-breaking-changes">The following issues are marked as breaking changes</h3>
 <ul>
+<li><p><a href="https://github.com/nunit/nunit/issues/5373">5373</a> Eliminate forced stop from the API. Thanks to NUnit Team member <a href="https://github.com/manfred-brands">Manfred Brands</a> for <a href="https://github.com/nunit/nunit/pull/5374">PR 5374</a></p>
+</li>
+<li><p><a href="https://github.com/nunit/nunit/issues/5367">5367</a> Eliminate StopRun(bool) method from .NET Core builds. Thanks to <a href="https://github.com/CharliePoole">CharliePoole</a> for <a href="https://github.com/nunit/nunit/pull/5369">PR 5369</a></p>
+</li>
 <li><p><a href="https://github.com/nunit/nunit/issues/5323">5323</a> Report compiler error when asserting non-attribute in <code>Has.Attribute&amp;lt;T&amp;gt;()</code>. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5322">PR 5322</a></p>
 </li>
 <li><p><a href="https://github.com/nunit/nunit/issues/5265">5265</a> 4.6 breaks our tests because of TestDelegate / Action ambiguity.</p>
@@ -232,66 +254,104 @@ Your efforts help make NUnit better for the entire community.</p>
 <p>A special thank you to the following reporters for identifying issues:</p>
 <table>
 <tr>
+<td><a href="https://github.com/ashes999">ashes999</a></td>
 <td><a href="https://github.com/CharliePoole">CharliePoole</a></td>
 <td><a href="https://github.com/heaths">Heath Stewart</a></td>
 <td><a href="https://github.com/hfickes">HF</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/joeldickson">Joel Dickson</a></td>
-</tr>
-<tr>
+<td><a href="https://github.com/jnm2">Joseph Musser</a></td>
 <td><a href="https://github.com/MaceWindu">MaceWindu</a></td>
-<td><a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a></td>
-<td><a href="https://github.com/Smaug123">Patrick Stevens</a></td>
-<td><a href="https://github.com/provegard">Per Rovegård</a></td>
+<td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/lahma">Marko Lahma</a></td>
+<td><a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a></td>
+<td><a href="https://github.com/oznetmaster">Neil Colvin</a></td>
+<td><a href="https://github.com/Smaug123">Patrick Stevens</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/provegard">Per Rovegård</a></td>
 <td><a href="https://github.com/rmiller-glrealitylabs">R. Miller</a></td>
 <td><a href="https://github.com/rachied">Rachid</a></td>
 <td><a href="https://github.com/rprouse">Rob Prouse</a></td>
-<td><a href="https://github.com/stevenaw">Steven Weerdenburg</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/stevenaw">Steven Weerdenburg</a></td>
 <td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 </tr>
 </table>
 <p>and to the commenters who engaged in discussions and offered further insights:</p>
 <table>
 <tr>
+<td><a href="https://github.com/aolszowka">Ace Olszowka</a></td>
 <td><a href="https://github.com/AmirTahan80">Amir Tahan</a></td>
+<td><a href="https://github.com/AGBrown">Andrew Brown</a></td>
 <td><a href="https://github.com/SinghAnsh07">ANSH SINGH</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/ashes999">ashes999</a></td>
+<td><a href="https://github.com/fgsahoward">Austin Howard</a></td>
+<td><a href="https://github.com/candychiu">Candy Chiu</a></td>
 <td><a href="https://github.com/CharliePoole">CharliePoole</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/ChrisMaddock">Chris Maddock</a></td>
+<td><a href="https://github.com/circa1741">circa1741</a></td>
+<td><a href="https://github.com/DannyBraig">DannyBraig</a></td>
+<td><a href="https://github.com/espenalb">Espen Halsaa Albrektsen</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Flynn1179">Flynn1179</a></td>
+<td><a href="https://github.com/faddison">fraser addison</a></td>
 <td><a href="https://github.com/hfickes">HF</a></td>
+<td><a href="https://github.com/JeffCave">Jeff Cave</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/jez9999">Jez</a></td>
 <td><a href="https://github.com/joeldickson">Joel Dickson</a></td>
+<td><a href="https://github.com/JohanLarsson">Johan Larsson</a></td>
 <td><a href="https://github.com/logiclrd">Jonathan Gilbert</a></td>
-<td><a href="https://github.com/jnm2">Joseph Musser</a></td>
-<td><a href="https://github.com/m4ggo">m4ggo</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/jnm2">Joseph Musser</a></td>
+<td><a href="https://github.com/Shiney">Leo Shine</a></td>
+<td><a href="https://github.com/m4ggo">m4ggo</a></td>
 <td><a href="https://github.com/MaceWindu">MaceWindu</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/manfred-brands">Manfred Brands</a></td>
+<td><a href="https://github.com/lahma">Marko Lahma</a></td>
 <td><a href="https://github.com/MartinFayRAX">MartinFayRAX</a></td>
 <td><a href="https://github.com/mikeparker">Mike Parker</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a></td>
+<td><a href="https://github.com/oznetmaster">Neil Colvin</a></td>
 <td><a href="https://github.com/seky16">Ondřej Sekáč</a></td>
 <td><a href="https://github.com/Smaug123">Patrick Stevens</a></td>
-<td><a href="https://github.com/provegard">Per Rovegård</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/provegard">Per Rovegård</a></td>
 <td><a href="https://github.com/rmiller-glrealitylabs">R. Miller</a></td>
 <td><a href="https://github.com/rachied">Rachid</a></td>
+<td><a href="https://github.com/rladeira">Rafael Ladeira</a></td>
+</tr>
+<tr>
 <td><a href="https://github.com/RicardoMacedo-prj">Ricardo Macedo</a></td>
 <td><a href="https://github.com/rprouse">Rob Prouse</a></td>
-</tr>
-<tr>
 <td><a href="https://github.com/mr-russ">Russell Smith</a></td>
-<td><a href="https://github.com/Shaurya2k06">Shaurya Srivastava</a></td>
-<td><a href="https://github.com/Will-thom">Silva Dev BR</a></td>
-<td><a href="https://github.com/stevenaw">Steven Weerdenburg</a></td>
+<td><a href="https://github.com/Sebazzz">Sebastiaan Dammann</a></td>
 </tr>
 <tr>
+<td><a href="https://github.com/seba870701">Sebastian Nawara</a></td>
+<td><a href="https://github.com/Shaurya2k06">Shaurya Srivastava</a></td>
+<td><a href="https://github.com/ravensorb">Shawn</a></td>
+<td><a href="https://github.com/Will-thom">Silva Dev BR</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/stevenaw">Steven Weerdenburg</a></td>
 <td><a href="https://github.com/OsirisTerje">Terje Sandstrom</a></td>
 </tr>
 </table>
