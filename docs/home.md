@@ -66,7 +66,7 @@ public class CalculatorTests
 <h3>Reference</h3>
 <ul>
 <li><a href="articles/nunit/writing-tests/attributes.md">Attributes</a></li>
-<li><a href="articles/nunit/writing-tests/constraints/Constraints.md">Fluent assertions</a></li>
+<li><a href="articles/nunit/writing-tests/constraints/Constraints.md">Fluent assertions (Assert.That)</a></li>
 <li><a href="articles/nunit/writing-tests/assertions/assertion-models/classic.md">Classic assertions</a></li>
 <li><a href="articles/nunit/writing-tests/assertions/assertion-models/special.md">Special assertions</a></li>
 </ul>
