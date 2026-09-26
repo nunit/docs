@@ -23,18 +23,19 @@ _description: Documentation for NUnit, the open-source unit-testing framework fo
 <div class="nh-hero-text">
 <p class="nh-eyebrow">NUnit documentation</p>
 <h1>Write tests you can trust, for any .NET code</h1>
-<p class="nh-lead">NUnit is the open-source unit-testing framework for .NET. Write a test in a few lines, run it with many sets of data, and run it anywhere: in Visual Studio, Rider, VS Code, on the command line or in your build pipeline.</p>
+<p class="nh-lead">NUnit is the open-source unit-testing framework for .NET. Write a test in a few lines, get warnings about mistakes as you type from the NUnit Analyzers, run it with many sets of data, and run it anywhere: in Visual Studio, Rider, VS Code, on the command line or in your build pipeline.</p>
 <div class="nh-actions">
 <a class="nh-btn nh-btn-primary" href="articles/nunit/writing-tests/ordinary-tests.md">Write your first test</a>
 <a class="nh-btn" href="articles/nunit/getting-started/installation.md">Install NUnit</a>
-<a class="nh-btn" href="articles/nunit/release-notes/framework.md">What's new</a>
+<a class="nh-btn" href="articles/nunit/V5NewFeatures.md">What's new in NUnit 5</a>
 </div>
 <p class="nh-popular"><span>Popular:</span>
 <a href="articles/nunit/writing-tests/data-driven-tests.md">Test with many inputs</a>
 <a href="articles/nunit/writing-tests/constraints/Constraints.md">Checking results</a>
 <a href="articles/nunit/writing-tests/setup-teardown/index.md">Setup and cleanup</a>
 <a href="articles/nunit/technical-notes/usage/Framework-Parallel-Test-Execution.md">Running tests in parallel</a>
-<a href="articles/nunit/release-notes/Nunit4.0-MigrationGuide.md">Upgrading to NUnit 4</a>
+<a href="articles/nunit/V5BreakingChanges.md">Upgrading to NUnit 5</a>
+<a href="articles/nunit-analyzers/NUnit-Analyzers.md">Analyzer warnings</a>
 </p>
 </div>
 <div class="nh-hero-code" aria-label="Example NUnit test">
@@ -69,28 +70,34 @@ public class CalculatorTests
 <li><a href="articles/nunit/writing-tests/constraints/Constraints.md">Fluent assertions (Assert.That)</a></li>
 <li><a href="articles/nunit/writing-tests/assertions/assertion-models/classic.md">Classic assertions</a></li>
 <li><a href="articles/nunit/writing-tests/assertions/assertion-models/special.md">Special assertions</a></li>
+<li><a href="articles/nunit-analyzers/NUnit-Analyzers.md">Analyzer rules</a></li>
 </ul>
 </div>
 <div class="nh-card">
 <div class="nh-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
 <h2><a href="articles/nunit/getting-started/installation.md">Getting started</a></h2>
-<p>Add NUnit to your project, or move to a newer version.</p>
+<p>Create a test project in the tool you already use, or add NUnit to an existing one.</p>
 <ul>
-<li><a href="articles/nunit/getting-started/installation.md">Installing</a></li>
-<li><a href="articles/nunit/getting-started/upgrading.md">Upgrading NUnit</a></li>
-<li><a href="articles/nunit/release-notes/Nunit4.0-MigrationGuide.md">Migrating to NUnit 4</a></li>
+<li><a href="articles/nunit/getting-started/installation.md#im-using-visual-studio-as-my-development-tool">In Visual Studio</a></li>
+<li><a href="articles/nunit/getting-started/installation.md#im-using-visual-studio-code-as-my-development-tool">In Visual Studio Code</a></li>
+<li><a href="articles/nunit/getting-started/installation.md#im-using-rider-as-my-development-tool">In Rider</a></li>
+<li><a href="articles/nunit/getting-started/installation.md#i-prefer-to-do-this-using-the-command-line-or-any-of-the-built-in-terminals">From the command line</a></li>
+<li><a href="articles/nunit/getting-started/installation.md#adding-nunit-to-an-existing-test-project">In an existing project</a></li>
 <li><a href="articles/nunit/getting-started/samples.md">Samples</a></li>
+<li><a href="articles/nunit/V5BreakingChanges.md">Upgrading to NUnit 5</a></li>
 </ul>
 </div>
 <div class="nh-card">
 <div class="nh-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></div>
 <h2><a href="articles/nunit/release-notes/framework.md">News</a></h2>
-<p>What is new in NUnit and its tools.</p>
+<p>Release notes for NUnit and all its tools.</p>
 <ul>
-<li><a href="articles/nunit/release-notes/framework.md">NUnit release notes</a></li>
-<li><a href="articles/vs-test-adapter/AdapterV4-Release-Notes.md">Test adapter release notes</a></li>
-<li><a href="articles/nunit-engine/release-notes.md">Engine and console release notes</a></li>
-<li><a href="articles/nunit/release-notes/breaking-changes.md">Breaking changes</a></li>
+<li><a href="articles/nunit/V5NewFeatures.md">What's new in NUnit 5</a></li>
+<li><a href="articles/nunit/release-notes/framework.md">NUnit framework</a></li>
+<li><a href="articles/vs-test-adapter/AdapterV4-Release-Notes.md">Test adapter</a></li>
+<li><a href="https://github.com/nunit/nunit.analyzers/blob/master/CHANGES.md">NUnit Analyzers</a></li>
+<li><a href="https://github.com/nunit/nunit-console/releases">Console and engine</a></li>
+<li><a href="articles/vs-test-generator/TestGenerator-Release-Notes.md">VS Test Generator</a></li>
 </ul>
 </div>
 <div class="nh-card">
@@ -163,6 +170,9 @@ public class CalculatorTests
 <ul>
 <li><a href="articles/legacy/index.md">NUnit 2.x documentation</a></li>
 <li><a href="articles/nunit/release-notes/Pre-3.5-Release-Notes.md">Release notes before 3.5</a></li>
+<li><a href="articles/nunit/release-notes/breaking-changes.md">Breaking changes up to NUnit 4.0</a></li>
+<li><a href="articles/nunit/release-notes/Nunit4.0-MigrationGuide.md">Migrating to NUnit 4</a></li>
+<li><a href="articles/nunit/getting-started/upgrading.md">Upgrading from NUnit 2 and 3</a></li>
 <li><a href="articles/nunit/getting-started/dotnet-core-and-dotnet-standard.md">.NET Core and .NET Standard</a></li>
 <li><a href="articles/vs-test-adapter/AdapterV3-Release-Notes.md">Test adapter V3 release notes</a></li>
 <li><a href="articles/vs-test-adapter/AdapterV2-Release-Notes.md">Test adapter V2 release notes</a></li>
