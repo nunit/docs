@@ -53,6 +53,12 @@ See examples below.
 4. Use `nameof(...)` where possible so dependency names stay aligned with test
    method renames.
 
+### Automatic Inclusion
+
+A test run which filters out some tests may cause a dependency to be filtered out from a test which is intended to run. This can most commonly happen when developing in an IDE like Visual Studio and a test method is clicked on to "Run Test". This might always cause the target test to fail because the dependency is filtered out and never run. To fix this, test dependencies are always included in a run when they are a dependency for a test also in the run.
+
+This can produce unexpected results when combined with _test partitioning_ as it might be possible for a test dependency to be automatically included in multiple shards, effectively running the test twice.
+
 ## See Also
 
 * [DependsOnFixture Attribute](xref:attribute-dependsonfixture)
