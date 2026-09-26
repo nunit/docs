@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>NUnit 5 - A summary of the breaking changes | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="NUnit 5 - A summary of the breaking changes | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="v5breakingchanges">
+<h1 id="nunit-5---a-summary-of-the-breaking-changes">NUnit 5 - A summary of the breaking changes</h1>
+
+<p>NUnit 5 is a small major release. Most of the breaking changes finish work started in the 4.x series: they remove
+APIs that were already marked obsolete, or they turn errors that used to show up at runtime into compiler errors.
+This page lists each breaking change: why it was needed, what changed, and what you need to do.</p>
+<p>For the full list of changes, see the <a class="xref" href="release-notes/framework.html">release notes</a>.</p>
+<h2 id="test-code-changes">Test code changes</h2>
+<h3 id="testdelegate-and-actualvaluedelegate-removed"><code>TestDelegate</code> and <code>ActualValueDelegate</code> removed</h3>
+<p>Issues <a href="https://github.com/nunit/nunit/issues/5253">#5253</a> and <a href="https://github.com/nunit/nunit/issues/5265">#5265</a></p>
+<ul>
+<li><strong>Why:</strong> NUnit 4.6 added <code>Action</code>/<code>Func</code> overloads next to the old NUnit-specific <code>TestDelegate</code> overloads. With
+older C# language versions (for example .NET Framework projects on C# 7.3), a plain lambda such as
+<code>Assert.Throws&lt;T&gt;(() =&gt; ...)</code> matched both overloads, and the compiler reported the call as ambiguous.</li>
+<li><strong>What changed:</strong> <code>TestDelegate</code>, <code>AsyncTestDelegate</code> and <code>ActualValueDelegate&lt;T&gt;</code> are removed. Every API now takes
+the standard <code>Action</code>, <code>Func&lt;Task&gt;</code> and <code>Func&lt;T&gt;</code> types. Because only one overload is left, lambdas always compile,
+whatever the language version.</li>
+<li><strong>What to do:</strong> Replace any explicit use of these delegate types with <code>Action</code>, <code>Func&lt;Task&gt;</code> or <code>Func&lt;T&gt;</code>.
+Code that just passes a lambda needs no change.</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If you have many explicit uses of <code>TestDelegate</code> or <code>AsyncTestDelegate</code>, you can keep that code compiling by adding
+type aliases to your test project:</p>
+<pre><code class="lang-csharp">global using TestDelegate = System.Action;
+global using AsyncTestDelegate = System.Func&lt;System.Threading.Tasks.Task&gt;;
+</code></pre>
+<p><code>global using</code> requires C# 10 or later. With older language versions, add the same <code>using</code> aliases, without
+<code>global</code>, at the top of each file that needs them. This doesn't work for <code>ActualValueDelegate&lt;T&gt;</code>, because C# aliases
+can't be open generic types. Replace that one with <code>Func&lt;T&gt;</code>.</p>
+</div>
+<h3 id="assertthrowsasync-assertcatchasync-and-assertdoesnotthrowasync-must-be-awaited"><code>Assert.ThrowsAsync</code>, <code>Assert.CatchAsync</code> and <code>Assert.DoesNotThrowAsync</code> must be awaited</h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/4384">#4384</a></p>
+<ul>
+<li><strong>Why:</strong> <code>Assert.ThatAsync</code> could be awaited, but <code>Assert.ThrowsAsync</code> could not, even though the names suggest they
+work the same way. The <code>*Async</code> assertions ran the async code synchronously, blocking the calling thread.</li>
+<li><strong>What changed:</strong> The three methods are now truly asynchronous and return a <code>Task</code>. They behave like every other
+<code>*Async</code> method in .NET.</li>
+<li><strong>What to do:</strong> Add <code>await</code> and make the test method <code>async Task</code>. If you don't await the call, the assertion is not
+evaluated. Version 4.14 or later of
+<a href="https://www.nuget.org/packages/NUnit.Analyzers">NUnit.Analyzers</a> reports assertions that are not awaited and can fix them,
+including changing the enclosing method to return <code>Task</code>.</li>
+</ul>
+<pre><code class="lang-csharp">// NUnit 4
+var ex = Assert.ThrowsAsync&lt;ArgumentException&gt;(async () =&gt; await DoAsync());
+
+// NUnit 5
+var ex = await Assert.ThrowsAsync&lt;ArgumentException&gt;(async () =&gt; await DoAsync());
+</code></pre>
+<h3 id="issameas-works-only-with-reference-types"><code>Is.SameAs</code> works only with reference types</h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/5145">#5145</a></p>
+<ul>
+<li><strong>Why:</strong> Reference equality has no meaning for value types. With the old <code>object</code> overload, a value such as a boxed
+<code>int</code> or a nullable struct compiled fine but always failed at runtime, unless both values were <code>null</code>.</li>
+<li><strong>What changed:</strong> The <code>object?</code> overload is removed. The only overload left is <code>Is.SameAs&lt;T&gt;(T? expected)</code>, which
+requires <code>T : class?</code>. Mistakes that used to fail at runtime are now compiler errors.</li>
+<li><strong>What to do:</strong> For value types, use <code>Is.EqualTo</code>.</li>
+</ul>
+<h3 id="hasattributet-requires-t-to-be-an-attribute"><code>Has.Attribute&lt;T&gt;()</code> requires <code>T</code> to be an attribute</h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/5323">#5323</a></p>
+<ul>
+<li><strong>Why:</strong> An attribute type must derive from <code>System.Attribute</code>, but NUnit only checked this at runtime. Passing some
+other type compiled fine and then failed when the test ran.</li>
+<li><strong>What changed:</strong> <code>Has.Attribute&lt;T&gt;()</code> now has the generic constraint <code>where T : Attribute</code>, so the compiler catches
+the mistake.</li>
+<li><strong>What to do:</strong> Nothing, unless your code passed a non-attribute type, which never worked. Extensions compiled
+against NUnit 4 must be recompiled, because the method signature changed.</li>
+</ul>
+<h3 id="type-constraints-are-now-generic">Type constraints are now generic</h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/5007">#5007</a></p>
+<ul>
+<li><strong>Why:</strong> The generic methods, such as <code>Is.TypeOf&lt;T&gt;()</code> and <code>Is.InstanceOf&lt;T&gt;()</code>, only called <code>typeof(T)</code> and
+returned the same non-generic constraints as the <code>Type</code>-based overloads. The expected type was lost at compile
+time, which prevented stronger typing further along the constraint chain.</li>
+<li><strong>What changed:</strong> The generic methods now return generic constraints, such as <code>ExactTypeConstraint&lt;T&gt;</code>,
+<code>InstanceOfTypeConstraint&lt;T&gt;</code>, <code>AssignableToConstraint&lt;T&gt;</code>, <code>AssignableFromConstraint&lt;T&gt;</code> and
+<code>ExceptionTypeConstraint&lt;T&gt;</code>. This is a step toward a fully generic constraint model.</li>
+<li><strong>What to do:</strong> Normal <code>Assert.That(x, Is.TypeOf&lt;Foo&gt;())</code> code needs no change. You only need to act if your code
+stores these return values in variables of the non-generic constraint types, or if you have extensions compiled
+against NUnit 4. Recompile those extensions.</li>
+</ul>
+<h3 id="stringassert-collectionassert-fileassert-and-directoryassert-are-back-in-nunitframework"><code>StringAssert</code>, <code>CollectionAssert</code>, <code>FileAssert</code> and <code>DirectoryAssert</code> are back in <code>NUnit.Framework</code></h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/5180">#5180</a></p>
+<ul>
+<li><strong>Why:</strong> NUnit 4 moved these classes to the <code>NUnit.Framework.Legacy</code> namespace. That forced a lot of code changes when
+upgrading, even though the classes are still widely used and fully supported.</li>
+<li><strong>What changed:</strong> The classes are now in the <code>NUnit.Framework</code> namespace again. They still ship in
+<code>nunit.framework.legacy.dll</code>, which is part of the NUnit package. Code written for NUnit 3 works again with only
+<code>using NUnit.Framework;</code>.</li>
+<li><strong>What to do:</strong> Remove any <code>using NUnit.Framework.Legacy;</code> that was only there for these classes. Change any fully
+qualified names or aliases, such as <code>using CollectionAssert = NUnit.Framework.Legacy.CollectionAssert;</code>, to point to
+<code>NUnit.Framework</code>.</li>
+</ul>
+<h3 id="net-and-dotnet-in-platform-now-mean-modern-net"><code>&quot;NET&quot;</code> and <code>&quot;DotNET&quot;</code> in <code>[Platform]</code> now mean modern .NET</h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/3669">#3669</a></p>
+<ul>
+<li><strong>Why:</strong> Microsoft now uses the name &quot;.NET&quot; for .NET 5 and later, but in NUnit <code>&quot;NET&quot;</code> still meant .NET Framework.
+For example, <code>[Platform(&quot;NET&quot;)]</code> excluded a test running on .NET 8.</li>
+<li><strong>What changed:</strong> <code>&quot;NET&quot;</code> and <code>&quot;DotNET&quot;</code> now match modern .NET. The new identifiers <code>&quot;NETFramework&quot;</code> and
+<code>&quot;DotNETFramework&quot;</code> match .NET Framework.</li>
+<li><strong>What to do:</strong> If you used <code>&quot;NET&quot;</code> or <code>&quot;DotNET&quot;</code> to mean .NET Framework, change them to <code>&quot;NETFramework&quot;</code> or
+<code>&quot;DotNETFramework&quot;</code>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Identifier</th>
+<th>NUnit 4</th>
+<th>NUnit 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NET</code></td>
+<td>.NET Framework</td>
+<td>modern .NET</td>
+</tr>
+<tr>
+<td><code>DotNET</code></td>
+<td>.NET Framework</td>
+<td>modern .NET</td>
+</tr>
+<tr>
+<td><code>NETFramework</code></td>
+<td>(not defined)</td>
+<td>.NET Framework</td>
+</tr>
+<tr>
+<td><code>DotNETFramework</code></td>
+<td>(not defined)</td>
+<td>.NET Framework</td>
+</tr>
+<tr>
+<td><code>NETCore</code></td>
+<td>modern .NET</td>
+<td>modern .NET</td>
+</tr>
+<tr>
+<td><code>DotNETCore</code></td>
+<td>modern .NET</td>
+<td>modern .NET</td>
+</tr>
+</tbody>
+</table>
+<h2 id="platform-changes">Platform changes</h2>
+<h3 id="net-6-target-removed">.NET 6 target removed</h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/4857">#4857</a></p>
+<ul>
+<li><strong>Why:</strong> .NET 6 reached end of life in November 2024, and newer .NET SDKs will stop building it. Keeping it would
+also have prevented NUnit from using newer runtime APIs.</li>
+<li><strong>What changed:</strong> The framework targets <code>net462</code>, <code>net8.0</code> and <code>net10.0</code>.</li>
+<li><strong>What to do:</strong> Test projects must target .NET Framework 4.6.2 or later, or .NET 8 or later.</li>
+</ul>
+<h2 id="extension-and-runner-changes">Extension and runner changes</h2>
+<p>These changes affect extension and runner authors, not normal test code.</p>
+<h3 id="forced-stop-removed">Forced stop removed</h3>
+<p>Issues <a href="https://github.com/nunit/nunit/issues/5367">#5367</a> and <a href="https://github.com/nunit/nunit/issues/5373">#5373</a></p>
+<ul>
+<li><strong>Why:</strong> A forced stop depended on <code>Thread.Abort</code>. That is not supported on .NET Core, so <code>StopRun(force: true)</code> was
+silently ignored there. On .NET Framework, it only worked for tests running on their own thread. Runners were calling
+an API that mostly did nothing, and the framework kept a lot of thread-abort code that was rarely used.</li>
+<li><strong>What changed:</strong> The <code>force</code> parameter is removed. <code>ITestAssemblyRunner.StopRun()</code> and <code>FrameworkController.StopRun()</code>
+now take no arguments and always request a cooperative stop. The thread-abort code is gone from the framework.</li>
+<li><strong>What to do:</strong> Runners must call <code>StopRun()</code> without arguments. The compiler now reports calls that used to be
+silently ignored.</li>
+</ul>
+<h3 id="collectiontally-deprecated-and-collectiontallyresult-moved"><code>CollectionTally</code> deprecated and <code>CollectionTallyResult</code> moved</h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/5263">#5263</a></p>
+<ul>
+<li><strong>Why:</strong> <code>CollectionTally</code> is a public class meant for internal use, and a generic version has replaced it. The
+class needs to be removed eventually, but many callers only use its nested result class.</li>
+<li><strong>What changed:</strong> <code>CollectionTally.CollectionTallyResult</code> is now a top-level class,
+<code>NUnit.Framework.Constraints.CollectionTallyResult</code>. <code>CollectionTally</code> is marked <code>[Obsolete]</code> and will be removed in
+NUnit 6. Moving the result class out lets the two classes be retired separately.</li>
+<li><strong>What to do:</strong> Replace <code>CollectionTally.CollectionTallyResult</code> with <code>CollectionTallyResult</code>, and stop using
+<code>CollectionTally</code>.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/V5BreakingChanges.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

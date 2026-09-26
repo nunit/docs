@@ -96,22 +96,20 @@ a few ways to use this.</p>
 to the actual exception thrown, or with the Type of exception expected.
 The Type format is available in both a non-generic and generic form.</p>
 <p>If the code under test is async, you must use <a href="Assert.ThrowsAsync.html">Assert.ThrowsAsync</a>.</p>
-<pre><code class="lang-csharp">Exception Assert.Throws(Type expectedExceptionType, TestDelegate code);
-Exception Assert.Throws(Type expectedExceptionType, TestDelegate code,
+<pre><code class="lang-csharp">Exception Assert.Throws(Type expectedExceptionType, Action code);
+Exception Assert.Throws(Type expectedExceptionType, Action code,
                         string message, params object[] params);
 
-Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code);
-Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code,
+Exception Assert.Throws(IResolveConstraint constraint, Action code);
+Exception Assert.Throws(IResolveConstraint constraint, Action code,
                         string message, params object[] params);
 
-Assert.Throws&lt;T&gt;(TestDelegate code);
-Assert.Throws&lt;T&gt;(TestDelegate code,
-                 string message, params object[] params);
+T Assert.Throws&lt;T&gt;(Action code);
+T Assert.Throws&lt;T&gt;(Action code,
+                   string message, params object[] params);
 </code></pre>
-<p>In the above code <strong>TestDelegate</strong> is a delegate of the form
-<strong>void TestDelegate()</strong>, which is used to execute the code
-in question. This may be an anonymous delegate or, when compiling
-under C# 3.0 or greater, a lambda expression.</p>
+<p>In the above code <code>Action</code> is the delegate used to execute the code in question. This will usually be a lambda
+expression.</p>
 <p>The following example shows different ways of writing the
 same test.</p>
 <pre><code class="lang-csharp" name="AssertThrows">[TestFixture]
@@ -199,6 +197,22 @@ Assert.Catch&lt;ApplicationException&gt;(code);
 
 // Allow any kind of exception
 Assert.Catch(code);
+</code></pre>
+<h2 id="nunit-4-and-earlier">NUnit 4 and earlier</h2>
+<p>In NUnit 4 and earlier, the code to execute was passed as a <code>TestDelegate</code>, a delegate of the form
+<code>void TestDelegate()</code>. <code>TestDelegate</code> was removed in NUnit 5. Code that passes a lambda works unchanged, but explicit
+uses of <code>TestDelegate</code> must be changed to <code>Action</code>.</p>
+<pre><code class="lang-csharp">Exception Assert.Throws(Type expectedExceptionType, TestDelegate code);
+Exception Assert.Throws(Type expectedExceptionType, TestDelegate code,
+                        string message, params object[] params);
+
+Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code);
+Exception Assert.Throws(IResolveConstraint constraint, TestDelegate code,
+                        string message, params object[] params);
+
+Assert.Throws&lt;T&gt;(TestDelegate code);
+Assert.Throws&lt;T&gt;(TestDelegate code,
+                 string message, params object[] params);
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>

@@ -259,10 +259,17 @@ what is going on with the tests and eventually the final result may be retrieved
 <p>where</p>
 <ul>
 <li><code>controller</code> is the <code>FrameworkController</code> instance that was created for managing the test assembly.</li>
-<li><code>force</code> indicates whether or not the stop should be forced, as opposed to a cooperative stop.</li>
+<li><code>force</code> must be <code>false</code>. Forced stops are not supported, and passing <code>true</code> throws an
+<code>ArgumentException</code>. The parameter is kept so that existing runners and engines still work.</li>
 <li><code>handler</code> is an object implementing <code>ICallbackEventHandler</code>, to receive the result of the call.</li>
 </ul>
 <p>No result is returned from the call. If no run is in progress, the call is ignored.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In NUnit 4 and earlier, <code>force</code> indicated whether the stop should be forced, as opposed to a cooperative stop. A
+forced stop used <code>Thread.Abort</code>, which only worked on .NET Framework. Forced stops were removed in NUnit 5, and
+<code>FrameworkController.StopRun()</code> and <code>ITestAssemblyRunner.StopRun()</code> now take no arguments.</p>
+</div>
 
 </article>
           </div>

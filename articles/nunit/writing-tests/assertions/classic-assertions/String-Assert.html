@@ -88,6 +88,12 @@
 
 <p>The StringAssert class provides a number of methods that are useful
 when examining string values.</p>
+<p><code>StringAssert</code> is in the <code>NUnit.Framework</code> namespace, so <code>using NUnit.Framework;</code> is enough. It ships in
+<code>nunit.framework.legacy.dll</code>, which is part of the NUnit package.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In NUnit 4, <code>StringAssert</code> was in the <code>NUnit.Framework.Legacy</code> namespace and needed <code>using NUnit.Framework.Legacy;</code>.</p>
+</div>
 <pre><code class="lang-csharp">StringAssert.Contains(string expected, string actual);
 StringAssert.Contains(string expected, string actual,
                       string message, params object[] args);

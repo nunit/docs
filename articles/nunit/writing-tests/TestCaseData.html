@@ -238,7 +238,52 @@ public class GenericTestCaseDataTests
         yield return new TestCaseData&lt;double, bool&gt;(3.14, true);
     }
 }
-</code></pre><h2 id="setargdisplaynames-with-objects">SetArgDisplayNames with objects</h2>
+</code></pre><h2 id="typed-expected-results">Typed expected results</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Typed expected results were added in NUnit 5.0.</p>
+</div>
+<p>The generic variants also support a typed expected result. Calling <code>Returns</code> on a <code>TestCaseData&lt;T1, ...&gt;</code> returns a
+<code>TestCaseDataWithReturn&lt;T1, ..., TReturn&gt;</code>, which checks the type of the expected result at compile time.
+<code>TestCaseData.Create(...)</code> infers the argument types, so you don't have to write them out. Fluent methods such as
+<code>SetName</code> and <code>SetCategory</code> keep the generic type, so you can call them in any order.</p>
+<p>A generic instance can still be returned from a source declared as <code>IEnumerable&lt;TestCaseData&gt;</code>, because it is
+converted to <code>TestCaseData</code> automatically.</p>
+<pre><code class="lang-csharp" name="TypedReturnsExample">[TestFixture]
+public class TypedReturnsTests
+{
+    [TestCaseSource(nameof(AddCases))]
+    public int Add(int a, int b) =&gt; a + b;
+
+    private static IEnumerable&lt;TestCaseDataWithReturn&lt;int, int, int&gt;&gt; AddCases()
+    {
+        // TestCaseData.Create infers the argument types, and Returns infers the expected result type
+        yield return TestCaseData.Create(1, 2).Returns(3);
+
+        // Fluent methods keep the generic type, so Returns can still be called afterwards
+        yield return TestCaseData.Create(2, 3).SetName(&quot;Two plus three&quot;).Returns(5);
+
+        // The typed class can also be constructed directly
+        yield return new TestCaseDataWithReturn&lt;int, int, int&gt;(4, 5).Returns(9);
+    }
+
+    [TestCaseSource(nameof(MixedCases))]
+    public string RepeatText(string text, int count) =&gt; string.Concat(Enumerable.Repeat(text, count));
+
+    // A generic instance can still be returned from a source declared with the non-generic type
+    private static IEnumerable&lt;TestCaseData&gt; MixedCases()
+    {
+        yield return TestCaseData.Create(&quot;ab&quot;, 2).Returns(&quot;abab&quot;);
+        yield return new TestCaseData(&quot;x&quot;, 3).Returns(&quot;xxx&quot;);
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In NUnit 4, <code>TestCaseData&lt;T&gt;</code> and the other generic variants derived from <code>TestCaseData</code>. Their fluent methods
+returned a plain <code>TestCaseData</code>, and <code>Returns</code> took an <code>object</code>.</p>
+</div>
+<h2 id="setargdisplaynames-with-objects">SetArgDisplayNames with objects</h2>
 <p>The <code>SetArgDisplayNames</code> method has an overload that accepts <code>object[]</code> instead of <code>string[]</code>. Objects passed to
 this overload are automatically formatted using NUnit's value formatting logic, which is the same logic used for
 default test names.</p>

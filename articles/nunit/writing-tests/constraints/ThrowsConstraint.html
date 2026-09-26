@@ -110,8 +110,37 @@ Throws.Nothing
 .With.Message.Contains(string)    // Test message contains substring
 .With.Property(&quot;Name&quot;).EqualTo(x) // Test exception property
 .With.InnerException.TypeOf&lt;T&gt;()  // Test inner exception
+.ParamName.EqualTo(string)        // Test ArgumentException.ParamName
 </code></pre>
-<h2 id="examples">Examples</h2>
+<h3 id="paramname">ParamName</h3>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This property was added in NUnit 5.0.</p>
+</div>
+<p>For <code>ArgumentException</code> and derived types, the generic exception constraints have a <code>ParamName</code> property. It checks
+which parameter caused the exception, without needing <code>.With.Property(&quot;ParamName&quot;)</code>. It is available after
+<code>Throws.TypeOf&lt;T&gt;()</code>, <code>Throws.InstanceOf&lt;T&gt;()</code>, <code>Throws.ArgumentException</code> and <code>Throws.ArgumentNullException</code>, and
+must come directly after them in the constraint expression.</p>
+<p><code>ParamName</code> is a C# 14 extension property, so your test project must use C# 14 or later.</p>
+<pre><code class="lang-csharp" name="ThrowsConstraintParamNameExamples">[Test]
+public void ThrowsConstraint_ParamName_Examples()
+{
+    // ParamName is available on constraints for ArgumentException and derived types
+    Assert.That(() =&gt; Greet(null!), Throws.ArgumentNullException.ParamName.EqualTo(&quot;name&quot;));
+    Assert.That(() =&gt; Greet(&quot;&quot;), Throws.TypeOf&lt;ArgumentException&gt;().ParamName.EqualTo(&quot;name&quot;));
+
+    // InstanceOf also accepts derived types, such as ArgumentNullException
+    Assert.That(() =&gt; Greet(null!), Throws.InstanceOf&lt;ArgumentException&gt;().ParamName.EqualTo(&quot;name&quot;));
+}
+
+private static string Greet(string name)
+{
+    ArgumentNullException.ThrowIfNull(name);
+    if (name.Length == 0)
+        throw new ArgumentException(&quot;Name cannot be empty.&quot;, nameof(name));
+    return $&quot;Hello, {name}&quot;;
+}
+</code></pre><h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp" name="ThrowsConstraintBasicExamples">[Test]
 public void ThrowsConstraint_Basic_Examples()
 {

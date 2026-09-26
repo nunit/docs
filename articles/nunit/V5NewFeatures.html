@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>NUnit 5 - New features | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="NUnit 5 - New features | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="v5newfeatures">
+<h1 id="nunit-5---new-features">NUnit 5 - New features</h1>
+
+<p>This page lists the enhancements in NUnit 5. For each one, it explains why it was needed and what it gives you.
+For changes that may require you to update existing code, see
+<a class="xref" href="V5BreakingChanges.html">NUnit 5 - A summary of the breaking changes</a>. For the full list of changes, see the
+<a class="xref" href="release-notes/framework.html">release notes</a>.</p>
+<h2 id="test-ordering-and-selection">Test ordering and selection</h2>
+<h3 id="test-dependencies-with-dependsontest-and-dependsonfixture">Test dependencies with <code>[DependsOnTest]</code> and <code>[DependsOnFixture]</code></h3>
+<p>Issues <a href="https://github.com/nunit/nunit/issues/51">#51</a> and <a href="https://github.com/nunit/nunit/issues/5396">#5396</a></p>
+<ul>
+<li><strong>Why:</strong> Some tests have to run after others, for example database installation before upgrade tests. Until now,
+the only tool was <code>[Order]</code>, which sets a relative position but doesn't say which test depends on which, and doesn't
+react when the earlier test fails.</li>
+<li><strong>What's new:</strong> <code>[DependsOnTest(&quot;TestName&quot;)]</code> makes a test run after another test in the same fixture, and
+<code>[DependsOnFixture(typeof(OtherFixture))]</code> makes a fixture run after another fixture. If the dependency fails, the
+dependent test isn't run, unless you set <code>AllowFailure = true</code>. NUnit reports circular dependencies as errors.
+If you run a single test from your IDE, NUnit also runs the tests it depends on, even though the filter excludes
+them.</li>
+</ul>
+<pre><code class="lang-csharp">[Test]
+public void Install() { ... }
+
+[Test, DependsOnTest(nameof(Install))]
+public void Upgrade() { ... }
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>[Order]</code> is now marked <code>[Obsolete]</code>. Use <code>[DependsOnTest]</code> or <code>[DependsOnFixture]</code> instead. A test can't be part of
+both an <code>Order</code> chain and a dependency chain, and tests in a dependency chain can't run in parallel.</p>
+</div>
+<p>For more information, see <a class="xref" href="writing-tests/attributes/dependsontest.html">DependsOnTest</a> and
+<a class="xref" href="writing-tests/attributes/dependsonfixture.html">DependsOnFixture</a>.</p>
+<h3 id="testcontextactivetests"><code>TestContext.ActiveTests</code></h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/5354">#5354</a></p>
+<ul>
+<li><strong>Why:</strong> A <code>[SetUpFixture]</code> often does expensive setup, such as starting a database or a browser, that only some
+tests need. There was no way to find out which tests would actually run after filtering, so the setup had to run
+every time.</li>
+<li><strong>What's new:</strong> In a <code>[OneTimeSetUp]</code> or <code>[OneTimeTearDown]</code> method, <code>TestContext.CurrentContext.ActiveTests</code> lists
+the tests under the current suite that passed the filter. You can inspect them, for example their categories or
+attributes, and skip setup that no active test needs. The property works with every runner, and is <code>null</code> outside
+those methods.</li>
+</ul>
+<p>For more information, see <a class="xref" href="writing-tests/TestContext.html">TestContext</a>.</p>
+<h2 id="assertions-and-test-data">Assertions and test data</h2>
+<h3 id="type-safe-testcasedata-expected-results">Type-safe <code>TestCaseData</code> expected results</h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/4717">#4717</a></p>
+<ul>
+<li><strong>Why:</strong> The generic <code>TestCaseData&lt;T1, ...&gt;</code> classes, added in NUnit 4.1, typed the arguments. However, <code>.Returns()</code>
+still took an <code>object</code>, so a wrongly typed expected result was only found at runtime. The fluent methods, such as
+<code>.SetName()</code>, also returned a plain <code>TestCaseData</code>, which lost the generic type.</li>
+<li><strong>What's new:</strong> <code>.Returns()</code> on a generic <code>TestCaseData</code> returns a <code>TestCaseDataWithReturn&lt;T1, ..., TReturn&gt;</code>, so the
+compiler checks the expected result. <code>TestCaseData.Create(...)</code> infers the argument types. Fluent methods keep the
+generic type, and a generic instance can still be returned from a source declared as <code>IEnumerable&lt;TestCaseData&gt;</code>.</li>
+</ul>
+<pre><code class="lang-csharp">private static IEnumerable&lt;TestCaseDataWithReturn&lt;int, int, int&gt;&gt; AddCases()
+{
+    yield return TestCaseData.Create(1, 2).Returns(3);
+    yield return TestCaseData.Create(2, 3).SetName(&quot;Two plus three&quot;).Returns(5);
+}
+</code></pre>
+<p>For more information, see <a class="xref" href="writing-tests/TestCaseData.html">TestCaseData</a>.</p>
+<h3 id="paramname-on-argument-exception-constraints"><code>ParamName</code> on argument exception constraints</h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/3947">#3947</a></p>
+<ul>
+<li><strong>Why:</strong> Checking which parameter caused an <code>ArgumentException</code> needed the long form
+<code>.With.Property(&quot;ParamName&quot;)</code>, which uses a string and isn't checked by the compiler.</li>
+<li><strong>What's new:</strong> Generic exception constraints for <code>ArgumentException</code> and derived types have a <code>ParamName</code>
+property. It must come directly after the exception type in the constraint expression. It is a C# 14 extension
+property, so your test project needs C# 14 or later to use it.</li>
+</ul>
+<pre><code class="lang-csharp">Assert.That(() =&gt; Parse(null!), Throws.ArgumentNullException.ParamName.EqualTo(&quot;input&quot;));
+Assert.That(() =&gt; Parse(&quot;&quot;), Throws.InstanceOf&lt;ArgumentException&gt;().ParamName.EqualTo(&quot;input&quot;));
+</code></pre>
+<p>For more information, see <a class="xref" href="writing-tests/constraints/ThrowsConstraint.html">Throws Constraint</a>.</p>
+<h3 id="compile-time-checks-and-awaitable-async-assertions">Compile-time checks and awaitable async assertions</h3>
+<p>Issues <a href="https://github.com/nunit/nunit/issues/5323">#5323</a> and <a href="https://github.com/nunit/nunit/issues/4384">#4384</a></p>
+<ul>
+<li><code>Has.Attribute&lt;T&gt;()</code> now only accepts attribute types, so a wrong type is a compiler error instead of a failure at
+runtime.</li>
+<li><code>Assert.ThrowsAsync</code>, <code>Assert.CatchAsync</code> and <code>Assert.DoesNotThrowAsync</code> are now truly asynchronous and must be
+awaited.</li>
+</ul>
+<p>Both are breaking changes, and are described in
+<a class="xref" href="V5BreakingChanges.html">NUnit 5 - A summary of the breaking changes</a>.</p>
+<h2 id="timing-and-repetition">Timing and repetition</h2>
+<h3 id="warning-threshold-for-maxtime">Warning threshold for <code>[MaxTime]</code></h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/5260">#5260</a></p>
+<ul>
+<li><strong>Why:</strong> <code>[MaxTime]</code> fails a test that takes too long, with nothing in between pass and fail. A test that is getting
+slower gave no signal until it crossed the limit.</li>
+<li><strong>What's new:</strong> The optional <code>WarningTime</code> property sets a lower threshold. A passing test that takes longer than
+<code>WarningTime</code>, but less than the maximum, gets a <em>Warning</em> result. This makes performance drift visible before it
+becomes a failure.</li>
+</ul>
+<pre><code class="lang-csharp">[Test, MaxTime(2000, WarningTime = 1000)]
+public void ImportLargeFile() { ... }
+</code></pre>
+<p>For more information, see <a class="xref" href="writing-tests/attributes/maxtime.html">MaxTime</a>.</p>
+<h3 id="pass-percentage-threshold-for-repeat">Pass-percentage threshold for <code>[Repeat]</code></h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/5220">#5220</a></p>
+<ul>
+<li><strong>Why:</strong> Some systems are not deterministic, for example an LLM-based chat bot. For these, &quot;passes 9 times out of
+10&quot; is a valid requirement, but <code>[Repeat]</code> required every run to pass.</li>
+<li><strong>What's new:</strong> <code>RequiredPassPercentage</code> sets the percentage of runs that must pass (1-100, default 100). When it is
+below 100, all runs are executed and the result reports how many passed. Set <code>StopWhenOverallResultDetermined = true</code>
+to stop as soon as the outcome is certain, either because the threshold has already been reached or because it can
+no longer be reached.</li>
+</ul>
+<pre><code class="lang-csharp">[Test, Repeat(20, RequiredPassPercentage = 90, StopWhenOverallResultDetermined = true)]
+public void ChatBotAnswersCorrectly() { ... }
+</code></pre>
+<p>For more information, see <a class="xref" href="writing-tests/attributes/repeat.html">Repeat</a>.</p>
+<h2 id="platform-support">Platform support</h2>
+<h3 id="net-10-target">.NET 10 target</h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/5316">#5316</a></p>
+<ul>
+<li><strong>Why:</strong> Projects targeting .NET 10 were using the .NET 8 build of NUnit, so they couldn't benefit from newer
+runtime APIs.</li>
+<li><strong>What's new:</strong> NUnit now ships <code>net462</code>, <code>net8.0</code> and <code>net10.0</code> builds, and projects on .NET 10 or later get the
+<code>net10.0</code> build.</li>
+</ul>
+<h2 id="under-the-hood">Under the hood</h2>
+<p>These changes don't affect how you write tests, but they make NUnit faster and easier to maintain.</p>
+<ul>
+<li><strong>Faster locking on .NET 10</strong> (<a href="https://github.com/nunit/nunit/issues/5387">#5387</a>): The work-item and parallel
+dispatcher code now uses the <code>System.Threading.Lock</code> type introduced in .NET 9, with a polyfill for older runtimes.
+Test projects on .NET 10 or later get the faster locking.</li>
+<li><strong>Argument validation throw helpers</strong> (<a href="https://github.com/nunit/nunit/issues/5348">#5348</a>,
+<a href="https://github.com/nunit/nunit/issues/5349">#5349</a>): Manual argument checks were replaced with the built-in
+<code>ArgumentNullException.ThrowIfNull</code> and <code>ArgumentOutOfRangeException.ThrowIf*</code> helpers, polyfilled for .NET
+Framework. The CA1510 and CA1512 analyzer rules are now enforced in the build.</li>
+<li><strong>Simpler overload resolution</strong> (<a href="https://github.com/nunit/nunit/issues/5267">#5267</a>): The
+<code>OverloadResolutionPriority</code> attributes added in 4.6 to handle the switch from <code>TestDelegate</code> to <code>Action</code> are
+removed. They are no longer needed now that the old delegate overloads are gone.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/V5NewFeatures.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

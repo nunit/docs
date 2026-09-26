@@ -100,6 +100,7 @@ Task&lt;TActual&gt; Assert.ThrowsAsync&lt;TActual&gt;(Func&lt;Task&gt; asyncCode
 Task&lt;TActual&gt; Assert.ThrowsAsync&lt;TActual&gt;(Func&lt;Task&gt; asyncCode,
                                     string message, params object[] params);
 </code></pre>
+<p>This assertion returns a <code>Task</code> and must be awaited. If it isn't awaited, the assertion is not evaluated.</p>
 <p>In the above code <code>Func&lt;Task&gt;</code> is an async delegate, which is used to execute the code
 in question. This will likely be a lambda expression.</p>
 <p>The following example shows the most common way of writing tests.</p>

@@ -89,9 +89,16 @@
 <p><code>SameAsConstraint</code> tests whether the actual value is the same object instance as the expected value (reference
 equality). This is different from <code>Is.EqualTo</code>, which tests for value equality.</p>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-csharp">Is.SameAs(object expected)
-Is.Not.SameAs(object expected)
+<pre><code class="lang-csharp">Is.SameAs&lt;T&gt;(T? expected) where T : class?
+Is.Not.SameAs&lt;T&gt;(T? expected) where T : class?
 </code></pre>
+<p><code>Is.SameAs</code> only accepts reference types. Using it with a value type, such as an <code>int</code> or an <code>int?</code>, is a compiler
+error. Use <code>Is.EqualTo</code> for value types.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In NUnit 4 and earlier, the signature was <code>Is.SameAs(object expected)</code>. It also accepted value types, but the
+assertion always failed, because value types are boxed into different objects.</p>
+</div>
 <h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp" name="SameAsConstraintExamples">[Test]
 public void SameAsConstraint_Examples()
@@ -114,7 +121,7 @@ public void SameAsConstraint_Examples()
 </code></pre><h2 id="notes">Notes</h2>
 <ol>
 <li><code>Is.SameAs</code> uses <code>object.ReferenceEquals()</code> internally - it tests object identity, not equality.</li>
-<li>For value types, <code>Is.SameAs</code> will always fail because value types are boxed into different objects.</li>
+<li><code>Is.SameAs</code> can't be used with value types. The compiler rejects them.</li>
 <li>Use <code>Is.EqualTo</code> when you want to compare values; use <code>Is.SameAs</code> when you need to verify the exact same instance.</li>
 </ol>
 <h2 id="see-also">See Also</h2>

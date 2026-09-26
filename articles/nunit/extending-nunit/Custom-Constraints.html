@@ -104,14 +104,20 @@ overridden to change some default behaviors.</p>
         protected Constraint(params object[] args) {}
         public abstract ConstraintResult ApplyTo&lt;TActual&gt;(TActual actual);
         /* ... */
-        public virtual ConstraintResult ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del) {}
-        public virtual ConstraintResult ApplyTo&lt;TActual&gt;(ref TActual actual) {}
-        protected virtual object GetTestObject&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del) {}
+        public virtual ConstraintResult ApplyTo&lt;TActual&gt;(Func&lt;TActual&gt; code) {}
+        public virtual Task&lt;ConstraintResult&gt; ApplyToAsync&lt;TActual&gt;(Func&lt;Task&lt;TActual&gt;&gt; taskDel) {}
+        protected virtual object GetTestObject&lt;TActual&gt;(Func&lt;TActual&gt; code) {}
         public virtual string Description { get; protected set; }
         protected virtual string GetStringRepresentation() {}
     }
 }
 </code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In NUnit 4 and earlier, the delegate overloads took an <code>ActualValueDelegate&lt;TActual&gt;</code> instead of a <code>Func&lt;TActual&gt;</code>,
+and there was also an <code>ApplyTo&lt;TActual&gt;(ref TActual actual)</code> overload. Both were removed in NUnit 5, so custom
+constraints that override these methods must be updated.</p>
+</div>
 <h2 id="constraint-constructor"><code>Constraint</code> Constructor</h2>
 <p>The <code>Constraint</code> constructor accepts zero or more arguments and saves them to be used in the printed description later.
 Constraints like <code>NullConstraint</code> or <code>UniqueItemsConstraint</code> take no arguments and simply state some condition about the
@@ -132,16 +138,16 @@ constraint. Whatever logic defines pass or fail of the constraint and actual/exp
 message provided upon failure, as described below.</p>
 <h2 id="applyto-overloads"><code>ApplyTo</code> Overloads</h2>
 <p>Constraints may be called with a delegate to return the actual value instead of the actual value itself. This serves to
-delay evaluation of the value. The default implementation of <code>ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code> waits
+delay evaluation of the value. The default implementation of <code>ApplyTo&lt;TActual&gt;(Func&lt;TActual&gt; code)</code> waits
 for the delegate to complete if it's an async operation, other immediately calls the delegate if synchronous, and then
 calls the abstract <code>ApplyTo&lt;TActual&gt;(TActual actual)</code> method with the value.</p>
-<p>Another overload also exists, <code>ApplyTo&lt;TActual&gt;(ref TActual actual)</code>. The default implementation dereferences the value
-and then calls the abstract <code>ApplyTo&lt;TActual&gt;(TActual actual)</code> method with the value. This public virtual method is
-available by use from calling code but currently is not used from any framework calls within NUnit itself.</p>
+<p>In NUnit 4 and earlier, another overload also existed, <code>ApplyTo&lt;TActual&gt;(ref TActual actual)</code>. The default
+implementation dereferenced the value and then called the abstract <code>ApplyTo&lt;TActual&gt;(TActual actual)</code> method with the
+value. It was not used by NUnit itself, and was removed in NUnit 5.</p>
 <h2 id="gettestobject-optional-override"><code>GetTestObject</code> Optional Override</h2>
-<p>The default implementation of <code>ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code> does not simply execute the delegate
-but actually calls out to another virtual method, <code>GetTestObject&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code>. This
-method can be overridden to keep the default behavior of <code>ApplyTo&lt;TActual&gt;(ActualValueDelegate&lt;TActual&gt; del)</code> while
+<p>The default implementation of <code>ApplyTo&lt;TActual&gt;(Func&lt;TActual&gt; code)</code> does not simply execute the delegate
+but actually calls out to another virtual method, <code>GetTestObject&lt;TActual&gt;(Func&lt;TActual&gt; code)</code>. This
+method can be overridden to keep the default behavior of <code>ApplyTo&lt;TActual&gt;(Func&lt;TActual&gt; code)</code> while
 still customizing how the actual value delegate is invoked.</p>
 <h2 id="description-property"><code>Description</code> Property</h2>
 <p>This virtual property is used to provide a description of the constraint for messages. Simple constant values can be set

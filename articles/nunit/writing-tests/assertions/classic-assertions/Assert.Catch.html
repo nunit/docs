@@ -88,6 +88,21 @@
 
 <p><strong>Assert.Catch</strong> is similar to <strong>Assert.Throws</strong> but will pass for an exception
 that is derived from the one specified.</p>
+<pre><code class="lang-csharp">Exception Assert.Catch(Action code);
+Exception Assert.Catch(Action code,
+                       string message, params object[] params);
+
+Exception Assert.Catch(Type expectedExceptionType, Action code);
+Exception Assert.Catch(Type expectedExceptionType, Action code,
+                       string message, params object[] params);
+
+T Assert.Catch&lt;T&gt;(Action code);
+T Assert.Catch&lt;T&gt;(Action code,
+                  string message, params object[] params);
+</code></pre>
+<h2 id="nunit-4-and-earlier">NUnit 4 and earlier</h2>
+<p>In NUnit 4 and earlier, the code to execute was passed as a <code>TestDelegate</code>, which was removed in NUnit 5. Code that
+passes a lambda works unchanged, but explicit uses of <code>TestDelegate</code> must be changed to <code>Action</code>.</p>
 <pre><code class="lang-csharp">Exception Assert.Catch(TestDelegate code);
 Exception Assert.Catch(TestDelegate code,
                        string message, params object[] params);

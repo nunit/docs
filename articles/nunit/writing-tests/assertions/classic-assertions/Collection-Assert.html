@@ -91,6 +91,12 @@ for comparing two collections. These methods may be used with any object impleme
 <p>The <strong>AreEqual</strong> overloads succeed if the corresponding elements of the two collections are equal. <strong>AreEquivalent</strong>
 tests whether the collection contents are equal, but without regard to order. In both cases, elements are compared using
 NUnit's default equality comparison.</p>
+<p><code>CollectionAssert</code> is in the <code>NUnit.Framework</code> namespace, so <code>using NUnit.Framework;</code> is enough. It ships in
+<code>nunit.framework.legacy.dll</code>, which is part of the NUnit package.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In NUnit 4, <code>CollectionAssert</code> was in the <code>NUnit.Framework.Legacy</code> namespace and needed <code>using NUnit.Framework.Legacy;</code>.</p>
+</div>
 <pre><code class="lang-csharp">CollectionAssert.AllItemsAreInstancesOfType(IEnumerable collection, Type expectedType);
 CollectionAssert.AllItemsAreInstancesOfType(
     IEnumerable collection, Type expectedType, string message, params object[] args);

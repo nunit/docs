@@ -88,6 +88,13 @@
 
 <p><strong>Assert.DoesNotThrow</strong> verifies that the delegate provided as an argument
 does not throw an exception. See <a href="Assert.DoesNotThrowAsync.html">Assert.DoesNotThrowAsync</a> for asynchronous code.</p>
+<pre><code class="lang-csharp">void Assert.DoesNotThrow(Action code);
+void Assert.DoesNotThrow(Action code,
+                         string message, params object[] params);
+</code></pre>
+<h2 id="nunit-4-and-earlier">NUnit 4 and earlier</h2>
+<p>In NUnit 4 and earlier, the code to execute was passed as a <code>TestDelegate</code>, which was removed in NUnit 5. Code that
+passes a lambda works unchanged, but explicit uses of <code>TestDelegate</code> must be changed to <code>Action</code>.</p>
 <pre><code class="lang-csharp">void Assert.DoesNotThrow(TestDelegate code);
 void Assert.DoesNotThrow(TestDelegate code,
                          string message, params object[] params);

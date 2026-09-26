@@ -110,6 +110,9 @@ approach have all been implemented internally using constraints. For example...<
 <pre><code class="lang-csharp" name="ClassicAndConstraintsAreEquivalent">Assert.AreEqual(4, 2 + 2);
 Assert.That(2 + 2, Is.EqualTo(4));
 </code></pre><h3 id="some-notes-on-the-classiclegacy-asserts">Some notes on the Classic/Legacy asserts</h3>
+<p><strong>From version 5</strong>
+<code>StringAssert</code>, <code>CollectionAssert</code>, <code>FileAssert</code> and <code>DirectoryAssert</code> are back in the <code>NUnit.Framework</code> namespace.
+You no longer need <code>using NUnit.Framework.Legacy;</code> for these. <code>ClassicAssert</code> remains in <code>NUnit.Framework.Legacy</code>.</p>
 <p><strong>From version 4.5</strong>
 The Classic assertions are back in the <code>NUnit.Framework</code> namespace.<br>
 You don't need to add what is described below for these.</p>

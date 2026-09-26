@@ -92,6 +92,12 @@ attribute's properties.</p>
 <pre><code class="lang-csharp">Has.Attribute(Type attributeType).&lt;constraint&gt;
 Has.Attribute&lt;TAttribute&gt;().&lt;constraint&gt;
 </code></pre>
+<p>The generic form requires <code>TAttribute : Attribute</code>, so passing a type that isn't an attribute is a compiler error.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In NUnit 4 and earlier, the generic form accepted any type. Passing a type that isn't an attribute compiled, but the
+test failed when it ran.</p>
+</div>
 <h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp" name="AttributeConstraintExamples">[TestFixture(Description = &quot;Integration tests&quot;)]
 [Category(&quot;Database&quot;)]

@@ -89,6 +89,12 @@
 <p>The DirectoryAssert class provides methods for comparing two directories
 or verifying the existence of a directory. Directories may be provided
 as DirectoryInfos or as strings giving the path to each directory.</p>
+<p><code>DirectoryAssert</code> is in the <code>NUnit.Framework</code> namespace, so <code>using NUnit.Framework;</code> is enough. It ships in
+<code>nunit.framework.legacy.dll</code>, which is part of the NUnit package.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In NUnit 4, <code>DirectoryAssert</code> was in the <code>NUnit.Framework.Legacy</code> namespace and needed <code>using NUnit.Framework.Legacy;</code>.</p>
+</div>
 <pre><code class="lang-csharp">DirectoryAssert.AreEqual(DirectoryInfo expected, DirectoryInfo actual);
 DirectoryAssert.AreEqual(DirectoryInfo expected, DirectoryInfo actual,
     string message, params object[] args);

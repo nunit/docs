@@ -284,7 +284,53 @@ teardown stage.</p>
 <li>Explicit: the test was not run because it is marked Explicit. (Status=Skipped, Label=Explicit)</li>
 <li>Skipped: the test was skipped for some other reason. (Status=Skipped, Label=empty)</li>
 </ul>
-<h3 id="testdirectory">TestDirectory</h3>
+<h3 id="activetests">ActiveTests</h3>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This property was added in NUnit 5.0.</p>
+</div>
+<p>Gets the list of test cases under the current suite that will run, after any filter has been applied. It is available
+in <code>OneTimeSetUp</code> and <code>OneTimeTearDown</code> methods, and returns <code>null</code> everywhere else.</p>
+<p>This lets a <code>SetUpFixture</code> or a fixture skip expensive setup, such as starting a database, when none of the tests that
+need it will run. It works the same way with every runner, for example <code>dotnet test</code>, the NUnit Console or an IDE.</p>
+<pre><code class="lang-csharp" name="ActiveTestsExample">[SetUpFixture]
+public class DatabaseSetUp
+{
+    private bool _databaseStarted;
+
+    [OneTimeSetUp]
+    public void StartDatabaseIfNeeded()
+    {
+        // ActiveTests lists the test cases under this namespace that passed the filter
+        var activeTests = TestContext.CurrentContext.ActiveTests ?? [];
+
+        // Only do the expensive setup if at least one active test needs it
+        if (activeTests.Any(test =&gt; test.Properties[&quot;Category&quot;].Contains(&quot;Database&quot;)))
+        {
+            _databaseStarted = true; // Start the database here
+        }
+    }
+
+    [OneTimeTearDown]
+    public void StopDatabase()
+    {
+        if (_databaseStarted)
+        {
+            _databaseStarted = false; // Stop the database here
+        }
+    }
+}
+
+[TestFixture]
+public class CustomerTests
+{
+    [Test, Category(&quot;Database&quot;)]
+    public void CanSaveCustomer() =&gt; Assert.Pass();
+
+    [Test]
+    public void CanFormatCustomerName() =&gt; Assert.Pass();
+}
+</code></pre><h3 id="testdirectory">TestDirectory</h3>
 <p>Gets the full path of the directory containing the current test assembly.</p>
 <h3 id="workdirectory">WorkDirectory</h3>
 <p>Gets the full path of the directory to be used for output from this test run. The XML result file and any redirected
