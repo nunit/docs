@@ -56,7 +56,6 @@ There are in total 48 issues fixed in this release.
 ### Refactorings
 
 * [5273](https://github.com/nunit/nunit/issues/5273) Verify that generic AssignableToConstraint and AssignableFromConstraint works as expected. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5277](https://github.com/nunit/nunit/pull/5277)
-* [5222](https://github.com/nunit/nunit/issues/5222) AssemblyVersion.
 * [5180](https://github.com/nunit/nunit/issues/5180) Change namespace for legacy String-, Collection-, File- and DirectoryAssert classes. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5181](https://github.com/nunit/nunit/pull/5181)
 
 ### Internal fixes
@@ -65,7 +64,7 @@ There are in total 48 issues fixed in this release.
 * [5398](https://github.com/nunit/nunit/issues/5398) Suppress namespace messages where it is intentional. Also suppress primary constructor warnings. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5399](https://github.com/nunit/nunit/pull/5399)
 * [5301](https://github.com/nunit/nunit/issues/5301) Update README and nuspec files for NUnit 5. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5302](https://github.com/nunit/nunit/pull/5302)
 * [5228](https://github.com/nunit/nunit/issues/5228) Set assembly version to Minver default for the 5.0.0.0 release. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5299](https://github.com/nunit/nunit/pull/5299)
-* [5222](https://github.com/nunit/nunit/issues/5222) AssemblyVersion.
+* [5222](https://github.com/nunit/nunit/issues/5222) Follow the .NET versioning guidance for assembly versions: `AssemblyVersion` is now Major.0.0.0, so it stays 5.0.0.0 for all NUnit 5.x releases.
 * [5197](https://github.com/nunit/nunit/issues/5197) Add files to support AI agent coding. Thanks to [Joel Dickson](https://github.com/joeldickson) for [PR 5225](https://github.com/nunit/nunit/pull/5225)
 
 ### Deprecated features
