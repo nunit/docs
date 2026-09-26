@@ -21,6 +21,8 @@ Task<TActual> Assert.ThrowsAsync<TActual>(Func<Task> asyncCode,
                                     string message, params object[] params);
 ```
 
+This assertion returns a `Task` and must be awaited. If it isn't awaited, the assertion is not evaluated.
+
 In the above code `Func<Task>` is an async delegate, which is used to execute the code
 in question. This will likely be a lambda expression.
 

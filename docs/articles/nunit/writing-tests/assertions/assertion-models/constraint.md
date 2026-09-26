@@ -32,10 +32,10 @@ Assert.That(Func<bool> condition);
 Assert.That(Func<bool> condition, string message);
 Assert.That(Func<bool> condition, Func<string> getExceptionMessage);
 
-Assert.That<TActual>(ActualValueDelegate<TActual> del, IResolveConstraint constraint)
-Assert.That<TActual>(ActualValueDelegate<TActual> del, IResolveConstraint constraint,
+Assert.That<TActual>(Func<TActual> code, IResolveConstraint constraint)
+Assert.That<TActual>(Func<TActual> code, IResolveConstraint constraint,
     string message)
-Assert.That<TActual>(ActualValueDelegate<TActual> del, IResolveConstraint expr,
+Assert.That<TActual>(Func<TActual> code, IResolveConstraint expr,
     Func<string> getExceptionMessage)
 
 Assert.That<TActual>(TActual actual, IResolveConstraint constraint)
@@ -43,11 +43,15 @@ Assert.That<TActual>(TActual actual, IResolveConstraint constraint, string messa
 Assert.That<TActual>(TActual actual, IResolveConstraint expression,
     Func<string> getExceptionMessage)
 
-Assert.That(TestDelegate del, IResolveConstraint constraint)
-Assert.That(TestDelegate code, IResolveConstraint constraint, string message)
-Assert.That(TestDelegate code, IResolveConstraint constraint,
+Assert.That(Action code, IResolveConstraint constraint)
+Assert.That(Action code, IResolveConstraint constraint, string message)
+Assert.That(Action code, IResolveConstraint constraint,
     Func<string> getExceptionMessage)
 ```
+
+> [!NOTE]
+> In NUnit 4 and earlier, these overloads took an `ActualValueDelegate<TActual>` and a `TestDelegate` instead of a
+> `Func<TActual>` and an `Action`. Both delegate types were removed in NUnit 5.
 
 The overloads that take a bool work exactly like `ClassicAssert.IsTrue`, except that `ClassicAssert.IsTrue` does not
 accept a `Func<string>` for the exception message.
