@@ -7,7 +7,7 @@ uid: frameworkreleasenotes
 
 # Framework Release
 
-## NUnit 5.0.0
+## NUnit 5.0.0 - Sept 27, 2026
 
 NUnit 5 is a major release, with a series of breaking changes that follow up on version 4's move towards a more
 type-safe NUnit.  
