@@ -36,9 +36,9 @@ namespace NUnit.Framework.Constraints
 ```
 
 > [!NOTE]
-> From version 5, the delegate overloads take a `Func<TActual>`. In NUnit 4 and earlier they took an
-> `ActualValueDelegate<TActual>`, which was removed in NUnit 5. The `ApplyTo<TActual>(ref TActual actual)` overload
-> was also removed in NUnit 5. Custom constraints that override these methods must be updated.
+> In NUnit 4 and earlier, the delegate overloads took an `ActualValueDelegate<TActual>` instead of a `Func<TActual>`,
+> and there was also an `ApplyTo<TActual>(ref TActual actual)` overload. Both were removed in NUnit 5, so custom
+> constraints that override these methods must be updated.
 
 ## `Constraint` Constructor
 

@@ -8,10 +8,11 @@ The FileAssert class provides methods for comparing or verifying the existence o
 which may be provided as Streams, as FileInfos or as strings
 giving the path to each file.
 
+`FileAssert` is in the `NUnit.Framework` namespace, so `using NUnit.Framework;` is enough. It ships in
+`nunit.framework.legacy.dll`, which is part of the NUnit package.
+
 > [!NOTE]
-> From version 5, `FileAssert` is in the `NUnit.Framework` namespace, so `using NUnit.Framework;` is enough. In NUnit 4, it
-> is in the `NUnit.Framework.Legacy` namespace and needs `using NUnit.Framework.Legacy;`. It still ships in
-> `nunit.framework.legacy.dll`, which is part of the NUnit package.
+> In NUnit 4, `FileAssert` was in the `NUnit.Framework.Legacy` namespace and needed `using NUnit.Framework.Legacy;`.
 
 ```csharp
 FileAssert.AreEqual(Stream expected, Stream actual);

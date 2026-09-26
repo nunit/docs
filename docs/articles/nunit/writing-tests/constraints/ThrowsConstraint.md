@@ -34,10 +34,13 @@ Throws.Nothing
 .With.Message.Contains(string)    // Test message contains substring
 .With.Property("Name").EqualTo(x) // Test exception property
 .With.InnerException.TypeOf<T>()  // Test inner exception
-.ParamName.EqualTo(string)        // Test ArgumentException.ParamName (From version 5)
+.ParamName.EqualTo(string)        // Test ArgumentException.ParamName
 ```
 
-### ParamName (From version 5)
+### ParamName
+
+> [!NOTE]
+> This property was added in NUnit 5.0.
 
 For `ArgumentException` and derived types, the generic exception constraints have a `ParamName` property. It checks
 which parameter caused the exception, without needing `.With.Property("ParamName")`. It is available after

@@ -225,7 +225,10 @@ The following is a list of outcomes currently produced by NUnit. Others may be a
 * Explicit: the test was not run because it is marked Explicit. (Status=Skipped, Label=Explicit)
 * Skipped: the test was skipped for some other reason. (Status=Skipped, Label=empty)
 
-### ActiveTests (From version 5)
+### ActiveTests
+
+> [!NOTE]
+> This property was added in NUnit 5.0.
 
 Gets the list of test cases under the current suite that will run, after any filter has been applied. It is available
 in `OneTimeSetUp` and `OneTimeTearDown` methods, and returns `null` everywhere else.

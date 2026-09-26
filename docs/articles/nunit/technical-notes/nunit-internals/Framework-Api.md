@@ -223,7 +223,7 @@ public StopRunAction(FrameworkController controller, bool force, object handler)
 where
 
 * `controller` is the `FrameworkController` instance that was created for managing the test assembly.
-* `force` must be `false` (From version 5). Forced stops are no longer supported, and passing `true` throws an
+* `force` must be `false`. Forced stops are not supported, and passing `true` throws an
   `ArgumentException`. The parameter is kept so that existing runners and engines still work.
 * `handler` is an object implementing `ICallbackEventHandler`, to receive the result of the call.
 
@@ -231,5 +231,5 @@ No result is returned from the call. If no run is in progress, the call is ignor
 
 > [!NOTE]
 > In NUnit 4 and earlier, `force` indicated whether the stop should be forced, as opposed to a cooperative stop. A
-> forced stop used `Thread.Abort`, which only worked on .NET Framework. From version 5, the stop is always cooperative,
-> and `FrameworkController.StopRun()` and `ITestAssemblyRunner.StopRun()` take no arguments.
+> forced stop used `Thread.Abort`, which only worked on .NET Framework. Forced stops were removed in NUnit 5, and
+> `FrameworkController.StopRun()` and `ITestAssemblyRunner.StopRun()` now take no arguments.

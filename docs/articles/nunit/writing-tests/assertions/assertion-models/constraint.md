@@ -50,8 +50,8 @@ Assert.That(Action code, IResolveConstraint constraint,
 ```
 
 > [!NOTE]
-> From version 5, delegates are passed as `Func<TActual>` and `Action`. In NUnit 4 and earlier, the same overloads
-> took an `ActualValueDelegate<TActual>` and a `TestDelegate`. Both types were removed in NUnit 5.
+> In NUnit 4 and earlier, these overloads took an `ActualValueDelegate<TActual>` and a `TestDelegate` instead of a
+> `Func<TActual>` and an `Action`. Both delegate types were removed in NUnit 5.
 
 The overloads that take a bool work exactly like `ClassicAssert.IsTrue`, except that `ClassicAssert.IsTrue` does not
 accept a `Func<string>` for the exception message.

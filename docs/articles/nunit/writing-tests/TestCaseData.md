@@ -54,7 +54,10 @@ based on their type parameters. This provides a more concise syntax when working
 
 [!code-csharp[GenericTestCaseDataExample](~/snippets/Snippets.NUnit/TestCaseDataExample.cs#GenericTestCaseDataExample)]
 
-## Typed expected results (From version 5)
+## Typed expected results
+
+> [!NOTE]
+> Typed expected results were added in NUnit 5.0.
 
 The generic variants also support a typed expected result. Calling `Returns` on a `TestCaseData<T1, ...>` returns a
 `TestCaseDataWithReturn<T1, ..., TReturn>`, which checks the type of the expected result at compile time.

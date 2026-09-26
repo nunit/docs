@@ -21,9 +21,6 @@ T Assert.Catch<T>(Action code,
                   string message, params object[] params);
 ```
 
-> [!NOTE]
-> From version 5, the code to execute is passed as an `Action`.
-
 ## NUnit 4 and earlier
 
 In NUnit 4 and earlier, the code to execute was passed as a `TestDelegate`, which was removed in NUnit 5. Code that

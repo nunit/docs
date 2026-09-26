@@ -20,9 +20,7 @@ Task<T> Assert.CatchAsync<T>(Func<Task> asyncCode,
                        string message, params object[] params);
 ```
 
-> [!NOTE]
-> From version 5, this assertion returns a `Task` and must be awaited. If it isn't awaited, the assertion is not
-> evaluated. See [NUnit 4 and earlier](#nunit-4-and-earlier) for the previous behavior.
+This assertion returns a `Task` and must be awaited. If it isn't awaited, the assertion is not evaluated.
 
 ## NUnit 4 and earlier
 

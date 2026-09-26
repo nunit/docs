@@ -35,10 +35,6 @@ T Assert.Throws<T>(Action code,
 In the above code `Action` is the delegate used to execute the code in question. This will usually be a lambda
 expression.
 
-> [!NOTE]
-> From version 5, the code to execute is passed as an `Action`. See [NUnit 4 and earlier](#nunit-4-and-earlier) for
-> the `TestDelegate` signatures that were used before.
-
 The following example shows different ways of writing the
 same test.
 

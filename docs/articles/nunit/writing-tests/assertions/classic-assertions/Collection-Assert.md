@@ -11,10 +11,11 @@ The **AreEqual** overloads succeed if the corresponding elements of the two coll
 tests whether the collection contents are equal, but without regard to order. In both cases, elements are compared using
 NUnit's default equality comparison.
 
+`CollectionAssert` is in the `NUnit.Framework` namespace, so `using NUnit.Framework;` is enough. It ships in
+`nunit.framework.legacy.dll`, which is part of the NUnit package.
+
 > [!NOTE]
-> From version 5, `CollectionAssert` is in the `NUnit.Framework` namespace, so `using NUnit.Framework;` is enough. In NUnit 4, it
-> is in the `NUnit.Framework.Legacy` namespace and needs `using NUnit.Framework.Legacy;`. It still ships in
-> `nunit.framework.legacy.dll`, which is part of the NUnit package.
+> In NUnit 4, `CollectionAssert` was in the `NUnit.Framework.Legacy` namespace and needed `using NUnit.Framework.Legacy;`.
 
 ```csharp
 CollectionAssert.AllItemsAreInstancesOfType(IEnumerable collection, Type expectedType);
