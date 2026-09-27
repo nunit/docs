@@ -1,26 +1,42 @@
 # Visual Studio Test Adapter
 
-The NUnit 3 Test Adapter allows you to run NUnit 3 and 4 tests inside Visual Studio or with `dotnet` on the command line.
+The NUnit Test Adapter lets you run NUnit tests in Visual Studio, Rider and Visual Studio Code, and from the command
+line with `dotnet test`. It runs tests written with NUnit 3, NUnit 4 and NUnit 5.
 
-The current release is designed to work with Visual Studio 2012, 2013, 2015, 2017, 2019 and 2022. Some features are not
-available under VS2012 RTM. It also works from the command line using either `vstest.console` or `dotnet test`.
+The adapter is published on NuGet as **NUnit3TestAdapter**. The name comes from the NUnit 3 era; the same package is
+used for all current NUnit versions.
 
-The current release works with .net framework 3.5 and higher, with .net core `3.*`, and with .net 5, .net 6, and .net 7.
+* [Download released versions](https://www.nuget.org/packages/NUnit3TestAdapter/)
+* [Download pre-release versions](https://www.myget.org/feed/nunit/package/nuget/NUnit3TestAdapter)
 
-Releases of Visual Studio prior to VS 2012 did not have the ability to directly run tests built with Open Source testing
-frameworks like NUnit.
+## Getting started
 
-[Download Released versions](https://www.nuget.org/packages/NUnit3TestAdapter/)
+Add the adapter as a NuGet package to each test project. The NUnit project templates in Visual Studio, Rider and
+`dotnet new nunit` already include it. See [Installation](xref:vstestadapterinstallation) for how to add it to an
+existing project, and [Usage](Usage.md) for running and debugging tests in Visual Studio.
 
-[Download Pre-release versions](https://www.myget.org/feed/nunit/package/nuget/NUnit3TestAdapter)
+## Two ways to run tests
 
-The adapter is delivered as a nuget package to be installed into all test projects. See
-[Installation](xref:vstestadapterinstallation) for how to add it, and [Usage](Usage.md) for running tests in
-Visual Studio.
+The adapter supports both test platforms that `dotnet test` and the IDEs use:
 
-> [!NOTE]
-> Up to version 3.17 there is also a VSIX extension version, which was used earlier for Visual Studio up to
-> version 2019. The support for this has been deprecated, and the existing VSIX version does not work for VS 2022. The
-> recommendation is to avoid this altogether and use the nuget version. It is not possible to run NUnit 2.x tests using
-> this adapter. Use the original adapter for that purpose. If you need to work with projects using NUnit 2.x and other
-> projects using NUnit 3, you may install both versions of the adapter.
+* **VSTest**, the classic test platform. This is the default.
+* **[Microsoft.Testing.Platform](NUnit-And-Microsoft-Test-Platform.md)** (MTP), the newer and lighter test platform.
+  From adapter version 6.0, MTP version 2 is supported.
+
+## Supported .NET versions
+
+The current adapter, version 6, runs tests on .NET Framework 4.6.2 and later, and on .NET 8 and later. Older .NET
+versions, such as .NET Core 3.1 and .NET 5 to 7, need an older adapter version. See
+[Supported Frameworks](Supported-Frameworks.md) for which adapter version supports which .NET version.
+
+## Configuration
+
+Use a `.runsettings` file, or settings on the `dotnet test` command line, to control how the adapter runs your tests:
+test filters, output, parallel execution, result files and more. See
+[Configuration with runsettings](xref:tipsandtricks) for all the settings.
+
+## Older versions
+
+* The adapter can't run NUnit 2.x tests. Those need the NUnit 2 adapter, which is no longer maintained.
+* Up to version 3.17, the adapter was also available as a VSIX extension for Visual Studio 2019 and earlier. The VSIX
+  version is deprecated and doesn't work with Visual Studio 2022 or later. Use the NuGet package instead.

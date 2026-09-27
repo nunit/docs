@@ -7,7 +7,7 @@ uid: archive
 These pages describe older versions of NUnit, features that were removed or deprecated, and tools that are no longer
 maintained. They are kept for reference, and for anyone still working with older versions.
 
-For the current version, start at the [documentation home page](../home.md).
+For the current version, start at the [documentation home page](../index.md).
 
 ## Older versions of NUnit
 
