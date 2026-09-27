@@ -32,6 +32,7 @@ When several tests need the same starting point, move the common code into a met
 
 Use [`[TearDown]`](xref:attribute-teardown) for cleanup after each test, and
 [`[OneTimeSetUp]`](xref:attribute-onetimesetup) for expensive setup that should run only once for the whole class.
+[Setup and Teardown](xref:setupandteardownguide) explains all the options and when to use each one.
 
 ## Next steps
 
