@@ -37,5 +37,6 @@ Use [`[TearDown]`](xref:attribute-teardown) for cleanup after each test, and
 
 - [Data driven tests](xref:datadriventests) run the same test with different inputs.
 - [Automating tests](xref:automatingtests) lets NUnit generate the inputs for you.
+- [Multiple asserts](xref:multipleasserts) checks several things in one test and reports all the failures.
 - [Constraints](xref:constraints) lists everything you can check with `Assert.That`.
 - [Attributes](attributes.md) describes all the ways you can mark and control tests.

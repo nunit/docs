@@ -100,6 +100,9 @@ test fixture/class.
 
 If you like you can change that to another kind of listener.
 
+For how the test adapter shows this output in Visual Studio and `dotnet test`, see
+[Trace and Debug Output in the adapter](../../../vs-test-adapter/Trace-and-Debug.md).
+
 ## Discussion and source
 
 This issue has been discussed at [Issue 718](https://github.com/nunit/nunit3-vs-adapter/issues/718) and

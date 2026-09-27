@@ -30,7 +30,8 @@ somewhere else, such as a file. Point the attribute at a static method, property
 [!code-csharp[DataDrivenTestCaseSource](~/snippets/Snippets.NUnit/WritingTestsGuideExamples.cs#DataDrivenTestCaseSource)]
 
 Returning [`TestCaseData`](xref:testcasedata) objects is optional, but it lets you give each case a readable name, a
-description, categories and more.
+description, categories and more. To name many test cases with one pattern, see
+[Template Based Test Naming](xref:templatebasedtestnaming).
 
 ## Data for a single parameter with [ValueSource]
 

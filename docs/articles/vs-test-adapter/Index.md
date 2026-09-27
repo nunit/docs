@@ -14,7 +14,9 @@ frameworks like NUnit.
 
 [Download Pre-release versions](https://www.myget.org/feed/nunit/package/nuget/NUnit3TestAdapter)
 
-The adapter is delivered as a nuget package to be installed into all test projects.  
+The adapter is delivered as a nuget package to be installed into all test projects. See
+[Installation](xref:vstestadapterinstallation) for how to add it, and [Usage](Usage.md) for running tests in
+Visual Studio.
 
 > [!NOTE]
 > Up to version 3.17 there is also a VSIX extension version, which was used earlier for Visual Studio up to

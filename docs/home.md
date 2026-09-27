@@ -33,7 +33,10 @@ _description: Documentation for NUnit, the open-source unit-testing framework fo
 <a href="articles/nunit/writing-tests/data-driven-tests.md">Test with many inputs</a>
 <a href="articles/nunit/writing-tests/constraints/Constraints.md">Checking results</a>
 <a href="articles/nunit/writing-tests/setup-teardown/index.md">Setup and cleanup</a>
+<a href="articles/nunit/writing-tests/dependent-tests.md">Tests that depend on each other</a>
+<a href="articles/nunit/writing-tests/flaky-and-slow-tests.md">Flaky tests</a>
 <a href="articles/nunit/technical-notes/usage/Framework-Parallel-Test-Execution.md">Running tests in parallel</a>
+<a href="articles/vs-test-adapter/NUnit-And-Microsoft-Test-Platform.md">Microsoft.Testing.Platform</a>
 <a href="articles/nunit/V5BreakingChanges.md">Upgrading to NUnit 5</a>
 <a href="articles/nunit-analyzers/NUnit-Analyzers.md">Analyzer warnings</a>
 </p>
@@ -63,13 +66,21 @@ public class CalculatorTests
 <li><a href="articles/nunit/writing-tests/ordinary-tests.md">Ordinary tests</a></li>
 <li><a href="articles/nunit/writing-tests/data-driven-tests.md">Data driven tests</a></li>
 <li><a href="articles/nunit/writing-tests/automating-tests.md">Automating tests</a></li>
+<li><a href="articles/nunit/writing-tests/assertions/multiple-asserts.md">Checking several things at once</a></li>
+<li><a href="articles/nunit/writing-tests/dependent-tests.md">Tests that depend on other tests</a></li>
+<li><a href="articles/nunit/writing-tests/flaky-and-slow-tests.md">Flaky and slow tests</a></li>
+<li><a href="articles/nunit/writing-tests/organizing-tests.md">Organizing and selecting tests</a></li>
 </ul>
 <h3>Reference</h3>
 <ul>
 <li><a href="articles/nunit/writing-tests/attributes.md">Attributes</a></li>
+<li><a href="articles/nunit/writing-tests/assertions/assertions.md">Assertions overview</a></li>
 <li><a href="articles/nunit/writing-tests/constraints/Constraints.md">Fluent assertions (Assert.That)</a></li>
 <li><a href="articles/nunit/writing-tests/assertions/assertion-models/classic.md">Classic assertions</a></li>
 <li><a href="articles/nunit/writing-tests/assertions/assertion-models/special.md">Special assertions</a></li>
+<li><a href="articles/nunit/writing-tests/Assumptions.md">Assumptions</a></li>
+<li><a href="articles/nunit/writing-tests/Warnings.md">Warnings</a></li>
+<li><a href="articles/nunit/writing-tests/TestContext.md">TestContext</a></li>
 <li><a href="articles/nunit-analyzers/NUnit-Analyzers.md">Analyzer rules</a></li>
 </ul>
 </div>
@@ -83,6 +94,7 @@ public class CalculatorTests
 <li><a href="articles/nunit/getting-started/installation.md#im-using-rider-as-my-development-tool">In Rider</a></li>
 <li><a href="articles/nunit/getting-started/installation.md#i-prefer-to-do-this-using-the-command-line-or-any-of-the-built-in-terminals">From the command line</a></li>
 <li><a href="articles/nunit/getting-started/installation.md#adding-nunit-to-an-existing-test-project">In an existing project</a></li>
+<li><a href="articles/nunit/getting-started/downloading.md">Pre-release and developer builds</a></li>
 <li><a href="articles/nunit/getting-started/samples.md">Samples</a></li>
 <li><a href="articles/nunit/V5BreakingChanges.md">Upgrading to NUnit 5</a></li>
 </ul>
@@ -106,9 +118,12 @@ public class CalculatorTests
 <p>Run your tests in the IDE, on the command line or in your build.</p>
 <ul>
 <li><a href="articles/vs-test-adapter/Index.md">Visual Studio, Rider and dotnet test</a></li>
+<li><a href="articles/vs-test-adapter/NUnit-And-Microsoft-Test-Platform.md">Running with Microsoft.Testing.Platform</a></li>
+<li><a href="articles/vs-test-adapter/Tips-And-Tricks.md">Configuring with .runsettings</a></li>
 <li><a href="articles/nunit/running-tests/Console-Runner.md">Command line console</a></li>
 <li><a href="articles/nunit/running-tests/NUnitLite-Runner.md">Self-running test programs</a></li>
-<li><a href="articles/nunit/running-tests/Test-Selection-Language.md">Choosing which tests to run</a></li>
+<li><a href="articles/nunit/writing-tests/organizing-tests.md">Choosing which tests to run</a></li>
+<li><a href="https://github.com/TestCentric/testcentric-gui/wiki">In a GUI with TestCentric</a></li>
 </ul>
 </div>
 <div class="nh-card">
@@ -118,21 +133,23 @@ public class CalculatorTests
 <ul>
 <li><a href="articles/nunit-analyzers/NUnit-Analyzers.md">NUnit Analyzers</a></li>
 <li><a href="articles/nunit-engine/Index.md">The NUnit Engine</a></li>
+<li><a href="articles/vs-test-adapter/Supported-Frameworks.md">Supported .NET versions</a></li>
 <li><a href="articles/nunit/technical-notes/usage/Framework-Parallel-Test-Execution.md">Parallel test execution</a></li>
+<li><a href="articles/nunit/technical-notes/usage/Usage-Notes.md">Usage notes</a></li>
 <li><a href="articles/nunit/technical-notes/usage/Test-Result-XML-Format.md">Test result file format</a></li>
 <li><a href="api/NUnit.Framework.yml">API reference</a></li>
 </ul>
 </div>
 <div class="nh-card">
 <div class="nh-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-<h2><a href="articles/vs-test-adapter/Tips-And-Tricks.md">Articles</a></h2>
+<h2><a href="articles/vs-test-adapter/Resources.md">Articles</a></h2>
 <p>Practical guides and deeper reading.</p>
 <ul>
-<li><a href="articles/vs-test-adapter/Tips-And-Tricks.md">Tips and tricks</a></li>
-<li><a href="articles/vs-test-adapter/Debugging.md">Debugging your tests</a></li>
+<li><a href="articles/vs-test-adapter/Known-Problems.md">Known problems and workarounds</a></li>
 <li><a href="articles/nunit/technical-notes/usage/Trace-and-Debug-Output.md">Trace and debug output</a></li>
+<li><a href="articles/vs-test-adapter/Debugging.md">Troubleshooting the test adapter</a></li>
 <li><a href="articles/vs-test-generator/Visual-Studio-Test-Generator.md">Generating tests in Visual Studio</a></li>
-<li><a href="articles/nunit/Towards-NUnit4.md">Towards NUnit 4</a></li>
+<li><a href="articles/vs-test-adapter/Resources.md">More resources</a></li>
 </ul>
 </div>
 <div class="nh-card">
@@ -146,8 +163,9 @@ public class CalculatorTests
 <li><a href="articles/developer-info/Best-practices-for-XML-documentation.md">XML documentation</a></li>
 <li><a href="articles/developer-info/Contributions.md">Contributions</a></li>
 <li><a href="articles/developer-info/Issue-Tracking.md">Issue tracking</a></li>
-<li><a href="articles/developer-info/Notes-Toward-NUnit-4.0.md">NUnit 4.0 plans</a></li>
-<li><a href="articles/developer-info/Packaging-the-Framework.md">Packaging</a></li>
+<li><a href="articles/nunit/technical-notes/nunit-internals/specs/Specifications.md">Specifications</a></li>
+<li><a href="articles/nunit/technical-notes/nunit-internals/NUnit-Internals.md">NUnit internals</a></li>
+<li><a href="articles/developer-info/Packaging.md">Packaging</a></li>
 </ul>
 </div>
 <div class="nh-card">
@@ -159,26 +177,24 @@ public class CalculatorTests
 <li><a href="articles/nunit/extending-nunit/Custom-Constraints.md">Custom constraints</a></li>
 <li><a href="articles/nunit/extending-nunit/Custom-Attributes.md">Custom attributes</a></li>
 <li><a href="articles/nunit/extending-nunit/Action-Attributes.md">Action attributes</a></li>
+<li><a href="articles/nunit/extending-nunit/Execution-Hooks.md">Execution hooks</a></li>
 <li><a href="articles/nunit-engine/extensions/Index.md">Engine extensions</a></li>
 </ul>
 </div>
 <div class="nh-card nh-card-wide">
 <div class="nh-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg></div>
-<h2><a href="articles/legacy/index.md">Archive</a></h2>
-<p>Documentation for older versions.</p>
+<h2><a href="articles/archive.md">Archive</a></h2>
+<p>Documentation for older versions and for tools that are no longer maintained.</p>
 <ul>
 <li><a href="articles/legacy/index.md">NUnit 2.x documentation</a></li>
-<li><a href="articles/nunit/release-notes/Pre-3.5-Release-Notes.md">Release notes before 3.5</a></li>
-<li><a href="articles/nunit/release-notes/breaking-changes.md">Breaking changes up to NUnit 4.0</a></li>
 <li><a href="articles/nunit/release-notes/Nunit4.0-MigrationGuide.md">Migrating to NUnit 4</a></li>
+<li><a href="articles/nunit/release-notes/breaking-changes.md">Breaking changes up to NUnit 4.0</a></li>
 <li><a href="articles/nunit/getting-started/upgrading.md">Upgrading from NUnit 2 and 3</a></li>
-<li><a href="articles/nunit/getting-started/dotnet-core-and-dotnet-standard.md">.NET Core and .NET Standard</a></li>
 <li><a href="articles/xamarin-runners/index.md">Xamarin runners for mobile devices</a></li>
-<li><a href="articles/vs-test-adapter/AdapterV3-Release-Notes.md">Test adapter V3 release notes</a></li>
-<li><a href="articles/vs-test-adapter/AdapterV2-Release-Notes.md">Test adapter V2 release notes</a></li>
+<li><a href="articles/archive.md">Everything in the archive</a></li>
 </ul>
 </div>
 </div>
 </section>
-<p class="nh-community">Questions? <a href="https://github.com/nunit/nunit/discussions">Ask in GitHub Discussions</a> &middot; <a href="https://github.com/nunit/nunit">NUnit on GitHub</a> &middot; <a href="https://github.com/nunit/docs/blob/master/CONTRIBUTING.md">Help improve these docs</a></p>
+<p class="nh-community">Questions? <a href="https://github.com/nunit/nunit/discussions">Ask in GitHub Discussions</a> &middot; <a href="https://github.com/nunit/nunit">NUnit on GitHub</a> &middot; <a href="https://github.com/nunit/docs/blob/master/CONTRIBUTING.md">Help improve these docs</a> &middot; <a href="articles/nunit/license.md">License</a></p>
 </div>

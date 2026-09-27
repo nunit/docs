@@ -183,4 +183,146 @@ public class WritingTestsGuideExamples
         }
     }
     #endregion
+
+    #region DependentTests
+    public class OrderWorkflowTests
+    {
+        private static readonly List<string> Orders = [];
+
+        [Test]
+        public void CreateOrder()
+        {
+            Orders.Add("order-1");
+            Assert.That(Orders, Has.Count.EqualTo(1));
+        }
+
+        [Test]
+        [DependsOnTest(nameof(CreateOrder))]
+        public void ShipOrder()
+        {
+            // Runs only after CreateOrder has passed. If CreateOrder fails, this test is skipped.
+            Assert.That(Orders, Does.Contain("order-1"));
+        }
+
+        [Test]
+        [DependsOnTest(nameof(ShipOrder), AllowFailure = true)]
+        public void CleanUpOrders()
+        {
+            // Runs after ShipOrder even if it failed, so the cleanup always happens.
+            Orders.Clear();
+            Assert.That(Orders, Is.Empty);
+        }
+    }
+    #endregion
+
+    #region FlakyRetry
+    public class ExternalServiceTests
+    {
+        [Test]
+        [Retry(3)]
+        public void Service_Responds()
+        {
+            // If the assertion fails, NUnit runs the test again, up to 3 attempts in total.
+            Assert.That(CallService(), Is.EqualTo("OK"));
+        }
+
+        [Test]
+        [Retry(3, RetryExceptions = [typeof(TimeoutException)])]
+        public void Service_Responds_EvenAfterTimeouts()
+        {
+            // Also retried when the call throws a TimeoutException.
+            Assert.That(CallService(), Is.EqualTo("OK"));
+        }
+
+        private static string CallService() => "OK";
+    }
+    #endregion
+
+    #region FlakyRepeatThreshold
+    public class RecommendationTests
+    {
+        [Test]
+        [Repeat(20, RequiredPassPercentage = 90)]
+        public void Recommendation_IsUsuallyRelevant()
+        {
+            // Passes when at least 18 of the 20 runs pass.
+            Assert.That(GetRecommendation(), Is.Not.Empty);
+        }
+
+        private static string GetRecommendation() => "NUnit";
+    }
+    #endregion
+
+    #region SlowMaxTime
+    public class PerformanceTests
+    {
+        [Test]
+        [MaxTime(2000, WarningTime = 500)]
+        public void Search_IsFastEnough()
+        {
+            // A warning above 500 ms, a failure above 2 seconds. The test is never interrupted.
+            var result = Enumerable.Range(1, 1000).Where(n => n % 7 == 0).ToList();
+            Assert.That(result, Is.Not.Empty);
+        }
+    }
+    #endregion
+
+    #region SlowCancelAfter
+    public class DownloadTests
+    {
+        [Test]
+        [CancelAfter(5000)]
+        public async Task Download_Completes(CancellationToken cancellationToken)
+        {
+            // NUnit cancels the token after 5 seconds. Pass it on so the work actually stops.
+            var content = await DownloadAsync(cancellationToken);
+            Assert.That(content, Is.Not.Empty);
+        }
+
+        private static async Task<string> DownloadAsync(CancellationToken cancellationToken)
+        {
+            await Task.Delay(10, cancellationToken);
+            return "content";
+        }
+    }
+    #endregion
+
+    #region OrganizingCategories
+    [Category("Integration")]
+    public class DatabaseTests
+    {
+        [Test]
+        public void Connection_Opens()
+        {
+            Assert.Pass();
+        }
+
+        [Test]
+        [Category("Slow")]
+        public void Migration_Runs()
+        {
+            // This test is in both the "Integration" and the "Slow" category.
+            Assert.Pass();
+        }
+    }
+    #endregion
+
+    #region OrganizingExplicitIgnore
+    public class MaintenanceTests
+    {
+        [Test]
+        [Explicit("Rebuilds the test database, run it on demand")]
+        public void RebuildTestDatabase()
+        {
+            Assert.Pass();
+        }
+
+        [Test]
+        [Ignore("Waiting for issue #123 to be fixed", Until = "2099-12-31")]
+        public void Export_HandlesUnicode()
+        {
+            Assert.Fail("Not fixed yet");
+        }
+    }
+    #endregion
 }

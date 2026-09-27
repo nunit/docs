@@ -1,6 +1,6 @@
 # NUnit License
 
-## Copyright (c) 2004-2021 Charlie Poole, Rob Prouse and Contributors.
+## Copyright (c) 2009-2019 Charlie Poole, 2014-2025 Rob Prouse, 2026 Terje Sandstrom and Contributors.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

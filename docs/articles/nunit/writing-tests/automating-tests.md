@@ -32,6 +32,9 @@ hold for *any* input, such as `a + b == b + a`. NUnit records the random seed it
 
 [!code-csharp[AutomatingRandom](~/snippets/Snippets.NUnit/WritingTestsGuideExamples.cs#AutomatingRandom)]
 
+To create random values in the test code itself, use the [Randomizer](xref:randomizermethods) from
+`TestContext.CurrentContext.Random`. It uses the same seed, so these values can be reproduced too.
+
 ## Keeping the number of tests down
 
 Combinations grow fast: three parameters with ten values each give a thousand test cases. NUnit has two attributes that

@@ -44,6 +44,9 @@ section.
 
 A detailed explanation of the process can be found in [this blog post](https://hermit.no/debugging-the-nunit3testadapter-take-2/)
 
+To step into the adapter source code from your own debugging session, see
+[Adapter Source Stepping](Adapter-Source-Stepping.md).
+
 ## Debugging earlier versions
 
 See [this blog post](https://hermit.no/debugging-the-nunit3testadapter/) for details on that process.

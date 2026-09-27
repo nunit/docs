@@ -52,6 +52,8 @@ dotnet run
 If you install the NUnitLite runner via the NuGet package, steps 2 is handled automatically. Both assemblies are
 installed and referenced for you.
 
+All the options are described in [NUnitLite Options](NUnitLite-Options.md).
+
 ## NUnitLite Output
 
 As seen in the following screen shot, the output from an NUnitLite run is quite similar to that from the console runner.
