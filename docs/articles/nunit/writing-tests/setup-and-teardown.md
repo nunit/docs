@@ -2,11 +2,12 @@
 uid: setupandteardownguide
 ---
 
-# Setup and Teardown
+# Preparing and Cleaning Up Tests
 
 Most tests need something prepared before they run: an object to test, a temporary folder, a database connection. Many
-also need something cleaned up afterwards. NUnit lets you put this code in separate methods, so each test only
-contains what it is actually testing.
+also need something cleaned up afterwards. NUnit lets you put this code in separate methods, marked with
+`[SetUp]`, `[TearDown]`, `[OneTimeSetUp]`, `[OneTimeTearDown]` or `[SetUpFixture]`, so each test only contains
+what it is actually testing.
 
 There are three levels, depending on how often the code should run:
 

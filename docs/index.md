@@ -26,7 +26,7 @@ _description: Documentation for NUnit, the open-source unit-testing framework fo
 <p class="nh-popular"><span>Popular:</span>
 <a href="articles/nunit/writing-tests/data-driven-tests.md">Test with many inputs</a>
 <a href="articles/nunit/writing-tests/constraints/Constraints.md">Checking results</a>
-<a href="articles/nunit/writing-tests/setup-and-teardown.md">Setup and cleanup</a>
+<a href="articles/nunit/writing-tests/setup-and-teardown.md">Preparing and cleaning up</a>
 <a href="articles/nunit/writing-tests/dependent-tests.md">Tests that depend on each other</a>
 <a href="articles/nunit/writing-tests/flaky-and-slow-tests.md">Flaky tests</a>
 <a href="articles/nunit/technical-notes/usage/Framework-Parallel-Test-Execution.md">Running tests in parallel</a>
@@ -58,7 +58,7 @@ public class CalculatorTests
 <p>From a single test to tests that run with hundreds of inputs.</p>
 <ul>
 <li><a href="articles/nunit/writing-tests/ordinary-tests.md">Ordinary tests</a></li>
-<li><a href="articles/nunit/writing-tests/setup-and-teardown.md">Setup and teardown</a></li>
+<li><a href="articles/nunit/writing-tests/setup-and-teardown.md">Preparing and cleaning up</a></li>
 <li><a href="articles/nunit/writing-tests/data-driven-tests.md">Data driven tests</a></li>
 <li><a href="articles/nunit/writing-tests/automating-tests.md">Automating tests</a></li>
 <li><a href="articles/nunit/writing-tests/assertions/multiple-asserts.md">Checking several things at once</a></li>
