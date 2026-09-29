@@ -91,7 +91,6 @@ public class CalculatorTests
 <li><a href="articles/nunit/getting-started/installation.md#adding-nunit-to-an-existing-test-project">In an existing project</a></li>
 <li><a href="articles/nunit/getting-started/downloading.md">Pre-release and developer builds</a></li>
 <li><a href="articles/nunit/getting-started/samples.md">Samples</a></li>
-<li><a href="articles/nunit/V5BreakingChanges.md">Upgrading to NUnit 5</a></li>
 </ul>
 </div>
 <div class="nh-card">
@@ -100,11 +99,11 @@ public class CalculatorTests
 <p>Release notes for NUnit and all its tools.</p>
 <ul>
 <li><a href="articles/nunit/V5NewFeatures.md">What's new in NUnit 5</a></li>
+<li><a href="articles/nunit/V5BreakingChanges.md">Upgrading to NUnit 5</a></li>
 <li><a href="articles/nunit/release-notes/framework.md">NUnit framework</a></li>
 <li><a href="articles/vs-test-adapter/AdapterV4-Release-Notes.md">Test adapter</a></li>
 <li><a href="https://github.com/nunit/nunit.analyzers/blob/master/CHANGES.md">NUnit Analyzers</a></li>
 <li><a href="articles/nunit-engine/github-release-notes.md">Console and engine</a></li>
-<li><a href="articles/vs-test-generator/TestGenerator-Release-Notes.md">VS Test Generator</a></li>
 </ul>
 </div>
 <div class="nh-card">
@@ -143,7 +142,6 @@ public class CalculatorTests
 <li><a href="articles/vs-test-adapter/Known-Problems.md">Known problems and workarounds</a></li>
 <li><a href="articles/nunit/technical-notes/usage/Trace-and-Debug-Output.md">Trace and debug output</a></li>
 <li><a href="articles/vs-test-adapter/Debugging.md">Troubleshooting the test adapter</a></li>
-<li><a href="articles/vs-test-generator/Visual-Studio-Test-Generator.md">Generating tests in Visual Studio</a></li>
 <li><a href="articles/vs-test-adapter/Resources.md">More resources</a></li>
 </ul>
 </div>
@@ -186,6 +184,7 @@ public class CalculatorTests
 <li><a href="articles/nunit/release-notes/breaking-changes.md">Breaking changes up to NUnit 4.0</a></li>
 <li><a href="articles/nunit/getting-started/upgrading.md">Upgrading from NUnit 2 and 3</a></li>
 <li><a href="articles/xamarin-runners/index.md">Xamarin runners for mobile devices</a></li>
+<li><a href="articles/vs-test-generator/Visual-Studio-Test-Generator.md">VS Test Generator</a></li>
 <li><a href="articles/archive.md">Everything in the archive</a></li>
 </ul>
 </div>

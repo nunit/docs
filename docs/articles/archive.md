@@ -29,6 +29,7 @@ For the current version, start at the [documentation home page](../index.md).
 ## Tools that are no longer maintained
 
 * [NUnit Xamarin Runners](xref:xamarinrunners)
+* [NUnit VS Test Generator](xref:vstestgenerator)
 * [NUnit Project Editor](https://github.com/nunit-legacy/nunit-project-editor/wiki/Project-Editor)
 
 ## Older release notes
