@@ -1,6 +1,9 @@
 # NUnit License
 
-## Copyright (c) 2009-2019 Charlie Poole, 2014-2025 Rob Prouse, 2026 Terje Sandstrom and Contributors.
+> [!NOTE]
+> This is the former license. Now replaced with an [MIT license](https://github.com/nunit/docs/blob/master/LICENSE.md).
+
+## Copyright (c) 2004-2021 Charlie Poole, Rob Prouse and Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
