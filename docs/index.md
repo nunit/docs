@@ -128,6 +128,7 @@ public class CalculatorTests
 <li><a href="articles/nunit-analyzers/NUnit-Analyzers.md">NUnit Analyzers</a></li>
 <li><a href="articles/nunit-engine/Index.md">The NUnit Engine</a></li>
 <li><a href="articles/vs-test-adapter/Supported-Frameworks.md">Supported .NET versions</a></li>
+<li><a href="articles/vs-test-adapter/Adapter-Engine-Compatibility.md">Adapter and engine compatibility</a></li>
 <li><a href="articles/nunit/technical-notes/usage/Framework-Parallel-Test-Execution.md">Parallel test execution</a></li>
 <li><a href="articles/nunit/technical-notes/usage/Usage-Notes.md">Usage notes</a></li>
 <li><a href="articles/nunit/technical-notes/usage/Test-Result-XML-Format.md">Test result file format</a></li>
