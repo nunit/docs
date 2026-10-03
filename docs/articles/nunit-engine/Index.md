@@ -13,6 +13,7 @@ engine and run tests as required.
 > rather than using one of the many existing test runners in the ecosystem. If you are looking to simply run tests that
 > you have written, see the [running tests](xref:runningtests) section.
 
-The engine exposes [an API](xref:testengineapi) designed to be used by test runners, which will be maintained in a
+To start using the engine in your own runner, see [Getting Started](xref:gettingstartedengine). The engine exposes
+[an API](xref:testengineapi) designed to be used by test runners, which will be maintained in a
 backwards-compatible fashion wherever possible. The engine also hosts various extension points, to allow further
 customization.
