@@ -29,6 +29,24 @@ Fancy using GitHub Codespaces for your work on these docs? Or want to work in th
 
 We'll be working on follow-ups to make this more user-friendly, but it's now workable.
 
+### Troubleshooting: Dev Container fails to start on Windows with WSL
+
+If the image builds but the container fails to start with an error like:
+
+```text
+docker: Error response from daemon: accessing specified distro mount service: stat /run/guest-services/distro-services/ubuntu.sock: no such file or directory
+```
+
+VS Code is trying to mount the WSLg Wayland socket from your WSL distro into the container, and Docker Desktop can't reach
+that distro. The docs tooling doesn't need it, so the simplest fix is to turn it off in your VS Code **user** settings:
+
+```json
+"dev.containers.mountWaylandSocket": false
+```
+
+Then run **Dev Containers: Rebuild and Reopen in Container**. Alternatively, enable WSL integration for your distro in
+Docker Desktop (Settings → Resources → WSL integration), or run `wsl --shutdown` and restart Docker Desktop.
+
 ## Linting Locally
 
 * Install `markdownlint-cli2`: `npm install markdownlint-cli2 -g`
