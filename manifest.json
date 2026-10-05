@@ -1,4 +1,5 @@
 {
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
   "sitemap": {
     "baseUrl": "http://docs.nunit.org/"
   },
@@ -13569,7 +13570,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "NUnit.Framework.Diagnostics.ProgressTraceListener",
-      "Summary": "<p>\n            The ProgressTraceListener class allows directing tracing or\n            debugging output to <xref href=\"NUnit.Framework.TestContext.Progress\" data-throw-if-not-resolved=\"false\"></xref>.\n            </p>\n<p>\n            To activate, place the following snippet into the one-time\n            set-up method of either a test's fixture or the set-up\n            fixture of a project:\n            <code>\n            System.Trace.Listeners.Add(new ProgressTraceListener());\n            </code>\n            </p>\n<p>\n            Make sure to only add a listener once, e.g.:\n            <code>\n            if (!System.Trace.Listeners.OfType&lt;ProgressTraceListener&gt;().Any())\n                System.Trace.Listeners.Add(new ProgressTraceListener());\n            </code>\n            </p>\n<p>\n            Alternatively, add it in the one-time set-up and again remove\n            it in the one-time tear-down, e.g.:\n            <code>\n            _progressTraceListener = new ProgressTraceListener();\n            System.Trace.Listeners.Add(_progressTraceListener);\n            </code>\n            <code>\n            System.Trace.Listeners.Remove(_progressTraceListener);\n            _progressTraceListener.Close();\n            </code>\n            </p>\n"
+      "Summary": "<p>\n            The ProgressTraceListener class allows directing tracing or\n            debugging output to <xref href=\"NUnit.Framework.TestContext.Progress\" data-throw-if-not-resolved=\"false\"></xref>.\n            </p><p>\n            To activate, place the following snippet into the one-time\n            set-up method of either a test's fixture or the set-up\n            fixture of a project:\n            <code>\n            System.Trace.Listeners.Add(new ProgressTraceListener());\n            </code>\n            </p><p>\n            Make sure to only add a listener once, e.g.:\n            <code>\n            if (!System.Trace.Listeners.OfType&lt;ProgressTraceListener&gt;().Any())\n                System.Trace.Listeners.Add(new ProgressTraceListener());\n            </code>\n            </p><p>\n            Alternatively, add it in the one-time set-up and again remove\n            it in the one-time tear-down, e.g.:\n            <code>\n            _progressTraceListener = new ProgressTraceListener();\n            System.Trace.Listeners.Add(_progressTraceListener);\n            </code>\n            <code>\n            System.Trace.Listeners.Remove(_progressTraceListener);\n            _progressTraceListener.Close();\n            </code>\n            </p>\n"
     },
     {
       "type": "ManagedReference",
