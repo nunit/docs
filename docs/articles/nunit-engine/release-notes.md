@@ -6,6 +6,10 @@ uid: consoleenginereleasenotes
 
 # Console and Engine Release Notes
 
+> [!NOTE]
+> This page covers version 3.17.0 and earlier. The release notes for later versions are published on GitHub, see
+> [Console and Engine Release Notes](xref:consoleenginegithubreleasenotes).
+
 ## NUnit Console & Engine 3.17.0 - January 4, 2024
 
 This release adds support for .net 8 by adding a missing agent.
