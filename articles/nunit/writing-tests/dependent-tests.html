@@ -12,9 +12,9 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Console Runner | NUnit Docs </title>
+      <title>Tests That Depend on Other Tests | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Console Runner | NUnit Docs ">
+      <meta name="title" content="Tests That Depend on Other Tests | NUnit Docs ">
     
     
       <link rel="shortcut icon" href="../../../favicon.ico">
@@ -83,64 +83,71 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="console-runner">Console Runner</h1>
+            <article class="content wrap" id="_content" data-uid="dependenttests">
+<h1 id="tests-that-depend-on-other-tests">Tests That Depend on Other Tests</h1>
 
-<p>The nunit3-console.exe program is a text-based runner for listing and running our tests from the command-line. It is
-able to run all NUnit 3.0 or higher tests natively and can run NUnit 2.x tests if the v2 driver is installed.</p>
-<p>All the options are described in <a class="xref" href="Console-Command-Line.html">Console Command Line</a>.</p>
-<p>This runner is useful for automation of tests and integration into other systems. It automatically saves its results in
-XML format, allowing you to produce reports or otherwise process the results. The following is a screenshot of the
-console program output.</p>
-<p><img src="../../../images/console-mock.png" alt="Screen shot of nunit-console"></p>
-<p>In this example, nunit3-console has just run selected tests in the mock-nunit-assembly.exe assembly that is part of the
-NUnit distribution. This assembly contains a number of tests, some of which are either ignored or marked explicit. The
-summary line shows the result of the test run.</p>
-<h2 id="console-exit-codes">Console Exit Codes</h2>
-<p>The console will exit with zero if all tests pass, a positive number if there are any test failures, and a negative
-number in the case of any errors in running the test suite. The current exit codes used are summarized below:</p>
-<table>
-<thead>
-<tr>
-<th>Exit code</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>All tests passed. Note that some tests may still have produced warnings -- those will be listed in the console output.</td>
-</tr>
-<tr>
-<td>1-100</td>
-<td>Some tests have failed. The exit code will reflect the number of test failures (capped at 100).</td>
-</tr>
-<tr>
-<td>-1</td>
-<td>Invalid argument found on command line.</td>
-</tr>
-<tr>
-<td>-2</td>
-<td>One of the assemblies passed into the console was found to be invalid. This may include assemblies which contain no tests.</td>
-</tr>
-<tr>
-<td>-3</td>
-<td>No longer used. Previously used when a requested test fixture could not be found.</td>
-</tr>
-<tr>
-<td>-4</td>
-<td>An invalid test fixture was found within the test suite.</td>
-</tr>
-<tr>
-<td>-5</td>
-<td>No longer used. Previously used when the App Domain within which the tests were run could not be unloaded cleanly. This situation is now logged as a warning instead of an error, and will result in the console exiting zero.</td>
-</tr>
-<tr>
-<td>-100</td>
-<td>An unexpected error occurred. This may indicate a bug within the test runner - please consider filing an issue on the <a href="https://github.com/nunit/nunit-console/issues">nunit-console repository</a>.</td>
-</tr>
-</tbody>
-</table>
+<p>Most tests should be independent: each one sets up what it needs and can run on its own, in any order. Sometimes,
+though, tests really do depend on each other. An integration test may need an order to exist before it can ship it, or
+a cleanup step must run after the tests that use a shared resource.</p>
+<p>NUnit 5 lets you say this directly with <a class="xref" href="attributes/dependsontest.html"><code>[DependsOnTest]</code></a> and
+<a class="xref" href="attributes/dependsonfixture.html"><code>[DependsOnFixture]</code></a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Test dependencies were added in NUnit 5.0.</p>
+</div>
+<h2 id="depending-on-another-test">Depending on another test</h2>
+<p>Put <code>[DependsOnTest]</code> on a test, with the name of the test it depends on. Use <code>nameof</code>, so the dependency still works
+when the test is renamed.</p>
+<pre><code class="lang-csharp" name="DependentTests">public class OrderWorkflowTests
+{
+    private static readonly List&lt;string&gt; Orders = [];
+
+    [Test]
+    public void CreateOrder()
+    {
+        Orders.Add(&quot;order-1&quot;);
+        Assert.That(Orders, Has.Count.EqualTo(1));
+    }
+
+    [Test]
+    [DependsOnTest(nameof(CreateOrder))]
+    public void ShipOrder()
+    {
+        // Runs only after CreateOrder has passed. If CreateOrder fails, this test is skipped.
+        Assert.That(Orders, Does.Contain(&quot;order-1&quot;));
+    }
+
+    [Test]
+    [DependsOnTest(nameof(ShipOrder), AllowFailure = true)]
+    public void CleanUpOrders()
+    {
+        // Runs after ShipOrder even if it failed, so the cleanup always happens.
+        Orders.Clear();
+        Assert.That(Orders, Is.Empty);
+    }
+}
+</code></pre>
+<ul>
+<li><code>ShipOrder</code> runs only after <code>CreateOrder</code> has finished. If <code>CreateOrder</code> fails, <code>ShipOrder</code> is <strong>skipped</strong> instead of
+failing with a confusing error.</li>
+<li><code>CleanUpOrders</code> sets <code>AllowFailure = true</code>, so it runs even if <code>ShipOrder</code> failed. This is the pattern for cleanup
+that must always happen.</li>
+</ul>
+<h2 id="depending-on-another-fixture">Depending on another fixture</h2>
+<p>When a whole class of tests depends on another class, put <a class="xref" href="attributes/dependsonfixture.html"><code>[DependsOnFixture]</code></a> on
+the class, with the type of the fixture it depends on. It works the same way: the dependent fixture waits for the other
+fixture, and is skipped if that fixture fails, unless <code>AllowFailure</code> is set.</p>
+<h2 id="things-to-keep-in-mind">Things to keep in mind</h2>
+<ul>
+<li>Tests in a dependency chain can't run in parallel with each other. Don't mark them
+<a class="xref" href="attributes/parallelizable.html"><code>[Parallelizable]</code></a>.</li>
+<li>Don't combine dependencies with <a class="xref" href="attributes/order.html"><code>[Order]</code></a> in the same chain. <code>[DependsOnTest]</code> and
+<code>[DependsOnFixture]</code> replace <code>[Order]</code> for most uses, and <code>[Order]</code> is deprecated.</li>
+<li>A circular dependency, or another invalid setup, marks the affected tests as failed, with a message that explains the
+problem.</li>
+</ul>
+<p>See the <a class="xref" href="attributes/dependsontest.html">DependsOnTest</a> and <a class="xref" href="attributes/dependsonfixture.html">DependsOnFixture</a> reference
+pages for all the details.</p>
 
 </article>
           </div>
@@ -150,7 +157,7 @@ number in the case of any errors in running the test suite. The current exit cod
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/running-tests/Console-Runner.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/dependent-tests.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>

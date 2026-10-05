@@ -12,9 +12,9 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Console Runner | NUnit Docs </title>
+      <title>Ordinary Tests | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Console Runner | NUnit Docs ">
+      <meta name="title" content="Ordinary Tests | NUnit Docs ">
     
     
       <link rel="shortcut icon" href="../../../favicon.ico">
@@ -83,64 +83,75 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="console-runner">Console Runner</h1>
+            <article class="content wrap" id="_content" data-uid="ordinarytests">
+<h1 id="ordinary-tests">Ordinary Tests</h1>
 
-<p>The nunit3-console.exe program is a text-based runner for listing and running our tests from the command-line. It is
-able to run all NUnit 3.0 or higher tests natively and can run NUnit 2.x tests if the v2 driver is installed.</p>
-<p>All the options are described in <a class="xref" href="Console-Command-Line.html">Console Command Line</a>.</p>
-<p>This runner is useful for automation of tests and integration into other systems. It automatically saves its results in
-XML format, allowing you to produce reports or otherwise process the results. The following is a screenshot of the
-console program output.</p>
-<p><img src="../../../images/console-mock.png" alt="Screen shot of nunit-console"></p>
-<p>In this example, nunit3-console has just run selected tests in the mock-nunit-assembly.exe assembly that is part of the
-NUnit distribution. This assembly contains a number of tests, some of which are either ignored or marked explicit. The
-summary line shows the result of the test run.</p>
-<h2 id="console-exit-codes">Console Exit Codes</h2>
-<p>The console will exit with zero if all tests pass, a positive number if there are any test failures, and a negative
-number in the case of any errors in running the test suite. The current exit codes used are summarized below:</p>
-<table>
-<thead>
-<tr>
-<th>Exit code</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>All tests passed. Note that some tests may still have produced warnings -- those will be listed in the console output.</td>
-</tr>
-<tr>
-<td>1-100</td>
-<td>Some tests have failed. The exit code will reflect the number of test failures (capped at 100).</td>
-</tr>
-<tr>
-<td>-1</td>
-<td>Invalid argument found on command line.</td>
-</tr>
-<tr>
-<td>-2</td>
-<td>One of the assemblies passed into the console was found to be invalid. This may include assemblies which contain no tests.</td>
-</tr>
-<tr>
-<td>-3</td>
-<td>No longer used. Previously used when a requested test fixture could not be found.</td>
-</tr>
-<tr>
-<td>-4</td>
-<td>An invalid test fixture was found within the test suite.</td>
-</tr>
-<tr>
-<td>-5</td>
-<td>No longer used. Previously used when the App Domain within which the tests were run could not be unloaded cleanly. This situation is now logged as a warning instead of an error, and will result in the console exiting zero.</td>
-</tr>
-<tr>
-<td>-100</td>
-<td>An unexpected error occurred. This may indicate a bug within the test runner - please consider filing an issue on the <a href="https://github.com/nunit/nunit-console/issues">nunit-console repository</a>.</td>
-</tr>
-</tbody>
-</table>
+<p>Most of the tests you write will be <em>ordinary</em> tests: a method that sets something up, does one thing and checks the
+result. This page shows what such a test looks like in NUnit, and where to go from there.</p>
+<h2 id="your-first-test">Your first test</h2>
+<p>A test is a public method marked with the <a class="xref" href="attributes/test.html"><code>[Test]</code></a> attribute, inside a public class. The class
+is called a <em>test fixture</em>.</p>
+<pre><code class="lang-csharp" name="OrdinaryTest">public class CalculatorTests
+{
+    [Test]
+    public void Add_TwoNumbers_ReturnsSum()
+    {
+        // Arrange
+        var calculator = new Calculator();
+
+        // Act
+        var result = calculator.Add(2, 3);
+
+        // Assert
+        Assert.That(result, Is.EqualTo(5));
+    }
+}
+</code></pre>
+<p>The test follows the common <strong>Arrange, Act, Assert</strong> pattern:</p>
+<ul>
+<li><strong>Arrange</strong> creates the object you want to test, often called the <em>system under test</em>.</li>
+<li><strong>Act</strong> calls the method you want to test.</li>
+<li><strong>Assert</strong> checks that the result is what you expected. <code>Assert.That</code> takes the actual value and a <em>constraint</em>
+that describes the expected value, such as <code>Is.EqualTo(5)</code>.</li>
+</ul>
+<p>If the assertion fails, NUnit reports the test as failed and shows both the expected and the actual value.</p>
+<h2 id="sharing-setup-between-tests">Sharing setup between tests</h2>
+<p>When several tests need the same starting point, move the common code into a method marked with
+<a class="xref" href="attributes/setup.html"><code>[SetUp]</code></a>. NUnit runs it before each test in the class, so every test gets a fresh object.</p>
+<pre><code class="lang-csharp" name="OrdinarySetUp">public class CalculatorTestsWithSetUp
+{
+    private Calculator _calculator = null!;
+
+    [SetUp]
+    public void CreateCalculator()
+    {
+        _calculator = new Calculator();
+    }
+
+    [Test]
+    public void Add_ReturnsSum()
+    {
+        Assert.That(_calculator.Add(2, 3), Is.EqualTo(5));
+    }
+
+    [Test]
+    public void Multiply_ReturnsProduct()
+    {
+        Assert.That(_calculator.Multiply(2, 3), Is.EqualTo(6));
+    }
+}
+</code></pre>
+<p>Use <a class="xref" href="attributes/teardown.html"><code>[TearDown]</code></a> for cleanup after each test, and
+<a class="xref" href="attributes/onetimesetup.html"><code>[OneTimeSetUp]</code></a> for expensive setup that should run only once for the whole class.
+<a class="xref" href="setup-and-teardown.html">Preparing and Cleaning Up Tests</a> explains all the options and when to use each one.</p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a class="xref" href="data-driven-tests.html">Data driven tests</a> run the same test with different inputs.</li>
+<li><a class="xref" href="automating-tests.html">Automating tests</a> lets NUnit generate the inputs for you.</li>
+<li><a class="xref" href="assertions/multiple-asserts.html">Multiple asserts</a> checks several things in one test and reports all the failures.</li>
+<li><a class="xref" href="constraints/Constraints.html">Constraints</a> lists everything you can check with <code>Assert.That</code>.</li>
+<li><a href="attributes.html">Attributes</a> describes all the ways you can mark and control tests.</li>
+</ul>
 
 </article>
           </div>
@@ -150,7 +161,7 @@ number in the case of any errors in running the test suite. The current exit cod
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/running-tests/Console-Runner.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/ordinary-tests.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>

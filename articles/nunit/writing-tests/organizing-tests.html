@@ -12,9 +12,9 @@
       gtag('config', 'G-PCB5BYBNM2');
     </script>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Console Runner | NUnit Docs </title>
+      <title>Organizing and Selecting Tests | NUnit Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Console Runner | NUnit Docs ">
+      <meta name="title" content="Organizing and Selecting Tests | NUnit Docs ">
     
     
       <link rel="shortcut icon" href="../../../favicon.ico">
@@ -83,64 +83,82 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="console-runner">Console Runner</h1>
+            <article class="content wrap" id="_content" data-uid="organizingtests">
+<h1 id="organizing-and-selecting-tests">Organizing and Selecting Tests</h1>
 
-<p>The nunit3-console.exe program is a text-based runner for listing and running our tests from the command-line. It is
-able to run all NUnit 3.0 or higher tests natively and can run NUnit 2.x tests if the v2 driver is installed.</p>
-<p>All the options are described in <a class="xref" href="Console-Command-Line.html">Console Command Line</a>.</p>
-<p>This runner is useful for automation of tests and integration into other systems. It automatically saves its results in
-XML format, allowing you to produce reports or otherwise process the results. The following is a screenshot of the
-console program output.</p>
-<p><img src="../../../images/console-mock.png" alt="Screen shot of nunit-console"></p>
-<p>In this example, nunit3-console has just run selected tests in the mock-nunit-assembly.exe assembly that is part of the
-NUnit distribution. This assembly contains a number of tests, some of which are either ignored or marked explicit. The
-summary line shows the result of the test run.</p>
-<h2 id="console-exit-codes">Console Exit Codes</h2>
-<p>The console will exit with zero if all tests pass, a positive number if there are any test failures, and a negative
-number in the case of any errors in running the test suite. The current exit codes used are summarized below:</p>
-<table>
-<thead>
-<tr>
-<th>Exit code</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>All tests passed. Note that some tests may still have produced warnings -- those will be listed in the console output.</td>
-</tr>
-<tr>
-<td>1-100</td>
-<td>Some tests have failed. The exit code will reflect the number of test failures (capped at 100).</td>
-</tr>
-<tr>
-<td>-1</td>
-<td>Invalid argument found on command line.</td>
-</tr>
-<tr>
-<td>-2</td>
-<td>One of the assemblies passed into the console was found to be invalid. This may include assemblies which contain no tests.</td>
-</tr>
-<tr>
-<td>-3</td>
-<td>No longer used. Previously used when a requested test fixture could not be found.</td>
-</tr>
-<tr>
-<td>-4</td>
-<td>An invalid test fixture was found within the test suite.</td>
-</tr>
-<tr>
-<td>-5</td>
-<td>No longer used. Previously used when the App Domain within which the tests were run could not be unloaded cleanly. This situation is now logged as a warning instead of an error, and will result in the console exiting zero.</td>
-</tr>
-<tr>
-<td>-100</td>
-<td>An unexpected error occurred. This may indicate a bug within the test runner - please consider filing an issue on the <a href="https://github.com/nunit/nunit-console/issues">nunit-console repository</a>.</td>
-</tr>
-</tbody>
-</table>
+<p>As a test suite grows, you often want to run only part of it: the fast tests on every build, the integration tests at
+night, or the one test you are working on. NUnit lets you group tests, and then choose which groups to run.</p>
+<h2 id="grouping-tests-with-categories">Grouping tests with categories</h2>
+<p>Put <a class="xref" href="attributes/category.html"><code>[Category]</code></a> on a test or a fixture. A test can be in several categories, and it
+inherits the categories of its fixture.</p>
+<pre><code class="lang-csharp" name="OrganizingCategories">[Category(&quot;Integration&quot;)]
+public class DatabaseTests
+{
+    [Test]
+    public void Connection_Opens()
+    {
+        Assert.Pass();
+    }
+
+    [Test]
+    [Category(&quot;Slow&quot;)]
+    public void Migration_Runs()
+    {
+        // This test is in both the &quot;Integration&quot; and the &quot;Slow&quot; category.
+        Assert.Pass();
+    }
+}
+</code></pre><h2 id="running-only-some-categories">Running only some categories</h2>
+<p>With <code>dotnet test</code>, filter on <code>TestCategory</code>:</p>
+<pre><code class="lang-shell"># Only the integration tests
+dotnet test --filter &quot;TestCategory=Integration&quot;
+
+# Everything except the slow tests
+dotnet test --filter &quot;TestCategory!=Slow&quot;
+</code></pre>
+<p>With the <a class="xref" href="../running-tests/Console-Command-Line.html">NUnit console</a>, use <code>--where</code> with the
+<a class="xref" href="../running-tests/Test-Selection-Language.html">Test Selection Language</a>, which can also select tests by name, class, namespace or
+property:</p>
+<pre><code class="lang-shell">nunit3-console MyTests.dll --where &quot;cat == Integration &amp;&amp; cat != Slow&quot;
+</code></pre>
+<p>The same expressions work with <code>dotnet test</code> through the <code>NUnit.Where</code> setting, for example
+<code>dotnet test -- NUnit.Where=&quot;cat == Integration&quot;</code>. See <a class="xref" href="../../vs-test-adapter/Tips-And-Tricks.html">Configuring with .runsettings</a> for all the
+settings.</p>
+<h2 id="tests-that-run-only-on-demand">Tests that run only on demand</h2>
+<p>Mark a test with <a class="xref" href="attributes/explicit.html"><code>[Explicit]</code></a> when it should run only when you select it yourself, for
+example a test that rebuilds a database. It is skipped when you run all the tests.</p>
+<h2 id="tests-that-must-not-run-for-now">Tests that must not run for now</h2>
+<p>Mark a test with <a class="xref" href="attributes/ignore.html"><code>[Ignore]</code></a> when it can't run at the moment, and give the reason. Ignored tests
+show up as warnings, so they are not forgotten. With <code>Until</code>, the test starts running again after the given date.</p>
+<pre><code class="lang-csharp" name="OrganizingExplicitIgnore">public class MaintenanceTests
+{
+    [Test]
+    [Explicit(&quot;Rebuilds the test database, run it on demand&quot;)]
+    public void RebuildTestDatabase()
+    {
+        Assert.Pass();
+    }
+
+    [Test]
+    [Ignore(&quot;Waiting for issue #123 to be fixed&quot;, Until = &quot;2099-12-31&quot;)]
+    public void Export_HandlesUnicode()
+    {
+        Assert.Fail(&quot;Not fixed yet&quot;);
+    }
+}
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If a project contains only explicit tests, running the project runs all of them, because the adapter can't tell that
+apart from selecting them yourself. See <a class="xref" href="attributes/explicit.html">Explicit</a> for details.</p>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../running-tests/Test-Selection-Language.html">Test Selection Language</a></li>
+<li><a class="xref" href="../running-tests/Console-Command-Line.html">Console Command Line</a></li>
+<li>The <a class="xref" href="attributes/category.html">Category</a>, <a class="xref" href="attributes/explicit.html">Explicit</a> and <a class="xref" href="attributes/ignore.html">Ignore</a>
+reference pages</li>
+</ul>
 
 </article>
           </div>
@@ -150,7 +168,7 @@ number in the case of any errors in running the test suite. The current exit cod
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/running-tests/Console-Runner.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/organizing-tests.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>

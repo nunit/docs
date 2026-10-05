@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Automating Tests | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Automating Tests | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="automatingtests">
+<h1 id="automating-tests">Automating Tests</h1>
+
+<p>With <a class="xref" href="data-driven-tests.html">data driven tests</a> you write out every test case yourself. NUnit can also do that work for
+you: you describe the possible values for each parameter, and NUnit generates the test cases. This is a good way to
+cover many inputs with very little code.</p>
+<h2 id="every-combination-with-values">Every combination with [Values]</h2>
+<p>Put <a class="xref" href="attributes/values.html"><code>[Values]</code></a> on each parameter. By default NUnit runs the test once for every combination
+of the values, so the example below produces 3 × 2 = 6 test cases.</p>
+<pre><code class="lang-csharp" name="AutomatingCombinatorial">public class AddIsCommutativeTests
+{
+    [Test]
+    public void Add_IsCommutative([Values(-1, 0, 1)] int a, [Values(2, 3)] int b)
+    {
+        var calculator = new Calculator();
+        Assert.That(calculator.Add(a, b), Is.EqualTo(calculator.Add(b, a)));
+    }
+}
+</code></pre>
+<p>For <code>bool</code> and <code>enum</code> parameters you can leave out the values: <code>[Values] bool flag</code> gives you both <code>true</code> and
+<code>false</code>.</p>
+<h2 id="a-range-of-numbers-with-range">A range of numbers with [Range]</h2>
+<p>Use <a class="xref" href="attributes/range.html"><code>[Range]</code></a> to generate numbers from a start value to an end value, with an optional step.
+This example runs with -10, -5, 0, 5 and 10.</p>
+<pre><code class="lang-csharp" name="AutomatingRange">public class AddZeroTests
+{
+    [Test]
+    public void Add_Zero_ReturnsSameNumber([Range(-10, 10, 5)] int number)
+    {
+        Assert.That(new Calculator().Add(number, 0), Is.EqualTo(number));
+    }
+}
+</code></pre><h2 id="random-numbers-with-random">Random numbers with [Random]</h2>
+<p>Use <a class="xref" href="attributes/random.html"><code>[Random]</code></a> to have NUnit pick values for you. This is useful for checking rules that must
+hold for <em>any</em> input, such as <code>a + b == b + a</code>. NUnit records the random seed it used in the test results, so a failing run can be reproduced.</p>
+<pre><code class="lang-csharp" name="AutomatingRandom">public class AddRandomTests
+{
+    [Test]
+    public void Add_IsCommutative_ForRandomNumbers(
+        [Random(-1000, 1000, 5)] int a,
+        [Random(-1000, 1000, 5)] int b)
+    {
+        var calculator = new Calculator();
+        Assert.That(calculator.Add(a, b), Is.EqualTo(calculator.Add(b, a)));
+    }
+}
+</code></pre>
+<p>To create random values in the test code itself, use the <a class="xref" href="Randomizer-Methods.html">Randomizer</a> from
+<code>TestContext.CurrentContext.Random</code>. It uses the same seed, so these values can be reproduced too.</p>
+<h2 id="keeping-the-number-of-tests-down">Keeping the number of tests down</h2>
+<p>Combinations grow fast: three parameters with ten values each give a thousand test cases. NUnit has two attributes that
+change how the values are combined:</p>
+<ul>
+<li><a class="xref" href="attributes/pairwise.html"><code>[Pairwise]</code></a> generates just enough cases so that every <em>pair</em> of values is tested
+together at least once. Most bugs are caused by one value or by two values together, so this finds most of them
+with far fewer tests.</li>
+<li><a class="xref" href="attributes/sequential.html"><code>[Sequential]</code></a> uses the first value of each parameter together, then the second values,
+and so on, instead of all combinations.</li>
+</ul>
+<pre><code class="lang-csharp" name="AutomatingPairwise">public class FormattingTests
+{
+    [Test, Pairwise]
+    public void Format_HandlesAllOptions(
+        [Values(&quot;en-US&quot;, &quot;nb-NO&quot;, &quot;ja-JP&quot;)] string culture,
+        [Values(0, 1, -1)] int number,
+        [Values(true, false)] bool useGrouping)
+    {
+        var format = useGrouping ? &quot;N0&quot; : &quot;D&quot;;
+        var text = number.ToString(format, new System.Globalization.CultureInfo(culture));
+        Assert.That(text, Is.Not.Empty);
+    }
+}
+</code></pre><h2 id="theories">Theories</h2>
+<p>A <a class="xref" href="attributes/theory.html"><code>[Theory]</code></a> goes one step further: you state something that must be true for all data
+points, and NUnit tries it with every suitable value you have marked with <a class="xref" href="attributes/datapoint.html"><code>[Datapoint]</code></a>
+or <a class="xref" href="attributes/datapointsource.html"><code>[DatapointSource]</code></a>.</p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a class="xref" href="attributes/combinatorial.html">Combinatorial</a>, <a class="xref" href="attributes/pairwise.html">Pairwise</a> and
+<a class="xref" href="attributes/sequential.html">Sequential</a> describe the combining strategies in detail.</li>
+<li><a class="xref" href="../technical-notes/usage/Parameterized-Tests.html">Parameterized tests</a> describes all the details of how parameterized tests work.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/automating-tests.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

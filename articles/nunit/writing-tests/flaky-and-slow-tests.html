@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Flaky and Slow Tests | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Flaky and Slow Tests | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="flakyandslowtests">
+<h1 id="flaky-and-slow-tests">Flaky and Slow Tests</h1>
+
+<p>Some tests don't give the same result every time. They call a service that sometimes times out, test something that is
+non-deterministic by nature, or now and then take far too long. NUnit has attributes for each of these cases.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>A flaky test is often a sign of a real problem, such as a race condition or state shared between tests. Use these
+attributes to keep your build reliable while you investigate, not to hide bugs.</p>
+</div>
+<h2 id="retrying-a-test-that-sometimes-fails">Retrying a test that sometimes fails</h2>
+<p><a class="xref" href="attributes/retry.html"><code>[Retry]</code></a> runs the test again when an assertion fails, up to the number of attempts you give.
+The test passes as soon as one attempt passes.</p>
+<pre><code class="lang-csharp" name="FlakyRetry">public class ExternalServiceTests
+{
+    [Test]
+    [Retry(3)]
+    public void Service_Responds()
+    {
+        // If the assertion fails, NUnit runs the test again, up to 3 attempts in total.
+        Assert.That(CallService(), Is.EqualTo(&quot;OK&quot;));
+    }
+
+    [Test]
+    [Retry(3, RetryExceptions = [typeof(TimeoutException)])]
+    public void Service_Responds_EvenAfterTimeouts()
+    {
+        // Also retried when the call throws a TimeoutException.
+        Assert.That(CallService(), Is.EqualTo(&quot;OK&quot;));
+    }
+
+    private static string CallService() =&gt; &quot;OK&quot;;
+}
+</code></pre>
+<p>The count is the total number of attempts, so <code>[Retry(3)]</code> means one run and up to two retries. By default, only
+assertion failures cause a retry. List the exceptions that should also cause a retry in <code>RetryExceptions</code>.</p>
+<h2 id="allowing-some-failures">Allowing some failures</h2>
+<p>For systems that are non-deterministic by design, such as tests of AI-based features, you can accept that a test
+sometimes fails. <a class="xref" href="attributes/repeat.html"><code>[Repeat]</code></a> with <code>RequiredPassPercentage</code> runs the test several times and
+passes when enough of the runs pass.</p>
+<pre><code class="lang-csharp" name="FlakyRepeatThreshold">public class RecommendationTests
+{
+    [Test]
+    [Repeat(20, RequiredPassPercentage = 90)]
+    public void Recommendation_IsUsuallyRelevant()
+    {
+        // Passes when at least 18 of the 20 runs pass.
+        Assert.That(GetRecommendation(), Is.Not.Empty);
+    }
+
+    private static string GetRecommendation() =&gt; &quot;NUnit&quot;;
+}
+</code></pre>
+<p>Set <code>StopWhenOverallResultDetermined = true</code> to stop repeating as soon as the outcome is certain. <code>[Repeat]</code> without a
+percentage is also a good way to <em>find</em> a flaky test: repeat it a hundred times and see whether it ever fails.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>RequiredPassPercentage</code> and <code>StopWhenOverallResultDetermined</code> were added in NUnit 5.0.</p>
+</div>
+<h2 id="tests-that-take-too-long">Tests that take too long</h2>
+<p><a class="xref" href="attributes/maxtime.html"><code>[MaxTime]</code></a> fails a test that takes longer than the time you give, in milliseconds. With
+<code>WarningTime</code>, a test that is slower than expected, but still within the limit, gives a warning instead. The test is
+never interrupted: NUnit measures the time when it finishes.</p>
+<pre><code class="lang-csharp" name="SlowMaxTime">public class PerformanceTests
+{
+    [Test]
+    [MaxTime(2000, WarningTime = 500)]
+    public void Search_IsFastEnough()
+    {
+        // A warning above 500 ms, a failure above 2 seconds. The test is never interrupted.
+        var result = Enumerable.Range(1, 1000).Where(n =&gt; n % 7 == 0).ToList();
+        Assert.That(result, Is.Not.Empty);
+    }
+}
+</code></pre><h2 id="tests-that-hang">Tests that hang</h2>
+<p>To stop a test that runs too long, use <a class="xref" href="attributes/cancelafter.html"><code>[CancelAfter]</code></a>. NUnit passes a
+<code>CancellationToken</code> to the test and cancels it when the time is up. The test must pass the token on to the code it
+calls, so that the work actually stops.</p>
+<pre><code class="lang-csharp" name="SlowCancelAfter">public class DownloadTests
+{
+    [Test]
+    [CancelAfter(5000)]
+    public async Task Download_Completes(CancellationToken cancellationToken)
+    {
+        // NUnit cancels the token after 5 seconds. Pass it on so the work actually stops.
+        var content = await DownloadAsync(cancellationToken);
+        Assert.That(content, Is.Not.Empty);
+    }
+
+    private static async Task&lt;string&gt; DownloadAsync(CancellationToken cancellationToken)
+    {
+        await Task.Delay(10, cancellationToken);
+        return &quot;content&quot;;
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The older <a class="xref" href="attributes/timeout.html"><code>[Timeout]</code></a> attribute only works on .NET Framework, and is reported as a test
+failure on .NET 5 and later. For code that can't be cancelled, <code>dotnet test --blame-hang-timeout</code> stops the whole
+test run when a test hangs.</p>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>The <a class="xref" href="attributes/retry.html">Retry</a>, <a class="xref" href="attributes/repeat.html">Repeat</a>, <a class="xref" href="attributes/maxtime.html">MaxTime</a> and
+<a class="xref" href="attributes/cancelafter.html">CancelAfter</a> reference pages</li>
+<li><a href="Warnings.html">Warnings</a>, for how warning results are reported</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/flaky-and-slow-tests.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

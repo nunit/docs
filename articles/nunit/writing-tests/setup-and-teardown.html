@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Preparing and Cleaning Up Tests | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Preparing and Cleaning Up Tests | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="setupandteardownguide">
+<h1 id="preparing-and-cleaning-up-tests">Preparing and Cleaning Up Tests</h1>
+
+<p>Most tests need something prepared before they run: an object to test, a temporary folder, a database connection. Many
+also need something cleaned up afterwards. NUnit lets you put this code in separate methods, marked with
+<code>[SetUp]</code>, <code>[TearDown]</code>, <code>[OneTimeSetUp]</code>, <code>[OneTimeTearDown]</code> or <code>[SetUpFixture]</code>, so each test only contains
+what it is actually testing.</p>
+<p>There are three levels, depending on how often the code should run:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Runs</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="attributes/setup.html"><code>[SetUp]</code></a></td>
+<td>Before <strong>each</strong> test</td>
+<td>State that every test needs a fresh copy of</td>
+</tr>
+<tr>
+<td><a class="xref" href="attributes/teardown.html"><code>[TearDown]</code></a></td>
+<td>After <strong>each</strong> test</td>
+<td>Cleaning up what <code>[SetUp]</code> or the test created</td>
+</tr>
+<tr>
+<td><a class="xref" href="attributes/onetimesetup.html"><code>[OneTimeSetUp]</code></a></td>
+<td><strong>Once</strong>, before all tests in the class</td>
+<td>Expensive resources that the tests can share</td>
+</tr>
+<tr>
+<td><a class="xref" href="attributes/onetimeteardown.html"><code>[OneTimeTearDown]</code></a></td>
+<td><strong>Once</strong>, after all tests in the class</td>
+<td>Releasing those shared resources</td>
+</tr>
+<tr>
+<td><a class="xref" href="attributes/setupfixture.html"><code>[SetUpFixture]</code></a></td>
+<td><strong>Once</strong> for a whole namespace, or the whole test assembly</td>
+<td>Resources that many test classes share, such as a test server</td>
+</tr>
+</tbody>
+</table>
+<h2 id="before-and-after-each-test-setup-and-teardown">Before and after each test: [SetUp] and [TearDown]</h2>
+<p>A method marked <code>[SetUp]</code> runs before every test in the class, and a method marked <code>[TearDown]</code> runs after every
+test. This is the one to use by default: each test starts from the same, clean state, and tests can't affect each
+other.</p>
+<pre><code class="lang-csharp" name="PerTestSetUpTearDown">public class ReportWriterTests
+{
+    private string _folder = null!;
+
+    [SetUp]
+    public void CreateFolder()
+    {
+        // Runs before each test, so every test gets its own empty folder.
+        _folder = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+        Directory.CreateDirectory(_folder);
+    }
+
+    [TearDown]
+    public void DeleteFolder()
+    {
+        // Runs after each test, also when the test failed.
+        if (Directory.Exists(_folder))
+            Directory.Delete(_folder, recursive: true);
+    }
+
+    [Test]
+    public void Write_CreatesReportFile()
+    {
+        File.WriteAllText(Path.Combine(_folder, &quot;report.txt&quot;), &quot;Hello&quot;);
+        Assert.That(Directory.GetFiles(_folder), Has.Length.EqualTo(1));
+    }
+
+    [Test]
+    public void Folder_StartsEmpty()
+    {
+        Assert.That(Directory.GetFiles(_folder), Is.Empty);
+    }
+}
+</code></pre>
+<p><code>[TearDown]</code> also runs when the test fails, and even when <code>[SetUp]</code> itself failed halfway. Write it so that it copes
+with things that were never created, like the <code>Directory.Exists</code> check above.</p>
+<h2 id="once-for-all-tests-in-a-class-onetimesetup-and-onetimeteardown">Once for all tests in a class: [OneTimeSetUp] and [OneTimeTearDown]</h2>
+<p>A method marked <code>[OneTimeSetUp]</code> runs once, before the first test in the class, and <code>[OneTimeTearDown]</code> runs once,
+after the last one. Use them for things that are slow to create, such as loading data or starting a service, and that
+the tests can safely share.</p>
+<p>You can combine the levels. In this example, the product catalog is expensive and only read by the tests, so it is
+created once. The shopping cart is cheap and changed by every test, so each test gets a new one:</p>
+<pre><code class="lang-csharp" name="PerFixtureOneTimeSetUp">public class ShoppingCartTests
+{
+    private ProductCatalog _catalog = null!;
+    private ShoppingCart _cart = null!;
+
+    [OneTimeSetUp]
+    public void LoadCatalog()
+    {
+        // Expensive, and only read by the tests: create it once for all of them.
+        _catalog = ProductCatalog.LoadFromDatabase();
+    }
+
+    [OneTimeTearDown]
+    public void DisposeCatalog()
+    {
+        _catalog.Dispose();
+    }
+
+    [SetUp]
+    public void CreateCart()
+    {
+        // Cheap, and the tests change it: create a fresh one for each test.
+        _cart = new ShoppingCart();
+    }
+
+    [Test]
+    public void Add_PutsProductInCart()
+    {
+        _cart.Add(_catalog.Products[0]);
+        Assert.That(_cart.Items, Has.Count.EqualTo(1));
+    }
+
+    [Test]
+    public void NewCart_IsEmpty()
+    {
+        Assert.That(_cart.Items, Is.Empty);
+    }
+}
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Anything created in <code>[OneTimeSetUp]</code> is shared by all tests in the class. If one test changes it, the next test sees
+the change, and the result can depend on the order the tests run in. Only share things the tests don't modify, or
+reset them in <code>[SetUp]</code>.</p>
+</div>
+<h2 id="once-for-many-classes-setupfixture">Once for many classes: [SetUpFixture]</h2>
+<p>When several test classes need the same expensive setup, such as a test database or a web server, put it in a class
+marked <code>[SetUpFixture]</code>. Its <code>[OneTimeSetUp]</code> method runs once, before any test in the <strong>same namespace</strong> and in its
+child namespaces, and its <code>[OneTimeTearDown]</code> runs once after all of them.</p>
+<pre><code class="lang-csharp" name="SetUpFixtureForNamespace">namespace Snippets.NUnit.SetUpTearDownGuide.Integration
+{
+    [SetUpFixture]
+    public class IntegrationTestEnvironment
+    {
+        public static string ConnectionString { get; private set; } = &quot;&quot;;
+
+        [OneTimeSetUp]
+        public void StartServices()
+        {
+            // Runs once, before any test in this namespace and its child namespaces.
+            ConnectionString = &quot;Server=localhost;Database=Tests&quot;;
+        }
+
+        [OneTimeTearDown]
+        public void StopServices()
+        {
+            // Runs once, after all tests in this namespace have finished.
+            ConnectionString = &quot;&quot;;
+        }
+    }
+
+    public class OrderRepositoryTests
+    {
+        [Test]
+        public void ConnectionString_IsAvailable()
+        {
+            Assert.That(IntegrationTestEnvironment.ConnectionString, Does.Contain(&quot;Database=Tests&quot;));
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>The namespace decides which tests the setup fixture covers. A setup fixture <strong>outside any namespace</strong> covers the
+whole test assembly.</li>
+<li>The class must be public and have a default constructor, or be static.</li>
+<li>A setup fixture can only have <code>[OneTimeSetUp]</code> and <code>[OneTimeTearDown]</code> methods, not <code>[SetUp]</code> and <code>[TearDown]</code>.</li>
+</ul>
+<h2 id="which-one-should-i-use">Which one should I use?</h2>
+<ol>
+<li><strong>Does each test need its own, fresh copy?</strong> Use <code>[SetUp]</code> and <code>[TearDown]</code>. This is the safest choice, so start
+here.</li>
+<li><strong>Is it slow to create, and do the tests only read it?</strong> Use <code>[OneTimeSetUp]</code> and <code>[OneTimeTearDown]</code> in the test
+class.</li>
+<li><strong>Do several test classes need it?</strong> Use a <code>[SetUpFixture]</code> in the namespace that contains those classes, or outside
+any namespace for the whole assembly.</li>
+<li><strong>Does every test need to clean up after itself, even when it fails?</strong> Put the cleanup in <code>[TearDown]</code> or
+<code>[OneTimeTearDown]</code>, not at the end of the test, because the rest of a failing test doesn't run.</li>
+</ol>
+<h2 id="the-order-everything-runs-in">The order everything runs in</h2>
+<p>For a test class in a namespace with a setup fixture, NUnit runs:</p>
+<ol>
+<li><code>[OneTimeSetUp]</code> of the setup fixture outside any namespace, if there is one</li>
+<li><code>[OneTimeSetUp]</code> of the setup fixtures for the namespace, from the outermost namespace inward</li>
+<li><code>[OneTimeSetUp]</code> of the test class</li>
+<li>For <strong>each</strong> test: <code>[SetUp]</code>, then the test, then <code>[TearDown]</code></li>
+<li><code>[OneTimeTearDown]</code> of the test class</li>
+<li><code>[OneTimeTearDown]</code> of the setup fixtures, in the reverse order of step 1 and 2</li>
+</ol>
+<p>With inheritance, setup methods in a base class run before those in the derived class, and teardown methods in the
+derived class run before those in the base class. If a derived class overrides a base class setup method, only the
+override runs, so give the methods different names instead.</p>
+<p>If a class has several methods with the same attribute, their order is not defined. Use one method per level, or
+spread them over base and derived classes.</p>
+<h2 id="when-setup-fails">When setup fails</h2>
+<ul>
+<li>If <strong><code>[SetUp]</code> fails</strong>, the test doesn't run and is reported as failed. <code>[TearDown]</code> still runs.</li>
+<li>If <strong><code>[OneTimeSetUp]</code> fails</strong>, none of the tests in the class run, and they are all reported as failed, with the setup
+error as the reason. <code>[OneTimeTearDown]</code> still runs.</li>
+<li>The same applies to a <code>[SetUpFixture]</code>: if its <code>[OneTimeSetUp]</code> fails, none of the tests it covers run.</li>
+</ul>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+<li><strong>Async setup:</strong> all of these methods can be <code>async</code> and return a <code>Task</code>. NUnit waits for them to finish.</li>
+<li><strong>Constructors and <code>IDisposable</code>:</strong> by default, NUnit creates one instance of the test class for all its tests, so
+the constructor runs once, like <code>[OneTimeSetUp]</code>. If the class implements <code>IDisposable</code>, NUnit calls <code>Dispose</code>
+when it is done with the instance. <code>[SetUp]</code> and <code>[TearDown]</code> make the intent clearer, and work the same way with
+every life cycle.</li>
+<li><strong>A new instance for each test:</strong> with
+<a class="xref" href="attributes/fixturelifecycle.html"><code>[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]</code></a>, NUnit creates a new instance
+of the test class for every test. Fields can then never leak between tests, which also helps when tests run in
+<a class="xref" href="attributes/parallelizable.html">parallel</a>. <code>[OneTimeSetUp]</code> and <code>[OneTimeTearDown]</code> must be static in that case.</li>
+<li><strong>The current test:</strong> inside <code>[SetUp]</code> and <code>[TearDown]</code>, <a class="xref" href="TestContext.html"><code>TestContext.CurrentContext</code></a> describes
+the test that is about to run or has just run. In <code>[TearDown]</code> you can check its result, for example to save extra
+logs only when a test failed.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>The <a class="xref" href="attributes/setup.html">SetUp</a>, <a class="xref" href="attributes/teardown.html">TearDown</a>, <a class="xref" href="attributes/onetimesetup.html">OneTimeSetUp</a>,
+<a class="xref" href="attributes/onetimeteardown.html">OneTimeTearDown</a> and <a class="xref" href="attributes/setupfixture.html">SetUpFixture</a> reference pages</li>
+<li><a href="setup-teardown/index.html">SetUp and TearDown</a>, with more details on inheritance</li>
+<li><a class="xref" href="attributes/fixturelifecycle.html">FixtureLifeCycle</a></li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/setup-and-teardown.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
