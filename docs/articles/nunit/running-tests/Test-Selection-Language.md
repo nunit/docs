@@ -70,15 +70,6 @@ all do the same thing:
   test=~TestCaseAttributeTest
 ```
 
-## Partitioning Tests
-
-Use the `partition` keyword with a value of `PARTITION/TOTAL` to select one numbered partition. Partition numbers start
-at 1. For example, `partition == 2/5` selects partition 2 of 5. Add `:fixture` to the value to keep each fixture's tests
-together, as in `partition == 2/5:fixture`. Without a suffix, the filter partitions individual test cases.
-
-Partition filters were added in NUnit 3.14. Fixture partitioning was added in NUnit 5.1. Support for partition filters
-was added to the NUnit Console Runner in 3.17 and to NUnit3TestAdapter (including `dotnet test`) in 4.6.
-
 For matching regular expressions, NUnit uses .NET's `Regex.IsMatch` method. For detailed information on the syntax of
 regular expressions in .NET, see [Regular Expressions in
 .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
@@ -126,6 +117,15 @@ may only be selected using the `==` operator and is intended only for use by pro
 cached the ids, not for general use by users. The reason for this restriction is that users have no way of predicting
 the id that will be assigned to a test. The id is not persistent across test runs and its format can differ between
 different framework drivers.
+
+## Partitioning Tests
+
+Use the `partition` keyword with a value of `PARTITION/TOTAL` to select one numbered partition. Partition numbers start
+at 1. For example, `partition == 2/5` selects partition 2 of 5. Add `:fixture` to the value to keep each fixture's tests
+together, as in `partition == 2/5:fixture`. Without a suffix, the filter partitions individual test cases.
+
+Partition filters were added in NUnit 3.14. Fixture partitioning was added in NUnit 5.1. Support for partition filters
+was added to the NUnit Console Runner in 3.17 and to NUnit3TestAdapter (including `dotnet test`) in 4.6.
 
 ## Compound Expressions
 
