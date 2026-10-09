@@ -7,6 +7,18 @@ uid: adapterreleasenotes
 
 # Adapter Release Notes
 
+## NUnit3 Test Adapter for Visual Studio and Dotnet - Version 6.3.1 - October 9, 2026
+
+This is a hotfix release for a regression in 6.3.0 when running under Microsoft.Testing.Platform (MTP) in Visual Studio.
+
+### Bug fixes
+
+* [1504](https://github.com/nunit/nunit3-vs-adapter/issues/1504) `[TestCase]` with nullable parameter shows up twice in Visual Studio Test Explorer (MTP), discovered entry is never run – regression from 6.2.0. Parameter types sent to Visual Studio now use the managed-name encoding (e.g. ``System.Nullable`1<System.Decimal>``), so the entries found by real-time discovery match the executed tests again. This also fixes the same problem for other generic parameter types, like `List<int>`.
+
+### Acknowledgements
+
+Thanks to [Fabian Bucher](https://github.com/PI-Fabian-Bucher) for reporting the issue, and to [Amaury Levé](https://github.com/Evangelink) for finding the root cause and suggesting the fix.
+
 ## NUnit3 Test Adapter for Visual Studio and Dotnet - Version 6.3.0 - August 24, 2026
 
 There are 5 issues fixed in this release.
