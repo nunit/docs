@@ -88,13 +88,21 @@
 <!-- markdownlint-disable-file MD013 -->
 <!-- markdownlint-disable-file MD033 -->
 
+<h2 id="nunit3-test-adapter-for-visual-studio-and-dotnet---version-631---october-9-2026">NUnit3 Test Adapter for Visual Studio and Dotnet - Version 6.3.1 - October 9, 2026</h2>
+<p>This is a hotfix release for a regression in 6.3.0 when running under Microsoft.Testing.Platform (MTP) in Visual Studio.</p>
+<h3 id="bug-fixes">Bug fixes</h3>
+<ul>
+<li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1504">1504</a> <code>[TestCase]</code> with nullable parameter shows up twice in Visual Studio Test Explorer (MTP), discovered entry is never run – regression from 6.2.0. Parameter types sent to Visual Studio now use the managed-name encoding (e.g. <code>System.Nullable`1&lt;System.Decimal&gt;</code>), so the entries found by real-time discovery match the executed tests again. This also fixes the same problem for other generic parameter types, like <code>List&lt;int&gt;</code>.</li>
+</ul>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>Thanks to <a href="https://github.com/PI-Fabian-Bucher">Fabian Bucher</a> for reporting the issue, and to <a href="https://github.com/Evangelink">Amaury Levé</a> for finding the root cause and suggesting the fix.</p>
 <h2 id="nunit3-test-adapter-for-visual-studio-and-dotnet---version-630---august-24-2026">NUnit3 Test Adapter for Visual Studio and Dotnet - Version 6.3.0 - August 24, 2026</h2>
 <p>There are 5 issues fixed in this release.</p>
 <h3 id="enhancements">Enhancements</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1351">1351</a> Test class name missing in TRX report for parameterized fixture when running through MTP. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1449">PR 1449</a></li>
 </ul>
-<h3 id="bug-fixes">Bug fixes</h3>
+<h3 id="bug-fixes-1">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1438">1438</a> Adapter 6.2.0 displays wrong version (1.0.0.0) in Tests output. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1439">PR 1439</a></li>
 </ul>
@@ -106,7 +114,7 @@
 </ul>
 <h3 id="the-following-issues-are-marked-as-breaking-changes">The following issues are marked as breaking changes</h3>
 <p>None</p>
-<h3 id="acknowledgements">Acknowledgements</h3>
+<h3 id="acknowledgements-1">Acknowledgements</h3>
 <p>We want to express our heartfelt gratitude to everyone who has contributed to this release
 by reporting bugs, suggesting enhancements, and providing valuable feedback.
 Your efforts help make NUnit better for the entire community.</p>
@@ -139,7 +147,7 @@ concern this feature. It has now been implemented and works for both standard ru
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1227">1227</a> Listing the discovered tests doesn't respect the filter, fixed in <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1427">PR 1427</a></li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/438">438</a> vstest.console's <code>--TestCaseFilter</code> is ignored when listing tests, fixed in <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1427">PR 1427</a></li>
 </ul>
-<h3 id="bug-fixes-1">Bug fixes</h3>
+<h3 id="bug-fixes-2">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1400">1400</a> NUnit3TestAdapter 6.1.0 copies unwanted version of Microsoft.Extensions.DependencyModel.dll into output, fixed in <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1401">PR 1401</a></li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1398">1398</a> NUnit3TestAdapter &gt;= 6.0.1 requires pinning Microsoft.Extensions.DependencyModel when using Microsoft.Testing.Extensions.CodeCoverage, fixed in <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1401">PR 1401</a></li>
@@ -156,7 +164,7 @@ concern this feature. It has now been implemented and works for both standard ru
 <p>None</p>
 <h3 id="the-following-issues-are-marked-as-breaking-changes-1">The following issues are marked as breaking changes</h3>
 <p>None</p>
-<h3 id="acknowledgements-1">Acknowledgements</h3>
+<h3 id="acknowledgements-2">Acknowledgements</h3>
 <p>We want to express our heartfelt gratitude to everyone who has contributed to this release
 by reporting bugs, suggesting enhancements, and providing valuable feedback.
 Your efforts help make NUnit better for the entire community.</p>
@@ -203,7 +211,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <p>This is a bug-fix release that addresses a series of issues related to assembly loading.
 It also introduces several new settings. One of these, <code>UseDefaultAssemblyLoadContext</code>, is crucial for correct assembly loading and is now enabled by default by the adapter.</p>
 <p>The remaining settings are intended for development and diagnostics. <code>DebugEngine</code> enables debugging of the NUnit Engine, and <code>InternalTraceLevel</code> allows the engine’s internal trace level to be configured and is now passed through to the engine.</p>
-<h3 id="bug-fixes-2">Bug fixes</h3>
+<h3 id="bug-fixes-3">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1393">1393</a> System.IO.FileNotFoundException: Could not load file or assembly 'System.Text.Json, Version=10.0.0.0.</li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1391">1391</a> NUnit3TestAdapter V6.0.1 doesn't work with Resharpers Unit Tests explorer.</li>
@@ -218,7 +226,7 @@ In order for the adapter to handle MTP (Microsoft test Platform) it needs to use
 The introduction of the <code>UseDefaultAssemblyLoadContext</code> ensures this works.
 The current versions of Resharper and Rider (2025.3.1) however do not yet support the <code>UseDefaultAssemblyLoadContext</code>, and therefore the user <strong>may</strong> experience assembly loading issues.</p>
 <p>If you're not using Visual Studio test explorer, but only Rider or Resharper's, they will work if you don't install the adapter.</p>
-<h3 id="acknowledgements-2">Acknowledgements</h3>
+<h3 id="acknowledgements-3">Acknowledgements</h3>
 <p>We want to express our heartfelt gratitude to everyone who has contributed to this release
 by reporting bugs, suggesting enhancements, and providing valuable feedback.
 Your efforts help make NUnit better for the entire community.</p>
@@ -274,7 +282,7 @@ with links to all related issues.</p>
 <li><a href="https://github.com/nunit/nunit-console/issues/1796">1796</a> Assembly load logic changes in v6</li>
 <li><a href="https://github.com/nunit/nunit-console/issues/1795">1795</a> :test_tube: Assembly loading move to AssemblyLoadContext for net8 and higher</li>
 </ul>
-<h3 id="acknowledgements-3">Acknowledgements</h3>
+<h3 id="acknowledgements-4">Acknowledgements</h3>
 <p>We want to express our heartfelt gratitude to everyone who has contributed to this release
 by reporting bugs, suggesting enhancements, and providing valuable feedback.
 Your efforts help make NUnit better for the entire community.</p>
@@ -320,7 +328,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1328">1328</a> NUnit compatible version for MTP 2.0.0. Thanks to <a href="https://github.com/Youssef1313">Youssef Victor</a> and NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1329">PR 1329</a></li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1335">1335</a> Update to net 8,  remove netcore 3.1. Thanks to <a href="https://github.com/Youssef1313">Youssef Victor</a> and NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1329">PR 1329</a></li>
 </ul>
-<h3 id="bug-fixes-3">Bug fixes</h3>
+<h3 id="bug-fixes-4">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1347">1347</a> Test Cases With Strings That Contain Escaped Double-Quotes are Not Run.</li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1334">1334</a> Attempting to execute a native assembly crashes the runner. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1333">PR 1333</a></li>
@@ -333,7 +341,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1335">1335</a> Update to net 8,  remove netcore 3.1. Thanks to <a href="https://github.com/Youssef1313">Youssef Victor</a> and NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1329">PR 1329</a></li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1366">1366</a> Assembly loading move to AssemblyLoadContext for net8 and higher</li>
 </ul>
-<h3 id="acknowledgements-4">Acknowledgements</h3>
+<h3 id="acknowledgements-5">Acknowledgements</h3>
 <p>We want to express our heartfelt gratitude to everyone who has contributed to this release
 by reporting bugs, suggesting enhancements, and providing valuable feedback.
 Your efforts help make NUnit better for the entire community.</p>
@@ -375,11 +383,11 @@ Your efforts help make NUnit better for the entire community.</p>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1111">1111</a> New Mode that completely excludes explicit tests. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1323">PR 1323</a></li>
 </ul>
-<h3 id="bug-fixes-4">Bug fixes</h3>
+<h3 id="bug-fixes-5">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1292">1292</a> (Apparently) inconsistent version requirements of Microsoft.Testing.Extensions.VSTestBridge and Microsoft.Testing.Platform.MSBuild. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1296">PR 1296</a></li>
 </ul>
-<h3 id="acknowledgements-5">Acknowledgements</h3>
+<h3 id="acknowledgements-6">Acknowledgements</h3>
 <p>We want to express our heartfelt gratitude to everyone who has contributed to this release
 by reporting bugs, suggesting enhancements, and providing valuable feedback.
 Your efforts help make NUnit better for the entire community.</p>
@@ -410,7 +418,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1266">1266</a> Unable to pass test parameters via command line argument when using MTP. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1272">PR 1272</a></li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1248">1248</a> How to completely suppress the Stack Trace in Test Results?. Thanks to NUnit Team member <a href="https://github.com/OsirisTerje">Terje Sandstrom</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1249">PR 1249</a></li>
 </ul>
-<h3 id="bug-fixes-5">Bug fixes</h3>
+<h3 id="bug-fixes-6">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1267">1267</a> Incompatibility with MTP mode in .NET 10 SDK. Thanks to <a href="https://github.com/Youssef1313">Youssef Victor</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1262">PR 1262</a></li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1261">1261</a> Retry extension - no tests discovered with NUnit runner. Thanks to <a href="https://github.com/Youssef1313">Youssef Victor</a> for <a href="https://github.com/nunit/nunit3-vs-adapter/pull/1260">PR 1260</a></li>
@@ -423,7 +431,7 @@ Your efforts help make NUnit better for the entire community.</p>
 <p>None</p>
 <h3 id="the-following-issues-are-marked-as-breaking-changes-3">The following issues are marked as breaking changes</h3>
 <p>None</p>
-<h3 id="acknowledgements-6">Acknowledgements</h3>
+<h3 id="acknowledgements-7">Acknowledgements</h3>
 <p>We want to express our heartfelt gratitude to everyone who has contributed to this release
 by reporting bugs, suggesting enhancements, and providing valuable feedback.
 Your efforts help make NUnit better for the entire community.</p>
@@ -481,7 +489,7 @@ Using it <strong>with</strong> MTP enabled will change some parts of how to use 
 using dotnet test?.</li>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1188">1188</a> Add support for ThrowOnEachFailureUnderDebugger setting</li>
 </ul>
-<h3 id="bug-fixes-6">Bug fixes</h3>
+<h3 id="bug-fixes-7">Bug fixes</h3>
 <ul>
 <li><a href="https://github.com/nunit/nunit3-vs-adapter/issues/1186">1186</a> Failure during unit test discovery doesn't cause
 entire test suite to fail.</li>
