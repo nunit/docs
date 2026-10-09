@@ -44,6 +44,7 @@ The following key words are recognized on the left-hand side of the comparison:
 * `namespace` - The fully qualified name of the namespace containing the test(s), e.g. My.Name.Space
 * `method` - The name of the method, e.g. TestMethod
 * `cat` - A category assigned to the test, e.g. SmokeTests
+* `partition` - A numbered partition of the test suite; see [Partitioning Tests](xref:partitioningtests)
 
 If the left-hand side of the comparison does not consist of a key word, it is treated as the name of a property on the
 test whose value is to be checked. See below for restrictions on use of properties.
@@ -116,6 +117,15 @@ may only be selected using the `==` operator and is intended only for use by pro
 cached the ids, not for general use by users. The reason for this restriction is that users have no way of predicting
 the id that will be assigned to a test. The id is not persistent across test runs and its format can differ between
 different framework drivers.
+
+## Partitioning Tests
+
+Use the `partition` keyword with a value of `PARTITION/TOTAL` to select one numbered partition. Partition numbers start
+at 1. For example, `partition == 2/5` selects partition 2 of 5. Add `:fixture` to the value to keep each fixture's tests
+together, as in `partition == 2/5:fixture`. Without a suffix, the filter partitions individual test cases.
+
+Partition filters were added in NUnit 3.14. Fixture partitioning was added in NUnit 5.1. Support for partition filters
+was added to the NUnit Console Runner in 3.17 and to NUnit3TestAdapter (including `dotnet test`) in 4.6.
 
 ## Compound Expressions
 
