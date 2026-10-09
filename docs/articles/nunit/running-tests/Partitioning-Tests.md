@@ -42,6 +42,8 @@ Explicitly specifying `:test` selects the default test-case partitioning mode.
 
 ## Things to keep in mind
 
+- Partition filters require NUnit 3.14 or later; fixture partitioning requires NUnit 5.1 or later. The Console Runner
+  supports partitions from 3.17, and NUnit3TestAdapter supports them from 4.6.
 - Run every partition with the same test assembly and partition count. Changing the total can assign tests to different
   partitions.
 - Use a runner that supports partition filters. For `dotnet test`, this requires a compatible NUnit adapter.
