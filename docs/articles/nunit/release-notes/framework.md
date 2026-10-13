@@ -87,6 +87,7 @@ There are in total 48 issues fixed in this release.
 
 ### The following issues are marked as breaking changes
 
+* [5453](https://github.com/nunit/nunit/issues/5453) Has.One.Matches changed predicate type to nullable. (only if nullable-warnings are treated as errors)
 * [5373](https://github.com/nunit/nunit/issues/5373) Eliminate forced stop from the API. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5374](https://github.com/nunit/nunit/pull/5374)
 * [5367](https://github.com/nunit/nunit/issues/5367) Eliminate StopRun(bool) method from .NET Core builds. Thanks to [CharliePoole](https://github.com/CharliePoole) for [PR 5369](https://github.com/nunit/nunit/pull/5369)
 * [5323](https://github.com/nunit/nunit/issues/5323) Report compiler error when asserting non-attribute in `Has.Attribute&lt;T&gt;()`. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5322](https://github.com/nunit/nunit/pull/5322)

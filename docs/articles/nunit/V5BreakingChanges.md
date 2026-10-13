@@ -127,6 +127,25 @@ Issue [#3669](https://github.com/nunit/nunit/issues/3669)
 | `NETCore`         | modern .NET    | modern .NET    |
 | `DotNETCore`      | modern .NET    | modern .NET    |
 
+### Has.One.Matches changed predicate type to nullable.
+
+Issue [#5453](https://github.com/nunit/nunit/issues/5453)
+
+* **Why:** Aligning actual and expected type at compile-time, as lists can still have null values in them in certain cases.
+* **What changed:** Has.One.Matches changed predicate type to nullable. This breaks build if nullable-warnings are treated as errors. `<WarningsAsErrors>nullable</WarningsAsErrors>`
+* **What to do:** Predicates need to be change to handle potentially null-values:
+
+```csharp
+List<string> testList = ["hello", "world"];
+// NUnit 4
+Assert.That(testList, Has.One.Matches<string>(word => word.Length == 5));
+
+// NUnit 4
+Assert.That(testList, Has.One.Matches<string>(word => word?.Length == 5)); //Safe-Navigation
+// or
+Assert.That(testList, Has.One.Matches<string>(word => word!.Length == 5)); //Null-Forgiving
+```
+
 ## Platform changes
 
 ### .NET 6 target removed
