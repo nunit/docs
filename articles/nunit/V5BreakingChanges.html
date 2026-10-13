@@ -227,6 +227,22 @@ For example, <code>[Platform(&quot;NET&quot;)]</code> excluded a test running on
 </tr>
 </tbody>
 </table>
+<h3 id="hasonematches-changed-predicate-type-to-nullable">Has.One.Matches changed predicate type to nullable.</h3>
+<p>Issue <a href="https://github.com/nunit/nunit/issues/5453">#5453</a></p>
+<ul>
+<li><strong>Why:</strong> Aligning actual and expected type at compile-time, as lists can still have null values in them in certain cases.</li>
+<li><strong>What changed:</strong> Has.One.Matches changed predicate type to nullable. This breaks build if nullable-warnings are treated as errors. <code>&lt;WarningsAsErrors&gt;nullable&lt;/WarningsAsErrors&gt;</code></li>
+<li><strong>What to do:</strong> Predicates need to be change to handle potentially null-values:</li>
+</ul>
+<pre><code class="lang-csharp">List&lt;string&gt; testList = [&quot;hello&quot;, &quot;world&quot;];
+// NUnit 4
+Assert.That(testList, Has.One.Matches&lt;string&gt;(word =&gt; word.Length == 5));
+
+// NUnit 4
+Assert.That(testList, Has.One.Matches&lt;string&gt;(word =&gt; word?.Length == 5)); //Safe-Navigation
+// or
+Assert.That(testList, Has.One.Matches&lt;string&gt;(word =&gt; word!.Length == 5)); //Null-Forgiving
+</code></pre>
 <h2 id="platform-changes">Platform changes</h2>
 <h3 id="net-6-target-removed">.NET 6 target removed</h3>
 <p>Issue <a href="https://github.com/nunit/nunit/issues/4857">#4857</a></p>
