@@ -32,6 +32,21 @@ When a whole class of tests depends on another class, put [`[DependsOnFixture]`]
 the class, with the type of the fixture it depends on. It works the same way: the dependent fixture waits for the other
 fixture, and is skipped if that fixture fails, unless `AllowFailure` is set.
 
+[!code-csharp[DependentFixtures](~/snippets/Snippets.NUnit/DependentFixtureExamples.cs#DependentFixtures)]
+
+- `SeedDatabaseTests` has no dependency, so it runs first and fills the shared `CustomerDatabase`.
+- `CustomerReportTests` starts only after **all** tests in `SeedDatabaseTests` have finished. If any of them fails, the
+  fixture fails, and **every** test in `CustomerReportTests` is skipped, with a message that names the failed
+  dependency.
+- `CleanUpDatabaseTests` depends on `CustomerReportTests` with `AllowFailure = true`. It runs last, even if a report
+  test failed, so the shared data is always removed.
+- Dependencies chain: `CleanUpDatabaseTests` waits for `CustomerReportTests`, which waits for `SeedDatabaseTests`.
+  When you run only a dependent fixture, for example from your IDE, NUnit still includes the fixture it depends on.
+
+A fixture has at most one `[DependsOnFixture]`, and the fixture it names must be in the same namespace. A fixture in
+another namespace, or one that was not found in the run, makes the dependent fixture fail as invalid. A fixture can't
+depend on its own base class.
+
 ## Things to keep in mind
 
 - Tests in a dependency chain can't run in parallel with each other. Don't mark them
