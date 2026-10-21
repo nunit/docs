@@ -60,6 +60,7 @@ Team Lead: [Sean Killeen](https://github.com/seankilleen)
 | [Steven Weerdenburg](https://github.com/stevenaw) :canada: | :heavy_check_mark: | :heavy_check_mark: | | | | |
 | [Ihor Sychevskyi](https://github.com/Arhell) :ukraine: | | | | | | :heavy_check_mark: |
 | [Manfred Brands](https://github.com/manfred-brands) :australia: | :heavy_check_mark: | :heavy_check_mark: | | | :heavy_check_mark: | |
+| [Neil Colvin](https://github.com/oznetmaster) :australia: :scotland: | | | :heavy_check_mark: | | | |
 
 ### Former members and honorable mentions
 
