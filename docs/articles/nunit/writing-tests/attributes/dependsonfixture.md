@@ -11,6 +11,14 @@ fixture. By default, the referenced fixture must run and pass before the
 dependent fixture can run. This can be overridden by setting `AllowFailure`
 to `true`.
 
+The dependency is always the whole fixture: the dependent fixture waits for
+all tests in it. A fixture can only depend on another fixture in the same
+namespace. NUnit looks up the type among the fixtures directly in that
+namespace only, so a fixture in a parent, child or other namespace is not
+found. A fixture has at most one `[DependsOnFixture]`, but several fixtures can
+depend on the same fixture. If the named fixture is not found, the dependent
+fixture fails as invalid. A fixture can't depend on its own base class.
+
 ## Constructor
 
 ```csharp
