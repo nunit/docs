@@ -138,3 +138,43 @@ div.across ul li
 /* Archive: a low-key, full-width strip at the bottom */
 .nh-card-wide { grid-column: 1 / -1; background: #f6f8fa; }
 .nh-card-wide ul { columns: 3 220px; column-gap: 24px; }
+
+/* ------------------------------------------------------------------
+   Contribution links on narrow screens (nunit/docs#768).
+
+   The default template renders "Improve this Doc" / "View Source" inside the
+   fixed right-hand affix column and hides that column below 992px (Bootstrap
+   `hidden-sm` on the wrapper, plus `.sideaffix { display: none }` under 768px
+   in docfx.css). custom_template/partials/affix.tmpl.partial drops the
+   `hidden-sm` class; these rules turn the column into a plain footer row under
+   the article on phones and tablets. The "In this article" nav keeps its own
+   `hidden-xs hidden-sm` classes, so only the contribution links appear. The query is
+   limited to `screen` so the print rule in docfx.css, which hides the affix,
+   still wins when an article is printed or saved as a PDF.
+   ------------------------------------------------------------------ */
+@media screen and (max-width: 991px) {
+    .sideaffix {
+        display: block;
+        position: static;
+        margin-top: 0;
+        max-height: none;
+        overflow: visible;
+        font-size: inherit;
+    }
+    .sideaffix > div.contribution {
+        margin: 24px 0 0;
+        padding-top: 12px;
+        border-top: 1px solid #e7e7e7;
+    }
+    .sideaffix > div.contribution > ul.nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 8px;
+    }
+    .sideaffix > div.contribution > ul.nav > li > a.contribution-link {
+        display: inline-block;
+        padding: 8px 12px;
+        border: 1px solid #e7e7e7;
+        border-radius: 4px;
+    }
+}
