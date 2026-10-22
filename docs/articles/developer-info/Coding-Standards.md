@@ -1,5 +1,7 @@
 # Coding Standards
 
+Random update by Sean to generate a preview
+
 In order to keep the code consistent, we follow certain conventions. Many of the choices we have made are somewhat
 arbitrary and could easily have gone another way. At this point, most of these conventions are already well-established,
 so please don't re-open a discussion about them unless you have new issues to present.
