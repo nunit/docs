@@ -68,6 +68,15 @@ jobs:
         with:
           name: siteArtifact
           path: _site.zip
+      - name: Save PR number for the preview workflow
+        if: github.event_name == 'pull_request'
+        run: echo "${{ github.event.pull_request.number }}" > pr_number.txt
+      - name: Archive PR number
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v7
+        with:
+          name: pr-number
+          path: pr_number.txt
   snippets:
     name: "Build/Test Snippets"
     runs-on: ubuntu-latest

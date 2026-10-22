@@ -1,0 +1,147 @@
+# Deploys a preview of the docs site for every pull request (including PRs from forks)
+# and posts the link as a sticky PR comment.
+#
+# How it works:
+#   * The main build workflow runs on `pull_request` with no secrets and uploads the built
+#     site (and the PR number) as artifacts.
+#   * This workflow runs on `workflow_run` when that build completes. It executes in the
+#     context of the default branch, so it has access to the Cloudflare secrets even when
+#     the triggering PR came from a fork.
+#   * It only downloads the artifacts and uploads static files. It NEVER checks out or
+#     executes code from the pull request. Keep it that way.
+#
+# See https://github.com/nunit/docs/issues/1264 for the background and decision.
+
+name: PR Preview
+
+on:
+  workflow_run:
+    workflows: ["NUnit Documentation Build Process"]
+    types: [completed]
+  pull_request_target:
+    types: [closed]
+
+permissions: {}
+
+env:
+  CLOUDFLARE_PAGES_PROJECT: nunit-docs
+
+jobs:
+  deploy:
+    name: Deploy preview to Cloudflare Pages
+    if: >-
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read # download artifacts from the triggering run
+      pull-requests: write # post the preview link comment
+    concurrency:
+      group: pr-preview-${{ github.event.workflow_run.head_repository.full_name }}-${{ github.event.workflow_run.head_branch }}
+      cancel-in-progress: true
+    steps:
+      - name: Download PR number
+        uses: actions/download-artifact@v8
+        with:
+          name: pr-number
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: ${{ runner.temp }}/meta
+
+      - name: Read and validate PR number
+        id: pr
+        run: |
+          number="$(tr -d '[:space:]' < "$RUNNER_TEMP/meta/pr_number.txt")"
+          if ! [[ "$number" =~ ^[0-9]+$ ]]; then
+            echo "::error::The pr-number artifact did not contain a valid PR number"
+            exit 1
+          fi
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+
+      - name: Download built site
+        uses: actions/download-artifact@v8
+        with:
+          name: siteArtifact
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: ${{ runner.temp }}/site
+
+      - name: Unzip site
+        run: unzip -q "$RUNNER_TEMP/site/_site.zip" -d "$RUNNER_TEMP/site"
+
+      - name: Prepare preview copy
+        working-directory: ${{ runner.temp }}/site/docs/_site
+        run: |
+          # Previews must not look like the real site to search engines or analytics.
+          # Cloudflare already serves previews with `X-Robots-Tag: noindex`; this removes the
+          # production sitemap and the Google Analytics loader from the preview copy.
+          rm -f sitemap.xml
+          find . -name '*.html' -exec sed -i '/googletagmanager\.com\/gtag\/js/d' {} +
+
+          # Defence in depth: never let PR content ship Cloudflare Pages config or Functions
+          # (these would otherwise be picked up from the upload root and executed/applied).
+          rm -rf _worker.js functions _routes.json _redirects _headers
+
+      - name: Deploy to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >-
+            pages deploy "${{ runner.temp }}/site/docs/_site"
+            --project-name="${{ env.CLOUDFLARE_PAGES_PROJECT }}"
+            --branch="pr-${{ steps.pr.outputs.number }}"
+            --commit-hash="${{ github.event.workflow_run.head_sha }}"
+            --commit-dirty=true
+
+      - name: Post preview link on the PR
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          number: ${{ steps.pr.outputs.number }}
+          header: pr-preview
+          message: |
+            📖 **Docs preview:** ${{ steps.deploy.outputs.pages-deployment-alias-url }}
+
+            Built from ${{ github.event.workflow_run.head_sha }}. This link always shows the latest build for this PR; the build for this exact commit is at ${{ steps.deploy.outputs.deployment-url }}.
+
+            _Previews are hosted on Cloudflare Pages, are not indexed by search engines, and are removed when the PR is closed._
+
+  cleanup:
+    name: Remove preview
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write # update the preview comment
+    steps:
+      # This job runs with secrets, so it deliberately does not check out any code.
+      - name: Delete Cloudflare Pages deployments for this PR
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PREVIEW_BRANCH: pr-${{ github.event.pull_request.number }}
+        run: |
+          api="https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PAGES_PROJECT/deployments"
+          auth="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          deleted=0
+          for page in $(seq 1 50); do
+            ids="$(curl -fsS "$api?env=preview&page=$page&per_page=25" -H "$auth" \
+              | jq -r --arg b "$PREVIEW_BRANCH" '.result[] | select(.deployment_trigger.metadata.branch == $b) | .id')"
+            count="$(curl -fsS "$api?env=preview&page=$page&per_page=25" -H "$auth" | jq -r '.result | length')"
+            for id in $ids; do
+              curl -fsS -X DELETE "$api/$id?force=true" -H "$auth" > /dev/null
+              echo "Deleted deployment $id"
+              deleted=$((deleted + 1))
+            done
+            [ "$count" -lt 25 ] && break
+          done
+          echo "Removed $deleted preview deployment(s) for $PREVIEW_BRANCH"
+
+      - name: Update the preview comment
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          number: ${{ github.event.pull_request.number }}
+          header: pr-preview
+          message: |
+            📖 **Docs preview** removed because this PR was closed.
