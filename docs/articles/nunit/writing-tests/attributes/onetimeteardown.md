@@ -30,7 +30,7 @@ Methods may be **async** (`Task` / `Task<T>`); NUnit will wait for completion.
 
 * **`TestFixture`** — teardown runs **after all tests declared in that fixture** (every parameterized case rooted there)
 finish, failed or passed unless something aborts scheduling earlier.
-* **`SetUpFixture`** — teardown runs once after everything under that [**SetUpFixture**](xref:attribute-setupfixture) slice finishes,
+* **`SetUpFixture`** — teardown runs once after everything under that [`SetUpFixture`](xref:attribute-setupfixture) slice finishes,
 matching the broader “run once init / run once cleanup” workflow.
 
 Teardown semantics for **abstract or concrete bases** mirror setup: inheritance causes code to participate per derived

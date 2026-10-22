@@ -50,7 +50,7 @@ MyTest(3, "B")
 
 Parameterless **`[Values]`** expands enums and Booleans differently from other parameter types:
 
-When used without any arguments, the **[Values]** attribute on an enum parameter
+When used without any arguments, the `[Values]` attribute on an enum parameter
 will automatically include all possible values of the enumeration.
 
 [!code-csharp[ValuesAttributeEnumExample](~/snippets/Snippets.NUnit/Attributes/ValuesAttributeExamples.cs#ValuesAttributeEnumExample)]

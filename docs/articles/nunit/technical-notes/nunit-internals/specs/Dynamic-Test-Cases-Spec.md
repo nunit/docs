@@ -63,9 +63,9 @@ Except as noted below, attributes will not change syntactically and will continu
 of them will now generate test cases dynamically. The following paragraphs describe the impact of the change on each
 attribute.
 
-**TestCaseAttribute** will continue to work as it now does, producing pre-generated test cases.
+`TestCaseAttribute` will continue to work as it now does, producing pre-generated test cases.
 
-**TestCaseSourceAttribute** and **ValueSourceAttribute** will continue to create pre-generated test cases, but will be
+`TestCaseSourceAttribute` and `ValueSourceAttribute` will continue to create pre-generated test cases, but will be
 more limited in their usage than before. The following data sources will be supported:
 
 * Static fields, properties or methods of the test fixture.
@@ -75,18 +75,18 @@ more limited in their usage than before. The following data sources will be supp
 > leading to instantiation of the test class at load time. If that occurs, the results are undefined. Obviously, such
 > trickery is not recommended and we'll try hard to detect and reject such attempts.
 
-A new **DynamicDataSourceAttribute** (the name is a placeholder) will supplant both **TestCaseSourceAttribute** and
-**ValueSourceAttribute** for dynamic generation of test cases and parameter values respectively. Suggestions are welcome
+A new `DynamicDataSourceAttribute` (the name is a placeholder) will supplant both `TestCaseSourceAttribute` and
+`ValueSourceAttribute` for dynamic generation of test cases and parameter values respectively. Suggestions are welcome
 for the final name of this attribute.
 
-**ValuesAttribute**, **RangeAttribute**, **RandomAttribute**, **CombinatorialAttribute**, **PairwiseAttribute** and
-**SequentialAttribute** (that is, all other data attributes) will be used to produce test cases dynamically.
+`ValuesAttribute`, `RangeAttribute`, `RandomAttribute`, `CombinatorialAttribute`, `PairwiseAttribute` and
+`SequentialAttribute` (that is, all other data attributes) will be used to produce test cases dynamically.
 
-**DatapointAttribute** and **DatapointsAttribute** are only used for Theories, but for the sake of completeness it may
+`DatapointAttribute` and `DatapointsAttribute` are only used for Theories, but for the sake of completeness it may
 be noted that they will also operate dynamically.
 
 Where necessary, additional properties may be added to some attributes in order to provide for repeatability of tests.
-At the moment, the only known requirement is for specification of a random seed for **RandomAttribute** but others may
+At the moment, the only known requirement is for specification of a random seed for `RandomAttribute` but others may
 arise in implementation.
 
 #### Gui Design Notes

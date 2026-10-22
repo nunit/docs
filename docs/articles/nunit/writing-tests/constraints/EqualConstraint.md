@@ -59,13 +59,13 @@ Is.Zero // Equivalent to Is.EqualTo(0)
 
 Numerics are compared based on their values. Different types may be compared successfully if their values are equal.
 
-Using the **Within** modifier, numerics may be tested for equality within a fixed or percent tolerance.
+Using the `Within` modifier, numerics may be tested for equality within a fixed or percent tolerance.
 
 [!code-csharp[EqualConstraintNumerics](~/snippets/Snippets.NUnit/ConstraintExamples.cs#EqualConstraintNumerics)]
 
 ## Comparing Floating Point Values
 
-Values of type float and double are normally compared using a tolerance specified by the **Within** modifier. The
+Values of type float and double are normally compared using a tolerance specified by the `Within` modifier. The
 special values PositiveInfinity, NegativeInfinity and NaN compare as equal to themselves.
 
 Floating-point values may be compared using a tolerance in "Units in the Last Place" or ULPs. For certain types of
@@ -125,11 +125,11 @@ The characters ignored are the same as for the C# `Char.IsWhiteSpace`.
 
 ## Comparing DateTimes and TimeSpans
 
-**DateTimes** and **TimeSpans** may be compared either with or without a tolerance. A tolerance is specified using
-**Within** with either a **TimeSpan** as an argument or with a numeric value followed by a one of the time conversion
-modifiers: **Days**, **Hours**, **Minutes**, **Seconds**, **Milliseconds** or **Ticks**.
+`DateTime` and `TimeSpan` values may be compared either with or without a tolerance. A tolerance is specified using
+`Within` with either a `TimeSpan` as an argument or with a numeric value followed by a one of the time conversion
+modifiers: `Days`, `Hours`, `Minutes`, `Seconds`, `Milliseconds` or `Ticks`.
 
-When comparing **DateTimeOffsets** you can use the optional **WithSameOffset** modifier to check the offset along with
+When comparing `DateTimeOffset` values you can use the optional `WithSameOffset` modifier to check the offset along with
 the date and time.
 
 ```csharp
@@ -149,7 +149,7 @@ IEnumerable is supported. Two arrays, collections or IEnumerables are considered
 and if each of the corresponding elements is equal.
 
 If you want to treat two arrays of different shapes as simple collections for purposes of comparison, use the
-**AsCollection** modifier, which causes the comparison to be made element by element, without regard for the rank or
+`AsCollection` modifier, which causes the comparison to be made element by element, without regard for the rank or
 dimensions of the array. Note that jagged arrays (arrays of arrays) do not have a single underlying collection. The
 modifier would be applied to each array separately, which has no effect in most cases.
 
@@ -177,7 +177,7 @@ Two dictionaries are considered equal if
  1. The list of keys is the same - without regard to ordering.
  2. The values associated with each key are equal.
 
-You can use this capability to compare any two objects implementing **IDictionary**. Generic and non-generic
+You can use this capability to compare any two objects implementing `IDictionary`. Generic and non-generic
 dictionaries (Hashtables) may be successfully compared.
 
 ## Comparing DirectoryInfo
@@ -487,25 +487,25 @@ But was:  "89031"
    implements the appropriate interface, NUnit makes use of the `Equals` override on the expected object. If you neglect
    to either implement `IEquatable<T>` or to override `Equals`, you can expect failures comparing non-identical objects.
    In particular, overriding `operator ==` without overriding `Equals` or implementing the interface has no effect.
-2. The **Within** modifier was originally designed for use with floating point values only. Beginning with NUnit 2.4,
-   comparisons of **DateTime** values may use a **TimeSpan** as a tolerance. Beginning with NUnit 2.4.2, non-float
+2. The `Within` modifier was originally designed for use with floating point values only. Beginning with NUnit 2.4,
+   comparisons of `DateTime` values may use a `TimeSpan` as a tolerance. Beginning with NUnit 2.4.2, non-float
    numeric comparisons may also specify a tolerance.
 3. Float and double comparisons for which no tolerance is specified use a default value, which can be specified with
-   **DefaultFloatingPointToleranceAttribute**. If this is not in place, a tolerance of 0.0d is used. (Prior to NUnit
+   `DefaultFloatingPointToleranceAttribute`. If this is not in place, a tolerance of 0.0d is used. (Prior to NUnit
    3.7, default tolerance was instead set via `GlobalSettings.DefaultFloatingPointTolerance`.)
 4. Prior to NUnit 2.2.3, comparison of two NaN values would always fail, as specified by IEEE floating point standards.
    The new behavior, was introduced after some discussion because it seems more useful in tests. To avoid confusion,
-   consider using **Is.NaN** where appropriate.
+   consider using `Is.NaN` where appropriate.
 5. When an equality test between two strings fails, the relevant portion of both strings is displayed in the error
    message, clipping the strings to fit the length of the line as needed. Beginning with 2.4.4, this behavior may be
-   modified by use of the **NoClip** modifier on the constraint. In addition, the maximum line length may be modified
-   for all tests by setting the value of **TextMessageWriter.MaximumLineLength** in the appropriate level of setup.
+   modified by use of the `NoClip` modifier on the constraint. In addition, the maximum line length may be modified
+   for all tests by setting the value of `TextMessageWriter.MaximumLineLength` in the appropriate level of setup.
 6. When used with arrays, collections or dictionaries, EqualConstraint operates recursively. Any modifiers are saved and
    used as they apply to individual items.
-7. A user-specified comparer will not be called by **EqualConstraint** if either or both arguments are null. If both are
+7. A user-specified comparer will not be called by `EqualConstraint` if either or both arguments are null. If both are
    null, the Constraint succeeds. If only one is null, it fails.
-8. NUnit has special semantics for comparing **Streams** and **DirectoryInfos**. For a **Stream**, the contents are
-   compared. For a **DirectoryInfo**, the first-level directory contents are compared.
+8. NUnit has special semantics for comparing `Stream` and `DirectoryInfo` instances. For a `Stream`, the contents are
+   compared. For a `DirectoryInfo`, the first-level directory contents are compared.
 9. **F# callers:** since NUnit 4.3.0, `Is.EqualTo` has overloads taking `object`, `T` and `IEnumerable<T>`. C# picks the
    right one, but the F# compiler cannot choose between them when the expected value is a list or other collection and
    reports _A unique overload for method 'EqualTo' could not be determined_. Specify the type argument on the call to

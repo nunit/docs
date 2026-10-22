@@ -4,7 +4,7 @@ uid: classic-assert-is-instance-of
 
 # Assert.IsInstanceOf
 
-**Assert.IsInstanceOf** succeeds if the object provided as an actual value is an instance of the expected type.
+`Assert.IsInstanceOf` succeeds if the object provided as an actual value is an instance of the expected type.
 
 > [!NOTE]
 > From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy

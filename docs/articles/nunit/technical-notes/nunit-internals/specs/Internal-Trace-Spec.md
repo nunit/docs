@@ -24,7 +24,7 @@ field.
 
 ### Design
 
-NUnit provides a simple internal trace facility using the **InternalTrace** class. The following public methods are
+NUnit provides a simple internal trace facility using the `InternalTrace` class. The following public methods are
 provided for creating output:
 
 ```csharp
@@ -34,16 +34,16 @@ public static void Info(string message, params object[] args)
 public static void Debug(string message, params object[] args)
 ```
 
-By default, all output through **InternalTrace** is sent to the console, which means it is mixed with other console
+By default, all output through `InternalTrace` is sent to the console, which means it is mixed with other console
 output. Note that the trace mechanism bypasses NUnit's redirection of output and displays on the actual Console. Of
 course, if NUnit is being run without a console - from the Gui, for example - the output will be lost.
 
 ## Redirecting Output
 
-The **InternalTrace.Open()** method allows the programmer to specify a file to which the output will be written. Any
+The `InternalTrace.Open()` method allows the programmer to specify a file to which the output will be written. Any
 absolute or relative path may be used as an argument. Relative paths are interpreted as relative to the location of the
 assembly being tested. A programmer working on NUnit may call this method at any point in the code.
-**InternalTrace.Close()** is also provided.
+`InternalTrace.Close()` is also provided.
 
 > [!NOTE]
 > Since the path is saved as a static property, it must be specified separately within each AppDomain. Writing
@@ -69,7 +69,7 @@ public class InternalTrace
 }
 ```
 
-A programmer working on NUnit may set the TraceLevel at any point in the code by setting the **InternalTrace.Level**
+A programmer working on NUnit may set the TraceLevel at any point in the code by setting the `InternalTrace.Level`
 property.
 
 ## Unresolved Issues

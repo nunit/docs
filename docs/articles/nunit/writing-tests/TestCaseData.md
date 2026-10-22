@@ -10,30 +10,30 @@ from `TestCaseParameters` may be used. Unlike NUnit 2, you cannot implement `ITe
 
 [!code-csharp[TestCaseDataExample](~/snippets/Snippets.NUnit/TestCaseDataExample.cs#TestCaseDataExample)]
 
-This example uses the fluent interface supported by **TestCaseData** to make the program more readable.
+This example uses the fluent interface supported by `TestCaseData` to make the program more readable.
 
-**TestCaseData** supports the following properties and methods, which may be appended to an instance in any order.
+`TestCaseData` supports the following properties and methods, which may be appended to an instance in any order.
 
-* **Explicit()** or **Explicit(string)** causes the test case to be marked explicit, optionally specifying the reason
+* `Explicit()` or `Explicit(string)` causes the test case to be marked explicit, optionally specifying the reason
   for doing so.
-* **Ignore(string)** causes the test case to be ignored and specifies the reason, which is required. Can be chained
-  with **Until(DateTimeOffset)** to specify a date after which the test should run again.
-* **Returns** specifies the expected result to be returned from the method, which must have a compatible return type.
-* **SetArgDisplayNames(string[])** sets the list of display names to use as the parameters in the test name.
-* **SetArgDisplayNames(object[])** sets the list of display names using objects that are automatically formatted.
-* **SetCategory(string)** applies a category to the test.
-* **SetDescription(string)** sets the description property of the test.
-* **SetName(string)** provides a name for the test. If not specified, a name is generated based on the method name and
+* `Ignore(string)` causes the test case to be ignored and specifies the reason, which is required. Can be chained
+  with `Until(DateTimeOffset)` to specify a date after which the test should run again.
+* `Returns` specifies the expected result to be returned from the method, which must have a compatible return type.
+* `SetArgDisplayNames(string[])` sets the list of display names to use as the parameters in the test name.
+* `SetArgDisplayNames(object[])` sets the list of display names using objects that are automatically formatted.
+* `SetCategory(string)` applies a category to the test.
+* `SetDescription(string)` sets the description property of the test.
+* `SetName(string)` provides a name for the test. If not specified, a name is generated based on the method name and
   the arguments provided. See [Template Based Test Naming](xref:templatebasedtestnaming).
 * **SetProperty(string, string)**, **SetProperty(string, int)** and **SetProperty(string, double)** apply a named
   property and value to the test.
-* **TypeArgs** specifies the `Type`s to be used when targeting a generic test method. (_NUnit 4.1+_)
-* **Until(DateTimeOffset)** can be chained after **Ignore(string)** to specify a date after which the test case
+* `TypeArgs` specifies the `Type`s to be used when targeting a generic test method. (_NUnit 4.1+_)
+* `Until(DateTimeOffset)` can be chained after `Ignore(string)` to specify a date after which the test case
   should no longer be ignored. Once the date passes, the test will run automatically. (_NUnit 4+_)
 
 ## Temporarily ignoring test cases with Until
 
-The **Until** method allows you to temporarily ignore a test case until a specific date. This is useful for tests
+The `Until` method allows you to temporarily ignore a test case until a specific date. This is useful for tests
 that are known to fail due to external factors (e.g., waiting for an API release, known bug in a dependency) but
 should automatically start running again after a certain date.
 

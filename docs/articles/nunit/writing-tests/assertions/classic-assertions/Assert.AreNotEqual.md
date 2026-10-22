@@ -4,7 +4,7 @@ uid: classic-assert-are-not-equal
 
 # Assert.AreNotEqual
 
-**Assert.AreNotEqual** tests whether the two arguments are unequal.
+`Assert.AreNotEqual` tests whether the two arguments are unequal.
 
 > [!NOTE]
 > From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy

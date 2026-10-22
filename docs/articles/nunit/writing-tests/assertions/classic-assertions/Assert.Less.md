@@ -4,7 +4,7 @@ uid: classic-assert-less
 
 # Assert.Less
 
-**Assert.Less** tests whether one object is less than another.
+`Assert.Less` tests whether one object is less than another.
 Contrary to the normal order of Asserts, these methods are designed to be
 read in the "natural" English-language or mathematical order. Thus
 **Assert.Less(x, y)** asserts that x is less than y (x < y).

@@ -4,7 +4,7 @@ uid: special-assert-fail
 
 # Assert.Fail
 
-The **Assert.Fail** method provides you with the ability to generate a failure based
+The `Assert.Fail` method provides you with the ability to generate a failure based
 on tests that are not encapsulated by the other methods. It is also useful in
 developing your own project-specific assertions.
 

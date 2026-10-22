@@ -57,7 +57,7 @@ expecting case-level tagging; that attaches to the **fixture** metadata instead 
 ## Usage
 
 Consider a test of the divide operation, taking three arguments: the numerator, the denominator and the expected result.
-We can specify the test and its data using one of the forms of **TestCaseSourceAttribute**:
+We can specify the test and its data using one of the forms of `TestCaseSourceAttribute`:
 
 ### Form 1 - `[TestCaseSource(string sourceName)]`
 
@@ -231,10 +231,10 @@ In constructing tests, NUnit uses each item returned by the enumerator as follow
 Individual test cases are executed in the order in which NUnit discovers them. This order does **not** follow the
 lexical order of the attributes and will often vary between different compilers or different versions of the CLR.
 
-As a result, when **TestCaseSourceAttribute** appears multiple times on a method or when other data-providing attributes
-are used in combination with **TestCaseSourceAttribute**, the order of the test cases is undefined.
+As a result, when `TestCaseSourceAttribute` appears multiple times on a method or when other data-providing attributes
+are used in combination with `TestCaseSourceAttribute`, the order of the test cases is undefined.
 
-However, when a single **TestCaseSourceAttribute** is used by itself, the order of the tests follows exactly the order
+However, when a single `TestCaseSourceAttribute` is used by itself, the order of the tests follows exactly the order
 in which the test cases are returned from the source.
 
 ### Object Construction

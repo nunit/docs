@@ -4,7 +4,7 @@ uid: classic-assert-true
 
 # Assert.True
 
-**Assert.True** and **Assert.IsTrue** test that the specified condition is true.
+`Assert.True` and `Assert.IsTrue` test that the specified condition is true.
 The two forms are provided for compatibility with past versions of NUnit and
 NUnitLite.
 
@@ -23,7 +23,7 @@ Assert.IsTrue(bool condition);
 Assert.IsTrue(bool condition, string message, params object[] params);
 ```
 
-You can also use **Assert.That** with a Boolean argument to achieve the
+You can also use `Assert.That` with a Boolean argument to achieve the
 same result.
 
 [!code-csharp[TrueExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#TrueExamples)]

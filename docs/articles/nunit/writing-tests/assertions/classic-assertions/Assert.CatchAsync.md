@@ -4,7 +4,7 @@ uid: classic-assert-catch-async
 
 # Assert.CatchAsync
 
-**Assert.CatchAsync** is similar to [Assert.ThrowsAsync](Assert.ThrowsAsync.md) but will pass for an exception that is derived from the one specified.
+`Assert.CatchAsync` is similar to [Assert.ThrowsAsync](Assert.ThrowsAsync.md) but will pass for an exception that is derived from the one specified.
 
 ```csharp
 Task<Exception> Assert.CatchAsync(Func<Task> asyncCode);

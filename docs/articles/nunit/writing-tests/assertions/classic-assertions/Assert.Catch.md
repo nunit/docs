@@ -4,7 +4,7 @@ uid: classic-assert-catch
 
 # Assert.Catch
 
-**Assert.Catch** is similar to **Assert.Throws** but will pass for an exception
+`Assert.Catch` is similar to `Assert.Throws` but will pass for an exception
 that is derived from the one specified.
 
 ```csharp

@@ -34,16 +34,16 @@ public class MyExtension : IProjectLoader
 
 The `ExtensionAttribute` has four named properties, all optional:
 
-* **Path** This is a string that uniquely identifies the extension point to which the extension applies. It is only
+* `Path` This is a string that uniquely identifies the extension point to which the extension applies. It is only
   rarely needed, since NUnit can usually deduce the type of extension based on what interface is implemented by the
   extension class.
 
-* **Description** An optional description of what the extension does.
+* `Description` An optional description of what the extension does.
 
-* **Enabled** A boolean flag indicating whether the extension is enabled. This defaults to true. The setting is used by
+* `Enabled` A boolean flag indicating whether the extension is enabled. This defaults to true. The setting is used by
   advanced extensions with functionality that is turned on and off depending on user input.
 
-* **EngineVersion** The minimum engine version supported by the extension. Although optional, you should use this
+* `EngineVersion` The minimum engine version supported by the extension. Although optional, you should use this
   property if your extension will not work with all versions of the engine. If you don't use it and your extension
   requires engine services that are not present, then it might throw an exception or cause other errors.
 

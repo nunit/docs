@@ -28,11 +28,11 @@ At this time, after upgrading the NUnit engine package, you have to manually adj
 that are added automatically by the package and adding an Alias. We will try to eliminate this manual step in the
 future.
 
-For each of the **NUnit3TestAdapter**, **NUnit3TestAdapterTests** and **NUnit3TestAdapterInstall** projects, remove
+For each of the `NUnit3TestAdapter`, `NUnit3TestAdapterTests` and `NUnit3TestAdapterInstall` projects, remove
 references to nunit-agent and nunit-agent-x86, leaving only the four Mono.Cecil references, nunit.engine and
 nunit.engine.api.
 
-For the **NUnit3TestAdapter** project, modify the properties for nunit-engine by entering "ENG" for Aliases.
+For the `NUnit3TestAdapter` project, modify the properties for nunit-engine by entering "ENG" for Aliases.
 
 ### Versioning
 
@@ -68,10 +68,10 @@ Run this from the solution root folder
 
 The resulting files can be found in the "package" folder:
 
-* **NUnit3TestAdapter-[VERSION].zip**  This is a zipped package for use with TFS Server Builds when you don't use the
+* `NUnit3TestAdapter-[VERSION].zip`  This is a zipped package for use with TFS Server Builds when you don't use the
   NuGet package in your solution. See  [this blog] for more information.
 
-* **NUnit3TestAdapter.[VERSION].nupkg** This is the NuGet package, which is uploaded to [NuGet for the adapter]
+* `NUnit3TestAdapter.[VERSION].nupkg` This is the NuGet package, which is uploaded to [NuGet for the adapter]
 
 ### Testing the Packages
 
