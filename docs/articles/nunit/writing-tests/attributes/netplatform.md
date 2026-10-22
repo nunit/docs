@@ -26,22 +26,22 @@ NetPlatformAttribute()
 NetPlatformAttribute(string platforms)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter   | Type     | Description                                 |
+| ----------- | -------- | ------------------------------------------- |
 | `platforms` | `string` | Comma-delimited list of included platforms. |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
-| `Include` | `string` | Comma-delimited platform list that should run. | `null` |
-| `Exclude` | `string` | Comma-delimited platform list that should be skipped. | `null` |
+| Property  | Type     | Description                                           | Default |
+| --------- | -------- | ----------------------------------------------------- | ------- |
+| `Include` | `string` | Comma-delimited platform list that should run.        | `null`  |
+| `Exclude` | `string` | Comma-delimited platform list that should be skipped. | `null`  |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 ## Test Fixture Syntax
 
@@ -69,15 +69,15 @@ You can specify minimum version requirements for platforms:
 
 The following platform names are supported, matching the .NET SDK's supported platform identifiers:
 
-| Platform | Description |
-| ---------- | ------------- |
-| `windows` | Microsoft Windows |
-| `linux` | Linux distributions |
-| `macos` | Apple macOS |
-| `android` | Android |
-| `ios` | Apple iOS |
-| `tvos` | Apple tvOS |
-| `watchos` | Apple watchOS |
+| Platform  | Description            |
+| --------- | ---------------------- |
+| `windows` | Microsoft Windows      |
+| `linux`   | Linux distributions    |
+| `macos`   | Apple macOS            |
+| `android` | Android                |
+| `ios`     | Apple iOS              |
+| `tvos`    | Apple tvOS             |
+| `watchos` | Apple watchOS          |
 | `browser` | WebAssembly in browser |
 
 ### Version Specifiers
@@ -95,12 +95,12 @@ Platform names can include version numbers to specify minimum version requiremen
 
 ## Comparison with PlatformAttribute
 
-| Feature | NetPlatformAttribute | PlatformAttribute |
-| --------- | --------------------- | ------------------- |
-| Platform names | .NET SDK style (`windows`, `linux`, `macos`) | Legacy style (`Win`, `Unix`, `MacOsX`) |
-| Version support | Full version specifiers (`windows10.0.19041`) | Limited version support |
-| Runtime detection | Uses `OperatingSystem.IsOSPlatform()` | Uses custom detection logic |
-| Analyzer support | Compatible with CA1416 | Not compatible |
+| Feature           | NetPlatformAttribute                          | PlatformAttribute                      |
+| ----------------- | --------------------------------------------- | -------------------------------------- |
+| Platform names    | .NET SDK style (`windows`, `linux`, `macos`)  | Legacy style (`Win`, `Unix`, `MacOsX`) |
+| Version support   | Full version specifiers (`windows10.0.19041`) | Limited version support                |
+| Runtime detection | Uses `OperatingSystem.IsOSPlatform()`         | Uses custom detection logic            |
+| Analyzer support  | Compatible with CA1416                        | Not compatible                         |
 
 ## See Also
 

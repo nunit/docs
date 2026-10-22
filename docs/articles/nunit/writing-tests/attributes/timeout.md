@@ -15,25 +15,25 @@ uid: attribute-timeout
 TimeoutAttribute(int timeout)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter | Type  | Description                        |
+| --------- | ----- | ---------------------------------- |
 | `timeout` | `int` | The timeout value in milliseconds. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 ## .NET 5+ Alternatives
 
 Since `Thread.Abort()` was removed in .NET 5, this attribute no longer works reliably. Use these alternatives:
 
-| Alternative | Description |
-|-------------|-------------|
+| Alternative                               | Description                                                                        |
+| ----------------------------------------- | ---------------------------------------------------------------------------------- |
 | [CancelAfter](xref:attribute-cancelafter) | Cooperative cancellation via `CancellationToken`. Your test must handle the token. |
-| [MaxTime](xref:attribute-maxtime) | Reports tests that exceed expected time, but doesn't cancel them. |
-| `dotnet test --blame-hang-timeout` | Aborts the entire test run if any test exceeds the timeout. |
+| [MaxTime](xref:attribute-maxtime)         | Reports tests that exceed expected time, but doesn't cancel them.                  |
+| `dotnet test --blame-hang-timeout`        | Aborts the entire test run if any test exceeds the timeout.                        |
 
 ## Example (.NET Framework Only)
 

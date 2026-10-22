@@ -16,8 +16,8 @@ This legacy attribute is deprecated and should be replaced with `[OneTimeTearDow
 ## Applies To
 
 | Lifecycle Methods | Test Methods | Test Fixtures (Classes) | Assembly |
-|-------------------|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ | ❌ |
+| ----------------- | ------------ | ----------------------- | -------- |
+| ✅                | ❌           | ❌                      | ❌       |
 
 ## See Also
 

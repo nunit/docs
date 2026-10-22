@@ -2,13 +2,13 @@
 
 ## The same value has been provided as both the actual and the expected argument
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2009
-| Severity | Warning
-| Enabled  | True
-| Category | Assertion
-| Code     | [SameActualExpectedValueAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/SameActualExpectedValue/SameActualExpectedValueAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                  |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2009                                                                                                                                                              |
+| Severity | Warning                                                                                                                                                                |
+| Enabled  | True                                                                                                                                                                   |
+| Category | Assertion                                                                                                                                                              |
+| Code     | [SameActualExpectedValueAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/SameActualExpectedValue/SameActualExpectedValueAnalyzer.cs) |
 
 ## Description
 

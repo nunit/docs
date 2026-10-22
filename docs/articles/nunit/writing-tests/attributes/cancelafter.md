@@ -12,15 +12,15 @@ uid: attribute-cancelafter
 CancelAfterAttribute(int timeout)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter | Type  | Description                                                                                                                 |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------------------- |
 | `timeout` | `int` | Timeout in milliseconds. When exceeded, the cancellation token supplied to the test is canceled (cooperative cancellation). |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ❌       |
 
 > [!NOTE]
 > Applying `CancelAfter` to a fixture sets the default timeout for tests in that fixture unless overridden at method level.

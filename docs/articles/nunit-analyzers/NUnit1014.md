@@ -2,13 +2,13 @@
 
 ## The async test method must have a Task\<T> return type when a result is expected
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1014
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                          |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1014                                                                                                                                      |
+| Severity | Error                                                                                                                                          |
+| Enabled  | True                                                                                                                                           |
+| Category | Structure                                                                                                                                      |
+| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs) |
 
 ## Description
 

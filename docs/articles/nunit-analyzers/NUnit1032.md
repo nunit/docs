@@ -2,13 +2,13 @@
 
 ## An IDisposable field/property should be Disposed in a TearDown method
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1032
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [DisposeFieldsAndPropertiesInTearDownAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DisposeFieldsAndPropertiesInTearDown/DisposeFieldsAndPropertiesInTearDownAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                                                         |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit1032                                                                                                                                                                                                     |
+| Severity | Error                                                                                                                                                                                                         |
+| Enabled  | True                                                                                                                                                                                                          |
+| Category | Structure                                                                                                                                                                                                     |
+| Code     | [DisposeFieldsAndPropertiesInTearDownAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DisposeFieldsAndPropertiesInTearDown/DisposeFieldsAndPropertiesInTearDownAnalyzer.cs) |
 
 ## Description
 

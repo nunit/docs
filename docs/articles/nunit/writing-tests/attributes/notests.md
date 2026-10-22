@@ -20,15 +20,15 @@ vary. `NoTestsAttribute` chooses the `TestStatus` reported when no executable ch
 NoTestsAttribute(TestStatus defaultStatus)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter       | Type         | Description                                                                          |
+| --------------- | ------------ | ------------------------------------------------------------------------------------ |
 | `defaultStatus` | `TestStatus` | Result when no child tests exist (`Skipped`, `Inconclusive`, `Passed`, or `Failed`). |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 Most specific scope (method) wins over fixture and assembly.
 
@@ -36,12 +36,12 @@ Most specific scope (method) wins over fixture and assembly.
 
 Typical uses:
 
-| Value | Meaning |
-|-------|---------|
-| `TestStatus.Skipped` | Marked skipped when no cases |
-| `TestStatus.Inconclusive` | Indeterminate empty data |
-| `TestStatus.Passed` | Passed with no cases (use carefully) |
-| `TestStatus.Failed` | Default for `Theory` with no cases |
+| Value                     | Meaning                              |
+| ------------------------- | ------------------------------------ |
+| `TestStatus.Skipped`      | Marked skipped when no cases         |
+| `TestStatus.Inconclusive` | Indeterminate empty data             |
+| `TestStatus.Passed`       | Passed with no cases (use carefully) |
+| `TestStatus.Failed`       | Default for `Theory` with no cases   |
 
 ## Test Fixture Syntax
 

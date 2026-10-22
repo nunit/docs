@@ -44,9 +44,9 @@ When the actual value is a collection, `Does.Contain` tests for item membership:
 
 `ContainsConstraint` defers its behavior until the actual value's type is known:
 
-| Actual Type | Behavior |
-|-------------|----------|
-| `string` | Uses [SubstringConstraint](SubstringConstraint.md) to test for substring |
+| Actual Type            | Behavior                                                                     |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| `string`               | Uses [SubstringConstraint](SubstringConstraint.md) to test for substring     |
 | Collection/IEnumerable | Uses [SomeItemsConstraint](SomeItemsConstraint.md) to test for item presence |
 
 ## Notes

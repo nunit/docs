@@ -14,22 +14,22 @@ This is primarily needed for tests that interact with COM objects, Windows Forms
 ApartmentAttribute(ApartmentState apartmentState)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter        | Type             | Description                                                               |
+| ---------------- | ---------------- | ------------------------------------------------------------------------- |
 | `apartmentState` | `ApartmentState` | The apartment state for the test. Must be `STA` or `MTA` (not `Unknown`). |
 
 ## ApartmentState Values
 
-| Value | Description |
-|-------|-------------|
+| Value                | Description                                                                               |
+| -------------------- | ----------------------------------------------------------------------------------------- |
 | `ApartmentState.STA` | Single-Threaded Apartment. Required for most UI components (WinForms, WPF, COM controls). |
-| `ApartmentState.MTA` | Multi-Threaded Apartment. The default for NUnit tests. |
+| `ApartmentState.MTA` | Multi-Threaded Apartment. The default for NUnit tests.                                    |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 When applied at multiple levels, the most specific level takes precedence.
 

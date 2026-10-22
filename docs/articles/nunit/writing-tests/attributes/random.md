@@ -14,9 +14,9 @@ uid: attribute-random
 RandomAttribute(int count)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `count` | `int` | The number of random values to generate. The type is inferred from the parameter. |
+| Parameter | Type  | Description                                                                       |
+| --------- | ----- | --------------------------------------------------------------------------------- |
+| `count`   | `int` | The number of random values to generate. The type is inferred from the parameter. |
 
 ### With Range (Type-specific)
 
@@ -26,34 +26,34 @@ RandomAttribute(double min, double max, int count)
 // Also available for: uint, long, ulong, short, ushort, byte, sbyte, float
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `min` | varies | The minimum value (inclusive). |
-| `max` | varies | The maximum value (exclusive). |
-| `count` | `int` | The number of random values to generate. |
+| Parameter | Type   | Description                              |
+| --------- | ------ | ---------------------------------------- |
+| `min`     | varies | The minimum value (inclusive).           |
+| `max`     | varies | The maximum value (exclusive).           |
+| `count`   | `int`  | The number of random values to generate. |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
+| Property   | Type   | Description                                                        | Default |
+| ---------- | ------ | ------------------------------------------------------------------ | ------- |
 | `Distinct` | `bool` | When `true`, no value will be repeated among the generated values. | `false` |
 
 ## Applies To
 
 | Method Parameters | Test Methods | Test Fixtures (Classes) | Assembly |
-|-------------------|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ | ❌ |
+| ----------------- | ------------ | ----------------------- | -------- |
+| ✅                | ❌           | ❌                      | ❌       |
 
 ## Supported Types
 
-| Type | Count-only | With Range |
-|------|------------|------------|
-| `int`, `uint`, `long`, `ulong` | Yes | Yes |
-| `short`, `ushort`, `byte`, `sbyte` | Yes | Yes |
-| `double`, `float` | Yes | Yes |
-| `decimal` | Yes | No (use `int` or `double` range) |
-| `Guid` | Yes | No |
-| `enum` | Yes | No |
+| Type                               | Count-only | With Range                       |
+| ---------------------------------- | ---------- | -------------------------------- |
+| `int`, `uint`, `long`, `ulong`     | Yes        | Yes                              |
+| `short`, `ushort`, `byte`, `sbyte` | Yes        | Yes                              |
+| `double`, `float`                  | Yes        | Yes                              |
+| `decimal`                          | Yes        | No (use `int` or `double` range) |
+| `Guid`                             | Yes        | No                               |
+| `enum`                             | Yes        | No                               |
 
 ## Examples
 

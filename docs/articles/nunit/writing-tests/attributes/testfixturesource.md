@@ -16,23 +16,23 @@ TestFixtureSourceAttribute(Type sourceType, string sourceName)
 TestFixtureSourceAttribute(Type sourceType)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `sourceName` | `string` | Name of the source member used to provide fixture arguments. |
-| `sourceType` | `Type` | Type containing the source member, or implementing `IEnumerable` in form 3. |
+| Parameter    | Type     | Description                                                                 |
+| ------------ | -------- | --------------------------------------------------------------------------- |
+| `sourceName` | `string` | Name of the source member used to provide fixture arguments.                |
+| `sourceType` | `Type`   | Type containing the source member, or implementing `IEnumerable` in form 3. |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
-| `Category` | `string` | Category (or comma-separated categories) applied to each generated fixture. | `null` |
-| `TypeArgs` | `Type[]` | Explicit generic type arguments for generated fixture instances. | `null` |
+| Property   | Type     | Description                                                                 | Default |
+| ---------- | -------- | --------------------------------------------------------------------------- | ------- |
+| `Category` | `string` | Category (or comma-separated categories) applied to each generated fixture. | `null`  |
+| `TypeArgs` | `Type[]` | Explicit generic type arguments for generated fixture instances.            | `null`  |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ❌ | ✅ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ❌           | ✅                      | ❌       |
 
 ## Usage
 

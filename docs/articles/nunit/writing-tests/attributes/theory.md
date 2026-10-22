@@ -22,15 +22,15 @@ make general statements and are more than just a set of examples.
 TheoryAttribute(bool searchInDeclaringTypes = false)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter                | Type   | Description                                                                          |
+| ------------------------ | ------ | ------------------------------------------------------------------------------------ |
 | `searchInDeclaringTypes` | `bool` | When `true`, datapoints are resolved on declaring types as well. Default is `false`. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ❌                      | ❌       |
 
 ## Data for Theories
 

@@ -15,10 +15,10 @@ property or field to hold the arguments. In addition, some attributes identify c
 necessary arguments, while others only provide data for a single argument. This gives rise to four groups of attributes,
 as shown in the following table.
 
-|              | Complete Test Cases          | Data for One Argument |
-|--------------|------------------------------|-----------------------|
-| **Inline**   | [TestCase Attribute](xref:attribute-testcase)       | [Random Attribute](xref:attribute-random), [Range Attribute](xref:attribute-range), [Values Attribute](xref:attribute-values) |
-| **Separate** | [TestCaseSource Attribute](xref:attribute-testcasesource) | [ValueSource Attribute](xref:attribute-valuesource) |
+|              | Complete Test Cases                                       | Data for One Argument                                                                                                         |
+| ------------ | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Inline**   | [TestCase Attribute](xref:attribute-testcase)             | [Random Attribute](xref:attribute-random), [Range Attribute](xref:attribute-range), [Values Attribute](xref:attribute-values) |
+| **Separate** | [TestCaseSource Attribute](xref:attribute-testcasesource) | [ValueSource Attribute](xref:attribute-valuesource)                                                                           |
 
 In addition, when data is specified for individual arguments, special attributes may be added to the test method itself
 in order to tell NUnit how to go about combining the arguments. Currently, the following attributes are provided:

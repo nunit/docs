@@ -2,13 +2,13 @@
 
 ## Use StartsWithConstraint for better assertion messages in case of failure
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2012
-| Severity | Info
-| Enabled  | True
-| Category | Assertion
-| Code     | [StringConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                                      |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2012                                                                                                                                                  |
+| Severity | Info                                                                                                                                                       |
+| Enabled  | True                                                                                                                                                       |
+| Category | Assertion                                                                                                                                                  |
+| Code     | [StringConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ConstraintUsage/StringConstraintUsageAnalyzer.cs) |
 
 ## Description
 

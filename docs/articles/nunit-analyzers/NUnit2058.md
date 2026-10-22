@@ -2,13 +2,13 @@
 
 ## The constraint is misused
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2058
-| Severity | Warning
-| Enabled  | True
-| Category | Assertion
-| Code     | [MisusedConstraintsAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/MisusedConstraints/MisusedConstraintsAnalyzer.cs)
+| Topic    | Value                                                                                                                                                   |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit2058                                                                                                                                               |
+| Severity | Warning                                                                                                                                                 |
+| Enabled  | True                                                                                                                                                    |
+| Category | Assertion                                                                                                                                               |
+| Code     | [MisusedConstraintsAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/MisusedConstraints/MisusedConstraintsAnalyzer.cs) |
 
 ## Description
 

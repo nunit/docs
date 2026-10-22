@@ -18,15 +18,15 @@ uid: attribute-order
 OrderAttribute(int order)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `order` | `int` | The order value. Tests are started in ascending order of this value. Lower values run first. |
+| Parameter | Type  | Description                                                                                  |
+| --------- | ----- | -------------------------------------------------------------------------------------------- |
+| `order`   | `int` | The order value. Tests are started in ascending order of this value. Lower values run first. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ❌       |
 
 > [!NOTE]
 > For fixtures, `Order` orders fixtures within their containing namespace. For test methods, it orders tests within their containing fixture.

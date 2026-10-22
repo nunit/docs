@@ -25,11 +25,11 @@ Use **named parameters** (properties on the attribute) for metadata and for chec
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
-| `Description` | `string?` | Descriptive text for the test. Equivalent to applying [`Description`](xref:attribute-description). | `null` |
-| `Author` | `string?` | Author metadata. Equivalent to applying [`Author`](xref:attribute-author). | `null` |
-| `TestOf` | `Type?` | Type under test. Equivalent to applying [`TestOf`](xref:attribute-testof). | `null` |
+| Property         | Type      | Description                                                                                                     | Default |
+| ---------------- | --------- | --------------------------------------------------------------------------------------------------------------- | ------- |
+| `Description`    | `string?` | Descriptive text for the test. Equivalent to applying [`Description`](xref:attribute-description).              | `null`  |
+| `Author`         | `string?` | Author metadata. Equivalent to applying [`Author`](xref:attribute-author).                                      | `null`  |
+| `TestOf`         | `Type?`   | Type under test. Equivalent to applying [`TestOf`](xref:attribute-testof).                                      | `null`  |
 | `ExpectedResult` | `object?` | Expected return value; NUnit compares it to the method result. **Not valid** if the test method has parameters. | (unset) |
 
 If the test method returns a value and you set `ExpectedResult`, NUnit checks equality with the return value.
@@ -37,8 +37,8 @@ If the test method returns a value and you set `ExpectedResult`, NUnit checks eq
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ❌                      | ❌       |
 
 ## Example
 

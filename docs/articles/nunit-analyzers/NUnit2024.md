@@ -2,13 +2,13 @@
 
 ## Wrong actual type used with String Constraint
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2024
-| Severity | Error
-| Enabled  | True
-| Category | Assertion
-| Code     | [StringConstraintWrongActualTypeAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/StringConstraintWrongActualType/StringConstraintWrongActualTypeAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                                          |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2024                                                                                                                                                                                      |
+| Severity | Error                                                                                                                                                                                          |
+| Enabled  | True                                                                                                                                                                                           |
+| Category | Assertion                                                                                                                                                                                      |
+| Code     | [StringConstraintWrongActualTypeAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/StringConstraintWrongActualType/StringConstraintWrongActualTypeAnalyzer.cs) |
 
 ## Description
 

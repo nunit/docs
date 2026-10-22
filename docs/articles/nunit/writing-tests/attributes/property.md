@@ -14,22 +14,22 @@ PropertyAttribute(string propertyName, int propertyValue)
 PropertyAttribute(string propertyName, double propertyValue)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `propertyName` | `string` | The name of the property. |
+| Parameter       | Type                         | Description                |
+| --------------- | ---------------------------- | -------------------------- |
+| `propertyName`  | `string`                     | The name of the property.  |
 | `propertyValue` | `string`, `int`, or `double` | The value of the property. |
 
 ## Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
+| Property     | Type           | Description                                      |
+| ------------ | -------------- | ------------------------------------------------ |
 | `Properties` | `IPropertyBag` | Gets the property dictionary for this attribute. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 > [!NOTE]
 > When applied to a fixture or assembly, the property is applied to all tests contained within that fixture or assembly.

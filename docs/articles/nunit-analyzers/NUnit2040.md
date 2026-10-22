@@ -2,13 +2,13 @@
 
 ## Non-reference types for SameAs constraint
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2040
-| Severity | Error
-| Enabled  | True
-| Category | Assertion
-| Code     | [SameAsOnValueTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/SameAsOnValueTypes/SameAsOnValueTypesAnalyzer.cs)
+| Topic    | Value                                                                                                                                                   |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit2040                                                                                                                                               |
+| Severity | Error                                                                                                                                                   |
+| Enabled  | True                                                                                                                                                    |
+| Category | Assertion                                                                                                                                               |
+| Code     | [SameAsOnValueTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/SameAsOnValueTypes/SameAsOnValueTypesAnalyzer.cs) |
 
 ## Description
 

@@ -2,13 +2,13 @@
 
 ## Field/Property is initialized in SetUp or OneTimeSetUp method
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit3002
-| Severity | Info
-| Enabled  | True
-| Category | Suppressor
-| Code     | [NonNullableFieldOrPropertyIsUninitializedSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DiagnosticSuppressors/NonNullableFieldOrPropertyIsUninitializedSuppressor.cs)
+| Topic    | Value                                                                                                                                                                                                        |
+| :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit3002                                                                                                                                                                                                    |
+| Severity | Info                                                                                                                                                                                                         |
+| Enabled  | True                                                                                                                                                                                                         |
+| Category | Suppressor                                                                                                                                                                                                   |
+| Code     | [NonNullableFieldOrPropertyIsUninitializedSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DiagnosticSuppressors/NonNullableFieldOrPropertyIsUninitializedSuppressor.cs) |
 
 ## Description
 

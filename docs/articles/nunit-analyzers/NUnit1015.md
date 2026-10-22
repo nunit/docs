@@ -2,13 +2,13 @@
 
 ## The source type does not implement I(Async)Enumerable
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1015
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1015                                                                                                                                                            |
+| Severity | Error                                                                                                                                                                |
+| Enabled  | True                                                                                                                                                                 |
+| Category | Structure                                                                                                                                                            |
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs) |
 
 ## Description
 

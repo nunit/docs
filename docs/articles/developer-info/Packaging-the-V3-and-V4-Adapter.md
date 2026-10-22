@@ -41,11 +41,11 @@ under development, and will always be 0 for release versions.)
 
 The version numbers have to be edited in the following files, and should match:
 
-| File | Change |
-| ---- | ------ |
-| `AssemblyInfo.cs`, found in the NUnitTestAdapter project | change both file and assembly version number |
-| `appveyor.yml`, found under the Solution Items folder. | change the version number, but only use the three first digits.|
-| `build.cake`, found under the Solution Items folder. | change the version number, but only use the three first digits.|
+| File                                                     | Change                                                          |
+| -------------------------------------------------------- | --------------------------------------------------------------- |
+| `AssemblyInfo.cs`, found in the NUnitTestAdapter project | change both file and assembly version number                    |
+| `appveyor.yml`, found under the Solution Items folder.   | change the version number, but only use the three first digits. |
+| `build.cake`, found under the Solution Items folder.     | change the version number, but only use the three first digits. |
 
 ## Build
 

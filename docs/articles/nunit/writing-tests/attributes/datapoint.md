@@ -19,8 +19,8 @@ This is a parameterless attribute that can only be applied to fields.
 ## Applies To
 
 | Field | Test Methods | Test Fixtures (Classes) | Assembly |
-|-------|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ | ❌ |
+| ----- | ------------ | ----------------------- | -------- |
+| ✅    | ❌           | ❌                      | ❌       |
 
 > [!NOTE]
 > The field type must exactly match the Theory parameter type - no implicit conversions are performed.
@@ -43,9 +43,9 @@ This is a parameterless attribute that can only be applied to fields.
 
 NUnit automatically supplies datapoints for certain types:
 
-| Type | Automatic Values |
-|------|-----------------|
-| `bool` | `true`, `false` |
+| Type       | Automatic Values        |
+| ---------- | ----------------------- |
+| `bool`     | `true`, `false`         |
 | Any `enum` | All defined enum values |
 
 If you supply any datapoints for a parameter type, automatic datapoint generation for that type is suppressed.

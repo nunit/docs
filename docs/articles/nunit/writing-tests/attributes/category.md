@@ -13,23 +13,23 @@ CategoryAttribute(string name)
 protected CategoryAttribute()  // For derived classes
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `name` | `string` | The name of the category. May not contain `,`, `+`, `-`, or `!` characters. |
+| Parameter | Type     | Description                                                                 |
+| --------- | -------- | --------------------------------------------------------------------------- |
+| `name`    | `string` | The name of the category. May not contain `,`, `+`, `-`, or `!` characters. |
 
 The protected parameterless constructor is used when creating custom category attributes - it sets the category name to the derived class name (minus the "Attribute" suffix).
 
 ## Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `Name` | `string` | Gets the name of the category. |
+| Property | Type     | Description                    |
+| -------- | -------- | ------------------------------ |
+| `Name`   | `string` | Gets the name of the category. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 > [!WARNING]
 > While the C# syntax allows you to place a Category attribute on a SetUpFixture class, the attribute is ignored by NUnit and has no effect.

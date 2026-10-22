@@ -2,13 +2,13 @@
 
 ## Use ComparisonConstraint for better assertion messages in case of failure
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2043
-| Severity | Info
-| Enabled  | True
-| Category | Assertion
-| Code     | [ComparisonConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ConstraintUsage/ComparisonConstraintUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                                              |
+| :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2043                                                                                                                                                          |
+| Severity | Info                                                                                                                                                               |
+| Enabled  | True                                                                                                                                                               |
+| Category | Assertion                                                                                                                                                          |
+| Code     | [ComparisonConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ConstraintUsage/ComparisonConstraintUsageAnalyzer.cs) |
 
 ## Description
 

@@ -21,15 +21,15 @@ ValuesAttribute(object arg1, object arg2, object arg3)
 ValuesAttribute(params object[] args)
 ```
 
-| Parameter | Type        | Description                                |
-|-----------|-------------|--------------------------------------------|
-| `args`    | `object[]`  | Literal values supplied for the parameter. |
+| Parameter | Type       | Description                                |
+| --------- | ---------- | ------------------------------------------ |
+| `args`    | `object[]` | Literal values supplied for the parameter. |
 
 ## Applies To
 
 | Method Parameters | Test Methods | Test Fixtures (Classes) | Assembly |
-|-------------------|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ | ❌ |
+| ----------------- | ------------ | ----------------------- | -------- |
+| ✅                | ❌           | ❌                      | ❌       |
 
 ## Example
 

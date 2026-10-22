@@ -19,8 +19,8 @@ This is a parameterless attribute that can only be applied to classes.
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly | Helper Classes |
-|--------------|--------------------------|----------|----------------|
-| ❌ | ❌ | ❌ | ✅ |
+| ------------ | ----------------------- | -------- | -------------- |
+| ❌           | ❌                      | ❌       | ✅             |
 
 There are a few restrictions on a class that is used as a setup fixture.
 

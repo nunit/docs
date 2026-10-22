@@ -23,12 +23,12 @@ See **Usage** below for when to use each form.
 
 ## Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `Category` | `string?` | Assigns categories to **every** test case produced from this source. |
-| `SourceName` | `string?` | Resolved source member name (if applicable). |
-| `SourceType` | `Type?` | External type supplying the source (if applicable). |
-| `MethodParams` | `object?[]?` | Arguments forwarded to a parameterized source method. |
+| Property       | Type         | Description                                                          |
+| -------------- | ------------ | -------------------------------------------------------------------- |
+| `Category`     | `string?`    | Assigns categories to **every** test case produced from this source. |
+| `SourceName`   | `string?`    | Resolved source member name (if applicable).                         |
+| `SourceType`   | `Type?`      | External type supplying the source (if applicable).                  |
+| `MethodParams` | `object?[]?` | Arguments forwarded to a parameterized source method.                |
 
 ## Named parameters
 
@@ -51,8 +51,8 @@ expecting case-level tagging; that attaches to the **fixture** metadata instead 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ❌                      | ❌       |
 
 ## Usage
 

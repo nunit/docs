@@ -14,15 +14,15 @@ You can apply it at method, fixture, or assembly scope.
 DefaultFloatingPointToleranceAttribute(double tolerance)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter   | Type     | Description                                                                                        |
+| ----------- | -------- | -------------------------------------------------------------------------------------------------- |
 | `tolerance` | `double` | The default tolerance used for floating-point comparisons when no explicit tolerance is specified. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 > [!NOTE]
 > When applied at fixture or assembly level, this default tolerance applies to all contained tests unless overridden by a more specific scope or by an explicit tolerance in an assertion.
