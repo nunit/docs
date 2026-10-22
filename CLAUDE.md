@@ -74,3 +74,4 @@ Every PR gets a live preview at `https://pr-<number>.nunit-docs.pages.dev`, depl
 - `pr-preview.yml` runs with secrets (`workflow_run` and `pull_request_target`). It must never check out or execute code from a PR, and the build artifact it downloads is untrusted input.
 - The PR being deployed is resolved from GitHub run metadata (head repo, branch, sha), never from anything inside the artifact.
 - `.github/workflows/cloudflare-token-expiry.yml` opens an issue before the Cloudflare token expires; it needs no edits when the token is rotated.
+- PR builds prune `docs/legacy` (the frozen NUnit 2.x docs) down to each version's `docHome.html` before DocFX runs, so previews omit the 2.x pages. Builds on `master` publish the full site. The landing pages must stay because `docs/articles/legacy/index.md` links to them and DocFX validates those links.

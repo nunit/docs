@@ -11,6 +11,7 @@ Background and decision record: [nunit/docs#1264](https://github.com/nunit/docs/
 * Previews work for PRs from forks.
 * When the PR is closed or merged, the preview is deleted and the comment is updated to say so.
 * Previews are served with an `X-Robots-Tag: noindex` header, contain no sitemap, and have Google Analytics removed, so they never show up in search results or production analytics.
+* Previews omit the archived NUnit 2.x documentation (`docs/legacy`, served at `/2.x/`). Only each version's `docHome.html` landing page is included, so the [Legacy](https://docs.nunit.org/articles/legacy/index.html) page still works; any deeper 2.x link 404s on a preview. See [What previews leave out](#what-previews-leave-out).
 
 ## How it works
 
@@ -44,7 +45,7 @@ flowchart LR
 
 | File | Trigger | Runs with secrets? | Purpose |
 | --- | --- | --- | --- |
-| `.github/workflows/build-process.yml` | `pull_request`, `push` to `master` | No (on PRs) | Lint, spellcheck, build the site with DocFX, test snippets, upload `siteArtifact`. Unchanged by the preview feature. |
+| `.github/workflows/build-process.yml` | `pull_request`, `push` to `master` | No (on PRs) | Lint, spellcheck, build the site with DocFX, test snippets, upload `siteArtifact`. On `pull_request` only, prunes `docs/legacy` before the build (see below). |
 | `.github/workflows/pr-preview.yml` (`deploy` job) | `workflow_run` on build completion | Yes | Deploy the artifact to Cloudflare Pages and post the sticky comment. |
 | `.github/workflows/pr-preview.yml` (`cleanup` job) | `pull_request_target: closed` | Yes | Delete the PR's preview deployments and update the comment. |
 | `.github/workflows/cloudflare-token-expiry.yml` | Daily schedule, manual | Yes | Open an issue when the Cloudflare token is within 7 days of expiry or has stopped working. |
@@ -54,6 +55,12 @@ flowchart LR
 * **Which PR gets deployed** is decided from the triggering run's `head_repository`, `head_branch` and `head_sha`, which GitHub sets. The job looks up open PRs with that head via the GitHub API and deploys only if the PR's *current* head sha equals the run's sha. This means a build for a commit that has since been superseded is skipped, and a build that finishes after the PR was closed is skipped.
 * **Concurrency.** The `deploy` and `cleanup` jobs for the same PR head share one concurrency group with `cancel-in-progress: false` and `queue: max`, so jobs run one at a time in arrival order and pending jobs are queued rather than evicted. Two deploys cannot interleave, a late deploy cannot race a cleanup, and a cleanup that is waiting behind a running deploy is never dropped. Queued deploys for commits that have since been superseded simply skip when their turn comes.
 * **Cleanup** collects every deployment for the `pr-<number>` branch across all API pages first, then deletes them. The Cloudflare branch itself disappears once it has no deployments.
+
+### What previews leave out
+
+`docs/legacy` is the archived NUnit 2.x site (versions 2.2 to 2.6.4): about 2,700 static files and 30 MB that DocFX copies verbatim and that never change. That is over 60% of the files in the built site, so the `build` job in `build-process.yml` prunes it before DocFX runs, but only when the event is `pull_request`. Pushes to `master` build and publish the full site as before ([nunit/docs#1267](https://github.com/nunit/docs/issues/1267)).
+
+The prune keeps each version's `docHome.html` (36 files) and deletes everything else. The landing pages have to stay because `docs/articles/legacy/index.md` links to every one of them with `~/legacy/<version>/docHome.html`; DocFX validates those links against the files in the build, and under `--warningsAsErrors` a build with no legacy files fails with 36 `InvalidFileLink` warnings. The result is a preview of roughly 1,750 files and 73 MB instead of 4,400 files and 100 MB. Links from a landing page into the rest of that 2.x version 404 on a preview, which the sticky comment says.
 
 ## Security rules
 
@@ -69,11 +76,11 @@ If you need to add a step that does more than move static files, stop and recons
 
 ## Hosting
 
-* **Provider:** Cloudflare Pages (free plan), direct upload via Wrangler. Unlimited active preview deployments; limits are 20,000 files and 25 MiB per file per deployment. The site is roughly 4,400 files and 100 MB.
+* **Provider:** Cloudflare Pages (free plan), direct upload via Wrangler. Unlimited active preview deployments; limits are 20,000 files and 25 MiB per file per deployment. The full site is roughly 4,400 files and 100 MB; a preview is roughly 1,750 files and 73 MB because it omits the 2.x docs.
 * **Cloudflare account:** `NUnit`. Core team members hold the credentials.
 * **Pages project:** `nunit-docs`. Production branch is `master`, which the preview workflow never deploys to, so `nunit-docs.pages.dev` stays empty and every `pr-<number>` deployment is a *preview* deployment. Cloudflare adds `X-Robots-Tag: noindex` to all preview deployments automatically.
 * **URL shape:** `https://pr-<number>.nunit-docs.pages.dev` (branch alias, latest build) and `https://<hash>.nunit-docs.pages.dev` (one specific build).
-* **Clean URLs:** Pages redirects `/page.html` to `/page` with a 308. DocFX's scripts re-append `.html` before matching the table of contents, so navigation highlighting still works. The archived NUnit 2.x pages use root-relative asset paths, which is fine because each preview is served at its own domain root.
+* **Clean URLs:** Pages redirects `/page.html` to `/page` with a 308. DocFX's scripts re-append `.html` before matching the table of contents, so navigation highlighting still works. The archived NUnit 2.x landing pages use root-relative asset paths, which is fine because each preview is served at its own domain root.
 
 ## Secrets and the API token
 
