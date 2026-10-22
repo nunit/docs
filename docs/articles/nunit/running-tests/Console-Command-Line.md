@@ -58,7 +58,7 @@ beginning with 2.0. Without the V2 driver, only version 3.0 and higher tests may
 |`--result=SPEC` | An output SPEC for saving the test results. This option may be repeated. |
 |`--explore[=SPEC]` | Display or save test info rather than running tests. Optionally provide an output SPEC for saving the test info. This option may be repeated. |
 |`--noresult` | Don't save any test results. |
-|`--trace=LEVEL` | Set internal trace LEVEL. Values: Off, Error, Warning, Info, Verbose (Debug) |
+|`--trace=LEVEL` | Set internal trace LEVEL. Values: Off, Error, Warning, Info, Verbose (Debug). Output goes to log files in the work directory, not to the console. See [Internal Trace Output](#internal-trace-output) below. |
 |`--labels=VALUE` | Specify whether to write test case names to the output. Values: Off, OnOutputOnly, Before, After, BeforeAndAfter, On, or All. If not specified, defaults to Off. **Off**: No labeling is used. Both normal and immediate output appear in the order produced - i.e. immediate first. **OnOutputOnly**: A label appears before each sequence of output lines from the same test. Since tests may be run in parallel, output from different tests may be intermixed. **Before**: A label appears at the start of every test, whether it produces output or not. Additional labels are produced as needed if interspersed output takes place, just as for `--labels=OnOutputOnly`. **labels=After**: A label appears at the end of every test, whether it produced output or not. This label includes the pass/fail status of the test in addition to its name. Additional labels are produced as needed if there is any output, just as for `--labels=OnOutputOnly`. **BeforeAndAfter** A label appears at the start and end of every test, whether it produced output or not. The label at the end of the test includes the pass/fail status of the test in addition to its name. Additional labels are produced as needed if interspersed output takes place, just as for `--labels=OnOutputOnly`. **On**. Synonym for `--labels=OnOutputOnly`, now deprecated (will be removed in a future release). **All**: Synonym for `--labels=Before`, now deprecated (will be removed in a future release).|
 |`--test-name-format=VALUE` | Specify a non-standard naming pattern to use when generating all test names. See [Template Based Test Naming](Template-Based-Test-Naming.md). |
 |`--encoding=CODEPAGE` | Specify the Console CODEPAGE, such as utf-8, ascii, etc. This option is not normally needed unless your output includes special characters. The page specified must be available on the system. |
@@ -100,3 +100,19 @@ If --explore is used without any specification following, a list of test cases i
 If neither --result nor --explore is used, NUnit saves the results to TestResult.xml in nunit3 format.
 
 Any transforms provided must handle input in the native nunit3 format.
+
+### Internal Trace Output
+
+The `--trace` option turns on NUnit's **internal trace**, which records what the console runner, the engine and the
+agents are doing. It is intended for diagnosing problems in NUnit itself and is off by default.
+
+The trace is **not written to the console**. Each process writes its own log file to the work directory, which is the
+current directory unless `--work` is given:
+
+* The console runner and engine write `InternalTrace.<pid>.log`, where `<pid>` is the process id of the console
+  process.
+* Each agent process that runs tests writes its own file, named for the agent and its process id, for example
+  `nunit-agent_<pid>.log`.
+
+If you set `--trace` and see nothing on screen, look in the work directory for these files. They are only created when
+the level is anything other than `Off`.
