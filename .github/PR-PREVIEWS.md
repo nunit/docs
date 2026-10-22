@@ -52,7 +52,7 @@ flowchart LR
 ### Behaviour details
 
 * **Which PR gets deployed** is decided from the triggering run's `head_repository`, `head_branch` and `head_sha`, which GitHub sets. The job looks up open PRs with that head via the GitHub API and deploys only if the PR's *current* head sha equals the run's sha. This means a build for a commit that has since been superseded is skipped, and a build that finishes after the PR was closed is skipped.
-* **Concurrency.** The `deploy` and `cleanup` jobs for the same PR head share one concurrency group and never cancel a running job, so two deploys cannot interleave and a late deploy cannot race a cleanup. GitHub keeps at most one running and one pending job per group; if three or more deploys queue within about a minute, the middle one is dropped, but the newest still deploys.
+* **Concurrency.** The `deploy` and `cleanup` jobs for the same PR head share one concurrency group with `cancel-in-progress: false` and `queue: max`, so jobs run one at a time in arrival order and pending jobs are queued rather than evicted. Two deploys cannot interleave, a late deploy cannot race a cleanup, and a cleanup that is waiting behind a running deploy is never dropped. Queued deploys for commits that have since been superseded simply skip when their turn comes.
 * **Cleanup** collects every deployment for the `pr-<number>` branch across all API pages first, then deletes them. The Cloudflare branch itself disappears once it has no deployments.
 
 ## Security rules

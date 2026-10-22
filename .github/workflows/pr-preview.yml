@@ -40,11 +40,13 @@ jobs:
     permissions:
       actions: read # download artifacts from the triggering run
       pull-requests: write # post the preview link comment
-    # Deploys and the cleanup job for the same PR head share one group and never cancel each
-    # other, so a late deploy cannot race a cleanup and two deploys cannot interleave.
+    # Deploys and the cleanup job for the same PR head share one group, never cancel each
+    # other, and queue instead of evicting pending runs, so a late deploy cannot race a
+    # cleanup, two deploys cannot interleave, and a pending cleanup is never dropped.
     concurrency:
       group: pr-preview-${{ github.event.workflow_run.head_repository.full_name }}-${{ github.event.workflow_run.head_branch }}
       cancel-in-progress: false
+      queue: max
     steps:
       - name: Resolve the pull request from trusted run metadata
         id: pr
@@ -57,7 +59,8 @@ jobs:
           # The head repository/branch/sha of the triggering run are set by GitHub, not by the
           # PR. Only deploy if an OPEN PR with exactly that head still exists; this also skips
           # builds that have been superseded by a newer push.
-          pr="$(gh api "repos/$GITHUB_REPOSITORY/pulls?state=open&head=$HEAD_OWNER:$HEAD_BRANCH&per_page=20" \
+          # (-f/-F make gh URL-encode the values; branch names may contain +, #, & etc.)
+          pr="$(gh api --method GET -f state=open -f head="$HEAD_OWNER:$HEAD_BRANCH" -F per_page=20 "repos/$GITHUB_REPOSITORY/pulls" \
             | jq -c --arg sha "$HEAD_SHA" '[.[] | select(.head.sha == $sha)][0] // empty')"
           if [ -z "$pr" ]; then
             echo "No open PR with head $HEAD_OWNER:$HEAD_BRANCH at $HEAD_SHA (closed, or superseded by a newer commit). Nothing to deploy."
@@ -167,6 +170,7 @@ jobs:
     concurrency:
       group: pr-preview-${{ github.event.pull_request.head.repo.full_name }}-${{ github.event.pull_request.head.ref }}
       cancel-in-progress: false
+      queue: max
     steps:
       # This job runs with secrets, so it deliberately does not check out any code.
       - name: Delete Cloudflare Pages deployments for this PR
