@@ -146,6 +146,60 @@ public class MyFixtureData
     }
 }
 </code></pre>
+<p><strong>TestFixtureData</strong> supports the following properties and methods, which may be appended to an instance in any order.</p>
+<ul>
+<li><strong>Explicit()</strong> or <strong>Explicit(string)</strong> causes the fixture to be marked explicit, optionally specifying the reason
+for doing so.</li>
+<li><strong>Ignore(string)</strong> causes the fixture to be ignored and specifies the reason, which is required.</li>
+<li><strong>SetArgDisplayNames(string[])</strong> sets the list of display names to use as the parameters in the fixture name.</li>
+<li><strong>SetArgDisplayNames(object[])</strong> sets the list of display names using objects that are automatically formatted.
+(<em>NUnit 4.5+</em>)</li>
+<li><strong>TypeArgs</strong> specifies the <code>Type</code>s to be used when targeting a generic fixture.</li>
+</ul>
+<p>The following example uses the fluent interface to give each fixture a readable name, and to mark one fixture explicit
+and another ignored.</p>
+<pre><code class="lang-csharp" name="TestFixtureDataFluentExample">[TestFixtureSource(typeof(ServerFixtureData), nameof(ServerFixtureData.Servers))]
+public class ServerTests
+{
+    private readonly Uri _server;
+
+    public ServerTests(Uri server)
+    {
+        _server = server;
+    }
+
+    [Test]
+    public void UsesHttps()
+    {
+        Assert.That(_server.Scheme, Is.EqualTo(Uri.UriSchemeHttps));
+    }
+}
+
+public class ServerFixtureData
+{
+    public static IEnumerable Servers
+    {
+        get
+        {
+            // Fixture is named ServerTests(Production) instead of ServerTests(https://example.com/)
+            yield return new TestFixtureData(new Uri(&quot;https://example.com/&quot;))
+                .SetArgDisplayNames(&quot;Production&quot;);
+            yield return new TestFixtureData(new Uri(&quot;https://staging.example.com/&quot;))
+                .SetArgDisplayNames(&quot;Staging&quot;)
+                .Explicit(&quot;Only run against staging on demand&quot;);
+            yield return new TestFixtureData(new Uri(&quot;https://legacy.example.com/&quot;))
+                .SetArgDisplayNames(&quot;Legacy&quot;)
+                .Ignore(&quot;Legacy server is being decommissioned&quot;);
+        }
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Unlike <code>TestCaseData</code>, <code>TestFixtureData</code> has no public <code>SetName</code> method. To control how a fixture is named, use
+<code>SetArgDisplayNames</code>.</p>
+</div>
+
 </article>
           </div>
 
