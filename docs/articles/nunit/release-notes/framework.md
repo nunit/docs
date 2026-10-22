@@ -950,6 +950,11 @@ This release includes a series of enhancements and bug fixes. Notably, some of t
 
 Be aware that this might cause compile errors in cases where the code was previously ignored. These errors can be safely resolved by removing the affected code.
 
+**F# users:** the new `Is.EqualTo` overloads can cause the F# compiler to report *A unique overload for method 'EqualTo' could not be determined*
+when the expected value is a list or other collection. Specify the type argument, for example `Is.EqualTo<int list>([2; 3])`,
+to resolve the ambiguity. See [4920](https://github.com/nunit/nunit/issues/4920) and the
+[Equal Constraint](xref:constraint-equal) notes.
+
 There are 29 issues fixed in this release.
 
 ### Enhancements
