@@ -27,11 +27,11 @@ RangeAttribute(float from, float to, float step)
 RangeAttribute(double from, double to, double step)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `from` | numeric | First yielded value |
-| `to` | numeric | End of the progression; yielded while stepping **toward** this bound without crossing it |
-| `step` | numeric | Increment between values (**required** for `float`/`double`; when omitted on signed integral types `from`/`to`, NUnit uses **1 or −1**, matching whether `from` < `to` or `from` > `to`) |
+| Parameter | Type    | Description                                                                                                                                                                              |
+| --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `from`    | numeric | First yielded value                                                                                                                                                                      |
+| `to`      | numeric | End of the progression; yielded while stepping **toward** this bound without crossing it                                                                                                 |
+| `step`    | numeric | Increment between values (**required** for `float`/`double`; when omitted on signed integral types `from`/`to`, NUnit uses **1 or −1**, matching whether `from` < `to` or `from` > `to`) |
 
 Unsigned `uint` / `ulong` ranges require **`to` ≥ `from`** and a **positive** `step` (no automatic downward ranges).
 Floating-point generators stop at the **last** value reached before arithmetic would overshoot `to`; if `from`/`to`/step
@@ -40,8 +40,8 @@ produce no exact landing on `to`, **`to` itself might not appear**.
 ## Applies To
 
 | Method Parameters | Test Methods | Test Fixtures (Classes) | Assembly |
-|-------------------|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ | ❌ |
+| ----------------- | ------------ | ----------------------- | -------- |
+| ✅                | ❌           | ❌                      | ❌       |
 
 ## Example
 

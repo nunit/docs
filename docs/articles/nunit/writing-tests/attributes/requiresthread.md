@@ -13,15 +13,15 @@ RequiresThreadAttribute()
 RequiresThreadAttribute(ApartmentState apartment)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter   | Type             | Description                                                                 |
+| ----------- | ---------------- | --------------------------------------------------------------------------- |
 | `apartment` | `ApartmentState` | The apartment state for the thread. Must be `STA` or `MTA` (not `Unknown`). |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 ## Examples
 

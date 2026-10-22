@@ -13,16 +13,16 @@ ValueSourceAttribute(Type sourceType, string sourceName)
 ValueSourceAttribute(string sourceName)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `sourceType` | `Type` | Type that provides the source member. Optional. |
-| `sourceName` | `string` | Name of source field, property, or method. |
+| Parameter    | Type     | Description                                     |
+| ------------ | -------- | ----------------------------------------------- |
+| `sourceType` | `Type`   | Type that provides the source member. Optional. |
+| `sourceName` | `string` | Name of source field, property, or method.      |
 
 ## Applies To
 
 | Method Parameters | Test Methods | Test Fixtures (Classes) | Assembly |
-|-------------------|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ | ❌ |
+| ----------------- | ------------ | ----------------------- | -------- |
+| ✅                | ❌           | ❌                      | ❌       |
 
 ## Example
 

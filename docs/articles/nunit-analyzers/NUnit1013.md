@@ -2,13 +2,13 @@
 
 ## The async test method must have a non-generic Task return type when no result is expected
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1013
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                          |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1013                                                                                                                                      |
+| Severity | Error                                                                                                                                          |
+| Enabled  | True                                                                                                                                           |
+| Category | Structure                                                                                                                                      |
+| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs) |
 
 ## Description
 

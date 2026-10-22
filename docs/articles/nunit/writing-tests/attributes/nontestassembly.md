@@ -17,8 +17,8 @@ This is a parameterless attribute that can only be applied at the assembly level
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ❌ | ❌ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ❌           | ❌                      | ✅       |
 
 Typically placed in `AssemblyInfo.cs` or a global usings file.
 

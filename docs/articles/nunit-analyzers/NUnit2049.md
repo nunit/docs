@@ -2,13 +2,13 @@
 
 ## Consider using Assert.That(...) instead of CollectionAssert(...)
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2049
-| Severity | Warning
-| Enabled  | True
-| Category | Assertion
-| Code     | [CollectionAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/CollectionAssertUsage/CollectionAssertUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                                            |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2049                                                                                                                                                        |
+| Severity | Warning                                                                                                                                                          |
+| Enabled  | True                                                                                                                                                             |
+| Category | Assertion                                                                                                                                                        |
+| Code     | [CollectionAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/CollectionAssertUsage/CollectionAssertUsageAnalyzer.cs) |
 
 ## Description
 

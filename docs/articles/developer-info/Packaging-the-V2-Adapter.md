@@ -16,12 +16,12 @@ under development, and will always be 0 for release versions.)
 
 The version numbers have to be edited in the following files, and should match:
 
-| File | Change |
-| ---- | ------ |
-| `AssemblyInfo.cs`,  found in the NUnitTestAdapter project | change both file and assembly version number |
-| `source.extensions.vsixmanifest`, found under the NUnitTestAdapterInstall project | change Version tag |
-| `nunit-vs-adapter.build`, found under the Solution Items folder.| change the version number, but only use the two first digits. |
-| `license.rtf`, found under the NUNitTestAdapterInstall project. | If the major/minor number has changed, update that here, 2nd line. If year is changed, update copyright years accordingly.|
+| File                                                                              | Change                                                                                                                     |
+| --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `AssemblyInfo.cs`,  found in the NUnitTestAdapter project                         | change both file and assembly version number                                                                               |
+| `source.extensions.vsixmanifest`, found under the NUnitTestAdapterInstall project | change Version tag                                                                                                         |
+| `nunit-vs-adapter.build`, found under the Solution Items folder.                  | change the version number, but only use the two first digits.                                                              |
+| `license.rtf`, found under the NUNitTestAdapterInstall project.                   | If the major/minor number has changed, update that here, 2nd line. If year is changed, update copyright years accordingly. |
 
 ## Build
 

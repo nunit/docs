@@ -2,13 +2,13 @@
 
 ## Use Assert.EnterMultipleScope or Assert.Multiple
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2045
-| Severity | Info
-| Enabled  | True
-| Category | Assertion
-| Code     | [UseAssertMultipleAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UseAssertMultiple/UseAssertMultipleAnalyzer.cs)
+| Topic    | Value                                                                                                                                                |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2045                                                                                                                                            |
+| Severity | Info                                                                                                                                                 |
+| Enabled  | True                                                                                                                                                 |
+| Category | Assertion                                                                                                                                            |
+| Code     | [UseAssertMultipleAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UseAssertMultiple/UseAssertMultipleAnalyzer.cs) |
 
 ## Description
 

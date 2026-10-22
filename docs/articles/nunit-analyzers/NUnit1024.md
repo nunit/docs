@@ -2,13 +2,13 @@
 
 ## The source specified by the ValueSource does not return an I(Async)Enumerable or a type that implements I(Async)Enumerable
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1024
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                             |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit1024                                                                                                                                         |
+| Severity | Error                                                                                                                                             |
+| Enabled  | True                                                                                                                                              |
+| Category | Structure                                                                                                                                         |
+| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs) |
 
 ## Description
 

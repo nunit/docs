@@ -2,13 +2,13 @@
 
 ## NUnit 4 no longer supports string.Format specification
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2050
-| Severity | Error
-| Enabled  | True
-| Category | Assertion
-| Code     | [UpdateStringFormatToInterpolatableStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UpdateStringFormatToInterpolatableString/UpdateStringFormatToInterpolatableStringAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                                                                     |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit2050                                                                                                                                                                                                                 |
+| Severity | Error                                                                                                                                                                                                                     |
+| Enabled  | True                                                                                                                                                                                                                      |
+| Category | Assertion                                                                                                                                                                                                                 |
+| Code     | [UpdateStringFormatToInterpolatableStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UpdateStringFormatToInterpolatableString/UpdateStringFormatToInterpolatableStringAnalyzer.cs) |
 
 ## Description
 

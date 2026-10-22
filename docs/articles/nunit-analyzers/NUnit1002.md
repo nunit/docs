@@ -2,13 +2,13 @@
 
 ## The TestCaseSource should use nameof operator to specify target
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1002
-| Severity | Warning
-| Enabled  | True
-| Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1002                                                                                                                                                            |
+| Severity | Warning                                                                                                                                                              |
+| Enabled  | True                                                                                                                                                                 |
+| Category | Structure                                                                                                                                                            |
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs) |
 
 ## Description
 

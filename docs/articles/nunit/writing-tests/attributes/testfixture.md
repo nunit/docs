@@ -20,8 +20,8 @@ below.
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ❌ | ✅ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ❌           | ✅                      | ❌       |
 
 Most restrictions on a class that is used as a test fixture have now been eliminated. A test fixture class:
 

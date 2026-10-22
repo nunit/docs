@@ -26,15 +26,15 @@ ExplicitAttribute()
 ExplicitAttribute(string reason)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `reason` | `string` | Optional reason shown in skip output. |
+| Parameter | Type     | Description                           |
+| --------- | -------- | ------------------------------------- |
+| `reason`  | `string` | Optional reason shown in skip output. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 > [!WARNING]
 > While the C# syntax allows you to place an Explicit attribute on a SetUpFixture class, the attribute is

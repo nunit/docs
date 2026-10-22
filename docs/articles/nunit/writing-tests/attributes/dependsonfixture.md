@@ -17,21 +17,21 @@ to `true`.
 DependsOnFixtureAttribute(Type dependencyFixture)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter           | Type   | Description                                                     |
+| ------------------- | ------ | --------------------------------------------------------------- |
 | `dependencyFixture` | `Type` | The fixture that must finish before the current fixture starts. |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
+| Property       | Type   | Description                                                             | Default |
+| -------------- | ------ | ----------------------------------------------------------------------- | ------- |
 | `AllowFailure` | `bool` | Allows the current fixture to run even if the dependency fixture fails. | `false` |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ❌ | ✅ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ❌           | ✅                      | ❌       |
 
 ## Example
 

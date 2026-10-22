@@ -2,13 +2,13 @@
 
 ## Consider using Assert.EnterMultipleScope statement instead of Assert.Multiple/Assert.MultipleAsync
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2056
-| Severity | Info
-| Enabled  | True
-| Category | Assertion
-| Code     | [UseAssertEnterMultipleScopeAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UseAssertEnterMultipleScope/UseAssertEnterMultipleScopeAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                              |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2056                                                                                                                                                                          |
+| Severity | Info                                                                                                                                                                               |
+| Enabled  | True                                                                                                                                                                               |
+| Category | Assertion                                                                                                                                                                          |
+| Code     | [UseAssertEnterMultipleScopeAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UseAssertEnterMultipleScope/UseAssertEnterMultipleScopeAnalyzer.cs) |
 
 ## Description
 

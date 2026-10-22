@@ -22,13 +22,13 @@ nunit.Options = new TestOptions
 
 The following options are available:
 
-|   Option            | Version added | Type                            | Usage|
-|---------------------|---------------|---------------------------------|------|
-| AutoRun             | 3.0           | Boolean                         | If True, the tests will run automatically when the app starts, otherwise you must run them manually.   |
-| TerminateAfterExecution | 3.6.1     | Boolean                         | If True, app will exit cleanly after test execution.   |
-| TcpWriterParameters | 3.6.1         | [TcpWriterInfo](#tcpwriterinfo) | Provide a TCP listener host and port, sends result as XML to the listening server. Takes a `TcpWriterInfo` - see [below](#tcpwriterinfo). |
-| CreateXmlResultFile | 3.6.1         | Boolean                         | If True, create a xml file containing results.  |
-| ResultFilePath      | 3.6.1         | String                          | Specify file path to save xml result file.      |
+| Option                  | Version added | Type                            | Usage                                                                                                                                     |
+| ----------------------- | ------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| AutoRun                 | 3.0           | Boolean                         | If True, the tests will run automatically when the app starts, otherwise you must run them manually.                                      |
+| TerminateAfterExecution | 3.6.1         | Boolean                         | If True, app will exit cleanly after test execution.                                                                                      |
+| TcpWriterParameters     | 3.6.1         | [TcpWriterInfo](#tcpwriterinfo) | Provide a TCP listener host and port, sends result as XML to the listening server. Takes a `TcpWriterInfo` - see [below](#tcpwriterinfo). |
+| CreateXmlResultFile     | 3.6.1         | Boolean                         | If True, create a xml file containing results.                                                                                            |
+| ResultFilePath          | 3.6.1         | String                          | Specify file path to save xml result file.                                                                                                |
 
 ### TcpWriterInfo
 

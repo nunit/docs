@@ -46,8 +46,8 @@ This is a parameterless attribute that can only be applied to methods.
 ## Applies To
 
 | Lifecycle Methods | Test Methods | Test Fixtures (Classes) | Assembly |
-|-------------------|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ | ❌ |
+| ----------------- | ------------ | ----------------------- | -------- |
+| ✅                | ❌           | ❌                      | ❌       |
 
 ## Example
 

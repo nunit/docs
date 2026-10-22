@@ -12,15 +12,15 @@ uid: attribute-levelofparallelism
 LevelOfParallelismAttribute(int level)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `level` | `int` | The maximum number of worker threads to be created by the framework for running tests. |
+| Parameter | Type  | Description                                                                            |
+| --------- | ----- | -------------------------------------------------------------------------------------- |
+| `level`   | `int` | The maximum number of worker threads to be created by the framework for running tests. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ❌ | ❌ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ❌           | ❌                      | ✅       |
 
 Typically placed in `AssemblyInfo.cs` or a global usings file.
 

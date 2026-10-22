@@ -24,18 +24,18 @@ Execution Hooks should be used when there is a need to:
 
 Derive from `ExecutionHookAttribute` and override only the methods that are relevant:
 
-| Method | Triggered immediately | Applies To |
-|--------|-----------------------|------------|
-| `BeforeEverySetUpHook` | Before each `[SetUp]` or `[OneTimeSetUp]` method | All fixture & base fixture setup methods |
-| `AfterEverySetUpHook`  | After each `[SetUp]` or `[OneTimeSetUp]` method | All fixture & base fixture setup methods |
-| `BeforeTestHook`       | Before the test method | The test method |
-| `AfterTestHook`        | After the test method | The test method |
-| `BeforeEveryTearDownHook` | Before each `[TearDown]` or `[OneTimeTearDown]` method | All fixture & base fixture teardown methods |
-| `AfterEveryTearDownHook`  | After each `[TearDown]` or `[OneTimeTearDown]` method | All fixture & base fixture teardown methods |
-| `BeforeTestActionBeforeTestHook` | Before an `ITestAction.BeforeTest(ITest)` executes | Each applicable Action Attribute |
-| `BeforeTestActionAfterTestHook`  | After an `ITestAction.BeforeTest(ITest)` executes | Each applicable Action Attribute |
-| `AfterTestActionBeforeTestHook`  | Before an `ITestAction.AfterTest(ITest)` executes | Each applicable Action Attribute |
-| `AfterTestActionAfterTestHook`   | After an `ITestAction.AfterTest(ITest)` executes | Each applicable Action Attribute |
+| Method                           | Triggered immediately                                  | Applies To                                  |
+| -------------------------------- | ------------------------------------------------------ | ------------------------------------------- |
+| `BeforeEverySetUpHook`           | Before each `[SetUp]` or `[OneTimeSetUp]` method       | All fixture & base fixture setup methods    |
+| `AfterEverySetUpHook`            | After each `[SetUp]` or `[OneTimeSetUp]` method        | All fixture & base fixture setup methods    |
+| `BeforeTestHook`                 | Before the test method                                 | The test method                             |
+| `AfterTestHook`                  | After the test method                                  | The test method                             |
+| `BeforeEveryTearDownHook`        | Before each `[TearDown]` or `[OneTimeTearDown]` method | All fixture & base fixture teardown methods |
+| `AfterEveryTearDownHook`         | After each `[TearDown]` or `[OneTimeTearDown]` method  | All fixture & base fixture teardown methods |
+| `BeforeTestActionBeforeTestHook` | Before an `ITestAction.BeforeTest(ITest)` executes     | Each applicable Action Attribute            |
+| `BeforeTestActionAfterTestHook`  | After an `ITestAction.BeforeTest(ITest)` executes      | Each applicable Action Attribute            |
+| `AfterTestActionBeforeTestHook`  | Before an `ITestAction.AfterTest(ITest)` executes      | Each applicable Action Attribute            |
+| `AfterTestActionAfterTestHook`   | After an `ITestAction.AfterTest(ITest)` executes       | Each applicable Action Attribute            |
 
 This derived attribute can be applied at the method, class, or assembly level.
 

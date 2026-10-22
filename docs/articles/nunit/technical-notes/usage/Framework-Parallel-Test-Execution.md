@@ -92,12 +92,12 @@ complete.
 
 There are three shifts, listed here with their associated queues...
 
-|     Shift              |    Queues              |  Workers  |  Usage    |
-|------------------------|------------------------|-----------|-----------|
-| Parallel Shift         | Parallel Queue         |    LoP*   | Parallelizable tests run in the MTA |
-|                        | Parallel STA Queue     |     1     | Parallelizable tests run in the STA |
-| Non-Parallel Shift     | Non-Parallel Queue     |     1     | Non-parallelizable tests run in the MTA |
-| Non-Parallel STA Shift | Non-Parallel STA Queue |     1     | Non-parallelizable tests run in the STA |
+| Shift                  | Queues                 | Workers | Usage                                   |
+| ---------------------- | ---------------------- | ------- | --------------------------------------- |
+| Parallel Shift         | Parallel Queue         | LoP*    | Parallelizable tests run in the MTA     |
+|                        | Parallel STA Queue     | 1       | Parallelizable tests run in the STA     |
+| Non-Parallel Shift     | Non-Parallel Queue     | 1       | Non-parallelizable tests run in the MTA |
+| Non-Parallel STA Shift | Non-Parallel STA Queue | 1       | Non-parallelizable tests run in the STA |
 
 (* Depends on Level of Parallelism)
 

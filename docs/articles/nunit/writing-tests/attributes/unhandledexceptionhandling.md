@@ -22,17 +22,17 @@ attribute allows you to change that behavior.
 
 The attribute accepts an `UnhandledExceptionHandling` enum value:
 
-| Mode | Description |
-| ------ | ------------- |
-| `Error` | Unhandled exceptions cause the test to fail (default behavior) |
-| `Ignore` | Unhandled exceptions are ignored and do not affect the test result |
-| `Default` | Same as `Error` |
+| Mode      | Description                                                        |
+| --------- | ------------------------------------------------------------------ |
+| `Error`   | Unhandled exceptions cause the test to fail (default behavior)     |
+| `Ignore`  | Unhandled exceptions are ignored and do not affect the test result |
+| `Default` | Same as `Error`                                                    |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 ## Basic Usage
 
@@ -140,11 +140,11 @@ public class LegacySystemTests
 
 The attribute can be applied at multiple levels:
 
-| Level | Scope |
-| ------- | ------- |
+| Level    | Scope                             |
+| -------- | --------------------------------- |
 | Assembly | Affects all tests in the assembly |
-| Class | Affects all tests in the fixture |
-| Method | Affects only the specific test |
+| Class    | Affects all tests in the fixture  |
+| Method   | Affects only the specific test    |
 
 When multiple levels specify the attribute, they are combined - each level's configuration is additive.
 

@@ -44,13 +44,13 @@ should automatically start running again after a certain date.
 As of NUnit 4.1, generic versions of `TestCaseData` are available that automatically set the `TypeArgs` property
 based on their type parameters. This provides a more concise syntax when working with generic test methods:
 
-| Class | Usage |
-|-------|-------|
-| `TestCaseData<T>` | Single type parameter |
-| `TestCaseData<T1, T2>` | Two type parameters |
-| `TestCaseData<T1, T2, T3>` | Three type parameters |
-| `TestCaseData<T1, T2, T3, T4>` | Four type parameters |
-| `TestCaseData<T1, T2, T3, T4, T5>` | Five type parameters |
+| Class                              | Usage                 |
+| ---------------------------------- | --------------------- |
+| `TestCaseData<T>`                  | Single type parameter |
+| `TestCaseData<T1, T2>`             | Two type parameters   |
+| `TestCaseData<T1, T2, T3>`         | Three type parameters |
+| `TestCaseData<T1, T2, T3, T4>`     | Four type parameters  |
+| `TestCaseData<T1, T2, T3, T4, T5>` | Five type parameters  |
 
 [!code-csharp[GenericTestCaseDataExample](~/snippets/Snippets.NUnit/TestCaseDataExample.cs#GenericTestCaseDataExample)]
 

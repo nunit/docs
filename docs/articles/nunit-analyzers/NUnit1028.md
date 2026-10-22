@@ -2,13 +2,13 @@
 
 ## The non-test method is public
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1028
-| Severity | Info
-| Enabled  | True
-| Category | Structure
-| Code     | [NonTestMethodAccessibilityLevelAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/NonTestMethodAccessibilityLevel/NonTestMethodAccessibilityLevelAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                                          |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1028                                                                                                                                                                                      |
+| Severity | Info                                                                                                                                                                                           |
+| Enabled  | True                                                                                                                                                                                           |
+| Category | Structure                                                                                                                                                                                      |
+| Code     | [NonTestMethodAccessibilityLevelAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/NonTestMethodAccessibilityLevel/NonTestMethodAccessibilityLevelAnalyzer.cs) |
 
 ## Description
 

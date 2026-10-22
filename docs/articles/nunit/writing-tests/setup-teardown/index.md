@@ -13,14 +13,14 @@
 
 ### Attribute Usage by Fixture Type
 
-|                     | TestFixture  | SetUpFixture |
-|---------------------|--------------|--------------|
-| OneTimeSetUp        |  Supported   |  Supported   |
-| OneTimeTearDown     |  Supported   |  Supported   |
-| TestFixtureSetUp    |  Deprecated  | Not Allowed  |
-| TestFixtureTearDown |  Deprecated  | Not Allowed  |
-| SetUp               |  Supported   | Not Allowed  |
-| TearDown            |  Supported   | Not Allowed  |
+|                     | TestFixture | SetUpFixture |
+| ------------------- | ----------- | ------------ |
+| OneTimeSetUp        | Supported   | Supported    |
+| OneTimeTearDown     | Supported   | Supported    |
+| TestFixtureSetUp    | Deprecated  | Not Allowed  |
+| TestFixtureTearDown | Deprecated  | Not Allowed  |
+| SetUp               | Supported   | Not Allowed  |
+| TearDown            | Supported   | Not Allowed  |
 
 ## How Setup and TearDown Methods Are Called
 

@@ -2,13 +2,13 @@
 
 ## The TestCaseAttribute provided too few arguments
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1003
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                    |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1003                                                                                                                                |
+| Severity | Error                                                                                                                                    |
+| Enabled  | True                                                                                                                                     |
+| Category | Structure                                                                                                                                |
+| Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs) |
 
 ## Description
 

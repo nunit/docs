@@ -22,16 +22,16 @@ TestOfAttribute(Type type)
 TestOfAttribute(string typeName)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `type` | `Type` | The type that is being tested. The full type name is stored. |
-| `typeName` | `string` | The name of the type that is being tested. |
+| Parameter  | Type     | Description                                                  |
+| ---------- | -------- | ------------------------------------------------------------ |
+| `type`     | `Type`   | The type that is being tested. The full type name is stored. |
+| `typeName` | `string` | The name of the type that is being tested.                   |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 ## Alternative Syntax
 

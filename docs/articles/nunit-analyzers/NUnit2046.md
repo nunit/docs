@@ -2,13 +2,13 @@
 
 ## Use CollectionConstraint for better assertion messages in case of failure
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2046
-| Severity | Info
-| Enabled  | True
-| Category | Assertion
-| Code     | [UseCollectionConstraintAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UseCollectionConstraint/UseCollectionConstraintAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                  |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2046                                                                                                                                                              |
+| Severity | Info                                                                                                                                                                   |
+| Enabled  | True                                                                                                                                                                   |
+| Category | Assertion                                                                                                                                                              |
+| Code     | [UseCollectionConstraintAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UseCollectionConstraint/UseCollectionConstraintAnalyzer.cs) |
 
 ## Description
 

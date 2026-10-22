@@ -2,13 +2,13 @@
 
 ## The individual arguments provided by a ValuesAttribute must match the type of the corresponding parameter of the method
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1031
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [ValuesUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ValuesUsage/ValuesUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                              |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1031                                                                                                                          |
+| Severity | Error                                                                                                                              |
+| Enabled  | True                                                                                                                               |
+| Category | Structure                                                                                                                          |
+| Code     | [ValuesUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ValuesUsage/ValuesUsageAnalyzer.cs) |
 
 ## Description
 

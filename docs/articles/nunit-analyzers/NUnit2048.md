@@ -2,13 +2,13 @@
 
 ## Consider using Assert.That(...) instead of StringAssert(...)
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2048
-| Severity | Warning
-| Enabled  | True
-| Category | Assertion
-| Code     | [StringAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/StringAssertUsage/StringAssertUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                                |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2048                                                                                                                                            |
+| Severity | Warning                                                                                                                                              |
+| Enabled  | True                                                                                                                                                 |
+| Category | Assertion                                                                                                                                            |
+| Code     | [StringAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/StringAssertUsage/StringAssertUsageAnalyzer.cs) |
 
 ## Description
 

@@ -2,13 +2,13 @@
 
 ## Incompatible types for Within constraint
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2047
-| Severity | Warning
-| Enabled  | True
-| Category | Assertion
-| Code     | [WithinUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/WithinUsage/WithinUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                              |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2047                                                                                                                          |
+| Severity | Warning                                                                                                                            |
+| Enabled  | True                                                                                                                               |
+| Category | Assertion                                                                                                                          |
+| Code     | [WithinUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/WithinUsage/WithinUsageAnalyzer.cs) |
 
 ## Description
 

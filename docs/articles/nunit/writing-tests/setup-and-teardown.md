@@ -11,13 +11,13 @@ what it is actually testing.
 
 There are three levels, depending on how often the code should run:
 
-| Attribute | Runs | Use it for |
-|---|---|---|
-| [`[SetUp]`](xref:attribute-setup) | Before **each** test | State that every test needs a fresh copy of |
-| [`[TearDown]`](xref:attribute-teardown) | After **each** test | Cleaning up what `[SetUp]` or the test created |
-| [`[OneTimeSetUp]`](xref:attribute-onetimesetup) | **Once**, before all tests in the class | Expensive resources that the tests can share |
-| [`[OneTimeTearDown]`](xref:attribute-onetimeteardown) | **Once**, after all tests in the class | Releasing those shared resources |
-| [`[SetUpFixture]`](xref:attribute-setupfixture) | **Once** for a whole namespace, or the whole test assembly | Resources that many test classes share, such as a test server |
+| Attribute                                             | Runs                                                       | Use it for                                                    |
+| ----------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------- |
+| [`[SetUp]`](xref:attribute-setup)                     | Before **each** test                                       | State that every test needs a fresh copy of                   |
+| [`[TearDown]`](xref:attribute-teardown)               | After **each** test                                        | Cleaning up what `[SetUp]` or the test created                |
+| [`[OneTimeSetUp]`](xref:attribute-onetimesetup)       | **Once**, before all tests in the class                    | Expensive resources that the tests can share                  |
+| [`[OneTimeTearDown]`](xref:attribute-onetimeteardown) | **Once**, after all tests in the class                     | Releasing those shared resources                              |
+| [`[SetUpFixture]`](xref:attribute-setupfixture)       | **Once** for a whole namespace, or the whole test assembly | Resources that many test classes share, such as a test server |
 
 ## Before and after each test: [SetUp] and [TearDown]
 
