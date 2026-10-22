@@ -166,15 +166,26 @@ public class MixedThreadTests
     }
 }
 </code></pre><h3 id="assembly-level">Assembly Level</h3>
-<pre><code class="lang-csharp">// All tests in this assembly will run on separate threads
+<pre><code class="lang-csharp">// The whole assembly runs on a separate thread
 [assembly: RequiresThread]
 </code></pre>
+<p>Assembly-level use is rarely needed. Runners already execute each test assembly on its own thread, so the attribute
+adds little at that level. It was more useful in earlier versions of NUnit and is kept for compatibility.</p>
+<h2 id="when-to-use-it">When to Use It</h2>
+<p>Most test projects never need this attribute. Its intended use is on a test method, or occasionally a fixture, whose
+code intentionally corrupts the state of the thread it runs on: for example by changing thread-local storage, the
+thread's culture or principal without restoring it, or by leaving the thread in a state that later tests must not
+inherit. Running such a test on a dedicated thread, which is discarded afterwards, protects the worker threads that
+NUnit reuses for other tests.</p>
+<p>If you only need a particular apartment state, use the <a class="xref" href="apartment.html"><code>Apartment</code></a> attribute instead. It
+creates a new thread only when the current thread does not already have the requested state.</p>
 <h2 id="notes">Notes</h2>
 <ol>
 <li>This attribute <strong>always</strong> creates a new thread, regardless of the current thread's apartment state.</li>
 <li>To create a thread <strong>only</strong> when the current apartment state is not appropriate, use the <code>[Apartment]</code> attribute instead.</li>
 <li>When used without an <code>ApartmentState</code> argument, the thread uses the default apartment state (MTA).</li>
 <li>This attribute is useful for tests that modify thread-local state or require isolation from other tests.</li>
+<li>Use on an assembly is rarely useful, since each test assembly already runs on its own thread.</li>
 </ol>
 <h2 id="see-also">See Also</h2>
 <ul>
