@@ -1,0 +1,102 @@
+# Opens an issue when the Cloudflare API token used for PR previews is about to expire
+# (or has stopped working), so it can be rotated before previews silently break.
+#
+# The expiry date is read live from Cloudflare's token-verify endpoint, so nothing in this
+# file needs updating when the token is rotated.
+
+name: Cloudflare token expiry check
+
+on:
+  schedule:
+    - cron: "17 9 * * *" # daily, 09:17 UTC
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+env:
+  WARN_DAYS: 7
+  ISSUE_TITLE: "Cloudflare API token for PR previews needs rotating"
+
+jobs:
+  check:
+    name: Check token expiry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query token status from Cloudflare
+        id: token
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::warning::CLOUDFLARE_API_TOKEN secret is not set; nothing to check."
+            echo "alert=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          auth="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          # Account-owned tokens verify under /accounts/<id>/tokens/verify; user tokens under /user/tokens/verify.
+          resp="$(curl -sS "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/tokens/verify" -H "$auth" || true)"
+          if [ "$(jq -r '.success // false' <<< "$resp")" != "true" ]; then
+            resp="$(curl -sS "https://api.cloudflare.com/client/v4/user/tokens/verify" -H "$auth" || true)"
+          fi
+
+          success="$(jq -r '.success // false' <<< "$resp")"
+          status="$(jq -r '.result.status // "unknown"' <<< "$resp")"
+          expires="$(jq -r '.result.expires_on // empty' <<< "$resp")"
+
+          if [ "$success" != "true" ] || [ "$status" != "active" ]; then
+            echo "::error::Cloudflare token is not active (status: $status). Response: $(jq -c '.errors // []' <<< "$resp")"
+            {
+              echo "alert=true"
+              echo "reason=The token is **not active** (status: \`$status\`). PR previews are currently broken."
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ -z "$expires" ]; then
+            echo "Token is active and has no expiry date."
+            echo "alert=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          days=$(( ( $(date -u -d "$expires" +%s) - $(date -u +%s) ) / 86400 ))
+          echo "Token is active and expires on $expires ($days day(s) from now)."
+          if [ "$days" -le "$WARN_DAYS" ]; then
+            {
+              echo "alert=true"
+              echo "reason=The token expires on **$expires**, which is **$days day(s)** from now."
+            } >> "$GITHUB_OUTPUT"
+          else
+            echo "alert=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open a rotation issue (if one is not already open)
+        if: steps.token.outputs.alert == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REASON: ${{ steps.token.outputs.reason }}
+        run: |
+          existing="$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$ISSUE_TITLE\" in:title" --json number --jq '.[0].number // empty')"
+          if [ -n "$existing" ]; then
+            echo "Issue #$existing is already open; not creating another."
+            exit 0
+          fi
+
+          body="$(cat <<MSG
+          $REASON
+
+          This token is used by the [PR Preview workflow](https://github.com/$GITHUB_REPOSITORY/blob/master/.github/workflows/pr-preview.yml) to publish docs previews to Cloudflare Pages.
+
+          **To rotate it:**
+
+          1. In the NUnit Cloudflare account, create a new API token with a single permission: **Account → Cloudflare Pages → Edit**, scoped to the NUnit account only. Set whatever expiry the team is comfortable with.
+          2. Update the \`CLOUDFLARE_API_TOKEN\` repository secret with the new value.
+          3. Re-run this workflow (Actions → "Cloudflare token expiry check" → Run workflow) to confirm it is happy, then revoke the old token in Cloudflare.
+          4. Close this issue.
+
+          _Opened automatically by the \`cloudflare-token-expiry\` workflow._
+          MSG
+          )"
+          gh issue create --repo "$GITHUB_REPOSITORY" --title "$ISSUE_TITLE" --label "area:build-and-deploy" --body "$body"

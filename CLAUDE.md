@@ -66,3 +66,12 @@ API docs are generated from NUnit release assemblies placed in the `code-output/
 ## Deployment
 
 The site is built and deployed via GitHub Actions to the `gh-pages` branch, which serves <https://docs.nunit.org>.
+
+### Pull Request Previews
+
+Every PR gets a live preview at `https://pr-<number>.nunit-docs.pages.dev`, deployed to Cloudflare Pages by `.github/workflows/pr-preview.yml` and posted as a single sticky PR comment that is updated on each push and removed when the PR closes. The full design, security rules, hosting details, token rotation and troubleshooting live in [.github/PR-PREVIEWS.md](.github/PR-PREVIEWS.md). Read that file before changing any of the preview workflows. Non-negotiable rules:
+
+- `pr-preview.yml` runs with secrets (`workflow_run` and `pull_request_target`). It must never check out or execute code from a PR, and the build artifact it downloads is untrusted input.
+- The PR being deployed is resolved from GitHub run metadata (head repo, branch, sha), never from anything inside the artifact.
+- `.github/workflows/cloudflare-token-expiry.yml` opens an issue before the Cloudflare token expires; it needs no edits when the token is rotated.
+- PR builds prune `docs/legacy` (the frozen NUnit 2.x docs) down to each version's `docHome.html` before DocFX runs, so previews omit the 2.x pages. Builds on `master` publish the full site. The landing pages must stay because `docs/articles/legacy/index.md` links to them and DocFX validates those links.
