@@ -56,5 +56,6 @@ This table lists all the attributes supported by NUnit.
 | [TestOf Attribute](xref:attribute-testof)              | Indicates the name or Type of the class being tested. |
 | [Theory Attribute](xref:attribute-theory)              | Marks a test method as a Theory, a special kind of test in NUnit. |
 | [Timeout Attribute](xref:attribute-timeout)             | Provides a timeout value in milliseconds for test cases. |
+| [UnhandledExceptionHandling Attribute](xref:attribute-unhandledexceptionhandling) | Controls whether unhandled exceptions on other threads fail the test. |
 | [Values Attribute](xref:attribute-values)              | Provides a set of inline values for a parameter of a test method. |
 | [ValueSource Attribute](xref:attribute-valuesource)         | Provides a source of values for a parameter of a test method. |

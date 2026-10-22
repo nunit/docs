@@ -27,37 +27,29 @@ namespace Snippets.NUnit.Attributes
         [UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore)]
         public void TestIgnoringBackgroundExceptions()
         {
-            // Background exceptions are ignored - use with caution!
-            // This test will pass even if background threads throw
-            using var cts = new CancellationTokenSource();
-            var task = Task.Run(() =>
-            {
-                // Simulate work
-                Thread.Sleep(10);
-            }, cts.Token);
+            // An exception escaping this thread is not recorded against the test.
+            // On .NET Framework the test then passes; on .NET Core and later the
+            // runtime still terminates the process, so the thread procedure below
+            // must not actually throw.
+            var thread = new Thread(() => Thread.Sleep(10));
+            thread.Start();
+            thread.Join();
 
-            task.Wait();
             Assert.Pass();
         }
         #endregion
 
         #region UnhandledExceptionSpecificTypes
         [Test]
-        [UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore, typeof(OperationCanceledException))]
+        [UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore, typeof(ObjectDisposedException))]
         public void TestIgnoringSpecificExceptions()
         {
-            // Only OperationCanceledException is ignored on background threads
-            // Other exception types will still cause the test to fail
+            // Only ObjectDisposedException escaping a background thread is ignored.
+            // Any other exception type is still recorded as a test error.
+            var thread = new Thread(() => Thread.Sleep(10));
+            thread.Start();
+            thread.Join();
 
-            _ = Task.Run(() =>
-            {
-                // This will throw on a background thread
-                Thread.Sleep(10);
-                throw new OperationCanceledException();
-            });
-
-            // The unhandled OperationCanceledException on the background thread
-            // will be ignored by the attribute, so this test still passes
             Assert.Pass();
         }
         #endregion
