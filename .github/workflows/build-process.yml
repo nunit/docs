@@ -57,6 +57,16 @@ jobs:
         run: unzip NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}.zip -d ./NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}
       - name: Copy NUnit Asset dir
         run: mkdir ./code-output && cp -r ./NUnit.Framework-${{ env.NUNIT_VERSION_FOR_API_DOCS }}/bin/net8.0/* ./code-output
+      - name: Prune the frozen legacy docs (pull requests only)
+        if: github.event_name == 'pull_request'
+        # docs/legacy is the archived NUnit 2.x site: ~2,700 static files (~30 MB) that are
+        # published verbatim and never change. They are most of the files in the built site, so
+        # PR builds and the Cloudflare preview skip them. Only each version's landing page
+        # (docHome.html) is kept so that the links in docs/articles/legacy/index.md still resolve
+        # under --warningsAsErrors. Builds on master are untouched and publish the full site.
+        run: |
+          find docs/legacy -type f ! -name docHome.html -delete
+          echo "Legacy files kept for this PR build: $(find docs/legacy -type f | wc -l)"
       - uses: "nunit/docfx-action@v5.0.0"
         name: Build with Docfx
         with:

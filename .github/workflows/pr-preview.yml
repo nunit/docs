@@ -159,7 +159,7 @@ jobs:
 
             Built from ${{ github.event.workflow_run.head_sha }}. This link always shows the latest build for this PR; the build for this exact commit is at ${{ steps.deploy.outputs.deployment-url }}.
 
-            _Previews are hosted on Cloudflare Pages, are not indexed by search engines, and are removed when the PR is closed._
+            _Previews are hosted on Cloudflare Pages, are not indexed by search engines, and are removed when the PR is closed. They omit the archived NUnit 2.x documentation (the `/2.x/` pages), which never changes; use the live site for those._
 
   cleanup:
     name: Remove preview
