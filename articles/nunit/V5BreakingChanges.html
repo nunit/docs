@@ -114,6 +114,25 @@ global using AsyncTestDelegate = System.Func&lt;System.Threading.Tasks.Task&gt;;
 <code>global</code>, at the top of each file that needs them. This doesn't work for <code>ActualValueDelegate&lt;T&gt;</code>, because C# aliases
 can't be open generic types. Replace that one with <code>Func&lt;T&gt;</code>.</p>
 </div>
+<p>The new overloads also change what happens when the <em>actual</em> value is itself a delegate:</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Because <code>Assert.That</code> now has a <code>Func&lt;T&gt;</code> overload, a <code>Func&lt;T&gt;</code> passed as the <em>actual</em> value is <strong>evaluated</strong>, and the
+constraint is applied to its result. In NUnit 4.5 and earlier, a <code>Func&lt;T&gt;</code> only matched the generic <code>TActual</code>
+overload, so the constraint was applied to the delegate itself. For example:</p>
+<pre><code class="lang-csharp">Func&lt;bool&gt; testFunc = CreateFunc();
+
+// NUnit 4.5: checks that the delegate is not null.
+// NUnit 5.0: calls testFunc() and checks that the returned bool is not null, which always passes.
+Assert.That(testFunc, Is.Not.Null);
+</code></pre>
+<p>To assert on the delegate rather than on its result, cast it to <code>object</code> or use the classic assertion:</p>
+<pre><code class="lang-csharp">Assert.That((object)testFunc, Is.Not.Null);
+ClassicAssert.IsNotNull(testFunc);
+</code></pre>
+<p>The <a class="xref" href="../nunit-analyzers/NUnit-Analyzers.html">NUnit.Analyzers</a> package reports an error when a constraint such as <code>Is.Not.Null</code> is
+applied to a value type like <code>bool</code>, which makes this change easier to spot.</p>
+</div>
 <h3 id="assertthrowsasync-assertcatchasync-and-assertdoesnotthrowasync-must-be-awaited"><code>Assert.ThrowsAsync</code>, <code>Assert.CatchAsync</code> and <code>Assert.DoesNotThrowAsync</code> must be awaited</h3>
 <p>Issue <a href="https://github.com/nunit/nunit/issues/4384">#4384</a></p>
 <ul>
