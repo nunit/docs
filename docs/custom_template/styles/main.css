@@ -148,7 +148,9 @@ div.across ul li
    in docfx.css). custom_template/partials/affix.tmpl.partial drops the
    `hidden-sm` class; these rules turn the column into a plain footer row under
    the article on phones and tablets. The "In this article" nav keeps its own
-   `hidden-xs hidden-sm` classes, so only the contribution links appear.
+   `hidden-xs hidden-sm` classes, so only the contribution links appear. The query is
+   limited to `screen` so the print rule in docfx.css, which hides the affix,
+   still wins when an article is printed or saved as a PDF.
    ------------------------------------------------------------------ */
 @media screen and (max-width: 991px) {
     .sideaffix {
