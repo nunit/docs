@@ -36,7 +36,7 @@ special/myassembly.dll  # include a specific dll in a special directory
                         # in most cases
 ```
 
-Any assemblies specified in a `.addins` file will be scanned fully, looking for addins and extensions. Any directories
+Any assemblies specified in a `.addins` file will be scanned fully, looking for extensions. Any directories
 specified will be browsed, first looking for any `.addins` files. If one or more files are found, the content of the
 files will direct all further browsing. If no such file is found, then all `.dll` files in the directory will be
 scanned, just as if a `.addins` file contained "*.dll."
