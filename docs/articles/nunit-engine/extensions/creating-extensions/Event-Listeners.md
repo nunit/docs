@@ -56,5 +56,11 @@ The argument to `OnTestEvent` is an XML-formatted string, with a different top-l
 * End of a test case - `<test-case...>`
 
 The XML report signalling the end of a test case contains all available information, including the result. The start
-events only provide basic identifying information. See [XML Formats](xref:xmlformats) for a full description of each
-report
+events only provide basic identifying information. See the [Progress Reports](xref:xmlformats#progress-reports) section
+of XML Formats for the attributes of each start event, and [Test Result XML Format](xref:testresultxmlformat) for the
+end events.
+
+> [!WARNING]
+> The `count` attribute of `<start-run>` may be `0`. The console runner cannot count tests before the run when the
+> `--agents` option is used, and older versions reported `0` in every case. Do not rely on it to size a progress bar
+> without handling the zero case.
