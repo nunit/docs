@@ -220,6 +220,35 @@ public class TestCaseSourceExamples
     }
     #endregion
 
+    #region ParamsArray
+    [TestFixture]
+    public class ParamsArrayFixture
+    {
+        [TestCaseSource(nameof(ParamsArrayCases))]
+        public void TestWithParamsArray(string name, params int[] values)
+        {
+            Assert.That(name, Is.Not.Null);
+            Assert.That(values, Is.Not.Null);
+            Assert.That(values, Is.All.Positive);
+        }
+
+        private static IEnumerable<TestCaseData> ParamsArrayCases()
+        {
+            // Extra arguments are gathered into the params array: values = [1, 2, 3]
+            yield return new TestCaseData("three", 1, 2, 3);
+
+            // A single extra argument gives a one-element array: values = [1]
+            yield return new TestCaseData("one", 1);
+
+            // No extra arguments gives an empty array: values = []
+            yield return new TestCaseData("none");
+
+            // An array of the right type as the last argument is used as-is: values = [4, 5]
+            yield return new TestCaseData("array", new[] { 4, 5 });
+        }
+    }
+    #endregion
+
     #region CancellationTokenSupport
     [TestFixture]
     public class CancellationTokenFixture

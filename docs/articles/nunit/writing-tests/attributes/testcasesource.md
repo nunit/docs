@@ -184,6 +184,15 @@ test case data.
 
 [!code-csharp[OptionalParameters](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#OptionalParameters)]
 
+### Params arrays
+
+When the last parameter of the test method is a `params` array, any arguments supplied by the source beyond the fixed
+parameters are gathered into that array, just as they are for [TestCase](xref:attribute-testcase). A test case that
+supplies no extra arguments gives an empty array, and a test case whose last argument is already an array of the right
+type passes it through unchanged. (_NUnit 4.5+_)
+
+[!code-csharp[ParamsArray](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#ParamsArray)]
+
 ### CancellationToken support
 
 When using `[CancelAfter]` with `TestCaseSource`, NUnit automatically injects a `CancellationToken` as the last
