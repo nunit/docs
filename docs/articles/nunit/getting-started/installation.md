@@ -166,8 +166,10 @@ to add a reference to the `NUnitLite` package in your test assembly.
 
 To run your tests, simply run your executable test assembly. No other runner is needed.
 
-Note that since this approach includes a `Program.cs` it can not be combined with the ordinary unit test project, as
-that would create two entry points, which would confuse the compiler.
+The package does not add a `Program.cs` to your project. You write the `Main` method yourself and call the NUnitLite
+runner from it, as shown on the [NUnitLite](xref:nunitlite) page. Because the test project becomes a console
+application with its own entry point, you can run the tests with `dotnet run` as well as with `dotnet test` or the
+Visual Studio Test Explorer.
 
 ### Downloading the Zip File -- Not Recommended
 
