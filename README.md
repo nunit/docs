@@ -86,3 +86,7 @@ repository.
 * The workflow then uses another container to push the results to the `gh-pages` branch, using a personal access token
 that is stored in the repository's settings.
 * GitHub serves the outputted site from the `gh-pages` branch, and the DNS of `docs.nunit.org` points there.
+
+### Pull Request Previews
+
+Every pull request gets a live preview of the site at `https://pr-<number>.nunit-docs.pages.dev`, hosted on Cloudflare Pages and linked from a bot comment on the PR. The preview updates on each push and is removed when the PR closes. See [.github/PR-PREVIEWS.md](.github/PR-PREVIEWS.md) for how it works, the security rules for the workflows involved, and troubleshooting.

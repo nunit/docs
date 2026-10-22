@@ -49,7 +49,7 @@ There are a few ways to contribute. Here's a video showing them, as of January 2
 
 Once the PR is submitted, our build will run. If there are any spellcheck issues or markdown linting issues, you'll receive an e-mail with the failures. No worries -- we'll help you out.
 
-When the build succeeds, a bot will comment on your PR with a **preview link** to a temporary copy of the docs site that includes your changes, so you (and reviewers) can see exactly how they'll look. The preview updates with each push and is removed when the PR is closed.
+When the build succeeds, a bot will comment on your PR with a **preview link** to a temporary copy of the docs site that includes your changes, so you (and reviewers) can see exactly how they'll look. The preview updates with each push and is removed when the PR is closed. (Curious how it works? See [.github/PR-PREVIEWS.md](.github/PR-PREVIEWS.md).)
 
 ### Option 2: Fork & Commit as Typical
 
