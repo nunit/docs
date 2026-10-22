@@ -209,8 +209,10 @@ something in NUnit, this can be a helpful choice.</p>
 <p>Follow the instructions for <a class="xref" href="../running-tests/NUnitLite-Runner.html">NUnitLite</a> to install the package and create a test assembly. You will need
 to add a reference to the <code>NUnitLite</code> package in your test assembly.</p>
 <p>To run your tests, simply run your executable test assembly. No other runner is needed.</p>
-<p>Note that since this approach includes a <code>Program.cs</code> it can not be combined with the ordinary unit test project, as
-that would create two entry points, which would confuse the compiler.</p>
+<p>The package does not add a <code>Program.cs</code> to your project. You write the <code>Main</code> method yourself and call the NUnitLite
+runner from it, as shown on the <a class="xref" href="../running-tests/NUnitLite-Runner.html">NUnitLite</a> page. Because the test project becomes a console
+application with its own entry point, you can run the tests with <code>dotnet run</code> as well as with <code>dotnet test</code> or the
+Visual Studio Test Explorer.</p>
 <h3 id="downloading-the-zip-file----not-recommended">Downloading the Zip File -- Not Recommended</h3>
 <p>Download the latest binary zip of the NUnit Framework from our <a href="https://nunit.org/download/">Download page</a>. Unzip the
 file into any convenient directory.</p>
