@@ -49,6 +49,8 @@ There are a few ways to contribute. Here's a video showing them, as of January 2
 
 Once the PR is submitted, our build will run. If there are any spellcheck issues or markdown linting issues, you'll receive an e-mail with the failures. No worries -- we'll help you out.
 
+When the build succeeds, a bot will comment on your PR with a **preview link** to a temporary copy of the docs site that includes your changes, so you (and reviewers) can see exactly how they'll look. The preview updates with each push and is removed when the PR is closed. (Curious how it works? See [.github/PR-PREVIEWS.md](.github/PR-PREVIEWS.md).)
+
 ### Option 2: Fork & Commit as Typical
 
 If you're familiar with OSS and GitHub, you can fork the repository, check it out, make a branch, and submit any changes. Our build process will pick up if there are spelling or markdown issues and we can work together to address them in the PR.
