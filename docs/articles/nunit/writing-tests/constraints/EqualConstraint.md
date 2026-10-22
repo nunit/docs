@@ -506,6 +506,18 @@ But was:  "89031"
    null, the Constraint succeeds. If only one is null, it fails.
 8. NUnit has special semantics for comparing **Streams** and **DirectoryInfos**. For a **Stream**, the contents are
    compared. For a **DirectoryInfo**, the first-level directory contents are compared.
+9. **F# callers:** since NUnit 4.3.0, `Is.EqualTo` has overloads taking `object`, `T` and `IEnumerable<T>`. C# picks the
+   right one, but the F# compiler cannot choose between them when the expected value is a list or other collection and
+   reports _A unique overload for method 'EqualTo' could not be determined_. Specify the type argument on the call to
+   resolve the ambiguity:
+
+   ```fsharp
+   Assert.That([2; 3], Is.EqualTo<int list>([2; 3]))
+   ```
+
+   This is a known limitation of F# overload resolution
+   ([dotnet/fsharp#1647](https://github.com/dotnet/fsharp/issues/1647)); see NUnit issue
+   [4920](https://github.com/nunit/nunit/issues/4920) for the discussion.
 
 ## See also
 
