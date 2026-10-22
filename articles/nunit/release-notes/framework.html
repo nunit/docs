@@ -1033,6 +1033,10 @@ Your efforts help make NUnit better for the entire community.</p>
 <p>This release includes a series of enhancements and bug fixes. Notably, some of the bug fixes address issues related to a lack of type safety in NUnit. See issues <a href="https://github.com/nunit/nunit/issues/4877">4877</a>,
 <a href="https://github.com/nunit/nunit/issues/4876">4876</a>, <a href="https://github.com/nunit/nunit/issues/4875">4875</a>, <a href="https://github.com/nunit/nunit/issues/4874">4874</a> and <a href="https://github.com/nunit/nunit/issues/150">150</a>.</p>
 <p>Be aware that this might cause compile errors in cases where the code was previously ignored. These errors can be safely resolved by removing the affected code.</p>
+<p><strong>F# users:</strong> the new <code>Is.EqualTo</code> overloads can cause the F# compiler to report <em>A unique overload for method 'EqualTo' could not be determined</em>
+when the expected value is a list or other collection. Specify the type argument, for example <code>Is.EqualTo&lt;int list&gt;([2; 3])</code>,
+to resolve the ambiguity. See <a href="https://github.com/nunit/nunit/issues/4920">4920</a> and the
+<a class="xref" href="../writing-tests/constraints/EqualConstraint.html">Equal Constraint</a> notes.</p>
 <p>There are 29 issues fixed in this release.</p>
 <h3 id="enhancements-5">Enhancements</h3>
 <ul>

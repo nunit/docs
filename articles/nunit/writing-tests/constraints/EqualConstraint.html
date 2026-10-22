@@ -494,31 +494,49 @@ But was:  &quot;89031&quot;
 </code></pre>
 <h2 id="notes">Notes</h2>
 <ol>
-<li>When checking the equality of user-defined classes, NUnit first examines each class to determine whether it
+<li><p>When checking the equality of user-defined classes, NUnit first examines each class to determine whether it
 implements <code>IEquatable&lt;T&gt;</code> (unless the <code>AsCollection</code> modifier is used). If either object implements the interface
 for the type of the other object, then that implementation is used in making the comparison. If neither class
 implements the appropriate interface, NUnit makes use of the <code>Equals</code> override on the expected object. If you neglect
 to either implement <code>IEquatable&lt;T&gt;</code> or to override <code>Equals</code>, you can expect failures comparing non-identical objects.
-In particular, overriding <code>operator ==</code> without overriding <code>Equals</code> or implementing the interface has no effect.</li>
-<li>The <strong>Within</strong> modifier was originally designed for use with floating point values only. Beginning with NUnit 2.4,
+In particular, overriding <code>operator ==</code> without overriding <code>Equals</code> or implementing the interface has no effect.</p>
+</li>
+<li><p>The <strong>Within</strong> modifier was originally designed for use with floating point values only. Beginning with NUnit 2.4,
 comparisons of <strong>DateTime</strong> values may use a <strong>TimeSpan</strong> as a tolerance. Beginning with NUnit 2.4.2, non-float
-numeric comparisons may also specify a tolerance.</li>
-<li>Float and double comparisons for which no tolerance is specified use a default value, which can be specified with
+numeric comparisons may also specify a tolerance.</p>
+</li>
+<li><p>Float and double comparisons for which no tolerance is specified use a default value, which can be specified with
 <strong>DefaultFloatingPointToleranceAttribute</strong>. If this is not in place, a tolerance of 0.0d is used. (Prior to NUnit
-3.7, default tolerance was instead set via <code>GlobalSettings.DefaultFloatingPointTolerance</code>.)</li>
-<li>Prior to NUnit 2.2.3, comparison of two NaN values would always fail, as specified by IEEE floating point standards.
+3.7, default tolerance was instead set via <code>GlobalSettings.DefaultFloatingPointTolerance</code>.)</p>
+</li>
+<li><p>Prior to NUnit 2.2.3, comparison of two NaN values would always fail, as specified by IEEE floating point standards.
 The new behavior, was introduced after some discussion because it seems more useful in tests. To avoid confusion,
-consider using <strong>Is.NaN</strong> where appropriate.</li>
-<li>When an equality test between two strings fails, the relevant portion of both strings is displayed in the error
+consider using <strong>Is.NaN</strong> where appropriate.</p>
+</li>
+<li><p>When an equality test between two strings fails, the relevant portion of both strings is displayed in the error
 message, clipping the strings to fit the length of the line as needed. Beginning with 2.4.4, this behavior may be
 modified by use of the <strong>NoClip</strong> modifier on the constraint. In addition, the maximum line length may be modified
-for all tests by setting the value of <strong>TextMessageWriter.MaximumLineLength</strong> in the appropriate level of setup.</li>
-<li>When used with arrays, collections or dictionaries, EqualConstraint operates recursively. Any modifiers are saved and
-used as they apply to individual items.</li>
-<li>A user-specified comparer will not be called by <strong>EqualConstraint</strong> if either or both arguments are null. If both are
-null, the Constraint succeeds. If only one is null, it fails.</li>
-<li>NUnit has special semantics for comparing <strong>Streams</strong> and <strong>DirectoryInfos</strong>. For a <strong>Stream</strong>, the contents are
-compared. For a <strong>DirectoryInfo</strong>, the first-level directory contents are compared.</li>
+for all tests by setting the value of <strong>TextMessageWriter.MaximumLineLength</strong> in the appropriate level of setup.</p>
+</li>
+<li><p>When used with arrays, collections or dictionaries, EqualConstraint operates recursively. Any modifiers are saved and
+used as they apply to individual items.</p>
+</li>
+<li><p>A user-specified comparer will not be called by <strong>EqualConstraint</strong> if either or both arguments are null. If both are
+null, the Constraint succeeds. If only one is null, it fails.</p>
+</li>
+<li><p>NUnit has special semantics for comparing <strong>Streams</strong> and <strong>DirectoryInfos</strong>. For a <strong>Stream</strong>, the contents are
+compared. For a <strong>DirectoryInfo</strong>, the first-level directory contents are compared.</p>
+</li>
+<li><p><strong>F# callers:</strong> since NUnit 4.3.0, <code>Is.EqualTo</code> has overloads taking <code>object</code>, <code>T</code> and <code>IEnumerable&lt;T&gt;</code>. C# picks the
+right one, but the F# compiler cannot choose between them when the expected value is a list or other collection and
+reports <em>A unique overload for method 'EqualTo' could not be determined</em>. Specify the type argument on the call to
+resolve the ambiguity:</p>
+<pre><code class="lang-fsharp">Assert.That([2; 3], Is.EqualTo&lt;int list&gt;([2; 3]))
+</code></pre>
+<p>This is a known limitation of F# overload resolution
+(<a href="https://github.com/dotnet/fsharp/issues/1647">dotnet/fsharp#1647</a>); see NUnit issue
+<a href="https://github.com/nunit/nunit/issues/4920">4920</a> for the discussion.</p>
+</li>
 </ol>
 <h2 id="see-also">See also</h2>
 <ul>
