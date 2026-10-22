@@ -1,14 +1,17 @@
 # Deploys a preview of the docs site for every pull request (including PRs from forks)
-# and posts the link as a sticky PR comment.
+# and posts the link as a single sticky PR comment that is updated on each push.
 #
 # How it works:
 #   * The main build workflow runs on `pull_request` with no secrets and uploads the built
-#     site (and the PR number) as artifacts.
+#     site as an artifact.
 #   * This workflow runs on `workflow_run` when that build completes. It executes in the
 #     context of the default branch, so it has access to the Cloudflare secrets even when
 #     the triggering PR came from a fork.
-#   * It only downloads the artifacts and uploads static files. It NEVER checks out or
-#     executes code from the pull request. Keep it that way.
+#   * Everything produced by the PR build (the artifact) is UNTRUSTED: a PR can change the
+#     build workflow itself. This workflow therefore resolves which PR it is deploying from
+#     GitHub-provided run metadata only, refuses anything in the archive that is not a plain
+#     file or directory, and never checks out or executes code from the pull request.
+#     Keep it that way.
 #
 # See https://github.com/nunit/docs/issues/1264 for the background and decision.
 
@@ -37,29 +40,39 @@ jobs:
     permissions:
       actions: read # download artifacts from the triggering run
       pull-requests: write # post the preview link comment
+    # Deploys and the cleanup job for the same PR head share one group and never cancel each
+    # other, so a late deploy cannot race a cleanup and two deploys cannot interleave.
     concurrency:
       group: pr-preview-${{ github.event.workflow_run.head_repository.full_name }}-${{ github.event.workflow_run.head_branch }}
-      cancel-in-progress: true
+      cancel-in-progress: false
     steps:
-      - name: Download PR number
-        uses: actions/download-artifact@v8
-        with:
-          name: pr-number
-          run-id: ${{ github.event.workflow_run.id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path: ${{ runner.temp }}/meta
-
-      - name: Read and validate PR number
+      - name: Resolve the pull request from trusted run metadata
         id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_OWNER: ${{ github.event.workflow_run.head_repository.owner.login }}
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
-          number="$(tr -d '[:space:]' < "$RUNNER_TEMP/meta/pr_number.txt")"
-          if ! [[ "$number" =~ ^[0-9]+$ ]]; then
-            echo "::error::The pr-number artifact did not contain a valid PR number"
-            exit 1
+          # The head repository/branch/sha of the triggering run are set by GitHub, not by the
+          # PR. Only deploy if an OPEN PR with exactly that head still exists; this also skips
+          # builds that have been superseded by a newer push.
+          pr="$(gh api "repos/$GITHUB_REPOSITORY/pulls?state=open&head=$HEAD_OWNER:$HEAD_BRANCH&per_page=20" \
+            | jq -c --arg sha "$HEAD_SHA" '[.[] | select(.head.sha == $sha)][0] // empty')"
+          if [ -z "$pr" ]; then
+            echo "No open PR with head $HEAD_OWNER:$HEAD_BRANCH at $HEAD_SHA (closed, or superseded by a newer commit). Nothing to deploy."
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
-          echo "number=$number" >> "$GITHUB_OUTPUT"
+          number="$(jq -r '.number' <<< "$pr")"
+          echo "Deploying preview for PR #$number ($HEAD_OWNER:$HEAD_BRANCH @ $HEAD_SHA)"
+          {
+            echo "deploy=true"
+            echo "number=$number"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Download built site
+        if: steps.pr.outputs.deploy == 'true'
         uses: actions/download-artifact@v8
         with:
           name: siteArtifact
@@ -67,23 +80,59 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: ${{ runner.temp }}/site
 
-      - name: Unzip site
-        run: unzip -q "$RUNNER_TEMP/site/_site.zip" -d "$RUNNER_TEMP/site"
+      - name: Unpack and check the (untrusted) archive
+        if: steps.pr.outputs.deploy == 'true'
+        working-directory: ${{ runner.temp }}/site
+        run: |
+          unzip -q _site.zip
+          test -d docs/_site || { echo "::error::Archive does not contain docs/_site"; exit 1; }
+          # Refuse symlinks (or anything else exotic): the uploader follows them, which could
+          # publish files from the runner itself.
+          if find docs/_site ! -type f ! -type d -print -quit | grep -q .; then
+            echo "::error::Archive contains entries that are not plain files or directories; refusing to deploy."
+            find docs/_site ! -type f ! -type d
+            exit 1
+          fi
 
       - name: Prepare preview copy
+        if: steps.pr.outputs.deploy == 'true'
         working-directory: ${{ runner.temp }}/site/docs/_site
         run: |
           # Previews must not look like the real site to search engines or analytics.
           # Cloudflare already serves previews with `X-Robots-Tag: noindex`; this removes the
-          # production sitemap and the Google Analytics loader from the preview copy.
+          # production sitemap and every Google Analytics block (modern gtag on DocFX pages,
+          # legacy analytics.js on the archived NUnit 2.x pages).
           rm -f sitemap.xml
-          find . -name '*.html' -exec sed -i '/googletagmanager\.com\/gtag\/js/d' {} +
+          cat > "$RUNNER_TEMP/strip-analytics.py" <<'PY'
+          import pathlib, re, sys
+          PATTERNS = [
+              re.compile(r'<script[^>]*\bsrc="[^"]*googletagmanager\.com/gtag/js[^"]*"[^>]*>\s*</script>\s*'),
+              re.compile(r'<script>(?:(?!</script>).)*?\bgtag\((?:(?!</script>).)*?</script>\s*', re.S),
+              re.compile(r'<script[^>]*>(?:(?!</script>).)*?google-analytics\.com/analytics\.js(?:(?!</script>).)*?</script>\s*', re.S),
+          ]
+          changed = 0
+          for path in pathlib.Path(sys.argv[1]).rglob("*.html"):
+              text = path.read_text(encoding="utf-8", errors="surrogateescape")
+              new = text
+              for pat in PATTERNS:
+                  new = pat.sub("", new)
+              if new != text:
+                  path.write_text(new, encoding="utf-8", errors="surrogateescape")
+                  changed += 1
+          print(f"Removed analytics from {changed} file(s)")
+          PY
+          python3 -I "$RUNNER_TEMP/strip-analytics.py" .
+          if grep -rlqiE 'googletagmanager|google-analytics' --include='*.html' .; then
+            echo "::error::Analytics references remain in the preview copy"
+            exit 1
+          fi
 
           # Defence in depth: never let PR content ship Cloudflare Pages config or Functions
           # (these would otherwise be picked up from the upload root and executed/applied).
           rm -rf _worker.js functions _routes.json _redirects _headers
 
       - name: Deploy to Cloudflare Pages
+        if: steps.pr.outputs.deploy == 'true'
         id: deploy
         uses: cloudflare/wrangler-action@v4
         with:
@@ -96,7 +145,8 @@ jobs:
             --commit-hash="${{ github.event.workflow_run.head_sha }}"
             --commit-dirty=true
 
-      - name: Post preview link on the PR
+      - name: Post or update the preview link on the PR
+        if: steps.pr.outputs.deploy == 'true'
         uses: marocchino/sticky-pull-request-comment@v3
         with:
           number: ${{ steps.pr.outputs.number }}
@@ -114,6 +164,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write # update the preview comment
+    concurrency:
+      group: pr-preview-${{ github.event.pull_request.head.repo.full_name }}-${{ github.event.pull_request.head.ref }}
+      cancel-in-progress: false
     steps:
       # This job runs with secrets, so it deliberately does not check out any code.
       - name: Delete Cloudflare Pages deployments for this PR
@@ -124,19 +177,25 @@ jobs:
         run: |
           api="https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PAGES_PROJECT/deployments"
           auth="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
-          deleted=0
-          for page in $(seq 1 50); do
-            ids="$(curl -fsS "$api?env=preview&page=$page&per_page=25" -H "$auth" \
-              | jq -r --arg b "$PREVIEW_BRANCH" '.result[] | select(.deployment_trigger.metadata.branch == $b) | .id')"
-            count="$(curl -fsS "$api?env=preview&page=$page&per_page=25" -H "$auth" | jq -r '.result | length')"
-            for id in $ids; do
-              curl -fsS -X DELETE "$api/$id?force=true" -H "$auth" > /dev/null
-              echo "Deleted deployment $id"
-              deleted=$((deleted + 1))
-            done
+
+          # Collect every matching deployment id first (deleting while paginating would shift
+          # the pages and skip entries), then delete.
+          ids=()
+          page=1
+          while :; do
+            resp="$(curl -fsS "$api?env=preview&page=$page&per_page=25" -H "$auth")"
+            mapfile -t found < <(jq -r --arg b "$PREVIEW_BRANCH" '.result[] | select(.deployment_trigger.metadata.branch == $b) | .id' <<< "$resp")
+            ids+=("${found[@]}")
+            count="$(jq -r '.result | length' <<< "$resp")"
             [ "$count" -lt 25 ] && break
+            page=$((page + 1))
           done
-          echo "Removed $deleted preview deployment(s) for $PREVIEW_BRANCH"
+
+          for id in "${ids[@]}"; do
+            curl -fsS -X DELETE "$api/$id?force=true" -H "$auth" > /dev/null
+            echo "Deleted deployment $id"
+          done
+          echo "Removed ${#ids[@]} preview deployment(s) for $PREVIEW_BRANCH"
 
       - name: Update the preview comment
         uses: marocchino/sticky-pull-request-comment@v3
