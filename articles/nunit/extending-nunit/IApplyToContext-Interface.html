@@ -104,6 +104,26 @@ on. When the test or suite completes, the new value is discarded and the value c
 against used.</p>
 <p>Custom attributes that implement <code>IApplyToContext</code> should modify the TestExecutionContext in accordance with the
 arguments supplied to them. They are not called after the test is run and have no cleanup to perform.</p>
+<h2 id="where-the-attribute-may-be-placed">Where the Attribute May Be Placed</h2>
+<p>NUnit looks for <code>IApplyToContext</code> attributes at every level of the test tree. An attribute placed on a <strong>test method</strong>
+changes the context for that test case only. An attribute placed on a <strong>fixture</strong> changes the context for the fixture's
+one-time setup and teardown and for every test case in it. An attribute placed on the <strong>assembly</strong> changes the context
+for the whole test run. In each case the changes are reverted when the test or suite completes.</p>
+<p>The levels at which a particular attribute may be used are controlled by its own <code>AttributeUsage</code>. For example,
+<code>ParallelizableAttribute</code> may be used on assemblies, classes and methods, while <code>SingleThreadedAttribute</code> may be used
+only on classes. If you write a custom <code>IApplyToContext</code> attribute, declare the <code>AttributeUsage</code> to match the levels at
+which it makes sense:</p>
+<pre><code class="lang-csharp">[AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
+public class MyContextAttribute : NUnitAttribute, IApplyToContext
+{
+    public void ApplyToContext(TestExecutionContext context)
+    {
+        // Modify the context here
+    }
+}
+</code></pre>
+<p>This differs from <a href="ICommandWrapper-Interface.html"><code>ICommandWrapper</code></a> attributes, which only have an effect when placed on
+a test method.</p>
 <p>The NUnit attributes that implement <code>IApplyToContext</code> are as follows:</p>
 <ul>
 <li><a class="xref" href="../writing-tests/attributes/defaultfloatingpointtolerance.html"><code>DefaultFloatingPointToleranceAttribute</code></a></li>
