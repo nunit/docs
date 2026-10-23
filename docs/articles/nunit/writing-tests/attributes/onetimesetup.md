@@ -34,7 +34,8 @@ Methods may be **async** (`Task` / `Task<T>`): NUnit will wait for completion li
 If `OneTimeSetUp` lives on an **abstract or concrete base test class**, NUnit invokes it **for every derived fixture
 type** that inherits that hierarchy (along with setup on the descendants). When you truly need execution **exactly once
 for many unrelated fixtures**, prefer **`SetUpFixture`** or **`static`** initialization instead of repeating base-class
-`OneTimeSetUp` semantics.
+`OneTimeSetUp` semantics. See [Sharing setup across projects](xref:attribute-setupfixture#sharing-setup-across-projects)
+for the pattern to use when the base class lives in a shared package.
 
 ## Failures and exceptions
 
