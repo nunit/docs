@@ -31,21 +31,7 @@ Is.Not.EquivalentTo(IEnumerable expected)
 
 ## Examples
 
-```csharp
-// Basic equivalence - order doesn't matter
-int[] expected = { 1, 2, 3 };
-Assert.That(new[] { 3, 1, 2 }, Is.EquivalentTo(expected));
-
-// Not equivalent - different counts matter
-Assert.That(new[] { 1, 2, 2 }, Is.Not.EquivalentTo(expected));
-
-// String comparison with case insensitivity
-string[] names = { "Alice", "Bob", "Charlie" };
-Assert.That(new[] { "alice", "BOB", "CHARLIE" }, Is.EquivalentTo(names).IgnoreCase);
-
-// With custom comparer for complex objects
-Assert.That(actualPeople, Is.EquivalentTo(expectedPeople).UsingPropertiesComparer());
-```
+[!code-csharp[CollectionEquivalentConstraintExamples](~/snippets/Snippets.NUnit/Constraints/CollectionConstraintSnippets.cs#CollectionEquivalentConstraintExamples)]
 
 ## Notes
 

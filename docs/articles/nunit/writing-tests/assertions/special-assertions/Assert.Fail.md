@@ -17,18 +17,7 @@ Assert.Fail(string message);
 Here's an example of its use to create a private assertion that tests whether a
 string contains an expected value.
 
-```csharp
-public void AssertStringContains(string expected, string actual)
-{
-    AssertStringContains(expected, actual, string.Empty);
-}
-
-public void AssertStringContains(string expected, string actual, string message)
-{
-    if (actual.IndexOf(expected) < 0)
-        Assert.Fail(message);
-}
-```
+[!code-csharp[AssertFailHelper](~/snippets/Snippets.NUnit/SpecialAssertionExamples.cs#AssertFailHelper)]
 
 ## See Also
 

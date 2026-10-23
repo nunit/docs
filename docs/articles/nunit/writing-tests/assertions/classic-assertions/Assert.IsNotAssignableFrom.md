@@ -22,6 +22,10 @@ Assert.IsNotAssignableFrom<T>(object actual,
                               string message, params object[] params);
 ```
 
+## Examples
+
+[!code-csharp[AssignableFromExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#AssignableFromExamples)]
+
 ## See also
 
 * [Type Constraints](xref:constraints#type-constraints)

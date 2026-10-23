@@ -28,6 +28,10 @@ Assert.IsNotEmpty(IEnumerable collection, string message,
 > When used with an IEnumerable that is not also an ICollection, `Assert.IsEmpty` attempts to enumerate
 > the contents. It should not be used in cases where this results in an unwanted side effect.
 
+## Examples
+
+[!code-csharp[EmptyExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#EmptyExamples)]
+
 ## See Also
 
 * [Condition Constraints](xref:constraints#condition-constraints)

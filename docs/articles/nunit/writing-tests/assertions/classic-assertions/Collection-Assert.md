@@ -79,6 +79,32 @@ CollectionAssert.IsOrdered(IEnumerable collection,
     IComparer comparer, string message, params object[] args);
 ```
 
+## Examples
+
+### Comparing collections
+
+[!code-csharp[CollectionAssertBasicExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertBasicExamples)]
+
+### Testing for members
+
+[!code-csharp[CollectionAssertContainsExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertContainsExamples)]
+
+### Subsets
+
+[!code-csharp[CollectionAssertSubsetExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertSubsetExamples)]
+
+### Empty collections
+
+[!code-csharp[CollectionAssertEmptyExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertEmptyExamples)]
+
+### Ordering
+
+[!code-csharp[CollectionAssertOrderedExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertOrderedExamples)]
+
+### Item types
+
+[!code-csharp[CollectionAssertItemTypeExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertItemTypeExamples)]
+
 ## See Also
 
 * [Collection Constraints](xref:constraints#collection-constraints)

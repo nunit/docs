@@ -29,7 +29,7 @@ namespace NUnit.Framework.Constraints
         public virtual ConstraintResult ApplyTo<TActual>(Func<TActual> code) {}
         public virtual Task<ConstraintResult> ApplyToAsync<TActual>(Func<Task<TActual>> taskDel) {}
         protected virtual object GetTestObject<TActual>(Func<TActual> code) {}
-        public virtual string Description { get; protected set; }
+        public abstract string Description { get; }
         protected virtual string GetStringRepresentation() {}
     }
 }
@@ -38,7 +38,8 @@ namespace NUnit.Framework.Constraints
 > [!NOTE]
 > In NUnit 4 and earlier, the delegate overloads took an `ActualValueDelegate<TActual>` instead of a `Func<TActual>`,
 > and there was also an `ApplyTo<TActual>(ref TActual actual)` overload. Both were removed in NUnit 5, so custom
-> constraints that override these methods must be updated.
+> constraints that override these methods must be updated. `Description` was also a virtual property with a
+> protected setter; in NUnit 5 it is abstract, so every custom constraint must override it.
 
 ## `Constraint` Constructor
 
@@ -55,12 +56,7 @@ constraint. Whatever logic defines pass or fail of the constraint and actual/exp
 
 For example, a very naive implementation of a reference equality constraint might look like this:
 
-```csharp
-public override ConstraintResult ApplyTo<TActual>(TActual actual)
-{
-    return new ConstraintResult(this, actual, ReferenceEquals(actual, Arguments[0]));
-}
-```
+[!code-csharp[ReferenceEqualsConstraint](~/snippets/Snippets.NUnit/CustomConstraintSyntaxExamples.cs#ReferenceEqualsConstraint)]
 
 The key here is there needs to be some evaluation of the constraint logic, and the return value must be a
 `ConstraintResult` or subclass thereof. Custom subclasses of `ConstraintResult` may be used to further customize the
@@ -86,27 +82,20 @@ still customizing how the actual value delegate is invoked.
 
 ## `Description` Property
 
-This virtual property is used to provide a description of the constraint for messages. Simple constant values can be set
-in the custom constraint's constructor. If more complex logic is needed, override the property and provide a custom
-implementation of `get`.
+This abstract property provides a description of the constraint for messages. Override it to return a constant
+for simple constraints, or build the description from the constraint's arguments when more logic is needed.
 
 Here are a few simple examples from built-in constraints.
 
 ```csharp
 public class FalseConstraint : Constraint
 {
-    public FalseConstraint()
-    {
-        this.Description = "False";
-    }
+    public override string Description => "False";
 }
 
 public class NullConstraint : Constraint
 {
-    public NullConstraint()
-    {
-        this.Description = "null";
-    }
+    public override string Description => "null";
 }
 ```
 
@@ -151,6 +140,11 @@ be overridden, but the `Constraint` base class sets it in the base constructor t
 
 ## Custom Constraint Usage Syntax
 
+The examples in this section use the following custom constraint, which checks that a string equals an expected
+value:
+
+[!code-csharp[SampleConstraint](~/snippets/Snippets.NUnit/CustomConstraints.cs#SampleConstraint)]
+
 Having written a custom constraint class, you can use it directly through its constructor:
 
 ```csharp
@@ -189,49 +183,21 @@ Assert.That(actual, Is.Not.Custom(x, y));
 
 Provide a static extension method on NUnit's `Is` class.
 
-```csharp
-public static class CustomConstraintExtensions
-{
-    extension(Is)
-    {
-        public static CustomConstraint Custom(string expected)
-        {
-            return new CustomConstraint(expected);
-        }
-    }
-}
-```
+[!code-csharp[Syntax_Is_ExtensionMember](~/snippets/Snippets.NUnit/CustomConstraintSyntaxExamples.cs#Syntax_Is_ExtensionMember)]
 
 Provide an extension method for NUnit's `ConstraintExpression`.
 
-```csharp
-public static class CustomConstraintExtensions
-{
-    extension(ConstraintExpression expression)
-    {
-        public CustomConstraint Custom(string expected)
-        {
-            var constraint = new CustomConstraint(expected);
-            expression.Append(constraint);
-            return constraint;
-        }
-    }
-}   
-```
+[!code-csharp[Syntax_Expression_ExtensionMember](~/snippets/Snippets.NUnit/CustomConstraintSyntaxExamples.cs#Syntax_Expression_ExtensionMember)]
+
+With both in place, the custom constraint reads like a built-in one:
+
+[!code-csharp[Syntax_ExtensionMember_Usage](~/snippets/Snippets.NUnit/CustomConstraintSyntaxExamples.cs#Syntax_ExtensionMember_Usage)]
 
 ### Example 2 (Using Extension Methods and Inheritance)
 
 Extend NUnit's `Is` class and provide a static method. If you like, you can even call it `Is` and extend NUnit's `Is`, provided you place it in your own namespace and avoid any conflicts.
 
-```csharp
-public class Is : NUnit.Framework.Is
-{
-    public static CustomConstraint Custom(object expected)
-    {
-        return new CustomConstraint(expected);
-    }
-}
-```
+[!code-csharp[Syntax_Is_Inheritance](~/snippets/Snippets.NUnit/CustomConstraintSyntaxExamples.cs#Syntax_Is_Inheritance)]
 
 Provide an extension method for NUnit's `ConstraintExpression`.
 

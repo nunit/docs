@@ -22,6 +22,10 @@ Assert.IsInstanceOf<T>(object actual,
                        string message, params object[] params);
 ```
 
+## Examples
+
+[!code-csharp[InstanceOfExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#InstanceOfExamples)]
+
 ## See Also
 
 * [Type Constraints](xref:constraints#type-constraints)

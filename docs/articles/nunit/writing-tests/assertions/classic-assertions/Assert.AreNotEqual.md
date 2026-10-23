@@ -21,6 +21,10 @@ Assert.AreNotEqual(object expected, object actual,
 
 See [Assert.AreEqual](Assert.AreEqual.md) for details of how NUnit performs equality comparisons.
 
+## Examples
+
+[!code-csharp[AreNotEqualExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#AreNotEqualExamples)]
+
 ## See Also
 
 * [Assert.AreEqual](Assert.AreEqual.md)

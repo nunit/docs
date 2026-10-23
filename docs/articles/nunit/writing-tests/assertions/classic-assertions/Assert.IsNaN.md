@@ -18,6 +18,10 @@ Assert.IsNaN(double aDouble);
 Assert.IsNaN(double aDouble, string message, params object[] params);
 ```
 
+## Examples
+
+[!code-csharp[NaNExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#NaNExamples)]
+
 ## See Also
 
 * [Condition Constraints](xref:constraints#condition-constraints)

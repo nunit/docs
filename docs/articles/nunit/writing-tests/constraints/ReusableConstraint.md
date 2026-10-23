@@ -9,28 +9,16 @@ same constraint in several places can lead to unexpected results.
 
 Consider the following code as an example:
 
-```csharp
-Constraint myConstraint = Is.Not.Null;
-Assert.That("not a null", myConstraint); // Passes, of course
-Assert.That("not a null", myConstraint); // Fails! What's that about?
-```
+[!code-csharp[ReusableConstraintProblem](~/snippets/Snippets.NUnit/Constraints/ReusableConstraintSnippets.cs#ReusableConstraintProblem)]
 
 We'll save the technical explanation for later and show the
 solution first:
 
-```csharp
-ReusableConstraint myConstraint = Is.Not.Null;
-Assert.That("not a null", myConstraint); // Passes
-Assert.That("not a null", myConstraint); // Passes
-```
+[!code-csharp[ReusableConstraintImplicit](~/snippets/Snippets.NUnit/Constraints/ReusableConstraintSnippets.cs#ReusableConstraintImplicit)]
 
 Or alternatively..
 
-```csharp
-var myConstraint = new ReusableConstraint(Is.Not.Null);
-Assert.That("not a null", myConstraint); // Passes
-Assert.That("not a null", myConstraint); // Passes
-```
+[!code-csharp[ReusableConstraintExplicit](~/snippets/Snippets.NUnit/Constraints/ReusableConstraintSnippets.cs#ReusableConstraintExplicit)]
 
 ## Technical Explanation
 

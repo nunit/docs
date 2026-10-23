@@ -50,6 +50,10 @@ Assert.Greater(IComparable arg1, IComparable arg2,
                string message, params object[] params);
 ```
 
+## Examples
+
+[!code-csharp[GreaterExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#GreaterExamples)]
+
 ## See Also
 
 * [Assert.GreaterOrEqual](Assert.GreaterOrEqual.md)
