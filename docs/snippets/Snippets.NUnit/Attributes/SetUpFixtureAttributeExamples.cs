@@ -242,8 +242,8 @@ namespace Snippets.NUnit.Attributes.SetUpFixtureSharing.LazyAlternative
 
     #region SetUpFixtureSharingLazy
     // In the shared package: start the resource the first time any test needs it.
-    // Lazy<T> guarantees a single start per test run, but nothing stops the
-    // resource at the end of the run.
+    // Lazy<T> starts it once per process that loads this type, and nothing stops
+    // it at the end of the run.
     public abstract class SharedServerTestBase
     {
         private static readonly Lazy<TestServer> Server = new(TestServer.Start);

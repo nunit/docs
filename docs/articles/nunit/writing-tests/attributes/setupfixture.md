@@ -120,8 +120,9 @@ whole project:
 [!code-csharp[SetUpFixtureSharingConsumer](~/snippets/Snippets.NUnit/Attributes/SetUpFixtureAttributeExamples.cs#SetUpFixtureSharingConsumer)]
 
 If you cannot ask consumers to add a class, start the resource on first use from a static `Lazy<T>` in the base test
-class. It starts once per test run, but NUnit offers no hook to stop it at the end of the run, so use this only for
-resources the process can abandon:
+class. The resource lives as long as the type stays loaded: `dotnet test` starts a fresh test host per run, so each
+test project gets its own instance, but a host that keeps the assembly loaded between runs reuses it. NUnit offers no
+hook to stop it at the end of the run, so use this only for resources the process can abandon:
 
 [!code-csharp[SetUpFixtureSharingLazy](~/snippets/Snippets.NUnit/Attributes/SetUpFixtureAttributeExamples.cs#SetUpFixtureSharingLazy)]
 
