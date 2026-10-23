@@ -261,7 +261,7 @@ public class TestCaseSourceExamples
             // so read the token from the test context instead.
             CancellationToken cancellationToken = TestContext.CurrentContext.CancellationToken;
 
-            Assert.That(cancellationToken, Is.Not.EqualTo(default(CancellationToken)));
+            cancellationToken.ThrowIfCancellationRequested();
             Assert.That(name, Is.Not.Null);
             Assert.That(values, Is.All.Positive);
         }
