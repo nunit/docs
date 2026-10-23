@@ -98,6 +98,7 @@ Is.Negative                     // Equivalent to Is.LessThan(0)
 .Using&lt;T&gt;(IComparer&lt;T&gt; comparer)
 .Using&lt;T&gt;(Comparison&lt;T&gt; comparer)
 .Within(object tolerance)
+      .Percent
 </code></pre>
 <h2 id="examples">Examples</h2>
 <pre><code class="lang-csharp" name="LessThanConstraintExamples">[Test]
@@ -155,7 +156,9 @@ public class MyComparerTyped : IComparer&lt;MyOwnObject&gt;
 
 </code></pre><h2 id="notes">Notes</h2>
 <ol>
-<li>When comparing floating-point numbers, consider using <code>.Within()</code> to specify a tolerance.</li>
+<li><code>Within</code> relaxes the bound by the tolerance, in the actual value's favour: <code>Is.LessThan(10).Within(1)</code> passes
+for any value less than 11. The tolerance may be linear or <code>Percent</code>, and from NUnit 4.1 a <code>TimeSpan</code> tolerance
+may be used with <code>DateTime</code> and <code>TimeSpan</code> bounds. See <a href="Tolerance.html#comparison-constraints">Tolerances</a>.</li>
 <li><code>Is.Negative</code> is a convenience shorthand for <code>Is.LessThan(0)</code>.</li>
 </ol>
 <h2 id="see-also">See Also</h2>
@@ -163,6 +166,7 @@ public class MyComparerTyped : IComparer&lt;MyOwnObject&gt;
 <li><a href="GreaterThanConstraint.html">GreaterThan Constraint</a></li>
 <li><a href="LessThanOrEqualConstraint.html">LessThanOrEqual Constraint</a></li>
 <li><a href="RangeConstraint.html">Range Constraint</a></li>
+<li><a href="Tolerance.html">Tolerances</a></li>
 </ul>
 
 </article>

@@ -128,7 +128,9 @@ Is.Zero // Equivalent to Is.EqualTo(0)
 </code></pre>
 <h2 id="comparing-numerics">Comparing Numerics</h2>
 <p>Numerics are compared based on their values. Different types may be compared successfully if their values are equal.</p>
-<p>Using the <code>Within</code> modifier, numerics may be tested for equality within a fixed or percent tolerance.</p>
+<p>Using the <code>Within</code> modifier, numerics may be tested for equality within a fixed or percent tolerance. The
+<a href="Tolerance.html">Tolerances</a> page describes the tolerance modes in detail, which types accept a tolerance, and what to do
+for types that do not.</p>
 <pre><code class="lang-csharp" name="EqualConstraintNumerics">[Test]
 public void EqualConstraint_Numerics()
 {
@@ -216,7 +218,7 @@ to indicate the mismatched location in both <em>expected</em> and <em>actual</em
 <code>Within</code> with either a <code>TimeSpan</code> as an argument or with a numeric value followed by a one of the time conversion
 modifiers: <code>Days</code>, <code>Hours</code>, <code>Minutes</code>, <code>Seconds</code>, <code>Milliseconds</code> or <code>Ticks</code>.</p>
 <p>When comparing <code>DateTimeOffset</code> values you can use the optional <code>WithSameOffset</code> modifier to check the offset along with
-the date and time.</p>
+the date and time. <code>WithSameOffset</code> cannot be combined with <code>Within</code>.</p>
 <pre><code class="lang-csharp" name="EqualConstraintDateTime">[Test]
 public void CompareDateTimesWithTolerance()
 {
@@ -227,7 +229,11 @@ public void CompareDateTimesWithTolerance()
     Assert.That(later, Is.EqualTo(now).Within(TimeSpan.FromHours(3.0)));
     Assert.That(later, Is.EqualTo(now).Within(3).Hours);
 }
-</code></pre><h2 id="comparing-arrays-collections-and-ienumerables-with-ascollection">Comparing Arrays, Collections and IEnumerables with AsCollection</h2>
+</code></pre>
+<p>From NUnit 4.3, <code>Is.EqualTo</code> has dedicated overloads for <code>DateTime</code>, <code>DateTimeOffset</code> and <code>TimeSpan</code> values. On these
+a numeric tolerance must be followed by a unit; <code>Is.EqualTo(now).Within(3)</code> by itself is not a usable constraint and
+the assertion does not compile. See <a href="Tolerance.html#time-units">Tolerances</a>.</p>
+<h2 id="comparing-arrays-collections-and-ienumerables-with-ascollection">Comparing Arrays, Collections and IEnumerables with AsCollection</h2>
 <p>Since version 2.2, NUnit has been able to compare two single-dimensioned arrays. Beginning with version 2.4,
 multi-dimensioned arrays, nested arrays (arrays of arrays) and collections may be compared. With version 2.5, any
 IEnumerable is supported. Two arrays, collections or IEnumerables are considered equal if they have the same dimensions
@@ -312,6 +318,10 @@ own through the <code>Using</code> modifier. When used with <code>EqualConstrain
 <code>IEqualityComparer&lt;T&gt;</code>, <code>IComparer</code>, <code>IComparer&lt;T&gt;</code> or <code>Comparison&lt;T&gt;</code> as the argument to <code>Using</code>.</p>
 <pre><code class="lang-csharp">Assert.That(myObj1, Is.EqualTo(myObj2).Using(myComparer));
 </code></pre>
+<p>A user-specified comparer takes over the whole comparison, so it cannot be combined with <code>Within</code>: from NUnit 4.0,
+specifying both results in a <code>NotSupportedException</code>. If you need an approximate comparison for a type that NUnit does
+not support, build the tolerance into the comparer itself. See
+<a href="Tolerance.html#tolerances-for-your-own-types">Tolerances for your own types</a>.</p>
 <p>Prior to NUnit 2.6, only one comparer could be used. If multiple comparers were specified, all but one was ignored.
 Beginning with NUnit 2.6, multiple generic comparers for different types may be specified. NUnit will use the
 appropriate comparer for any two types being compared. As a result, it is now possible to provide a comparer for an
@@ -348,7 +358,10 @@ The reason for this is to get better error messages in case of mismatch.</p>
 For each property, it gets the value for both instances and compares them for equality.
 This can be recursive, e.g. if one has a class <code>Group</code> holding a collection of <code>Persons</code>.</p>
 <p>The comparer will use the specified tolerance as specified using <code>.Within(amount)</code> if possible.
-This can be useful when comparing floating point numbers of calculation results.</p>
+This can be useful when comparing floating point numbers of calculation results.
+Properties that cannot take a tolerance, such as strings, are compared exactly.
+From version 4.4 the configuration also has a <code>Within</code> method, which allows separate tolerances
+for numeric and time properties; see <a href="Tolerance.html#objects-compared-property-by-property">Tolerances</a>.</p>
 <p>The comparer can deal with recursive data structures,
 it will stop comparing if it already previously has compared two the same instances.</p>
 <p>From version 4.4 there is a new overload of <code>UsingPropertiesComparer</code> which allows tailoring the comparison.
@@ -521,9 +534,10 @@ implements the appropriate interface, NUnit makes use of the <code>Equals</code>
 to either implement <code>IEquatable&lt;T&gt;</code> or to override <code>Equals</code>, you can expect failures comparing non-identical objects.
 In particular, overriding <code>operator ==</code> without overriding <code>Equals</code> or implementing the interface has no effect.</p>
 </li>
-<li><p>The <code>Within</code> modifier was originally designed for use with floating point values only. Beginning with NUnit 2.4,
-comparisons of <code>DateTime</code> values may use a <code>TimeSpan</code> as a tolerance. Beginning with NUnit 2.4.2, non-float
-numeric comparisons may also specify a tolerance.</p>
+<li><p>The <code>Within</code> modifier works with all numeric types and, given a <code>TimeSpan</code> tolerance, with <code>DateTime</code>,
+<code>DateTimeOffset</code> and <code>TimeSpan</code>. It is applied recursively to the elements of arrays, collections, dictionaries and
+tuples. For any other type the tolerance cannot be applied; before NUnit 4.0 it was silently ignored, from NUnit 4.0
+the assertion errors with a <code>NotSupportedException</code>. See <a href="Tolerance.html">Tolerances</a> for details and workarounds.</p>
 </li>
 <li><p>Float and double comparisons for which no tolerance is specified use a default value, which can be specified with
 <code>DefaultFloatingPointToleranceAttribute</code>. If this is not in place, a tolerance of 0.0d is used. (Prior to NUnit
@@ -560,6 +574,7 @@ resolve the ambiguity:</p>
 </ol>
 <h2 id="see-also">See also</h2>
 <ul>
+<li><a href="Tolerance.html">Tolerances</a></li>
 <li><a class="xref" href="../assertions/classic-assertions/Assert.AreEqual.html">Assert.AreEqual</a></li>
 <li><a class="xref" href="../attributes/defaultfloatingpointtolerance.html">DefaultFloatingPointTolerance Attribute</a></li>
 </ul>

@@ -130,6 +130,9 @@ Assert.That(actual, Is.InRange(lower, upper));
 <pre><code class="lang-csharp">Assert.That(5, Is.GreaterThan(1).And.LessThan(10));  // Exclusive bounds
 </code></pre>
 </li>
+<li><p><code>RangeConstraint</code> has no <code>Within</code> modifier. To allow for imprecision, widen the bounds, or combine <code>Is.GreaterThan</code>
+and <code>Is.LessThan</code> with their own <a href="Tolerance.html#comparison-constraints">tolerances</a>.</p>
+</li>
 </ol>
 <h2 id="see-also">See Also</h2>
 <ul>

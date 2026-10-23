@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Tolerances | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Tolerances | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../../toc.html">
+      <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../../index.html">
+                <img id="logo" class="svg" src="../../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="tolerance">
+<h1 id="tolerances">Tolerances</h1>
+
+<p>A tolerance lets an assertion pass when the actual value is <em>close enough</em> to the expected value rather than exactly
+equal to it. Tolerances are essential for floating point arithmetic, for values that pass through storage with lower
+precision (a database that keeps microseconds, a JSON serializer that rounds), and for timestamps that are taken a
+moment apart.</p>
+<p>NUnit expresses a tolerance with the <code>Within</code> modifier, optionally followed by a modifier that says how the amount
+should be interpreted:</p>
+<pre><code class="lang-csharp">Assert.That(actual, Is.EqualTo(expected).Within(0.01));          // plus or minus 0.01
+Assert.That(actual, Is.EqualTo(expected).Within(1).Percent);     // plus or minus 1 percent of expected
+Assert.That(actual, Is.EqualTo(expected).Within(2).Ulps);        // within 2 representable floating point values
+Assert.That(actual, Is.EqualTo(expected).Within(5).Seconds);     // plus or minus 5 seconds
+</code></pre>
+<p>This page describes how tolerances work across NUnit, which types support them, what happens when a tolerance cannot be
+applied, and how to get tolerant comparisons for types NUnit does not know about.</p>
+<h2 id="where-tolerances-can-be-used">Where tolerances can be used</h2>
+<table>
+<thead>
+<tr>
+<th>Constraint or API</th>
+<th>Syntax</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="EqualConstraint.html">EqualConstraint</a></td>
+<td><code>Is.EqualTo(x).Within(t)</code></td>
+<td>Supports all tolerance modes. Applies to elements of arrays, collections, dictionaries, tuples.</td>
+</tr>
+<tr>
+<td><a href="GreaterThanConstraint.html">GreaterThan</a>, <a href="LessThanConstraint.html">LessThan</a> and the <code>OrEqual</code> forms</td>
+<td><code>Is.GreaterThan(x).Within(t)</code></td>
+<td>Linear and <code>Percent</code> tolerances. See <a href="#comparison-constraints">Comparison constraints</a>.</td>
+</tr>
+<tr>
+<td>Properties comparer</td>
+<td><code>Is.EqualTo(x).Within(t).UsingPropertiesComparer()</code></td>
+<td>Applies the tolerance to every property that can take one.</td>
+</tr>
+<tr>
+<td>Properties comparer configuration</td>
+<td><code>.UsingPropertiesComparer(o =&gt; o.Within(t))</code></td>
+<td>From NUnit 4.4. Separate tolerances for numeric and time properties.</td>
+</tr>
+<tr>
+<td>Item constraints such as <code>Has.Some</code>, <code>Has.Exactly(n)</code> and <code>Is.All</code></td>
+<td><code>Has.Some.EqualTo(x).Within(t)</code></td>
+<td>The tolerance belongs to the per-item <code>EqualTo</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../assertions/classic-assertions/Assert.AreEqual.html">Assert.AreEqual</a> (classic)</td>
+<td><code>Assert.AreEqual(expected, actual, delta)</code></td>
+<td>Linear tolerance for <code>double</code> only.</td>
+</tr>
+</tbody>
+</table>
+<p>The following do <strong>not</strong> accept a tolerance:</p>
+<ul>
+<li><a href="CollectionEquivalentConstraint.html">CollectionEquivalentConstraint</a> (<code>Is.EquivalentTo</code>), as well as <code>Is.SubsetOf</code>,
+<code>Is.SupersetOf</code> and <code>Is.Unique</code>. See <a href="#unordered-collections">Unordered collections</a> for alternatives.</li>
+<li><a href="RangeConstraint.html">RangeConstraint</a> (<code>Is.InRange</code>). Widen the bounds instead.</li>
+<li>String constraints. <code>Is.EqualTo(&quot;text&quot;).Within(1)</code> does not compile from NUnit 4.3.</li>
+</ul>
+<h2 id="tolerance-modes">Tolerance modes</h2>
+<h3 id="linear">Linear</h3>
+<p>A plain <code>Within(amount)</code> is a linear (absolute) tolerance. The assertion passes when the difference between the actual
+and expected values, in either direction, is no greater than the amount. The tolerance and the values may be of
+different numeric types.</p>
+<pre><code class="lang-csharp" name="ToleranceLinear">[Test]
+public void Tolerance_Linear()
+{
+    // The actual value may differ from the expected value by at most the tolerance, in either direction
+    Assert.That(4.99, Is.EqualTo(5.0).Within(0.01));
+    Assert.That(5.01, Is.EqualTo(5.0).Within(0.01));
+    Assert.That(5.02, Is.Not.EqualTo(5.0).Within(0.01));
+
+    // Integers accept an integer tolerance
+    Assert.That(98, Is.EqualTo(100).Within(2));
+
+    // Numeric types may be mixed freely
+    Assert.That(5.5, Is.EqualTo(5).Within(0.5));
+    Assert.That(10m, Is.EqualTo(10.4).Within(0.5));
+}
+</code></pre><h3 id="percent">Percent</h3>
+<p><code>Within(amount).Percent</code> interprets the amount as a percentage of the <strong>expected</strong> value. Because the allowed deviation
+is relative to the expected value, an expected value of zero only matches an actual value of zero.</p>
+<pre><code class="lang-csharp" name="TolerancePercent">[Test]
+public void Tolerance_Percent()
+{
+    // 5 percent of the expected value 100 means anything from 95 to 105 passes
+    Assert.That(97.0, Is.EqualTo(100.0).Within(5).Percent);
+    Assert.That(104, Is.EqualTo(100).Within(5).Percent);
+    Assert.That(106, Is.Not.EqualTo(100).Within(5).Percent);
+
+    // The percentage is relative to the expected value, so an expected value of zero only matches zero
+    Assert.That(0.0, Is.EqualTo(0.0).Within(5).Percent);
+    Assert.That(0.001, Is.Not.EqualTo(0.0).Within(5).Percent);
+}
+</code></pre><h3 id="ulps">Ulps</h3>
+<p><code>Within(amount).Ulps</code> interprets the amount as a number of <em>units in the last place</em>: the number of representable
+<code>float</code> or <code>double</code> values between the expected and actual values. One ULP is the smallest step a value of that
+magnitude can take, so an ULP tolerance automatically scales with the size of the numbers being compared. For numerical
+work this is often safer than a fixed tolerance, which is either too loose for small values or too strict for large
+ones.</p>
+<pre><code class="lang-csharp" name="ToleranceUlps">[Test]
+public void Tolerance_Ulps()
+{
+    // 0.1 + 0.2 is not exactly 0.3 in binary floating point...
+    Assert.That(0.1 + 0.2, Is.Not.EqualTo(0.3));
+
+    // ...but it is the very next representable double, one &quot;unit in the last place&quot; away
+    Assert.That(0.1 + 0.2, Is.EqualTo(0.3).Within(1).Ulps);
+
+    // A fixed tolerance that suits small numbers is meaningless for large ones; ULPs scale with the value
+    Assert.That(20000000000000004.0, Is.EqualTo(20000000000000000.0).Within(1).Ulps);
+}
+</code></pre>
+<p>ULP tolerances apply to <code>float</code> and <code>double</code> values only.</p>
+<h3 id="time-units">Time units</h3>
+<p>For <code>DateTime</code>, <code>DateTimeOffset</code> and <code>TimeSpan</code> values the tolerance is a <code>TimeSpan</code>. You can pass one directly, or pass
+a number followed by one of the unit modifiers <code>Days</code>, <code>Hours</code>, <code>Minutes</code>, <code>Seconds</code>, <code>Milliseconds</code> or <code>Ticks</code>.</p>
+<pre><code class="lang-csharp" name="ToleranceTime">[Test]
+public void Tolerance_Time()
+{
+    DateTime expected = new(2024, 1, 1, 12, 0, 0, DateTimeKind.Utc);
+    DateTime actual = expected.AddSeconds(45);
+
+    // Pass a TimeSpan...
+    Assert.That(actual, Is.EqualTo(expected).Within(TimeSpan.FromMinutes(1)));
+
+    // ...or a number followed by a unit
+    Assert.That(actual, Is.EqualTo(expected).Within(1).Minutes);
+    Assert.That(actual, Is.EqualTo(expected).Within(60).Seconds);
+    Assert.That(actual, Is.Not.EqualTo(expected).Within(30).Seconds);
+
+    // TimeSpan and DateTimeOffset values work the same way
+    Assert.That(TimeSpan.FromMinutes(59), Is.EqualTo(TimeSpan.FromHours(1)).Within(1).Minutes);
+
+    DateTimeOffset expectedOffset = new(expected);
+    Assert.That(expectedOffset.AddMilliseconds(400), Is.EqualTo(expectedOffset).Within(500).Milliseconds);
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>From NUnit 4.3, <code>Is.EqualTo</code> has dedicated overloads for <code>DateTime</code>, <code>DateTimeOffset</code> and <code>TimeSpan</code>. On those, a
+numeric tolerance <em>must</em> be followed by a unit: <code>Is.EqualTo(someDateTime).Within(5)</code> is not a usable constraint and
+the assertion does not compile. Conversely, the unit modifiers are not available on numeric values, so
+<code>Is.EqualTo(5).Within(1).Seconds</code> does not compile either. If the expected value is typed as <code>object</code>, these mistakes
+are caught at run time instead, as described <a href="#when-a-tolerance-cannot-be-applied">below</a>.</p>
+</div>
+<h2 id="supported-types">Supported types</h2>
+<p>NUnit can apply a numeric tolerance to the built-in numeric types: <code>byte</code>, <code>sbyte</code>, <code>short</code>, <code>ushort</code>, <code>int</code>, <code>uint</code>,
+<code>long</code>, <code>ulong</code>, <code>decimal</code>, <code>float</code> and <code>double</code>. Values of different numeric types may be compared with each other and
+the tolerance may be of yet another numeric type. <code>char</code> values are compared exactly, even though they convert to
+numbers.</p>
+<p>A <code>TimeSpan</code> tolerance can be applied to <code>DateTime</code>, <code>DateTimeOffset</code> and <code>TimeSpan</code> values.</p>
+<h3 id="arrays-collections-dictionaries-and-tuples">Arrays, collections, dictionaries and tuples</h3>
+<p><code>EqualConstraint</code> compares arrays, collections, dictionaries and tuples recursively, and the tolerance travels with it.
+Each pair of corresponding elements is compared using the tolerance. Dictionary keys are always compared exactly.</p>
+<p>An array, collection or dictionary has a single element type, so the tolerance must apply to all of its elements or to
+none of them: a numeric tolerance on a <code>DateTime[]</code> is an error, just as it is on a single <code>DateTime</code>. Tuples are
+different, because each member has its own type. A tuple member that cannot take the tolerance, such as a string, is
+compared exactly while the numeric members use the tolerance.</p>
+<pre><code class="lang-csharp" name="ToleranceCollections">[Test]
+public void Tolerance_Collections()
+{
+    // The tolerance is applied to each pair of corresponding elements
+    double[] expected = [1.0, 2.0, 3.0];
+    double[] actual = [1.01, 1.99, 3.0];
+    Assert.That(actual, Is.EqualTo(expected).Within(0.05));
+
+    // This includes values nested in dictionaries and tuples
+    var expectedPrices = new Dictionary&lt;string, decimal&gt; { [&quot;apple&quot;] = 1.00m, [&quot;pear&quot;] = 1.50m };
+    var actualPrices = new Dictionary&lt;string, decimal&gt; { [&quot;apple&quot;] = 1.01m, [&quot;pear&quot;] = 1.49m };
+    Assert.That(actualPrices, Is.EqualTo(expectedPrices).Within(0.02m));
+
+    // Tuple members have their own types: the double uses the tolerance and the string is compared exactly
+    Assert.That((1.001, &quot;a&quot;), Is.EqualTo((1.0, &quot;a&quot;)).Within(0.01));
+
+    // An array has one element type, so the tolerance must suit all elements or the assertion errors
+    DateTime[] expectedDates = [new(2024, 1, 1)];
+    DateTime[] actualDates = [new(2024, 1, 1)];
+    Assert.That(() =&gt; Assert.That(actualDates, Is.EqualTo(expectedDates).Within(0.01)),
+        Throws.TypeOf&lt;NotSupportedException&gt;());
+}
+</code></pre><h3 id="objects-compared-property-by-property">Objects compared property by property</h3>
+<p>When you use <code>UsingPropertiesComparer</code>, a tolerance on the constraint is applied to every property that can accept it
+and ignored for properties that cannot. From NUnit 4.4 you can also set tolerances in the comparer's configuration,
+which allows one tolerance for numeric properties and another, a <code>TimeSpan</code>, for time properties.</p>
+<pre><code class="lang-csharp" name="TolerancePropertiesComparer">private sealed record Measurement(string Sensor, double Value, DateTime TakenAt);
+
+[Test]
+public void Tolerance_PropertiesComparer()
+{
+    DateTime now = new(2024, 1, 1, 12, 0, 0, DateTimeKind.Utc);
+    var expected = new Measurement(&quot;probe-1&quot;, 21.5, now);
+    var actual = new Measurement(&quot;probe-1&quot;, 21.52, now);
+
+    // The tolerance applies to every property that can accept it; the others are compared exactly
+    Assert.That(actual, Is.EqualTo(expected).Within(0.05).UsingPropertiesComparer());
+
+    // Numeric and time properties can each have their own tolerance
+    var later = actual with { TakenAt = now.AddMilliseconds(300) };
+    Assert.That(later, Is.EqualTo(expected).UsingPropertiesComparer(
+        o =&gt; o.Within(0.05).Within(TimeSpan.FromSeconds(1))));
+}
+</code></pre>
+<p>See <a href="EqualConstraint.html#properties-comparer">Properties Comparer</a> for the rest of the configuration options.</p>
+<h2 id="default-tolerance-for-floating-point-values">Default tolerance for floating point values</h2>
+<p>When a <code>float</code> or <code>double</code> comparison specifies no tolerance, NUnit uses the default floating point tolerance in effect
+for the test, which is exact equality unless you change it. Apply
+<a class="xref" href="../attributes/defaultfloatingpointtolerance.html">DefaultFloatingPointToleranceAttribute</a> to a test, a fixture or the
+assembly to set a different default. An explicit <code>Within</code> always wins over the default.</p>
+<h2 id="when-a-tolerance-cannot-be-applied">When a tolerance cannot be applied</h2>
+<p>Equality for many types is defined by the type itself, through <code>IEquatable&lt;T&gt;</code> or an <code>Equals</code> override, and NUnit has no
+way to make such a comparison approximate. This covers strings, chars, enums, <code>Stream</code>, <code>DirectoryInfo</code>, your own
+classes and structs (including records), and third-party value types such as NodaTime's <code>Instant</code> or <code>Duration</code>. The
+same is true when you supply your own comparer with <code>Using</code>: the comparer decides what is equal and NUnit cannot inject
+a tolerance into it.</p>
+<p>Before NUnit 4.0 a tolerance in these situations was silently ignored, so a test such as</p>
+<pre><code class="lang-csharp">Assert.That(secondInstant, Is.EqualTo(firstInstant).Within(Duration.FromSeconds(2)));
+</code></pre>
+<p>compared the two values exactly and failed for a reason that was hard to spot. From NUnit 4.0 the assertion errors
+instead with a <code>NotSupportedException</code> whose message starts with
+<code>Specified Tolerance of type ... not supported for instances of type ...</code>.</p>
+<pre><code class="lang-csharp" name="ToleranceNotSupported">private readonly record struct Celsius(double Degrees);
+
+[Test]
+public void Tolerance_NotSupportedForCustomTypes()
+{
+    var expected = new Celsius(20.0);
+    var actual = new Celsius(20.4);
+
+    // Celsius defines its own equality, so NUnit has no way to apply a numeric tolerance to it.
+    // Rather than silently ignoring the tolerance, the assertion errors.
+    Assert.That(() =&gt; Assert.That(actual, Is.EqualTo(expected).Within(0.5)),
+        Throws.TypeOf&lt;NotSupportedException&gt;().With.Message.Contains(&quot;Tolerance&quot;));
+}
+</code></pre>
+<p>An error rather than a failure tells you that the assertion itself is wrong, not the code under test. The
+<a class="xref" href="../../../nunit-analyzers/NUnit-Analyzers.html">NUnit analyzers</a> report the same situation at compile time as warning
+<a href="https://github.com/nunit/nunit.analyzers/blob/master/documentation/NUnit2047.md">NUnit2047</a> when the types are known
+to the compiler.</p>
+<h2 id="tolerances-for-your-own-types">Tolerances for your own types</h2>
+<p>When NUnit cannot apply a tolerance to a type, you have several options:</p>
+<ol>
+<li><strong>Put the tolerance in a comparer</strong> and pass it with <code>Using</code>. Do not also use <code>Within</code>; the comparer is responsible
+for the whole comparison, and combining the two is an error. A reusable <code>IEqualityComparer&lt;T&gt;</code> works for single
+values and for collections of the type alike.</li>
+<li><strong>Compare the underlying value</strong> that carries the precision, for example a <code>double</code> property or the result of a
+subtraction, with a normal <code>Within</code>.</li>
+<li><strong>Use the properties comparer</strong> so that NUnit compares the object's numeric and time properties one by one, applying
+the tolerance to each.</li>
+<li><strong>Write a <a class="xref" href="../../extending-nunit/Custom-Constraints.html">custom constraint</a></strong> when the comparison is complex enough to deserve its own
+name and failure message.</li>
+</ol>
+<pre><code class="lang-csharp" name="ToleranceCustomType">private sealed class CelsiusComparer(double tolerance) : IEqualityComparer&lt;Celsius&gt;
+{
+    public bool Equals(Celsius x, Celsius y) =&gt; Math.Abs(x.Degrees - y.Degrees) &lt;= tolerance;
+
+    // Any two values might be equal, so they must all produce the same hash code
+    public int GetHashCode(Celsius obj) =&gt; 0;
+}
+
+[Test]
+public void Tolerance_CustomType()
+{
+    var expected = new Celsius(20.0);
+    var actual = new Celsius(20.4);
+
+    // Option 1: build the tolerance into the comparer passed to Using
+    Assert.That(actual, Is.EqualTo(expected).Using&lt;Celsius&gt;((a, b) =&gt; Math.Abs(a.Degrees - b.Degrees) &lt;= 0.5));
+    Assert.That(actual, Is.EqualTo(expected).Using(new CelsiusComparer(0.5)));
+
+    // A reusable comparer also works for collections of the type
+    Celsius[] expectedReadings = [new(20.0), new(21.0)];
+    Celsius[] actualReadings = [new(20.4), new(20.7)];
+    Assert.That(actualReadings, Is.EqualTo(expectedReadings).Using(new CelsiusComparer(0.5)));
+
+    // Option 2: compare the underlying value
+    Assert.That(actual.Degrees, Is.EqualTo(expected.Degrees).Within(0.5));
+
+    // Option 3: let the properties comparer apply the tolerance to the numeric members
+    Assert.That(actual, Is.EqualTo(expected).Within(0.5).UsingPropertiesComparer());
+
+    // Combining Using with Within is an error: the comparer alone decides what is equal
+    Assert.That(() =&gt; Assert.That(actual, Is.EqualTo(expected).Using(new CelsiusComparer(0.5)).Within(0.5)),
+        Throws.TypeOf&lt;NotSupportedException&gt;());
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>A tolerant comparer is not transitive: <code>a</code> may be within tolerance of <code>b</code>, and <code>b</code> of <code>c</code>, while <code>a</code> and <code>c</code> are not.
+That is harmless for <code>Is.EqualTo</code>, which only ever compares corresponding pairs of values, but it matters for the
+unordered collection constraints discussed next.</p>
+</div>
+<h2 id="unordered-collections">Unordered collections</h2>
+<p><code>Is.EquivalentTo</code>, <code>Is.SubsetOf</code>, <code>Is.SupersetOf</code> and <code>Is.Unique</code> have no <code>Within</code> modifier. They match items by
+grouping equal values, which only gives a well-defined answer when equality is transitive. You can pass a tolerant
+comparer with <code>Using</code>, and NUnit will not stop you, but the result then depends on which items happen to be paired first
+and may differ from what you expect.</p>
+<p>When order does not matter but the values are approximate, either sort both collections and compare them in order with
+<code>Is.EqualTo(...).Within(...)</code>, or assert each expected value individually with an item constraint:</p>
+<pre><code class="lang-csharp" name="ToleranceUnorderedCollections">[Test]
+public void Tolerance_UnorderedCollections()
+{
+    double[] expected = [3.0, 1.0, 2.0];
+    double[] actual = [1.01, 2.0, 2.99];
+
+    // Is.EquivalentTo has no Within modifier. Sort both sides and compare them in order instead...
+    Assert.That(actual.Order(), Is.EqualTo(expected.Order()).Within(0.05));
+
+    // ...or check that each expected value is present exactly once
+    foreach (double value in expected)
+    {
+        Assert.That(actual, Has.Exactly(1).EqualTo(value).Within(0.05));
+    }
+}
+</code></pre><h2 id="comparison-constraints">Comparison constraints</h2>
+<p><code>Is.GreaterThan</code>, <code>Is.GreaterThanOrEqualTo</code>, <code>Is.LessThan</code> and <code>Is.LessThanOrEqualTo</code> accept a linear or <code>Percent</code>
+tolerance. The tolerance relaxes the bound in the actual value's favour: <code>Is.GreaterThan(10).Within(1)</code> passes for any
+value greater than 9, and <code>Is.LessThan(10).Within(1)</code> for any value less than 11. From NUnit 4.1 the bound may be a
+<code>DateTime</code> or <code>TimeSpan</code> with a <code>TimeSpan</code> tolerance.</p>
+<pre><code class="lang-csharp" name="ToleranceComparison">[Test]
+public void Tolerance_ComparisonConstraints()
+{
+    // The tolerance relaxes the bound: 9.95 counts as greater than 10.0 when the tolerance is 0.1
+    Assert.That(9.95, Is.GreaterThan(10.0).Within(0.1));
+    Assert.That(10.05, Is.LessThan(10.0).Within(0.1));
+    Assert.That(9.5, Is.GreaterThanOrEqualTo(10).Within(5).Percent);
+
+    // Time values accept a TimeSpan tolerance
+    DateTime deadline = new(2024, 1, 1, 12, 0, 0, DateTimeKind.Utc);
+    Assert.That(deadline.AddSeconds(2), Is.LessThanOrEqualTo(deadline).Within(TimeSpan.FromSeconds(5)));
+}
+</code></pre><h2 id="rules">Rules</h2>
+<ul>
+<li>A tolerance amount must not be negative. From NUnit 4.3 a negative amount throws an <code>ArgumentException</code>.</li>
+<li><code>Within</code> may appear only once in a constraint expression.</li>
+<li>A mode (<code>Percent</code>, <code>Ulps</code> or a time unit) must follow a <code>Within</code> amount, and only one mode may be used.</li>
+<li><code>Percent</code>, <code>Ulps</code> and the time units require a numeric amount.</li>
+<li>A tolerance of zero is an exact comparison. In particular, <code>Within(0)</code> on a floating point comparison overrides a
+non-zero default floating point tolerance.</li>
+</ul>
+<pre><code class="lang-csharp" name="ToleranceRules">[Test]
+public void Tolerance_Rules()
+{
+    // A tolerance must not be negative
+    Assert.That(() =&gt; Is.EqualTo(5.0).Within(-0.1), Throws.ArgumentException);
+
+    // Within may appear only once in a constraint
+    Assert.That(() =&gt; Is.EqualTo(5.0).Within(0.1).Within(0.2), Throws.InvalidOperationException);
+
+    // A mode must follow Within, and only one mode may be used
+    Assert.That(() =&gt; Is.EqualTo(5.0).Percent, Throws.InvalidOperationException);
+    Assert.That(() =&gt; Is.EqualTo(5.0).Within(1).Percent.Ulps, Throws.InvalidOperationException);
+}
+</code></pre><h2 id="see-also">See also</h2>
+<ul>
+<li><a href="EqualConstraint.html">EqualConstraint</a></li>
+<li><a class="xref" href="../attributes/defaultfloatingpointtolerance.html">DefaultFloatingPointTolerance attribute</a></li>
+<li><a href="CollectionEquivalentConstraint.html">CollectionEquivalentConstraint</a></li>
+<li><a href="GreaterThanConstraint.html">GreaterThanConstraint</a>, <a href="LessThanConstraint.html">LessThanConstraint</a></li>
+<li><a class="xref" href="../../extending-nunit/Custom-Constraints.html">Custom Constraints</a></li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/constraints/Tolerance.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>
