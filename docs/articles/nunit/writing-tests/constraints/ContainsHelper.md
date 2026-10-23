@@ -35,14 +35,14 @@ Contains.Substring(string expected) // String contains substring
 
 ## Comparison with Other Helpers
 
-| Syntax | Description | Use Case |
-|--------|-------------|----------|
-| `Contains.Item(x)` | Collection contains x | General collection membership |
-| `Contains.Key(k)` | Dictionary has key k | Dictionary key lookup |
-| `Contains.Value(v)` | Dictionary has value v | Dictionary value search |
-| `Contains.Substring(s)` | String contains s | Substring matching |
-| `Does.Contain(x)` | Smart containment | Auto-routes based on type |
-| `Has.Member(x)` | Collection contains x | Same as Contains.Item |
+| Syntax                  | Description            | Use Case                      |
+| ----------------------- | ---------------------- | ----------------------------- |
+| `Contains.Item(x)`      | Collection contains x  | General collection membership |
+| `Contains.Key(k)`       | Dictionary has key k   | Dictionary key lookup         |
+| `Contains.Value(v)`     | Dictionary has value v | Dictionary value search       |
+| `Contains.Substring(s)` | String contains s      | Substring matching            |
+| `Does.Contain(x)`       | Smart containment      | Auto-routes based on type     |
+| `Has.Member(x)`         | Collection contains x  | Same as Contains.Item         |
 
 ## Smart Routing with Does.Contain
 

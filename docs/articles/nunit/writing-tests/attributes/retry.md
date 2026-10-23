@@ -12,14 +12,14 @@ uid: attribute-retry
 RetryAttribute(int tryCount)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter  | Type  | Description                                                                                                                                                                                                                |
+| ---------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `tryCount` | `int` | The maximum number of times the test should be run if it fails. This is the total number of attempts, **not** the number of retries after an initial failure. Therefore, `[Retry(1)]` does nothing and should not be used. |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
+| Property          | Type     | Description                                                                                                                                          | Default            |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `RetryExceptions` | `Type[]` | An array of exception types that trigger a retry when thrown. These are in addition to the normal behavior of retrying only on an assertion failure. | `[]` (empty array) |
 
 > [!NOTE]
@@ -28,8 +28,8 @@ RetryAttribute(int tryCount)
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ❌                      | ❌       |
 
 ## Example
 

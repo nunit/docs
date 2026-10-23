@@ -4,6 +4,10 @@
 > This page is a specification that was used as a starting point for creating the feature in NUnit. It needs to
 > be reviewed and revised in order to accurately reflect what was actually built. If you take it with a grain of salt,
 > it may still be helpful to you as documentation. This notice will be removed when the page is brought up to date.
+>
+> In particular, the "Addin" concept described below was never implemented. The engine's extensibility model is based on
+> extensions and extension points, as described in [Engine Extensions](xref:engineextensionsindex). The term "addins"
+> survives only in the name of the `.addins` file, which the engine uses to locate extensions.
 
 This spec covers a proposed new approach to Engine addins, replacing the use of Mono.Addins.
 

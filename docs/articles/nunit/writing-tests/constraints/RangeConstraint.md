@@ -44,6 +44,9 @@ Is.InRange(IComparable from, IComparable to)
    Assert.That(5, Is.GreaterThan(1).And.LessThan(10));  // Exclusive bounds
    ```
 
+4. `RangeConstraint` has no `Within` modifier. To allow for imprecision, widen the bounds, or combine `Is.GreaterThan`
+   and `Is.LessThan` with their own [tolerances](Tolerance.md#comparison-constraints).
+
 ## See Also
 
 * [GreaterThan Constraint](GreaterThanConstraint.md)

@@ -2,13 +2,13 @@
 
 ## The type of the attribute values doesn't match the parameter type
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1038
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [RangeUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/RangeUsage/RangeUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                           |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit1038                                                                                                                       |
+| Severity | Error                                                                                                                           |
+| Enabled  | True                                                                                                                            |
+| Category | Structure                                                                                                                       |
+| Code     | [RangeUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/RangeUsage/RangeUsageAnalyzer.cs) |
 
 ## Description
 

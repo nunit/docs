@@ -29,25 +29,25 @@ PlatformAttribute(string platforms)
 PlatformAttribute(string[] includes)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `platforms` | `string` | Comma-delimited platform list to include. |
-| `includes` | `string[]` | Platform identifiers to include. |
+| Parameter   | Type       | Description                               |
+| ----------- | ---------- | ----------------------------------------- |
+| `platforms` | `string`   | Comma-delimited platform list to include. |
+| `includes`  | `string[]` | Platform identifiers to include.          |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
-| `Include` | `string` | Comma-delimited list of included platforms. | `null` |
-| `Exclude` | `string` | Comma-delimited list of excluded platforms. | `null` |
-| `Includes` | `string[]` | Array of included platforms. | `null` |
-| `Excludes` | `string[]` | Array of excluded platforms. | `null` |
+| Property   | Type       | Description                                 | Default |
+| ---------- | ---------- | ------------------------------------------- | ------- |
+| `Include`  | `string`   | Comma-delimited list of included platforms. | `null`  |
+| `Exclude`  | `string`   | Comma-delimited list of excluded platforms. | `null`  |
+| `Includes` | `string[]` | Array of included platforms.                | `null`  |
+| `Excludes` | `string[]` | Array of excluded platforms.                | `null`  |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 ## Examples
 
@@ -136,14 +136,14 @@ For example:
 The meaning of `NET` and `DotNET` has changed to better align with Microsoft's current .NET terminology. These identifiers previously targeted .NET Framework and now
 target modern .NET (.NET 5+, .NET Core).
 
-| Identifier | NUnit 4 | NUnit 5 |
-|------------|---------|---------|
-| `NET` | .NET Framework | Modern .NET |
-| `NETFramework` | Not supported | .NET Framework |
-| `NETCore` | Modern .NET | Modern .NET _(unchanged)_ |
-| `DotNET` | .NET Framework | Modern .NET |
-| `DotNETCore` | Modern .NET | Modern .NET _(unchanged)_ |
-| `DotNETFramework` | Not supported | .NET Framework |
+| Identifier        | NUnit 4        | NUnit 5                   |
+| ----------------- | -------------- | ------------------------- |
+| `NET`             | .NET Framework | Modern .NET               |
+| `NETFramework`    | Not supported  | .NET Framework            |
+| `NETCore`         | Modern .NET    | Modern .NET _(unchanged)_ |
+| `DotNET`          | .NET Framework | Modern .NET               |
+| `DotNETCore`      | Modern .NET    | Modern .NET _(unchanged)_ |
+| `DotNETFramework` | Not supported  | .NET Framework            |
 
 If you were using `[Platform(PlatformNames.NET)]` or `[Platform(PlatformNames.DotNET)]` to target .NET Framework,
 update those usages to `[Platform(PlatformNames.NETFramework)]` or `[Platform(PlatformNames.DotNETFramework)]`.

@@ -2,13 +2,13 @@
 
 ## Specifying ParallelScope.Self on assembly level has no effect
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1008
-| Severity | Warning
-| Enabled  | True
-| Category | Structure
-| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                                      |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1008                                                                                                                                                  |
+| Severity | Warning                                                                                                                                                    |
+| Enabled  | True                                                                                                                                                       |
+| Category | Structure                                                                                                                                                  |
+| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs) |
 
 ## Description
 

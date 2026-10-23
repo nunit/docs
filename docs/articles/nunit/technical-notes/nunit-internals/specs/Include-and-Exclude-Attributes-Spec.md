@@ -9,7 +9,7 @@ Exclude Attributes (Alternatives)](xref:includeexcludeattributesalternatives) fo
 
 ## Attributes
 
-We would define two new attributes, **IncludeAttribute** and **ExcludeAttribute**:
+We would define two new attributes, `IncludeAttribute` and `ExcludeAttribute`:
 
 ```csharp
 [Include(Culture="fr-FR")]

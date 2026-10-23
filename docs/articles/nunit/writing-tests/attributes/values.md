@@ -21,15 +21,15 @@ ValuesAttribute(object arg1, object arg2, object arg3)
 ValuesAttribute(params object[] args)
 ```
 
-| Parameter | Type        | Description                                |
-|-----------|-------------|--------------------------------------------|
-| `args`    | `object[]`  | Literal values supplied for the parameter. |
+| Parameter | Type       | Description                                |
+| --------- | ---------- | ------------------------------------------ |
+| `args`    | `object[]` | Literal values supplied for the parameter. |
 
 ## Applies To
 
 | Method Parameters | Test Methods | Test Fixtures (Classes) | Assembly |
-|-------------------|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ | ❌ |
+| ----------------- | ------------ | ----------------------- | -------- |
+| ✅                | ❌           | ❌                      | ❌       |
 
 ## Example
 
@@ -50,7 +50,7 @@ MyTest(3, "B")
 
 Parameterless **`[Values]`** expands enums and Booleans differently from other parameter types:
 
-When used without any arguments, the **[Values]** attribute on an enum parameter
+When used without any arguments, the `[Values]` attribute on an enum parameter
 will automatically include all possible values of the enumeration.
 
 [!code-csharp[ValuesAttributeEnumExample](~/snippets/Snippets.NUnit/Attributes/ValuesAttributeExamples.cs#ValuesAttributeEnumExample)]

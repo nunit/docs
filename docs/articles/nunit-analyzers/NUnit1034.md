@@ -2,13 +2,13 @@
 
 ## Base TestFixtures should be abstract
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1034
-| Severity | Warning
-| Enabled  | True
-| Category | Structure
-| Code     | [TestFixtureShouldBeAbstractAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestFixtureShouldBeAbstract/TestFixtureShouldBeAbstractAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                              |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1034                                                                                                                                                                          |
+| Severity | Warning                                                                                                                                                                            |
+| Enabled  | True                                                                                                                                                                               |
+| Category | Structure                                                                                                                                                                          |
+| Code     | [TestFixtureShouldBeAbstractAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestFixtureShouldBeAbstract/TestFixtureShouldBeAbstractAnalyzer.cs) |
 
 ## Description
 

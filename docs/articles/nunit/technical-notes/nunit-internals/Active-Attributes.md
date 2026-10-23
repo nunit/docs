@@ -48,7 +48,7 @@ In almost all cases, it is possible to reverse this logic and have the attribute
 operation of tests. For example, the NUnit 2.6 test building logic understands that a test description may be found as a
 property of a DescriptionAttribute, TestAttribute or TestFixtureAttribute. In NUnit 3.0, each of those attributes will
 simply be called upon to update the test under construction with whatever information they can supply using the
-**IApplyToTest** interface.
+`IApplyToTest` interface.
 
 ## Attribute Hierarchy
 
@@ -77,7 +77,7 @@ to be an internal implementation detail.
 
 While class inheritance of attributes is useful for retrieving groups of them and for sharing implementation, public
 access to capabilities of an attribute is better provided through an interface. For example, most
-TestModificationAttributes will implement the **IApplyToTest** interface, allowing them to be called upon to modify the
+TestModificationAttributes will implement the `IApplyToTest` interface, allowing them to be called upon to modify the
 test under construction.
 
 ```csharp

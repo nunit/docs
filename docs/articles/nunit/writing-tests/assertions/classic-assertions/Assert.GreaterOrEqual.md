@@ -4,7 +4,7 @@ uid: classic-assert-greater-or-equal
 
 # Assert.GreaterOrEqual
 
-**Assert.GreaterOrEqual** tests whether one object is greater than or equal to another.
+`Assert.GreaterOrEqual` tests whether one object is greater than or equal to another.
 Contrary to the normal order of Asserts, these methods are designed to be
 read in the "natural" English-language or mathematical order. Thus
 **Assert.GreaterOrEqual(x, y)** asserts that x is greater than or equal to y (x >= y).
@@ -49,6 +49,10 @@ Assert.GreaterOrEqual(IComparable arg1, IComparable arg2);
 Assert.GreaterOrEqual(IComparable arg1, IComparable arg2,
                       string message, params object[] params);
 ```
+
+## Examples
+
+[!code-csharp[GreaterOrEqualExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#GreaterOrEqualExamples)]
 
 ## See Also
 

@@ -14,15 +14,15 @@ This attribute affects resource loading operations. When your application uses `
 SetUICultureAttribute(string culture)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter | Type     | Description                                                                                                                          |
+| --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `culture` | `string` | The name of the UI culture to use (e.g., `"fr-FR"`, `"de-DE"`, `"en-US"`). Must be a valid culture name recognized by `CultureInfo`. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 > [!NOTE]
 > If `SetUICultureAttribute` is applied at fixture or assembly level, the UI culture setting applies to all contained tests.

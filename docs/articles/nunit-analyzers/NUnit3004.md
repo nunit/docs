@@ -2,13 +2,13 @@
 
 ## Field should be Disposed in TearDown or OneTimeTearDown method
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit3004
-| Severity | Info
-| Enabled  | True
-| Category | Suppressor
-| Code     | [TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DiagnosticSuppressors/TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor.cs)
+| Topic    | Value                                                                                                                                                                                                                  |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit3004                                                                                                                                                                                                              |
+| Severity | Info                                                                                                                                                                                                                   |
+| Enabled  | True                                                                                                                                                                                                                   |
+| Category | Suppressor                                                                                                                                                                                                             |
+| Code     | [TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DiagnosticSuppressors/TypesThatOwnDisposableFieldsShouldBeDisposableSuppressor.cs) |
 
 ## Description
 

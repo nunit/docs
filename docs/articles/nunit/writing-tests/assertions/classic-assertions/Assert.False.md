@@ -4,7 +4,7 @@ uid: classic-assert-false
 
 # Assert.False
 
-**Assert.False** and **Assert.IsFalse** test that the specified condition is false.
+`Assert.False` and `Assert.IsFalse` test that the specified condition is false.
 The two forms are provided for compatibility with past versions of NUnit and
 NUnitLite.
 
@@ -22,6 +22,10 @@ Assert.False(bool condition, string message, params object[] params);
 Assert.IsFalse(bool condition);
 Assert.IsFalse(bool condition, string message, params object[] params);
 ```
+
+## Examples
+
+[!code-csharp[FalseExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#FalseExamples)]
 
 ## See Also
 

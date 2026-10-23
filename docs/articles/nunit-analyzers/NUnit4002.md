@@ -2,13 +2,13 @@
 
 ## Use Specific constraint
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit4002
-| Severity | Info
-| Enabled  | True
-| Category | Style
-| Code     | [UseSpecificConstraintAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UseSpecificConstraint/UseSpecificConstraintAnalyzer.cs)
+| Topic    | Value                                                                                                                                                            |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit4002                                                                                                                                                        |
+| Severity | Info                                                                                                                                                             |
+| Enabled  | True                                                                                                                                                             |
+| Category | Style                                                                                                                                                            |
+| Code     | [UseSpecificConstraintAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/UseSpecificConstraint/UseSpecificConstraintAnalyzer.cs) |
 
 ## Description
 

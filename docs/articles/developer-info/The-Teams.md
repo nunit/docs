@@ -50,21 +50,21 @@ Team Lead: [Sean Killeen](https://github.com/seankilleen)
 
 ### Current team memberships, listed in a kind of chronological order
 
-| Name | Core Team | Framework | Engine | VS Extensions | Analyzer | Documentation |
-| -- | -- | -- | -- | -- | -- | -- |
-| [Charlie Poole](https://github.com/charliepoole) :us: | :heavy_check_mark: | | :heavy_check_mark: | | | |
-| [Rob Prouse](https://github.com/rprouse) :canada: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | |
-| [Terje Sandstrom](https://github.com/osiristerje) :norway: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | |
-| [Mikkel Nylander Bundgaard](https://github.com/mikkelbu) :denmark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | :heavy_check_mark: | |
-| [Sean Killeen](https://github.com/SeanKilleen) :us: | :heavy_check_mark: | | | | :heavy_check_mark: | :heavy_check_mark: |
-| [Steven Weerdenburg](https://github.com/stevenaw) :canada: | :heavy_check_mark: | :heavy_check_mark: | | | | |
-| [Ihor Sychevskyi](https://github.com/Arhell) :ukraine: | | | | | | :heavy_check_mark: |
-| [Manfred Brands](https://github.com/manfred-brands) :australia: | :heavy_check_mark: | :heavy_check_mark: | | | :heavy_check_mark: | |
-| [Neil Colvin](https://github.com/oznetmaster) :australia: :scotland: | | | :heavy_check_mark: | | | |
+| Name                                                                 | Core Team          | Framework          | Engine             | VS Extensions      | Analyzer           | Documentation      |
+| -------------------------------------------------------------------- | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
+| [Charlie Poole](https://github.com/charliepoole) :us:                | :heavy_check_mark: |                    | :heavy_check_mark: |                    |                    |                    |
+| [Rob Prouse](https://github.com/rprouse) :canada:                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                    |
+| [Terje Sandstrom](https://github.com/osiristerje) :norway:           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                    |
+| [Mikkel Nylander Bundgaard](https://github.com/mikkelbu) :denmark:   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | :heavy_check_mark: |                    |
+| [Sean Killeen](https://github.com/SeanKilleen) :us:                  | :heavy_check_mark: |                    |                    |                    | :heavy_check_mark: | :heavy_check_mark: |
+| [Steven Weerdenburg](https://github.com/stevenaw) :canada:           | :heavy_check_mark: | :heavy_check_mark: |                    |                    |                    |                    |
+| [Ihor Sychevskyi](https://github.com/Arhell) :ukraine:               |                    |                    |                    |                    |                    | :heavy_check_mark: |
+| [Manfred Brands](https://github.com/manfred-brands) :australia:      | :heavy_check_mark: | :heavy_check_mark: |                    |                    | :heavy_check_mark: |                    |
+| [Neil Colvin](https://github.com/oznetmaster) :australia: :scotland: |                    |                    | :heavy_check_mark: |                    |                    |                    |
 
 ### Former members and honorable mentions
 
-| Name |  NUnit membership period |
-| ---  |  ----         |
-|[Chris Maddock](https://github.com/ChrisMaddock) :gb: | 2016 - 2022 |
-|[Joseph Musser](https://github.com/jnm2) :us: | 2017 - 2026 |
+| Name                                                  | NUnit membership period |
+| ----------------------------------------------------- | ----------------------- |
+| [Chris Maddock](https://github.com/ChrisMaddock) :gb: | 2016 - 2022             |
+| [Joseph Musser](https://github.com/jnm2) :us:         | 2017 - 2026             |

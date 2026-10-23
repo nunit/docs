@@ -2,13 +2,13 @@
 
 ## Wrong actual type used with the SomeItemsConstraint with EqualConstraint
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2026
-| Severity | Error
-| Enabled  | True
-| Category | Assertion
-| Code     | [SomeItemsIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/SomeItemsIncompatibleTypes/SomeItemsIncompatibleTypesAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                           |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit2026                                                                                                                                                                       |
+| Severity | Error                                                                                                                                                                           |
+| Enabled  | True                                                                                                                                                                            |
+| Category | Assertion                                                                                                                                                                       |
+| Code     | [SomeItemsIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/SomeItemsIncompatibleTypes/SomeItemsIncompatibleTypesAnalyzer.cs) |
 
 ## Description
 

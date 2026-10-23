@@ -22,6 +22,7 @@ Is.AtMost(object expected)               // Alias for LessThanOrEqualTo
 .Using<T>(IComparer<T> comparer)
 .Using<T>(Comparison<T> comparer)
 .Within(object tolerance)
+      .Percent
 ```
 
 ## Examples
@@ -35,10 +36,13 @@ Is.AtMost(object expected)               // Alias for LessThanOrEqualTo
 ## Notes
 
 1. `Is.AtMost` is a more readable alias for `Is.LessThanOrEqualTo`.
-2. When comparing floating-point numbers, consider using `.Within()` to specify a tolerance.
+2. `Within` relaxes the bound by the tolerance, in the actual value's favour: `Is.LessThanOrEqualTo(10).Within(1)` passes
+   for any value less than or equal to 11. The tolerance may be linear or `Percent`, and from NUnit 4.1 a `TimeSpan` tolerance
+   may be used with `DateTime` and `TimeSpan` bounds. See [Tolerances](Tolerance.md#comparison-constraints).
 
 ## See Also
 
 * [LessThan Constraint](LessThanConstraint.md)
 * [GreaterThanOrEqual Constraint](GreaterThanOrEqualConstraint.md)
 * [Range Constraint](RangeConstraint.md)
+* [Tolerances](Tolerance.md)

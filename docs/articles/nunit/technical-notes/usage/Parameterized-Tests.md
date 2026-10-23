@@ -15,10 +15,10 @@ property or field to hold the arguments. In addition, some attributes identify c
 necessary arguments, while others only provide data for a single argument. This gives rise to four groups of attributes,
 as shown in the following table.
 
-|              | Complete Test Cases          | Data for One Argument |
-|--------------|------------------------------|-----------------------|
-| **Inline**   | [TestCase Attribute](xref:attribute-testcase)       | [Random Attribute](xref:attribute-random), [Range Attribute](xref:attribute-range), [Values Attribute](xref:attribute-values) |
-| **Separate** | [TestCaseSource Attribute](xref:attribute-testcasesource) | [ValueSource Attribute](xref:attribute-valuesource) |
+|              | Complete Test Cases                                       | Data for One Argument                                                                                                         |
+| ------------ | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Inline**   | [TestCase Attribute](xref:attribute-testcase)             | [Random Attribute](xref:attribute-random), [Range Attribute](xref:attribute-range), [Values Attribute](xref:attribute-values) |
+| **Separate** | [TestCaseSource Attribute](xref:attribute-testcasesource) | [ValueSource Attribute](xref:attribute-valuesource)                                                                           |
 
 In addition, when data is specified for individual arguments, special attributes may be added to the test method itself
 in order to tell NUnit how to go about combining the arguments. Currently, the following attributes are provided:
@@ -37,7 +37,7 @@ The following specific rules for ordering apply:
 
 * If all arguments are specified in a **single TestCaseSource** attribute, the ordering of the cases provided will be
   maintained.
-* If each parameter has a single **Values**, **ValueSource** or **Range** attribute and the **Sequential** combining
+* If each parameter has a single `Values`, `ValueSource` or `Range` attribute and the `Sequential` combining
   strategy is used - or there is only one argument - the ordering will be maintained.
-* In all other cases, including using multiple **TestCase** attributes or a combination of different types of
+* In all other cases, including using multiple `TestCase` attributes or a combination of different types of
   attributes, the ordering of the test cases is undefined.

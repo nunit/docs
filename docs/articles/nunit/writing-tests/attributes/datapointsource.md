@@ -19,8 +19,8 @@ This is a parameterless attribute that can be applied to fields, properties, or 
 ## Applies To
 
 | Field | Property | Parameterless Methods | Test Methods | Test Fixtures (Classes) | Assembly |
-|-------|----------|-----------------------|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| ----- | -------- | --------------------- | ------------ | ----------------------- | -------- |
+| ✅    | ✅       | ✅                    | ❌           | ❌                      | ❌       |
 
 > [!NOTE]
 > Parameterless methods used with this attribute must return an array or `IEnumerable<T>`, and the element type must exactly match the Theory parameter type.
@@ -33,9 +33,9 @@ This is a parameterless attribute that can be applied to fields, properties, or 
 
 NUnit automatically supplies datapoints for certain types:
 
-| Type | Automatic Values |
-|------|-----------------|
-| `bool` | `true`, `false` |
+| Type       | Automatic Values        |
+| ---------- | ----------------------- |
+| `bool`     | `true`, `false`         |
 | Any `enum` | All defined enum values |
 
 If you supply any datapoints for a parameter type, automatic datapoint generation for that type is suppressed.

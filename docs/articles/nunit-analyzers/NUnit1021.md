@@ -2,13 +2,13 @@
 
 ## The ValueSource should use nameof operator to specify target
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1021
-| Severity | Warning
-| Enabled  | True
-| Category | Structure
-| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                             |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit1021                                                                                                                                         |
+| Severity | Warning                                                                                                                                           |
+| Enabled  | True                                                                                                                                              |
+| Category | Structure                                                                                                                                         |
+| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs) |
 
 ## Description
 

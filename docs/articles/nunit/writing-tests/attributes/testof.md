@@ -6,6 +6,15 @@ uid: attribute-testof
 
 `TestOfAttribute` is used to specify the class or type that a test fixture or test method is testing. This metadata helps document the relationship between tests and the code under test, and can be used by test runners and reporting tools to organize test results.
 
+## What It Does
+
+`TestOf` is **informational only**. It has no effect on how NUnit discovers, orders or executes tests, and it does not
+check that the named type exists or is actually exercised by the test. The attribute simply records a `TestOf` property
+on the test, holding the full name of the type. That property appears in the XML result file and is available to
+runners, report generators and other tools that display test properties. It can also be used to select tests by
+property in the console runner's [Test Selection Language](xref:testselectionlanguage), in the same way as any other
+property.
+
 ## Constructors
 
 ```csharp
@@ -13,16 +22,16 @@ TestOfAttribute(Type type)
 TestOfAttribute(string typeName)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `type` | `Type` | The type that is being tested. The full type name is stored. |
-| `typeName` | `string` | The name of the type that is being tested. |
+| Parameter  | Type     | Description                                                  |
+| ---------- | -------- | ------------------------------------------------------------ |
+| `type`     | `Type`   | The type that is being tested. The full type name is stored. |
+| `typeName` | `string` | The name of the type that is being tested.                   |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 ## Alternative Syntax
 

@@ -4,7 +4,7 @@ uid: classic-assert-is-not-assignable-from
 
 # Assert.IsNotAssignableFrom
 
-**Assert.IsNotAssignableFrom** succeeds if the object provided may not be assigned a value of the expected type.
+`Assert.IsNotAssignableFrom` succeeds if the object provided may not be assigned a value of the expected type.
 
 > [!NOTE]
 > From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy
@@ -21,6 +21,10 @@ Assert.IsNotAssignableFrom<T>(object actual);
 Assert.IsNotAssignableFrom<T>(object actual,
                               string message, params object[] params);
 ```
+
+## Examples
+
+[!code-csharp[AssignableFromExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#AssignableFromExamples)]
 
 ## See also
 

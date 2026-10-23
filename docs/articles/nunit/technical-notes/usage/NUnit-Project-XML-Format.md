@@ -74,4 +74,4 @@ Specifies a single assembly containing tests.
 * **Containing Element:** [`<Config>`](#config)
 * **Contained Elements:** None
 * **Attributes:**
-  * **path** The path to the test assembly, relative to the application base for its configuration.
+  * `path` The path to the test assembly, relative to the application base for its configuration.

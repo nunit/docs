@@ -25,10 +25,10 @@ UnhandledExceptionHandlingAttribute(UnhandledExceptionHandling handling)
 UnhandledExceptionHandlingAttribute(UnhandledExceptionHandling handling, params Type[] exceptions)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `handling` | `UnhandledExceptionHandling` | How NUnit treats a matching unhandled exception. |
-| `exceptions` | `Type[]` | Exception types this entry applies to. When omitted, the entry applies to all exception types. |
+| Parameter    | Type                         | Description                                                                                    |
+| ------------ | ---------------------------- | ---------------------------------------------------------------------------------------------- |
+| `handling`   | `UnhandledExceptionHandling` | How NUnit treats a matching unhandled exception.                                               |
+| `exceptions` | `Type[]`                     | Exception types this entry applies to. When omitted, the entry applies to all exception types. |
 
 The attribute may be applied more than once to the same element, so that different exception types get different
 handling.
@@ -37,17 +37,17 @@ handling.
 
 The attribute accepts an `UnhandledExceptionHandling` enum value:
 
-| Mode | Description |
-| ------ | ------------- |
-| `Error` | Unhandled exceptions cause the test to fail (default behavior) |
-| `Ignore` | Unhandled exceptions are ignored and do not affect the test result |
-| `Default` | Same as `Error` |
+| Mode      | Description                                                        |
+| --------- | ------------------------------------------------------------------ |
+| `Error`   | Unhandled exceptions cause the test to fail (default behavior)     |
+| `Ignore`  | Unhandled exceptions are ignored and do not affect the test result |
+| `Default` | Same as `Error`                                                    |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 ## Platform Support
 

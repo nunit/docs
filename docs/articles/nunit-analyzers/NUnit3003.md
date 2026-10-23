@@ -2,13 +2,13 @@
 
 ## Class is an NUnit TestFixture and is instantiated using reflection
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit3003
-| Severity | Info
-| Enabled  | True
-| Category | Suppressor
-| Code     | [AvoidUninstantiatedInternalClassSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DiagnosticSuppressors/AvoidUninstantiatedInternalClassSuppressor.cs)
+| Topic    | Value                                                                                                                                                                                      |
+| :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit3003                                                                                                                                                                                  |
+| Severity | Info                                                                                                                                                                                       |
+| Enabled  | True                                                                                                                                                                                       |
+| Category | Suppressor                                                                                                                                                                                 |
+| Code     | [AvoidUninstantiatedInternalClassSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DiagnosticSuppressors/AvoidUninstantiatedInternalClassSuppressor.cs) |
 
 ## Description
 

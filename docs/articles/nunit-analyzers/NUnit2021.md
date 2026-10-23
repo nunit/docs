@@ -2,13 +2,13 @@
 
 ## Incompatible types for EqualTo constraint
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2021
-| Severity | Error
-| Enabled  | True
-| Category | Assertion
-| Code     | [EqualToIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/EqualToIncompatibleTypes/EqualToIncompatibleTypesAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                     |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit2021                                                                                                                                                                 |
+| Severity | Error                                                                                                                                                                     |
+| Enabled  | True                                                                                                                                                                      |
+| Category | Assertion                                                                                                                                                                 |
+| Code     | [EqualToIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/EqualToIncompatibleTypes/EqualToIncompatibleTypesAnalyzer.cs) |
 
 ## Description
 

@@ -146,67 +146,67 @@ Notes:
 
 Gets a representation of the current test, with the following properties:
 
-* **ID** - The unique Id of the test
-* **Name** - The name of the test, whether set by the user or generated automatically
-* **Namespace** - The namespace of the test
-* **DisplayName** - The display name of the test
-* **FullName** - The fully qualified name of the test
-* **MethodName** - The name of the method representing the test, if any
-* **Method** - The IMethodInfo of the test method
-* **Type** - The `TypeInfo` of the test
-* **ClassName** - The classname of the test
-* **Arguments** - The arguments as a list of objects, if any.
-* **ExpectedResult** - The expected result, if that is set for the test
-* **Properties** - An `IPropertyBag` of the test properties. Note: The `Get` method ONLY returns the first property
+* `ID` - The unique Id of the test
+* `Name` - The name of the test, whether set by the user or generated automatically
+* `Namespace` - The namespace of the test
+* `DisplayName` - The display name of the test
+* `FullName` - The fully qualified name of the test
+* `MethodName` - The name of the method representing the test, if any
+* `Method` - The IMethodInfo of the test method
+* `Type` - The `TypeInfo` of the test
+* `ClassName` - The classname of the test
+* `Arguments` - The arguments as a list of objects, if any.
+* `ExpectedResult` - The expected result, if that is set for the test
+* `Properties` - An `IPropertyBag` of the test properties. Note: The `Get` method ONLY returns the first property
 (with a given key) for the current level.
 
 The following properties are in version 4.2 and above.
 
-* **Parent** - The parent of the given test.
-* **AllPropertyValues** - Returns a list of values (as objects) for a given property across the complete test hierarchy
-* **AllCategories** - Returns a list of all categories (as strings) across the complete test hierarchy
-* **PropertyHierarchy** - A utility method which returns the complete hierarchy of all properties including the name,
+* `Parent` - The parent of the given test.
+* `AllPropertyValues` - Returns a list of values (as objects) for a given property across the complete test hierarchy
+* `AllCategories` - Returns a list of all categories (as strings) across the complete test hierarchy
+* `PropertyHierarchy` - A utility method which returns the complete hierarchy of all properties including the name,
   value and level where they are found.
 
 ### Result
 
 Gets a representation of the test result, with the following properties:
 
-* **Outcome** - A `ResultState` representing the outcome of the test. `ResultState` has the following properties:
-  * **Status** - A `TestStatus` with four possible values:
+* `Outcome` - A `ResultState` representing the outcome of the test. `ResultState` has the following properties:
+  * `Status` - A `TestStatus` with four possible values:
     * Inconclusive
     * Skipped
     * Passed
     * Warning
     * Failed
-  * **Label** - An optional string value, which can provide sub-categories for each Status. See below for a list of
+  * `Label` - An optional string value, which can provide sub-categories for each Status. See below for a list of
     common outcomes supported internally by NUnit.
-  * **Site** - A `FailureSite` value, indicating the stage of execution in which the test generated its result. Possible
+  * `Site` - A `FailureSite` value, indicating the stage of execution in which the test generated its result. Possible
     values are
     * Test
     * SetUp
     * TearDown
     * Parent
     * Child
-* **Assertions** - A list of `AssertionResult` values generated up to this point in the test. Please note that **only
+* `Assertions` - A list of `AssertionResult` values generated up to this point in the test. Please note that **only
   failed assertions** will be stored in here to limit the size of the result tree and potential impact on performance.
   Each `AssertionResult` has the following properties:
-  * **Status** - An `AssertionStatus` with five possible values:
+  * `Status` - An `AssertionStatus` with five possible values:
     * Inconclusive
     * Passed
     * Warning
     * Failed
     * Error
-  * **Message** - A string containing the message produced by the assertion (possibly null).
-  * **StackTrace** - A string containing the stack trace associated with the assertion.
-* **PassCount** - An int representing the number of test cases that passed when running the test and all its children.
-* **FailCount** - An int representing the number of test cases that failed when running the test and all its children.
-* **SkipCount** - An int representing the number of test cases that were skipped when running the test and all its
+  * `Message` - A string containing the message produced by the assertion (possibly null).
+  * `StackTrace` - A string containing the stack trace associated with the assertion.
+* `PassCount` - An int representing the number of test cases that passed when running the test and all its children.
+* `FailCount` - An int representing the number of test cases that failed when running the test and all its children.
+* `SkipCount` - An int representing the number of test cases that were skipped when running the test and all its
   children.
-* **InconclusiveCount** - An int representing the number of test cases that were inconclusive when running the test and
+* `InconclusiveCount` - An int representing the number of test cases that were inconclusive when running the test and
   all its children.
-* **StackTrace** - A string containing the stack trace associated with an error or failure.
-* **Message** - A string containing the message associated with a test failure or with not running the test.
+* `StackTrace` - A string containing the stack trace associated with an error or failure.
+* `Message` - A string containing the message associated with a test failure or with not running the test.
 
 Although the outcome of the test may be accessed during setup or test execution, it only has a useful value in the
 teardown stage.
@@ -246,7 +246,7 @@ Gets the full path of the directory containing the current test assembly.
 
 Gets the full path of the directory to be used for output from this test run. The XML result file and any redirected
 output files are located under this directory. This is normally the directory that was current when execution of NUnit
-began but may be changed by use of the **--work** option of nunit-console.
+began but may be changed by use of the `--work` option of nunit-console.
 
 ### Random
 

@@ -156,31 +156,14 @@ implementation without requiring significant underlying changes.
 In version 4 proper async/await has been implemented with a series of new assert methods, `Assert.ThatAsync` which can
 be `await`'ed.
 
-```cs
-[Test]
-public async Task AssertionPasses_CompletedTaskWithResult_EqualsResult()
-{
-    await Assert.ThatAsync(() => Task.FromResult(42), Is.EqualTo(42));
-}
-```
+[!code-csharp[AssertThatAsync](~/snippets/Snippets.NUnit/AsyncAssertExamples.cs#AssertThatAsync)]
 
 Version 4 also introduces a new feature called Assert.MultipleAsync, which allows you to mix async and sync asserts
 within the same block. This enables you to perform multiple assertions, both asynchronous and synchronous, in a more
 concise and streamlined manner. Moreover, it's important to note that Assert.MultipleAsync is awaitable, providing
 flexibility in handling asynchronous operations and assertions.
 
-```cs
-[Test]
-public async Task AssertMultipleAsyncSucceeds()
-{
-    await Assert.MultipleAsync(async () =>
-    {
-        await Assert.ThatAsync(() => Task.FromResult(42), Is.EqualTo(42));
-        Assert.That("hello", Is.EqualTo("hello"));
-        await Assert.ThatAsync(() => Task.FromException(new  ArgumentNullException)), Throws.ArgumentNullException);
-    });
-}
-```
+[!code-csharp[AssertMultipleAsync](~/snippets/Snippets.NUnit/AsyncAssertExamples.cs#AssertMultipleAsync)]
 
 ## Cooperative Cancellation
 
@@ -201,7 +184,7 @@ These changes, along with the improved assert messages, have resulted in null va
 messages. As a consequence, code like the example below will not compile and will result in
 [CS0121](https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs0121?f1url=%3FappId%3Droslyn%26k%3Dk(CS0121))):
 
-![AssertNull](~/images/AssertNull.png) It's important to update such code to use valid non-null message strings
+![AssertNull](../../images/AssertNull.png) It's important to update such code to use valid non-null message strings
 
 ## Platform support
 

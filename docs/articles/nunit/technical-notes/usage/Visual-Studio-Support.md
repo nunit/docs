@@ -18,9 +18,9 @@ With Visual Studio VS2005 this becomes a bit harder, because that release change
 they now point to the intermediate 'obj' directories rather than the final output in one of the 'bin' directories. Here
 are some alternatives that work in both versions:
 
-* **$(ProjectDir)$(ProjectFileName)** to open the VS Project rather than the assembly. If you use this approach, be sure
+* `$(ProjectDir)$(ProjectFileName)` to open the VS Project rather than the assembly. If you use this approach, be sure
     to rename your config file accordingly and put it in the same directory as the VS project file.
-* **$(ProjectDir)bin/Debug/$(TargetName)$(TargetExt)** to run the assembly directly. Note that this requires hard-coding
+* `$(ProjectDir)bin/Debug/$(TargetName)$(TargetExt)` to run the assembly directly. Note that this requires hard-coding
     part of the path, including the configuration.
 
 If you would like to debug your tests, use the Visual Studio Debug | Processes… menu item to attach to NUnit after

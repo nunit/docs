@@ -73,7 +73,7 @@ If this is to be a non-beta, use the tag in the format `X.Y.Z`.  If it is a beta
 
 ### Update Release notes in `framework.md`
 
-To generate the change list in the format required, use the **GetChanges** console app from
+To generate the change list in the format required, use the `GetChanges` console app from
 [NUnit.InternalTools](https://github.com/nunit/NUnit.InternalTools) which fetches and prints all issues in the given
 milestone, e.g. for milestone 4.0:
 

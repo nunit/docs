@@ -2,13 +2,13 @@
 
 ## The number of parameters provided by the TestCaseSource does not match the number of parameters in the Test method
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1029
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1029                                                                                                                                                            |
+| Severity | Error                                                                                                                                                                |
+| Enabled  | True                                                                                                                                                                 |
+| Category | Structure                                                                                                                                                            |
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs) |
 
 ## Description
 

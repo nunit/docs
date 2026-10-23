@@ -61,11 +61,11 @@ must come directly after them in the constraint expression.
 
 ## Notes
 
-1. **Throws.TypeOf** requires an exact type match. Use **Throws.InstanceOf** to allow derived exception types.
-2. **Throws.Exception** can be followed by additional constraints on the exception object. Avoid using it alone without
+1. `Throws.TypeOf` requires an exact type match. Use `Throws.InstanceOf` to allow derived exception types.
+2. `Throws.Exception` can be followed by additional constraints on the exception object. Avoid using it alone without
    type checking, as you should generally know what exception to expect.
 3. For async code, use `Assert.ThrowsAsync` or test the async delegate directly with `Throws`.
-4. **Throws.InnerException** tests the InnerException property. Combine it with outer exception type tests for full
+4. `Throws.InnerException` tests the InnerException property. Combine it with outer exception type tests for full
    validation.
 
 ## See Also

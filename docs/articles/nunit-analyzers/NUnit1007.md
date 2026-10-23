@@ -2,13 +2,13 @@
 
 ## The method has non-void return type, but no result is expected in ExpectedResult
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1007
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                          |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1007                                                                                                                                      |
+| Severity | Error                                                                                                                                          |
+| Enabled  | True                                                                                                                                           |
+| Category | Structure                                                                                                                                      |
+| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs) |
 
 ## Description
 

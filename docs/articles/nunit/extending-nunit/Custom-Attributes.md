@@ -15,14 +15,14 @@ application, information about the tests may be returned for display, as is done
 
 The following interfaces are called at load time.
 
-| Interface              | Used By |
-|------------------------|---------|
-| [IFixtureBuilder](IFixtureBuilder-Interface.md)       | Attributes that know how to build a fixture from a test class |
-| [ITestBuilder](ITestBuilder-Interface.md)              | Attributes that know how to build one or more parameterized test cases for a method |
-| [ISimpleTestBuilder](ISimpleTestBuilder-Interface.md) | Attributes that know how to build a single non-parameterized test case for a method |
-| [IParameterDataSource](IParameterDataSource-Interface.md) | Attributes that supply values for a single parameter for use in generating test cases |
-| [IImplyFixture](IImplyFixture-Interface.md)           | Attributes used on a method to signal that the defining class should be treated as a fixture |
-| [IApplyToTest](IApplyToTest-Interface.md)             | Attributes that make modifications to a test immediately after it is constructed |
+| Interface                                                 | Used By                                                                                      |
+| --------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [IFixtureBuilder](IFixtureBuilder-Interface.md)           | Attributes that know how to build a fixture from a test class                                |
+| [ITestBuilder](ITestBuilder-Interface.md)                 | Attributes that know how to build one or more parameterized test cases for a method          |
+| [ISimpleTestBuilder](ISimpleTestBuilder-Interface.md)     | Attributes that know how to build a single non-parameterized test case for a method          |
+| [IParameterDataSource](IParameterDataSource-Interface.md) | Attributes that supply values for a single parameter for use in generating test cases        |
+| [IImplyFixture](IImplyFixture-Interface.md)               | Attributes used on a method to signal that the defining class should be treated as a fixture |
+| [IApplyToTest](IApplyToTest-Interface.md)                 | Attributes that make modifications to a test immediately after it is constructed             |
 
 ### Execution-Time Interfaces
 
@@ -31,7 +31,7 @@ made available to the application.
 
 The following interfaces are called at execution time.
 
-| Interface              | Used By |
-|------------------------|---------|
-| [IApplyToContext](IApplyToContext-Interface.md) | Attributes that set up the context prior to execution |
+| Interface                                       | Used By                                                       |
+| ----------------------------------------------- | ------------------------------------------------------------- |
+| [IApplyToContext](IApplyToContext-Interface.md) | Attributes that set up the context prior to execution         |
 | [ICommandWrapper](ICommandWrapper-Interface.md) | Attributes that can wrap a `TestCommand` with another command |

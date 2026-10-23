@@ -2,13 +2,13 @@
 
 ## The target method expects parameters which cannot be supplied by the ValueSource
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1023
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                             |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit1023                                                                                                                                         |
+| Severity | Error                                                                                                                                             |
+| Enabled  | True                                                                                                                                              |
+| Category | Structure                                                                                                                                         |
+| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs) |
 
 ## Description
 

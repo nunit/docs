@@ -16,28 +16,28 @@ TestFixtureSourceAttribute(Type sourceType, string sourceName)
 TestFixtureSourceAttribute(Type sourceType)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `sourceName` | `string` | Name of the source member used to provide fixture arguments. |
-| `sourceType` | `Type` | Type containing the source member, or implementing `IEnumerable` in form 3. |
+| Parameter    | Type     | Description                                                                 |
+| ------------ | -------- | --------------------------------------------------------------------------- |
+| `sourceName` | `string` | Name of the source member used to provide fixture arguments.                |
+| `sourceType` | `Type`   | Type containing the source member, or implementing `IEnumerable` in form 3. |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
-| `Category` | `string` | Category (or comma-separated categories) applied to each generated fixture. | `null` |
-| `TypeArgs` | `Type[]` | Explicit generic type arguments for generated fixture instances. | `null` |
+| Property   | Type     | Description                                                                 | Default |
+| ---------- | -------- | --------------------------------------------------------------------------- | ------- |
+| `Category` | `string` | Category (or comma-separated categories) applied to each generated fixture. | `null`  |
+| `TypeArgs` | `Type[]` | Explicit generic type arguments for generated fixture instances.            | `null`  |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ❌ | ✅ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ❌           | ✅                      | ❌       |
 
 ## Usage
 
 Consider a test fixture class taking two parameters in its constructor, a string and an int. We can specify the test and
-its data using one of the forms of **TestFixtureSourceAttribute**:
+its data using one of the forms of `TestFixtureSourceAttribute`:
 
 ### Form 1 - [TestFixtureSource(string sourceName)]
 
@@ -88,8 +88,8 @@ class. Arguments must be consistent with the fixture constructor.
 
 `TestFixtureSourceAttribute` supports two named parameters:
 
-* **Category** is used to assign one or more categories to every test fixture returned from this source.
-* **TypeArgs** can be used to explicitly specify the `Type`s to be used when constructing a generic test fixture. (_NUnit 4.5+_)
+* `Category` is used to assign one or more categories to every test fixture returned from this source.
+* `TypeArgs` can be used to explicitly specify the `Type`s to be used when constructing a generic test fixture. (_NUnit 4.5+_)
 
 ## Test Fixture Construction
 
