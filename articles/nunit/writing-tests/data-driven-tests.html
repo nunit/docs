@@ -90,7 +90,7 @@
 test to try another value, you write the test once and give NUnit the list of values. Each set of values shows up as
 its own test in the test explorer, so you can see exactly which case failed.</p>
 <p>NUnit calls these <em>parameterized tests</em>: the test method takes parameters, and the data is supplied from outside.</p>
-<h2 id="inline-data-with-testcase">Inline data with [TestCase]</h2>
+<h2 id="inline-data-with-testcase">Inline data with <code>[TestCase]</code></h2>
 <p>Use <a class="xref" href="attributes/testcase.html"><code>[TestCase]</code></a> when you have a handful of cases that are easy to write out. Each
 attribute is one test case, and its arguments are passed to the method parameters in order.</p>
 <pre><code class="lang-csharp" name="DataDrivenTestCase">public class AddTests
@@ -116,7 +116,7 @@ with <code>ExpectedResult</code>:</p>
         return new Calculator().Add(a, b);
     }
 }
-</code></pre><h2 id="data-from-code-with-testcasesource">Data from code with [TestCaseSource]</h2>
+</code></pre><h2 id="data-from-code-with-testcasesource">Data from code with <code>[TestCaseSource]</code></h2>
 <p>Use <a class="xref" href="attributes/testcasesource.html"><code>[TestCaseSource]</code></a> when the data is larger, needs code to build, or comes from
 somewhere else, such as a file. Point the attribute at a static method, property or field that returns the cases.</p>
 <pre><code class="lang-csharp" name="DataDrivenTestCaseSource">public class AddTestsFromSource
@@ -138,7 +138,7 @@ somewhere else, such as a file. Point the attribute at a static method, property
 <p>Returning <a class="xref" href="TestCaseData.html"><code>TestCaseData</code></a> objects is optional, but it lets you give each case a readable name, a
 description, categories and more. To name many test cases with one pattern, see
 <a class="xref" href="../running-tests/Template-Based-Test-Naming.html">Template Based Test Naming</a>.</p>
-<h2 id="data-for-a-single-parameter-with-valuesource">Data for a single parameter with [ValueSource]</h2>
+<h2 id="data-for-a-single-parameter-with-valuesource">Data for a single parameter with <code>[ValueSource]</code></h2>
 <p>Use <a class="xref" href="attributes/valuesource.html"><code>[ValueSource]</code></a> when you want to supply the values for one parameter from a
 reusable list.</p>
 <pre><code class="lang-csharp" name="DataDrivenValueSource">public class MultiplyByOneTests
