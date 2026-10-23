@@ -59,7 +59,9 @@ Is.Zero // Equivalent to Is.EqualTo(0)
 
 Numerics are compared based on their values. Different types may be compared successfully if their values are equal.
 
-Using the `Within` modifier, numerics may be tested for equality within a fixed or percent tolerance.
+Using the `Within` modifier, numerics may be tested for equality within a fixed or percent tolerance. The
+[Tolerances](Tolerance.md) page describes the tolerance modes in detail, which types accept a tolerance, and what to do
+for types that do not.
 
 [!code-csharp[EqualConstraintNumerics](~/snippets/Snippets.NUnit/ConstraintExamples.cs#EqualConstraintNumerics)]
 
@@ -111,9 +113,13 @@ The characters ignored are the same as for the C# `Char.IsWhiteSpace`.
 modifiers: `Days`, `Hours`, `Minutes`, `Seconds`, `Milliseconds` or `Ticks`.
 
 When comparing `DateTimeOffset` values you can use the optional `WithSameOffset` modifier to check the offset along with
-the date and time.
+the date and time. `WithSameOffset` cannot be combined with `Within`.
 
 [!code-csharp[EqualConstraintDateTime](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#EqualConstraintDateTime)]
+
+From NUnit 4.3, `Is.EqualTo` has dedicated overloads for `DateTime`, `DateTimeOffset` and `TimeSpan` values. On these
+a numeric tolerance must be followed by a unit; `Is.EqualTo(now).Within(3)` by itself is not a usable constraint and
+the assertion does not compile. See [Tolerances](Tolerance.md#time-units).
 
 ## Comparing Arrays, Collections and IEnumerables with AsCollection
 
@@ -185,6 +191,11 @@ own through the `Using` modifier. When used with `EqualConstraint`, you may supp
 Assert.That(myObj1, Is.EqualTo(myObj2).Using(myComparer));
 ```
 
+A user-specified comparer takes over the whole comparison, so it cannot be combined with `Within`: from NUnit 4.0,
+specifying both results in a `NotSupportedException`. If you need an approximate comparison for a type that NUnit does
+not support, build the tolerance into the comparer itself. See
+[Tolerances for your own types](Tolerance.md#tolerances-for-your-own-types).
+
 Prior to NUnit 2.6, only one comparer could be used. If multiple comparers were specified, all but one was ignored.
 Beginning with NUnit 2.6, multiple generic comparers for different types may be specified. NUnit will use the
 appropriate comparer for any two types being compared. As a result, it is now possible to provide a comparer for an
@@ -206,6 +217,9 @@ This can be recursive, e.g. if one has a class `Group` holding a collection of `
 
 The comparer will use the specified tolerance as specified using `.Within(amount)` if possible.
 This can be useful when comparing floating point numbers of calculation results.
+Properties that cannot take a tolerance, such as strings, are compared exactly.
+From version 4.4 the configuration also has a `Within` method, which allows separate tolerances
+for numeric and time properties; see [Tolerances](Tolerance.md#objects-compared-property-by-property).
 
 The comparer can deal with recursive data structures,
 it will stop comparing if it already previously has compared two the same instances.
@@ -314,9 +328,10 @@ But was:  "89031"
    implements the appropriate interface, NUnit makes use of the `Equals` override on the expected object. If you neglect
    to either implement `IEquatable<T>` or to override `Equals`, you can expect failures comparing non-identical objects.
    In particular, overriding `operator ==` without overriding `Equals` or implementing the interface has no effect.
-2. The `Within` modifier was originally designed for use with floating point values only. Beginning with NUnit 2.4,
-   comparisons of `DateTime` values may use a `TimeSpan` as a tolerance. Beginning with NUnit 2.4.2, non-float
-   numeric comparisons may also specify a tolerance.
+2. The `Within` modifier works with all numeric types and, given a `TimeSpan` tolerance, with `DateTime`,
+   `DateTimeOffset` and `TimeSpan`. It is applied recursively to the elements of arrays, collections, dictionaries and
+   tuples. For any other type the tolerance cannot be applied; before NUnit 4.0 it was silently ignored, from NUnit 4.0
+   the assertion errors with a `NotSupportedException`. See [Tolerances](Tolerance.md) for details and workarounds.
 3. Float and double comparisons for which no tolerance is specified use a default value, which can be specified with
    `DefaultFloatingPointToleranceAttribute`. If this is not in place, a tolerance of 0.0d is used. (Prior to NUnit
    3.7, default tolerance was instead set via `GlobalSettings.DefaultFloatingPointTolerance`.)
@@ -348,5 +363,6 @@ But was:  "89031"
 
 ## See also
 
+* [Tolerances](Tolerance.md)
 * [Assert.AreEqual](xref:classic-assert-are-equal)
 * [DefaultFloatingPointTolerance Attribute](xref:attribute-defaultfloatingpointtolerance)
