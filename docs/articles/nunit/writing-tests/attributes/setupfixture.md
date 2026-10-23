@@ -67,6 +67,64 @@ The defined order is as follows...
 [Items 6 and 7 rarely come into play but the features are available for situations like code generation, where it may
  be more convenient to have multiple setup fixtures and/or methods.]
 
+## Inheritance
+
+`[SetUpFixture]` is inherited. A class that derives from a class marked `[SetUpFixture]` is itself a setup fixture,
+even if it does not repeat the attribute. This lets a shared test-support package provide the one-time setup and
+teardown in a base class, with each test project deriving from it:
+
+[!code-csharp[SetUpFixtureInheritanceBase](~/snippets/Snippets.NUnit/Attributes/SetUpFixtureAttributeExamples.cs#SetUpFixtureInheritanceBase)]
+
+[!code-csharp[SetUpFixtureInheritanceDerived](~/snippets/Snippets.NUnit/Attributes/SetUpFixtureAttributeExamples.cs#SetUpFixtureInheritanceDerived)]
+
+NUnit applies these rules:
+
+* **The namespace of the concrete class sets the scope.** NUnit builds the setup fixture from the concrete class, so it
+  covers the namespace that class is in and the namespaces below it. The namespace of the base class plays no part. In
+  the example, the setup runs once for the tests in `SetUpFixtureInheritance.Consumer`.
+* **An abstract base class is not a setup fixture by itself.** NUnit ignores abstract classes when it looks for
+  fixtures, so the base class does nothing until a test project derives from it. A base class in another assembly is
+  never scanned anyway, because NUnit only looks at the types in the test assembly. If the base class is concrete and
+  lives in the test assembly, it is a setup fixture for its own namespace in addition to the derived class.
+* **Attributes on the derived class win.** NUnit looks for fixture attributes one level of the inheritance chain at a
+  time, starting at the concrete class, and uses the first level that has any. An inherited `[SetUpFixture]` is only
+  used when the derived class has no fixture attribute of its own:
+  * If the derived class is marked `[TestFixture]`, NUnit builds an ordinary test fixture and the inherited
+    `[SetUpFixture]` is ignored. Its tests run, and the base class `[OneTimeSetUp]` runs once for that fixture, like
+    any inherited `[OneTimeSetUp]`.
+  * If the derived class has `[Test]` methods but no `[TestFixture]`, the inherited `[SetUpFixture]` wins. NUnit builds
+    a setup fixture and the tests are **not discovered**. There is no warning; the tests are simply missing from the
+    run, and from `dotnet test --list-tests`.
+
+[!code-csharp[SetUpFixtureInheritancePrecedence](~/snippets/Snippets.NUnit/Attributes/SetUpFixtureAttributeExamples.cs#SetUpFixtureInheritancePrecedence)]
+
+> [!TIP]
+> Put `[SetUpFixture]` on the concrete class as well. It is not required, but it makes the role of the class visible
+> without looking at the base class, and it is easier to spot a `[Test]` method that ended up in the wrong place.
+
+## Sharing setup across projects
+
+When several test projects share one-time setup from a common package, a base class with `[SetUpFixture]` works, but
+each project still has to declare a derived class. A `[OneTimeSetUp]` on a shared base *test* class is not an
+alternative: NUnit runs it once for **every fixture** that derives from it, not once per run. See
+[OneTimeSetUp](xref:attribute-onetimesetup#test-fixture-versus-setup-fixture).
+
+The simplest pattern keeps the package free of NUnit fixture attributes. The package provides a plain class with the
+setup and teardown logic:
+
+[!code-csharp[SetUpFixtureSharingPackage](~/snippets/Snippets.NUnit/Attributes/SetUpFixtureAttributeExamples.cs#SetUpFixtureSharingPackage)]
+
+Each test project declares a small `[SetUpFixture]` that calls it. Placed outside any namespace, it runs once for the
+whole project:
+
+[!code-csharp[SetUpFixtureSharingConsumer](~/snippets/Snippets.NUnit/Attributes/SetUpFixtureAttributeExamples.cs#SetUpFixtureSharingConsumer)]
+
+If you cannot ask consumers to add a class, start the resource on first use from a static `Lazy<T>` in the base test
+class. It starts once per test run, but NUnit offers no hook to stop it at the end of the run, so use this only for
+resources the process can abandon:
+
+[!code-csharp[SetUpFixtureSharingLazy](~/snippets/Snippets.NUnit/Attributes/SetUpFixtureAttributeExamples.cs#SetUpFixtureSharingLazy)]
+
 ## Notes
 
 1. `SetUpFixture` classes must be public and have a default constructor (or be static).
@@ -74,6 +132,7 @@ The defined order is as follows...
 3. A setup fixture outside any namespace applies to the entire assembly.
 4. Multiple setup fixtures at the same namespace level execute in indeterminate order.
 5. Prior to NUnit 3.0, setup fixtures used `SetUp`/`TearDown`; NUnit 3+ uses `OneTimeSetUp`/`OneTimeTearDown`.
+6. `SetUpFixture` is inherited. The namespace of the derived class sets the scope; see [Inheritance](#inheritance).
 
 ## See Also
 
