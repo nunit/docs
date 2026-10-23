@@ -93,7 +93,7 @@ you must add a <code>TraceListener</code>.</p>
 initialization of the <code>ConsoleTraceListener</code>.</p>
 <p>To add it to a namespace, place the following class inside that namespace, and it will apply to all tests inside that
 namespace and below.  The code shown adds the output to console output.</p>
-<pre><code class="lang-csharp">[SetUpFixture]
+<pre><code class="lang-csharp" name="ConsoleTraceListenerSetUpFixture">[SetUpFixture]
 public class SetupTrace
 {
     [OneTimeSetUp]
@@ -115,7 +115,7 @@ test fixture/class.</p>
 <p>If you like you can change that to another kind of listener.</p>
 <h2 id="example-outputs">Example outputs</h2>
 <p>Given the following verbose test:</p>
-<pre><code class="lang-csharp">[Test]
+<pre><code class="lang-csharp" name="VerboseTest">[Test]
 public void Test1()
 {
     Debug.WriteLine(&quot;This is Debug.WriteLine&quot;);
@@ -140,7 +140,7 @@ add the necessary initialization of the <code>ProgressTraceListener</code> and m
 <code>Trace.Flush()</code> is not needed with the <code>ProgressTraceListener</code>.</p>
 <p>To add it to a namespace, place the following class inside that namespace, and it will apply to all tests inside that
 namespace and below.  The code shown adds the output to progress output.</p>
-<pre><code class="lang-csharp">[SetUpFixture]
+<pre><code class="lang-csharp" name="ProgressTraceListenerSetUpFixture">[SetUpFixture]
 public class SetupTrace
 {
     [OneTimeSetUp]

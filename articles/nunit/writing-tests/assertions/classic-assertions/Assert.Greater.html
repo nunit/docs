@@ -130,7 +130,16 @@ Assert.Greater(IComparable arg1, IComparable arg2);
 Assert.Greater(IComparable arg1, IComparable arg2,
                string message, params object[] params);
 </code></pre>
-<h2 id="see-also">See Also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="GreaterExamples">[Test]
+public void Greater_Examples()
+{
+    Assert.Greater(7, 3);
+    Assert.Greater(3.5, 2.1);
+    Assert.Greater(&quot;b&quot;, &quot;a&quot;);
+    Assert.Greater(DateTime.Now, DateTime.Now.AddDays(-1));
+}
+</code></pre><h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="Assert.GreaterOrEqual.html">Assert.GreaterOrEqual</a></li>
 <li><a href="Assert.Less.html">Assert.Less</a></li>

@@ -105,21 +105,37 @@ Is.Not.EquivalentTo(IEnumerable expected)
 .UsingPropertiesComparer()            // From version 4.1
 </code></pre>
 <h2 id="examples">Examples</h2>
-<pre><code class="lang-csharp">// Basic equivalence - order doesn't matter
-int[] expected = { 1, 2, 3 };
-Assert.That(new[] { 3, 1, 2 }, Is.EquivalentTo(expected));
+<pre><code class="lang-csharp" name="CollectionEquivalentConstraintExamples">private sealed class Person(string name, int age)
+{
+    public string Name { get; } = name;
+    public int Age { get; } = age;
+}
 
-// Not equivalent - different counts matter
-Assert.That(new[] { 1, 2, 2 }, Is.Not.EquivalentTo(expected));
+[Test]
+public void CollectionEquivalentConstraint_Examples()
+{
+    int[] expected = { 1, 2, 3 };
+    int[] actual = { 3, 2, 1 };
 
-// String comparison with case insensitivity
-string[] names = { &quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot; };
-Assert.That(new[] { &quot;alice&quot;, &quot;BOB&quot;, &quot;CHARLIE&quot; }, Is.EquivalentTo(names).IgnoreCase);
+    // Order doesn't matter
+    Assert.That(actual, Is.EquivalentTo(expected));
 
-// With custom comparer for complex objects
-Assert.That(actualPeople, Is.EquivalentTo(expectedPeople).UsingPropertiesComparer());
-</code></pre>
-<h2 id="notes">Notes</h2>
+    // Different collections with same elements
+    Assert.That(new List&lt;int&gt; { 1, 2, 3 }, Is.EquivalentTo(new[] { 3, 1, 2 }));
+
+    // Duplicates matter
+    Assert.That(new[] { 1, 1, 2 }, Is.Not.EquivalentTo(new[] { 1, 2, 2 }));
+    Assert.That(new[] { 1, 1, 2 }, Is.EquivalentTo(new[] { 2, 1, 1 }));
+
+    // Case-insensitive for strings
+    Assert.That(new[] { &quot;A&quot;, &quot;B&quot; }, Is.EquivalentTo(new[] { &quot;b&quot;, &quot;a&quot; }).IgnoreCase);
+
+    // Compare objects without value equality property by property
+    Person[] expectedPeople = [new(&quot;Alice&quot;, 30), new(&quot;Bob&quot;, 25)];
+    Person[] actualPeople = [new(&quot;Bob&quot;, 25), new(&quot;Alice&quot;, 30)];
+    Assert.That(actualPeople, Is.EquivalentTo(expectedPeople).UsingPropertiesComparer());
+}
+</code></pre><h2 id="notes">Notes</h2>
 <ol>
 <li>To compare items in a specific order, use <code>Is.EqualTo()</code> instead.</li>
 <li>Duplicate items matter: <code>{1, 2, 2}</code> is not equivalent to <code>{1, 2, 3}</code> even though they have the same length.</li>

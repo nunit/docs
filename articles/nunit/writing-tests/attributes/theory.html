@@ -171,10 +171,10 @@ following definition:</p>
 <p>Given a non-negative number, the square root of that number is always non-negative and, when multiplied by itself,
 gives the original number.</p>
 </blockquote>
-<pre><code class="lang-csharp">public class SqrtTests
+<pre><code class="lang-csharp" name="TheoryBasic">public class SqrtTests
 {
     [DatapointSource]
-    public double[] values = new double[] { 0.0, 1.0, -1.0, 42.0 };
+    public double[] Values = [0.0, 1.0, -1.0, 42.0];
 
     [Theory]
     public void SquareRootDefinition(double num)
@@ -187,30 +187,28 @@ gives the original number.</p>
         Assert.That(sqrt * sqrt, Is.EqualTo(num).Within(0.000001));
     }
 }
-</code></pre>
-<h2 id="theories-in-generic-fixtures">Theories in Generic Fixtures</h2>
+</code></pre><h2 id="theories-in-generic-fixtures">Theories in Generic Fixtures</h2>
 <p>In a generic fixture with Type parameter <code>T</code> individual methods using <code>T</code> as a parameter type are not generic, since <code>T</code>
 has been resolved to an actual Type in instantiating the fixture instance. You may use such methods as theories and any
 data of the appropriate type will be used.</p>
-<pre><code class="lang-csharp">[TestFixture(typeof(int))]
+<pre><code class="lang-csharp" name="TheoryGenericFixture">[TestFixture(typeof(int))]
 [TestFixture(typeof(double))]
 public class TheorySampleTestsGeneric&lt;T&gt;
 {
     [Datapoint]
-    public double[] ArrayDouble1 = { 1.2, 3.4 };
+    public double[] ArrayDouble1 = [1.2, 3.4, 5.6, 7.8];
     [Datapoint]
-    public double[] ArrayDouble2 = { 5.6, 7.8 };
+    public double[] ArrayDouble2 = [9.1, 2.3, 4.5, 6.7];
     [Datapoint]
-    public int[] ArrayInt = { 0, 1, 2, 3 };
+    public int[] ArrayInt = [0, 1, 2, 3];
 
     [Theory]
     public void TestGenericForArbitraryArray(T[] array)
     {
-        Assert.That(array.Length, Is.EqualTo(4));
+        Assert.That(array, Has.Length.EqualTo(4));
     }
 }
-</code></pre>
-<h2 id="see-also">See also</h2>
+</code></pre><h2 id="see-also">See also</h2>
 <ul>
 <li><a class="xref" href="datapoint.html">Datapoint Attribute</a></li>
 <li><a class="xref" href="datapointsource.html">DatapointSource Attribute</a></li>

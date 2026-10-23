@@ -98,7 +98,14 @@ NUnit.Framework.Legacy namespace.</p>
 <pre><code class="lang-csharp">Assert.IsNaN(double aDouble);
 Assert.IsNaN(double aDouble, string message, params object[] params);
 </code></pre>
-<h2 id="see-also">See Also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="NaNExamples">[Test]
+public void NaN_Examples()
+{
+   Assert.IsNaN(double.NaN);
+   Assert.IsNaN(float.NaN);
+}
+</code></pre><h2 id="see-also">See Also</h2>
 <ul>
 <li><a class="xref" href="../../constraints/Constraints.html#condition-constraints">Condition Constraints</a></li>
 </ul>

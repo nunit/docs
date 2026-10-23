@@ -89,22 +89,33 @@
 <p>Normally constraints just work. However, attempting to reuse the
 same constraint in several places can lead to unexpected results.</p>
 <p>Consider the following code as an example:</p>
-<pre><code class="lang-csharp">Constraint myConstraint = Is.Not.Null;
-Assert.That(&quot;not a null&quot;, myConstraint); // Passes, of course
-Assert.That(&quot;not a null&quot;, myConstraint); // Fails! What's that about?
+<pre><code class="lang-csharp" name="ReusableConstraintProblem">[Test, Explicit(&quot;Fails on purpose to show the problem with reusing an unresolved constraint&quot;)]
+public void ReusingAnUnresolvedConstraint()
+{
+    Constraint myConstraint = Is.Not.Null;
+    Assert.That(&quot;not a null&quot;, myConstraint); // Passes, of course
+    Assert.That(&quot;not a null&quot;, myConstraint); // Fails! What is that about?
+}
 </code></pre>
 <p>We'll save the technical explanation for later and show the
 solution first:</p>
-<pre><code class="lang-csharp">ReusableConstraint myConstraint = Is.Not.Null;
-Assert.That(&quot;not a null&quot;, myConstraint); // Passes
-Assert.That(&quot;not a null&quot;, myConstraint); // Passes
+<pre><code class="lang-csharp" name="ReusableConstraintImplicit">[Test]
+public void ReusableConstraintByAssignment()
+{
+    ReusableConstraint myConstraint = Is.Not.Null;
+    Assert.That(&quot;not a null&quot;, myConstraint); // Passes
+    Assert.That(&quot;not a null&quot;, myConstraint); // Passes
+}
 </code></pre>
 <p>Or alternatively..</p>
-<pre><code class="lang-csharp">var myConstraint = new ReusableConstraint(Is.Not.Null);
-Assert.That(&quot;not a null&quot;, myConstraint); // Passes
-Assert.That(&quot;not a null&quot;, myConstraint); // Passes
-</code></pre>
-<h2 id="technical-explanation">Technical Explanation</h2>
+<pre><code class="lang-csharp" name="ReusableConstraintExplicit">[Test]
+public void ReusableConstraintByConstructor()
+{
+    var myConstraint = new ReusableConstraint(Is.Not.Null);
+    Assert.That(&quot;not a null&quot;, myConstraint); // Passes
+    Assert.That(&quot;not a null&quot;, myConstraint); // Passes
+}
+</code></pre><h2 id="technical-explanation">Technical Explanation</h2>
 <p>In the original example, the value assigned to myConstraint is
 known as an <strong>unresolved</strong> constraint. In fact, it's an
 unresolved NullConstraint, because that was the last constraint

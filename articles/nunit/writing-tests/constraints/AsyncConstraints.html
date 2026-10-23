@@ -88,69 +88,135 @@
 
 <p>NUnit constraints fully support testing asynchronous code. This page covers patterns for using constraints with async
 methods, tasks, and delegates.</p>
-<h2 id="testing-async-methods">Testing Async Methods</h2>
+<p>The examples on this page use this small service and calculator:</p>
+<pre><code class="lang-csharp" name="AsyncSampleService">// A small service used by the examples below
+public class SampleService
+{
+    private int _readyChecks;
+    private readonly List&lt;int&gt; _cache = [];
+
+    public Task&lt;int&gt; GetValueAsync() =&gt; Task.FromResult(42);
+
+    public Task InitializeAsync() =&gt; Task.CompletedTask;
+
+    public Task SafeMethodAsync() =&gt; Task.CompletedTask;
+
+    public Task InvalidOperationAsync() =&gt; throw new InvalidOperationException(&quot;expected error&quot;);
+
+    public async Task FailingMethodAsync()
+    {
+        await Task.Yield();
+        throw new InvalidOperationException(&quot;expected error&quot;);
+    }
+
+    public Task FailingWithInnerExceptionAsync() =&gt;
+        Task.FromException(new AggregateException(new TimeoutException()));
+
+    // Becomes ready on the third call
+    public Task&lt;bool&gt; IsReadyAsync() =&gt; Task.FromResult(++_readyChecks &gt;= 3);
+
+    public Task&lt;int&gt; GetCountAsync()
+    {
+        _cache.Add(_cache.Count);
+        return Task.FromResult(_cache.Count);
+    }
+
+    public async IAsyncEnumerable&lt;int&gt; GetItemsAsync()
+    {
+        foreach (var item in new[] { 50, 150, 250, 350, 450 })
+        {
+            await Task.Yield();
+            yield return item;
+        }
+    }
+}
+
+public class Calculator
+{
+    public Task&lt;int&gt; AddAsync(int a, int b) =&gt; Task.FromResult(a + b);
+}
+</code></pre><h2 id="testing-async-methods">Testing Async Methods</h2>
 <h3 id="basic-async-assertions">Basic Async Assertions</h3>
 <p>Use <code>async</code> lambdas with <code>Assert.That</code> to test async code:</p>
-<pre><code class="lang-csharp">// Test async method return values
-Assert.That(async () =&gt; await service.GetValueAsync(), Is.EqualTo(42));
+<pre><code class="lang-csharp" name="AsyncBasicAssertions">[Test]
+public void BasicAsyncAssertions()
+{
+    // Test async method return values
+    Assert.That(async () =&gt; await service.GetValueAsync(), Is.EqualTo(42));
 
-// Test that async method completes without throwing
-Assert.That(async () =&gt; await service.InitializeAsync(), Throws.Nothing);
+    // Test that async method completes without throwing
+    Assert.That(async () =&gt; await service.InitializeAsync(), Throws.Nothing);
 
-// Test async exception throwing
-Assert.That(async () =&gt; await service.InvalidOperationAsync(),
-    Throws.TypeOf&lt;InvalidOperationException&gt;());
-</code></pre>
-<h3 id="testing-task-results">Testing Task Results</h3>
+    // Test async exception throwing
+    Assert.That(async () =&gt; await service.InvalidOperationAsync(),
+        Throws.TypeOf&lt;InvalidOperationException&gt;());
+}
+</code></pre><h3 id="testing-task-results">Testing Task Results</h3>
 <p>You can also await tasks directly before asserting:</p>
-<pre><code class="lang-csharp">// Await first, then assert
-var result = await calculator.AddAsync(2, 3);
-Assert.That(result, Is.EqualTo(5));
+<pre><code class="lang-csharp" name="AsyncTaskResults">[Test]
+public async Task TestingTaskResults()
+{
+    // Await first, then assert
+    var result = await calculator.AddAsync(2, 3);
+    Assert.That(result, Is.EqualTo(5));
 
-// Or use Assert.ThatAsync (NUnit 4.0+)
-await Assert.ThatAsync(async () =&gt; await calculator.AddAsync(2, 3), Is.EqualTo(5));
-</code></pre>
-<h2 id="exception-testing-with-async-code">Exception Testing with Async Code</h2>
+    // Or use Assert.ThatAsync (NUnit 4.0+)
+    await Assert.ThatAsync(async () =&gt; await calculator.AddAsync(2, 3), Is.EqualTo(5));
+}
+</code></pre><h2 id="exception-testing-with-async-code">Exception Testing with Async Code</h2>
 <h3 id="throwsconstraint-with-async">ThrowsConstraint with Async</h3>
-<pre><code class="lang-csharp">// Test for specific exception type
-Assert.That(async () =&gt; await service.FailingMethodAsync(),
-    Throws.TypeOf&lt;InvalidOperationException&gt;());
+<pre><code class="lang-csharp" name="AsyncThrowsConstraint">[Test]
+public void ThrowsConstraintWithAsync()
+{
+    // Test for specific exception type
+    Assert.That(async () =&gt; await service.FailingMethodAsync(),
+        Throws.TypeOf&lt;InvalidOperationException&gt;());
 
-// Test exception message
-Assert.That(async () =&gt; await service.FailingMethodAsync(),
-    Throws.TypeOf&lt;InvalidOperationException&gt;()
-        .With.Message.Contains(&quot;expected error&quot;));
+    // Test exception message
+    Assert.That(async () =&gt; await service.FailingMethodAsync(),
+        Throws.TypeOf&lt;InvalidOperationException&gt;()
+            .With.Message.Contains(&quot;expected error&quot;));
 
-// Test inner exception
-Assert.That(async () =&gt; await service.FailingMethodAsync(),
-    Throws.TypeOf&lt;AggregateException&gt;()
-        .With.InnerException.TypeOf&lt;TimeoutException&gt;());
-</code></pre>
-<h3 id="throwsnothing-with-async">ThrowsNothing with Async</h3>
-<pre><code class="lang-csharp">// Verify async method completes successfully
-Assert.That(async () =&gt; await service.SafeMethodAsync(), Throws.Nothing);
-</code></pre>
-<h2 id="delayed-constraints-with-async">Delayed Constraints with Async</h2>
+    // Test inner exception
+    Assert.That(async () =&gt; await service.FailingWithInnerExceptionAsync(),
+        Throws.TypeOf&lt;AggregateException&gt;()
+            .With.InnerException.TypeOf&lt;TimeoutException&gt;());
+}
+</code></pre><h3 id="throwsnothing-with-async">ThrowsNothing with Async</h3>
+<pre><code class="lang-csharp" name="AsyncThrowsNothing">[Test]
+public void ThrowsNothingWithAsync()
+{
+    // Verify async method completes successfully
+    Assert.That(async () =&gt; await service.SafeMethodAsync(), Throws.Nothing);
+}
+</code></pre><h2 id="delayed-constraints-with-async">Delayed Constraints with Async</h2>
 <p>Use <code>DelayedConstraint</code> for testing eventually-consistent async operations:</p>
-<pre><code class="lang-csharp">// Poll until condition is true (or timeout)
-Assert.That(async () =&gt; await service.IsReadyAsync(),
-    Is.True.After(5).Seconds.PollEvery(100).MilliSeconds);
+<pre><code class="lang-csharp" name="AsyncDelayedConstraint">[Test]
+public void DelayedConstraintsWithAsync()
+{
+    // Poll until condition is true (or timeout)
+    Assert.That(async () =&gt; await service.IsReadyAsync(),
+        Is.True.After(5).Seconds.PollEvery(100).MilliSeconds);
 
-// Wait for value to appear
-Assert.That(async () =&gt; await cache.GetCountAsync(),
-    Is.GreaterThan(0).After(2000, 100));
-</code></pre>
-<h2 id="collection-constraints-with-async-enumerables">Collection Constraints with Async Enumerables</h2>
-<p>For <code>IAsyncEnumerable&lt;T&gt;</code>, materialize the collection first:</p>
-<pre><code class="lang-csharp">// Convert to list first
-var items = await asyncEnumerable.ToListAsync();
-Assert.That(items, Has.Count.EqualTo(5));
-Assert.That(items, Is.All.Positive);
+    // Wait for value to appear
+    Assert.That(async () =&gt; await service.GetCountAsync(),
+        Is.GreaterThan(0).After(2000, 100));
+}
+</code></pre><h2 id="collection-constraints-with-async-enumerables">Collection Constraints with Async Enumerables</h2>
+<p>For <code>IAsyncEnumerable&lt;T&gt;</code>, materialize the collection first. <code>ToListAsync</code> is built into .NET 10; on earlier
+versions it comes from the <code>System.Linq.Async</code> package:</p>
+<pre><code class="lang-csharp" name="AsyncEnumerable">[Test]
+public async Task CollectionConstraintsWithAsyncEnumerables()
+{
+    // Convert to list first
+    var items = await service.GetItemsAsync().ToListAsync();
+    Assert.That(items, Has.Count.EqualTo(5));
+    Assert.That(items, Is.All.Positive);
 
-// Or use helper method
-Assert.That(await ToListAsync(service.GetItemsAsync()), Has.Some.GreaterThan(100));
-</code></pre>
-<h2 id="best-practices">Best Practices</h2>
+    // Or inline the conversion
+    Assert.That(await service.GetItemsAsync().ToListAsync(), Has.Some.GreaterThan(100));
+}
+</code></pre><h2 id="best-practices">Best Practices</h2>
 <ol>
 <li><p><strong>Use async lambdas</strong> when testing methods that return <code>Task</code> or <code>Task&lt;T&gt;</code>:</p>
 <pre><code class="lang-csharp">Assert.That(async () =&gt; await method(), constraint);

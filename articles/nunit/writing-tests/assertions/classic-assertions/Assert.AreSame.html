@@ -99,7 +99,18 @@ NUnit.Framework.Legacy namespace.</p>
 Assert.AreSame(object expected, object actual,
                string message, params object[] params);
 </code></pre>
-<h2 id="see-also">See Also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="SameExamples">[Test]
+public void Same_Examples()
+{
+    object obj1 = new object();
+    object obj2 = obj1;
+    object obj3 = new object();
+    
+    Assert.AreSame(obj1, obj2);
+    Assert.AreNotSame(obj1, obj3);
+}
+</code></pre><h2 id="see-also">See Also</h2>
 <ul>
 <li><a class="xref" href="../../constraints/SameAsConstraint.html">SameAs Constraint</a></li>
 </ul>

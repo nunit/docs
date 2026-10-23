@@ -102,7 +102,19 @@ Assert.IsNotAssignableFrom&lt;T&gt;(object actual);
 Assert.IsNotAssignableFrom&lt;T&gt;(object actual,
                               string message, params object[] params);
 </code></pre>
-<h2 id="see-also">See also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="AssignableFromExamples">[Test]
+public void AssignableFrom_Examples()
+{
+    // object can be assigned FROM string (string is a subtype of object)
+    object obj = &quot;Hello&quot;;
+    Assert.IsAssignableFrom&lt;string&gt;(obj);
+    Assert.IsAssignableFrom(typeof(string), obj);
+    
+    Assert.IsNotAssignableFrom&lt;int&gt;(&quot;Hello&quot;);
+    Assert.IsNotAssignableFrom(typeof(int), &quot;Hello&quot;);
+}
+</code></pre><h2 id="see-also">See also</h2>
 <ul>
 <li><a class="xref" href="../../constraints/Constraints.html#type-constraints">Type Constraints</a></li>
 </ul>

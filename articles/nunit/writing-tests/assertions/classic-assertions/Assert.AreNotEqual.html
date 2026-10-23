@@ -100,7 +100,15 @@ Assert.AreNotEqual(object expected, object actual,
                    string message, params object[] params);
 </code></pre>
 <p>See <a href="Assert.AreEqual.html">Assert.AreEqual</a> for details of how NUnit performs equality comparisons.</p>
-<h2 id="see-also">See Also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="AreNotEqualExamples">[Test]
+public void AreNotEqual_Examples()
+{
+   Assert.AreNotEqual(5, 3);
+   Assert.AreNotEqual(&quot;Hello&quot;, &quot;World&quot;);
+   Assert.AreNotEqual(null, &quot;something&quot;);
+}
+</code></pre><h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="Assert.AreEqual.html">Assert.AreEqual</a></li>
 <li><a class="xref" href="../../constraints/EqualConstraint.html">Equal Constraint</a></li>

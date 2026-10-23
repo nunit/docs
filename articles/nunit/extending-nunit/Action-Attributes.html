@@ -183,29 +183,38 @@ attached to a method, they behave as if <code>ActionTargets.Test</code> had been
 they behave as if <code>ActionTargets.Suite</code> was returned.</p>
 <h3 id="itest-interface">ITest Interface</h3>
 <p>The <code>BeforeTest</code> and <code>AfterTest</code> methods are provided with information about the test that is about to run (before) or
-has just run (after). The <code>ITest</code> interface is an internal NUnit interface to the representation of a test, which may be
-either a test case or a suite. The before and after methods may use the interface to decide what actions to take or
-retrieve information about the test.</p>
+has just run (after). The <code>ITest</code> interface, in the <code>NUnit.Framework.Interfaces</code> namespace, is NUnit's representation of
+a test, which may be either a test case or a suite. The before and after methods may use the interface to decide what
+actions to take or retrieve information about the test.</p>
 <pre><code class="lang-csharp">public interface ITest : IXmlNodeBuilder
 {
     // Gets the id of the test
-    int Id { get; }
+    string Id { get; }
 
     // Gets the name of the test
     string Name { get; }
 
+    // Gets the type of the test, for example &quot;TestFixture&quot; or &quot;TestMethod&quot;
+    string TestType { get; }
+
     // Gets the fully qualified name of the test
     string FullName { get; }
 
-    // Gets the Type of the test fixture, if applicable, or
-    // null if no fixture type is associated with this test.
-    Type FixtureType { get; }
+    // Gets the name of the class containing this test, or null
+    string? ClassName { get; }
 
-    // Gets a MethodInfo for the method implementing this test.
-    // Returns null if the test is not implemented as a method.
-    MethodInfo Method { get; }
+    // Gets the name of the method implementing this test, or null
+    string? MethodName { get; }
 
-    // Gets the RunState of the test, indicating whether it can be run.
+    // Gets the type info of the fixture, or null if no fixture
+    // type is associated with this test
+    ITypeInfo? TypeInfo { get; }
+
+    // Gets the method implementing this test, or null if the
+    // test is not implemented as a method
+    IMethodInfo? Method { get; }
+
+    // Gets the RunState of the test, indicating whether it can be run
     RunState RunState { get; }
 
     // Count of the test cases (1 if this is a test case)
@@ -214,30 +223,39 @@ retrieve information about the test.</p>
     // Gets the properties of the test
     IPropertyBag Properties { get; }
 
-    // Gets the parent test, if any.
-    ITest Parent { get; }
+    // Gets the parent test, if any
+    ITest? Parent { get; }
 
     // Returns true if this is a test suite
     bool IsSuite { get; }
 
     // Gets a bool indicating whether the current test
-    // has any descendant tests.
+    // has any descendant tests
     bool HasChildren { get; }
 
     // Gets this test's child tests
-    System.Collections.Generic.IList&lt;ITest&gt; Tests { get; }
+    IList&lt;ITest&gt; Tests { get; }
+
+    // Gets the fixture object, if one has been created for this test
+    object? Fixture { get; }
+
+    // Gets the arguments used to create the test, or an empty array
+    object?[] Arguments { get; }
 }
 </code></pre>
 <h2 id="examples">Examples</h2>
 <p>The examples that follow all use the following sample Action Attribute:</p>
-<pre><code class="lang-csharp">[AttributeUsage(AttributeTargets.Method | AttributeTargets.Class |
+<pre><code class="lang-csharp" name="ConsoleActionAttribute">[AttributeUsage(AttributeTargets.Method | AttributeTargets.Class |
                 AttributeTargets.Interface | AttributeTargets.Assembly,
                 AllowMultiple = true)]
 public class ConsoleActionAttribute : Attribute, ITestAction
 {
-    private string _Message;
+    private readonly string _message;
 
-    public ConsoleActionAttribute(string message) { _Message = message; }
+    public ConsoleActionAttribute(string message)
+    {
+        _message = message;
+    }
 
     public void BeforeTest(ITest test)
     {
@@ -249,19 +267,16 @@ public class ConsoleActionAttribute : Attribute, ITestAction
         WriteToConsole(&quot;After&quot;, test);
     }
 
-    public ActionTargets Targets
-    {
-        get { return ActionTargets.Test | ActionTargets.Suite; }
-    }
+    public ActionTargets Targets =&gt; ActionTargets.Test | ActionTargets.Suite;
 
     private void WriteToConsole(string eventMessage, ITest details)
     {
         Console.WriteLine(&quot;{0} {1}: {2}, from {3}.{4}.&quot;,
             eventMessage,
             details.IsSuite ? &quot;Suite&quot; : &quot;Case&quot;,
-            _Message,
-            details.FixtureType != null ? details.FixtureType.Name : &quot;{no fixture}&quot;,
-            details.Method != null ? details.Method.Name : &quot;{no method}&quot;);
+            _message,
+            details.TypeInfo is not null ? details.TypeInfo.Name : &quot;{no fixture}&quot;,
+            details.Method is not null ? details.Method.Name : &quot;{no method}&quot;);
     }
 }
 </code></pre>
@@ -271,34 +286,33 @@ attribute takes a single constructor argument, a message, that will be used to w
 Before and After methods write output via the WriteToConsole method.</p>
 <h2 id="method-attached-actions">Method Attached Actions</h2>
 <h3 id="example-1-applied-to-simple-test-method">Example 1 (applied to simple test method)</h3>
-<pre><code class="lang-csharp">[TestFixture]
+<pre><code class="lang-csharp" name="MethodAttachedSimple">[TestFixture]
 public class ActionAttributeSampleTests
 {
-    [Test][ConsoleAction(&quot;Hello&quot;)]
+    [Test, ConsoleAction(&quot;Hello&quot;)]
     public void SimpleTest()
     {
         Console.WriteLine(&quot;Test ran.&quot;);
     }
 }
-</code></pre>
-<h4 id="console-output">Console Output</h4>
+</code></pre><h4 id="console-output">Console Output</h4>
 <pre><code class="lang-text">  Before Case: Hello, from ActionAttributeSampleTests.SimpleTest.
   Test ran.
   After Case: Hello, from ActionAttributeSampleTests.SimpleTest.
 </code></pre>
 <h3 id="example-2-applied-action-twice-to-test-method">Example 2 (applied action twice to test method)</h3>
-<pre><code class="lang-csharp">[TestFixture]
+<pre><code class="lang-csharp" name="MethodAttachedTwice">[TestFixture]
 public class ActionAttributeSampleTests
 {
-    [Test] [ConsoleAction(&quot;Hello&quot;)]
+    [Test]
+    [ConsoleAction(&quot;Hello&quot;)]
     [ConsoleAction(&quot;Greetings&quot;)]
     public void SimpleTest()
     {
         Console.WriteLine(&quot;Test run.&quot;);
     }
 }
-</code></pre>
-<h4 id="console-output-1">Console Output</h4>
+</code></pre><h4 id="console-output-1">Console Output</h4>
 <pre><code class="lang-text">  Before Case: Greetings, from ActionAttributeSampleTests.SimpleTest.
   Before Case: Hello, from ActionAttributeSampleTests.SimpleTest.
   Test run.
@@ -309,10 +323,10 @@ public class ActionAttributeSampleTests
 <p>You are permitted to apply the same attribute multiple times. Note that the order in which attributes are applied is
 indeterminate, although it will generally be stable for a single release of .NET.</p>
 <h4 id="example-3-applied-to-a-test-method-with-test-cases">Example 3 (applied to a test method with test cases)</h4>
-<pre><code class="lang-csharp">[TestFixture]
+<pre><code class="lang-csharp" name="MethodAttachedTestCases">[TestFixture]
 public class ActionAttributeSampleTests
 {
-    [Test] [ConsoleAction(&quot;Hello&quot;)]
+    [ConsoleAction(&quot;Hello&quot;)]
     [TestCase(&quot;02&quot;)]
     [TestCase(&quot;01&quot;)]
     public void SimpleTest(string number)
@@ -320,8 +334,7 @@ public class ActionAttributeSampleTests
         Console.WriteLine(&quot;Test run {0}.&quot;, number);
     }
 }
-</code></pre>
-<h4 id="console-output-2">Console Output</h4>
+</code></pre><h4 id="console-output-2">Console Output</h4>
 <pre><code class="lang-text">  Before Suite: Hello, from ActionAttributeSampleTests.SimpleTest.
   Before Case: Hello, from ActionAttributeSampleTests.SimpleTest.
   Test run 01.
@@ -338,7 +351,7 @@ and AfterTest are run again for each individual test case. Note that the order i
 indeterminate.</p>
 <h2 id="type-attached-actions">Type Attached Actions</h2>
 <h3 id="example-1">Example 1</h3>
-<pre><code class="lang-csharp">[TestFixture] [ConsoleAction(&quot;Hello&quot;)]
+<pre><code class="lang-csharp" name="TypeAttached">[TestFixture, ConsoleAction(&quot;Hello&quot;)]
 public class ActionAttributeSampleTests
 {
     [Test]
@@ -353,8 +366,7 @@ public class ActionAttributeSampleTests
         Console.WriteLine(&quot;Test Two.&quot;);
     }
 }
-</code></pre>
-<h4 id="console-output-3">Console Output</h4>
+</code></pre><h4 id="console-output-3">Console Output</h4>
 <pre><code class="lang-text">  Before Suite: Hello, from ActionAttributeSampleTests.{no method}.
   Before Case: Hello, from ActionAttributeSampleTests.SimpleTestOne.
   Test One.
@@ -368,7 +380,7 @@ public class ActionAttributeSampleTests
 <p>In this case, the class is the test suite. BeforeTest and AfterTest are run once each for this class and then again for
 each test.</p>
 <h4 id="example-2-attached-to-interface">Example 2 (attached to interface)</h4>
-<pre><code class="lang-csharp">[ConsoleAction(&quot;Hello&quot;)]
+<pre><code class="lang-csharp" name="InterfaceAttached">[ConsoleAction(&quot;Hello&quot;)]
 public interface IHaveAnAction
 {
 }
@@ -382,8 +394,7 @@ public class ActionAttributeSampleTests : IHaveAnAction
         Console.WriteLine(&quot;Test run.&quot;);
     }
 }
-</code></pre>
-<h4 id="console-output-4">Console Output</h4>
+</code></pre><h4 id="console-output-4">Console Output</h4>
 <pre><code class="lang-text">  Before Suite: Hello, from ActionAttributeSampleTests.{no method}.
   Before Case: Hello, from ActionAttributeSampleTests.SimpleTest.
   Test run.
@@ -395,28 +406,32 @@ public class ActionAttributeSampleTests : IHaveAnAction
 an action attribute applied to the interface, the class inherits the action attribute from the interface.  It behaves as
 if you applied the action attribute to the class itself.</p>
 <h3 id="example-3-action-attribute-is-applied-to-interface-and-attribute-uses-interface-to-provide-data-to-tests">Example 3 (action attribute is applied to interface and attribute uses interface to provide data to tests)</h3>
-<pre><code class="lang-csharp">[AttributeUsage(AttributeTargets.Interface)]
+<pre><code class="lang-csharp" name="InterfaceAwareAction">[AttributeUsage(AttributeTargets.Interface)]
 public class InterfaceAwareActionAttribute : TestActionAttribute
 {
-    private readonly string _Message;
+    private readonly string _message;
 
-    public InterfaceAwareActionAttribute(string message) { _Message = message; }
+    public InterfaceAwareActionAttribute(string message)
+    {
+        _message = message;
+    }
 
     public override void BeforeTest(ITest details)
     {
-        IHaveAnAction obj = details.Fixture as IHaveAnAction;
-        if(obj != null)
-            obj.Message = _Message;
+        if (details.Fixture is IHaveAnAction obj)
+        {
+            obj.Message = _message;
+        }
     }
 
-    public override ActionTargets Targets
-    {
-        get { return ActionTargets.Test; }
-    }
+    public override ActionTargets Targets =&gt; ActionTargets.Test;
 }
 
 [InterfaceAwareAction(&quot;Hello&quot;)]
-public interface IHaveAnAction { string Message { get; set; } }
+public interface IHaveAnAction
+{
+    string? Message { get; set; }
+}
 
 [TestFixture]
 public class ActionAttributeSampleTests : IHaveAnAction
@@ -425,16 +440,16 @@ public class ActionAttributeSampleTests : IHaveAnAction
     public void SimpleTest()
     {
         Console.WriteLine(&quot;{0}, World!&quot;, Message);
+        Assert.That(Message, Is.EqualTo(&quot;Hello&quot;));
     }
 
-    public string Message { get; set; }
+    public string? Message { get; set; }
 }
-</code></pre>
-<h4 id="console-output-5">Console Output</h4>
-<pre><code class="lang-csharp">  Hello, World!
+</code></pre><h4 id="console-output-5">Console Output</h4>
+<pre><code class="lang-text">  Hello, World!
 </code></pre>
 <h4 id="remarks-4">Remarks</h4>
-<p>Here we see a new action attribute, <code>InterfaceAwareAction</code>.  This attribute uses the Fixture property of the TestDetails
+<p>Here we see a new action attribute, <code>InterfaceAwareAction</code>.  This attribute uses the <code>Fixture</code> property of the <code>ITest</code>
 passed into BeforeTest and casts it to an interface, IHaveAnAction.  If the fixture implements the IHaveAnAction
 interface, the attribute sets the Message property to the string passed into the constructor of the attribute.  Since
 the attribute is applied to the interface, any class that implements this interface gets its Message property set to the
@@ -457,7 +472,7 @@ public class ActionAttributeSampleTests
 }
 </code></pre>
 <h4 id="console-output-6">Console Output</h4>
-<pre><code class="lang-csharp">  Before Suite: Hello, from {no fixture}.{no method}.
+<pre><code class="lang-text">  Before Suite: Hello, from {no fixture}.{no method}.
   Before Case: Hello, from ActionAttributeSampleTests.SimpleTest.
   Test run.
   After Case: Hello, from ActionAttributeSampleTests.SimpleTest.

@@ -107,7 +107,7 @@ overridden to change some default behaviors.</p>
         public virtual ConstraintResult ApplyTo&lt;TActual&gt;(Func&lt;TActual&gt; code) {}
         public virtual Task&lt;ConstraintResult&gt; ApplyToAsync&lt;TActual&gt;(Func&lt;Task&lt;TActual&gt;&gt; taskDel) {}
         protected virtual object GetTestObject&lt;TActual&gt;(Func&lt;TActual&gt; code) {}
-        public virtual string Description { get; protected set; }
+        public abstract string Description { get; }
         protected virtual string GetStringRepresentation() {}
     }
 }
@@ -116,7 +116,8 @@ overridden to change some default behaviors.</p>
 <h5>Note</h5>
 <p>In NUnit 4 and earlier, the delegate overloads took an <code>ActualValueDelegate&lt;TActual&gt;</code> instead of a <code>Func&lt;TActual&gt;</code>,
 and there was also an <code>ApplyTo&lt;TActual&gt;(ref TActual actual)</code> overload. Both were removed in NUnit 5, so custom
-constraints that override these methods must be updated.</p>
+constraints that override these methods must be updated. <code>Description</code> was also a virtual property with a
+protected setter; in NUnit 5 it is abstract, so every custom constraint must override it.</p>
 </div>
 <h2 id="constraint-constructor"><code>Constraint</code> Constructor</h2>
 <p>The <code>Constraint</code> constructor accepts zero or more arguments and saves them to be used in the printed description later.
@@ -128,9 +129,18 @@ operation. Multiple arguments can be provided where the semantics of the constra
 constraint. Whatever logic defines pass or fail of the constraint and actual/expected values goes into the
 <code>ApplyTo&lt;TActual&gt;(TActual actual)</code> method.</p>
 <p>For example, a very naive implementation of a reference equality constraint might look like this:</p>
-<pre><code class="lang-csharp">public override ConstraintResult ApplyTo&lt;TActual&gt;(TActual actual)
+<pre><code class="lang-csharp" name="ReferenceEqualsConstraint">public class ReferenceEqualsConstraint : Constraint
 {
-    return new ConstraintResult(this, actual, ReferenceEquals(actual, Arguments[0]));
+    public ReferenceEqualsConstraint(object expected) : base(expected)
+    {
+    }
+
+    public override string Description =&gt; $&quot;the same instance as {Arguments[0]}&quot;;
+
+    public override ConstraintResult ApplyTo&lt;TActual&gt;(TActual actual)
+    {
+        return new ConstraintResult(this, actual, ReferenceEquals(actual, Arguments[0]));
+    }
 }
 </code></pre>
 <p>The key here is there needs to be some evaluation of the constraint logic, and the return value must be a
@@ -150,24 +160,17 @@ but actually calls out to another virtual method, <code>GetTestObject&lt;TActual
 method can be overridden to keep the default behavior of <code>ApplyTo&lt;TActual&gt;(Func&lt;TActual&gt; code)</code> while
 still customizing how the actual value delegate is invoked.</p>
 <h2 id="description-property"><code>Description</code> Property</h2>
-<p>This virtual property is used to provide a description of the constraint for messages. Simple constant values can be set
-in the custom constraint's constructor. If more complex logic is needed, override the property and provide a custom
-implementation of <code>get</code>.</p>
+<p>This abstract property provides a description of the constraint for messages. Override it to return a constant
+for simple constraints, or build the description from the constraint's arguments when more logic is needed.</p>
 <p>Here are a few simple examples from built-in constraints.</p>
 <pre><code class="lang-csharp">public class FalseConstraint : Constraint
 {
-    public FalseConstraint()
-    {
-        this.Description = &quot;False&quot;;
-    }
+    public override string Description =&gt; &quot;False&quot;;
 }
 
 public class NullConstraint : Constraint
 {
-    public NullConstraint()
-    {
-        this.Description = &quot;null&quot;;
-    }
+    public override string Description =&gt; &quot;null&quot;;
 }
 </code></pre>
 <p>Here are a few complex examples from built-in constraints.</p>
@@ -203,6 +206,31 @@ value would result in a default string representation of <code>&lt;referenceequa
 be overridden, but the <code>Constraint</code> base class sets it in the base constructor to be the name of the class, minus the
 &quot;Constraint&quot; suffix and minus any generic suffixes.</p>
 <h2 id="custom-constraint-usage-syntax">Custom Constraint Usage Syntax</h2>
+<p>The examples in this section use the following custom constraint, which checks that a string equals an expected
+value:</p>
+<pre><code class="lang-csharp" name="SampleConstraint">public class CustomConstraint : Constraint
+{
+    private readonly string _expected;
+
+    public CustomConstraint(string expected)
+    {
+        _expected = expected;
+    }
+
+    public override string Description =&gt; &quot;Custom&quot;;
+
+    public override ConstraintResult ApplyTo&lt;TActual&gt;(TActual actual)
+    {
+        if (actual is not string actualString)
+        {
+            return new ConstraintResult(this, actual, false);
+        }
+
+        bool success = _expected == actualString;
+        return new ConstraintResult(this, actual, success);
+    }
+}
+</code></pre>
 <p>Having written a custom constraint class, you can use it directly through its constructor:</p>
 <pre><code class="lang-csharp">Assert.That(myObject, new CustomConstraint());
 </code></pre>
@@ -227,7 +255,7 @@ constraint.</li>
 </code></pre>
 <h3 id="example-1-using-c14-extension-members">Example 1 (Using C#14 Extension Members)</h3>
 <p>Provide a static extension method on NUnit's <code>Is</code> class.</p>
-<pre><code class="lang-csharp">public static class CustomConstraintExtensions
+<pre><code class="lang-csharp" name="Syntax_Is_ExtensionMember">public static class CustomConstraintExtensions
 {
     extension(Is)
     {
@@ -239,7 +267,7 @@ constraint.</li>
 }
 </code></pre>
 <p>Provide an extension method for NUnit's <code>ConstraintExpression</code>.</p>
-<pre><code class="lang-csharp">public static class CustomConstraintExtensions
+<pre><code class="lang-csharp" name="Syntax_Expression_ExtensionMember">public static class CustomConstraintExpressionExtensions
 {
     extension(ConstraintExpression expression)
     {
@@ -250,13 +278,21 @@ constraint.</li>
             return constraint;
         }
     }
-}   
+}
 </code></pre>
-<h3 id="example-2-using-extension-methods-and-inheritance">Example 2 (Using Extension Methods and Inheritance)</h3>
-<p>Extend NUnit's <code>Is</code> class and provide a static method. If you like, you can even call it <code>Is</code> and extend NUnit's <code>Is</code>, provided you place it in your own namespace and avoid any conflicts.</p>
-<pre><code class="lang-csharp">public class Is : NUnit.Framework.Is
+<p>With both in place, the custom constraint reads like a built-in one:</p>
+<pre><code class="lang-csharp" name="Syntax_ExtensionMember_Usage">[Test]
+public void CustomConstraintReadsLikeABuiltInOne()
 {
-    public static CustomConstraint Custom(object expected)
+    Assert.That(&quot;Hello&quot;, Is.Custom(&quot;Hello&quot;));
+    Assert.That(&quot;Hello&quot;, Is.Not.Custom(&quot;Goodbye&quot;));
+    Assert.That(&quot;Hello&quot;, Is.Not.Null.And.Custom(&quot;Hello&quot;));
+}
+</code></pre><h3 id="example-2-using-extension-methods-and-inheritance">Example 2 (Using Extension Methods and Inheritance)</h3>
+<p>Extend NUnit's <code>Is</code> class and provide a static method. If you like, you can even call it <code>Is</code> and extend NUnit's <code>Is</code>, provided you place it in your own namespace and avoid any conflicts.</p>
+<pre><code class="lang-csharp" name="Syntax_Is_Inheritance">public class Is : global::NUnit.Framework.Is
+{
+    public static CustomConstraint Custom(string expected)
     {
         return new CustomConstraint(expected);
     }

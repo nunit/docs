@@ -122,7 +122,23 @@ Assert.Positive(float actual);
 Assert.Positive(float actual, string message, params object[] args);
 </code></pre>
 <p>You may also use <code>Assert.That</code> with a <code>Is.Positive</code> constraint to achieve the same result.</p>
-<h2 id="see-also">See Also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="PositiveNegativeZeroExamples">[Test]
+public void PositiveNegativeZero_Examples()
+{
+    Assert.Positive(5);
+    Assert.Positive(0.1);
+    
+    Assert.Negative(-5);
+    Assert.Negative(-0.1);
+    
+    Assert.Zero(0);
+    Assert.Zero(0.0);
+    
+    Assert.NotZero(5);
+    Assert.NotZero(-3);
+}
+</code></pre><h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="Assert.Negative.html">Assert.Negative</a></li>
 <li><a href="Assert.Zero.html">Assert.Zero</a></li>

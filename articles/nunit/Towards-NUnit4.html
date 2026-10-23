@@ -200,7 +200,7 @@ the message.</p>
 implementation without requiring significant underlying changes.</p>
 <p>In version 4 proper async/await has been implemented with a series of new assert methods, <code>Assert.ThatAsync</code> which can
 be <code>await</code>'ed.</p>
-<pre><code class="lang-cs">[Test]
+<pre><code class="lang-csharp" name="AssertThatAsync">[Test]
 public async Task AssertionPasses_CompletedTaskWithResult_EqualsResult()
 {
     await Assert.ThatAsync(() =&gt; Task.FromResult(42), Is.EqualTo(42));
@@ -210,18 +210,17 @@ public async Task AssertionPasses_CompletedTaskWithResult_EqualsResult()
 within the same block. This enables you to perform multiple assertions, both asynchronous and synchronous, in a more
 concise and streamlined manner. Moreover, it's important to note that Assert.MultipleAsync is awaitable, providing
 flexibility in handling asynchronous operations and assertions.</p>
-<pre><code class="lang-cs">[Test]
+<pre><code class="lang-csharp" name="AssertMultipleAsync">[Test]
 public async Task AssertMultipleAsyncSucceeds()
 {
     await Assert.MultipleAsync(async () =&gt;
     {
         await Assert.ThatAsync(() =&gt; Task.FromResult(42), Is.EqualTo(42));
         Assert.That(&quot;hello&quot;, Is.EqualTo(&quot;hello&quot;));
-        await Assert.ThatAsync(() =&gt; Task.FromException(new  ArgumentNullException)), Throws.ArgumentNullException);
+        await Assert.ThatAsync(() =&gt; Task.FromException(new ArgumentNullException()), Throws.ArgumentNullException);
     });
 }
-</code></pre>
-<h2 id="cooperative-cancellation">Cooperative Cancellation</h2>
+</code></pre><h2 id="cooperative-cancellation">Cooperative Cancellation</h2>
 <p>For later versions of .NET it is not possible to abort a hanging thread -- and even though it's technically allowed in
 the classic .NET Framework, it prevents <code>finally</code> clauses and other cleanup routines from running.</p>
 <p>Cancellation is supposed to be done in a cooperative way.</p>

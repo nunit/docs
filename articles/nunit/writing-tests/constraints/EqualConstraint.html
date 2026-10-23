@@ -177,29 +177,33 @@ public void EqualConstraint_Strings()
 This can be done with the <code>IgnoreWhiteSpace</code> modifier.
 It allows using pretty formatted Json in NUnit tests regardless
 whether the code under test uses different formatting or no white space at all.</p>
-<pre><code class="lang-csharp">const string prettyJson = &quot;&quot;&quot;
-    &quot;persons&quot;:[
-      {
-        &quot;name&quot;: &quot;John&quot;,
-        &quot;surname&quot;: &quot;Smith&quot;
-      },
-      {
-        &quot;name&quot;: &quot;Jane&quot;,
-        &quot;surname&quot;: &quot;Doe&quot;
-      }
-    ]
-    &quot;&quot;&quot;;
-    
-const string condensedJson = &quot;&quot;&quot;
-    &quot;persons&quot;:[{&quot;name&quot;:&quot;John&quot;,&quot;surname&quot;:&quot;Smith&quot;,},{&quot;name&quot;: &quot;Jane&quot;,&quot;surname&quot;: &quot;Doe&quot;}]
-    &quot;&quot;&quot;;
+<pre><code class="lang-csharp" name="EqualConstraintIgnoreWhiteSpace">[Test, Explicit(&quot;Fails on purpose to show the IgnoreWhiteSpace failure message&quot;)]
+public void CompareJsonIgnoringWhiteSpace()
+{
+    const string prettyJson = &quot;&quot;&quot;
+        &quot;persons&quot;:[
+          {
+            &quot;name&quot;: &quot;John&quot;,
+            &quot;surname&quot;: &quot;Smith&quot;
+          },
+          {
+            &quot;name&quot;: &quot;Jane&quot;,
+            &quot;surname&quot;: &quot;Doe&quot;
+          }
+        ]
+        &quot;&quot;&quot;;
 
-Assert.That(condensedJson, Is.EqualTo(prettyJson).IgnoreWhiteSpace);
+    const string condensedJson = &quot;&quot;&quot;
+        &quot;persons&quot;:[{&quot;name&quot;:&quot;John&quot;,&quot;surname&quot;:&quot;Smith&quot;,},{&quot;name&quot;: &quot;Jane&quot;,&quot;surname&quot;: &quot;Doe&quot;}]
+        &quot;&quot;&quot;;
+
+    Assert.That(condensedJson, Is.EqualTo(prettyJson).IgnoreWhiteSpace);
+}
 </code></pre>
-<p>The above tests fails and the messages has been updated to include two carrets
+<p>The above test fails because of the stray comma in the condensed version. The message includes two carets
 to indicate the mismatched location in both <em>expected</em> and <em>actual</em> values:</p>
 <pre><code class="lang-text"> Assert.That(condensedJson, Is.EqualTo(prettyJson).IgnoreWhiteSpace)
- Expected string length 122 but was 79. Strings differ at index 65.
+ Expected string length 123 but was 80. Strings differ at index 65.
  Expected: &quot;...,\r\n    &quot;surname&quot;: &quot;Smith&quot;\r\n  },\r\n  {\r\n    &quot;name&quot;: &quot;Jane&quot;,\r...&quot;, ignoring white-space
  -----------------------------------------------^
  But was:  &quot;&quot;persons&quot;:[{&quot;name&quot;:&quot;John&quot;,&quot;surname&quot;:&quot;Smith&quot;,},{&quot;name&quot;: &quot;Jane&quot;...&quot;
@@ -213,14 +217,17 @@ to indicate the mismatched location in both <em>expected</em> and <em>actual</em
 modifiers: <code>Days</code>, <code>Hours</code>, <code>Minutes</code>, <code>Seconds</code>, <code>Milliseconds</code> or <code>Ticks</code>.</p>
 <p>When comparing <code>DateTimeOffset</code> values you can use the optional <code>WithSameOffset</code> modifier to check the offset along with
 the date and time.</p>
-<pre><code class="lang-csharp">DateTime now = DateTime.Now;
-DateTime later = now + TimeSpan.FromHours(1.0);
+<pre><code class="lang-csharp" name="EqualConstraintDateTime">[Test]
+public void CompareDateTimesWithTolerance()
+{
+    DateTime now = DateTime.Now;
+    DateTime later = now + TimeSpan.FromHours(1.0);
 
-Assert.That(now, Is.EqualTo(now));
-Assert.That(later, Is.EqualTo(now).Within(TimeSpan.FromHours(3.0));
-Assert.That(later, Is.EqualTo(now).Within(3).Hours);
-</code></pre>
-<h2 id="comparing-arrays-collections-and-ienumerables-with-ascollection">Comparing Arrays, Collections and IEnumerables with AsCollection</h2>
+    Assert.That(now, Is.EqualTo(now));
+    Assert.That(later, Is.EqualTo(now).Within(TimeSpan.FromHours(3.0)));
+    Assert.That(later, Is.EqualTo(now).Within(3).Hours);
+}
+</code></pre><h2 id="comparing-arrays-collections-and-ienumerables-with-ascollection">Comparing Arrays, Collections and IEnumerables with AsCollection</h2>
 <p>Since version 2.2, NUnit has been able to compare two single-dimensioned arrays. Beginning with version 2.4,
 multi-dimensioned arrays, nested arrays (arrays of arrays) and collections may be compared. With version 2.5, any
 IEnumerable is supported. Two arrays, collections or IEnumerables are considered equal if they have the same dimensions
@@ -232,18 +239,21 @@ modifier would be applied to each array separately, which has no effect in most 
 <p>The <code>AsCollection</code> modifier is also useful on classes implementing both <code>IEnumerable</code> and <code>IEquatable</code>. Without the
 modifier, the <code>IEquatable</code> implementation is used to test equality. With the modifier specified, <code>IEquatable</code> is ignored
 and the contents of the enumeration are compared one by one.</p>
-<pre><code class="lang-csharp">int[] i3 = new int[] { 1, 2, 3 };
-double[] d3 = new double[] { 1.0, 2.0, 3.0 };
-int[] iunequal = new int[] { 1, 3, 2 };
-Assert.That(i3, Is.EqualTo(d3));
-Assert.That(i3, Is.Not.EqualTo(iunequal));
+<pre><code class="lang-csharp" name="EqualConstraintArrays">[Test]
+public void CompareArraysAndCollections()
+{
+    int[] i3 = [1, 2, 3];
+    double[] d3 = [1.0, 2.0, 3.0];
+    int[] iunequal = [1, 3, 2];
+    Assert.That(i3, Is.EqualTo(d3));
+    Assert.That(i3, Is.Not.EqualTo(iunequal));
 
-int[,] array2x2 = new int[,] { { 1, 2 }, { 3, 4 } };
-int[] array4 = new int[] { 1, 2, 3, 4 };
-Assert.That(array2x2, Is.Not.EqualTo(array4));
-Assert.That(array2x2, Is.EqualTo(array4).AsCollection);
-</code></pre>
-<h2 id="comparing-dictionaries">Comparing Dictionaries</h2>
+    int[,] array2x2 = { { 1, 2 }, { 3, 4 } };
+    int[] array4 = [1, 2, 3, 4];
+    Assert.That(array2x2, Is.Not.EqualTo(array4));
+    Assert.That(array2x2, Is.EqualTo(array4).AsCollection);
+}
+</code></pre><h2 id="comparing-dictionaries">Comparing Dictionaries</h2>
 <p>Two dictionaries are considered equal if</p>
 <ol>
 <li>The list of keys is the same - without regard to ordering.</li>
@@ -259,7 +269,7 @@ dictionaries (Hashtables) may be successfully compared.</p>
 <p>If a class/structure implements <code>IEquatable&lt;T&gt;</code> then it is up to the class to define equality.
 If not, then the standard .NET <code>Equals</code> is called which means for classes,
 it is reference equality and for structures it is value equality.</p>
-<pre><code class="lang-csharp">private sealed class Person
+<pre><code class="lang-csharp" name="EqualConstraintClasses">private sealed class Person
 {
     public Person(string name, int yearOfBirth)
     {
@@ -271,7 +281,7 @@ it is reference equality and for structures it is value equality.</p>
     public int YearOfBirth { get; }
 }
 
-[Test]
+[Test, Explicit(&quot;Fails on purpose: the two instances are different references&quot;)]
 public void ComparePersons()
 {
     var person1 = new Person(&quot;Charlie&quot;, 1985);
@@ -307,18 +317,29 @@ Beginning with NUnit 2.6, multiple generic comparers for different types may be 
 appropriate comparer for any two types being compared. As a result, it is now possible to provide a comparer for an
 array, a collection type or a dictionary. The user-provided comparer will be used directly, bypassing the default NUnit
 logic for array, collection or dictionary equality.</p>
-<pre><code class="lang-csharp">class ListOfIntComparer : IEqualityComparer&lt;List&lt;int&gt;&gt;
+<pre><code class="lang-csharp" name="EqualConstraintUsingComparer">private sealed class ListOfIntComparer : IEqualityComparer&lt;List&lt;int&gt;&gt;
 {
-    /* ... */
+    public bool Equals(List&lt;int&gt;? x, List&lt;int&gt;? y)
+    {
+        if (x is null || y is null)
+            return x is null &amp;&amp; y is null;
+
+        return x.SequenceEqual(y);
+    }
+
+    public int GetHashCode(List&lt;int&gt; obj) =&gt; obj.Count;
 }
 
-var list1 = new List&lt;int&gt;();
-var list2 = new List&lt;int&gt;();
-var myComparer = new ListOfIntComparer();
-/* ... */
-Assert.That(list1, Is.EqualTo(list2).Using(myComparer));
-</code></pre>
-<h2 id="properties-comparer">Properties Comparer</h2>
+[Test]
+public void CompareListsWithUserSpecifiedComparer()
+{
+    var list1 = new List&lt;int&gt; { 1, 2, 3 };
+    var list2 = new List&lt;int&gt; { 1, 2, 3 };
+    var myComparer = new ListOfIntComparer();
+
+    Assert.That(list1, Is.EqualTo(list2).Using(myComparer));
+}
+</code></pre><h2 id="properties-comparer">Properties Comparer</h2>
 <p>The properties comparer is enabled when suffixing the constraint with <code>.UsingPropertiesComparer()</code>.
 It is only called for instances of the same type which do not implement <code>IEquatable&lt;T&gt;</code>.
 The exception is that it will be called for <code>record</code> types that have a compiler generated <code>Equals</code> implementation.
@@ -337,7 +358,7 @@ also returns a <code>PropertiesComparerConfiguration</code>.</p>
 <p>By default, the <code>PropertiesComparer</code> only compares instances of the same type.
 But sometimes we want to compare the properties of a Dto object with an Domain entity.
 If all properties have the same name, this can be done with the <code>AllowDifferentTypes()</code> modifier.</p>
-<pre><code class="lang-csharp">private record struct PersonDto(string Name, int YearOfBirth);
+<pre><code class="lang-csharp" name="PropertiesComparerAllowDifferentTypes">private record struct PersonDto(string Name, int YearOfBirth);
 private record struct PersonEntity(string Name, int YearOfBirth);
 
 [Test]
@@ -349,107 +370,105 @@ public void CompareDifferentTypes()
     Assert.That(dto, Is.EqualTo(entity)
                        .UsingPropertiesComparer(o =&gt; o.AllowDifferentTypes()));
 }
-</code></pre>
-<h3 id="excluding-some-properties-for-comparison">Excluding some Properties for Comparison</h3>
+</code></pre><h3 id="excluding-some-properties-for-comparison">Excluding some Properties for Comparison</h3>
 <h4 id="compare-only-common-properties">Compare Only Common Properties</h4>
 <p>If our <code>PersonEntity</code> class has an <code>Id</code> property for the database key,
 it no longer matches the <code>PersonDto</code>.
 We would like to compare the two, but ignore the <code>Id</code> property.</p>
 <p>To only compare those properties available on both types, use: <code>.CompareOnlyCommonProperties()</code>.
 This method implies <code>.AllowDifferentTypes()</code>.</p>
-<pre><code class="lang-csharp">private record struct PersonDto(string Name, int YearOfBirth);
+<pre><code class="lang-csharp" name="PropertiesComparerCommonProperties">private record struct PersonDto(string Name, int YearOfBirth);
 private record struct PersonEntity(Guid Id, string Name, int YearOfBirth);
 
 [Test]
 public void CompareDifferentTypesWithExcessFields()
 {
-   var dto = new PersonDto(&quot;Hejlsberg&quot;, 1960);
-   var entity = new PersonEntity(Guid.NewGuid(), &quot;Hejlsberg&quot;, 1960);
+    var dto = new PersonDto(&quot;Hejlsberg&quot;, 1960);
+    var entity = new PersonEntity(Guid.NewGuid(), &quot;Hejlsberg&quot;, 1960);
 
-   Assert.That(dto, Is.EqualTo(entity)
-                      .UsingPropertiesComparer(o =&gt; o.CompareOnlyCommonProperties()));
+    Assert.That(dto, Is.EqualTo(entity)
+                       .UsingPropertiesComparer(o =&gt; o.CompareOnlyCommonProperties()));
 }
-</code></pre>
-<h4 id="use-only-specified-properties">Use only specified Properties</h4>
+</code></pre><h4 id="use-only-specified-properties">Use only specified Properties</h4>
 <p>Sometimes you don't want to compare all properties and you only care about some.
 You can do this with the <code>Using</code> method.</p>
 <p>There are two overloads, one expecting a <code>string</code> and the other a type safe <code>Expression</code>.
 The latter has the advantage that you get intellisense helping you with available property names.
-However, that overload is only available on some constraints which have been update with a generic type parameter.</p>
-<pre><code class="lang-csharp">private record struct Person(string Name, int YearOfBirth);
+The <code>Expression</code> overloads are defined on the generic <code>PropertiesComparerConfiguration&lt;T&gt;</code>. Because <code>Is.EqualTo</code>
+returns the non-generic <code>EqualConstraint</code>, you reach them by passing the type of the <em>expected</em> value as a type
+argument to <code>UsingPropertiesComparer&lt;T&gt;()</code>, as shown below.</p>
+<pre><code class="lang-csharp" name="PropertiesComparerUsing">private record struct PersonDto(string Name, int YearOfBirth);
 
 [Test]
-public void CompareDifferentTypesOnNameOnly()
+public void CompareOnNameOnly()
 {
-   var dto1 = new PersonDto(&quot;Hejlsberg&quot;, 1960);
-   var dto2 = new PersonDto(&quot;Hejlsberg&quot;, 1966);
+    var dto1 = new PersonDto(&quot;Hejlsberg&quot;, 1960);
+    var dto2 = new PersonDto(&quot;Hejlsberg&quot;, 1966);
 
-   // Specify name as a string
-   Assert.That(dto2, Is.EqualTo(dto1).UsingPropertiesComparer(
-      o =&gt; o.Using(&quot;Name&quot;)));
+    // Specify name as a string
+    Assert.That(dto2, Is.EqualTo(dto1).UsingPropertiesComparer(
+        o =&gt; o.Using(&quot;Name&quot;)));
 
-   // Specify name as an expression
-   Assert.That(dto2, Is.EqualTo(dto1).UsingPropertiesComparer(
-      o =&gt; o.Using(x =&gt; x.Name)));
+    // Specify name as an expression
+    Assert.That(dto2, Is.EqualTo(dto1).UsingPropertiesComparer&lt;PersonDto&gt;(
+        o =&gt; o.Using(x =&gt; x.Name)));
 }
-</code></pre>
-<h4 id="use-all-but-some-properties">Use all but some properties</h4>
+</code></pre><h4 id="use-all-but-some-properties">Use all but some properties</h4>
 <p>If you don't care about the equality of one property, like database id field,
 you can exclude this specifically with the <code>Exclude</code> method.
 This method also has two overloads: <code>string</code> and <code>Expression</code>.</p>
-<pre><code class="lang-csharp">private record struct PersonEntity(Guid Id, string Name, int YearOfBirth);
+<pre><code class="lang-csharp" name="PropertiesComparerExcluding">private record struct PersonEntity(Guid Id, string Name, int YearOfBirth);
 
 [Test]
-public void CompareDifferentTypesExcludingId()
+public void CompareExcludingId()
 {
-   var entity1 = new PersonEntity(Guid.NewGuid(), &quot;Hejlsberg&quot;, 1960);
-   var entity2 = new PersonEntity(Guid.NewGuid(), &quot;Hejlsberg&quot;, 1960);
+    var entity1 = new PersonEntity(Guid.NewGuid(), &quot;Hejlsberg&quot;, 1960);
+    var entity2 = new PersonEntity(Guid.NewGuid(), &quot;Hejlsberg&quot;, 1960);
 
-   Assert.That(entity2, Is.EqualTo(entity1).UsingPropertiesComparer(
-      o =&gt; o.Excluding(nameof(PersonEntity.Id))));
-   Assert.That(entity2, Is.EqualTo(entity1).UsingPropertiesComparer(
-      o =&gt; o.Excluding(x =&gt; x.Id)));
+    Assert.That(entity2, Is.EqualTo(entity1).UsingPropertiesComparer(
+        o =&gt; o.Excluding(nameof(PersonEntity.Id))));
+    Assert.That(entity2, Is.EqualTo(entity1).UsingPropertiesComparer&lt;PersonEntity&gt;(
+        o =&gt; o.Excluding(x =&gt; x.Id)));
 }
-</code></pre>
-<h3 id="mapping-property-names">Mapping Property Names</h3>
+</code></pre><h3 id="mapping-property-names">Mapping Property Names</h3>
 <p>Sometimes the property names are different between classes.
 You can use the <code>Map</code> property to map property names from the <em>expected</em> to the <em>actual</em> name.</p>
 <p>Because the constraints are separate from the actual <code>Assert</code> call, you do need to specify the
-type of the <em>actual</em> instance when using the type safe <code>Expression</code> overload.</p>
-<pre><code class="lang-csharp">private record struct PersonDto(string Name, int YearOfBirth);
+type of the <em>actual</em> instance when using the type safe <code>Expression</code> overload, in addition to the
+type of the <em>expected</em> instance on <code>UsingPropertiesComparer&lt;T&gt;()</code>.</p>
+<pre><code class="lang-csharp" name="PropertiesComparerMapNames">private record struct PersonDto(string Name, int YearOfBirth);
 private record struct PersonEntity(string LastName, int BirthYear);
 
 [Test]
-public void CompareDifferentTypesWithExcessFields()
+public void CompareDifferentTypesWithDifferentPropertyNames()
 {
-   var dto = new PersonDto(&quot;Hejlsberg&quot;, 1960);
-   var entity = new PersonEntity(&quot;Hejlsberg&quot;, 1960);
+    var dto = new PersonDto(&quot;Hejlsberg&quot;, 1960);
+    var entity = new PersonEntity(&quot;Hejlsberg&quot;, 1960);
 
-   Assert.That(dto, Is.EqualTo(entity).UsingPropertiesComparer(
-      o =&gt; o.Map(nameof(PersonEntity.LastName), nameof(PersonDto.Name))
-            .Map(nameof(PersonEntity.BirthYear), nameof(PersonDto.YearOfBirth))));
+    Assert.That(dto, Is.EqualTo(entity).UsingPropertiesComparer(
+        o =&gt; o.Map(nameof(PersonEntity.LastName), nameof(PersonDto.Name))
+              .Map(nameof(PersonEntity.BirthYear), nameof(PersonDto.YearOfBirth))));
 
-   Assert.That(dto, Is.EqualTo(entity).UsingPropertiesComparer(
-      o =&gt; o.Map&lt;PersonDto&gt;(entity =&gt; entity.LastName, dto =&gt; dto.Name)
-            .Map&lt;PersonDto&gt;(entity =&gt; entity.BirthYear, dto =&gt; dto.YearOfBirth)));
+    Assert.That(dto, Is.EqualTo(entity).UsingPropertiesComparer&lt;PersonEntity&gt;(
+        o =&gt; o.Map&lt;PersonDto&gt;(entity =&gt; entity.LastName, dto =&gt; dto.Name)
+              .Map&lt;PersonDto&gt;(entity =&gt; entity.BirthYear, dto =&gt; dto.YearOfBirth)));
 }
-</code></pre>
-<h3 id="mapping-property-values">Mapping Property Values</h3>
+</code></pre><h3 id="mapping-property-values">Mapping Property Values</h3>
 <p>Sometimes one class doesn't have the properties the other has, but we only want to compare
 if the value of the other has a specific value.</p>
-<pre><code class="lang-csharp">private sealed record Address(string House, string Street, string City, string PostalCode, string Country);
+<pre><code class="lang-csharp" name="PropertiesComparerMapValues">private sealed record Address(string House, string Street, string City, string PostalCode, string Country);
 private sealed record USAddress(string House, string Street, string City, string ZipCode);
 
 [Test]
 public void CompareMatchingDifferentAddresses()
 {
-   var address = new Address(&quot;10&quot;, &quot;CSI&quot;, &quot;Las Vegas&quot;, &quot;89030&quot;, &quot;U.S.A.&quot;);
-   var usAddress = new USAddress(&quot;10&quot;, &quot;CSI&quot;, &quot;Las Vegas&quot;, &quot;89030&quot;);
+    var address = new Address(&quot;10&quot;, &quot;CSI&quot;, &quot;Las Vegas&quot;, &quot;89030&quot;, &quot;U.S.A.&quot;);
+    var usAddress = new USAddress(&quot;10&quot;, &quot;CSI&quot;, &quot;Las Vegas&quot;, &quot;89030&quot;);
 
-   // We can supply a Value for the missing property 'Country'
-   Assert.That(usAddress, Is.EqualTo(address).UsingPropertiesComparer(
-      o =&gt; o.Map&lt;Address, USAddress&gt;(world =&gt; world.PostalCode, usa =&gt; usa.ZipCode)
-            .Map&lt;Address&gt;(world =&gt; world.Country, &quot;U.S.A.&quot;)));
+    // We can supply a Value for the missing property 'Country'
+    Assert.That(usAddress, Is.EqualTo(address).UsingPropertiesComparer&lt;Address&gt;(
+        o =&gt; o.Map&lt;Address, USAddress&gt;(world =&gt; world.PostalCode, usa =&gt; usa.ZipCode)
+              .Map&lt;Address&gt;(world =&gt; world.Country, &quot;U.S.A.&quot;)));
 }
 </code></pre>
 <p>All <code>USAddress</code> instances are assumed to be in the <code>U.S.A</code>.
@@ -458,29 +477,30 @@ if the world address' <em>Country</em> has the value <code>U.S.A</code>.</p>
 <p>We could have excluded the <em>Country</em> property, but then we might get matches of similar addresses in other countries.</p>
 <h3 id="configuring-matching-for-nested-type-members">Configuring matching for nested type members</h3>
 <p>The above can be combined for nested types:</p>
-<pre><code class="lang-csharp">private sealed record Address(string House, string Street, string City, string AreaCode, string Country);
+<pre><code class="lang-csharp" name="PropertiesComparerNested">private sealed record Address(string House, string Street, string City, string AreaCode, string Country);
 private sealed record Person(string Name, Address Address);
 
 private sealed record USAddress(string House, string Street, string City, string ZipCode);
 private sealed record USPerson(string Name, USAddress USAddress);
 
-[Test]
+[Test, Explicit(&quot;Fails on purpose to show how mapped properties appear in the failure message&quot;)]
 public void CompareMismatchedDifferentTypes()
 {
-   var person = new Person(&quot;John Doe&quot;, new Address(&quot;10&quot;, &quot;CSI&quot;, &quot;Las Vegas&quot;, &quot;89030&quot;, &quot;U.S.A.&quot;));
-   var usPerson = new USPerson(&quot;John Doe&quot;, new USAddress(&quot;10&quot;, &quot;CSI&quot;, &quot;Las Vegas&quot;, &quot;89031&quot;));
+    var person = new Person(&quot;John Doe&quot;, new Address(&quot;10&quot;, &quot;CSI&quot;, &quot;Las Vegas&quot;, &quot;89030&quot;, &quot;U.S.A.&quot;));
+    var usPerson = new USPerson(&quot;John Doe&quot;, new USAddress(&quot;10&quot;, &quot;CSI&quot;, &quot;Las Vegas&quot;, &quot;89031&quot;));
 
-   Assert.That(usPerson, Is.EqualTo(person).UsingPropertiesComparer(
-   o =&gt; o.Map&lt;Person, USPerson&gt;(x =&gt; x.Address, y =&gt; y.USAddress)
-         .Map&lt;Address, USAddress&gt;(x =&gt; x.AreaCode, y =&gt; y.ZipCode)
-         .Map&lt;Address&gt;(x =&gt; x.Country, &quot;U.S.A.&quot;)));
+    Assert.That(usPerson, Is.EqualTo(person).UsingPropertiesComparer&lt;Person&gt;(
+        o =&gt; o.Map&lt;Person, USPerson&gt;(x =&gt; x.Address, y =&gt; y.USAddress)
+              .Map&lt;Address, USAddress&gt;(x =&gt; x.AreaCode, y =&gt; y.ZipCode)
+              .Map&lt;Address&gt;(x =&gt; x.Country, &quot;U.S.A.&quot;)));
 }
 </code></pre>
-<p>The mapped property names and values are shown in the failure message:</p>
-<pre><code class="lang-text">Assert.That(usPerson, Is.EqualTo(person).UsingPropertiesComparer(
-                  c =&gt; c.Map&lt;Person, USPerson&gt;(x =&gt; x.Address, y =&gt; y.USAddress)
-                        .Map&lt;Address, USAddress&gt;(x =&gt; x.AreaCode, y =&gt; y.ZipCode)
-                        .Map&lt;Address&gt;(x =&gt; x.Country, &quot;U.S.A.&quot;)))
+<p>The above test fails on purpose, because the zip code differs. The mapped property names and values are shown
+in the failure message:</p>
+<pre><code class="lang-text">Assert.That(usPerson, Is.EqualTo(person).UsingPropertiesComparer&lt;Person&gt;(
+            o =&gt; o.Map&lt;Person, USPerson&gt;(x =&gt; x.Address, y =&gt; y.USAddress)
+                  .Map&lt;Address, USAddress&gt;(x =&gt; x.AreaCode, y =&gt; y.ZipCode)
+                  .Map&lt;Address&gt;(x =&gt; x.Country, &quot;U.S.A.&quot;)))
 Expected: &lt;Person { Name = John Doe, Address = Address { House = 10, Street = CSI, City = Las Vegas, AreaCode = 89030, Country = U.S.A. } }&gt;
 But was:  &lt;USPerson { Name = John Doe, USAddress = USAddress { House = 10, Street = CSI, City = Las Vegas, ZipCode = 89031 } }&gt;
 Values differ at property Person.Address =&gt; USPerson.USAddress:

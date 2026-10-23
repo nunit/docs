@@ -100,7 +100,17 @@ NUnit.Framework.Legacy namespace.</p>
 Assert.Contains(object anObject, ICollection collection,
                 string message, params object[] params);
 </code></pre>
-<h2 id="see-also">See Also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="ContainsExamples">[Test]
+public void Contains_Examples()
+{
+    var list = new List&lt;int&gt; { 1, 2, 3, 4, 5 };
+    Assert.Contains(3, list);
+    
+    var array = new [] { &quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot; };
+    Assert.Contains(&quot;banana&quot;, array);
+}
+</code></pre><h2 id="see-also">See Also</h2>
 
 </article>
           </div>

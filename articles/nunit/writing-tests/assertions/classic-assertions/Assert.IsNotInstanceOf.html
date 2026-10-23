@@ -102,7 +102,18 @@ Assert.IsNotInstanceOf&lt;T&gt;(object actual);
 Assert.IsNotInstanceOf&lt;T&gt;(object actual,
                           string message, params object[] params);
 </code></pre>
-<h2 id="see-also">See Also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="InstanceOfExamples">[Test]
+public void InstanceOf_Examples()
+{
+    Assert.IsInstanceOf&lt;string&gt;(&quot;Hello&quot;);
+    Assert.IsInstanceOf(typeof(string), &quot;Hello&quot;);
+    Assert.IsInstanceOf&lt;object&gt;(&quot;Hello&quot;);
+    
+    Assert.IsNotInstanceOf&lt;int&gt;(&quot;Hello&quot;);
+    Assert.IsNotInstanceOf(typeof(int), &quot;Hello&quot;);
+}
+</code></pre><h2 id="see-also">See Also</h2>
 <ul>
 <li><a class="xref" href="../../constraints/Constraints.html#type-constraints">Type Constraints</a></li>
 </ul>

@@ -157,7 +157,80 @@ CollectionAssert.IsOrdered(IEnumerable collection, IComparer comparer);
 CollectionAssert.IsOrdered(IEnumerable collection,
     IComparer comparer, string message, params object[] args);
 </code></pre>
-<h2 id="see-also">See Also</h2>
+<h2 id="examples">Examples</h2>
+<h3 id="comparing-collections">Comparing collections</h3>
+<pre><code class="lang-csharp" name="CollectionAssertBasicExamples">[Test]
+public void CollectionAssert_Basic_Examples()
+{
+    var list1 = new[] { 1, 2, 3 };
+    var list2 = new[] { 1, 2, 3 };
+    var list3 = new[] { 3, 2, 1 };
+    var list4 = new[] { 1, 2, 4 };
+    
+    // Collections are equal (same order)
+    CollectionAssert.AreEqual(list1, list2);
+    
+    // Collections are equivalent (same items, any order)
+    CollectionAssert.AreEquivalent(list1, list3);
+    
+    // Collections are not equal
+    CollectionAssert.AreNotEqual(list1, list4);
+    
+    // Collections are not equivalent
+    CollectionAssert.AreNotEquivalent(list1, list4);
+}
+</code></pre><h3 id="testing-for-members">Testing for members</h3>
+<pre><code class="lang-csharp" name="CollectionAssertContainsExamples">[Test]
+public void CollectionAssert_Contains_Examples()
+{
+    var list = new[] { 1, 2, 3, 4, 5 };
+    
+    CollectionAssert.Contains(list, 3);
+    CollectionAssert.DoesNotContain(list, 10);
+}
+</code></pre><h3 id="subsets">Subsets</h3>
+<pre><code class="lang-csharp" name="CollectionAssertSubsetExamples">[Test]
+public void CollectionAssert_Subset_Examples()
+{
+    var superset = new[] { 1, 2, 3, 4, 5 };
+    var subset = new[] { 2, 4 };
+    var notSubset = new[] { 1, 6 };
+    
+    CollectionAssert.IsSubsetOf(subset, superset);
+    CollectionAssert.IsNotSubsetOf(notSubset, superset);
+}
+</code></pre><h3 id="empty-collections">Empty collections</h3>
+<pre><code class="lang-csharp" name="CollectionAssertEmptyExamples">[Test]
+public void CollectionAssert_Empty_Examples()
+{
+    var emptyList = new int[] { };
+    var nonEmptyList = new[] { 1, 2, 3 };
+    
+    CollectionAssert.IsEmpty(emptyList);
+    CollectionAssert.IsNotEmpty(nonEmptyList);
+}
+</code></pre><h3 id="ordering">Ordering</h3>
+<pre><code class="lang-csharp" name="CollectionAssertOrderedExamples">[Test]
+public void CollectionAssert_Ordered_Examples()
+{
+    var orderedList = new[] { 1, 2, 3, 4, 5 };
+    var reverseOrderedList = new[] { 5, 4, 3, 2, 1 };
+    
+    CollectionAssert.IsOrdered(orderedList);
+    CollectionAssert.IsOrdered(reverseOrderedList, Comparer&lt;int&gt;.Create((x, y) =&gt; y.CompareTo(x)));
+}
+</code></pre><h3 id="item-types">Item types</h3>
+<pre><code class="lang-csharp" name="CollectionAssertItemTypeExamples">[Test]
+public void CollectionAssert_ItemType_Examples()
+{
+    var stringList = new[] { &quot;a&quot;, &quot;b&quot;, &quot;c&quot; };
+    var mixedList = new object[] { &quot;string&quot;, 123, null };
+    
+    CollectionAssert.AllItemsAreInstancesOfType(stringList, typeof(string));
+    CollectionAssert.AllItemsAreNotNull(stringList);
+    CollectionAssert.AllItemsAreUnique(stringList);
+}
+</code></pre><h2 id="see-also">See Also</h2>
 <ul>
 <li><a class="xref" href="../../constraints/Constraints.html#collection-constraints">Collection Constraints</a></li>
 </ul>

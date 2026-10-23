@@ -109,7 +109,19 @@ Assert.IsNotEmpty(IEnumerable collection, string message,
 <p>When used with an IEnumerable that is not also an ICollection, <code>Assert.IsEmpty</code> attempts to enumerate
 the contents. It should not be used in cases where this results in an unwanted side effect.</p>
 </div>
-<h2 id="see-also">See Also</h2>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp" name="EmptyExamples">[Test]
+public void Empty_Examples()
+{
+    Assert.IsEmpty(&quot;&quot;);
+    Assert.IsEmpty(new int[] { });
+    Assert.IsEmpty(new List&lt;string&gt;());
+    
+    Assert.IsNotEmpty(&quot;Hello&quot;);
+    Assert.IsNotEmpty(new [] { 1, 2, 3 });
+    Assert.IsNotEmpty(new List&lt;string&gt; { &quot;item&quot; });
+}
+</code></pre><h2 id="see-also">See Also</h2>
 <ul>
 <li><a class="xref" href="../../constraints/Constraints.html#condition-constraints">Condition Constraints</a></li>
 </ul>
