@@ -69,8 +69,8 @@ The defined order is as follows...
 
 ## Inheritance
 
-`[SetUpFixture]` is inherited. A class that derives from a class marked `[SetUpFixture]` is itself a setup fixture,
-even if it does not repeat the attribute. This lets a shared test-support package provide the one-time setup and
+`[SetUpFixture]` can be inherited. A class that derives from a class marked `[SetUpFixture]` is itself a setup
+fixture, even if it does not repeat the attribute. This lets a shared test-support package provide the one-time setup and
 teardown in a base class, with each test project deriving from it:
 
 [!code-csharp[SetUpFixtureInheritanceBase](~/snippets/Snippets.NUnit/Attributes/SetUpFixtureAttributeExamples.cs#SetUpFixtureInheritanceBase)]
@@ -132,7 +132,7 @@ resources the process can abandon:
 3. A setup fixture outside any namespace applies to the entire assembly.
 4. Multiple setup fixtures at the same namespace level execute in indeterminate order.
 5. Prior to NUnit 3.0, setup fixtures used `SetUp`/`TearDown`; NUnit 3+ uses `OneTimeSetUp`/`OneTimeTearDown`.
-6. `SetUpFixture` is inherited. The namespace of the derived class sets the scope; see [Inheritance](#inheritance).
+6. `SetUpFixture` can be inherited. The namespace of the derived class sets the scope; see [Inheritance](#inheritance).
 
 ## See Also
 

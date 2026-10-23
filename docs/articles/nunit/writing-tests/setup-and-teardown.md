@@ -58,7 +58,7 @@ child namespaces, and its `[OneTimeTearDown]` runs once after all of them.
   whole test assembly.
 - The class must be public and have a default constructor, or be static.
 - A setup fixture can only have `[OneTimeSetUp]` and `[OneTimeTearDown]` methods, not `[SetUp]` and `[TearDown]`.
-- `[SetUpFixture]` is inherited, and the namespace of the derived class decides what it covers. See
+- `[SetUpFixture]` can be inherited, and the namespace of the derived class decides what it covers. See
   [Inheritance](xref:attribute-setupfixture#inheritance) on the reference page, which also shows how to share the
   setup from a package used by several test projects.
 
