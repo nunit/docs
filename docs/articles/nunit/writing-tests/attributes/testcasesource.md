@@ -184,6 +184,23 @@ test case data.
 
 [!code-csharp[OptionalParameters](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#OptionalParameters)]
 
+### Params arrays
+
+When the last parameter of the test method is a `params` array, any arguments supplied by the source beyond the fixed
+parameters are gathered into that array, just as they are for [TestCase](xref:attribute-testcase). A test case that
+supplies no extra arguments gives an empty array, and a test case whose last argument is already an array of the right
+type passes it through unchanged. (_NUnit 4.5+_)
+
+[!code-csharp[ParamsArray](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#ParamsArray)]
+
+> [!NOTE]
+> A `params` array must be the last parameter of the method, so a test that uses one cannot also declare the
+> `CancellationToken` parameter that [CancelAfter](xref:attribute-cancelafter) injects (see
+> [CancellationToken support](#cancellationtoken-support) below). When combining `[CancelAfter]` with a `params`
+> array, read the token from `TestContext.CurrentContext.CancellationToken` instead.
+
+[!code-csharp[ParamsArrayWithCancelAfter](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#ParamsArrayWithCancelAfter)]
+
 ### CancellationToken support
 
 When using `[CancelAfter]` with `TestCaseSource`, NUnit automatically injects a `CancellationToken` as the last
@@ -191,6 +208,9 @@ parameter of the test method. The test case source should **not** include the `C
 provides it automatically.
 
 [!code-csharp[CancellationTokenSupport](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#CancellationTokenSupport)]
+
+Because the injected `CancellationToken` must be the last parameter, this cannot be combined with a
+[`params` array](#params-arrays). In that case, use `TestContext.CurrentContext.CancellationToken` instead.
 
 See [CancelAfter](xref:attribute-cancelafter) for more information on cancellation token handling.
 
