@@ -30,5 +30,7 @@ does not support parallelization.
 
 ## See Also
 
+* [Running Tests in Parallel](xref:paralleltests)
+* [Framework Parallel Test Execution](../../technical-notes/usage/Framework-Parallel-Test-Execution.md)
 * [Parallelizable Attribute](xref:attribute-parallelizable)
 * [LevelOfParallelism Attribute](xref:attribute-levelofparallelism)

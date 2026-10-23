@@ -7,6 +7,11 @@ test run.
 By default, no parallel execution takes place. Attributes are used to indicate which tests may run in parallel and how
 they relate to other tests.
 
+> [!TIP]
+> This note describes how NUnit schedules parallel work. For practical questions, such as how to turn parallel execution
+> on and what to do about state shared between tests, see
+> [Running Tests in Parallel](../../writing-tests/parallel-tests.md).
+
 ## Platform Support
 
 Parallel execution is supported by the NUnit framework on desktop .NET runtimes and .NET Standard 2.0. It is not
@@ -36,7 +41,7 @@ This is a `[Flags]` type enumeration used to specify which tests may run in para
 it appears and any subordinate tests. The following values are available for use:
 
 * `ParallelScope.Self` indicates that the test itself may be run in parallel with other tests. This is the default for
-  the `ParallelizableAttribute` and is the only value permitted on a test method.
+  the `ParallelizableAttribute` and is the only value permitted on a test method that is not parameterized.
 * `ParallelScope.Children` indicates that the descendants of the test may be run in parallel with respect to one
   another.
 * `ParallelScope.Fixtures` indicates that test fixtures that are the descendants of the test may be run in parallel with
@@ -67,8 +72,11 @@ to other tests at the same level in the tree. The following are a few examples o
 3. __Non-parallel SetUpFixture with parallel test fixtures:__ The entire group of fixtures runs separately from any
    fixtures outside the group. Within the group, multiple fixtures run in parallel.
 
-4. __Parallel SetUpFixture with non-parallel test fixtures:__ The group runs in parallel with other fixtures and groups.
-   Within the group, only one fixture at a time may execute.
+4. __Parallel SetUpFixture with non-parallel test fixtures:__ The SetUpFixture's own one-time setup and teardown may run
+   in parallel with other work, but the non-parallel fixtures inside it are queued together with every other
+   non-parallel fixture in the assembly and run one at a time, after all parallel work has finished. This does not
+   produce a group that runs in parallel with other groups while its own fixtures run in sequence; see (3) for the
+   way to isolate a group.
 
 5. __Parallel SetUpFixture with non-parallel test fixtures containing parallel test cases:__ This is just one example of
    a more complex setup. The fixtures themselves run as described in (4) but the cases within each fixture run in
