@@ -47,3 +47,4 @@ DefaultFloatingPointToleranceAttribute(double tolerance)
 
 * [Assert.AreEqual](xref:classic-assert-are-equal)
 * [EqualConstraint](xref:constraint-equal) — numeric **`Within`** tolerances and floating-point comparison behavior (including the **Comparing floating-point values** section)
+* [Tolerances](xref:tolerance) — all tolerance modes, supported types and workarounds for unsupported types
