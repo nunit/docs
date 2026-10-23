@@ -249,6 +249,31 @@ public class TestCaseSourceExamples
     }
     #endregion
 
+    #region ParamsArrayWithCancelAfter
+    [TestFixture]
+    public class ParamsArrayWithCancelAfterFixture
+    {
+        [TestCaseSource(nameof(Cases))]
+        [CancelAfter(5000)]
+        public void TestWithParamsArrayAndCancelAfter(string name, params int[] values)
+        {
+            // A CancellationToken parameter cannot follow a params array,
+            // so read the token from the test context instead.
+            CancellationToken cancellationToken = TestContext.CurrentContext.CancellationToken;
+
+            Assert.That(cancellationToken, Is.Not.EqualTo(default(CancellationToken)));
+            Assert.That(name, Is.Not.Null);
+            Assert.That(values, Is.All.Positive);
+        }
+
+        private static IEnumerable<TestCaseData> Cases()
+        {
+            yield return new TestCaseData("three", 1, 2, 3);
+            yield return new TestCaseData("none");
+        }
+    }
+    #endregion
+
     #region CancellationTokenSupport
     [TestFixture]
     public class CancellationTokenFixture
