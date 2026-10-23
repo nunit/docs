@@ -161,13 +161,182 @@ derived class.</li>
 </ol>
 <p>[Items 6 and 7 rarely come into play but the features are available for situations like code generation, where it may
 be more convenient to have multiple setup fixtures and/or methods.]</p>
-<h2 id="notes">Notes</h2>
+<h2 id="inheritance">Inheritance</h2>
+<p><code>[SetUpFixture]</code> can be inherited. A class that derives from a class marked <code>[SetUpFixture]</code> is itself a setup
+fixture, even if it does not repeat the attribute. This lets a shared test-support package provide the one-time setup and
+teardown in a base class, with each test project deriving from it:</p>
+<pre><code class="lang-csharp" name="SetUpFixtureInheritanceBase">// Lives in a shared test-support package. NUnit skips abstract classes,
+// so this class is not a setup fixture by itself.
+[SetUpFixture]
+public abstract class SharedEnvironmentSetUpFixture
+{
+    public static bool IsStarted { get; private set; }
+
+    [OneTimeSetUp]
+    public void StartEnvironment()
+    {
+        IsStarted = true;
+    }
+
+    [OneTimeTearDown]
+    public void StopEnvironment()
+    {
+        IsStarted = false;
+    }
+}
+</code></pre><pre><code class="lang-csharp" name="SetUpFixtureInheritanceDerived">// Inherits [SetUpFixture] from the base class, so NUnit treats it as a setup
+// fixture for the namespace of *this* class: ...SetUpFixtureInheritance.Consumer,
+// not the namespace of the base class.
+public class ConsumerEnvironment : SharedEnvironmentSetUpFixture
+{
+}
+
+public class ConsumerTests
+{
+    [Test]
+    public void Environment_IsStartedByInheritedSetUpFixture()
+    {
+        Assert.That(SharedEnvironmentSetUpFixture.IsStarted, Is.True);
+    }
+}
+</code></pre>
+<p>NUnit applies these rules:</p>
+<ul>
+<li><strong>The namespace of the concrete class sets the scope.</strong> NUnit builds the setup fixture from the concrete class, so it
+covers the namespace that class is in and the namespaces below it. The namespace of the base class plays no part. In
+the example, the setup runs once for the tests in <code>SetUpFixtureInheritance.Consumer</code>.</li>
+<li><strong>An abstract base class is not a setup fixture by itself.</strong> NUnit ignores abstract classes when it looks for
+fixtures, so the base class does nothing until a test project derives from it. A base class in another assembly is
+never scanned anyway, because NUnit only looks at the types in the test assembly. If the base class is concrete and
+lives in the test assembly, it is a setup fixture for its own namespace in addition to the derived class.</li>
+<li><strong>Attributes on the derived class win.</strong> NUnit looks for fixture attributes one level of the inheritance chain at a
+time, starting at the concrete class, and uses the first level that has any. An inherited <code>[SetUpFixture]</code> is only
+used when the derived class has no fixture attribute of its own:
+<ul>
+<li>If the derived class is marked <code>[TestFixture]</code>, NUnit builds an ordinary test fixture and the inherited
+<code>[SetUpFixture]</code> is ignored. Its tests run, and the base class <code>[OneTimeSetUp]</code> runs once for that fixture, like
+any inherited <code>[OneTimeSetUp]</code>.</li>
+<li>If the derived class has <code>[Test]</code> methods but no <code>[TestFixture]</code>, the inherited <code>[SetUpFixture]</code> wins. NUnit builds
+a setup fixture and the tests are <strong>not discovered</strong>. There is no warning; the tests are simply missing from the
+run, and from <code>dotnet test --list-tests</code>.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-csharp" name="SetUpFixtureInheritancePrecedence">// [TestFixture] on the derived class wins over the inherited [SetUpFixture].
+// This is an ordinary test fixture: its tests are discovered and run, and the
+// base class's [OneTimeSetUp] runs once for this fixture, like any inherited
+// [OneTimeSetUp].
+[TestFixture]
+public class DerivedTestFixture : SharedEnvironmentSetUpFixture
+{
+    [Test]
+    public void ThisTestIsDiscovered()
+    {
+        Assert.That(IsStarted, Is.True);
+    }
+}
+
+// No fixture attribute on the derived class, so the inherited [SetUpFixture]
+// wins. NUnit builds this class as a setup fixture for this namespace and
+// silently ignores its [Test] methods.
+public class DerivedWithTestsOnly : SharedEnvironmentSetUpFixture
+{
+    [Test]
+    public void ThisTestIsNotDiscovered()
+    {
+        Assert.Fail(&quot;NUnit never runs this test.&quot;);
+    }
+}
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Put <code>[SetUpFixture]</code> on the concrete class as well. It is not required, but it makes the role of the class visible
+without looking at the base class, and it is easier to spot a <code>[Test]</code> method that ended up in the wrong place.</p>
+</div>
+<h2 id="sharing-setup-across-projects">Sharing setup across projects</h2>
+<p>When several test projects share one-time setup from a common package, a base class with <code>[SetUpFixture]</code> works, but
+each project still has to declare a derived class. A <code>[OneTimeSetUp]</code> on a shared base <em>test</em> class is not an
+alternative: NUnit runs it once for <strong>every fixture</strong> that derives from it, not once per run. See
+<a class="xref" href="onetimesetup.html#test-fixture-versus-setup-fixture">OneTimeSetUp</a>.</p>
+<p>The simplest pattern keeps the package free of NUnit fixture attributes. The package provides a plain class with the
+setup and teardown logic:</p>
+<pre><code class="lang-csharp" name="SetUpFixtureSharingPackage">// In the shared package: a plain class with no NUnit attributes.
+public static class SharedTestEnvironment
+{
+    public static bool IsStarted { get; private set; }
+
+    public static void Start()
+    {
+        // Start containers, seed the database, ...
+        IsStarted = true;
+    }
+
+    public static void Stop()
+    {
+        IsStarted = false;
+    }
+}
+</code></pre>
+<p>Each test project declares a small <code>[SetUpFixture]</code> that calls it. Placed outside any namespace, it runs once for the
+whole project:</p>
+<pre><code class="lang-csharp" name="SetUpFixtureSharingConsumer">// In each test project that uses the package. Put it outside any namespace
+// to cover the whole project.
+[SetUpFixture]
+public class SharedTestEnvironmentSetUp
+{
+    [OneTimeSetUp]
+    public void Start()
+    {
+        SharedTestEnvironment.Start();
+    }
+
+    [OneTimeTearDown]
+    public void Stop()
+    {
+        SharedTestEnvironment.Stop();
+    }
+}
+
+public class OrderTests
+{
+    [Test]
+    public void Environment_IsStartedOnceForTheProject()
+    {
+        Assert.That(SharedTestEnvironment.IsStarted, Is.True);
+    }
+}
+</code></pre>
+<p>If you cannot ask consumers to add a class, start the resource on first use from a static <code>Lazy&lt;T&gt;</code> in the base test
+class. The resource lives as long as the type stays loaded: <code>dotnet test</code> starts a fresh test host per run, so each
+test project gets its own instance, but a host that keeps the assembly loaded between runs reuses it. NUnit offers no
+hook to stop it at the end of the run, so use this only for resources the process can abandon:</p>
+<pre><code class="lang-csharp" name="SetUpFixtureSharingLazy">// In the shared package: start the resource the first time any test needs it.
+// Lazy&lt;T&gt; starts it once per process that loads this type, and nothing stops
+// it at the end of the run.
+public abstract class SharedServerTestBase
+{
+    private static readonly Lazy&lt;TestServer&gt; Server = new(TestServer.Start);
+
+    protected static TestServer SharedServer =&gt; Server.Value;
+}
+
+// In a test project: no setup fixture needed.
+public class CustomerTests : SharedServerTestBase
+{
+    [Test]
+    public void Server_IsAvailable()
+    {
+        Assert.That(SharedServer.BaseAddress, Does.StartWith(&quot;http://&quot;));
+    }
+}
+</code></pre><h2 id="notes">Notes</h2>
 <ol>
 <li><code>SetUpFixture</code> classes must be public and have a default constructor (or be static).</li>
 <li><code>SetUp</code> and <code>TearDown</code> attributes are not valid inside a <code>SetUpFixture</code>.</li>
 <li>A setup fixture outside any namespace applies to the entire assembly.</li>
 <li>Multiple setup fixtures at the same namespace level execute in indeterminate order.</li>
 <li>Prior to NUnit 3.0, setup fixtures used <code>SetUp</code>/<code>TearDown</code>; NUnit 3+ uses <code>OneTimeSetUp</code>/<code>OneTimeTearDown</code>.</li>
+<li><code>SetUpFixture</code> can be inherited. The namespace of the derived class sets the scope; see <a href="#inheritance">Inheritance</a>.</li>
 </ol>
 <h2 id="see-also">See Also</h2>
 <ul>

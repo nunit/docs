@@ -259,6 +259,9 @@ child namespaces, and its <code>[OneTimeTearDown]</code> runs once after all of 
 whole test assembly.</li>
 <li>The class must be public and have a default constructor, or be static.</li>
 <li>A setup fixture can only have <code>[OneTimeSetUp]</code> and <code>[OneTimeTearDown]</code> methods, not <code>[SetUp]</code> and <code>[TearDown]</code>.</li>
+<li><code>[SetUpFixture]</code> can be inherited, and the namespace of the derived class decides what it covers. See
+<a class="xref" href="attributes/setupfixture.html#inheritance">Inheritance</a> on the reference page, which also shows how to share the
+setup from a package used by several test projects.</li>
 </ul>
 <h2 id="which-one-should-i-use">Which one should I use?</h2>
 <ol>

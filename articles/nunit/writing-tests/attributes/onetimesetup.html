@@ -109,7 +109,8 @@ should run <strong>once</strong> for that whole slice of the hierarchy instead o
 <p>If <code>OneTimeSetUp</code> lives on an <strong>abstract or concrete base test class</strong>, NUnit invokes it <strong>for every derived fixture
 type</strong> that inherits that hierarchy (along with setup on the descendants). When you truly need execution <strong>exactly once
 for many unrelated fixtures</strong>, prefer <strong><code>SetUpFixture</code></strong> or <strong><code>static</code></strong> initialization instead of repeating base-class
-<code>OneTimeSetUp</code> semantics.</p>
+<code>OneTimeSetUp</code> semantics. See <a class="xref" href="setupfixture.html#sharing-setup-across-projects">Sharing setup across projects</a>
+for the pattern to use when the base class lives in a shared package.</p>
 <h2 id="failures-and-exceptions">Failures and exceptions</h2>
 <p>If <strong><code>OneTimeSetUp</code> fails</strong> — including an assertion failure (<code>Assert.*</code>) or <strong>any thrown exception</strong> — NUnit treats the
 setup as unsuccessful. Tests that would run <strong>under that suite</strong> are <strong>not executed</strong> (they are skipped as descendants of
