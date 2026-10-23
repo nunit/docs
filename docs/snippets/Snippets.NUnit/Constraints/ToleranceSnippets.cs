@@ -107,8 +107,14 @@ public class ToleranceSnippets
         var actualPrices = new Dictionary<string, decimal> { ["apple"] = 1.01m, ["pear"] = 1.49m };
         Assert.That(actualPrices, Is.EqualTo(expectedPrices).Within(0.02m));
 
-        // Members that cannot take a tolerance, such as the string here, are compared exactly
+        // Tuple members have their own types: the double uses the tolerance and the string is compared exactly
         Assert.That((1.001, "a"), Is.EqualTo((1.0, "a")).Within(0.01));
+
+        // An array has one element type, so the tolerance must suit all elements or the assertion errors
+        DateTime[] expectedDates = [new(2024, 1, 1)];
+        DateTime[] actualDates = [new(2024, 1, 1)];
+        Assert.That(() => Assert.That(actualDates, Is.EqualTo(expectedDates).Within(0.01)),
+            Throws.TypeOf<NotSupportedException>());
     }
     #endregion
 

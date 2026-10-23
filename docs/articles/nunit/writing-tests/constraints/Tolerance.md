@@ -95,8 +95,12 @@ A `TimeSpan` tolerance can be applied to `DateTime`, `DateTimeOffset` and `TimeS
 ### Arrays, collections, dictionaries and tuples
 
 `EqualConstraint` compares arrays, collections, dictionaries and tuples recursively, and the tolerance travels with it.
-Each pair of corresponding elements is compared using the tolerance. Elements that cannot take a tolerance, such as
-strings or enums, are compared exactly; dictionary keys are always compared exactly.
+Each pair of corresponding elements is compared using the tolerance. Dictionary keys are always compared exactly.
+
+An array, collection or dictionary has a single element type, so the tolerance must apply to all of its elements or to
+none of them: a numeric tolerance on a `DateTime[]` is an error, just as it is on a single `DateTime`. Tuples are
+different, because each member has its own type. A tuple member that cannot take the tolerance, such as a string, is
+compared exactly while the numeric members use the tolerance.
 
 [!code-csharp[ToleranceCollections](~/snippets/Snippets.NUnit/Constraints/ToleranceSnippets.cs#ToleranceCollections)]
 
