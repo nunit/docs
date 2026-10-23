@@ -14,7 +14,7 @@ The three APIs, from highest to lowest level, are:
   a particular framework.
 * **Framework API** - only used by NUnit's own framework driver to communicate with the framework.
 
-![Diagram of the layers of test discovery](~/images/nunit-topology.png)
+![Diagram of the layers of test discovery](../../../../images/nunit-topology.png)
 
 ## Test Engine API
 

@@ -201,7 +201,7 @@ These changes, along with the improved assert messages, have resulted in null va
 messages. As a consequence, code like the example below will not compile and will result in
 [CS0121](https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs0121?f1url=%3FappId%3Droslyn%26k%3Dk(CS0121))):
 
-![AssertNull](~/images/AssertNull.png) It's important to update such code to use valid non-null message strings
+![AssertNull](../../images/AssertNull.png) It's important to update such code to use valid non-null message strings
 
 ## Platform support
 

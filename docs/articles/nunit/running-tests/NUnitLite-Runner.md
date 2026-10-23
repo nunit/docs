@@ -58,7 +58,7 @@ All the options are described in [NUnitLite Options](NUnitLite-Options.md).
 
 As seen in the following screen shot, the output from an NUnitLite run is quite similar to that from the console runner.
 
-![Screenshot of NUnitLite](~/images/nunitlite-mock.png)
+![Screenshot of NUnitLite](../../../images/nunitlite-mock.png)
 
 ## Tips
 
