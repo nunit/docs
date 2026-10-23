@@ -23,7 +23,7 @@ This is a parameterless attribute that can only be applied to test methods.
 ## Example
 
 Using the Combinatorial attribute, the following test would be executed 12 (3x2x2) times.
-With **Pairwise** it is executed only enough times so that each possible pair is covered..
+With `Pairwise` it is executed only enough times so that each possible pair is covered..
 
 [!code-csharp[PairwiseBasic](~/snippets/Snippets.NUnit/Attributes/PairwiseAttributeExamples.cs#PairwiseBasic)]
 

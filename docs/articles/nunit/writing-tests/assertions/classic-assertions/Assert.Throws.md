@@ -4,7 +4,7 @@ uid: classic-assert-throws
 
 # Assert.Throws
 
-The **Assert.Throws** method is pretty much in a class by itself. Rather than
+The `Assert.Throws` method is pretty much in a class by itself. Rather than
 comparing values, it attempts to invoke a code snippet, represented as
 a delegate, in order to verify that it throws a particular exception.
 
@@ -12,7 +12,7 @@ It's also in a class by itself in that it returns an Exception, rather
 than void, if the Assert is successful. See the example below for
 a few ways to use this.
 
-**Assert.Throws** may be used with a constraint argument, which is applied
+`Assert.Throws` may be used with a constraint argument, which is applied
 to the actual exception thrown, or with the Type of exception expected.
 The Type format is available in both a non-generic and generic form.
 
@@ -56,11 +56,11 @@ Use the form that matches your style of coding.
 
 ## Exact Versus Derived Types
 
-When used with a Type argument, **Assert.Throws** requires
+When used with a Type argument, `Assert.Throws` requires
 that exact type to be thrown. If you want to test for any
 derived Type, use one of the forms that allows specifying
 a constraint. Alternatively, you may use [Assert.Catch](Assert.Catch.md),
-which differs from **Assert.Throws** in allowing derived
+which differs from `Assert.Throws` in allowing derived
 types. See the following code for examples:
 
 ```csharp

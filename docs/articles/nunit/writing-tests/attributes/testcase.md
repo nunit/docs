@@ -132,7 +132,7 @@ _Thanks to [Geir Marius Gjul](https://github.com/GeirMG) for raising this questi
 
 Individual test cases are executed in the order in which NUnit discovers them. This order does **not** necessarily follow the lexical order of the attributes and will often vary between different compilers or different versions of the CLR.
 
-As a result, when **TestCaseAttribute** appears multiple times on a method or when other data-providing attributes are used in combination with **TestCaseAttribute**, the order of the test cases is undefined.
+As a result, when `TestCaseAttribute` appears multiple times on a method or when other data-providing attributes are used in combination with `TestCaseAttribute`, the order of the test cases is undefined.
 
 ## Generic TestCase Attributes
 

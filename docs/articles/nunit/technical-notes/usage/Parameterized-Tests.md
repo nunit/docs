@@ -37,7 +37,7 @@ The following specific rules for ordering apply:
 
 * If all arguments are specified in a **single TestCaseSource** attribute, the ordering of the cases provided will be
   maintained.
-* If each parameter has a single **Values**, **ValueSource** or **Range** attribute and the **Sequential** combining
+* If each parameter has a single `Values`, `ValueSource` or `Range` attribute and the `Sequential` combining
   strategy is used - or there is only one argument - the ordering will be maintained.
-* In all other cases, including using multiple **TestCase** attributes or a combination of different types of
+* In all other cases, including using multiple `TestCase` attributes or a combination of different types of
   attributes, the ordering of the test cases is undefined.

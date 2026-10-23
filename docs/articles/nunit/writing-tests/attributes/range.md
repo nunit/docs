@@ -69,7 +69,7 @@ MyTest(3, 0.6)
    several disjoint spans merged for the same argument.
 2. **Signed** integral two-argument constructors pick default step **`+1` or −1**, so **`[Range(5, 1)]`** yields a descending sequence.
    **Unsigned** constructors throw if `from` > `to`.
-3. Resulting Cartesian products still depend on whichever combining attributes appear on the test method (**Combinatorial** by default).
+3. Resulting Cartesian products still depend on whichever combining attributes appear on the test method (`Combinatorial` by default).
 4. `float`/`double` overloads always require an explicit **`step`**; there is **no two-argument** floating-point shortcut.
 
 ## See Also

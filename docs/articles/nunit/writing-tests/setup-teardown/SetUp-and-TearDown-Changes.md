@@ -51,10 +51,10 @@ function clearer.
 
 ## Backward Compatibility
 
-**TestFixtureSetUpAttribute** and **TestFixtureTearDownAttribute** continue to be supported as synonyms for
-**OneTimeSetUpAttribute** and **OneTimeTearDownAttribute** in test fixtures, but are deprecated.
+`TestFixtureSetUpAttribute` and `TestFixtureTearDownAttribute` continue to be supported as synonyms for
+`OneTimeSetUpAttribute` and `OneTimeTearDownAttribute` in test fixtures, but are deprecated.
 
-Since **SetUpAttribute** and **TearDownAttribute** are used in two different ways, it's not possible to simply deprecate
+Since `SetUpAttribute` and `TearDownAttribute` are used in two different ways, it's not possible to simply deprecate
 their usage in SetUpFixture. They have been disallowed in that context, which is a [breaking
 change](xref:breakingchanges).
 

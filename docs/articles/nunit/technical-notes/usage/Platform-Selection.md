@@ -6,7 +6,7 @@ the targeted runtime. If you run multiple assemblies in the same process,
 you may not mix x86 and x64 assemblies.
 
 On an x64 machine, if your test assembly is compiled x86, you **must not**
-use **/process=Single** on the command line. This is because NUnit is already
+use `/process=Single` on the command line. This is because NUnit is already
 running in a 64-bit process and will  fail when it tries to load your assembly
 into the same process.
 

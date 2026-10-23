@@ -4,7 +4,7 @@ uid: classic-assert-does-not-throw-async
 
 # Assert.DoesNotThrowAsync
 
-**Assert.DoesNotThrowAsync** verifies that the delegate provided as an argument
+`Assert.DoesNotThrowAsync` verifies that the delegate provided as an argument
 does not throw an exception. See [Assert.DoesNotThrow](Assert.DoesNotThrow.md) for synchronous code.
 
 ```csharp

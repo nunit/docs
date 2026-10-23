@@ -4,7 +4,7 @@ uid: classic-assert-zero
 
 # Assert.Zero
 
-**Assert.Zero** tests that a value is zero.
+`Assert.Zero` tests that a value is zero.
 
 > [!NOTE]
 > From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy
@@ -36,5 +36,5 @@ Assert.Zero(float actual);
 Assert.Zero(float actual, string message, params object[] args);
 ```
 
-You may also use **Assert.That** with a Is.Zero constraint to achieve the
+You may also use `Assert.That` with a Is.Zero constraint to achieve the
 same result.

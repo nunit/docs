@@ -4,7 +4,7 @@ uid: classic-assert-are-same
 
 # Assert.AreSame
 
-**Assert.AreSame** tests that the two arguments reference the same object.
+`Assert.AreSame` tests that the two arguments reference the same object.
 
 > [!NOTE]
 > From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy

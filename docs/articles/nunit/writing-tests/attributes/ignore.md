@@ -53,13 +53,13 @@ until the specified date. After that time, it will run normally and either pass 
 
 ## Ignoring Individual Test Cases
 
-The **IgnoreAttribute** causes all the test cases using the method on which it is placed to be ignored. Ignoring
+The `IgnoreAttribute` causes all the test cases using the method on which it is placed to be ignored. Ignoring
 individual test cases is possible, depending on how they are specified.
 
 | Attribute          | How to ignore a case                                               |
 | ------------------ | ------------------------------------------------------------------ |
-| **TestCase**       | Use the **Ignore** named parameter of `TestCaseAttribute`.         |
-| **TestCaseSource** | Use `TestCaseData` for the source and set the **Ignore** property. |
+| `TestCase`         | Use the `Ignore` named parameter of `TestCaseAttribute`.           |
+| `TestCaseSource`   | Use `TestCaseData` for the source and set the `Ignore` property.   |
 
 ## Notes
 

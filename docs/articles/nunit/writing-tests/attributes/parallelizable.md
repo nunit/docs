@@ -48,7 +48,7 @@ Named argument form:
 
 ## ParallelScope Enumeration
 
-`ParallelScope` is a **[Flags]** enumeration. It applies to the attributed test and its subordinates. User-visible values:
+`ParallelScope` is a `[Flags]` enumeration. It applies to the attributed test and its subordinates. User-visible values:
 
 | Value                    | Meaning                                                                           | Valid On          |
 | ------------------------ | --------------------------------------------------------------------------------- | ----------------- |

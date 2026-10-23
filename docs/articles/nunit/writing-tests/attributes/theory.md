@@ -10,8 +10,8 @@ the code of the test or - in the case of [Parameterized Tests](xref:parameterize
 method. A theory, on the other hand, makes a general statement that all of its assertions will pass for all arguments
 satisfying certain assumptions.
 
-Theories are implemented in NUnit as non-generic methods within a **TestFixture**, which are annotated with the
-**TheoryAttribute**. Theory methods must always have arguments and therefore appears quite similar to [Parameterized
+Theories are implemented in NUnit as non-generic methods within a `TestFixture`, which are annotated with the
+`TheoryAttribute`. Theory methods must always have arguments and therefore appears quite similar to [Parameterized
 Tests](xref:parameterizedtests) at first glance. However, a Theory incorporates additional data sources for its
 arguments and allows special processing for assumptions about that data. The key difference, though, is that theories
 make general statements and are more than just a set of examples.
@@ -55,7 +55,7 @@ are supplied to the argument. This feature is disabled if the user supplies any 
 ## Assumptions
 
 The theory itself is responsible for ensuring that all data supplied meets its assumptions. It does this by use of the
-**Assume.That(...)** construct, which works just like **Assert.That(...)** but does not cause a failure. If the
+`Assume.That(...)` construct, which works just like `Assert.That(...)` but does not cause a failure. If the
 assumption is not satisfied for a particular test case, that case returns an Inconclusive result, rather than a Success
 or Failure.
 
