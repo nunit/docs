@@ -92,7 +92,7 @@
 TestFixtureAttribute(params object?[]? arguments)
 </code></pre>
 <p>The <code>arguments</code> overload supplies constructor arguments and/or leading <code>System.Type</code> values used as generic type
-arguments for the fixture. Named parameters on the attribute (such as <strong>Ignore</strong>, <strong>Category</strong>, <strong>TypeArgs</strong>) are covered
+arguments for the fixture. Named parameters on the attribute (such as <code>Ignore</code>, <code>Category</code>, <code>TypeArgs</code>) are covered
 below.</p>
 <h2 id="applies-to">Applies To</h2>
 <table>
@@ -124,8 +124,8 @@ test fixtures.</li>
 <p>If any of these restrictions are violated, the class is not runnable as a test and will display as an error.</p>
 <p>It is advisable that the constructor not have any side effects, since NUnit may construct the object multiple times in
 the course of a session.</p>
-<p>Beginning with NUnit 2.5, the <strong>TestFixture</strong> attribute is optional for non-parameterized, non-generic fixtures. So long
-as the class contains at least one method marked with the <strong>Test</strong>, <strong>TestCase</strong> or <strong>TestCaseSource</strong> attribute, it
+<p>Beginning with NUnit 2.5, the <code>TestFixture</code> attribute is optional for non-parameterized, non-generic fixtures. So long
+as the class contains at least one method marked with the <code>Test</code>, <code>TestCase</code> or <code>TestCaseSource</code> attribute, it
 will be treated as a test fixture.</p>
 <h2 id="example">Example</h2>
 <pre><code class="lang-csharp">namespace NUnit.Tests
@@ -141,10 +141,10 @@ will be treated as a test fixture.</p>
 }
 </code></pre>
 <h2 id="inheritance">Inheritance</h2>
-<p>The <strong>TestFixtureAttribute</strong> may be applied to a base class and is inherited by any derived classes. This includes any
+<p>The <code>TestFixtureAttribute</code> may be applied to a base class and is inherited by any derived classes. This includes any
 abstract base class, so the well-known Abstract Fixture pattern may be implemented if desired.</p>
 <p>In order to facilitate use of generic and/or parameterized classes, where the derived class may require a different
-number of arguments (or type arguments) from the base class, superfluous <strong>TestFixture</strong> attributes are ignored, using
+number of arguments (or type arguments) from the base class, superfluous <code>TestFixture</code> attributes are ignored, using
 the following rules:</p>
 <ol>
 <li>If all TestFixture attributes provide constructor or type arguments, then all of them are used.</li>
@@ -167,11 +167,11 @@ public class DerivedFixture&lt;T&gt; : AbstractFixtureBase
 }
 </code></pre>
 <h2 id="parameterized-test-fixtures">Parameterized Test Fixtures</h2>
-<p>Test fixtures may take constructor arguments. Argument values are specified as arguments to the <strong>TestFixture</strong>
+<p>Test fixtures may take constructor arguments. Argument values are specified as arguments to the <code>TestFixture</code>
 attribute. NUnit will construct a separate instance of the fixture for each set of arguments.</p>
-<p>Individual fixture instances in a set of parameterized fixtures may be ignored. Set the <strong>Ignore</strong> named parameter of
+<p>Individual fixture instances in a set of parameterized fixtures may be ignored. Set the <code>Ignore</code> named parameter of
 the reason for ignoring the instance.</p>
-<p>Individual fixture instances may be given categories as well. Set the <strong>Category</strong> named parameter of the attribute to
+<p>Individual fixture instances may be given categories as well. Set the <code>Category</code> named parameter of the attribute to
 the name of the category or to a comma-separated list of categories.</p>
 <h3 id="example-1">Example</h3>
 <p>The following test fixture would be instantiated by NUnit five times,
@@ -236,8 +236,8 @@ public class ParameterizedTestFixture
 }
 </code></pre><h2 id="generic-test-fixtures">Generic Test Fixtures</h2>
 <p>You may also use a generic class as a test fixture. In order for NUnit to instantiate the fixture, you must either
-specify the types to be used as arguments to <strong>TestFixtureAttribute</strong> or use the named parameter <strong>TypeArgs=</strong> to
-specify them. NUnit will construct a separate instance of the fixture for each <strong>TestFixtureAttribute</strong> you provide.</p>
+specify the types to be used as arguments to <code>TestFixtureAttribute</code> or use the named parameter <code>TypeArgs</code> to
+specify them. NUnit will construct a separate instance of the fixture for each <code>TestFixtureAttribute</code> you provide.</p>
 <h3 id="example-2">Example</h3>
 <p>The following test fixture would be instantiated by NUnit twice, once using an <code>ArrayList</code> and once using a <code>List&lt;int&gt;</code>.</p>
 <pre><code class="lang-csharp" name="GenericTestFixtures">[TestFixture(typeof(ArrayList))]
@@ -264,7 +264,7 @@ public class GenericListTests&lt;TList&gt;
 <p>If a Generic fixture, uses constructor arguments, there are three approaches to telling NUnit which arguments are type
 parameters and which are normal constructor parameters.</p>
 <ul>
-<li>Specify both sets of parameters as arguments to the <strong>TestFixtureAttribute</strong>. Leading <strong>System.Type</strong> arguments are
+<li>Specify both sets of parameters as arguments to the <code>TestFixtureAttribute</code>. Leading <code>System.Type</code> arguments are
 used as type parameters, while any remaining arguments are used to construct the instance. In the following example,
 this leads to some obvious duplication...</li>
 </ul>
@@ -295,7 +295,7 @@ public class SpecifyBothSetsOfArgs&lt;T1, T2&gt;
 }
 </code></pre>
 <ul>
-<li>Specify normal parameters as arguments to <strong>TestFixtureAttribute</strong> and use the named parameter <strong>TypeArgs=</strong> to
+<li>Specify normal parameters as arguments to <code>TestFixtureAttribute</code> and use the named parameter <code>TypeArgs</code> to
 specify the type arguments. Again, for this example, the type info is duplicated, but it is at least more cleanly
 separated from the normal arguments...</li>
 </ul>

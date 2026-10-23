@@ -172,11 +172,11 @@ public void ThrowsConstraint_Examples()
 }
 </code></pre><h2 id="notes">Notes</h2>
 <ol>
-<li><strong>Throws.TypeOf</strong> requires an exact type match. Use <strong>Throws.InstanceOf</strong> to allow derived exception types.</li>
-<li><strong>Throws.Exception</strong> can be followed by additional constraints on the exception object. Avoid using it alone without
+<li><code>Throws.TypeOf</code> requires an exact type match. Use <code>Throws.InstanceOf</code> to allow derived exception types.</li>
+<li><code>Throws.Exception</code> can be followed by additional constraints on the exception object. Avoid using it alone without
 type checking, as you should generally know what exception to expect.</li>
 <li>For async code, use <code>Assert.ThrowsAsync</code> or test the async delegate directly with <code>Throws</code>.</li>
-<li><strong>Throws.InnerException</strong> tests the InnerException property. Combine it with outer exception type tests for full
+<li><code>Throws.InnerException</code> tests the InnerException property. Combine it with outer exception type tests for full
 validation.</li>
 </ol>
 <h2 id="see-also">See Also</h2>

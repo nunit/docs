@@ -149,62 +149,62 @@ large number of issues, not to give us extra work.</p>
 committer who assigns the label. If there is no <strong>is:</strong> label, then we presumably don't know what the item is and should
 not be working on it!</p>
 <ul>
-<li><strong>is:bug</strong> Something that isn't working as designed.</li>
-<li><strong>is:docs</strong> Solely pertaining to the documentation or sample code.</li>
-<li><strong>is:enhancement</strong> An addition or improvement to an existing feature.</li>
-<li><strong>is:feature</strong> An entirely new feature.</li>
-<li><strong>is:idea</strong> An idea about something we might do. We discuss these until they are either dropped or turned into a
+<li><code>is:bug</code> Something that isn't working as designed.</li>
+<li><code>is:docs</code> Solely pertaining to the documentation or sample code.</li>
+<li><code>is:enhancement</code> An addition or improvement to an existing feature.</li>
+<li><code>is:feature</code> An entirely new feature.</li>
+<li><code>is:idea</code> An idea about something we might do. We discuss these until they are either dropped or turned into a
 feature or enhancement we can work on.</li>
-<li><strong>is:question</strong> Just a question - we discourage these as issues but they do happen.</li>
-<li><strong>is:build</strong> Something to do with how we build the software, scripts, etc.</li>
-<li><strong>is:refactor</strong> What it says: refactoring that is needed.</li>
+<li><code>is:question</code> Just a question - we discourage these as issues but they do happen.</li>
+<li><code>is:build</code> Something to do with how we build the software, scripts, etc.</li>
+<li><code>is:refactor</code> What it says: refactoring that is needed.</li>
 </ul>
 <h3 id="priority">Priority</h3>
 <p>Labels starting with <strong>pri:</strong> indicate the priority of an issue. Pick just one, please. Priority may, of course, change
 over time, as items become more or less important to us. If no priority is assigned, we shouldn't be working on it.</p>
 <ul>
-<li><strong>pri:critical</strong> Should only apply to bugs, which need to be fixed immediately, dropping everything else. At times, we
+<li><code>pri:critical</code> Should only apply to bugs, which need to be fixed immediately, dropping everything else. At times, we
 will even speed up the release cycle due to a critical bug.</li>
-<li><strong>pri:high</strong> High priority - implement as soon as possible.</li>
-<li><strong>pri:normal</strong> Standard priority - implement when we can.</li>
-<li><strong>pri:low</strong> Low priority - implement later or not at all.</li>
+<li><code>pri:high</code> High priority - implement as soon as possible.</li>
+<li><code>pri:normal</code> Standard priority - implement when we can.</li>
+<li><code>pri:low</code> Low priority - implement later or not at all.</li>
 </ul>
 <h3 id="prs-and-issues-that-need-attention">PRs and issues that need attention</h3>
 <p>The goal with these is to keep team members from having to do tedious re-scanning to figure out the state of each
 long-lived PR or issue as well as increasing awareness.</p>
 <ul>
-<li><strong>awaiting:contributor</strong>: Blocked until the contributor responds to the team's request for changes.</li>
-<li><strong>awaiting:team</strong>: Blocked until a team member responds to a question or problem.</li>
-<li><strong>awaiting:discussion</strong>: Blocked until the team comes to consensus on a design question.</li>
-<li><strong>awaiting:review</strong>: Blocked until an additional team member approves or requests changes.</li>
+<li><code>awaiting:contributor</code>: Blocked until the contributor responds to the team's request for changes.</li>
+<li><code>awaiting:team</code>: Blocked until a team member responds to a question or problem.</li>
+<li><code>awaiting:discussion</code>: Blocked until the team comes to consensus on a design question.</li>
+<li><code>awaiting:review</code>: Blocked until an additional team member approves or requests changes.</li>
 </ul>
 <h3 id="close-reason">Close Reason</h3>
 <p>Labels starting with <strong>closed:</strong> indicate the status of the bug at closing and should only appear on closed bugs. Please
 remember to apply one of these when closing a bug as it makes it easier to review the list of closed bugs without
 opening each one to see what the disposition was.</p>
 <ul>
-<li><strong>closed:done</strong> The work called for is done, i.e. the bug is fixed or the feature/enhancement is implemented.</li>
-<li><strong>closed:duplicate</strong> The issue is a duplicate of one that we are working. A comment should indicate the issue number.</li>
-<li><strong>closed:notabug</strong> The issue (generally a bug) is not valid or the feature already exists. There should be an
+<li><code>closed:done</code> The work called for is done, i.e. the bug is fixed or the feature/enhancement is implemented.</li>
+<li><code>closed:duplicate</code> The issue is a duplicate of one that we are working. A comment should indicate the issue number.</li>
+<li><code>closed:notabug</code> The issue (generally a bug) is not valid or the feature already exists. There should be an
 explanatory comment.</li>
-<li><strong>closed:norepro</strong> While the issue (generally a bug) may exist on the user's system, we have tried and are unable to
+<li><code>closed:norepro</code> While the issue (generally a bug) may exist on the user's system, we have tried and are unable to
 reproduce it. If somebody later figures out a repro, the issue can be reopened.</li>
-<li><strong>closed:wontfix</strong> The issue is possibly valid but we don't intend to implement it. It may be out of scope for the
+<li><code>closed:wontfix</code> The issue is possibly valid but we don't intend to implement it. It may be out of scope for the
 project or inconsistent with the values and priorities of the project. There should be an explanatory comment.</li>
 </ul>
 <h3 id="other-labels">Other Labels</h3>
 <ul>
-<li><strong>confirm</strong> Somebody should verify that the issue actually exists and then remove the label. In some cases, a bug may
+<li><code>confirm</code> Somebody should verify that the issue actually exists and then remove the label. In some cases, a bug may
 have been reported against an older version of NUnit and needs to be checked out using the current code.</li>
-<li><strong>blocked</strong> The issue cannot be worked on until something else happens, external to the project. There should be a
+<li><code>blocked</code> The issue cannot be worked on until something else happens, external to the project. There should be a
 comment on the issue indicating what that something is.</li>
-<li><strong>design</strong> Some design decisions need to be made before this can really be worked on. Sometimes this label may be
+<li><code>design</code> Some design decisions need to be made before this can really be worked on. Sometimes this label may be
 applied before anything happens and other times the work may have started but reached a point where design decisions
 need to be made involving others in the team.</li>
-<li><strong>up-for-grabs</strong> Indicates a backlog issue ready for implementation where we would love for the wider community to
+<li><code>up-for-grabs</code> Indicates a backlog issue ready for implementation where we would love for the wider community to
 jump in and be assigned! Whoever adds this label should couple it with a comment suggesting what code to look at and a
 general approach to working the issue.</li>
-<li><strong>easyfix</strong> Indicates an issue that is expected to take no more than a few nights' work.</li>
+<li><code>easyfix</code> Indicates an issue that is expected to take no more than a few nights' work.</li>
 </ul>
 <h2 id="epics">Epics</h2>
 <p>Where appropriate, we make use of the <a href="https://www.zenhub.com/">ZenHub</a> <strong>Epic</strong> feature to create issues that include a

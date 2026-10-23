@@ -91,7 +91,7 @@ carry out each assertion is embedded in the constraint object passed as the seco
 <p>Here's a very simple assert using the constraint model:</p>
 <pre><code class="lang-csharp">Assert.That(myString, Is.EqualTo(&quot;Hello&quot;));
 </code></pre>
-<p>The second argument in this assertion uses one of NUnit's <strong>syntax helpers</strong> to create an <strong>EqualConstraint</strong>. The same
+<p>The second argument in this assertion uses one of NUnit's <strong>syntax helpers</strong> to create an <code>EqualConstraint</code>. The same
 assertion could also be made in this form:</p>
 <pre><code class="lang-csharp">Assert.That(myString, new EqualConstraint(&quot;Hello&quot;));
 </code></pre>
@@ -128,10 +128,10 @@ Assert.That(Action code, IResolveConstraint constraint,
 </div>
 <p>The overloads that take a bool work exactly like <code>ClassicAssert.IsTrue</code>, except that <code>ClassicAssert.IsTrue</code> does not
 accept a <code>Func&lt;string&gt;</code> for the exception message.</p>
-<p>For overloads taking a constraint, the argument must be an object implementing the <strong>IResolveConstraint</strong> interface,
+<p>For overloads taking a constraint, the argument must be an object implementing the <code>IResolveConstraint</code> interface,
 which supports performing a test on an actual value and generating appropriate messages. This interface is described in
 more detail under <a class="xref" href="../../../extending-nunit/Custom-Constraints.html">Custom Constraints</a>.</p>
-<p>NUnit provides a number of constraint classes similar to the <strong>EqualConstraint</strong> used in the examples above. Generally,
+<p>NUnit provides a number of constraint classes similar to the <code>EqualConstraint</code> used in the examples above. Generally,
 these classes may be used directly or through a syntax helper. The valid forms are described on the pages related to
 each constraint.</p>
 <h2 id="see-also">See also</h2>

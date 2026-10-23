@@ -112,28 +112,28 @@ public class MyDataClass
     }
 }
 </code></pre>
-<p>This example uses the fluent interface supported by <strong>TestCaseData</strong> to make the program more readable.</p>
-<p><strong>TestCaseData</strong> supports the following properties and methods, which may be appended to an instance in any order.</p>
+<p>This example uses the fluent interface supported by <code>TestCaseData</code> to make the program more readable.</p>
+<p><code>TestCaseData</code> supports the following properties and methods, which may be appended to an instance in any order.</p>
 <ul>
-<li><strong>Explicit()</strong> or <strong>Explicit(string)</strong> causes the test case to be marked explicit, optionally specifying the reason
+<li><code>Explicit()</code> or <code>Explicit(string)</code> causes the test case to be marked explicit, optionally specifying the reason
 for doing so.</li>
-<li><strong>Ignore(string)</strong> causes the test case to be ignored and specifies the reason, which is required. Can be chained
-with <strong>Until(DateTimeOffset)</strong> to specify a date after which the test should run again.</li>
-<li><strong>Returns</strong> specifies the expected result to be returned from the method, which must have a compatible return type.</li>
-<li><strong>SetArgDisplayNames(string[])</strong> sets the list of display names to use as the parameters in the test name.</li>
-<li><strong>SetArgDisplayNames(object[])</strong> sets the list of display names using objects that are automatically formatted.</li>
-<li><strong>SetCategory(string)</strong> applies a category to the test.</li>
-<li><strong>SetDescription(string)</strong> sets the description property of the test.</li>
-<li><strong>SetName(string)</strong> provides a name for the test. If not specified, a name is generated based on the method name and
+<li><code>Ignore(string)</code> causes the test case to be ignored and specifies the reason, which is required. Can be chained
+with <code>Until(DateTimeOffset)</code> to specify a date after which the test should run again.</li>
+<li><code>Returns</code> specifies the expected result to be returned from the method, which must have a compatible return type.</li>
+<li><code>SetArgDisplayNames(string[])</code> sets the list of display names to use as the parameters in the test name.</li>
+<li><code>SetArgDisplayNames(object[])</code> sets the list of display names using objects that are automatically formatted.</li>
+<li><code>SetCategory(string)</code> applies a category to the test.</li>
+<li><code>SetDescription(string)</code> sets the description property of the test.</li>
+<li><code>SetName(string)</code> provides a name for the test. If not specified, a name is generated based on the method name and
 the arguments provided. See <a class="xref" href="../running-tests/Template-Based-Test-Naming.html">Template Based Test Naming</a>.</li>
 <li><strong>SetProperty(string, string)</strong>, <strong>SetProperty(string, int)</strong> and <strong>SetProperty(string, double)</strong> apply a named
 property and value to the test.</li>
-<li><strong>TypeArgs</strong> specifies the <code>Type</code>s to be used when targeting a generic test method. (<em>NUnit 4.1+</em>)</li>
-<li><strong>Until(DateTimeOffset)</strong> can be chained after <strong>Ignore(string)</strong> to specify a date after which the test case
+<li><code>TypeArgs</code> specifies the <code>Type</code>s to be used when targeting a generic test method. (<em>NUnit 4.1+</em>)</li>
+<li><code>Until(DateTimeOffset)</code> can be chained after <code>Ignore(string)</code> to specify a date after which the test case
 should no longer be ignored. Once the date passes, the test will run automatically. (<em>NUnit 4+</em>)</li>
 </ul>
 <h2 id="temporarily-ignoring-test-cases-with-until">Temporarily ignoring test cases with Until</h2>
-<p>The <strong>Until</strong> method allows you to temporarily ignore a test case until a specific date. This is useful for tests
+<p>The <code>Until</code> method allows you to temporarily ignore a test case until a specific date. This is useful for tests
 that are known to fail due to external factors (e.g., waiting for an API release, known bug in a dependency) but
 should automatically start running again after a certain date.</p>
 <pre><code class="lang-csharp" name="IgnoreUntilExample">[TestFixture]

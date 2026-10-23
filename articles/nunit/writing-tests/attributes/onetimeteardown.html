@@ -104,7 +104,7 @@ per test instead.</p>
 <ul>
 <li><strong><code>TestFixture</code></strong> — teardown runs <strong>after all tests declared in that fixture</strong> (every parameterized case rooted there)
 finish, failed or passed unless something aborts scheduling earlier.</li>
-<li><strong><code>SetUpFixture</code></strong> — teardown runs once after everything under that <a class="xref" href="setupfixture.html"><strong>SetUpFixture</strong></a> slice finishes,
+<li><strong><code>SetUpFixture</code></strong> — teardown runs once after everything under that <a class="xref" href="setupfixture.html"><code>SetUpFixture</code></a> slice finishes,
 matching the broader “run once init / run once cleanup” workflow.</li>
 </ul>
 <p>Teardown semantics for <strong>abstract or concrete bases</strong> mirror setup: inheritance causes code to participate per derived

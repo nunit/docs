@@ -104,21 +104,21 @@ field.</p>
 <li>makes use of the internal trace as a part of the development cycle.</li>
 </ul>
 <h3 id="design">Design</h3>
-<p>NUnit provides a simple internal trace facility using the <strong>InternalTrace</strong> class. The following public methods are
+<p>NUnit provides a simple internal trace facility using the <code>InternalTrace</code> class. The following public methods are
 provided for creating output:</p>
 <pre><code class="lang-csharp">public static void Error(string message, params object[] args)
 public static void Warning(string message, params object[] args)
 public static void Info(string message, params object[] args)
 public static void Debug(string message, params object[] args)
 </code></pre>
-<p>By default, all output through <strong>InternalTrace</strong> is sent to the console, which means it is mixed with other console
+<p>By default, all output through <code>InternalTrace</code> is sent to the console, which means it is mixed with other console
 output. Note that the trace mechanism bypasses NUnit's redirection of output and displays on the actual Console. Of
 course, if NUnit is being run without a console - from the Gui, for example - the output will be lost.</p>
 <h2 id="redirecting-output">Redirecting Output</h2>
-<p>The <strong>InternalTrace.Open()</strong> method allows the programmer to specify a file to which the output will be written. Any
+<p>The <code>InternalTrace.Open()</code> method allows the programmer to specify a file to which the output will be written. Any
 absolute or relative path may be used as an argument. Relative paths are interpreted as relative to the location of the
 assembly being tested. A programmer working on NUnit may call this method at any point in the code.
-<strong>InternalTrace.Close()</strong> is also provided.</p>
+<code>InternalTrace.Close()</code> is also provided.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Since the path is saved as a static property, it must be specified separately within each AppDomain. Writing
@@ -140,7 +140,7 @@ System.Diagnostics.TraceLevel, they have no actual relation to that class. Addit
     /* ... */
 }
 </code></pre>
-<p>A programmer working on NUnit may set the TraceLevel at any point in the code by setting the <strong>InternalTrace.Level</strong>
+<p>A programmer working on NUnit may set the TraceLevel at any point in the code by setting the <code>InternalTrace.Level</code>
 property.</p>
 <h2 id="unresolved-issues">Unresolved Issues</h2>
 <ul>

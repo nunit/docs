@@ -90,8 +90,8 @@
 It ran on devices as well as on desktop .NET and mono and allowed users to create executable tests without the overhead
 of a full NUnit installation.</p>
 <p>With NUnit 3.0, the NUnitLite framework has been merged with the full NUnit framework. There is now only one framework,
-<strong>nunit.framework.dll</strong>. The built-in runner, which was a part of the old NUnitLite, is now packaged as
-<strong>nunitlite.dll</strong>.</p>
+<code>nunit.framework.dll</code>. The built-in runner, which was a part of the old NUnitLite, is now packaged as
+<code>nunitlite.dll</code>.</p>
 <h2 id="using-nunitlite">Using NUnitLite</h2>
 <p>To run tests under NUnitLite, proceed as follows:</p>
 <ul>
@@ -102,7 +102,7 @@ points. This can be ignored.</li>
 <p>Using a standard test project has the benefit that you can use both the standard <code>dotnet test</code> command, the Visual
 Studio Test Explorer and the NUnitLite runner to run your tests.</p>
 <ul>
-<li>Make sure your test assembly references both <strong>nunit.framework</strong> and <strong>nunitlite</strong>.</li>
+<li>Make sure your test assembly references both <code>nunit.framework</code> and <code>nunitlite</code>.</li>
 </ul>
 <pre><code class="lang-xml">&lt;PackageReference Include=&quot;NUnitLite&quot; Version=&quot;4.0.1&quot; /&gt;
 &lt;PackageReference Include=&quot;NUnit&quot; Version=&quot;4.0.1&quot; /&gt;

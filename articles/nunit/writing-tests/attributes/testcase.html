@@ -337,7 +337,7 @@ public sealed class TypeArgsVsCompileTimeGeneric
 <p><em>Thanks to <a href="https://github.com/GeirMG">Geir Marius Gjul</a> for raising this question again.</em></p>
 <h2 id="order-of-execution">Order of Execution</h2>
 <p>Individual test cases are executed in the order in which NUnit discovers them. This order does <strong>not</strong> necessarily follow the lexical order of the attributes and will often vary between different compilers or different versions of the CLR.</p>
-<p>As a result, when <strong>TestCaseAttribute</strong> appears multiple times on a method or when other data-providing attributes are used in combination with <strong>TestCaseAttribute</strong>, the order of the test cases is undefined.</p>
+<p>As a result, when <code>TestCaseAttribute</code> appears multiple times on a method or when other data-providing attributes are used in combination with <code>TestCaseAttribute</code>, the order of the test cases is undefined.</p>
 <h2 id="generic-testcase-attributes">Generic TestCase Attributes</h2>
 <p>NUnit provides generic versions of <code>TestCaseAttribute</code> that offer compile-time type safety for test arguments. These are available as <code>TestCaseAttribute&lt;T&gt;</code> through <code>TestCaseAttribute&lt;T1, T2, T3, T4, T5&gt;</code>, supporting up to five type parameters.</p>
 <div class="NOTE">

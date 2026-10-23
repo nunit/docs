@@ -89,7 +89,7 @@
 <p>The console interface runner is invoked by a command in the form</p>
 <pre><code class="lang-cmd">    NUNIT3-CONSOLE [inputfiles] [options]
 </code></pre>
-<p>where <strong>inputfiles</strong> is one or more assemblies or test projects of a type that NUnit can process and <strong>options</strong> is zero
+<p>where <code>inputfiles</code> is one or more assemblies or test projects of a type that NUnit can process and <code>options</code> is zero
 or more options. Input files and options may be mixed in any order.</p>
 <h2 id="input-files">Input Files</h2>
 <p>The console program must always have an assembly or project specified. Assemblies are specified by file name or path,
@@ -230,7 +230,7 @@ beginning with 2.0. Without the V2 driver, only version 3.0 and higher tests may
 </tr>
 <tr>
 <td><code>--labels=VALUE</code></td>
-<td>Specify whether to write test case names to the output. Values: Off, OnOutputOnly, Before, After, BeforeAndAfter, On, or All. If not specified, defaults to Off. <strong>Off</strong>: No labeling is used. Both normal and immediate output appear in the order produced - i.e. immediate first. <strong>OnOutputOnly</strong>: A label appears before each sequence of output lines from the same test. Since tests may be run in parallel, output from different tests may be intermixed. <strong>Before</strong>: A label appears at the start of every test, whether it produces output or not. Additional labels are produced as needed if interspersed output takes place, just as for <code>--labels=OnOutputOnly</code>. <strong>labels=After</strong>: A label appears at the end of every test, whether it produced output or not. This label includes the pass/fail status of the test in addition to its name. Additional labels are produced as needed if there is any output, just as for <code>--labels=OnOutputOnly</code>. <strong>BeforeAndAfter</strong> A label appears at the start and end of every test, whether it produced output or not. The label at the end of the test includes the pass/fail status of the test in addition to its name. Additional labels are produced as needed if interspersed output takes place, just as for <code>--labels=OnOutputOnly</code>. <strong>On</strong>. Synonym for <code>--labels=OnOutputOnly</code>, now deprecated (will be removed in a future release). <strong>All</strong>: Synonym for <code>--labels=Before</code>, now deprecated (will be removed in a future release).</td>
+<td>Specify whether to write test case names to the output. Values: Off, OnOutputOnly, Before, After, BeforeAndAfter, On, or All. If not specified, defaults to Off. <code>Off</code>: No labeling is used. Both normal and immediate output appear in the order produced - i.e. immediate first. <code>OnOutputOnly</code>: A label appears before each sequence of output lines from the same test. Since tests may be run in parallel, output from different tests may be intermixed. <code>Before</code>: A label appears at the start of every test, whether it produces output or not. Additional labels are produced as needed if interspersed output takes place, just as for <code>--labels=OnOutputOnly</code>. <code>labels=After</code>: A label appears at the end of every test, whether it produced output or not. This label includes the pass/fail status of the test in addition to its name. Additional labels are produced as needed if there is any output, just as for <code>--labels=OnOutputOnly</code>. <code>BeforeAndAfter</code> A label appears at the start and end of every test, whether it produced output or not. The label at the end of the test includes the pass/fail status of the test in addition to its name. Additional labels are produced as needed if interspersed output takes place, just as for <code>--labels=OnOutputOnly</code>. <code>On</code>. Synonym for <code>--labels=OnOutputOnly</code>, now deprecated (will be removed in a future release). <code>All</code>: Synonym for <code>--labels=Before</code>, now deprecated (will be removed in a future release).</td>
 </tr>
 <tr>
 <td><code>--test-name-format=VALUE</code></td>
@@ -275,7 +275,7 @@ beginning with 2.0. Without the V2 driver, only version 3.0 and higher tests may
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>By default, this command runs the tests contained in the assemblies and projects specified. If the <strong>--explore</strong> option
+<p>By default, this command runs the tests contained in the assemblies and projects specified. If the <code>--explore</code> option
 is used, no tests are executed but a description of the tests is saved in the specified or default format.</p>
 <p>Several options that specify processing of XML output take an output specification as a value. A SPEC may take one of
 the following forms:</p>

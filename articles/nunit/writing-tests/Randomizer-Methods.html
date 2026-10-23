@@ -86,10 +86,10 @@
             <article class="content wrap" id="_content" data-uid="randomizermethods">
 <h1 id="randomizer-methods">Randomizer Methods</h1>
 
-<p>The <strong>Randomizer</strong> object exposed by <code>TestContext.CurrentContext.Random</code> extends <code>System.Random</code> to provide random data
-for a wide range of numeric types as well as enums and strings. Each test context has access to its own <strong>Randomizer</strong>
+<p>The <code>Randomizer</code> object exposed by <code>TestContext.CurrentContext.Random</code> extends <code>System.Random</code> to provide random data
+for a wide range of numeric types as well as enums and strings. Each test context has access to its own <code>Randomizer</code>
 which is used to generate random values for the <code>RandomAttribute</code> as well as for use by the user calling its methods.</p>
-<p>The benefit of using <strong>Randomizer</strong> rather than <code>System.Random</code> directly is twofold:</p>
+<p>The benefit of using <code>Randomizer</code> rather than <code>System.Random</code> directly is twofold:</p>
 <ol>
 <li>A wide range of types are provided in a uniform manner.</li>
 <li>Randomizer produces repeatable values for the test run so long as no tests are changed and the same seed is used to

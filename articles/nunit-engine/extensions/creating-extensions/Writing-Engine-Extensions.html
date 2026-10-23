@@ -110,16 +110,16 @@ public class MyExtension : IProjectLoader
 <h2 id="extension-attribute">Extension Attribute</h2>
 <p>The <code>ExtensionAttribute</code> has four named properties, all optional:</p>
 <ul>
-<li><p><strong>Path</strong> This is a string that uniquely identifies the extension point to which the extension applies. It is only
+<li><p><code>Path</code> This is a string that uniquely identifies the extension point to which the extension applies. It is only
 rarely needed, since NUnit can usually deduce the type of extension based on what interface is implemented by the
 extension class.</p>
 </li>
-<li><p><strong>Description</strong> An optional description of what the extension does.</p>
+<li><p><code>Description</code> An optional description of what the extension does.</p>
 </li>
-<li><p><strong>Enabled</strong> A boolean flag indicating whether the extension is enabled. This defaults to true. The setting is used by
+<li><p><code>Enabled</code> A boolean flag indicating whether the extension is enabled. This defaults to true. The setting is used by
 advanced extensions with functionality that is turned on and off depending on user input.</p>
 </li>
-<li><p><strong>EngineVersion</strong> The minimum engine version supported by the extension. Although optional, you should use this
+<li><p><code>EngineVersion</code> The minimum engine version supported by the extension. Although optional, you should use this
 property if your extension will not work with all versions of the engine. If you don't use it and your extension
 requires engine services that are not present, then it might throw an exception or cause other errors.</p>
 </li>

@@ -108,7 +108,7 @@ Assert.That(&quot;not a null&quot;, myConstraint); // Passes
 <p>In the original example, the value assigned to myConstraint is
 known as an <strong>unresolved</strong> constraint. In fact, it's an
 unresolved NullConstraint, because that was the last constraint
-encountered in the expression. It's associated with a <strong>Not</strong>
+encountered in the expression. It's associated with a <code>Not</code>
 operator that has not yet been applied.</p>
 <p>That's OK for use with Assert.That(), because the method
 knows how to resolve a constraint before using it. Assert.That()
@@ -123,7 +123,7 @@ only sees the NullConstraint and not the NotConstraint.</p>
 of resolving the constraint, in this case</p>
 <pre><code class="lang-csharp">NotConstraint =&gt; NullConstraint
 </code></pre>
-<p>That's what <strong>ReusableConstraint</strong> does for us. It resolves
+<p>That's what <code>ReusableConstraint</code> does for us. It resolves
 the full expression and saves the result. Then it passes all
 operations on to that saved result.</p>
 <h2 id="when-to-use-it">When to Use It</h2>
@@ -146,7 +146,7 @@ Constraint myConstraint = new AndConstraint(
     new GreaterThanConstraint(0),
     new LessThanConstraint(100));
 </code></pre>
-<p>However, there is no significant penalty to using <strong>ReusableConstraint</strong>.
+<p>However, there is no significant penalty to using <code>ReusableConstraint</code>.
 It makes your intent much clearer and the exceptions listed are accidents of
 the internal implementation and could disappear in future releases.</p>
 

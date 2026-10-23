@@ -177,7 +177,7 @@ public sealed class TestCaseSourceCategoryFixture
 </table>
 <h2 id="usage">Usage</h2>
 <p>Consider a test of the divide operation, taking three arguments: the numerator, the denominator and the expected result.
-We can specify the test and its data using one of the forms of <strong>TestCaseSourceAttribute</strong>:</p>
+We can specify the test and its data using one of the forms of <code>TestCaseSourceAttribute</code>:</p>
 <h3 id="form-1---testcasesourcestring-sourcename">Form 1 - <code>[TestCaseSource(string sourceName)]</code></h3>
 <div class="NOTE">
 <h5>Note</h5>
@@ -613,9 +613,9 @@ showing which test cases were successfully loaded before the failure occurred.</
 <h3 id="order-of-execution">Order of Execution</h3>
 <p>Individual test cases are executed in the order in which NUnit discovers them. This order does <strong>not</strong> follow the
 lexical order of the attributes and will often vary between different compilers or different versions of the CLR.</p>
-<p>As a result, when <strong>TestCaseSourceAttribute</strong> appears multiple times on a method or when other data-providing attributes
-are used in combination with <strong>TestCaseSourceAttribute</strong>, the order of the test cases is undefined.</p>
-<p>However, when a single <strong>TestCaseSourceAttribute</strong> is used by itself, the order of the tests follows exactly the order
+<p>As a result, when <code>TestCaseSourceAttribute</code> appears multiple times on a method or when other data-providing attributes
+are used in combination with <code>TestCaseSourceAttribute</code>, the order of the test cases is undefined.</p>
+<p>However, when a single <code>TestCaseSourceAttribute</code> is used by itself, the order of the tests follows exactly the order
 in which the test cases are returned from the source.</p>
 <h3 id="object-construction">Object Construction</h3>
 <p>NUnit locates the test cases at the time the tests are loaded. It creates instances of each class used with the third

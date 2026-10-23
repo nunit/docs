@@ -193,34 +193,34 @@ be set by the user.</li>
 <h3 id="test">Test</h3>
 <p>Gets a representation of the current test, with the following properties:</p>
 <ul>
-<li><strong>ID</strong> - The unique Id of the test</li>
-<li><strong>Name</strong> - The name of the test, whether set by the user or generated automatically</li>
-<li><strong>Namespace</strong> - The namespace of the test</li>
-<li><strong>DisplayName</strong> - The display name of the test</li>
-<li><strong>FullName</strong> - The fully qualified name of the test</li>
-<li><strong>MethodName</strong> - The name of the method representing the test, if any</li>
-<li><strong>Method</strong> - The IMethodInfo of the test method</li>
-<li><strong>Type</strong> - The <code>TypeInfo</code> of the test</li>
-<li><strong>ClassName</strong> - The classname of the test</li>
-<li><strong>Arguments</strong> - The arguments as a list of objects, if any.</li>
-<li><strong>ExpectedResult</strong> - The expected result, if that is set for the test</li>
-<li><strong>Properties</strong> - An <code>IPropertyBag</code> of the test properties. Note: The <code>Get</code> method ONLY returns the first property
+<li><code>ID</code> - The unique Id of the test</li>
+<li><code>Name</code> - The name of the test, whether set by the user or generated automatically</li>
+<li><code>Namespace</code> - The namespace of the test</li>
+<li><code>DisplayName</code> - The display name of the test</li>
+<li><code>FullName</code> - The fully qualified name of the test</li>
+<li><code>MethodName</code> - The name of the method representing the test, if any</li>
+<li><code>Method</code> - The IMethodInfo of the test method</li>
+<li><code>Type</code> - The <code>TypeInfo</code> of the test</li>
+<li><code>ClassName</code> - The classname of the test</li>
+<li><code>Arguments</code> - The arguments as a list of objects, if any.</li>
+<li><code>ExpectedResult</code> - The expected result, if that is set for the test</li>
+<li><code>Properties</code> - An <code>IPropertyBag</code> of the test properties. Note: The <code>Get</code> method ONLY returns the first property
 (with a given key) for the current level.</li>
 </ul>
 <p>The following properties are in version 4.2 and above.</p>
 <ul>
-<li><strong>Parent</strong> - The parent of the given test.</li>
-<li><strong>AllPropertyValues</strong> - Returns a list of values (as objects) for a given property across the complete test hierarchy</li>
-<li><strong>AllCategories</strong> - Returns a list of all categories (as strings) across the complete test hierarchy</li>
-<li><strong>PropertyHierarchy</strong> - A utility method which returns the complete hierarchy of all properties including the name,
+<li><code>Parent</code> - The parent of the given test.</li>
+<li><code>AllPropertyValues</code> - Returns a list of values (as objects) for a given property across the complete test hierarchy</li>
+<li><code>AllCategories</code> - Returns a list of all categories (as strings) across the complete test hierarchy</li>
+<li><code>PropertyHierarchy</code> - A utility method which returns the complete hierarchy of all properties including the name,
 value and level where they are found.</li>
 </ul>
 <h3 id="result">Result</h3>
 <p>Gets a representation of the test result, with the following properties:</p>
 <ul>
-<li><strong>Outcome</strong> - A <code>ResultState</code> representing the outcome of the test. <code>ResultState</code> has the following properties:
+<li><code>Outcome</code> - A <code>ResultState</code> representing the outcome of the test. <code>ResultState</code> has the following properties:
 <ul>
-<li><strong>Status</strong> - A <code>TestStatus</code> with four possible values:
+<li><code>Status</code> - A <code>TestStatus</code> with four possible values:
 <ul>
 <li>Inconclusive</li>
 <li>Skipped</li>
@@ -229,9 +229,9 @@ value and level where they are found.</li>
 <li>Failed</li>
 </ul>
 </li>
-<li><strong>Label</strong> - An optional string value, which can provide sub-categories for each Status. See below for a list of
+<li><code>Label</code> - An optional string value, which can provide sub-categories for each Status. See below for a list of
 common outcomes supported internally by NUnit.</li>
-<li><strong>Site</strong> - A <code>FailureSite</code> value, indicating the stage of execution in which the test generated its result. Possible
+<li><code>Site</code> - A <code>FailureSite</code> value, indicating the stage of execution in which the test generated its result. Possible
 values are
 <ul>
 <li>Test</li>
@@ -243,11 +243,11 @@ values are
 </li>
 </ul>
 </li>
-<li><strong>Assertions</strong> - A list of <code>AssertionResult</code> values generated up to this point in the test. Please note that <strong>only
+<li><code>Assertions</code> - A list of <code>AssertionResult</code> values generated up to this point in the test. Please note that <strong>only
 failed assertions</strong> will be stored in here to limit the size of the result tree and potential impact on performance.
 Each <code>AssertionResult</code> has the following properties:
 <ul>
-<li><strong>Status</strong> - An <code>AssertionStatus</code> with five possible values:
+<li><code>Status</code> - An <code>AssertionStatus</code> with five possible values:
 <ul>
 <li>Inconclusive</li>
 <li>Passed</li>
@@ -256,18 +256,18 @@ Each <code>AssertionResult</code> has the following properties:
 <li>Error</li>
 </ul>
 </li>
-<li><strong>Message</strong> - A string containing the message produced by the assertion (possibly null).</li>
-<li><strong>StackTrace</strong> - A string containing the stack trace associated with the assertion.</li>
+<li><code>Message</code> - A string containing the message produced by the assertion (possibly null).</li>
+<li><code>StackTrace</code> - A string containing the stack trace associated with the assertion.</li>
 </ul>
 </li>
-<li><strong>PassCount</strong> - An int representing the number of test cases that passed when running the test and all its children.</li>
-<li><strong>FailCount</strong> - An int representing the number of test cases that failed when running the test and all its children.</li>
-<li><strong>SkipCount</strong> - An int representing the number of test cases that were skipped when running the test and all its
+<li><code>PassCount</code> - An int representing the number of test cases that passed when running the test and all its children.</li>
+<li><code>FailCount</code> - An int representing the number of test cases that failed when running the test and all its children.</li>
+<li><code>SkipCount</code> - An int representing the number of test cases that were skipped when running the test and all its
 children.</li>
-<li><strong>InconclusiveCount</strong> - An int representing the number of test cases that were inconclusive when running the test and
+<li><code>InconclusiveCount</code> - An int representing the number of test cases that were inconclusive when running the test and
 all its children.</li>
-<li><strong>StackTrace</strong> - A string containing the stack trace associated with an error or failure.</li>
-<li><strong>Message</strong> - A string containing the message associated with a test failure or with not running the test.</li>
+<li><code>StackTrace</code> - A string containing the stack trace associated with an error or failure.</li>
+<li><code>Message</code> - A string containing the message associated with a test failure or with not running the test.</li>
 </ul>
 <p>Although the outcome of the test may be accessed during setup or test execution, it only has a useful value in the
 teardown stage.</p>
@@ -335,7 +335,7 @@ public class CustomerTests
 <h3 id="workdirectory">WorkDirectory</h3>
 <p>Gets the full path of the directory to be used for output from this test run. The XML result file and any redirected
 output files are located under this directory. This is normally the directory that was current when execution of NUnit
-began but may be changed by use of the <strong>--work</strong> option of nunit-console.</p>
+began but may be changed by use of the <code>--work</code> option of nunit-console.</p>
 <h3 id="random">Random</h3>
 <p>Returns a <code>Randomizer</code> object, which may be used in the test code to generate random values. These values are repeatable
 on reruns of the tests so long as (a) the test assembly is not changed and (b) the same seed is used. The initial random

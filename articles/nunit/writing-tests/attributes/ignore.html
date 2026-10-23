@@ -178,7 +178,7 @@ public void IgnoredUntilDate()
 <p>In the above example, it's assumed that the test would fail if run. With the IgnoreAttribute, it will give a warning
 until the specified date. After that time, it will run normally and either pass or fail.</p>
 <h2 id="ignoring-individual-test-cases">Ignoring Individual Test Cases</h2>
-<p>The <strong>IgnoreAttribute</strong> causes all the test cases using the method on which it is placed to be ignored. Ignoring
+<p>The <code>IgnoreAttribute</code> causes all the test cases using the method on which it is placed to be ignored. Ignoring
 individual test cases is possible, depending on how they are specified.</p>
 <table>
 <thead>
@@ -189,12 +189,12 @@ individual test cases is possible, depending on how they are specified.</p>
 </thead>
 <tbody>
 <tr>
-<td><strong>TestCase</strong></td>
-<td>Use the <strong>Ignore</strong> named parameter of <code>TestCaseAttribute</code>.</td>
+<td><code>TestCase</code></td>
+<td>Use the <code>Ignore</code> named parameter of <code>TestCaseAttribute</code>.</td>
 </tr>
 <tr>
-<td><strong>TestCaseSource</strong></td>
-<td>Use <code>TestCaseData</code> for the source and set the <strong>Ignore</strong> property.</td>
+<td><code>TestCaseSource</code></td>
+<td>Use <code>TestCaseData</code> for the source and set the <code>Ignore</code> property.</td>
 </tr>
 </tbody>
 </table>

@@ -86,13 +86,13 @@
             <article class="content wrap" id="_content" data-uid="classic-assert-throws">
 <h1 id="assertthrows">Assert.Throws</h1>
 
-<p>The <strong>Assert.Throws</strong> method is pretty much in a class by itself. Rather than
+<p>The <code>Assert.Throws</code> method is pretty much in a class by itself. Rather than
 comparing values, it attempts to invoke a code snippet, represented as
 a delegate, in order to verify that it throws a particular exception.</p>
 <p>It's also in a class by itself in that it returns an Exception, rather
 than void, if the Assert is successful. See the example below for
 a few ways to use this.</p>
-<p><strong>Assert.Throws</strong> may be used with a constraint argument, which is applied
+<p><code>Assert.Throws</code> may be used with a constraint argument, which is applied
 to the actual exception thrown, or with the Type of exception expected.
 The Type format is available in both a non-generic and generic form.</p>
 <p>If the code under test is async, you must use <a href="Assert.ThrowsAsync.html">Assert.ThrowsAsync</a>.</p>
@@ -178,11 +178,11 @@ public class UsingConstraint
 </code></pre>
 <p>Use the form that matches your style of coding.</p>
 <h2 id="exact-versus-derived-types">Exact Versus Derived Types</h2>
-<p>When used with a Type argument, <strong>Assert.Throws</strong> requires
+<p>When used with a Type argument, <code>Assert.Throws</code> requires
 that exact type to be thrown. If you want to test for any
 derived Type, use one of the forms that allows specifying
 a constraint. Alternatively, you may use <a href="Assert.Catch.html">Assert.Catch</a>,
-which differs from <strong>Assert.Throws</strong> in allowing derived
+which differs from <code>Assert.Throws</code> in allowing derived
 types. See the following code for examples:</p>
 <pre><code class="lang-csharp">// Require an ApplicationException - derived types fail!
 Assert.Throws(typeof(ApplicationException), code);

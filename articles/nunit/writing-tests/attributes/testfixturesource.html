@@ -159,7 +159,7 @@ TestFixtureSourceAttribute(Type sourceType)
 </table>
 <h2 id="usage">Usage</h2>
 <p>Consider a test fixture class taking two parameters in its constructor, a string and an int. We can specify the test and
-its data using one of the forms of <strong>TestFixtureSourceAttribute</strong>:</p>
+its data using one of the forms of <code>TestFixtureSourceAttribute</code>:</p>
 <h3 id="form-1---testfixturesourcestring-sourcename">Form 1 - [TestFixtureSource(string sourceName)]</h3>
 <pre><code class="lang-csharp" name="BasicTestFixtureSource">[TestFixtureSource(nameof(FixtureArgs))]
 public class MyTestClass
@@ -250,8 +250,8 @@ class. Arguments must be consistent with the fixture constructor.</p>
 <h2 id="named-parameters">Named Parameters</h2>
 <p><code>TestFixtureSourceAttribute</code> supports two named parameters:</p>
 <ul>
-<li><strong>Category</strong> is used to assign one or more categories to every test fixture returned from this source.</li>
-<li><strong>TypeArgs</strong> can be used to explicitly specify the <code>Type</code>s to be used when constructing a generic test fixture. (<em>NUnit 4.5+</em>)</li>
+<li><code>Category</code> is used to assign one or more categories to every test fixture returned from this source.</li>
+<li><code>TypeArgs</code> can be used to explicitly specify the <code>Type</code>s to be used when constructing a generic test fixture. (<em>NUnit 4.5+</em>)</li>
 </ul>
 <h2 id="test-fixture-construction">Test Fixture Construction</h2>
 <p>In constructing fixtures, NUnit uses each item returned by the enumerator as follows:</p>

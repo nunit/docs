@@ -201,9 +201,9 @@ Programs requiring the full tree of tests, such as Gui runners, should follow up
 </code></pre>
 <p>where</p>
 <ul>
-<li><strong>controller</strong> is the FrameworkController instance that was created for managing the test assembly.</li>
-<li><strong>filter</strong> is the string representation of a filter in XML format to be used when exploring tests.</li>
-<li><strong>handler</strong> is an object implementing ICallbackEventHandler, to receive the result of the call.</li>
+<li><code>controller</code> is the FrameworkController instance that was created for managing the test assembly.</li>
+<li><code>filter</code> is the string representation of a filter in XML format to be used when exploring tests.</li>
+<li><code>handler</code> is an object implementing ICallbackEventHandler, to receive the result of the call.</li>
 </ul>
 <p>The result returned from <code>handler.GetCallbackResult()</code> is the XML representation of the test assembly, containing all
 tests that passed the filter, arranged as a tree with child tests contained within their parents.</p>

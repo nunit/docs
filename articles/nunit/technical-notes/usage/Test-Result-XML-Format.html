@@ -93,21 +93,21 @@
 <li><strong>Contained Elements:</strong> <a href="#command-line"><code>&lt;command-line&gt;</code></a>, <a href="#filter"><code>&lt;filter&gt;</code></a>, <a href="#test-suite"><code>&lt;test-suite&gt;</code></a></li>
 <li><strong>Attributes:</strong>
 <ul>
-<li><strong>id</strong> The unique ID of this test.</li>
-<li><strong>testcasecount</strong> The number of test cases contained in this test run.</li>
-<li><strong>result</strong> The basic result of the test. May be Passed, Failed, Inconclusive or Skipped.</li>
-<li><strong>total</strong> The total number of test cases executed in the run. This may be less than the testcasecount due to
+<li><code>id</code> The unique ID of this test.</li>
+<li><code>testcasecount</code> The number of test cases contained in this test run.</li>
+<li><code>result</code> The basic result of the test. May be Passed, Failed, Inconclusive or Skipped.</li>
+<li><code>total</code> The total number of test cases executed in the run. This may be less than the testcasecount due to
 filtering of tests.</li>
-<li><strong>passed</strong> The number of test cases that passed.</li>
-<li><strong>failed</strong> The number of test cases that failed.</li>
-<li><strong>inconclusive</strong> The number of test cases that were inconclusive.</li>
-<li><strong>skipped</strong> The number of test cases that were skipped.</li>
-<li><strong>asserts</strong> The number of asserts executed in the test run.</li>
-<li><strong>engine-version</strong> The version of the NUnit test engine in use.</li>
-<li><strong>clr-version</strong> The runtime version under which the engine is running, taken from Environment.Version.</li>
-<li><strong>start-time</strong> The UTC time that the test run started.</li>
-<li><strong>end-time</strong> The UTC time that the test run ended.</li>
-<li><strong>duration</strong> The duration of the test run in seconds, expressed as a real number.</li>
+<li><code>passed</code> The number of test cases that passed.</li>
+<li><code>failed</code> The number of test cases that failed.</li>
+<li><code>inconclusive</code> The number of test cases that were inconclusive.</li>
+<li><code>skipped</code> The number of test cases that were skipped.</li>
+<li><code>asserts</code> The number of asserts executed in the test run.</li>
+<li><code>engine-version</code> The version of the NUnit test engine in use.</li>
+<li><code>clr-version</code> The runtime version under which the engine is running, taken from Environment.Version.</li>
+<li><code>start-time</code> The UTC time that the test run started.</li>
+<li><code>end-time</code> The UTC time that the test run ended.</li>
+<li><code>duration</code> The duration of the test run in seconds, expressed as a real number.</li>
 </ul>
 </li>
 </ul>
@@ -167,7 +167,7 @@ filter to pass.</p>
 <li><strong>Contained Elements:</strong> None</li>
 <li><strong>Attributes:</strong>
 <ul>
-<li><strong>re</strong> Set to '1' to indicate that a regular expression comparison is to be used.</li>
+<li><code>re</code> Set to '1' to indicate that a regular expression comparison is to be used.</li>
 </ul>
 </li>
 </ul>
@@ -177,7 +177,7 @@ filter to pass.</p>
 <li><strong>Contained Elements:</strong> None</li>
 <li><strong>Attributes:</strong>
 <ul>
-<li><strong>re</strong> Set to '1' to indicate that a regular expression comparison is to be used.</li>
+<li><code>re</code> Set to '1' to indicate that a regular expression comparison is to be used.</li>
 </ul>
 </li>
 </ul>
@@ -187,7 +187,7 @@ filter to pass.</p>
 <li><strong>Contained Elements:</strong> None</li>
 <li><strong>Attributes:</strong>
 <ul>
-<li><strong>re</strong> Set to '1' to indicate that a regular expression comparison is to be used.</li>
+<li><code>re</code> Set to '1' to indicate that a regular expression comparison is to be used.</li>
 </ul>
 </li>
 </ul>
@@ -197,8 +197,8 @@ filter to pass.</p>
 <li><strong>Contained Elements:</strong> None</li>
 <li><strong>Attributes:</strong>
 <ul>
-<li><strong>name</strong> The name of the property to filter on.</li>
-<li><strong>re</strong> Set to '1' to indicate that a regular expression comparison is to be used.</li>
+<li><code>name</code> The name of the property to filter on.</li>
+<li><code>re</code> Set to '1' to indicate that a regular expression comparison is to be used.</li>
 </ul>
 </li>
 </ul>
@@ -216,36 +216,36 @@ filter to pass.</p>
 <a href="#test-suite"><code>&lt;test-suite&gt;</code></a>, <a href="#test-case"><code>&lt;test-case&gt;</code></a></li>
 <li><strong>Attributes</strong>
 <ul>
-<li><strong>type</strong> The type of suite represented by this element. Currently supported types are Project, Assembly, TestSuite,
+<li><code>type</code> The type of suite represented by this element. Currently supported types are Project, Assembly, TestSuite,
 TestFixture, GenericFixture, ParameterizedFixture, SetUpFixture, GenericMethod, ParameterizedMethod, Theory.</li>
-<li><strong>id</strong> The unique id of this test. Coded as &quot;mmm-nnn&quot; where the part before the hyphen represents the assembly and
+<li><code>id</code> The unique id of this test. Coded as &quot;mmm-nnn&quot; where the part before the hyphen represents the assembly and
 the part after it represents a test in that assembly. Currently, mmm and nnn are ints, but that is merely an
 accident of the implementation and should not be relied on.</li>
-<li><strong>name</strong> The display name of the test as generated by NUnit.</li>
-<li><strong>fullname</strong> The full name of the test as generated by NUnit.</li>
-<li><strong>classname</strong> The full name of the class (fixture) representing this test. Only present if <code>type</code> is equal to
+<li><code>name</code> The display name of the test as generated by NUnit.</li>
+<li><code>fullname</code> The full name of the test as generated by NUnit.</li>
+<li><code>classname</code> The full name of the class (fixture) representing this test. Only present if <code>type</code> is equal to
 &quot;TestFixture&quot;.</li>
-<li><strong>testcasecount</strong> The number of test cases contained, directly or indirectly, in this suite.</li>
-<li><strong>runstate</strong> An indicator of whether the suite is runnable. Value may be NotRunnable, Runnable, Explicit, Skipped or
+<li><code>testcasecount</code> The number of test cases contained, directly or indirectly, in this suite.</li>
+<li><code>runstate</code> An indicator of whether the suite is runnable. Value may be NotRunnable, Runnable, Explicit, Skipped or
 Ignored. NotRunnable means there is an error in how the test is expressed in code, for example, the signature may be
 wrong. Explicit, Skipped and Ignored are set by attributes on the test.</li>
-<li><strong>result</strong> The basic result of the test. May be Passed, Failed, Inconclusive or Skipped.</li>
-<li><strong>label</strong> Additional labeling information about the result. In principle, this may be any string value and is
+<li><code>result</code> The basic result of the test. May be Passed, Failed, Inconclusive or Skipped.</li>
+<li><code>label</code> Additional labeling information about the result. In principle, this may be any string value and is
 combined with the result to give a more precise reason for failure. Currently, NUnit may use the following labels in
 combination with the Failure result: Error, Cancelled or Invalid. It may use the following labels in combination
 with a Skipped result: Ignored or Explicit. Additional values may be added in future releases or supplied by
 extensions, so code that processes a result file should be prepared to deal with any label or none at all.</li>
-<li><strong>site</strong> Optional element indicating where a failure occurred. Values are Test, SetUp, TearDown, Parent or Child.
+<li><code>site</code> Optional element indicating where a failure occurred. Values are Test, SetUp, TearDown, Parent or Child.
 Default is Test and the attribute does not normally appear in that case.</li>
-<li><strong>start-time</strong> The UTC time that the suite started.</li>
-<li><strong>end-time</strong> The UTC time that the suite ended.</li>
-<li><strong>duration</strong> The duration of the suite in seconds, expressed as a real number.</li>
-<li><strong>total</strong> The total number of test cases executed under this suite.</li>
-<li><strong>passed</strong> The number of test cases that passed.</li>
-<li><strong>failed</strong> The number of test cases that failed.</li>
-<li><strong>inconclusive</strong> The number of test cases that were inconclusive.</li>
-<li><strong>skipped</strong> The number of test cases that were skipped.</li>
-<li><strong>asserts</strong> The number of asserts executed by the suite, including any nested suites or test cases. Since asserts
+<li><code>start-time</code> The UTC time that the suite started.</li>
+<li><code>end-time</code> The UTC time that the suite ended.</li>
+<li><code>duration</code> The duration of the suite in seconds, expressed as a real number.</li>
+<li><code>total</code> The total number of test cases executed under this suite.</li>
+<li><code>passed</code> The number of test cases that passed.</li>
+<li><code>failed</code> The number of test cases that failed.</li>
+<li><code>inconclusive</code> The number of test cases that were inconclusive.</li>
+<li><code>skipped</code> The number of test cases that were skipped.</li>
+<li><code>asserts</code> The number of asserts executed by the suite, including any nested suites or test cases. Since asserts
 may be executed in OneTimeSetUp and in ActionAttributes, this number can be greater than the total of the asserts
 for the test cases.</li>
 </ul>
@@ -287,8 +287,8 @@ supplemented by default settings created by the engine itself.</p>
 <li><strong>Contained Elements:</strong> None</li>
 <li><strong>Attributes:</strong>
 <ul>
-<li><strong>name</strong> The name of the setting.</li>
-<li><strong>value</strong> The value assigned to the setting.</li>
+<li><code>name</code> The name of the setting.</li>
+<li><code>value</code> The value assigned to the setting.</li>
 </ul>
 </li>
 </ul>
@@ -340,8 +340,8 @@ Default is Test and the attribute does not normally appear in that case.</li>
 <li><strong>Contained Elements:</strong> None</li>
 <li><strong>Attributes</strong>
 <ul>
-<li><strong>name</strong> The name of the property</li>
-<li><strong>value</strong> The value of the property</li>
+<li><code>name</code> The name of the property</li>
+<li><code>value</code> The value of the property</li>
 </ul>
 </li>
 </ul>
@@ -374,7 +374,7 @@ and/or a stack trace.</p>
 <li><strong>Contained Elements:</strong> <a href="#message"><code>&lt;message&gt;</code></a>, <a href="#stack-trace"><code>&lt;stack-trace&gt;</code></a></li>
 <li><strong>Attributes</strong>
 <ul>
-<li><strong>result</strong> The result of the assertion. May be Inconclusive, Passed, Warning, Failed or Error.</li>
+<li><code>result</code> The result of the assertion. May be Inconclusive, Passed, Warning, Failed or Error.</li>
 </ul>
 </li>
 </ul>
