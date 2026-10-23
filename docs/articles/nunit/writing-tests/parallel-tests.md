@@ -4,7 +4,7 @@ uid: paralleltests
 
 # Running Tests in Parallel
 
-NUnit runs tests one at a time unless you tell it otherwise. The [`[Parallelizable]`](xref:attribute-parallelizable)
+Within a test assembly, NUnit runs tests one at a time unless you tell it otherwise. The [`[Parallelizable]`](xref:attribute-parallelizable)
 attribute does not tell NUnit to do anything by itself. It is a promise from you that the test is able to run at the
 same time as other tests, and NUnit then schedules it on one of a pool of worker threads. This page answers the
 questions that come up most often. The attribute reference pages describe each attribute, and
