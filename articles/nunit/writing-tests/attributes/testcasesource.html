@@ -535,6 +535,67 @@ public class OptionalParametersFixture
         yield return new TestCaseData(&quot;a&quot;);
     }
 }
+</code></pre><h3 id="params-arrays">Params arrays</h3>
+<p>When the last parameter of the test method is a <code>params</code> array, any arguments supplied by the source beyond the fixed
+parameters are gathered into that array, just as they are for <a class="xref" href="testcase.html">TestCase</a>. A test case that
+supplies no extra arguments gives an empty array, and a test case whose last argument is already an array of the right
+type passes it through unchanged. (<em>NUnit 4.5+</em>)</p>
+<pre><code class="lang-csharp" name="ParamsArray">[TestFixture]
+public class ParamsArrayFixture
+{
+    [TestCaseSource(nameof(ParamsArrayCases))]
+    public void TestWithParamsArray(string name, params int[] values)
+    {
+        Assert.That(name, Is.Not.Null);
+        Assert.That(values, Is.Not.Null);
+        Assert.That(values, Is.All.Positive);
+    }
+
+    private static IEnumerable&lt;TestCaseData&gt; ParamsArrayCases()
+    {
+        // Extra arguments are gathered into the params array: values = [1, 2, 3]
+        yield return new TestCaseData(&quot;three&quot;, 1, 2, 3);
+
+        // A single extra argument gives a one-element array: values = [1]
+        yield return new TestCaseData(&quot;one&quot;, 1);
+
+        // No extra arguments gives an empty array: values = []
+        yield return new TestCaseData(&quot;none&quot;);
+
+        // An array of the right type as the last argument is used as-is: values = [4, 5]
+        yield return new TestCaseData(&quot;array&quot;, new[] { 4, 5 });
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>A <code>params</code> array must be the last parameter of the method, so a test that uses one cannot also declare the
+<code>CancellationToken</code> parameter that <a class="xref" href="cancelafter.html">CancelAfter</a> injects (see
+<a href="#cancellationtoken-support">CancellationToken support</a> below). When combining <code>[CancelAfter]</code> with a <code>params</code>
+array, read the token from <code>TestContext.CurrentContext.CancellationToken</code> instead.</p>
+</div>
+<pre><code class="lang-csharp" name="ParamsArrayWithCancelAfter">[TestFixture]
+public class ParamsArrayWithCancelAfterFixture
+{
+    [TestCaseSource(nameof(Cases))]
+    [CancelAfter(5000)]
+    public void TestWithParamsArrayAndCancelAfter(string name, params int[] values)
+    {
+        // A CancellationToken parameter cannot follow a params array,
+        // so read the token from the test context instead.
+        CancellationToken cancellationToken = TestContext.CurrentContext.CancellationToken;
+
+        cancellationToken.ThrowIfCancellationRequested();
+        Assert.That(name, Is.Not.Null);
+        Assert.That(values, Is.All.Positive);
+    }
+
+    private static IEnumerable&lt;TestCaseData&gt; Cases()
+    {
+        yield return new TestCaseData(&quot;three&quot;, 1, 2, 3);
+        yield return new TestCaseData(&quot;none&quot;);
+    }
+}
 </code></pre><h3 id="cancellationtoken-support">CancellationToken support</h3>
 <p>When using <code>[CancelAfter]</code> with <code>TestCaseSource</code>, NUnit automatically injects a <code>CancellationToken</code> as the last
 parameter of the test method. The test case source should <strong>not</strong> include the <code>CancellationToken</code> in its data—NUnit
@@ -570,6 +631,8 @@ public class CancellationTokenFixture
     }
 }
 </code></pre>
+<p>Because the injected <code>CancellationToken</code> must be the last parameter, this cannot be combined with a
+<a href="#params-arrays"><code>params</code> array</a>. In that case, use <code>TestContext.CurrentContext.CancellationToken</code> instead.</p>
 <p>See <a class="xref" href="cancelafter.html">CancelAfter</a> for more information on cancellation token handling.</p>
 <h2 id="test-case-construction">Test Case Construction</h2>
 <p>In constructing tests, NUnit uses each item returned by the enumerator as follows:</p>
