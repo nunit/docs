@@ -101,179 +101,237 @@
 <thead>
 <tr>
 <th>Constraint Name</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="AllItemsConstraint.html">AllItemsConstraint</a></td>
+<td><code>Assert.That(numbers, Is.All.GreaterThan(0));</code></td>
 </tr>
 <tr>
 <td><a href="AndConstraint.html">AndConstraint</a></td>
-</tr>
-<tr>
-<td><a href="AssignableFromConstraint.html">AssignableFromConstraint</a></td>
-</tr>
-<tr>
-<td><a href="AssignableToConstraint.html">AssignableToConstraint</a></td>
-</tr>
-<tr>
-<td><a href="AttributeConstraint.html">AttributeConstraint</a></td>
-</tr>
-<tr>
-<td><a href="AttributeExistsConstraint.html">AttributeExistsConstraint</a></td>
+<td><code>Assert.That(value, Is.GreaterThan(0).And.LessThan(100));</code></td>
 </tr>
 <tr>
 <td><a href="AnyOfConstraint.html">AnyOfConstraint</a></td>
+<td><code>Assert.That(42, Is.AnyOf(0, -1, 42, 100));</code></td>
+</tr>
+<tr>
+<td><a href="AssignableFromConstraint.html">AssignableFromConstraint</a></td>
+<td><code>Assert.That(&quot;Hello&quot;, Is.AssignableFrom&lt;string&gt;());</code></td>
+</tr>
+<tr>
+<td><a href="AssignableToConstraint.html">AssignableToConstraint</a></td>
+<td><code>Assert.That(&quot;Hello&quot;, Is.AssignableTo&lt;object&gt;());</code></td>
+</tr>
+<tr>
+<td><a href="AttributeConstraint.html">AttributeConstraint</a></td>
+<td><code>Assert.That(typeof(MyFixture), Has.Attribute&lt;CategoryAttribute&gt;().Property(&quot;Name&quot;).EqualTo(&quot;Database&quot;));</code></td>
+</tr>
+<tr>
+<td><a href="AttributeExistsConstraint.html">AttributeExistsConstraint</a></td>
+<td><code>Assert.That(typeof(MyClass), Has.Attribute&lt;SerializableAttribute&gt;());</code></td>
 </tr>
 <tr>
 <td><a href="BinarySerializableConstraint.html">BinarySerializableConstraint</a></td>
+<td><code>Assert.That(someObject, Is.BinarySerializable);</code></td>
 </tr>
 <tr>
 <td><a href="CollectionEquivalentConstraint.html">CollectionEquivalentConstraint</a></td>
+<td><code>Assert.That(new[] { 3, 2, 1 }, Is.EquivalentTo(new[] { 1, 2, 3 }));</code></td>
 </tr>
 <tr>
 <td><a href="CollectionOrderedConstraint.html">CollectionOrderedConstraint</a></td>
+<td><code>Assert.That(new[] { 1, 2, 3 }, Is.Ordered);</code></td>
 </tr>
 <tr>
 <td><a href="CollectionSubsetConstraint.html">CollectionSubsetConstraint</a></td>
+<td><code>Assert.That(new[] { 1, 3 }, Is.SubsetOf(new[] { 1, 2, 3 }));</code></td>
 </tr>
 <tr>
 <td><a href="CollectionSupersetConstraint.html">CollectionSupersetConstraint</a></td>
+<td><code>Assert.That(new[] { 1, 2, 3 }, Is.SupersetOf(new[] { 1, 3 }));</code></td>
 </tr>
 <tr>
 <td><a href="ContainsConstraint.html">ContainsConstraint</a></td>
+<td><code>Assert.That(&quot;Hello World&quot;, Does.Contain(&quot;World&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="DefaultConstraint.html">DefaultConstraint</a></td>
+<td><code>Assert.That(default(DateTime), Is.Default);</code></td>
 </tr>
 <tr>
 <td><a href="DelayedConstraint.html">DelayedConstraint</a></td>
+<td><code>Assert.That(() =&gt; flag, Is.True.After(500).MilliSeconds.PollEvery(50).MilliSeconds);</code></td>
 </tr>
 <tr>
 <td><a href="DictionaryContainsKeyConstraint.html">DictionaryContainsKeyConstraint</a></td>
+<td><code>Assert.That(dictionary, Does.ContainKey(&quot;Alice&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="DictionaryContainsKeyValuePairConstraint.html">DictionaryContainsKeyValuePairConstraint</a></td>
+<td><code>Assert.That(dictionary, Does.ContainKey(&quot;Hello&quot;).WithValue(&quot;World&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="DictionaryContainsValueConstraint.html">DictionaryContainsValueConstraint</a></td>
+<td><code>Assert.That(dictionary, Does.ContainValue(85));</code></td>
 </tr>
 <tr>
 <td><a href="EmptyCollectionConstraint.html">EmptyCollectionConstraint</a></td>
+<td><code>Assert.That(new List&lt;string&gt;(), Is.Empty);</code></td>
 </tr>
 <tr>
 <td><a href="EmptyConstraint.html">EmptyConstraint</a></td>
+<td><code>Assert.That(value, Is.Empty);</code></td>
 </tr>
 <tr>
 <td><a href="EmptyDirectoryConstraint.html">EmptyDirectoryConstraint</a></td>
+<td><code>Assert.That(new DirectoryInfo(path), Is.Empty);</code></td>
 </tr>
 <tr>
 <td><a href="EmptyStringConstraint.html">EmptyStringConstraint</a></td>
+<td><code>Assert.That(&quot;&quot;, Is.Empty);</code></td>
 </tr>
 <tr>
 <td><a href="EndsWithConstraint.html">EndsWithConstraint</a></td>
+<td><code>Assert.That(&quot;Hello World!&quot;, Does.EndWith(&quot;World!&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="EqualConstraint.html">EqualConstraint</a></td>
+<td><code>Assert.That(2 + 2, Is.EqualTo(4));</code></td>
 </tr>
 <tr>
 <td><a href="ExactCountConstraint.html">ExactCountConstraint</a></td>
+<td><code>Assert.That(numbers, Has.Exactly(2).GreaterThan(3));</code></td>
 </tr>
 <tr>
 <td><a href="ExactTypeConstraint.html">ExactTypeConstraint</a></td>
+<td><code>Assert.That(&quot;Hello&quot;, Is.TypeOf&lt;string&gt;());</code></td>
 </tr>
 <tr>
 <td><a href="FalseConstraint.html">FalseConstraint</a></td>
+<td><code>Assert.That(2 + 2 == 5, Is.False);</code></td>
 </tr>
 <tr>
 <td><a href="FileOrDirectoryExistsConstraint.html">FileOrDirectoryExistsConstraint</a></td>
+<td><code>Assert.That(new FileInfo(path), Does.Exist);</code></td>
 </tr>
 <tr>
 <td><a href="GreaterThanConstraint.html">GreaterThanConstraint</a></td>
+<td><code>Assert.That(7, Is.GreaterThan(3));</code></td>
 </tr>
 <tr>
 <td><a href="GreaterThanOrEqualConstraint.html">GreaterThanOrEqualConstraint</a></td>
+<td><code>Assert.That(7, Is.GreaterThanOrEqualTo(7));</code></td>
 </tr>
 <tr>
 <td><a href="InstanceOfTypeConstraint.html">InstanceOfTypeConstraint</a></td>
+<td><code>Assert.That(&quot;Hello&quot;, Is.InstanceOf&lt;object&gt;());</code></td>
 </tr>
 <tr>
 <td><a href="LessThanConstraint.html">LessThanConstraint</a></td>
+<td><code>Assert.That(3, Is.LessThan(7));</code></td>
 </tr>
 <tr>
 <td><a href="LessThanOrEqualConstraint.html">LessThanOrEqualConstraint</a></td>
+<td><code>Assert.That(3, Is.LessThanOrEqualTo(7));</code></td>
 </tr>
 <tr>
 <td><a href="MultipleOfConstraint.html">MultipleOfConstraint</a></td>
+<td><code>Assert.That(12, Is.MultipleOf(3));</code></td>
 </tr>
 <tr>
 <td><a href="NaNConstraint.html">NaNConstraint</a></td>
+<td><code>Assert.That(0.0 / 0.0, Is.NaN);</code></td>
 </tr>
 <tr>
 <td><a href="NoItemConstraint.html">NoItemConstraint</a></td>
+<td><code>Assert.That(numbers, Has.None.LessThan(0));</code></td>
 </tr>
 <tr>
 <td><a href="NotConstraint.html">NotConstraint</a></td>
+<td><code>Assert.That(42, Is.Not.EqualTo(0));</code></td>
 </tr>
 <tr>
 <td><a href="NullConstraint.html">NullConstraint</a></td>
+<td><code>Assert.That(obj, Is.Null);</code></td>
 </tr>
 <tr>
 <td><a href="OrConstraint.html">OrConstraint</a></td>
+<td><code>Assert.That(value, Is.LessThan(10).Or.GreaterThan(40));</code></td>
 </tr>
 <tr>
 <td><a href="PropertyConstraint.html">PropertyConstraint</a></td>
+<td><code>Assert.That(person, Has.Property(&quot;Age&quot;).GreaterThan(18));</code></td>
 </tr>
 <tr>
 <td><a href="PropertyExistsConstraint.html">PropertyExistsConstraint</a></td>
+<td><code>Assert.That(&quot;Hello&quot;, Has.Property(&quot;Length&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="RangeConstraint.html">RangeConstraint</a></td>
+<td><code>Assert.That(5, Is.InRange(1, 10));</code></td>
 </tr>
 <tr>
 <td><a href="RegexConstraint.html">RegexConstraint</a></td>
+<td><code>Assert.That(&quot;555-123-4567&quot;, Does.Match(@&quot;^\d{3}-\d{3}-\d{4}$&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="ReusableConstraint.html">ReusableConstraint</a></td>
+<td><code>ReusableConstraint myConstraint = Is.Not.Null;</code></td>
 </tr>
 <tr>
 <td><a href="SameAsConstraint.html">SameAsConstraint</a></td>
+<td><code>Assert.That(obj2, Is.SameAs(obj1));</code></td>
 </tr>
 <tr>
 <td><a href="SamePathConstraint.html">SamePathConstraint</a></td>
+<td><code>Assert.That(&quot;/folder1/./junk/../folder2&quot;, Is.SamePath(&quot;/folder1/folder2&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="SamePathOrUnderConstraint.html">SamePathOrUnderConstraint</a></td>
+<td><code>Assert.That(&quot;/folder1/folder2/folder3&quot;, Is.SamePathOrUnder(&quot;/folder1/folder2&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="SomeItemsConstraint.html">SomeItemsConstraint</a></td>
+<td><code>Assert.That(numbers, Has.Some.GreaterThan(3));</code></td>
 </tr>
 <tr>
 <td><a href="StartsWithConstraint.html">StartsWithConstraint</a></td>
+<td><code>Assert.That(&quot;Hello World!&quot;, Does.StartWith(&quot;Hello&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="SubPathConstraint.html">SubPathConstraint</a></td>
+<td><code>Assert.That(&quot;/folder1/folder2&quot;, Is.SubPathOf(&quot;/folder1/&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="SubstringConstraint.html">SubstringConstraint</a></td>
+<td><code>Assert.That(&quot;Hello World!&quot;, Does.Contain(&quot;lo Wor&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="ThrowsConstraint.html">ThrowsConstraint</a></td>
+<td><code>Assert.That(() =&gt; int.Parse(&quot;abc&quot;), Throws.TypeOf&lt;FormatException&gt;());</code></td>
 </tr>
 <tr>
 <td><a href="ThrowsNothingConstraint.html">ThrowsNothingConstraint</a></td>
+<td><code>Assert.That(() =&gt; Add(1, 2), Throws.Nothing);</code></td>
 </tr>
 <tr>
 <td><a href="TrueConstraint.html">TrueConstraint</a></td>
+<td><code>Assert.That(2 + 2 == 4, Is.True);</code></td>
 </tr>
 <tr>
 <td><a href="UniqueItemsConstraint.html">UniqueItemsConstraint</a></td>
+<td><code>Assert.That(new[] { 1, 2, 3 }, Is.Unique);</code></td>
 </tr>
 <tr>
 <td><a href="WhiteSpaceConstraint.html">WhiteSpaceConstraint</a></td>
+<td><code>Assert.That(&quot; &quot;, Is.WhiteSpace);</code></td>
 </tr>
 <tr>
 <td><a href="XmlSerializableConstraint.html">XmlSerializableConstraint</a></td>
+<td><code>Assert.That(someObject, Is.XmlSerializable);</code></td>
 </tr>
 </tbody>
 </table>
@@ -283,50 +341,65 @@
 <thead>
 <tr>
 <th>Constraint Name</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="AllItemsConstraint.html">AllItemsConstraint</a></td>
+<td><code>Assert.That(numbers, Is.All.GreaterThan(0));</code></td>
 </tr>
 <tr>
 <td><a href="AnyOfConstraint.html">AnyOfConstraint</a></td>
+<td><code>Assert.That(42, Is.AnyOf(0, -1, 42, 100));</code></td>
 </tr>
 <tr>
 <td><a href="CollectionEquivalentConstraint.html">CollectionEquivalentConstraint</a></td>
+<td><code>Assert.That(new[] { 3, 2, 1 }, Is.EquivalentTo(new[] { 1, 2, 3 }));</code></td>
 </tr>
 <tr>
 <td><a href="CollectionOrderedConstraint.html">CollectionOrderedConstraint</a></td>
+<td><code>Assert.That(new[] { 1, 2, 3 }, Is.Ordered);</code></td>
 </tr>
 <tr>
 <td><a href="CollectionSubsetConstraint.html">CollectionSubsetConstraint</a></td>
+<td><code>Assert.That(new[] { 1, 3 }, Is.SubsetOf(new[] { 1, 2, 3 }));</code></td>
 </tr>
 <tr>
 <td><a href="CollectionSupersetConstraint.html">CollectionSupersetConstraint</a></td>
+<td><code>Assert.That(new[] { 1, 2, 3 }, Is.SupersetOf(new[] { 1, 3 }));</code></td>
 </tr>
 <tr>
 <td><a href="DictionaryContainsKeyConstraint.html">DictionaryContainsKeyConstraint</a></td>
+<td><code>Assert.That(dictionary, Does.ContainKey(&quot;Alice&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="DictionaryContainsKeyValuePairConstraint.html">DictionaryContainsKeyValuePairConstraint</a></td>
+<td><code>Assert.That(dictionary, Does.ContainKey(&quot;Hello&quot;).WithValue(&quot;World&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="DictionaryContainsValueConstraint.html">DictionaryContainsValueConstraint</a></td>
+<td><code>Assert.That(dictionary, Does.ContainValue(85));</code></td>
 </tr>
 <tr>
 <td><a href="EmptyCollectionConstraint.html">EmptyCollectionConstraint</a></td>
+<td><code>Assert.That(new List&lt;string&gt;(), Is.Empty);</code></td>
 </tr>
 <tr>
 <td><a href="ExactCountConstraint.html">ExactCountConstraint</a></td>
+<td><code>Assert.That(numbers, Has.Exactly(2).GreaterThan(3));</code></td>
 </tr>
 <tr>
 <td><a href="NoItemConstraint.html">NoItemConstraint</a></td>
+<td><code>Assert.That(numbers, Has.None.LessThan(0));</code></td>
 </tr>
 <tr>
 <td><a href="SomeItemsConstraint.html">SomeItemsConstraint</a></td>
+<td><code>Assert.That(numbers, Has.Some.GreaterThan(3));</code></td>
 </tr>
 <tr>
 <td><a href="UniqueItemsConstraint.html">UniqueItemsConstraint</a></td>
+<td><code>Assert.That(new[] { 1, 2, 3 }, Is.Unique);</code></td>
 </tr>
 </tbody>
 </table>
@@ -335,26 +408,33 @@
 <thead>
 <tr>
 <th>Constraint Name</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="GreaterThanConstraint.html">GreaterThanConstraint</a></td>
+<td><code>Assert.That(7, Is.GreaterThan(3));</code></td>
 </tr>
 <tr>
 <td><a href="GreaterThanOrEqualConstraint.html">GreaterThanOrEqualConstraint</a></td>
+<td><code>Assert.That(7, Is.GreaterThanOrEqualTo(7));</code></td>
 </tr>
 <tr>
 <td><a href="LessThanConstraint.html">LessThanConstraint</a></td>
+<td><code>Assert.That(3, Is.LessThan(7));</code></td>
 </tr>
 <tr>
 <td><a href="LessThanOrEqualConstraint.html">LessThanOrEqualConstraint</a></td>
+<td><code>Assert.That(3, Is.LessThanOrEqualTo(7));</code></td>
 </tr>
 <tr>
 <td><a href="MultipleOfConstraint.html">MultipleOfConstraint</a></td>
+<td><code>Assert.That(12, Is.MultipleOf(3));</code></td>
 </tr>
 <tr>
 <td><a href="RangeConstraint.html">RangeConstraint</a></td>
+<td><code>Assert.That(5, Is.InRange(1, 10));</code></td>
 </tr>
 </tbody>
 </table>
@@ -363,17 +443,21 @@
 <thead>
 <tr>
 <th>Constraint Name</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="AndConstraint.html">AndConstraint</a></td>
+<td><code>Assert.That(value, Is.GreaterThan(0).And.LessThan(100));</code></td>
 </tr>
 <tr>
 <td><a href="NotConstraint.html">NotConstraint</a></td>
+<td><code>Assert.That(42, Is.Not.EqualTo(0));</code></td>
 </tr>
 <tr>
 <td><a href="OrConstraint.html">OrConstraint</a></td>
+<td><code>Assert.That(value, Is.LessThan(10).Or.GreaterThan(40));</code></td>
 </tr>
 </tbody>
 </table>
@@ -382,29 +466,37 @@
 <thead>
 <tr>
 <th>Constraint Name</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="DefaultConstraint.html">DefaultConstraint</a></td>
+<td><code>Assert.That(default(DateTime), Is.Default);</code></td>
 </tr>
 <tr>
 <td><a href="EmptyConstraint.html">EmptyConstraint</a></td>
+<td><code>Assert.That(value, Is.Empty);</code></td>
 </tr>
 <tr>
 <td><a href="FalseConstraint.html">FalseConstraint</a></td>
+<td><code>Assert.That(2 + 2 == 5, Is.False);</code></td>
 </tr>
 <tr>
 <td><a href="NaNConstraint.html">NaNConstraint</a></td>
+<td><code>Assert.That(0.0 / 0.0, Is.NaN);</code></td>
 </tr>
 <tr>
 <td><a href="NullConstraint.html">NullConstraint</a></td>
+<td><code>Assert.That(obj, Is.Null);</code></td>
 </tr>
 <tr>
 <td><a href="TrueConstraint.html">TrueConstraint</a></td>
+<td><code>Assert.That(2 + 2 == 4, Is.True);</code></td>
 </tr>
 <tr>
 <td><a href="WhiteSpaceConstraint.html">WhiteSpaceConstraint</a></td>
+<td><code>Assert.That(&quot; &quot;, Is.WhiteSpace);</code></td>
 </tr>
 </tbody>
 </table>
@@ -413,23 +505,29 @@
 <thead>
 <tr>
 <th>Constraint Name</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="EmptyDirectoryConstraint.html">EmptyDirectoryConstraint</a></td>
+<td><code>Assert.That(new DirectoryInfo(path), Is.Empty);</code></td>
 </tr>
 <tr>
 <td><a href="FileOrDirectoryExistsConstraint.html">FileOrDirectoryExistsConstraint</a></td>
+<td><code>Assert.That(new FileInfo(path), Does.Exist);</code></td>
 </tr>
 <tr>
 <td><a href="SamePathConstraint.html">SamePathConstraint</a></td>
+<td><code>Assert.That(&quot;/folder1/./junk/../folder2&quot;, Is.SamePath(&quot;/folder1/folder2&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="SamePathOrUnderConstraint.html">SamePathOrUnderConstraint</a></td>
+<td><code>Assert.That(&quot;/folder1/folder2/folder3&quot;, Is.SamePathOrUnder(&quot;/folder1/folder2&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="SubPathConstraint.html">SubPathConstraint</a></td>
+<td><code>Assert.That(&quot;/folder1/folder2&quot;, Is.SubPathOf(&quot;/folder1/&quot;));</code></td>
 </tr>
 </tbody>
 </table>
@@ -438,26 +536,33 @@
 <thead>
 <tr>
 <th>Constraint Name</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="ContainsConstraint.html">ContainsConstraint</a></td>
+<td><code>Assert.That(&quot;Hello World&quot;, Does.Contain(&quot;World&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="EmptyStringConstraint.html">EmptyStringConstraint</a></td>
+<td><code>Assert.That(&quot;&quot;, Is.Empty);</code></td>
 </tr>
 <tr>
 <td><a href="EndsWithConstraint.html">EndsWithConstraint</a></td>
+<td><code>Assert.That(&quot;Hello World!&quot;, Does.EndWith(&quot;World!&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="RegexConstraint.html">RegexConstraint</a></td>
+<td><code>Assert.That(&quot;555-123-4567&quot;, Does.Match(@&quot;^\d{3}-\d{3}-\d{4}$&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="StartsWithConstraint.html">StartsWithConstraint</a></td>
+<td><code>Assert.That(&quot;Hello World!&quot;, Does.StartWith(&quot;Hello&quot;));</code></td>
 </tr>
 <tr>
 <td><a href="SubstringConstraint.html">SubstringConstraint</a></td>
+<td><code>Assert.That(&quot;Hello World!&quot;, Does.Contain(&quot;lo Wor&quot;));</code></td>
 </tr>
 </tbody>
 </table>
@@ -466,20 +571,25 @@
 <thead>
 <tr>
 <th>Constraint Name</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="AssignableFromConstraint.html">AssignableFromConstraint</a></td>
+<td><code>Assert.That(&quot;Hello&quot;, Is.AssignableFrom&lt;string&gt;());</code></td>
 </tr>
 <tr>
 <td><a href="AssignableToConstraint.html">AssignableToConstraint</a></td>
+<td><code>Assert.That(&quot;Hello&quot;, Is.AssignableTo&lt;object&gt;());</code></td>
 </tr>
 <tr>
 <td><a href="ExactTypeConstraint.html">ExactTypeConstraint</a></td>
+<td><code>Assert.That(&quot;Hello&quot;, Is.TypeOf&lt;string&gt;());</code></td>
 </tr>
 <tr>
 <td><a href="InstanceOfTypeConstraint.html">InstanceOfTypeConstraint</a></td>
+<td><code>Assert.That(&quot;Hello&quot;, Is.InstanceOf&lt;object&gt;());</code></td>
 </tr>
 </tbody>
 </table>
