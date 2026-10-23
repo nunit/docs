@@ -19,6 +19,10 @@ Assert.AreSame(object expected, object actual,
                string message, params object[] params);
 ```
 
+## Examples
+
+[!code-csharp[SameExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#SameExamples)]
+
 ## See Also
 
 * [SameAs Constraint](xref:constraint-sameas)

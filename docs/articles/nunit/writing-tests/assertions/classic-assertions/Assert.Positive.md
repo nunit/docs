@@ -46,6 +46,10 @@ Assert.Positive(float actual, string message, params object[] args);
 
 You may also use `Assert.That` with a `Is.Positive` constraint to achieve the same result.
 
+## Examples
+
+[!code-csharp[PositiveNegativeZeroExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#PositiveNegativeZeroExamples)]
+
 ## See Also
 
 * [Assert.Negative](Assert.Negative.md)

@@ -50,6 +50,10 @@ Assert.LessOrEqual(IComparable arg1, IComparable arg2,
                    string message, params object[] params);
 ```
 
+## Examples
+
+[!code-csharp[LessOrEqualExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#LessOrEqualExamples)]
+
 ## See Also
 
 * [Assert.Greater](Assert.Greater.md)

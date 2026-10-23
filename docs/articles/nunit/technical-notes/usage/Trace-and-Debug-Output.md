@@ -15,23 +15,7 @@ initialization of the `ConsoleTraceListener`.
 To add it to a namespace, place the following class inside that namespace, and it will apply to all tests inside that
 namespace and below.  The code shown adds the output to console output.
 
-```csharp
-[SetUpFixture]
-public class SetupTrace
-{
-    [OneTimeSetUp]
-    public void StartTest()
-    {
-        Trace.Listeners.Add(new ConsoleTraceListener());
-    }
-
-    [OneTimeTearDown]
-    public void EndTest()
-    {
-        Trace.Flush();
-    }
-}
-```
+[!code-csharp[ConsoleTraceListenerSetUpFixture](~/snippets/Snippets.NUnit/TraceAndDebugOutputExamples.cs#ConsoleTraceListenerSetUpFixture)]
 
 If you place the code above outside of any namespace it will apply to the whole assembly.
 
@@ -44,20 +28,7 @@ If you like you can change that to another kind of listener.
 
 Given the following verbose test:
 
-```csharp
-[Test]
-public void Test1()
-{
-    Debug.WriteLine("This is Debug.WriteLine");
-    Trace.WriteLine("This is Trace.WriteLine");
-    Console.WriteLine("This is Console.Writeline");
-    TestContext.WriteLine("This is TestContext.WriteLine");
-    TestContext.Out.WriteLine("This is TestContext.Out.WriteLine");
-    TestContext.Progress.WriteLine("This is TestContext.Progress.WriteLine");
-    TestContext.Error.WriteLine("This is TestContext.Error.WriteLine");
-    Assert.Pass();
-}
-```
+[!code-csharp[VerboseTest](~/snippets/Snippets.NUnit/TraceAndDebugOutputExamples.cs#VerboseTest)]
 
 With a `TraceListener`, the output in Visual Studio Test Explorer is:
 
@@ -80,18 +51,7 @@ add the necessary initialization of the `ProgressTraceListener` and make sure it
 To add it to a namespace, place the following class inside that namespace, and it will apply to all tests inside that
 namespace and below.  The code shown adds the output to progress output.
 
-```csharp
-[SetUpFixture]
-public class SetupTrace
-{
-    [OneTimeSetUp]
-    public void StartTest()
-    {
-        if (!Trace.Listeners.OfType<ProgressTraceListener>().Any())
-            Trace.Listeners.Add(new ProgressTraceListener());
-    }
-}
-```
+[!code-csharp[ProgressTraceListenerSetUpFixture](~/snippets/Snippets.NUnit/TraceAndDebugOutputExamples.cs#ProgressTraceListenerSetUpFixture)]
 
 If you place the code above outside of any namespace it will apply to the whole assembly.
 

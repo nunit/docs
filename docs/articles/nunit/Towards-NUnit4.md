@@ -156,31 +156,14 @@ implementation without requiring significant underlying changes.
 In version 4 proper async/await has been implemented with a series of new assert methods, `Assert.ThatAsync` which can
 be `await`'ed.
 
-```cs
-[Test]
-public async Task AssertionPasses_CompletedTaskWithResult_EqualsResult()
-{
-    await Assert.ThatAsync(() => Task.FromResult(42), Is.EqualTo(42));
-}
-```
+[!code-csharp[AssertThatAsync](~/snippets/Snippets.NUnit/AsyncAssertExamples.cs#AssertThatAsync)]
 
 Version 4 also introduces a new feature called Assert.MultipleAsync, which allows you to mix async and sync asserts
 within the same block. This enables you to perform multiple assertions, both asynchronous and synchronous, in a more
 concise and streamlined manner. Moreover, it's important to note that Assert.MultipleAsync is awaitable, providing
 flexibility in handling asynchronous operations and assertions.
 
-```cs
-[Test]
-public async Task AssertMultipleAsyncSucceeds()
-{
-    await Assert.MultipleAsync(async () =>
-    {
-        await Assert.ThatAsync(() => Task.FromResult(42), Is.EqualTo(42));
-        Assert.That("hello", Is.EqualTo("hello"));
-        await Assert.ThatAsync(() => Task.FromException(new  ArgumentNullException)), Throws.ArgumentNullException);
-    });
-}
-```
+[!code-csharp[AssertMultipleAsync](~/snippets/Snippets.NUnit/AsyncAssertExamples.cs#AssertMultipleAsync)]
 
 ## Cooperative Cancellation
 

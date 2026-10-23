@@ -46,6 +46,10 @@ Assert.Less(IComparable arg1, IComparable arg2,
             string message, params object[] params);
 ```
 
+## Examples
+
+[!code-csharp[LessExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#LessExamples)]
+
 ## See Also
 
 * [Assert.Greater](Assert.Greater.md)

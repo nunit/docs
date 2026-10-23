@@ -20,4 +20,8 @@ Assert.Contains(object anObject, ICollection collection,
                 string message, params object[] params);
 ```
 
+## Examples
+
+[!code-csharp[ContainsExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#ContainsExamples)]
+
 ## See Also
