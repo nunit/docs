@@ -10,6 +10,15 @@ Added in **NUnit 5.0**.
 default, the referenced test must run and pass before the dependent test can
 run.  This can be overridden by setting `AllowFailure` to `true`.
 
+A test can only depend on another test in the same fixture, including tests
+the fixture inherits from a base class. NUnit looks up the name among the
+tests of that fixture only, so a test in another fixture is not found. There
+is no way to depend on a single test in another fixture. Use
+[`[DependsOnFixture]`](xref:attribute-dependsonfixture) to make a whole fixture
+wait for all tests in another fixture. A test has at most one
+`[DependsOnTest]`, but several tests can depend on the same test. If the named
+test is not found, the dependent test fails as invalid.
+
 ## Constructor
 
 ```csharp
