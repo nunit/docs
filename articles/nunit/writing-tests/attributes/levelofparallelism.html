@@ -139,9 +139,12 @@
 <li>Setting the level to 1 effectively disables parallelism (only one test runs at a time).</li>
 <li>This value can be overridden using the <code>--workers</code> command-line option in the NUnit console runner.</li>
 <li>Consider your test dependencies and shared resources when setting this value. Higher parallelism can cause issues with tests that share state.</li>
+<li>The attribute cannot be applied to a single fixture or test. To limit how many cases of one test run at the same time, throttle inside the test itself, for example with a <code>SemaphoreSlim</code>. See <a class="xref" href="../parallel-tests.html#limiting-parallelism-for-one-test">Running Tests in Parallel</a>.</li>
 </ol>
 <h2 id="see-also">See Also</h2>
 <ul>
+<li><a class="xref" href="../parallel-tests.html">Running Tests in Parallel</a></li>
+<li><a href="../../technical-notes/usage/Framework-Parallel-Test-Execution.html">Framework Parallel Test Execution</a></li>
 <li><a class="xref" href="parallelizable.html">Parallelizable Attribute</a></li>
 <li><a class="xref" href="nonparallelizable.html">NonParallelizable Attribute</a></li>
 <li><a class="xref" href="../../running-tests/Console-Command-Line.html">Console Command Line</a></li>

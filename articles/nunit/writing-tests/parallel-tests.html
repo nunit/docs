@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Running Tests in Parallel | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Running Tests in Parallel | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="paralleltests">
+<h1 id="running-tests-in-parallel">Running Tests in Parallel</h1>
+
+<p>Within a test assembly, NUnit runs tests one at a time unless you tell it otherwise. Marking a test
+<a class="xref" href="attributes/parallelizable.html"><code>[Parallelizable]</code></a> is enough to have NUnit schedule it on a pool of worker threads,
+alongside any other test marked the same way. The attribute is a statement that the test is <em>able</em> to run at the same
+time as other tests. Making that true is your job, and most of this page is about that. It answers the questions that
+come up most often. The attribute reference pages describe each attribute, and
+<a href="../technical-notes/usage/Framework-Parallel-Test-Execution.html">Framework Parallel Test Execution</a> describes how NUnit
+schedules the work.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Parallel execution only helps when the tests are independent. Most problems reported with parallel tests turn out to
+be state shared between tests, not a problem with NUnit. See
+<a href="#tests-that-only-fail-when-run-in-parallel">Tests that only fail when run in parallel</a> before you reach for
+<code>[NonParallelizable]</code>.</p>
+</div>
+<h2 id="turning-parallel-execution-on">Turning parallel execution on</h2>
+<p>There are two ways to opt in, and choosing between them is the first decision to make.</p>
+<p><strong>Mark fixtures and tests one at a time.</strong> <code>[Parallelizable]</code> on a class means the fixture runs alongside other
+fixtures while its own tests run in order. <code>[Parallelizable(ParallelScope.All)]</code> lets its tests run in parallel with
+one another as well. Everything you have not marked keeps running one at a time, so each fixture you mark is one you
+have checked.</p>
+<pre><code class="lang-csharp" name="ParallelFixtureSelf">// Runs alongside other fixtures; its two tests run one after the other.
+[Parallelizable]
+public class OrderCalculatorTests
+{
+    [Test]
+    public void Total_AddsLineItems()
+    {
+        Assert.That(2 + 3, Is.EqualTo(5));
+    }
+
+    [Test]
+    public void Total_IsZeroForEmptyOrder()
+    {
+        Assert.That(0, Is.EqualTo(0));
+    }
+}
+</code></pre>
+<p><strong>Turn it on for the whole assembly</strong> and mark the exceptions <code>[NonParallelizable]</code>. The attribute usually goes in a
+file such as <code>AssemblyInfo.cs</code> or <code>GlobalUsings.cs</code>:</p>
+<pre><code class="lang-csharp">using NUnit.Framework;
+
+[assembly: Parallelizable(ParallelScope.Fixtures)]
+</code></pre>
+<p>With <code>ParallelScope.Fixtures</code>, test fixtures run in parallel with one another, but the tests inside each fixture still
+run one at a time. With <code>ParallelScope.Children</code>, every fixture and every test runs in parallel with everything else,
+unless a fixture or test overrides that with its own attribute. This is the quickest way to get a parallel run, but
+not necessarily the safest. Every fixture in the assembly becomes a candidate, including ones written before the
+setting existed and ones added later, so a test that shares state shows up later as an intermittent failure rather
+than at the moment you turned parallelism on.</p>
+<p>Many teams start with the first approach and switch to the second once their fixtures are known to be independent.</p>
+<p>NUnit uses as many worker threads as the machine has processors, with a minimum of two. The
+<a class="xref" href="attributes/levelofparallelism.html"><code>[LevelOfParallelism]</code></a> assembly attribute changes that number.</p>
+<h2 id="tests-that-only-fail-when-run-in-parallel">Tests that only fail when run in parallel</h2>
+<p>A test that passes on its own and fails when run in parallel is almost always sharing something mutable with another
+test. The usual suspects are:</p>
+<ul>
+<li><strong>Fixture instance fields.</strong> By default NUnit creates one instance of your fixture class and runs every test in it
+on that instance. A <code>[SetUp]</code> method that assigns a field is overwriting the same field that another test, running on
+another thread, is still using.</li>
+<li><strong>Static fields and singletons.</strong> A static <code>HttpClient</code>, database connection, or browser driver is shared by every
+test in the process, whatever fixture they are in.</li>
+<li><strong>External resources.</strong> Two tests writing to the same file, the same database table, or the same port.</li>
+</ul>
+<p>For fixture instance state, <a class="xref" href="attributes/fixturelifecycle.html"><code>[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]</code></a>
+gives each test its own instance of the fixture, so <code>[SetUp]</code> and <code>[TearDown]</code> work on a resource that no other test
+can see. This example creates a session per test, which is also the pattern for a Selenium web driver or any other
+object that must not be driven from two threads at once:</p>
+<pre><code class="lang-csharp" name="ParallelInstancePerTestCase">[Parallelizable(ParallelScope.All)]
+[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+public class SessionTests
+{
+    private Session _session = null!;
+
+    [SetUp]
+    public void OpenSession()
+    {
+        // Each test gets its own fixture instance, so each test gets its own session.
+        _session = new Session();
+    }
+
+    [TearDown]
+    public void CloseSession()
+    {
+        _session.Dispose();
+    }
+
+    [Test]
+    public void Call_ReturnsUpperCase()
+    {
+        Assert.That(_session.Call(&quot;abc&quot;), Is.EqualTo(&quot;ABC&quot;));
+    }
+
+    [Test]
+    public void Call_CountsCalls()
+    {
+        _session.Call(&quot;x&quot;);
+        _session.Call(&quot;y&quot;);
+
+        // Would be unreliable if another test on another thread shared this session.
+        Assert.That(_session.CallCount, Is.EqualTo(2));
+    }
+}
+</code></pre>
+<p>For static state and external resources, NUnit cannot isolate the tests for you. Either give each test its own copy of
+the resource, or mark the tests that need it <a class="xref" href="attributes/nonparallelizable.html"><code>[NonParallelizable]</code></a> so that they run
+on their own after all parallel work has finished:</p>
+<pre><code class="lang-csharp" name="ParallelNonParallelizable">public static class SharedCache
+{
+    public static readonly ConcurrentDictionary&lt;string, string&gt; Entries = new();
+}
+
+// Uses a static resource, so it must not overlap with anything else that touches it.
+[NonParallelizable]
+public class SharedCacheTests
+{
+    [SetUp]
+    public void ClearCache()
+    {
+        SharedCache.Entries.Clear();
+    }
+
+    [Test]
+    public void Cache_StartsEmpty()
+    {
+        Assert.That(SharedCache.Entries, Is.Empty);
+    }
+
+    [Test]
+    public void Cache_StoresEntry()
+    {
+        SharedCache.Entries[&quot;key&quot;] = &quot;value&quot;;
+
+        Assert.That(SharedCache.Entries, Has.Count.EqualTo(1));
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>[OneTimeSetUp]</code> and <code>[OneTimeTearDown]</code> run once per fixture even with <code>InstancePerTestCase</code>, and must then be
+static. Anything they create is shared by every test in the fixture.</p>
+</div>
+<h2 id="running-fixtures-in-parallel-but-each-fixtures-tests-in-order">Running fixtures in parallel but each fixture's tests in order</h2>
+<p>A fixture is the unit NUnit uses to keep tests in order. <code>[Parallelizable]</code> without an argument, which is
+<code>ParallelScope.Self</code>, means the fixture may run at the same time as other fixtures while its own tests run one after
+another. The same applies when the assembly uses <code>ParallelScope.Fixtures</code>. If a set of tests shares a resource that
+must not be used from two threads at once, keeping those tests in one fixture marked <code>[Parallelizable]</code> is the simplest
+way to serialize them without slowing down the rest of the run.</p>
+<h2 id="running-the-cases-of-one-test-in-parallel">Running the cases of one test in parallel</h2>
+<p>A test method with <code>[TestCase]</code>, <code>[TestCaseSource]</code> or <code>[Values]</code> arguments is a small suite of test cases. Mark it with
+<code>[Parallelizable(ParallelScope.Children)]</code> and the cases run in parallel with one another. <code>ParallelScope.All</code> does
+the same thing on a test method, because the suite itself always runs on its fixture's thread and only the <code>Children</code>
+part has an effect. Whether the cases also overlap with other tests depends on the fixture. In a fixture that is not
+itself parallel, the cases run in parallel with one another and nothing else runs at the same time, not even the
+fixture's other tests. In a parallel fixture, the cases share the worker pool with everything else that is eligible.</p>
+<pre><code class="lang-csharp" name="ParallelTestCases">public class SlugTests
+{
+    // The three cases of this test run in parallel with one another.
+    [TestCase(&quot;Hello World&quot;, &quot;hello-world&quot;)]
+    [TestCase(&quot;  NUnit  &quot;, &quot;nunit&quot;)]
+    [TestCase(&quot;A/B&quot;, &quot;a-b&quot;)]
+    [Parallelizable(ParallelScope.Children)]
+    public void ToSlug_NormalizesInput(string input, string expected)
+    {
+        var slug = input.Trim().ToLowerInvariant().Replace(' ', '-').Replace('/', '-');
+
+        Assert.That(slug, Is.EqualTo(expected));
+    }
+}
+</code></pre>
+<p>On a test method that is not parameterized, that is a plain <code>[Test]</code> method with no <code>[TestCase]</code>, <code>[TestCaseSource]</code> or
+<code>[Values]</code>, <code>ParallelScope.Self</code> is the only valid scope. NUnit reports the test as invalid if you use <code>Children</code> or
+<code>All</code> there, and the NUnit Analyzers flag it at build time as
+<a href="../../nunit-analyzers/NUnit1009.html">NUnit1009</a>.</p>
+<h2 id="keeping-a-group-of-fixtures-apart-from-the-rest">Keeping a group of fixtures apart from the rest</h2>
+<p>There is no attribute for a namespace, but a <a class="xref" href="attributes/setupfixture.html"><code>[SetUpFixture]</code></a> applies to every fixture
+in its namespace, and its parallel settings apply to them as well. A <code>[NonParallelizable]</code> SetUpFixture with
+<code>[Parallelizable]</code> fixtures inside it runs as a group. Nothing outside the group runs while the group runs, and within
+the group the fixtures run in parallel with one another:</p>
+<pre><code class="lang-csharp" name="ParallelGroupIsolated">namespace Snippets.NUnit.ParallelGuide.Reporting
+{
+    // Nothing outside this namespace runs while the fixtures in it run.
+    [SetUpFixture]
+    [NonParallelizable]
+    public class ReportingSetUp
+    {
+        [OneTimeSetUp]
+        public void StartReportServer()
+        {
+        }
+
+        [OneTimeTearDown]
+        public void StopReportServer()
+        {
+        }
+    }
+
+    // Within the group, these two fixtures run in parallel with each other.
+    [Parallelizable]
+    public class DailyReportTests
+    {
+        [Test]
+        public void Report_HasHeader() =&gt; Assert.Pass();
+    }
+
+    [Parallelizable]
+    public class MonthlyReportTests
+    {
+        [Test]
+        public void Report_HasTotals() =&gt; Assert.Pass();
+    }
+}
+</code></pre>
+<p>The opposite arrangement, a group that runs in parallel with other groups while its own fixtures run one at a time, is
+not something NUnit supports. A <code>[Parallelizable]</code> SetUpFixture with <code>[NonParallelizable]</code> fixtures inside it does not
+do that: every non-parallel fixture in the assembly waits in the same queue and runs one at a time, whatever namespace
+it is in. If you need that shape, put the tests that share the resource in one fixture, as described above, or move
+each group to its own test project and let the test runner run the projects in parallel. Whether a runner does that by
+default is covered in <a href="#parallel-execution-did-not-make-the-run-faster">Parallel execution did not make the run faster</a>.</p>
+<h2 id="limiting-parallelism-for-one-test">Limiting parallelism for one test</h2>
+<p><a class="xref" href="attributes/levelofparallelism.html"><code>[LevelOfParallelism]</code></a> sets the number of worker threads for the whole assembly and
+cannot be applied to a single fixture or test. To let a parameterized test run its cases in parallel while limiting how
+many run at once, for example because each case calls a rate-limited service, throttle inside the test with a static
+<code>SemaphoreSlim</code>:</p>
+<pre><code class="lang-csharp" name="ParallelThrottle">public class RateLimitedServiceTests
+{
+    // At most two cases call the service at the same time, whatever the worker count.
+    private static readonly SemaphoreSlim Throttle = new(2);
+
+    [TestCase(1)]
+    [TestCase(2)]
+    [TestCase(3)]
+    [TestCase(4)]
+    [Parallelizable(ParallelScope.Children)]
+    public async Task Service_HandlesRequest(int request)
+    {
+        await Throttle.WaitAsync();
+        try
+        {
+            await Task.Delay(10);
+            Assert.That(request, Is.Positive);
+        }
+        finally
+        {
+            Throttle.Release();
+        }
+    }
+}
+</code></pre><h2 id="parallel-execution-did-not-make-the-run-faster">Parallel execution did not make the run faster</h2>
+<p>Parallel execution has a cost. For a suite of very fast tests, starting and switching between worker threads can take
+longer than the tests themselves, so adding <code>[Parallelizable]</code> may make such a run slightly slower rather than faster.
+It pays off when the tests spend their time waiting, for a database, a web request, or a browser.</p>
+<p>If your solution has several test projects, note that running them in parallel with one another is the job of the test
+runner, not of NUnit, and each runner has its own default:</p>
+<ul>
+<li>The NUnit console runner runs each assembly in its own process, in parallel, by default. See
+<a href="../technical-notes/usage/Engine-Parallel-Test-Execution.html">Engine Parallel Test Execution</a>.</li>
+<li><code>dotnet test</code> in its default VSTest mode, and Visual Studio Test Explorer, run one project at a time unless
+<code>MaxCpuCount</code> is set in a runsettings file.</li>
+<li><code>dotnet test</code> in Microsoft.Testing.Platform mode, which the .NET 10 SDK uses when <code>global.json</code> selects that runner,
+runs test projects in parallel by default, up to the number of processors. <code>--max-parallel-test-modules</code> changes the
+limit. See <a href="../../vs-test-adapter/NUnit-And-Microsoft-Test-Platform.html">NUnit and Microsoft.Testing.Platform</a>.</li>
+</ul>
+<p>When a project with more than a couple of thousand tests runs much more slowly as a whole than the same tests run in
+smaller batches, check the adapter's <a class="xref" href="../../vs-test-adapter/Tips-And-Tricks.html#assemblyselectlimit"><code>AssemblySelectLimit</code></a> setting before
+looking at parallelism.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>The <a class="xref" href="attributes/parallelizable.html">Parallelizable</a>, <a class="xref" href="attributes/nonparallelizable.html">NonParallelizable</a>,
+<a class="xref" href="attributes/levelofparallelism.html">LevelOfParallelism</a> and <a class="xref" href="attributes/fixturelifecycle.html">FixtureLifeCycle</a>
+reference pages</li>
+<li><a href="../technical-notes/usage/Framework-Parallel-Test-Execution.html">Framework Parallel Test Execution</a>, for how NUnit
+schedules parallel and non-parallel work</li>
+<li><a href="../technical-notes/usage/Engine-Parallel-Test-Execution.html">Engine Parallel Test Execution</a>, for running assemblies
+in parallel with the console runner</li>
+<li><a class="xref" href="setup-and-teardown.html">Preparing and Cleaning Up Tests</a>, for which setup methods run per test and which run
+once</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/parallel-tests.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

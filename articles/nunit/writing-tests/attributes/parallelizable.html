@@ -89,6 +89,13 @@
 <p>Added in <strong>NUnit 3.7</strong>.</p>
 <p>The <code>ParallelizableAttribute</code> marks an assembly, fixture, or method (and optionally its descendants) as eligible for parallel execution. By default, tests are not parallel.</p>
 <p>When used without an argument, scope defaults to <code>ParallelScope.Self</code>.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>This page describes the attribute. For the common questions, such as how to turn parallel execution on, what to
+do about state shared between tests, and how to run fixtures in parallel while keeping each fixture's tests in
+order, see <a class="xref" href="../parallel-tests.html">Running Tests in Parallel</a>. How NUnit schedules parallel work is described in
+<a href="../../technical-notes/usage/Framework-Parallel-Test-Execution.html">Framework Parallel Test Execution</a>.</p>
+</div>
 <h2 id="constructors">Constructors</h2>
 <pre><code class="lang-csharp">ParallelizableAttribute()
 ParallelizableAttribute(ParallelScope scope)
@@ -175,7 +182,7 @@ for each test that is run.</p>
 <tr>
 <td><code>ParallelScope.Children</code></td>
 <td>child tests may be run in parallel with one another</td>
-<td>Assembly, Classes</td>
+<td>Assembly, Classes, parameterized test methods</td>
 </tr>
 <tr>
 <td><code>ParallelScope.Fixtures</code></td>
@@ -185,14 +192,16 @@ for each test that is run.</p>
 <tr>
 <td><code>ParallelScope.All</code></td>
 <td>the test and its descendants may be run in parallel with others at the same level</td>
-<td>Classes, Methods</td>
+<td>Classes, parameterized test methods</td>
 </tr>
 </tbody>
 </table>
 <h2 id="notes">Notes</h2>
 <ul>
 <li><p>Some values are invalid on certain elements, although they will compile. NUnit will report any tests so marked as
-invalid and will produce an error message.</p>
+invalid and will produce an error message. On a test method that is not parameterized, only <code>ParallelScope.Self</code>
+is valid. On a parameterized test method, such as one with <code>[TestCase]</code> or <code>[TestCaseSource]</code>, <code>Children</code> or <code>All</code>
+lets the individual test cases run in parallel with one another.</p>
 </li>
 <li><p>The <code>ParallelScope</code> enum has additional values, which are used internally but are not visible to users through
 Intellisense.</p>
@@ -203,6 +212,8 @@ lower level tests, unless those lower-level tests override the inherited setting
 </ul>
 <h2 id="see-also">See Also</h2>
 <ul>
+<li><a class="xref" href="../parallel-tests.html">Running Tests in Parallel</a></li>
+<li><a href="../../technical-notes/usage/Framework-Parallel-Test-Execution.html">Framework Parallel Test Execution</a></li>
 <li><a class="xref" href="fixturelifecycle.html">FixtureLifeCycle Attribute</a></li>
 <li><a class="xref" href="nonparallelizable.html">NonParallelizable Attribute</a></li>
 <li><a class="xref" href="levelofparallelism.html">LevelOfParallelism Attribute</a></li>
