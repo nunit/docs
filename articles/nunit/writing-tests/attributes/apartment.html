@@ -187,6 +187,21 @@ public class MixedApartmentTests
 <li>This attribute replaces the obsolete <code>RequiresMTA</code> and <code>RequiresSTA</code> attributes.</li>
 <li>The <code>ApartmentState.Unknown</code> value is not allowed and will cause an error.</li>
 </ol>
+<h2 id="sta-tests-and-parallel-execution">STA Tests and Parallel Execution</h2>
+<p>NUnit has exactly <strong>one</strong> worker thread for parallelizable STA tests, however high the level of parallelism is set.
+As a consequence:</p>
+<ul>
+<li>STA tests <strong>never run in parallel with each other</strong>, even when they are marked <code>[Parallelizable]</code>. They are queued
+and executed one at a time on that single STA worker, which is why tests in different STA fixtures report the same
+thread id.</li>
+<li>STA tests <strong>do run in parallel with MTA tests</strong>. The STA worker is active at the same time as the MTA workers, so a
+parallelizable STA test can overlap with any parallelizable MTA test.</li>
+<li>Non-parallelizable STA tests have their own single worker, which runs after all parallelizable work has finished.</li>
+</ul>
+<p>If you need several STA tests to run at the same time, use <a class="xref" href="requiresthread.html"><code>RequiresThread</code></a> with
+<code>ApartmentState.STA</code> instead. Each such test gets its own new STA thread, so parallelizable tests marked that way can
+overlap with each other.</p>
+<p>See <a class="xref" href="../../technical-notes/usage/Framework-Parallel-Test-Execution.html">Framework Parallel Test Execution</a> for the details of the queues involved.</p>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a class="xref" href="requiresthread.html">RequiresThread Attribute</a></li>

@@ -83,7 +83,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="frameworkparalleltestexecution">
 <h1 id="framework-parallel-test-execution">Framework Parallel Test Execution</h1>
 
 <p>The NUnit 3.0 framework can run tests in parallel within an assembly. This is a completely separate facility from
@@ -200,6 +200,22 @@ complete.</p>
 </tbody>
 </table>
 <p>(* Depends on Level of Parallelism)</p>
+<h3 id="apartment-state-and-parallelism">Apartment State and Parallelism</h3>
+<p>A test's apartment state, set with the <a class="xref" href="../../writing-tests/attributes/apartment.html"><code>Apartment</code></a> attribute, decides which queue it goes
+to, and the number of workers on that queue decides how much parallelism it can get:</p>
+<ul>
+<li><strong>MTA tests</strong> (the default) go to the Parallel Queue, which has as many workers as the level of parallelism. These are
+the only tests that can run in parallel with each other in any number.</li>
+<li><strong>STA tests</strong> go to the Parallel STA Queue, which has a <strong>single</strong> worker regardless of the level of parallelism. STA
+tests therefore run one at a time among themselves, even when they are parallelizable and even when they belong to
+different fixtures. They do run at the same time as the MTA workers, so an STA test and an MTA test can overlap.</li>
+<li><strong>Non-parallelizable tests</strong> go to the Non-Parallel Queue or the Non-Parallel STA Queue, each with a single worker.
+Those shifts run after the Parallel Shift has finished.</li>
+</ul>
+<p>The one-worker STA queue is the reason tests in different <code>[Apartment(ApartmentState.STA)]</code> fixtures report the same
+thread id when run with <code>ParallelScope.Fixtures</code> or <code>ParallelScope.Children</code>. Tests marked with
+<a class="xref" href="../../writing-tests/attributes/requiresthread.html"><code>RequiresThread</code></a> behave differently: each one is started on a brand-new thread with the
+requested apartment state, so parallelizable tests marked <code>[RequiresThread(ApartmentState.STA)]</code> can run concurrently.</p>
 <p>For efficiency, each queue is created when the first test is added to it. At the time of creation, all workers for that
 queue are also created and initialized.</p>
 <p>Whenever a non-parallel fixture begins execution, an entirely new set of queues is created so that the child tests of
