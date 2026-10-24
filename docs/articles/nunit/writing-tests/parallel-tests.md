@@ -4,10 +4,11 @@ uid: paralleltests
 
 # Running Tests in Parallel
 
-Within a test assembly, NUnit runs tests one at a time unless you tell it otherwise. The [`[Parallelizable]`](xref:attribute-parallelizable)
-attribute does not tell NUnit to do anything by itself. It is a promise from you that the test is able to run at the
-same time as other tests, and NUnit then schedules it on one of a pool of worker threads. This page answers the
-questions that come up most often. The attribute reference pages describe each attribute, and
+Within a test assembly, NUnit runs tests one at a time unless you tell it otherwise. Marking a test
+[`[Parallelizable]`](xref:attribute-parallelizable) is enough to have NUnit schedule it on a pool of worker threads,
+alongside any other test marked the same way. The attribute is a statement that the test is *able* to run at the same
+time as other tests. Making that true is your job, and most of this page is about that. It answers the questions that
+come up most often. The attribute reference pages describe each attribute, and
 [Framework Parallel Test Execution](../technical-notes/usage/Framework-Parallel-Test-Execution.md) describes how NUnit
 schedules the work.
 
@@ -88,8 +89,9 @@ other tests in order:
 
 [!code-csharp[ParallelTestCases](~/snippets/Snippets.NUnit/ParallelTestsGuideExamples.cs#ParallelTestCases)]
 
-On a test method that has no arguments, `ParallelScope.Self` is the only valid scope. NUnit reports the test as invalid
-if you use `Children` or `All` there, and the NUnit Analyzers flag it at build time as
+On a test method that is not parameterized, that is a plain `[Test]` method with no `[TestCase]`, `[TestCaseSource]` or
+`[Values]`, `ParallelScope.Self` is the only valid scope. NUnit reports the test as invalid if you use `Children` or
+`All` there, and the NUnit Analyzers flag it at build time as
 [NUnit1009](../../nunit-analyzers/NUnit1009.md).
 
 ## Keeping a group of fixtures apart from the rest
@@ -105,10 +107,8 @@ The opposite arrangement, a group that runs in parallel with other groups while 
 not something NUnit supports. A `[Parallelizable]` SetUpFixture with `[NonParallelizable]` fixtures inside it does not
 do that: every non-parallel fixture in the assembly waits in the same queue and runs one at a time, whatever namespace
 it is in. If you need that shape, put the tests that share the resource in one fixture, as described above, or move
-each group to its own test project and let the test runner run the projects in parallel. `dotnet test` and Visual
-Studio only do that when `MaxCpuCount` is set in a runsettings file, see
-[Engine Parallel Test Execution](../technical-notes/usage/Engine-Parallel-Test-Execution.md) for the NUnit console
-runner.
+each group to its own test project and let the test runner run the projects in parallel. Whether a runner does that by
+default is covered in [Parallel execution did not make the run faster](#parallel-execution-did-not-make-the-run-faster).
 
 ## Limiting parallelism for one test
 
@@ -126,9 +126,15 @@ longer than the tests themselves, so adding `[Parallelizable]` may make such a r
 It pays off when the tests spend their time waiting, for a database, a web request, or a browser.
 
 If your solution has several test projects, note that running them in parallel with one another is the job of the test
-runner, not of NUnit. The NUnit console runner does this by default, see
-[Engine Parallel Test Execution](../technical-notes/usage/Engine-Parallel-Test-Execution.md). `dotnet test` and
-Visual Studio run one project at a time unless `MaxCpuCount` is set in a runsettings file.
+runner, not of NUnit, and each runner has its own default:
+
+- The NUnit console runner runs each assembly in its own process, in parallel, by default. See
+  [Engine Parallel Test Execution](../technical-notes/usage/Engine-Parallel-Test-Execution.md).
+- `dotnet test` in its default VSTest mode, and Visual Studio Test Explorer, run one project at a time unless
+  `MaxCpuCount` is set in a runsettings file.
+- `dotnet test` in Microsoft.Testing.Platform mode, which the .NET 10 SDK uses when `global.json` selects that runner,
+  runs test projects in parallel by default, up to the number of processors. `--max-parallel-test-modules` changes the
+  limit. See [NUnit and Microsoft.Testing.Platform](../../vs-test-adapter/NUnit-And-Microsoft-Test-Platform.md).
 
 When a project with more than a couple of thousand tests runs much more slowly as a whole than the same tests run in
 smaller batches, check the adapter's [`AssemblySelectLimit`](xref:tipsandtricks#assemblyselectlimit) setting before
