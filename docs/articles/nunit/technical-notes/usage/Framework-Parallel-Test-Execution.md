@@ -1,3 +1,7 @@
+---
+uid: frameworkparalleltestexecution
+---
+
 # Framework Parallel Test Execution
 
 The NUnit 3.0 framework can run tests in parallel within an assembly. This is a completely separate facility from
@@ -100,6 +104,24 @@ There are three shifts, listed here with their associated queues...
 | Non-Parallel STA Shift | Non-Parallel STA Queue | 1       | Non-parallelizable tests run in the STA |
 
 (* Depends on Level of Parallelism)
+
+### Apartment State and Parallelism
+
+A test's apartment state, set with the [`Apartment`](xref:attribute-apartment) attribute, decides which queue it goes
+to, and the number of workers on that queue decides how much parallelism it can get:
+
+* __MTA tests__ (the default) go to the Parallel Queue, which has as many workers as the level of parallelism. These are
+  the only tests that can run in parallel with each other in any number.
+* __STA tests__ go to the Parallel STA Queue, which has a __single__ worker regardless of the level of parallelism. STA
+  tests therefore run one at a time among themselves, even when they are parallelizable and even when they belong to
+  different fixtures. They do run at the same time as the MTA workers, so an STA test and an MTA test can overlap.
+* __Non-parallelizable tests__ go to the Non-Parallel Queue or the Non-Parallel STA Queue, each with a single worker.
+  Those shifts run after the Parallel Shift has finished.
+
+The one-worker STA queue is the reason tests in different `[Apartment(ApartmentState.STA)]` fixtures report the same
+thread id when run with `ParallelScope.Fixtures` or `ParallelScope.Children`. Tests marked with
+[`RequiresThread`](xref:attribute-requiresthread) behave differently: each one is started on a brand-new thread with the
+requested apartment state, so parallelizable tests marked `[RequiresThread(ApartmentState.STA)]` can run concurrently.
 
 For efficiency, each queue is created when the first test is added to it. At the time of creation, all workers for that
 queue are also created and initialized.
