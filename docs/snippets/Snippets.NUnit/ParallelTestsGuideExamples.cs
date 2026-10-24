@@ -125,7 +125,7 @@ namespace Snippets.NUnit.ParallelGuide
         [TestCase("Hello World", "hello-world")]
         [TestCase("  NUnit  ", "nunit")]
         [TestCase("A/B", "a-b")]
-        [Parallelizable(ParallelScope.All)]
+        [Parallelizable(ParallelScope.Children)]
         public void ToSlug_NormalizesInput(string input, string expected)
         {
             var slug = input.Trim().ToLowerInvariant().Replace(' ', '-').Replace('/', '-');
@@ -145,7 +145,7 @@ namespace Snippets.NUnit.ParallelGuide
         [TestCase(2)]
         [TestCase(3)]
         [TestCase(4)]
-        [Parallelizable(ParallelScope.All)]
+        [Parallelizable(ParallelScope.Children)]
         public async Task Service_HandlesRequest(int request)
         {
             await Throttle.WaitAsync();
@@ -232,7 +232,7 @@ namespace Snippets.NUnit.ParallelGuide
         }
 
         [Test]
-        public void AllOnParameterizedTestMethod_IsRunnable()
+        public void ChildrenOnParameterizedTestMethod_IsRunnable()
         {
             var method = new MethodWrapper(typeof(SlugTests), nameof(SlugTests.ToSlug_NormalizesInput));
 

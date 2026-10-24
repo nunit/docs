@@ -20,8 +20,17 @@ schedules the work.
 
 ## Turning parallel execution on
 
-The quickest way to opt in is an assembly-level attribute, usually placed in a file such as `AssemblyInfo.cs` or
-`GlobalUsings.cs`:
+There are two ways to opt in, and choosing between them is the first decision to make.
+
+**Mark fixtures and tests one at a time.** `[Parallelizable]` on a class means the fixture runs alongside other
+fixtures while its own tests run in order. `[Parallelizable(ParallelScope.All)]` lets its tests run in parallel with
+one another as well. Everything you have not marked keeps running one at a time, so each fixture you mark is one you
+have checked.
+
+[!code-csharp[ParallelFixtureSelf](~/snippets/Snippets.NUnit/ParallelTestsGuideExamples.cs#ParallelFixtureSelf)]
+
+**Turn it on for the whole assembly** and mark the exceptions `[NonParallelizable]`. The attribute usually goes in a
+file such as `AssemblyInfo.cs` or `GlobalUsings.cs`:
 
 ```csharp
 using NUnit.Framework;
@@ -31,15 +40,12 @@ using NUnit.Framework;
 
 With `ParallelScope.Fixtures`, test fixtures run in parallel with one another, but the tests inside each fixture still
 run one at a time. With `ParallelScope.Children`, every fixture and every test runs in parallel with everything else,
-unless a fixture or test overrides that with its own attribute. NUnit itself makes no recommendation between the two:
-`Fixtures` is a smaller step if your fixtures hold state, `Children` gives the most parallelism if your tests are fully
-independent.
+unless a fixture or test overrides that with its own attribute. This is the quickest way to get a parallel run, but
+not necessarily the safest. Every fixture in the assembly becomes a candidate, including ones written before the
+setting existed and ones added later, so a test that shares state shows up later as an intermittent failure rather
+than at the moment you turned parallelism on.
 
-You can instead opt in one fixture at a time. `[Parallelizable]` on a class means the fixture runs alongside other
-fixtures while its own tests run in order. Use `[Parallelizable(ParallelScope.All)]` on the class to let its tests run
-in parallel with one another as well.
-
-[!code-csharp[ParallelFixtureSelf](~/snippets/Snippets.NUnit/ParallelTestsGuideExamples.cs#ParallelFixtureSelf)]
+Many teams start with the first approach and switch to the second once their fixtures are known to be independent.
 
 NUnit uses as many worker threads as the machine has processors, with a minimum of two. The
 [`[LevelOfParallelism]`](xref:attribute-levelofparallelism) assembly attribute changes that number.
@@ -84,8 +90,11 @@ way to serialize them without slowing down the rest of the run.
 ## Running the cases of one test in parallel
 
 A test method with `[TestCase]`, `[TestCaseSource]` or `[Values]` arguments is a small suite of test cases. Mark it with
-`[Parallelizable(ParallelScope.All)]` and the cases run in parallel with one another, even when the fixture runs its
-other tests in order:
+`[Parallelizable(ParallelScope.Children)]` and the cases run in parallel with one another. `ParallelScope.All` does
+the same thing on a test method, because the suite itself always runs on its fixture's thread and only the `Children`
+part has an effect. Whether the cases also overlap with other tests depends on the fixture. In a fixture that is not
+itself parallel, the cases run in parallel with one another and nothing else runs at the same time, not even the
+fixture's other tests. In a parallel fixture, the cases share the worker pool with everything else that is eligible.
 
 [!code-csharp[ParallelTestCases](~/snippets/Snippets.NUnit/ParallelTestsGuideExamples.cs#ParallelTestCases)]
 

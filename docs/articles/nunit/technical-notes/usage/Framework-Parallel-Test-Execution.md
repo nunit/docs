@@ -43,7 +43,9 @@ it appears and any subordinate tests. The following values are available for use
 * `ParallelScope.Self` indicates that the test itself may be run in parallel with other tests. This is the default for
   the `ParallelizableAttribute` and is the only value permitted on a test method that is not parameterized.
 * `ParallelScope.Children` indicates that the descendants of the test may be run in parallel with respect to one
-  another.
+  another. On a parameterized test method this is the only part of the scope that has an effect: the suite of test
+  cases always executes directly on the thread of its fixture, so `Self` is ignored there and `Children` and `All` are
+  equivalent. The individual cases are then dispatched to the parallel queue.
 * `ParallelScope.Fixtures` indicates that test fixtures that are the descendants of the test may be run in parallel with
   one another.`
 
