@@ -100,6 +100,33 @@ attribute allows you to change that behavior.</p>
 <p>This attribute only affects exceptions raised on threads other than the main test thread. Exceptions on the main test
 thread will always cause the test to fail, regardless of this attribute's setting.</p>
 </div>
+<h2 id="constructors">Constructors</h2>
+<pre><code class="lang-csharp">UnhandledExceptionHandlingAttribute(UnhandledExceptionHandling handling)
+UnhandledExceptionHandlingAttribute(UnhandledExceptionHandling handling, params Type[] exceptions)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>handling</code></td>
+<td><code>UnhandledExceptionHandling</code></td>
+<td>How NUnit treats a matching unhandled exception.</td>
+</tr>
+<tr>
+<td><code>exceptions</code></td>
+<td><code>Type[]</code></td>
+<td>Exception types this entry applies to. When omitted, the entry applies to all exception types.</td>
+</tr>
+</tbody>
+</table>
+<p>The attribute may be applied more than once to the same element, so that different exception types get different
+handling.</p>
 <h2 id="handling-modes">Handling Modes</h2>
 <p>The attribute accepts an <code>UnhandledExceptionHandling</code> enum value:</p>
 <table>
@@ -141,6 +168,22 @@ thread will always cause the test to fail, regardless of this attribute's settin
 </tr>
 </tbody>
 </table>
+<h2 id="platform-support">Platform Support</h2>
+<p>What this attribute can do depends on what the runtime allows.</p>
+<ul>
+<li><strong>.NET Framework:</strong> an unhandled exception on another thread is reported to NUnit, which attributes it to the test
+that was running and either records an error or, with <code>Ignore</code>, lets the test complete normally. This is the platform
+the attribute was designed for, and the only one where <code>Ignore</code> keeps the process alive.</li>
+<li><strong>.NET Core and .NET 5 and later:</strong> an unhandled exception on a thread <strong>terminates the test process</strong>, whatever this
+attribute says. NUnit still receives the exception first and records an error when the mode is <code>Error</code>, but <code>Ignore</code>
+cannot prevent the crash. .NET 10 added an API that lets a handler mark such an exception as handled, but NUnit does
+not use it yet.</li>
+<li><strong>Unobserved <code>Task</code> exceptions:</strong> these do not terminate the process on modern .NET. They are reported on the finalizer
+thread, where NUnit usually cannot tell which test started the task, so they are logged and do not fail any test,
+regardless of this attribute.</li>
+</ul>
+<p>In practice the attribute matters for exceptions thrown on threads your test code creates itself, such as <code>new Thread</code>,
+and for <code>ThreadAbortException</code> on .NET Framework.</p>
 <h2 id="basic-usage">Basic Usage</h2>
 <h3 id="error-mode-default">Error Mode (Default)</h3>
 <pre><code class="lang-csharp" name="UnhandledExceptionError">[Test]
@@ -163,36 +206,28 @@ public void TestWithErrorHandling()
 [UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore)]
 public void TestIgnoringBackgroundExceptions()
 {
-    // Background exceptions are ignored - use with caution!
-    // This test will pass even if background threads throw
-    using var cts = new CancellationTokenSource();
-    var task = Task.Run(() =&gt;
-    {
-        // Simulate work
-        Thread.Sleep(10);
-    }, cts.Token);
+    // An exception escaping this thread is not recorded against the test.
+    // On .NET Framework the test then passes; on .NET Core and later the
+    // runtime still terminates the process, so the thread procedure below
+    // must not actually throw.
+    var thread = new Thread(() =&gt; Thread.Sleep(10));
+    thread.Start();
+    thread.Join();
 
-    task.Wait();
     Assert.Pass();
 }
 </code></pre><h2 id="filtering-by-exception-type">Filtering by Exception Type</h2>
 <p>You can specify which exception types should be handled differently:</p>
 <pre><code class="lang-csharp" name="UnhandledExceptionSpecificTypes">[Test]
-[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore, typeof(OperationCanceledException))]
+[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore, typeof(ObjectDisposedException))]
 public void TestIgnoringSpecificExceptions()
 {
-    // Only OperationCanceledException is ignored on background threads
-    // Other exception types will still cause the test to fail
+    // Only ObjectDisposedException escaping a background thread is ignored.
+    // Any other exception type is still recorded as a test error.
+    var thread = new Thread(() =&gt; Thread.Sleep(10));
+    thread.Start();
+    thread.Join();
 
-    _ = Task.Run(() =&gt;
-    {
-        // This will throw on a background thread
-        Thread.Sleep(10);
-        throw new OperationCanceledException();
-    });
-
-    // The unhandled OperationCanceledException on the background thread
-    // will be ignored by the attribute, so this test still passes
     Assert.Pass();
 }
 </code></pre>
@@ -268,82 +303,51 @@ ignore <code>ThreadAbortException</code> specifically:</p>
 <p><code>Thread.Abort()</code> is obsolete in .NET 5+ and throws <code>PlatformNotSupportedException</code> on those platforms.
 Consider migrating to <code>CancellationToken</code>-based cancellation patterns instead.</p>
 </div>
-<h3 id="testing-fire-and-forget-operations">Testing Fire-and-Forget Operations</h3>
-<p>When testing code that intentionally spawns background work that might fail independently:</p>
-<pre><code class="lang-csharp">[Test]
-[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore)]
-public void TestFireAndForgetLogging()
-{
-    // The system under test fires off logging that we don't want to wait for
-    var sut = new ServiceWithBackgroundLogging();
-    var result = sut.DoWork();
-
-    Assert.That(result, Is.EqualTo(expected));
-    // Background logging exceptions won't fail this test
-}
-</code></pre>
-<h3 id="testing-cancellation-scenarios">Testing Cancellation Scenarios</h3>
-<p>When <code>OperationCanceledException</code> on background threads is expected and should be ignored:</p>
-<pre><code class="lang-csharp">[Test]
-[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore, typeof(OperationCanceledException))]
-public async Task TestCancellationInBackgroundWork()
-{
-    using var cts = new CancellationTokenSource();
-
-    // Fire-and-forget background work that observes the cancellation token
-    _ = Task.Run(() =&gt; LongRunningOperationAsync(cts.Token));
-
-    // Trigger cancellation while the test continues
-    cts.Cancel();
-
-    // Perform other assertions that do not await the background work
-    await Task.Delay(50);
-    Assert.That(SomeResult(), Is.EqualTo(expected));
-
-    // Any OperationCanceledException thrown on the background task
-    // will be ignored by NUnit due to the UnhandledExceptionHandling setting
-}
-</code></pre>
-<h3 id="legacy-code-integration">Legacy Code Integration</h3>
-<p>When integrating with legacy code that has known background thread issues:</p>
+<h3 id="background-threads-started-by-the-code-under-test-net-framework">Background Threads Started by the Code Under Test (.NET Framework)</h3>
+<p>When the system under test starts its own threads and a failure on one of them is a known, accepted condition:</p>
 <pre><code class="lang-csharp">[TestFixture]
-[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore)]
+[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore, typeof(ObjectDisposedException))]
 public class LegacySystemTests
 {
-    // Legacy system has known issues with background thread cleanup
-    // that we accept for now
+    // The legacy component's cleanup thread sometimes throws ObjectDisposedException
+    // after the test has finished with it. On .NET Framework that no longer fails the test.
 }
 </code></pre>
-<h2 id="inheritance-and-scope">Inheritance and Scope</h2>
-<p>The attribute can be applied at multiple levels:</p>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Scope</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Assembly</td>
-<td>Affects all tests in the assembly</td>
-</tr>
-<tr>
-<td>Class</td>
-<td>Affects all tests in the fixture</td>
-</tr>
-<tr>
-<td>Method</td>
-<td>Affects only the specific test</td>
-</tr>
-</tbody>
-</table>
-<p>When multiple levels specify the attribute, they are combined - each level's configuration is additive.</p>
-<h2 id="best-practices">Best Practices</h2>
+<p>On .NET Core and later the same exception would terminate the process, so the only real fix there is to stop the
+exception from escaping the thread, for example by catching it in the thread procedure.</p>
+<h2 id="precedence-when-applied-at-several-levels">Precedence When Applied at Several Levels</h2>
+<p>The attribute can be applied at the assembly, fixture and method level. When an unhandled exception arrives, NUnit
+looks for a matching entry starting at the <strong>test method</strong>, then the <strong>fixture</strong>, then the <strong>assembly</strong>, and uses the
+first level that has one:</p>
+<ol>
+<li>At a given level, an entry that names the exception type wins over an entry that covers all exception types.</li>
+<li>If a level has no entry for that exception, NUnit moves up to the next level.</li>
+<li>If no level matches, the default <code>Error</code> applies.</li>
+</ol>
+<p>Settings are <strong>not</strong> merged across levels. A method-level <code>[UnhandledExceptionHandling(Ignore)]</code> covers every exception
+type for that test, so a fixture-level entry for a specific type is never consulted for it. To ignore everything except
+one type at the same level, give that type its own <code>Error</code> entry:</p>
+<pre><code class="lang-csharp">[Test]
+[UnhandledExceptionHandling(UnhandledExceptionHandling.Ignore)]
+[UnhandledExceptionHandling(UnhandledExceptionHandling.Error, typeof(InvalidOperationException))]
+public void IgnoresEverythingExceptInvalidOperation()
+{
+    // ...
+}
+</code></pre>
+<h2 id="when-to-use-it">When to Use It</h2>
 <div class="WARNING">
 <h5>Warning</h5>
 <p>Using <code>Ignore</code> mode can hide real bugs in your code. Use it sparingly and only when you understand the implications.</p>
 </div>
+<p>The attribute is appropriate when:</p>
+<ul>
+<li>You are on .NET Framework and test code that uses <code>Thread.Abort()</code>, so <code>ThreadAbortException</code> is expected.</li>
+<li>The code under test runs a background thread whose failure is already known, cannot be fixed in the test, and is
+unrelated to what the test verifies. Name the exception type rather than ignoring everything.</li>
+</ul>
+<p>It is <strong>not</strong> a substitute for awaiting tasks or joining threads before the test ends. If the test can observe the
+background work, do that instead, so a failure is reported where it happened.</p>
 <ol>
 <li><strong>Prefer <code>Error</code> mode</strong> - The default behavior ensures you're aware of all exceptions</li>
 <li><strong>Be specific with exception types</strong> - When using <code>Ignore</code>, specify only the exception types you expect</li>
@@ -352,8 +356,9 @@ public class LegacySystemTests
 </ol>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a class="xref" href="../assertions/classic-assertions/Assert.Throws.html">Assert.Throws</a></li>
-<li><a class="xref" href="../assertions/classic-assertions/Assert.ThrowsAsync.html">Assert.ThrowsAsync</a></li>
+<li><a class="xref" href="cancelafter.html">CancelAfter Attribute</a></li>
+<li><a class="xref" href="timeout.html">Timeout Attribute</a></li>
+<li><a class="xref" href="property.html">Property Attribute</a></li>
 </ul>
 
 </article>
