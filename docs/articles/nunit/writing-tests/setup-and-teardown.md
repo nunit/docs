@@ -112,6 +112,10 @@ spread them over base and derived classes.
 - **The current test:** inside `[SetUp]` and `[TearDown]`, [`TestContext.CurrentContext`](xref:testcontext) describes
   the test that is about to run or has just run. In `[TearDown]` you can check its result, for example to save extra
   logs only when a test failed.
+- **Test data is fixed before any setup runs:** `[TestCaseSource]`, `[ValueSource]` and `[TestFixtureSource]` members
+  are evaluated when NUnit loads the assembly, before `[OneTimeSetUp]`, `[SetUpFixture]` or `[SetUp]` methods run.
+  Changing the data in a setup method has no effect, and a source cannot use objects created there. See
+  [Load Time and Execution Time](xref:loadtimeandexecutiontime).
 
 ## See also
 

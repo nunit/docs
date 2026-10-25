@@ -263,3 +263,14 @@ NUnit locates the test cases at the time the tests are loaded. It creates instan
 form of the attribute and builds a list of tests to be executed. Each data source class is only created once at this
 time and is destroyed after all tests are loaded. By design, no communication is possible between the load and execution
 phases except through the tests that are created.
+
+This has two consequences for the source member:
+
+* It runs **before** any `[OneTimeSetUp]`, `[SetUpFixture]` or `[SetUp]` method, and for every test in the assembly,
+  even when only one test is selected. State created in setup methods is not available to it. If a source needs
+  expensive or shared state, initialize that state lazily from the source itself.
+* Its data must be **repeatable**. Runners may load the assembly more than once, and the source runs once for every
+  method that uses it, so it must return the same cases every time. Do not use `Random` or depend on static state that
+  other code changes.
+
+See [Load Time and Execution Time](xref:loadtimeandexecutiontime) for the full set of rules and a worked example.

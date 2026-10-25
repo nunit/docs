@@ -84,6 +84,10 @@ RandomAttribute(double min, double max, int count)
 3. `Guid` does not support min/max ranges - only the count-only constructor works.
 4. When using `Distinct = true`, ensure the range is large enough to provide the requested number of distinct values.
 5. `Guid` support was added in **NUnit 4.0**.
+6. The values are generated when the tests are loaded, using NUnit's seeded [Randomizer](xref:randomizermethods), so
+   the same seed reproduces the same test cases. Prefer this attribute over calling `System.Random` from a
+   `[TestCaseSource]` or `[ValueSource]` member, which produces different test cases on every load. See
+   [Load Time and Execution Time](xref:loadtimeandexecutiontime).
 
 ## See Also
 

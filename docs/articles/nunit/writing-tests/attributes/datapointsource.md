@@ -47,6 +47,8 @@ If you supply any datapoints for a parameter type, automatic datapoint generatio
 3. Multiple `DatapointSource` attributes of the same type are combined.
 4. Use `Datapoint` when you only need to provide a single value from a field.
 5. The obsolete `DatapointsAttribute` was replaced by `DatapointSourceAttribute` in earlier versions.
+6. The source is evaluated when the tests are loaded, before any setup method runs, and its data must be repeatable.
+   See [Load Time and Execution Time](xref:loadtimeandexecutiontime).
 
 ## See Also
 

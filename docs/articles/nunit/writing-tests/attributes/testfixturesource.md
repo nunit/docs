@@ -108,3 +108,6 @@ In constructing fixtures, NUnit uses each item returned by the enumerator as fol
    in the current release.
 3. The GetEnumerator method may use yield statements or simply return the enumerator for an array or other collection
    held by the class.
+4. The source is evaluated when the tests are loaded, before any fixture is constructed and before any `[SetUpFixture]`
+   or `[OneTimeSetUp]` method runs, so it cannot use state created there. Its data must be repeatable, because runners
+   may load the assembly more than once. See [Load Time and Execution Time](xref:loadtimeandexecutiontime).
