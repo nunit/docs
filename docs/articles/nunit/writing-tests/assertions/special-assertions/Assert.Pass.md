@@ -17,6 +17,12 @@ Assert.Pass();
 Assert.Pass(string message);
 ```
 
+`Assert.Pass` may not be used inside a [multiple assert block](xref:multipleasserts).
+
+In NUnit 5 and later, any [warnings](../../Warnings.md) issued before the call are included in the result message, and
+the test is still reported as Passed. In earlier versions only the pass message is kept. See
+[Warnings issued before Assert.Ignore](Assert.Ignore.md#warnings-issued-before-assertignore) for details.
+
 ## See Also
 
 * [Assert.Fail](Assert.Fail.md)
