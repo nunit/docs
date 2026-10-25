@@ -28,6 +28,7 @@ Certain NUnit Test Adapter settings are configurable using a .runsettings file. 
 | [OutputXmlFolderMode](#outputxmlfoldermode)                           | enum   | UseResultDirectory,RelativeToResultDirectory,RelativeToWorkFolder,AsSpecified                  | RelativeToWorkFolder          |
 | [DumpXmlTestDiscovery](#dumpxmltestdiscovery-and-dumpxmltestresults)  | bool   | Enable dumping of NUnit discovery response xml                                                 | false                         |
 | [DumpXmlTestResults](#dumpxmltestdiscovery-and-dumpxmltestresults)    | bool   | Enable dumping of NUnit execution response xml                                                 | false                         |
+| [DumpNumberedFiles](#dumpnumberedfiles)                               | bool   | Keep the execution dump of every run, in numbered files (from 6.4)                             | false                         |
 | [PreFilter](#prefilter)                                               | bool   | Enable pre-filtering to increase performance for Visual Studio testing                         | false                         |
 | [ShowInternalProperties](#showinternalproperties)                     | bool   | Turn on showing internal NUnit properties in Test Explorer                                     | false                         |
 | [Where](#where)                                                       | string | NUnit Filter expression                                                                        |                               |
@@ -152,6 +153,22 @@ These settings are used to dump the output from NUnit, as it is received by the 
 adapter is done, to disk.  It is part of the diagnostics tools for the adapter. You can find the files under your
 current output folder, in a sub-folder named Dump. (Note: This is not the same as the TestResults folder, this data is
 not test results, but diagnostics dumps)
+
+#### DumpNumberedFiles
+
+From version 6.4. By default each run overwrites the execution dump of the previous run. Set `DumpNumberedFiles` to
+`true` together with `DumpXmlTestResults` to keep the dump of every run: the first run writes `E_x.dll.dump`, the next
+`E_x.dll(1).dump`, then `E_x.dll(2).dump`, and so on. This is useful when you run tests one by one from Test Explorer
+and want to compare the dumps.
+
+```xml
+<RunSettings>
+    <NUnit>
+        <DumpXmlTestResults>true</DumpXmlTestResults>
+        <DumpNumberedFiles>true</DumpNumberedFiles>
+    </NUnit>
+</RunSettings>
+```
 
 #### PreFilter
 
@@ -417,6 +434,26 @@ A value of 0 means no limit is applied. This corresponds to the NUnit [MaxTime a
 (From version 6.3)
 
 ---
+
+### Filtering with `dotnet test --filter`
+
+The adapter converts a VSTest filter, such as `dotnet test --filter "FullyQualifiedName=..."`, into an NUnit filter.
+From version 6.4 it follows the VSTest escaping rules:
+
+* The characters `\ ( ) & | = ! ~` in a value are escaped with a backslash, for example
+  `FullyQualifiedName=My.Tests.Check\("a\|b"\)`. A backslash that escapes nothing, such as `\P`, is a filter
+  error, as in VSTest.
+* A value runs to the next unescaped operator, spaces included, so `FullyQualifiedName=My.Tests.Method (Case 1)`
+  selects a test whose name has a space before the argument list.
+* Unescaped parentheses directly after a name are still read as its argument list, so `Name=Foo(1)` works without
+  escaping.
+* Under Microsoft Testing Platform, a filter the adapter cannot read is reported as `Invalid test filter, no tests are
+  run: ...`, and no tests run. Earlier versions crashed the test host.
+
+NUnit writes some characters in a test name as the text `\uXXXX`: control characters, U+0080 to U+009F except U+0085,
+unpaired surrogates, U+FFFE and U+FFFF. Such a test is listed with that text in its name, for example
+`My.Tests.Check("a\u001bb")`. From version 6.4 a filter with that name, as listed, selects the test, also from Test
+Explorer.
 
 ### Some further information on directories
 
