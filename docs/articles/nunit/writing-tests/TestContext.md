@@ -263,34 +263,31 @@ See [Randomizer Methods](Randomizer-Methods.md) for details about each available
 
 ## Capturing output from other threads and hosted applications
 
-NUnit decides which test a piece of output belongs to by looking at the current test's execution context, which .NET
-carries in an `AsyncLocal` as part of the `ExecutionContext`. `Console.Out`, `TestContext.Out`, `TestContext.Progress`
-and `TestContext.Error` all consult that context when they are written to. The context flows automatically across
-`await`, `Task.Run`, thread pool work items and threads started from the test, so output written in any of those
-places is captured as usual.
+Anything your test writes with `Console.WriteLine`, `TestContext.Out` or an `ILogger` normally ends up in the output
+of the test that is running. That is still true after an `await`, inside `Task.Run`, and on threads the test starts
+itself. It stops being true when the code that writes runs somewhere NUnit cannot connect back to the test:
 
-The context cannot reach code that runs where the test's `ExecutionContext` was never flowed to: a thread or hosting
-pipeline that was started outside the test, or anything on the far side of a socket. When NUnit finds no test context
-it uses an ad hoc placeholder context instead. `Console.WriteLine` then goes to the original console, `TestContext.Out`
-writes to a result that no runner reports, and `Progress` and `Error` are discarded. The output is silently lost or, if a
-long-lived background thread inherited the context of an earlier test, shows up under the wrong test.
+* inside an application hosted by `WebApplicationFactory`, the usual set-up for ASP.NET Core integration tests
+* on a server that listens on a real port and handles requests on its own threads
+* in a separate process
+
+Output from those places is silently lost or, when a shared host is used by several tests, shows up under the wrong
+test. The sections below show how to fix each case. The reason it happens is explained in
+[In-Depth Technical Explanation](#in-depth-technical-explanation) at the end of this page.
 
 ### ASP.NET Core integration tests with WebApplicationFactory
 
-This is the most common way to hit the problem. `WebApplicationFactory<TEntryPoint>` hosts the application on an
-in-memory `TestServer`, and by default `TestServer` deliberately does not flow the caller's `ExecutionContext` into the
-request pipeline. Request handlers, middleware and the application's `ILogger` calls therefore all run without NUnit's
-test context, so `Console.WriteLine` or `TestContext.Out.WriteLine` inside them never reaches the test output. Output
-from the application's own console logger may still appear, but under whichever test happened to start the host first.
+This is the most common way to hit the problem: `Console.WriteLine`, `TestContext.Out.WriteLine` and `ILogger` calls
+made inside a request handler or middleware never appear in the test output, or the application's console logging
+appears under whichever test happened to start the host first.
 
-`TestServer` has an opt-in setting for exactly this situation, `PreserveExecutionContext`. Turn it on in your factory
-and the context of the test that sends each request flows into the server:
+The in-memory `TestServer` behind `WebApplicationFactory` has a setting for exactly this situation,
+`PreserveExecutionContext`. Turn it on in your factory and every request is attributed to the test that sent it:
 
 [!code-csharp[PreserveExecutionContextFactory](~/snippets/Snippets.NUnit.AspNetCore/WebApplicationFactoryOutputExamples.cs#PreserveExecutionContextFactory)]
 
-Because the context travels with each request, it does not matter whether the factory is created in the test body, in
-`[SetUp]` or in `[OneTimeSetUp]`. Every test's requests are attributed to that test, even when a single factory and
-client are shared by the whole fixture:
+It does not matter whether the factory is created in the test body, in `[SetUp]` or in `[OneTimeSetUp]`. A single
+factory and client shared by the whole fixture still gives each test its own output:
 
 [!code-csharp[PreserveExecutionContextOneTimeSetUp](~/snippets/Snippets.NUnit.AspNetCore/WebApplicationFactoryOutputExamples.cs#PreserveExecutionContextOneTimeSetUp)]
 
@@ -298,7 +295,7 @@ If you cannot derive from the factory, set the property on the server before cre
 
 [!code-csharp[PreserveExecutionContextProperty](~/snippets/Snippets.NUnit.AspNetCore/WebApplicationFactoryOutputExamples.cs#PreserveExecutionContextProperty)]
 
-Once the context flows, `Console.WriteLine`, `TestContext.Out` and `TestContext.Progress` inside the application behave
+With the setting on, `Console.WriteLine`, `TestContext.Out` and `TestContext.Progress` inside the application behave
 exactly as they do in the test method, and the application's `ILogger` output, including the default console logger,
 lands in the right test too. The application used by these examples is an ordinary minimal API with no reference to
 NUnit:
@@ -308,12 +305,12 @@ NUnit:
 ### Servers on their own threads or in another process
 
 `PreserveExecutionContext` only helps with the in-memory `TestServer`. When the application listens on a real Kestrel
-endpoint, for example for browser tests with Playwright or Selenium, or runs as a separate process, requests arrive on
-the server's own threads and no execution context can flow from the test. You then have two options.
+endpoint, for example for browser tests with Playwright or Selenium, or runs as a separate process, NUnit has no way
+to connect the server's threads to the test. You then have two options.
 
-The first is to give the application a writer instead of relying on the ambient context. A `TextWriter` obtained from
-`TestContext.Out` while the test is running stays bound to that test's result, no matter which thread later writes to
-it. An `ILoggerProvider` that writes to such a writer gets the application's logging into the test output:
+The first is to give the application a writer instead of relying on NUnit to find the test. A `TextWriter` obtained
+from `TestContext.Out` while the test is running stays bound to that test, no matter which thread later writes to it.
+An `ILoggerProvider` that writes to such a writer gets the application's logging into the test output:
 
 [!code-csharp[TextWriterLoggerProvider](~/snippets/Snippets.NUnit.AspNetCore/WebApplicationFactoryOutputExamples.cs#TextWriterLoggerProvider)]
 
@@ -323,12 +320,38 @@ Capture the writer per test, in the test body or in `[SetUp]`. A writer captured
 fixture rather than to any test case, and most runners do not display fixture-level output, so the messages disappear
 again.
 
-The second option is to restore NUnit's context inside the application. The community package
-[Agoda.NUnit.KestrelLogging](https://github.com/agoda-com/NUnit.KestrelLogging) adds middleware that re-attaches the
-`TestExecutionContext` that was current when the factory was created. It is mentioned here as an example rather than an
-endorsement. It relies on NUnit internals and has the same limitation as the captured writer: it works when the factory
-is created in the test body or in `[SetUp]`, but not when a shared factory is created in `[OneTimeSetUp]`, because
-every test case gets its own output writer.
+The second option is to restore NUnit's test context inside the application. The community package
+[Agoda.NUnit.KestrelLogging](https://github.com/agoda-com/NUnit.KestrelLogging) adds middleware that does this for the
+test that created the factory. It is mentioned here as an example rather than an endorsement. It has the same limitation
+as the captured writer: it works when the factory is created in the test body or in `[SetUp]`, but not when a shared
+factory is created in `[OneTimeSetUp]`.
+
+### In-Depth Technical Explanation
+
+NUnit decides which test a piece of output belongs to by looking at the current `TestExecutionContext`, which .NET
+carries in an `AsyncLocal` as part of the `ExecutionContext`. `Console.Out`, `TestContext.Out`, `TestContext.Progress`
+and `TestContext.Error` all consult that context when they are written to. The `ExecutionContext` flows automatically
+across `await`, `Task.Run`, thread pool work items and threads started from the test, which is why output written in
+any of those places is captured as usual.
+
+The context cannot reach code that runs where the test's `ExecutionContext` was never flowed to: a thread or hosting
+pipeline that was started outside the test, or anything on the far side of a socket. When NUnit finds no test context
+it uses an ad hoc placeholder context instead. `Console.WriteLine` then goes to the original console, `TestContext.Out`
+writes to a result that no runner reports, and `Progress` and `Error` are discarded. If a long-lived background thread
+inherited the context of an earlier test, its output is attributed to that earlier test.
+
+`WebApplicationFactory<TEntryPoint>` hosts the application on an in-memory `TestServer`, and by default `TestServer`
+deliberately does not flow the caller's `ExecutionContext` into the request pipeline. Request handlers, middleware and
+the application's `ILogger` calls therefore run in NUnit's placeholder context. `PreserveExecutionContext` tells
+`TestServer` to flow the caller's `ExecutionContext` into each request, which carries NUnit's test context with it.
+Because the context is captured per request rather than when the host is built, a factory created in `[OneTimeSetUp]`
+still attributes each request to the test that sent it.
+
+A `TextWriter` returned by `TestContext.Out` is bound to the test result that was current when it was obtained, so it
+keeps working from threads that have no test context. The Agoda.NUnit.KestrelLogging middleware instead re-attaches
+the `TestExecutionContext` that was current when the factory was created, which relies on NUnit internals. Both
+approaches fail for a shared factory created in `[OneTimeSetUp]` because every test case gets its own output writer,
+and the one captured during `[OneTimeSetUp]` belongs to the fixture.
 
 The original investigation and a repro are in
 [nunit/nunit#5067](https://github.com/nunit/nunit/discussions/5067).

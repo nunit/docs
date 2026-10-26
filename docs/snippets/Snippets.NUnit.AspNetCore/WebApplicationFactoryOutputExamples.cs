@@ -24,7 +24,6 @@ public sealed class TestWebApplicationFactory : WebApplicationFactory<Program>
 #endregion
 
 #region PreserveExecutionContextOneTimeSetUp
-[TestFixture]
 public class SharedFactoryTests
 {
     private TestWebApplicationFactory _factory = null!;
@@ -175,7 +174,6 @@ public sealed class CurrentTestRecordingLoggerProvider : ILoggerProvider
     }
 }
 
-[TestFixture]
 public class PreserveExecutionContextVerification
 {
     private readonly CurrentTestRecordingLoggerProvider _recorder = new();
@@ -210,7 +208,6 @@ public class PreserveExecutionContextVerification
     }
 }
 
-[TestFixture]
 public class DefaultFactoryVerification
 {
     private readonly CurrentTestRecordingLoggerProvider _recorder = new();
