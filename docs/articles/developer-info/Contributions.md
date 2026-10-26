@@ -8,6 +8,9 @@ developers.
 All proposed changes to the code should come in the form of GitHub pull requests. Pull requests are built automatically
 on the build server and they make it easy to track the origin of any change.
 
+For how to reproduce and fix a bug, and check the fix, see
+[How to Develop and Fix Bugs in NUnit](Developing-NUnit.md).
+
 ## Quality
 
 When appropriate, pull requests should contain enough unit tests to provide coverage for the changes they introduce.

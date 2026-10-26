@@ -152,8 +152,8 @@ public class CalculatorTests
 <h2><a href="articles/developer-info/Team-Practices.md">Developer info</a></h2>
 <p>For contributors to the NUnit projects.</p>
 <ul>
-<li><a href="articles/developer-info/The-Teams.md">The teams</a></li>
-<li><a href="articles/developer-info/Team-Practices.md">Team practices</a></li>
+<li><a href="articles/developer-info/Team-Practices.md">Teams and practices</a></li>
+<li><a href="articles/developer-info/Developing-NUnit.md">How to develop and fix bugs in NUnit</a></li>
 <li><a href="articles/developer-info/Coding-Standards.md">Coding standards</a></li>
 <li><a href="articles/developer-info/Best-practices-for-XML-documentation.md">XML documentation</a></li>
 <li><a href="articles/developer-info/Contributions.md">Contributions</a></li>
