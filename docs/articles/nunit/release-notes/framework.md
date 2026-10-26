@@ -2328,4 +2328,4 @@ those versions of the framework, please contact the NUnit team.
 * Release Notes for [NUnit 2.4 through 2.4.8](https://nunit.org/?p=releaseNotes&r=2.4.8)
 * Release Notes for [NUnit 2.0 through 2.2.10](https://nunit.org/?p=releaseNotes&r=2.2.10)
 
-[TeamLink]: https://docs.nunit.org/articles/developer-info/Team-Practices.html#current-team-memberships-listed-in-a-kind-of-chronological-order
+[TeamLink]: https://docs.nunit.org/articles/developer-info/The-Teams.html#current-team-memberships-listed-in-a-kind-of-chronological-order

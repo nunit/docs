@@ -20,5 +20,6 @@ working on NUnit or wishing to do so.
 
 ## Developer Documentation
 
-* [Team practices](xref:teampractices) describe how NUnit works and how our teams work.
+* [The teams](xref:theteams) describe how the NUnit project is organized, and
+  [How to develop and fix bugs](xref:developingnunit) describes how we work on a bug.
 * [Specifications](xref:specifications) are descriptions of features we plan to add.

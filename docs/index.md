@@ -149,10 +149,10 @@ public class CalculatorTests
 </div>
 <div class="nh-card">
 <div class="nh-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-<h2><a href="articles/developer-info/Team-Practices.md">Developer info</a></h2>
+<h2><a href="articles/developer-info/The-Teams.md">Developer info</a></h2>
 <p>For contributors to the NUnit projects.</p>
 <ul>
-<li><a href="articles/developer-info/Team-Practices.md">Teams and practices</a></li>
+<li><a href="articles/developer-info/The-Teams.md">The teams</a></li>
 <li><a href="articles/developer-info/Developing-NUnit.md">How to develop and fix bugs in NUnit</a></li>
 <li><a href="articles/developer-info/Coding-Standards.md">Coding standards</a></li>
 <li><a href="articles/developer-info/Best-practices-for-XML-documentation.md">XML documentation</a></li>
