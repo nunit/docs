@@ -685,6 +685,16 @@ in which the test cases are returned from the source.</p>
 form of the attribute and builds a list of tests to be executed. Each data source class is only created once at this
 time and is destroyed after all tests are loaded. By design, no communication is possible between the load and execution
 phases except through the tests that are created.</p>
+<p>This has two consequences for the source member:</p>
+<ul>
+<li>It runs <strong>before</strong> any <code>[OneTimeSetUp]</code>, <code>[SetUpFixture]</code> or <code>[SetUp]</code> method, and for every test in the assembly,
+even when only one test is selected. State created in setup methods is not available to it. If a source needs
+expensive or shared state, initialize that state lazily from the source itself.</li>
+<li>Its data must be <strong>repeatable</strong>. Runners may load the assembly more than once, and the source runs once for every
+method that uses it, so it must return the same cases every time. Do not use <code>Random</code> or depend on static state that
+other code changes.</li>
+</ul>
+<p>See <a class="xref" href="../load-time-and-execution-time.html">Load Time and Execution Time</a> for the full set of rules and a worked example.</p>
 
 </article>
           </div>

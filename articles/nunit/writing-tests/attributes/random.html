@@ -300,6 +300,10 @@ public class RandomCombinedTests
 <li><code>Guid</code> does not support min/max ranges - only the count-only constructor works.</li>
 <li>When using <code>Distinct = true</code>, ensure the range is large enough to provide the requested number of distinct values.</li>
 <li><code>Guid</code> support was added in <strong>NUnit 4.0</strong>.</li>
+<li>The values are generated when the tests are loaded, using NUnit's seeded <a class="xref" href="../Randomizer-Methods.html">Randomizer</a>, so
+the same seed reproduces the same test cases. Prefer this attribute over calling <code>System.Random</code> from a
+<code>[TestCaseSource]</code> or <code>[ValueSource]</code> member, which produces different test cases on every load. See
+<a class="xref" href="../load-time-and-execution-time.html">Load Time and Execution Time</a>.</li>
 </ol>
 <h2 id="see-also">See Also</h2>
 <ul>

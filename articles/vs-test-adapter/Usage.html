@@ -83,7 +83,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="vstestadapterusage">
 <h1 id="usage">Usage</h1>
 
 <p>In preparation for using the test adapter, make sure that the Unit Test Explorer is shown in your window. If you don't
@@ -104,6 +104,34 @@ Qualified Name, Output and Outcome. Use the search edit box at the top of the li
 <p>Tests may be organized by play lists in Visual Studio under Update 2 or later. Playlists are more or less equal to the
 old test lists from VS 2010.</p>
 <p>Parameterized tests will show up as separate test cases for each set of parameters.</p>
+<h2 id="discovery-and-execution">Discovery and execution</h2>
+<p>Visual Studio distinguishes between <em>discovering</em> tests and <em>running</em> them, and so does NUnit, but the two
+distinctions are not the same. NUnit always builds the complete list of tests, including the arguments of every test
+case, when it loads an assembly, and only then runs them. See
+<a class="xref" href="../nunit/writing-tests/load-time-and-execution-time.html">Load Time and Execution Time</a> for what that means for your test code. How often that
+load happens depends on how the adapter is driven:</p>
+<ul>
+<li><strong>Visual Studio with real-time test discovery (RTD) enabled.</strong> Test Explorer fills its list from the source code,
+without loading the assembly. When you run tests, one test host starts and loads the assembly once. The adapter
+explores and then runs the same loaded tests.</li>
+<li><strong><code>dotnet test</code>.</strong> One load per run, as above.</li>
+<li><strong>Visual Studio with RTD disabled.</strong> Test Explorer asks the adapter to discover the tests, which loads the assembly
+in one test host. Every run then starts a new test host, which loads the assembly again. Load-time code, such as
+<code>[TestCaseSource]</code> members, runs twice, in two different processes.</li>
+<li><strong>.NET Framework test projects.</strong> The NUnit framework runs in its own AppDomain inside the test host. Only test
+events and results cross back to the adapter, as XML.</li>
+</ul>
+<p>In practice:</p>
+<ul>
+<li>Never expect state created during discovery to exist during execution. Every load starts from scratch, and nothing
+except the test tree itself survives from one load to the next.</li>
+<li>Data sources must return the same test cases, with the same names, on every load. Otherwise the adapter cannot match
+the tests it discovered with the tests it runs. The <a class="xref" href="../nunit/writing-tests/attributes/random.html">Random</a> attribute is safe to use: the
+adapter saves the random seed used during discovery and reuses it during execution, so the generated test cases keep
+their names. The <a class="xref" href="Tips-And-Tricks.html">RandomSeed</a> setting lets you fix the seed yourself.</li>
+<li>Data sources run for every test in the assembly on every load, even when you run a single test. The
+<a class="xref" href="Tips-And-Tricks.html#prefilter">PreFilter</a> setting limits discovery to the tests being run.</li>
+</ul>
 <p>For settings options, see the <a class="xref" href="Tips-And-Tricks.html">Tips and Tricks</a></p>
 
 </article>

@@ -310,6 +310,10 @@ of the test class for every test. Fields can then never leak between tests, whic
 <li><strong>The current test:</strong> inside <code>[SetUp]</code> and <code>[TearDown]</code>, <a class="xref" href="TestContext.html"><code>TestContext.CurrentContext</code></a> describes
 the test that is about to run or has just run. In <code>[TearDown]</code> you can check its result, for example to save extra
 logs only when a test failed.</li>
+<li><strong>Test data is fixed before any setup runs:</strong> <code>[TestCaseSource]</code>, <code>[ValueSource]</code> and <code>[TestFixtureSource]</code> members
+are evaluated when NUnit loads the assembly, before <code>[OneTimeSetUp]</code>, <code>[SetUpFixture]</code> or <code>[SetUp]</code> methods run.
+Changing the data in a setup method has no effect, and a source cannot use objects created there. See
+<a class="xref" href="load-time-and-execution-time.html">Load Time and Execution Time</a>.</li>
 </ul>
 <h2 id="see-also">See also</h2>
 <ul>

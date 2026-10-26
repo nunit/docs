@@ -269,6 +269,9 @@ and probably should be if the data is only used within that fixture.</li>
 in the current release.</li>
 <li>The GetEnumerator method may use yield statements or simply return the enumerator for an array or other collection
 held by the class.</li>
+<li>The source is evaluated when the tests are loaded, before any fixture is constructed and before any <code>[SetUpFixture]</code>
+or <code>[OneTimeSetUp]</code> method runs, so it cannot use state created there. Its data must be repeatable, because runners
+may load the assembly more than once. See <a class="xref" href="../load-time-and-execution-time.html">Load Time and Execution Time</a>.</li>
 </ol>
 
 </article>

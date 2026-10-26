@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Load Time and Execution Time | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Load Time and Execution Time | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="loadtimeandexecutiontime">
+<h1 id="load-time-and-execution-time">Load Time and Execution Time</h1>
+
+<p>NUnit handles a test assembly in two separate phases. First it <strong>loads</strong> the assembly and builds the complete list of
+tests it contains. Only then does it <strong>execute</strong> some or all of those tests. Nothing about a test can change once
+loading is over, and code that runs in one phase cannot share live objects with code in the other unless you arrange
+it deliberately. Most surprises with data sources and custom attributes come down to this split.</p>
+<h2 id="the-two-phases">The two phases</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>What NUnit does</th>
+<th>Your code that runs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Load time</strong>, also called <em>discovery</em></td>
+<td>Loads the assembly, finds the test classes and methods, reads every NUnit attribute, collects or generates every argument, and builds the internal tree of fixtures and test cases. Runners use this tree to display, count and select tests.</td>
+<td>Members named by <a class="xref" href="attributes/testcasesource.html"><code>[TestCaseSource]</code></a>, <a class="xref" href="attributes/valuesource.html"><code>[ValueSource]</code></a>, <a class="xref" href="attributes/testfixturesource.html"><code>[TestFixtureSource]</code></a> and <a class="xref" href="attributes/datapointsource.html"><code>[DatapointSource]</code></a>; source classes used by those attributes; static constructors and field initializers that those members touch; and the load-time interfaces of <a class="xref" href="../extending-nunit/Custom-Attributes.html">custom attributes</a>.</td>
+</tr>
+<tr>
+<td><strong>Execution time</strong></td>
+<td>Runs the selected tests and reports their results.</td>
+<td>Fixture constructors, <a class="xref" href="attributes/setupfixture.html"><code>[SetUpFixture]</code></a> methods, <a class="xref" href="attributes/onetimesetup.html"><code>[OneTimeSetUp]</code></a>, <a class="xref" href="attributes/setup.html"><code>[SetUp]</code></a>, the test bodies, <a class="xref" href="attributes/teardown.html"><code>[TearDown]</code></a> and <a class="xref" href="attributes/onetimeteardown.html"><code>[OneTimeTearDown]</code></a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Charlie Poole, NUnit's original author, suggests imagining that execution takes place about a century after loading.
+By the time the first test runs, everything load-time code did is finished and gone, except for the tests it
+produced.</p>
+<h2 id="what-this-means-for-your-tests">What this means for your tests</h2>
+<h3 id="the-test-tree-is-fixed-before-execution-starts">The test tree is fixed before execution starts</h3>
+<p>Every test case, including the value of every argument, exists before the first <code>[OneTimeSetUp]</code> runs. Changing the
+data behind a source later, for example in <code>[SetUp]</code>, has no effect, because NUnit has already read it:</p>
+<pre><code class="lang-csharp" name="DataIsFixedBeforeSetUp">public class DiscountTests
+{
+    private static int _discountPercent = 10;
+
+    private static IEnumerable&lt;int&gt; Discounts()
+    {
+        // Load time: runs when NUnit loads the assembly, before any [SetUp] or [OneTimeSetUp].
+        yield return _discountPercent;
+    }
+
+    [SetUp]
+    public void ChangeDiscount()
+    {
+        // Execution time: too late. The test case and its argument were built at load time.
+        _discountPercent = 50;
+    }
+
+    [TestCaseSource(nameof(Discounts))]
+    public void Discount_IsTheValueFromLoadTime(int discount)
+    {
+        Assert.That(discount, Is.EqualTo(10));
+    }
+}
+</code></pre>
+<p>For the same reason, state created in <code>[OneTimeSetUp]</code>, in a <code>[SetUpFixture]</code> or in a fixture constructor does not
+exist yet when a data source runs. A source that reads such state sees <code>null</code> or default values, or throws.</p>
+<h3 id="arguments-are-not-copied">Arguments are not copied</h3>
+<p>NUnit does not serialize, clone or marshal the arguments it collected at load time. A test receives exactly the
+objects that the source created during the load that produced that test. If a test and your setup code appear to
+hold two different copies of an object, the object was created twice, by code that ran in both phases. The
+<a href="#a-worked-example-the-listener-that-never-hears-anything">worked example</a> below shows how that happens.</p>
+<h3 id="load-time-code-can-run-more-than-once">Load-time code can run more than once</h3>
+<ul>
+<li>A source member is evaluated once for <strong>every attribute that names it</strong>. Two test methods that share one
+<code>[TestCaseSource]</code> run the source twice.</li>
+<li>Sources run for <strong>every test in the assembly</strong>, even when you run a single test, because NUnit must build the whole
+tree before a runner can select from it. The Visual Studio adapter's <a class="xref" href="../../vs-test-adapter/Tips-And-Tricks.html#prefilter">PreFilter</a>
+setting can narrow this down.</li>
+<li>Some runners load the assembly more than once per run, so all load-time code runs again from scratch, in a fresh
+process. See <a href="#how-often-is-an-assembly-loaded">How often is an assembly loaded?</a> below.</li>
+</ul>
+<p>A data source must therefore be <strong>repeatable</strong>: for the same code, it must return the same cases, with the same
+names and arguments, in the same order, every time it runs.</p>
+<ul>
+<li>Do not use <code>System.Random</code>, <code>DateTime.Now</code>, <code>Guid.NewGuid()</code> or anything else that varies between calls. A test
+case whose name or arguments differ between two loads cannot be matched by the runner, so a test selected from one
+load may not exist in the next. If you need random arguments, use the <a class="xref" href="attributes/random.html">Random</a> attribute.
+Its values come from NUnit's seeded <a class="xref" href="Randomizer-Methods.html">Randomizer</a>, so a run can be reproduced with the same
+seed.</li>
+<li>Avoid side effects, such as incrementing a static counter or registering objects in a static collection. Every
+evaluation of the source repeats them.</li>
+<li>Keep sources cheap. Work done in a source is paid for every method that uses it, and on every load.</li>
+</ul>
+<h3 id="live-objects-belong-in-setup-not-in-sources">Live objects belong in setup, not in sources</h3>
+<p>Anything that must be alive while a test runs, such as an event subscription, a listener, an open connection or a
+shared service, should be created at execution time: in <code>[OneTimeSetUp]</code>, in a <code>[SetUpFixture]</code>, in <code>[SetUp]</code> or
+in the test itself. Use test data to describe <em>which</em> case to run, and let the test resolve the live object when it
+executes.</p>
+<h2 id="a-worked-example-the-listener-that-never-hears-anything">A worked example: the listener that never hears anything</h2>
+<p>This scenario was reported in <a href="https://github.com/nunit/docs/issues/996">nunit/docs#996</a>. A <code>[SetUpFixture]</code>
+creates a shared event bus and subscribes a listener to it. A test publishes a message to a bus it received as an
+argument, and the listener never hears it:</p>
+<pre><code class="lang-csharp" name="ListenerAttachedAtExecutionTimeToAnotherBus">[SetUpFixture]
+public class TestEnvironment
+{
+    public static EventBus? Bus { get; private set; }
+    public static List&lt;string&gt; Received { get; } = new();
+
+    [OneTimeSetUp]
+    public void CreateBus()
+    {
+        // Execution time: create the shared bus and listen to it.
+        Bus = new EventBus();
+        Bus.Published += Received.Add;
+    }
+}
+
+public class OrderTests
+{
+    private static IEnumerable&lt;EventBus&gt; Buses()
+    {
+        // Load time: TestEnvironment.Bus is still null here, so the source
+        // has to create a bus of its own. This is the object the test receives.
+        yield return new EventBus();
+    }
+
+    [TestCaseSource(nameof(Buses))]
+    public void Publish_IsNeverSeenByTheListener(EventBus bus)
+    {
+        bus.Publish(&quot;order placed&quot;);
+
+        // The listener is attached to TestEnvironment.Bus, a different object.
+        Assert.That(TestEnvironment.Received, Is.Empty);
+    }
+}
+</code></pre>
+<p>It is tempting to explain this as the bus being copied on its way from discovery to execution. That is not what
+happens. When the source runs, <code>TestEnvironment.Bus</code> is still <code>null</code>, because <code>[OneTimeSetUp]</code> has not run yet, so
+the source creates a bus of its own. That object is what the test receives. The bus with the listener is a second,
+unrelated instance, created later, at execution time. Nothing was copied or lost in transit. The code ran in both
+phases and created an object each time.</p>
+<p>The fix is to keep the source to plain data and to create everything that must be live at execution time:</p>
+<pre><code class="lang-csharp" name="ListenerAndBusBothAtExecutionTime">[SetUpFixture]
+public class TestEnvironment
+{
+    public static EventBus Bus { get; private set; } = null!;
+    public static List&lt;string&gt; Received { get; } = new();
+
+    [OneTimeSetUp]
+    public void CreateBus()
+    {
+        // Execution time: the bus and its listener are created together.
+        Bus = new EventBus();
+        Bus.Published += Received.Add;
+    }
+}
+
+public class OrderTests
+{
+    // Load time: the source supplies plain data only.
+    private static readonly string[] Messages = { &quot;order placed&quot;, &quot;order shipped&quot; };
+
+    [TestCaseSource(nameof(Messages))]
+    public void Publish_IsSeenByTheListener(string message)
+    {
+        // Execution time: resolve the live object here, not in the source.
+        TestEnvironment.Bus.Publish(message);
+
+        Assert.That(TestEnvironment.Received, Does.Contain(message));
+    }
+}
+</code></pre><h2 id="sharing-expensive-state-between-a-source-and-the-tests">Sharing expensive state between a source and the tests</h2>
+<p>Sometimes a source genuinely needs a service, for instance to enumerate the cases from a database, and the tests need
+the same service. Setup methods cannot provide it, because they run too late. Instead, initialize the service lazily,
+so that whichever side touches it first creates it:</p>
+<pre><code class="lang-csharp" name="LazySharedState">public static class Services
+{
+    // Created on first use, whether that happens in a data source at load time
+    // or in a test at execution time. Within one load of the assembly, both see
+    // the same instance.
+    private static readonly Lazy&lt;CatalogService&gt; LazyCatalog = new(() =&gt; new CatalogService());
+
+    public static CatalogService Catalog =&gt; LazyCatalog.Value;
+}
+
+public class CatalogTests
+{
+    private static IEnumerable&lt;string&gt; ProductNames() =&gt; Services.Catalog.ProductNames();
+
+    [TestCaseSource(nameof(ProductNames))]
+    public void Product_IsKnownToTheCatalog(string name)
+    {
+        Assert.That(Services.Catalog.IsKnown(name), Is.True);
+    }
+}
+</code></pre>
+<p>Within one load of the assembly, the source and the tests then share one instance. A runner may still load the
+assembly more than once, so the initializer can run more than once per run. Keep it free of side effects that cannot
+be repeated.</p>
+<h2 id="how-often-is-an-assembly-loaded">How often is an assembly loaded?</h2>
+<p>How many times the loading phase happens depends on the runner, not on NUnit. Write your sources so that it does not
+matter.</p>
+<table>
+<thead>
+<tr>
+<th>Runner</th>
+<th>Loads per run</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NUnit Console, NUnitLite</td>
+<td>Once. The tests are built and then run in the same process.</td>
+</tr>
+<tr>
+<td><code>dotnet test</code>; Visual Studio with real-time test discovery on</td>
+<td>Once. The adapter explores and then runs the same loaded tests.</td>
+</tr>
+<tr>
+<td>Visual Studio with real-time test discovery off</td>
+<td>Twice. Test Explorer loads the assembly in one test host to discover the tests, and each run loads it again in a new test host.</td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="xref" href="../../vs-test-adapter/Usage.html#discovery-and-execution">Discovery and execution in the adapter</a> for the details and
+their practical consequences.</p>
+<h2 id="writing-your-own-attributes">Writing your own attributes</h2>
+<p>The same split applies to attributes you write yourself, with some extra rules about state kept in attribute
+instances. See <a class="xref" href="../extending-nunit/Custom-Attributes.html">Custom Attributes</a>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="data-driven-tests.html">Data Driven Tests</a></li>
+<li><a class="xref" href="../technical-notes/usage/Parameterized-Tests.html">Parameterized Tests</a></li>
+<li><a class="xref" href="setup-and-teardown.html">Preparing and Cleaning Up Tests</a></li>
+<li><a class="xref" href="attributes/testcasesource.html">TestCaseSource</a>, <a class="xref" href="attributes/valuesource.html">ValueSource</a> and
+<a class="xref" href="attributes/testfixturesource.html">TestFixtureSource</a></li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/nunit/writing-tests/load-time-and-execution-time.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

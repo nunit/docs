@@ -89,7 +89,9 @@
 <p>NUnit supports parameterized tests. Test methods may have parameters and various attributes are available to indicate
 what arguments should be supplied by NUnit.</p>
 <p>Multiple sets of arguments cause the creation of multiple tests. All arguments are created at the point of loading the
-tests, so the individual test cases are available for display and selection in the Gui, if desired.</p>
+tests, so the individual test cases are available for display and selection in the Gui, if desired. This also means
+that the arguments are fixed before any setup method runs, and that the code supplying them must return the same
+data every time it is called. See <a class="xref" href="../../writing-tests/load-time-and-execution-time.html">Load Time and Execution Time</a>.</p>
 <p>Some attributes allow you to specify arguments inline - directly on the attribute - while others use a separate method,
 property or field to hold the arguments. In addition, some attributes identify complete test cases, including all the
 necessary arguments, while others only provide data for a single argument. This gives rise to four groups of attributes,

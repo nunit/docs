@@ -152,13 +152,13 @@ are used in combination with <code>ValueSourceAttribute</code>, the order of the
 <p>However, when a single <code>ValueSourceAttribute</code> is used by itself, the order of the arguments follows exactly the order
 in which the data is returned from the source.</p>
 <h2 id="note-on-object-construction">Note on Object Construction</h2>
-<p>NUnit locates the test cases at the time the tests are loaded, creates instances of each class with non-static sources
-and builds a list of tests to be executed. Each source object is only created once at this time and is destroyed after
-all tests are loaded.</p>
-<p>If the data source is in the test fixture itself, the object is created using the appropriate constructor for the
-fixture parameters provided on the <code>TestFixtureAttribute</code>, or the default constructor if no parameters were specified.
-Since this object is destroyed before the tests are run, no communication is possible between these two phases - or
-between different runs - except through the parameters themselves.</p>
+<p>NUnit evaluates the source at the time the tests are loaded and builds the list of test cases from it. The source is
+not consulted again while the tests run. No communication is possible between these two phases - or between different
+runs - except through the parameters themselves.</p>
+<p>The source therefore runs before any <code>[OneTimeSetUp]</code>, <code>[SetUpFixture]</code> or <code>[SetUp]</code> method, and cannot use state
+created there. It must also be repeatable: it runs once for every parameter that names it, and runners may load the
+assembly more than once, so it must return the same values every time. See
+<a class="xref" href="../load-time-and-execution-time.html">Load Time and Execution Time</a> for details.</p>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a class="xref" href="testcasesource.html">TestCaseSource Attribute</a></li>
