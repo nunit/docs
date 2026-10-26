@@ -104,10 +104,10 @@ issues repository:
 
 ```cmd
 ..\nunit.tools.issuerunner\run-tests.cmd --issues 1097,782 --feed Local
-..\nunit.tools.issuerunner\run-tests.cmd --scope RegressionOnly
+..\nunit.tools.issuerunner\run-tests.cmd --scope Regression
 ```
 
-* `--feed Local` adds `C:\nuget`. `--scope RegressionOnly` runs the closed issues, `OpenOnly` the open ones.
+* `--feed Local` adds `C:\nuget`. `--scope Regression` runs the closed issues, `Open` the open ones.
 * It skips folders with an `ignore`, `explicit`, `wip`, `gui` or `closedasnotplanned` marker, also when you ask for
   them by number. `windows` folders are skipped with `--skip-netfx`.
 * The issues repositories also run it in their CI workflows.
