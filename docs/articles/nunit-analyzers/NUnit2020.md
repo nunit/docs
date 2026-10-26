@@ -2,13 +2,13 @@
 
 ## Incompatible types for SameAs constraint
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2020
-| Severity | Error
-| Enabled  | True
-| Category | Assertion
-| Code     | [SameAsIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/SameAsIncompatibleTypes/SameAsIncompatibleTypesAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                  |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2020                                                                                                                                                              |
+| Severity | Error                                                                                                                                                                  |
+| Enabled  | True                                                                                                                                                                   |
+| Category | Assertion                                                                                                                                                              |
+| Code     | [SameAsIncompatibleTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/SameAsIncompatibleTypes/SameAsIncompatibleTypesAnalyzer.cs) |
 
 ## Description
 

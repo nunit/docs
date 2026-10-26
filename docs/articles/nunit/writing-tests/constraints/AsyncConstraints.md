@@ -7,91 +7,46 @@ uid: constraint-async
 NUnit constraints fully support testing asynchronous code. This page covers patterns for using constraints with async
 methods, tasks, and delegates.
 
+The examples on this page use this small service and calculator:
+
+[!code-csharp[AsyncSampleService](~/snippets/Snippets.NUnit/Constraints/AsyncConstraintSnippets.cs#AsyncSampleService)]
+
 ## Testing Async Methods
 
 ### Basic Async Assertions
 
 Use `async` lambdas with `Assert.That` to test async code:
 
-```csharp
-// Test async method return values
-Assert.That(async () => await service.GetValueAsync(), Is.EqualTo(42));
-
-// Test that async method completes without throwing
-Assert.That(async () => await service.InitializeAsync(), Throws.Nothing);
-
-// Test async exception throwing
-Assert.That(async () => await service.InvalidOperationAsync(),
-    Throws.TypeOf<InvalidOperationException>());
-```
+[!code-csharp[AsyncBasicAssertions](~/snippets/Snippets.NUnit/Constraints/AsyncConstraintSnippets.cs#AsyncBasicAssertions)]
 
 ### Testing Task Results
 
 You can also await tasks directly before asserting:
 
-```csharp
-// Await first, then assert
-var result = await calculator.AddAsync(2, 3);
-Assert.That(result, Is.EqualTo(5));
-
-// Or use Assert.ThatAsync (NUnit 4.0+)
-await Assert.ThatAsync(async () => await calculator.AddAsync(2, 3), Is.EqualTo(5));
-```
+[!code-csharp[AsyncTaskResults](~/snippets/Snippets.NUnit/Constraints/AsyncConstraintSnippets.cs#AsyncTaskResults)]
 
 ## Exception Testing with Async Code
 
 ### ThrowsConstraint with Async
 
-```csharp
-// Test for specific exception type
-Assert.That(async () => await service.FailingMethodAsync(),
-    Throws.TypeOf<InvalidOperationException>());
-
-// Test exception message
-Assert.That(async () => await service.FailingMethodAsync(),
-    Throws.TypeOf<InvalidOperationException>()
-        .With.Message.Contains("expected error"));
-
-// Test inner exception
-Assert.That(async () => await service.FailingMethodAsync(),
-    Throws.TypeOf<AggregateException>()
-        .With.InnerException.TypeOf<TimeoutException>());
-```
+[!code-csharp[AsyncThrowsConstraint](~/snippets/Snippets.NUnit/Constraints/AsyncConstraintSnippets.cs#AsyncThrowsConstraint)]
 
 ### ThrowsNothing with Async
 
-```csharp
-// Verify async method completes successfully
-Assert.That(async () => await service.SafeMethodAsync(), Throws.Nothing);
-```
+[!code-csharp[AsyncThrowsNothing](~/snippets/Snippets.NUnit/Constraints/AsyncConstraintSnippets.cs#AsyncThrowsNothing)]
 
 ## Delayed Constraints with Async
 
 Use `DelayedConstraint` for testing eventually-consistent async operations:
 
-```csharp
-// Poll until condition is true (or timeout)
-Assert.That(async () => await service.IsReadyAsync(),
-    Is.True.After(5).Seconds.PollEvery(100).MilliSeconds);
-
-// Wait for value to appear
-Assert.That(async () => await cache.GetCountAsync(),
-    Is.GreaterThan(0).After(2000, 100));
-```
+[!code-csharp[AsyncDelayedConstraint](~/snippets/Snippets.NUnit/Constraints/AsyncConstraintSnippets.cs#AsyncDelayedConstraint)]
 
 ## Collection Constraints with Async Enumerables
 
-For `IAsyncEnumerable<T>`, materialize the collection first:
+For `IAsyncEnumerable<T>`, materialize the collection first. `ToListAsync` is built into .NET 10; on earlier
+versions it comes from the `System.Linq.Async` package:
 
-```csharp
-// Convert to list first
-var items = await asyncEnumerable.ToListAsync();
-Assert.That(items, Has.Count.EqualTo(5));
-Assert.That(items, Is.All.Positive);
-
-// Or use helper method
-Assert.That(await ToListAsync(service.GetItemsAsync()), Has.Some.GreaterThan(100));
-```
+[!code-csharp[AsyncEnumerable](~/snippets/Snippets.NUnit/Constraints/AsyncConstraintSnippets.cs#AsyncEnumerable)]
 
 ## Best Practices
 

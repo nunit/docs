@@ -2,13 +2,13 @@
 
 ## The individual arguments provided by a TestCaseAttribute must match the type of the corresponding parameter of the method
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1001
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                    |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1001                                                                                                                                |
+| Severity | Error                                                                                                                                    |
+| Enabled  | True                                                                                                                                     |
+| Category | Structure                                                                                                                                |
+| Code     | [TestCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseUsage/TestCaseUsageAnalyzer.cs) |
 
 ## Description
 

@@ -33,8 +33,8 @@ Use **named parameters** on the attribute for per-case metadata (`ExpectedResult
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ❌                      | ❌       |
 
 ## Expected result
 
@@ -48,21 +48,21 @@ For those cases NUnit asserts that the **return value** equals the **`ExpectedRe
 
 Beyond arguments and `ExpectedResult`, each `TestCase` can set metadata and filters:
 
-| Named parameter | Role |
-|-----------------|------|
-| `Author` | Author metadata for this **case**. |
-| `Category` | Comma-separated categories for this **case** only (not the whole fixture). |
-| `Description` | Case description surfaced in runners and XML. |
-| `ExcludePlatform` | Comma-separated platform identifiers to skip this case—see [Platform](xref:attribute-platform). |
-| `ExpectedResult` | Expected return value; method must declare a compatible return type. |
-| `Explicit` | Makes this single case explicit; pair with **`Reason`** for messaging. |
-| `Ignore` / `IgnoreReason` | Ignores just this case; both set the skip reason (**`Ignore`** is an alias setter). |
-| `IncludePlatform` | Comma-separated identifiers where this **case** is allowed—see [Platform](xref:attribute-platform). |
-| `Reason` | Explanation for **`Explicit`** (or propagated as skip-reason metadata). |
-| `TestName` | Custom template for this case display name—see [Template Based Test Naming](xref:templatebasedtestnaming). |
-| `TestOf` | Documents the tested type (metadata only; not enforced by runners). |
-| `TypeArgs` | Explicit generic type arguments (**NUnit 4.1+**). |
-| `Until` | Time-boxed ignore; requires **`IgnoreReason`**—after the instant passes, the case runs normally (same rules as [`Ignore(..., Until = ...)`](xref:attribute-ignore)). |
+| Named parameter           | Role                                                                                                                                                                 |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Author`                  | Author metadata for this **case**.                                                                                                                                   |
+| `Category`                | Comma-separated categories for this **case** only (not the whole fixture).                                                                                           |
+| `Description`             | Case description surfaced in runners and XML.                                                                                                                        |
+| `ExcludePlatform`         | Comma-separated platform identifiers to skip this case—see [Platform](xref:attribute-platform).                                                                      |
+| `ExpectedResult`          | Expected return value; method must declare a compatible return type.                                                                                                 |
+| `Explicit`                | Makes this single case explicit; pair with **`Reason`** for messaging.                                                                                               |
+| `Ignore` / `IgnoreReason` | Ignores just this case; both set the skip reason (**`Ignore`** is an alias setter).                                                                                  |
+| `IncludePlatform`         | Comma-separated identifiers where this **case** is allowed—see [Platform](xref:attribute-platform).                                                                  |
+| `Reason`                  | Explanation for **`Explicit`** (or propagated as skip-reason metadata).                                                                                              |
+| `TestName`                | Custom template for this case display name—see [Template Based Test Naming](xref:templatebasedtestnaming).                                                           |
+| `TestOf`                  | Documents the tested type (metadata only; not enforced by runners).                                                                                                  |
+| `TypeArgs`                | Explicit generic type arguments (**NUnit 4.1+**).                                                                                                                    |
+| `Until`                   | Time-boxed ignore; requires **`IgnoreReason`**—after the instant passes, the case runs normally (same rules as [`Ignore(..., Until = ...)`](xref:attribute-ignore)). |
 
 Sections below reference **runnable** snippets for most switches. Some parameters (`Ignore`, `Explicit`, **`Category`**) are easy to misapply as **separate** attributes on the fixture—see **Naming collisions** after the examples.
 
@@ -132,7 +132,7 @@ _Thanks to [Geir Marius Gjul](https://github.com/GeirMG) for raising this questi
 
 Individual test cases are executed in the order in which NUnit discovers them. This order does **not** necessarily follow the lexical order of the attributes and will often vary between different compilers or different versions of the CLR.
 
-As a result, when **TestCaseAttribute** appears multiple times on a method or when other data-providing attributes are used in combination with **TestCaseAttribute**, the order of the test cases is undefined.
+As a result, when `TestCaseAttribute` appears multiple times on a method or when other data-providing attributes are used in combination with `TestCaseAttribute`, the order of the test cases is undefined.
 
 ## Generic TestCase Attributes
 

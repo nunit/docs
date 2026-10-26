@@ -130,14 +130,14 @@ This is from the older documentation, and is still valid, but we recommend you u
 ### Using NuGet Packages and the NUnit Console
 
 In Visual Studio, from the Tools menu, select NuGet Package Manager | Manage NuGet packages for solution...
-Open the Browser tab, and Scroll or use search to locate the **NUnit** and **NUnit.Console** packages.
+Open the Browser tab, and Scroll or use search to locate the `NUnit` and `NUnit.Console` packages.
 
 ### NUnit and NUnit.Console
 
-Install both packages. The **NUnit** package should be referenced by each of your test assemblies, but not by any
+Install both packages. The `NUnit` package should be referenced by each of your test assemblies, but not by any
 others.
 
-Locate nunit3-console in the **packages\NUnit.ConsoleRunner.3.X.X\tools** (or your configured package directory of
+Locate nunit3-console in the `packages\NUnit.ConsoleRunner.3.X.X\tools` (or your configured package directory of
 choice) directory under your solution. This is the location from which you must run nunit3-console when if you would
 like to run NUnit3 from console. We recommend you only use this approach when running under the control of a script on
 your build server.

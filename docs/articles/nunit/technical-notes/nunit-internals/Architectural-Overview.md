@@ -19,7 +19,7 @@ The layering can be seen in the diagram below.
 > This is the original architectural document, which is a bit out of date with regard to some details. A replacement is
 > being created.
 
-![topology](~/images/nunit-xtp-2008.png)
+![topology](../../../../images/nunit-xtp-2008.png)
 
 ### Test Runner Layer
 

@@ -4,7 +4,7 @@ uid: classic-assert-is-nan
 
 # Assert.IsNaN
 
-**Assert.IsNaN** tests that the specified double value is NaN.
+`Assert.IsNaN` tests that the specified double value is NaN.
 
 > [!NOTE]
 > From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy
@@ -17,6 +17,10 @@ uid: classic-assert-is-nan
 Assert.IsNaN(double aDouble);
 Assert.IsNaN(double aDouble, string message, params object[] params);
 ```
+
+## Examples
+
+[!code-csharp[NaNExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#NaNExamples)]
 
 ## See Also
 

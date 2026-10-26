@@ -11,13 +11,13 @@ what it is actually testing.
 
 There are three levels, depending on how often the code should run:
 
-| Attribute | Runs | Use it for |
-|---|---|---|
-| [`[SetUp]`](xref:attribute-setup) | Before **each** test | State that every test needs a fresh copy of |
-| [`[TearDown]`](xref:attribute-teardown) | After **each** test | Cleaning up what `[SetUp]` or the test created |
-| [`[OneTimeSetUp]`](xref:attribute-onetimesetup) | **Once**, before all tests in the class | Expensive resources that the tests can share |
-| [`[OneTimeTearDown]`](xref:attribute-onetimeteardown) | **Once**, after all tests in the class | Releasing those shared resources |
-| [`[SetUpFixture]`](xref:attribute-setupfixture) | **Once** for a whole namespace, or the whole test assembly | Resources that many test classes share, such as a test server |
+| Attribute                                             | Runs                                                       | Use it for                                                    |
+| ----------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------- |
+| [`[SetUp]`](xref:attribute-setup)                     | Before **each** test                                       | State that every test needs a fresh copy of                   |
+| [`[TearDown]`](xref:attribute-teardown)               | After **each** test                                        | Cleaning up what `[SetUp]` or the test created                |
+| [`[OneTimeSetUp]`](xref:attribute-onetimesetup)       | **Once**, before all tests in the class                    | Expensive resources that the tests can share                  |
+| [`[OneTimeTearDown]`](xref:attribute-onetimeteardown) | **Once**, after all tests in the class                     | Releasing those shared resources                              |
+| [`[SetUpFixture]`](xref:attribute-setupfixture)       | **Once** for a whole namespace, or the whole test assembly | Resources that many test classes share, such as a test server |
 
 ## Before and after each test: [SetUp] and [TearDown]
 
@@ -58,6 +58,9 @@ child namespaces, and its `[OneTimeTearDown]` runs once after all of them.
   whole test assembly.
 - The class must be public and have a default constructor, or be static.
 - A setup fixture can only have `[OneTimeSetUp]` and `[OneTimeTearDown]` methods, not `[SetUp]` and `[TearDown]`.
+- `[SetUpFixture]` can be inherited, and the namespace of the derived class decides what it covers. See
+  [Inheritance](xref:attribute-setupfixture#inheritance) on the reference page, which also shows how to share the
+  setup from a package used by several test projects.
 
 ## Which one should I use?
 
@@ -109,6 +112,10 @@ spread them over base and derived classes.
 - **The current test:** inside `[SetUp]` and `[TearDown]`, [`TestContext.CurrentContext`](xref:testcontext) describes
   the test that is about to run or has just run. In `[TearDown]` you can check its result, for example to save extra
   logs only when a test failed.
+- **Test data is fixed before any setup runs:** `[TestCaseSource]`, `[ValueSource]` and `[TestFixtureSource]` members
+  are evaluated when NUnit loads the assembly, before `[OneTimeSetUp]`, `[SetUpFixture]` or `[SetUp]` methods run.
+  Changing the data in a setup method has no effect, and a source cannot use objects created there. See
+  [Load Time and Execution Time](xref:loadtimeandexecutiontime).
 
 ## See also
 

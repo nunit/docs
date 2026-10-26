@@ -2,13 +2,13 @@
 
 ## The specified source is not static
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1022
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                             |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit1022                                                                                                                                         |
+| Severity | Error                                                                                                                                             |
+| Enabled  | True                                                                                                                                              |
+| Category | Structure                                                                                                                                         |
+| Code     | [ValueSourceUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ValueSourceUsage/ValueSourceUsageAnalyzer.cs) |
 
 ## Description
 

@@ -4,7 +4,7 @@ uid: classic-assert-are-not-same
 
 # Assert.AreNotSame
 
-**Assert.AreNotSame** tests that the two arguments do not reference the same object.
+`Assert.AreNotSame` tests that the two arguments do not reference the same object.
 
 > [!NOTE]
 > From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy
@@ -18,6 +18,10 @@ Assert.AreNotSame(object expected, object actual);
 Assert.AreNotSame(object expected, object actual,
                   string message, params object[] params);
 ```
+
+## Examples
+
+[!code-csharp[SameExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#SameExamples)]
 
 ## See Also
 

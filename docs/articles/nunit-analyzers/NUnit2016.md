@@ -2,13 +2,13 @@
 
 ## Consider using Assert.That(expr, Is.Null) instead of ClassicAssert.Null(expr)
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2016
-| Severity | Info
-| Enabled  | True
-| Category | Assertion
-| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                  |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2016                                                                                                                                                              |
+| Severity | Info                                                                                                                                                                   |
+| Enabled  | True                                                                                                                                                                   |
+| Category | Assertion                                                                                                                                                              |
+| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs) |
 
 ## Description
 

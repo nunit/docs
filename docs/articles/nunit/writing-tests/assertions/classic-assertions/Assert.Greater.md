@@ -4,7 +4,7 @@ uid: classic-assert-greater
 
 # Assert.Greater
 
-**Assert.Greater** tests whether one object is greater than another.
+`Assert.Greater` tests whether one object is greater than another.
 Contrary to the normal order of Asserts, these methods are designed to be
 read in the "natural" English-language or mathematical order. Thus
 **Assert.Greater(x, y)** asserts that x is greater than y (x > y).
@@ -49,6 +49,10 @@ Assert.Greater(IComparable arg1, IComparable arg2);
 Assert.Greater(IComparable arg1, IComparable arg2,
                string message, params object[] params);
 ```
+
+## Examples
+
+[!code-csharp[GreaterExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#GreaterExamples)]
 
 ## See Also
 

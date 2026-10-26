@@ -16,8 +16,8 @@ run.  This can be overridden by setting `AllowFailure` to `true`.
 DependsOnTestAttribute(string testName)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter  | Type     | Description                                                           |
+| ---------- | -------- | --------------------------------------------------------------------- |
 | `testName` | `string` | The name of the test that must finish before the current test starts. |
 
 In order to avoid mismatches prefer to use `nameof(mytest)`, where `mytest` is the method name of the test.
@@ -25,15 +25,15 @@ See examples below.
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
+| Property       | Type   | Description                                                       | Default |
+| -------------- | ------ | ----------------------------------------------------------------- | ------- |
 | `AllowFailure` | `bool` | Allows the current test to run even if the dependency test fails. | `false` |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ❌                      | ❌       |
 
 ## Example
 

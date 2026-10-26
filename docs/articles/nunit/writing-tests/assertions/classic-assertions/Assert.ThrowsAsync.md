@@ -4,7 +4,7 @@ uid: classic-assert-throws-async
 
 # Assert.ThrowsAsync
 
-The **Assert.ThrowsAsync** is the async equivalent to [Assert.Throws](Assert.Throws.md)
+The `Assert.ThrowsAsync` is the async equivalent to [Assert.Throws](Assert.Throws.md)
 for asynchronous code. See [Assert.Throws](Assert.Throws.md) for more information.
 
 ```csharp

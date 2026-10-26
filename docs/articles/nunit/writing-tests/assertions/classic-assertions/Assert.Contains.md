@@ -4,7 +4,7 @@ uid: classic-assert-contains
 
 # Assert.Contains
 
-**Assert.Contains** is used to test whether an object is contained in a
+`Assert.Contains` is used to test whether an object is contained in a
 collection.
 
 > [!NOTE]
@@ -19,5 +19,9 @@ Assert.Contains(object anObject, ICollection collection);
 Assert.Contains(object anObject, ICollection collection,
                 string message, params object[] params);
 ```
+
+## Examples
+
+[!code-csharp[ContainsExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#ContainsExamples)]
 
 ## See Also

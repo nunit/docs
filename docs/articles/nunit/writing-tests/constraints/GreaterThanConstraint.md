@@ -22,6 +22,7 @@ Is.Positive                      // Equivalent to Is.GreaterThan(0)
 .Using<T>(IComparer<T> comparer)
 .Using<T>(Comparison<T> comparer)
 .Within(object tolerance)
+      .Percent
 ```
 
 ## Examples
@@ -34,7 +35,9 @@ Is.Positive                      // Equivalent to Is.GreaterThan(0)
 
 ## Notes
 
-1. When comparing floating-point numbers, consider using `.Within()` to specify a tolerance.
+1. `Within` relaxes the bound by the tolerance, in the actual value's favour: `Is.GreaterThan(10).Within(1)` passes
+   for any value greater than 9. The tolerance may be linear or `Percent`, and from NUnit 4.1 a `TimeSpan` tolerance
+   may be used with `DateTime` and `TimeSpan` bounds. See [Tolerances](Tolerance.md#comparison-constraints).
 2. `Is.Positive` is a convenience shorthand for `Is.GreaterThan(0)`.
 
 ## See Also
@@ -42,3 +45,4 @@ Is.Positive                      // Equivalent to Is.GreaterThan(0)
 * [LessThan Constraint](LessThanConstraint.md)
 * [GreaterThanOrEqual Constraint](GreaterThanOrEqualConstraint.md)
 * [Range Constraint](RangeConstraint.md)
+* [Tolerances](Tolerance.md)

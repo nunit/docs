@@ -2,13 +2,13 @@
 
 ## Expression was checked in an ClassicAssert.NotNull, ClassicAssert.IsNotNull or Assert.That call
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit3001
-| Severity | Info
-| Enabled  | True
-| Category | Suppressor
-| Code     | [DereferencePossiblyNullReferenceSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DiagnosticSuppressors/DereferencePossiblyNullReferenceSuppressor.cs)
+| Topic    | Value                                                                                                                                                                                      |
+| :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit3001                                                                                                                                                                                  |
+| Severity | Info                                                                                                                                                                                       |
+| Enabled  | True                                                                                                                                                                                       |
+| Category | Suppressor                                                                                                                                                                                 |
+| Code     | [DereferencePossiblyNullReferenceSuppressor](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DiagnosticSuppressors/DereferencePossiblyNullReferenceSuppressor.cs) |
 
 ## Description
 

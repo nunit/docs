@@ -2,13 +2,13 @@
 
 ## The actual value should not be a constant
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2007
-| Severity | Warning
-| Enabled  | True
-| Category | Assertion
-| Code     | [ConstActualValueUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ConstActualValueUsage/ConstActualValueUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                                            |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2007                                                                                                                                                        |
+| Severity | Warning                                                                                                                                                          |
+| Enabled  | True                                                                                                                                                             |
+| Category | Assertion                                                                                                                                                        |
+| Code     | [ConstActualValueUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ConstActualValueUsage/ConstActualValueUsageAnalyzer.cs) |
 
 ## Description
 

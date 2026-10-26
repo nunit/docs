@@ -29,7 +29,7 @@ _description: Documentation for NUnit, the open-source unit-testing framework fo
 <a href="articles/nunit/writing-tests/setup-and-teardown.md">Preparing and cleaning up</a>
 <a href="articles/nunit/writing-tests/dependent-tests.md">Tests that depend on each other</a>
 <a href="articles/nunit/writing-tests/flaky-and-slow-tests.md">Flaky tests</a>
-<a href="articles/nunit/technical-notes/usage/Framework-Parallel-Test-Execution.md">Running tests in parallel</a>
+<a href="articles/nunit/writing-tests/parallel-tests.md">Running tests in parallel</a>
 <a href="articles/vs-test-adapter/NUnit-And-Microsoft-Test-Platform.md">Microsoft.Testing.Platform</a>
 <a href="articles/nunit/V5BreakingChanges.md">Upgrading to NUnit 5</a>
 <a href="articles/nunit-analyzers/NUnit-Analyzers.md">Analyzer warnings</a>
@@ -64,6 +64,7 @@ public class CalculatorTests
 <li><a href="articles/nunit/writing-tests/assertions/multiple-asserts.md">Checking several things at once</a></li>
 <li><a href="articles/nunit/writing-tests/dependent-tests.md">Tests that depend on other tests</a></li>
 <li><a href="articles/nunit/writing-tests/flaky-and-slow-tests.md">Flaky and slow tests</a></li>
+<li><a href="articles/nunit/writing-tests/parallel-tests.md">Running tests in parallel</a></li>
 <li><a href="articles/nunit/writing-tests/organizing-tests.md">Organizing and selecting tests</a></li>
 </ul>
 <h3>Reference</h3>

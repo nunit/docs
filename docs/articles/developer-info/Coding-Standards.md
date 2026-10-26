@@ -197,17 +197,17 @@ figure out the names. We don't use any form of "Hungarian" notation.
 For items that may vary by project, the project’s root .editorconfig and solution DotSettings may provide the defaults
 and diagnostics expected for PRs in that project.
 
-|Named Item|Naming Standard|Notes|
-|--- |--- |--- |
-|Namespaces|PascalCasing||
-|Types|PascalCasing|For framework types with a special C# name, we use the C# name. So... int rather than System.Int32.|
-|Methods|PascalCasing||
-|Properties|PascalCasing||
-|Events|PascalCasing||
-|Public and Protected Fields|PascalCasing(with allowance for API compatibility)|Includes constant fields.Public and protected variable fields should be avoided.|
-|Private and Internal Fields|(may vary by project)|Includes constant fields.Do not use this with fields designated by a leading underscore. Keep each file to the same standard, renaming when changes are made.Use `readonly` wherever appropriate for private fields.|
-|Parameters|camelCasing||
-|Local Variables|camelCasing||
+| Named Item                  | Naming Standard                                    | Notes                                                                                                                                                                                                                |
+| --------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Namespaces                  | PascalCasing                                       |                                                                                                                                                                                                                      |
+| Types                       | PascalCasing                                       | For framework types with a special C# name, we use the C# name. So... int rather than System.Int32.                                                                                                                  |
+| Methods                     | PascalCasing                                       |                                                                                                                                                                                                                      |
+| Properties                  | PascalCasing                                       |                                                                                                                                                                                                                      |
+| Events                      | PascalCasing                                       |                                                                                                                                                                                                                      |
+| Public and Protected Fields | PascalCasing(with allowance for API compatibility) | Includes constant fields.Public and protected variable fields should be avoided.                                                                                                                                     |
+| Private and Internal Fields | (may vary by project)                              | Includes constant fields.Do not use this with fields designated by a leading underscore. Keep each file to the same standard, renaming when changes are made.Use `readonly` wherever appropriate for private fields. |
+| Parameters                  | camelCasing                                        |                                                                                                                                                                                                                      |
+| Local Variables             | camelCasing                                        |                                                                                                                                                                                                                      |
 
 ### Comments
 

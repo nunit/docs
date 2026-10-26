@@ -14,21 +14,21 @@ Ignored tests are shown as warnings by runners, which helps highlight tests that
 IgnoreAttribute(string reason)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `reason` | `string` | The reason the test or fixture is ignored. This value is required. |
+| Parameter | Type     | Description                                                        |
+| --------- | -------- | ------------------------------------------------------------------ |
+| `reason`  | `string` | The reason the test or fixture is ignored. This value is required. |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
-| `Until` | `string` | Optional date/time string. The test is ignored until this date/time, then runs normally. | `null` |
+| Property | Type     | Description                                                                              | Default |
+| -------- | -------- | ---------------------------------------------------------------------------------------- | ------- |
+| `Until`  | `string` | Optional date/time string. The test is ignored until this date/time, then runs normally. | `null`  |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 > [!NOTE]
 > When applied to a fixture or assembly, all contained tests are ignored.
@@ -53,13 +53,13 @@ until the specified date. After that time, it will run normally and either pass 
 
 ## Ignoring Individual Test Cases
 
-The **IgnoreAttribute** causes all the test cases using the method on which it is placed to be ignored. Ignoring
+The `IgnoreAttribute` causes all the test cases using the method on which it is placed to be ignored. Ignoring
 individual test cases is possible, depending on how they are specified.
 
-| Attribute | How to ignore a case |
-|-----------|----------------------|
-| **TestCase** | Use the **Ignore** named parameter of `TestCaseAttribute`. |
-| **TestCaseSource** | Use `TestCaseData` for the source and set the **Ignore** property. |
+| Attribute          | How to ignore a case                                               |
+| ------------------ | ------------------------------------------------------------------ |
+| `TestCase`         | Use the `Ignore` named parameter of `TestCaseAttribute`.           |
+| `TestCaseSource`   | Use `TestCaseData` for the source and set the `Ignore` property.   |
 
 ## Notes
 

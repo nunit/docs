@@ -2,13 +2,13 @@
 
 ## Consider using Assert.That(actual, Is.Not.SameAs(expected)) instead of ClassicAssert.AreNotSame(expected, actual)
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2031
-| Severity | Warning
-| Enabled  | True
-| Category | Assertion
-| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                  |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2031                                                                                                                                                              |
+| Severity | Warning                                                                                                                                                                |
+| Enabled  | True                                                                                                                                                                   |
+| Category | Assertion                                                                                                                                                              |
+| Code     | [ClassicModelAssertUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ClassicModelAssertUsage/ClassicModelAssertUsageAnalyzer.cs) |
 
 ## Description
 

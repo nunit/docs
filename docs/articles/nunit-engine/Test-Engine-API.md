@@ -224,26 +224,26 @@ namespace NUnit.Engine
 
 The following services are available publicly.
 
-| Service            | Interface    | Function  |
-|--------------------|--------------|-----------|
-| ExtensionService   | [IExtensionService](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/IExtensionService.cs) | Manages engine extensions |
-| RecentFilesService | [IRecentFiles](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/IRecentFiles.cs)  | Provides information about recently opened files  |
-| ResultService      | [IResultService](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/IResultService.cs)  | Produces test result output in various formats  |
-| SettingsService    | [ISettings](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/ISettings.cs) | Provides access to user settings |
-| TestFilterService  | [ITestFilterService](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/ITestFilterService.cs) | Creates properly formed test filters for use by runners |
-| LoggingService     | [ILogging](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/ILogging.cs) | Provides centralized internal trace logging for both the engine and runners (Not Yet Implemented) |
+| Service            | Interface                                                                                                                     | Function                                                                                          |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| ExtensionService   | [IExtensionService](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/IExtensionService.cs)   | Manages engine extensions                                                                         |
+| RecentFilesService | [IRecentFiles](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/IRecentFiles.cs)             | Provides information about recently opened files                                                  |
+| ResultService      | [IResultService](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/IResultService.cs)         | Produces test result output in various formats                                                    |
+| SettingsService    | [ISettings](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/ISettings.cs)                   | Provides access to user settings                                                                  |
+| TestFilterService  | [ITestFilterService](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/ITestFilterService.cs) | Creates properly formed test filters for use by runners                                           |
+| LoggingService     | [ILogging](https://github.com/nunit/nunit-console/blob/main/src/NUnitEngine/nunit.engine.api/ILogging.cs)                     | Provides centralized internal trace logging for both the engine and runners (Not Yet Implemented) |
 
 The following services are used internally by the engine but are not currently exposed publicly. They potentially could
 be in the future:
 
-| Service                  | Function  |
-|--------------------------|-----------|
-| TestRunnerFactory        | Creates test runners based on the TestPackage content |
-| DomainManager            | Creates and manages AppDomains used to run tests      |
+| Service                  | Function                                                                  |
+| ------------------------ | ------------------------------------------------------------------------- |
+| TestRunnerFactory        | Creates test runners based on the TestPackage content                     |
+| DomainManager            | Creates and manages AppDomains used to run tests                          |
 | DriverService            | Provides the runner with a framework driver suitable for a given assembly |
-| ProjectService           | Is able to load assemblies referenced in various project formats |
-| RuntimeFrameworkSelector | Determines the runtime framework to be used in running a test |
-| TestAgency               | Creates and manages Processes used to run tests       |
+| ProjectService           | Is able to load assemblies referenced in various project formats          |
+| RuntimeFrameworkSelector | Determines the runtime framework to be used in running a test             |
+| TestAgency               | Creates and manages Processes used to run tests                           |
 
 #### Extensibility Interfaces
 

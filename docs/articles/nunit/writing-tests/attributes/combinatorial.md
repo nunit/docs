@@ -19,8 +19,8 @@ This is a parameterless attribute that can only be applied to test methods.
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ❌                      | ❌       |
 
 ## Example
 

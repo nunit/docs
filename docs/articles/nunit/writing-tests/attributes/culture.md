@@ -15,23 +15,23 @@ CultureAttribute()
 CultureAttribute(string cultures)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter  | Type     | Description                                                                                                                                  |
+| ---------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `cultures` | `string` | A comma-delimited list of culture names to include. You may specify either specific cultures like `"en-GB"` or neutral cultures like `"de"`. |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
-| `Include` | `string` | Comma-delimited list of cultures on which the test should run. | `null` |
-| `Exclude` | `string` | Comma-delimited list of cultures on which the test should **not** run. | `null` |
-| `Reason` | `string` | The reason for including or excluding the test. Displayed when the test is skipped. | `null` |
+| Property  | Type     | Description                                                                         | Default |
+| --------- | -------- | ----------------------------------------------------------------------------------- | ------- |
+| `Include` | `string` | Comma-delimited list of cultures on which the test should run.                      | `null`  |
+| `Exclude` | `string` | Comma-delimited list of cultures on which the test should **not** run.              | `null`  |
+| `Reason`  | `string` | The reason for including or excluding the test. Displayed when the test is skipped. | `null`  |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 ## Examples
 

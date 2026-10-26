@@ -2,13 +2,13 @@
 
 ## Simplify the Values attribute
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit4001
-| Severity | Info
-| Enabled  | True
-| Category | Style
-| Code     | [SimplifyValuesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/SimplifyValues/SimplifyValuesAnalyzer.cs)
+| Topic    | Value                                                                                                                                       |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit4001                                                                                                                                   |
+| Severity | Info                                                                                                                                        |
+| Enabled  | True                                                                                                                                        |
+| Category | Style                                                                                                                                       |
+| Code     | [SimplifyValuesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/SimplifyValues/SimplifyValuesAnalyzer.cs) |
 
 ## Description
 

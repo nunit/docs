@@ -214,6 +214,12 @@ public class CollectionConstraintSnippets
     #endregion
 
     #region CollectionEquivalentConstraintExamples
+    private sealed class Person(string name, int age)
+    {
+        public string Name { get; } = name;
+        public int Age { get; } = age;
+    }
+
     [Test]
     public void CollectionEquivalentConstraint_Examples()
     {
@@ -232,6 +238,11 @@ public class CollectionConstraintSnippets
 
         // Case-insensitive for strings
         Assert.That(new[] { "A", "B" }, Is.EquivalentTo(new[] { "b", "a" }).IgnoreCase);
+
+        // Compare objects without value equality property by property
+        Person[] expectedPeople = [new("Alice", 30), new("Bob", 25)];
+        Person[] actualPeople = [new("Bob", 25), new("Alice", 30)];
+        Assert.That(actualPeople, Is.EquivalentTo(expectedPeople).UsingPropertiesComparer());
     }
     #endregion
 }

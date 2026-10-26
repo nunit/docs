@@ -27,10 +27,10 @@ documentation][IntelliTestLink].
 
 #### Right-Click to Create Tests
 
-![Right-Click to Create Tests](~/images/right-click-create-tests.png)
+![Right-Click to Create Tests](../../images/right-click-create-tests.png)
 
 #### Select NUnit from the Test Framework dropdown
 
-![Selecting NUnit](~/images/right-click-create-tests-select-nunit.png)
+![Selecting NUnit](../../images/right-click-create-tests-select-nunit.png)
 
 [IntelliTestLink]: https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/test/generate-unit-tests-for-your-code-with-intellitest?view=vs-2015&redirectedfrom=MSDN

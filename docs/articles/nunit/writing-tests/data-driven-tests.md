@@ -10,7 +10,7 @@ its own test in the test explorer, so you can see exactly which case failed.
 
 NUnit calls these *parameterized tests*: the test method takes parameters, and the data is supplied from outside.
 
-## Inline data with [TestCase]
+## Inline data with `[TestCase]`
 
 Use [`[TestCase]`](xref:attribute-testcase) when you have a handful of cases that are easy to write out. Each
 attribute is one test case, and its arguments are passed to the method parameters in order.
@@ -22,7 +22,7 @@ with `ExpectedResult`:
 
 [!code-csharp[DataDrivenExpectedResult](~/snippets/Snippets.NUnit/WritingTestsGuideExamples.cs#DataDrivenExpectedResult)]
 
-## Data from code with [TestCaseSource]
+## Data from code with `[TestCaseSource]`
 
 Use [`[TestCaseSource]`](xref:attribute-testcasesource) when the data is larger, needs code to build, or comes from
 somewhere else, such as a file. Point the attribute at a static method, property or field that returns the cases.
@@ -33,7 +33,7 @@ Returning [`TestCaseData`](xref:testcasedata) objects is optional, but it lets y
 description, categories and more. To name many test cases with one pattern, see
 [Template Based Test Naming](xref:templatebasedtestnaming).
 
-## Data for a single parameter with [ValueSource]
+## Data for a single parameter with `[ValueSource]`
 
 Use [`[ValueSource]`](xref:attribute-valuesource) when you want to supply the values for one parameter from a
 reusable list.
@@ -54,3 +54,5 @@ For data built in code, use [`[TestFixtureSource]`](xref:attribute-testfixtureso
 
 - [Automating tests](xref:automatingtests) lets NUnit generate combinations of values for you.
 - [Parameterized tests](xref:parameterizedtests) describes all the details of how parameterized tests work.
+- [Load time and execution time](xref:loadtimeandexecutiontime) explains when data sources run, why they cannot use
+  anything created in setup methods, and why they must return the same data every time.

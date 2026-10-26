@@ -2,13 +2,13 @@
 
 ## The type of the value specified via ExpectedResult must match the return type of the method
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1005
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                          |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1005                                                                                                                                      |
+| Severity | Error                                                                                                                                          |
+| Enabled  | True                                                                                                                                           |
+| Category | Structure                                                                                                                                      |
+| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs) |
 
 ## Description
 

@@ -26,30 +26,30 @@ other resources outside the fixture instance.
 FixtureLifeCycleAttribute(LifeCycle lifeCycle)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter   | Type        | Description                                |
+| ----------- | ----------- | ------------------------------------------ |
 | `lifeCycle` | `LifeCycle` | `SingleInstance` or `InstancePerTestCase`. |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
+| Property    | Type        | Description                             | Default              |
+| ----------- | ----------- | --------------------------------------- | -------------------- |
 | `LifeCycle` | `LifeCycle` | Life cycle for the fixture or assembly. | _(from constructor)_ |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ❌ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ❌           | ✅                      | ✅       |
 
 Assembly-level settings can be overridden by a class-level attribute.
 
 ## LifeCycle enumeration
 
-| Value | Meaning |
-|-------|---------|
-| `LifeCycle.SingleInstance` | A single instance is created and shared for all test cases. This is the default. |
-| `LifeCycle.InstancePerTestCase` | A new instance is created for each test case. |
+| Value                           | Meaning                                                                          |
+| ------------------------------- | -------------------------------------------------------------------------------- |
+| `LifeCycle.SingleInstance`      | A single instance is created and shared for all test cases. This is the default. |
+| `LifeCycle.InstancePerTestCase` | A new instance is created for each test case.                                    |
 
 ## Notes
 

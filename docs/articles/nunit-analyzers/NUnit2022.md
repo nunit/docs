@@ -2,13 +2,13 @@
 
 ## Missing property required for constraint
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2022
-| Severity | Error
-| Enabled  | True
-| Category | Assertion
-| Code     | [MissingPropertyAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/MissingProperty/MissingPropertyAnalyzer.cs)
+| Topic    | Value                                                                                                                                          |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2022                                                                                                                                      |
+| Severity | Error                                                                                                                                          |
+| Enabled  | True                                                                                                                                           |
+| Category | Assertion                                                                                                                                      |
+| Code     | [MissingPropertyAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/MissingProperty/MissingPropertyAnalyzer.cs) |
 
 ## Description
 

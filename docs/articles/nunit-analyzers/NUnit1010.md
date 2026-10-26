@@ -2,13 +2,13 @@
 
 ## One may not specify ParallelScope.Fixtures on a test method
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1010
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                                      |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1010                                                                                                                                                  |
+| Severity | Error                                                                                                                                                      |
+| Enabled  | True                                                                                                                                                       |
+| Category | Structure                                                                                                                                                  |
+| Code     | [ParallelizableUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ParallelizableUsage/ParallelizableUsageAnalyzer.cs) |
 
 ## Description
 

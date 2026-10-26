@@ -4,7 +4,7 @@ uid: classic-assert-less-or-equal
 
 # Assert.LessOrEqual
 
-**Assert.LessOrEqual** tests whether one object is less than or equal to another.
+`Assert.LessOrEqual` tests whether one object is less than or equal to another.
 Contrary to the normal order of Asserts, these methods are designed to be
 read in the "natural" English-language or mathematical order. Thus
 **Assert.LessOrEqual(x, y)** asserts that x is less than or equal to y (x <= y).
@@ -49,6 +49,10 @@ Assert.LessOrEqual(IComparable arg1, IComparable arg2);
 Assert.LessOrEqual(IComparable arg1, IComparable arg2,
                    string message, params object[] params);
 ```
+
+## Examples
+
+[!code-csharp[LessOrEqualExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#LessOrEqualExamples)]
 
 ## See Also
 

@@ -1,3 +1,7 @@
+---
+uid: frameworkparalleltestexecution
+---
+
 # Framework Parallel Test Execution
 
 The NUnit 3.0 framework can run tests in parallel within an assembly. This is a completely separate facility from
@@ -6,6 +10,11 @@ test run.
 
 By default, no parallel execution takes place. Attributes are used to indicate which tests may run in parallel and how
 they relate to other tests.
+
+> [!TIP]
+> This note describes how NUnit schedules parallel work. For practical questions, such as how to turn parallel execution
+> on and what to do about state shared between tests, see
+> [Running Tests in Parallel](../../writing-tests/parallel-tests.md).
 
 ## Platform Support
 
@@ -36,9 +45,11 @@ This is a `[Flags]` type enumeration used to specify which tests may run in para
 it appears and any subordinate tests. The following values are available for use:
 
 * `ParallelScope.Self` indicates that the test itself may be run in parallel with other tests. This is the default for
-  the `ParallelizableAttribute` and is the only value permitted on a test method.
+  the `ParallelizableAttribute` and is the only value permitted on a test method that is not parameterized.
 * `ParallelScope.Children` indicates that the descendants of the test may be run in parallel with respect to one
-  another.
+  another. On a parameterized test method this is the only part of the scope that has an effect: the suite of test
+  cases always executes directly on the thread of its fixture, so `Self` is ignored there and `Children` and `All` are
+  equivalent. The individual cases are then dispatched to the parallel queue.
 * `ParallelScope.Fixtures` indicates that test fixtures that are the descendants of the test may be run in parallel with
   one another.`
 
@@ -67,8 +78,11 @@ to other tests at the same level in the tree. The following are a few examples o
 3. __Non-parallel SetUpFixture with parallel test fixtures:__ The entire group of fixtures runs separately from any
    fixtures outside the group. Within the group, multiple fixtures run in parallel.
 
-4. __Parallel SetUpFixture with non-parallel test fixtures:__ The group runs in parallel with other fixtures and groups.
-   Within the group, only one fixture at a time may execute.
+4. __Parallel SetUpFixture with non-parallel test fixtures:__ The SetUpFixture's own one-time setup and teardown may run
+   in parallel with other work, but the non-parallel fixtures inside it are queued together with every other
+   non-parallel fixture in the assembly and run one at a time, after all parallel work has finished. This does not
+   produce a group that runs in parallel with other groups while its own fixtures run in sequence; see (3) for the
+   way to isolate a group.
 
 5. __Parallel SetUpFixture with non-parallel test fixtures containing parallel test cases:__ This is just one example of
    a more complex setup. The fixtures themselves run as described in (4) but the cases within each fixture run in
@@ -92,14 +106,32 @@ complete.
 
 There are three shifts, listed here with their associated queues...
 
-|     Shift              |    Queues              |  Workers  |  Usage    |
-|------------------------|------------------------|-----------|-----------|
-| Parallel Shift         | Parallel Queue         |    LoP*   | Parallelizable tests run in the MTA |
-|                        | Parallel STA Queue     |     1     | Parallelizable tests run in the STA |
-| Non-Parallel Shift     | Non-Parallel Queue     |     1     | Non-parallelizable tests run in the MTA |
-| Non-Parallel STA Shift | Non-Parallel STA Queue |     1     | Non-parallelizable tests run in the STA |
+| Shift                  | Queues                 | Workers | Usage                                   |
+| ---------------------- | ---------------------- | ------- | --------------------------------------- |
+| Parallel Shift         | Parallel Queue         | LoP*    | Parallelizable tests run in the MTA     |
+|                        | Parallel STA Queue     | 1       | Parallelizable tests run in the STA     |
+| Non-Parallel Shift     | Non-Parallel Queue     | 1       | Non-parallelizable tests run in the MTA |
+| Non-Parallel STA Shift | Non-Parallel STA Queue | 1       | Non-parallelizable tests run in the STA |
 
 (* Depends on Level of Parallelism)
+
+### Apartment State and Parallelism
+
+A test's apartment state, set with the [`Apartment`](xref:attribute-apartment) attribute, decides which queue it goes
+to, and the number of workers on that queue decides how much parallelism it can get:
+
+* __MTA tests__ (the default) go to the Parallel Queue, which has as many workers as the level of parallelism. These are
+  the only tests that can run in parallel with each other in any number.
+* __STA tests__ go to the Parallel STA Queue, which has a __single__ worker regardless of the level of parallelism. STA
+  tests therefore run one at a time among themselves, even when they are parallelizable and even when they belong to
+  different fixtures. They do run at the same time as the MTA workers, so an STA test and an MTA test can overlap.
+* __Non-parallelizable tests__ go to the Non-Parallel Queue or the Non-Parallel STA Queue, each with a single worker.
+  Those shifts run after the Parallel Shift has finished.
+
+The one-worker STA queue is the reason tests in different `[Apartment(ApartmentState.STA)]` fixtures report the same
+thread id when run with `ParallelScope.Fixtures` or `ParallelScope.Children`. Tests marked with
+[`RequiresThread`](xref:attribute-requiresthread) behave differently: each one is started on a brand-new thread with the
+requested apartment state, so parallelizable tests marked `[RequiresThread(ApartmentState.STA)]` can run concurrently.
 
 For efficiency, each queue is created when the first test is added to it. At the time of creation, all workers for that
 queue are also created and initialized.

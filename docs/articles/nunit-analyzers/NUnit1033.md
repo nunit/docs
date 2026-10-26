@@ -2,13 +2,13 @@
 
 ## The Write methods on TestContext will be marked as Obsolete and eventually removed
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1033
-| Severity | Warning
-| Enabled  | True
-| Category | Structure
-| Code     | [TestContextWriteIsObsoleteAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestContextWriteIsObsolete/TestContextWriteIsObsoleteAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                           |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit1033                                                                                                                                                                       |
+| Severity | Warning                                                                                                                                                                         |
+| Enabled  | True                                                                                                                                                                            |
+| Category | Structure                                                                                                                                                                       |
+| Code     | [TestContextWriteIsObsoleteAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestContextWriteIsObsolete/TestContextWriteIsObsoleteAnalyzer.cs) |
 
 ## Description
 

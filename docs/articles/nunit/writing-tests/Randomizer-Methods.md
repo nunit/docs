@@ -4,11 +4,11 @@ uid: randomizermethods
 
 # Randomizer Methods
 
-The **Randomizer** object exposed by `TestContext.CurrentContext.Random` extends `System.Random` to provide random data
-for a wide range of numeric types as well as enums and strings. Each test context has access to its own **Randomizer**
+The `Randomizer` object exposed by `TestContext.CurrentContext.Random` extends `System.Random` to provide random data
+for a wide range of numeric types as well as enums and strings. Each test context has access to its own `Randomizer`
 which is used to generate random values for the `RandomAttribute` as well as for use by the user calling its methods.
 
-The benefit of using **Randomizer** rather than `System.Random` directly is twofold:
+The benefit of using `Randomizer` rather than `System.Random` directly is twofold:
 
 1. A wide range of types are provided in a uniform manner.
 2. Randomizer produces repeatable values for the test run so long as no tests are changed and the same seed is used to

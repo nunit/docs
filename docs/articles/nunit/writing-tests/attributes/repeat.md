@@ -13,18 +13,18 @@ RepeatAttribute(int count)
 RepeatAttribute(int count, bool stopOnFailure)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `count` | `int` | The number of times to run the test. |
+| Parameter       | Type   | Description                                                     |
+| --------------- | ------ | --------------------------------------------------------------- |
+| `count`         | `int`  | The number of times to run the test.                            |
 | `stopOnFailure` | `bool` | Whether to stop repeating when a test fails. Default is `true`. |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
-| `StopOnFailure` | `bool` | Whether to stop repeating when a test fails. When `false`, all repetitions run regardless of failures. | `true` |
-| `RequiredPassPercentage` | `int` | The minimum percentage of runs (1–100) that must pass for the test to succeed. When set below 100, `StopOnFailure` is treated as `false` (and must not be explicitly set to `true`); iterations run up to the repeat count unless `StopWhenOverallResultDetermined` is enabled. | `100` |
-| `StopWhenOverallResultDetermined` | `bool` | When `true` and `RequiredPassPercentage` is below 100, stops iterating as soon as the final outcome is determined — either because the pass threshold is already guaranteed or can no longer be reached. | `false` |
+| Property                          | Type   | Description                                                                                                                                                                                                                                                                     | Default |
+| --------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `StopOnFailure`                   | `bool` | Whether to stop repeating when a test fails. When `false`, all repetitions run regardless of failures.                                                                                                                                                                          | `true`  |
+| `RequiredPassPercentage`          | `int`  | The minimum percentage of runs (1–100) that must pass for the test to succeed. When set below 100, `StopOnFailure` is treated as `false` (and must not be explicitly set to `true`); iterations run up to the repeat count unless `StopWhenOverallResultDetermined` is enabled. | `100`   |
+| `StopWhenOverallResultDetermined` | `bool` | When `true` and `RequiredPassPercentage` is below 100, stops iterating as soon as the final outcome is determined — either because the pass threshold is already guaranteed or can no longer be reached.                                                                        | `false` |
 
 -----
 > [!NOTE]
@@ -36,8 +36,8 @@ RepeatAttribute(int count, bool stopOnFailure)
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ❌                      | ❌       |
 
 ## Examples
 

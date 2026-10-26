@@ -2,13 +2,13 @@
 
 ## The test or setup/teardown method is not public
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1026
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestMethodAccessibilityLevelAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodAccessibilityLevel/TestMethodAccessibilityLevelAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                                 |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit1026                                                                                                                                                                             |
+| Severity | Error                                                                                                                                                                                 |
+| Enabled  | True                                                                                                                                                                                  |
+| Category | Structure                                                                                                                                                                             |
+| Code     | [TestMethodAccessibilityLevelAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodAccessibilityLevel/TestMethodAccessibilityLevelAnalyzer.cs) |
 
 ## Description
 
