@@ -95,30 +95,21 @@ The keys are `EXPECT_TESTS`, `EXPECT_PASS`, `EXPECT_FAIL` and `EXPECT_SKIP`. The
 IssueRunner does not check them, it only looks at the script's exit code. A script that must catch a wrong number of
 tests, for example a filter that runs nothing, has to check the count itself and exit with a non-zero code.
 
-### Running all repros with IssueRunner
-
-[IssueRunner](https://github.com/nunit/nunit.tools.issuerunner) runs all or some repros of an issues repository and
-reports which pass, for example to see if they still work with a new package before a release. You don't need it to
-work on a bug. Clone it next to the issues repository, build it with its `build.cmd`, and run it from the root of the
-issues repository:
-
-```cmd
-..\nunit.tools.issuerunner\run-tests.cmd --issues 1097,782 --feed Local
-..\nunit.tools.issuerunner\run-tests.cmd --scope Regression
-```
-
-* `--feed Local` adds `C:\nuget`. `--scope Regression` runs the closed issues, `Open` the open ones.
-* It skips folders with an `ignore`, `explicit`, `wip`, `gui` or `closedasnotplanned` marker, also when you ask for
-  them by number. `windows` folders are skipped with `--skip-netfx`.
-* The issues repositories also run it in their CI workflows.
-
-The IssueRunner README has all commands and options.
-
 ## Testing an unreleased package
 
 Both projects get their package version from [MinVer](https://github.com/adamralph/minver): the last tag and the
 number of commits since it, for example `6.4.0-alpha.0.25`. Build the package with the project's build script, and copy
-it to a local feed, by default `C:\nuget`. A repro then needs a `NuGet.config` with that feed:
+it to a local feed, by default `C:\nuget`. A repro then needs a `NuGet.config` with that feed. The dotnet tool
+[nugetc](https://github.com/HermitOS/nugetconfigcreator) makes and changes the file:
+
+```cmd
+dotnet tool install -g nugetc
+cd Issue1097
+nugetc add local
+```
+
+`nugetc add local` creates a `NuGet.config` with nuget.org and `C:\nuget`, or adds `C:\nuget` to the file that is
+there:
 
 ```xml
 <configuration>
@@ -128,6 +119,10 @@ it to a local feed, by default `C:\nuget`. A repro then needs a `NuGet.config` w
   </packageSources>
 </configuration>
 ```
+
+`nugetc add myget` adds the NUnit MyGet feed, `https://www.myget.org/F/nunit/api/v3/index.json`.
+`nugetc remove local`, `disable local` and `enable local` change the file again, and `nugetc reset` sets it back to
+nuget.org only.
 
 Update the repro to the new package with [dotnet-outdated](https://github.com/dotnet-outdated/dotnet-outdated),
 instead of editing the version by hand. `-inc` updates the packages whose names contain the text, and `-exc` leaves
@@ -149,3 +144,22 @@ Two things to watch out for:
   isolated folder with `dotnet restore --packages <folder>`.
 * **Check what you test.** After a restore, check that the repro uses the package you expect, for example in
   `obj\project.assets.json`.
+
+## Running all repros with IssueRunner
+
+[IssueRunner](https://github.com/nunit/nunit.tools.issuerunner) runs all or some repros of an issues repository and
+reports which pass, for example to see if they still work with a new package before a release. You don't need it to
+work on a bug. Clone it next to the issues repository, build it with its `build.cmd`, and run it from the root of the
+issues repository:
+
+```cmd
+..\nunit.tools.issuerunner\run-tests.cmd --issues 1097,782 --feed Local
+..\nunit.tools.issuerunner\run-tests.cmd --scope Regression
+```
+
+* `--feed Local` adds `C:\nuget`. `--scope Regression` runs the closed issues, `Open` the open ones.
+* It skips folders with an `ignore`, `explicit`, `wip`, `gui` or `closedasnotplanned` marker, also when you ask for
+  them by number. `windows` folders are skipped with `--skip-netfx`.
+* The issues repositories also run it in their CI workflows.
+
+The IssueRunner README has all commands and options.
