@@ -56,14 +56,17 @@ The metadata and result files are written by IssueRunner, see below; you don't n
 
 Marker files tell IssueRunner how to treat the folder. A marker can be an empty file or a `.md` file that says why:
 
-| Marker                 | Meaning                                                           |
-|------------------------|-------------------------------------------------------------------|
-| `ignore`               | Skip the issue in all runs.                                       |
-| `explicit`             | Run the issue only when it is asked for by number.                |
-| `wip`                  | Work in progress, skipped in normal runs.                         |
-| `gui`                  | The issue shows only in a GUI, such as Visual Studio Test Explorer. |
-| `windows`              | Windows only, skipped on Linux.                                   |
-| `closedasnotplanned`   | The issue was closed as not planned.                              |
+| Marker                 | Why it is there                                                   | IssueRunner                       |
+|------------------------|-------------------------------------------------------------------|-----------------------------------|
+| `ignore`               | The repro should not be run.                                      | Skips it.                         |
+| `explicit`             | The repro must be run by hand, for example one project at a time. | Skips it.                         |
+| `wip`                  | Work in progress.                                                 | Skips it.                         |
+| `gui`                  | The bug shows only in a GUI, such as Visual Studio Test Explorer. | Skips it.                         |
+| `closedasnotplanned`   | The issue was closed as not planned.                              | Skips it.                         |
+| `windows`              | The repro runs on Windows only.                                   | Skips it with `--skip-netfx`.     |
+
+IssueRunner skips a marked folder also when you ask for the issue by number. To run it with IssueRunner, remove the
+marker; or run the repro yourself, with `dotnet test` or its run scripts.
 
 ### Custom run scripts
 
@@ -77,8 +80,10 @@ REM EXPECT_PASS=1
 dotnet test --filter "FullyQualifiedName~Baz\(1\)"
 ```
 
-The supported keys are `EXPECT_TESTS`, `EXPECT_PASS`, `EXPECT_FAIL` and `EXPECT_SKIP`. The run fails when the
-results differ.
+The keys are `EXPECT_TESTS`, `EXPECT_PASS`, `EXPECT_FAIL` and `EXPECT_SKIP`. They document what the script should
+give, but IssueRunner does not check them yet: it only looks at the script's exit code. A script that must catch a
+wrong number of tests, for example a filter that runs nothing, has to check the count itself and exit with a non-zero
+code.
 
 ### Running the repros with IssueRunner
 
@@ -120,10 +125,15 @@ it to a local feed, by default `C:\nuget`. A repro then needs a `NuGet.config` w
 ```
 
 Update the repro to the new package with [dotnet-outdated](https://github.com/dotnet-outdated/dotnet-outdated),
-instead of editing the version by hand:
+instead of editing the version by hand. `-inc` updates the packages whose names contain the text, and `-exc` leaves
+out the packages whose names contain the text:
 
 ```cmd
+REM An adapter fix
 dotnet outdated -u -pre Always -inc NUnit3TestAdapter
+
+REM A framework fix: the NUnit package, not the adapter or the analyzers
+dotnet outdated -u -pre Always -inc NUnit -exc NUnit3TestAdapter -exc NUnit.Analyzers
 ```
 
 Two things to watch out for:

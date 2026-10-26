@@ -129,6 +129,11 @@ Do not run a session on a solution that is already open in another Visual Studio
 
 ### Reading the results
 
-When Test Explorer shows a test as Not Run after it has run, look at the adapter's execution dump from that run. If the
-test is in `VS_Input_TestCases` and has a result in the dump, the adapter ran it and reported it, and Visual Studio did
-not match the result to the test it shows.
+When Test Explorer shows a test as Not Run after it has run, look at the adapter's execution dump from that run:
+
+* The test is not in `VS_Input_TestCases`: Visual Studio did not ask the adapter to run it.
+* The test is in `VS_Input_TestCases` but has no result in the dump: the adapter's filter did not select it, see the
+  `TestFilter` section.
+* The test has a result in the dump: NUnit ran it, and the adapter received the result. The dump records it before the
+  adapter converts the result and reports it to VSTest, so a failure in that step is still possible; look for errors
+  in the Tests output pane. With no errors there, Visual Studio did not match the reported result to the test it shows.
