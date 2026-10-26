@@ -116,6 +116,18 @@ runner in use. If you are using this facility, make sure the runner you use supp
 released by the NUnit team after the release of the 3.6 framework will have this support. Earlier releases will not.
 Many third party runners will not know what to do with warnings either.</p>
 </div>
+<h2 id="warnings-followed-by-assertignore-assertinconclusive-or-assertpass">Warnings followed by Assert.Ignore, Assert.Inconclusive or Assert.Pass</h2>
+<p><code>Assert.Ignore</code>, <code>Assert.Inconclusive</code> and <code>Assert.Pass</code> all end the test immediately by throwing. The final result
+state is the one the call asks for: Ignored, Inconclusive or Passed. What happens to warnings recorded earlier in the
+test depends on the framework version:</p>
+<ul>
+<li><strong>NUnit 5 and later</strong>: the warnings are kept and listed in the result message together with the message passed to the
+call, in the same numbered format used for multiple failures.</li>
+<li><strong>NUnit 4 and earlier</strong>: the result message contains only the message passed to the call. Earlier warnings are not
+shown.</li>
+</ul>
+<p>See <a class="xref" href="assertions/special-assertions/Assert.Ignore.html">Assert.Ignore</a> for the full behavior, including how ignored and warning results appear
+in Visual Studio Test Explorer.</p>
 
 </article>
           </div>

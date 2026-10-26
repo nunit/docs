@@ -93,11 +93,19 @@ success or failure outcome.</p>
 <pre><code class="lang-csharp">Assert.Inconclusive();
 Assert.Inconclusive(string message);
 </code></pre>
+<p><code>Assert.Inconclusive</code> ends the test immediately by throwing an <code>InconclusiveException</code>, so nothing after the call runs.
+Like <code>Assert.Ignore</code>, it may not be used inside a <a class="xref" href="../multiple-asserts.html">multiple assert block</a>.</p>
+<p>An inconclusive result does not affect the result of the containing fixture. Unlike an ignored test, it is not treated
+as a warning by runners. The VS Test Adapter reports it as Not Run. See
+<a href="Assert.Ignore.html#ignored-inconclusive-or-not-run">Ignored, Inconclusive, or not run?</a> for a comparison.</p>
+<p>In NUnit 5 and later, any <a href="../../Warnings.html">warnings</a> issued before the call are included in the result message. In
+earlier versions only the inconclusive message is kept.</p>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="Assert.Pass.html">Assert.Pass</a></li>
 <li><a href="Assert.Fail.html">Assert.Fail</a></li>
 <li><a href="Assert.Ignore.html">Assert.Ignore</a></li>
+<li><a href="../../Assumptions.html">Assumptions</a></li>
 </ul>
 
 </article>

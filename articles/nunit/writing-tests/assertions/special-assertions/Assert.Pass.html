@@ -96,6 +96,10 @@ result of immediately terminating test execution.</p>
 <pre><code class="lang-csharp">Assert.Pass();
 Assert.Pass(string message);
 </code></pre>
+<p><code>Assert.Pass</code> may not be used inside a <a class="xref" href="../multiple-asserts.html">multiple assert block</a>.</p>
+<p>In NUnit 5 and later, any <a href="../../Warnings.html">warnings</a> issued before the call are included in the result message, and
+the test is still reported as Passed. In earlier versions only the pass message is kept. See
+<a href="Assert.Ignore.html#warnings-issued-before-assertignore">Warnings issued before Assert.Ignore</a> for details.</p>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="Assert.Fail.html">Assert.Fail</a></li>
