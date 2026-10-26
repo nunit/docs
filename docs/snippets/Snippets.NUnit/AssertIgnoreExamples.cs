@@ -39,6 +39,19 @@ public class MessageQueueTests
 }
 #endregion
 
+#region IgnoreAttributeOnFixture
+[Ignore("Invoice rounding is being reworked; see issue #4512.")]
+public class InvoiceRoundingTests
+{
+    // Reported as ignored with the message "OneTimeSetUp: Invoice rounding is being reworked; see issue #4512."
+    [Test]
+    public void RoundsHalfToEven() => Assert.Pass();
+
+    [Test]
+    public void RoundsNegativeAmounts() => Assert.Pass();
+}
+#endregion
+
 #region WarningsThenIgnore
 public class WarningsThenIgnoreExample
 {

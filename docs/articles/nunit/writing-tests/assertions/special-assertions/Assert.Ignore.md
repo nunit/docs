@@ -8,6 +8,11 @@ uid: special-assert-ignore
 time that it cannot meaningfully run in the current environment, for example because a database, service or license
 is not available.
 
+Ignoring is also widely used to park a test that is still under development or not yet passing, so that it stays in
+the code base and in the results without failing the build. That condition is known before the test runs, so the
+[`Ignore` attribute](xref:attribute-ignore) is the better tool for it. Either way, treat it as temporary: NUnit reports
+an ignored test as a warning precisely so that it is not forgotten.
+
 ```csharp
 Assert.Ignore();
 Assert.Ignore(string message);
@@ -45,6 +50,15 @@ Ignoring from `[OneTimeSetUp]` is the usual way to skip a whole group of tests t
 
 [!code-csharp[AssertIgnoreInOneTimeSetUp](~/snippets/Snippets.NUnit/AssertIgnoreExamples.cs#AssertIgnoreInOneTimeSetUp)]
 
+When the whole fixture is known up front not to be ready, put the [`Ignore` attribute](xref:attribute-ignore) on the
+class instead. Every test in it is then reported as ignored without any setup code running:
+
+[!code-csharp[IgnoreAttributeOnFixture](~/snippets/Snippets.NUnit/AssertIgnoreExamples.cs#IgnoreAttributeOnFixture)]
+
+Each test in an ignored fixture carries the message `OneTimeSetUp: <your reason>`, even though the fixture declares no
+`[OneTimeSetUp]` method. NUnit reports an ignored fixture the same way as a fixture whose one-time setup did not
+complete, and the prefix reflects that.
+
 ## Ignored, Inconclusive, or not run?
 
 NUnit treats an ignored test as a kind of warning: a test that should have run did not, and someone should look at why.
@@ -58,6 +72,7 @@ Pick the outcome that says what you mean:
 | You want to say                                                   | Use                                                                                      | NUnit result      |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ----------------- |
 | "This test should run, but can't here. Someone should know."      | `Assert.Ignore` or `[Ignore]`                                                            | `Skipped:Ignored` |
+| "This test is under development and can't run yet."               | `[Ignore]` on the test or fixture                                                        | `Skipped:Ignored` |
 | "The test ran but couldn't reach a verdict. Another run might."   | [`Assert.Inconclusive`](Assert.Inconclusive.md) or [`Assume.That`](../../Assumptions.md) | `Inconclusive`    |
 | "This test is not meant to run in this environment or selection." | `[Platform]`, `[Explicit]`, `[Category]` with a filter                                   | `Skipped`         |
 | "Keep going, but flag this."                                      | [`Warn` or `Assert.Warn`](../../Warnings.md)                                             | `Warning`         |
@@ -74,8 +89,29 @@ the NUnit3TestAdapter has to collapse NUnit's richer set of results:
 | `Inconclusive`                                   | None (Not Run)                                                                          |
 | `Warning`                                        | Skipped by default; configurable with [`MapWarningTo`](xref:tipsandtricks#mapwarningto) |
 
-The `dotnet test` console logger prints a `Skipped` line for all of these, but tests with outcome None are not counted
-in the summary totals. Ignored and warned tests are. If a count in the summary looks wrong, this is usually why.
+What `dotnet test` prints depends on the verbosity of its console logger. At the default verbosity it prints a
+`Skipped <test name>` line for every one of these results, with no reason, followed by the summary counts. Tests with
+outcome None appear in that list but are not counted in the summary totals; ignored and warned tests are. If a count in
+the summary looks wrong, this is usually why.
+
+```text
+  Skipped AssertIgnored [18 ms]
+  Skipped ExplicitTest [< 1 ms]
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     1, Total:     2, Duration: 24 ms - MyTests.dll (net10.0)
+```
+
+To see the reasons, raise the verbosity with `--logger "console;verbosity=normal"`. The NUnit adapter then prints each
+reason on its own line, as `<test name>: <reason>`, before the `Skipped` lines. At `verbosity=detailed` the reason is
+also repeated under each test as its error message.
+
+```text
+AssertIgnored: Reporting DB not available here.
+ExplicitTest: Only on demand
+  Skipped AssertIgnored [11 ms]
+  Skipped ExplicitTest [< 1 ms]
+  Passed Passes [< 1 ms]
+```
 
 Because so many users only ever see results through Test Explorer, the difference between Ignored and Skipped is easy to
 miss. It still matters for the NUnit console runner, for runners that read the NUnit XML result, and for anyone reading
