@@ -33,6 +33,7 @@ Certain NUnit Test Adapter settings are configurable using a .runsettings file. 
 | [Where](#where)                                                       | string | NUnit Filter expression                                                                        |                               |
 | [UseParentFQNForParametrizedTests](#useparentfqnforparametrizedtests) | bool   | Enable parent as FQN for parametrized tests                                                    | false                         |
 | [UseNUnitIdforTestCaseId](#usenunitidfortestcaseid)                   | bool   | Uses NUnit test id as VSTest Testcase Id, instead of FullyQualifiedName                        | false                         |
+| [UseHierarchyProperty](#usehierarchyproperty)                         | bool   | Test Explorer tree follows NUnit's structure (from 6.4)                                        | false                         |
 | [ConsoleOut](#consoleout)                                             | int    | Sends standard console output to the output window                                             | 1                             |
 | [UseTestNameInConsoleOutput](#usetestnameinconsoleoutput)             | bool   | Adds name of test as a prefix in the output window for console output                          | true                          |
 | [StopOnError](#stoponerror)                                           | bool   | Stops on first error                                                                           | false                         |
@@ -227,6 +228,27 @@ cases give more stable results, and are more correct.
 However, it has been seen to also have adverse effects, so use with caution.
 
 (From version 3.16.1)
+
+#### UseHierarchyProperty
+
+From version 6.4. When set to `true`, the adapter tells Test Explorer how to group each test: assembly, namespace,
+NUnit fixture and method. The fixture name is NUnit's own, so a parameterized fixture is one node with its arguments,
+for example `Fixture(1, "a.b")`, and a nested class is shown as `Outer+Inner`. MSTest does the same.
+
+Without it, Test Explorer builds the tree by splitting the fully qualified name at each dot, also at dots inside the
+arguments. A test such as `[TestCase("I am a good test case (the best, even).")]` then shows as a node named
+`I am a good test case (the best, even)` with a child named `")`
+([#1097](https://github.com/nunit/nunit3-vs-adapter/issues/1097)).
+
+The default is `false` in 6.4, because it changes the tree for all tests.
+
+```xml
+<RunSettings>
+    <NUnit>
+        <UseHierarchyProperty>true</UseHierarchyProperty>
+    </NUnit>
+</RunSettings>
+```
 
 #### ConsoleOut
 
