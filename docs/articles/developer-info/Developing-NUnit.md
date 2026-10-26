@@ -39,6 +39,21 @@ shows the bug and builds as it is. Link the folder from the issue. Guidelines fo
 A repro is not required to raise an issue: some bugs are hard to reproduce. When you can make one, it makes the issue
 much easier for others to understand and fix.
 
+### Using a repro
+
+Work with one repro at a time, on its own:
+
+```cmd
+cd Issue1097
+dotnet test
+```
+
+* Run its `run_*.cmd` or `run_*.sh` scripts instead when it has them, see below.
+* Open the solution in Visual Studio when the bug is about Visual Studio. A `.runsettings` in the folder is picked up
+  automatically. For Test Explorer bugs, see
+  [Checking Test Explorer with te-dump](Developing-the-Adapter.md#checking-test-explorer-with-te-dump).
+* Point it at an unreleased package to check a fix, see [Testing an unreleased package](#testing-an-unreleased-package).
+
 ### Files in a repro folder
 
 | File                                            | Purpose                                                                   |
@@ -47,32 +62,28 @@ much easier for others to understand and fix.
 | `NuGet.config`                                  | Package sources, with a local feed when testing an unreleased package.    |
 | `.runsettings`                                  | Optional. Settings the bug needs. Visual Studio only picks it up from the solution folder. |
 | `run_*.cmd` and `run_*.sh`                      | Optional. Commands to run instead of plain `dotnet test`, see below.      |
-| `issue_metadata.json`                           | The issue's state, milestone and labels, synchronized from GitHub.        |
-| `issue_initialstate.json`                       | The target frameworks and package versions the repro was made with.       |
-| `issue_results.json`                            | The results of the last run: restore, build and test, with their output.  |
-| Marker files                                    | Optional, see below.                                                      |
+| Marker file                                     | Optional. Says what kind of repro it is, see below.                       |
+| `issue_metadata.json`, `issue_initialstate.json`, `issue_results.json` | Written by IssueRunner, see below. |
 
-The metadata and result files are written by IssueRunner, see below; you don't need to make them.
+The `issue_*.json` files are information, and you don't need to make them: the issue's state, milestone and labels
+from GitHub, the target frameworks and packages the repro was made with, and the results of the last IssueRunner run.
 
-Marker files tell IssueRunner how to treat the folder. A marker can be an empty file or a `.md` file that says why:
+A marker file says what kind of repro it is. It can be an empty file, or a `.md` file that says why:
 
-| Marker                 | Why it is there                                                   | IssueRunner                       |
-|------------------------|-------------------------------------------------------------------|-----------------------------------|
-| `ignore`               | The repro should not be run.                                      | Skips it.                         |
-| `explicit`             | The repro must be run by hand, for example one project at a time. | Skips it.                         |
-| `wip`                  | Work in progress.                                                 | Skips it.                         |
-| `gui`                  | The bug shows only in a GUI, such as Visual Studio Test Explorer. | Skips it.                         |
-| `closedasnotplanned`   | The issue was closed as not planned.                              | Skips it.                         |
-| `windows`              | The repro runs on Windows only.                                   | Skips it with `--skip-netfx`.     |
-
-IssueRunner skips a marked folder also when you ask for the issue by number. To run it with IssueRunner, remove the
-marker; or run the repro yourself, with `dotnet test` or its run scripts.
+| Marker                 | Meaning                                                           |
+|------------------------|-------------------------------------------------------------------|
+| `ignore`               | The repro should not be run.                                      |
+| `explicit`             | The repro must be run by hand, for example one project at a time. |
+| `wip`                  | Work in progress.                                                 |
+| `gui`                  | The bug shows only in a GUI, such as Visual Studio Test Explorer. |
+| `closedasnotplanned`   | The issue was closed as not planned.                              |
+| `windows`              | The repro runs on Windows only.                                   |
 
 ### Custom run scripts
 
 By default a repro is run with `dotnet test`. When it needs a filter, a runsettings file or only some of its
 projects, add a `run_<name>.cmd` and a `run_<name>.sh` with the same commands. Both are needed, since the repros are
-run on Windows and Linux. Comments in the first 10 lines can give the expected results:
+run on Windows and Linux. Comments in the first 10 lines can say what to expect:
 
 ```cmd
 REM EXPECT_TESTS=1
@@ -80,34 +91,28 @@ REM EXPECT_PASS=1
 dotnet test --filter "FullyQualifiedName~Baz\(1\)"
 ```
 
-The keys are `EXPECT_TESTS`, `EXPECT_PASS`, `EXPECT_FAIL` and `EXPECT_SKIP`. They document what the script should
-give, but IssueRunner does not check them yet: it only looks at the script's exit code. A script that must catch a
-wrong number of tests, for example a filter that runs nothing, has to check the count itself and exit with a non-zero
-code.
+The keys are `EXPECT_TESTS`, `EXPECT_PASS`, `EXPECT_FAIL` and `EXPECT_SKIP`. They are information for the reader:
+IssueRunner does not check them, it only looks at the script's exit code. A script that must catch a wrong number of
+tests, for example a filter that runs nothing, has to check the count itself and exit with a non-zero code.
 
-### Running the repros with IssueRunner
+### Running all repros with IssueRunner
 
-[IssueRunner](https://github.com/nunit/nunit.tools.issuerunner) runs the repros of an issues repository, keeps the
-results, and reports regressions. It has a command line tool and a GUI. Build it from its repository, then run it
-from the root of the issues repository:
+[IssueRunner](https://github.com/nunit/nunit.tools.issuerunner) runs all or some repros of an issues repository and
+reports which pass, for example to see if they still work with a new package before a release. You don't need it to
+work on a bug. Clone it next to the issues repository, build it with its `build.cmd`, and run it from the root of the
+issues repository:
 
 ```cmd
 ..\nunit.tools.issuerunner\run-tests.cmd --issues 1097,782 --feed Local
+..\nunit.tools.issuerunner\run-tests.cmd --scope RegressionOnly
 ```
 
-| Option                                                         | Meaning                                                  |
-|----------------------------------------------------------------|----------------------------------------------------------|
-| `--issues <numbers>`                                           | Run only these issues.                                   |
-| `--scope All`, `New`, `NewAndFailed`, `RegressionOnly`, `OpenOnly` | Run a group of issues. `RegressionOnly` runs the closed issues. |
-| `--feed Stable`, `Beta`, `Alpha`, `Local`                      | Where the packages come from. `Local` adds `C:\nuget`.   |
-| `--rerun-failed`                                               | Run again only what failed last time.                    |
-| `--skip-netfx`                                                 | Skip .NET Framework projects, for example on Linux.      |
+* `--feed Local` adds `C:\nuget`. `--scope RegressionOnly` runs the closed issues, `OpenOnly` the open ones.
+* It skips folders with an `ignore`, `explicit`, `wip`, `gui` or `closedasnotplanned` marker, also when you ask for
+  them by number. `windows` folders are skipped with `--skip-netfx`.
+* The issues repositories also run it in their CI workflows.
 
-Other commands keep the repository up to date: `metadata sync-from-github` and `metadata sync-to-folders` update the
-`issue_metadata.json` files, `reset` sets the target frameworks and packages back to `issue_initialstate.json`, and
-`report generate` writes `TestReport.md`. The IssueRunner README has the details.
-
-The closed issues are regression tests: run `--scope RegressionOnly` with a new package before a release.
+The IssueRunner README has all commands and options.
 
 ## Testing an unreleased package
 
