@@ -8,7 +8,7 @@ An EqualConstraint is used to test whether an actual value is equal to the expec
 optionally within a specified tolerance.
 
 It works with numeric types, floating point values, strings, `DateTime`, `TimeSpan`, arrays, collections, dictionaries,
-`DirectoryInfo`, and classes/structures. For custom types, a user-specified comparer can be provided using the `Using`
+tuples, `DirectoryInfo`, and classes/structures. For custom types, a user-specified comparer can be provided using the `Using`
 modifier, or the `UsingPropertiesComparer` modifier can be used for property-by-property comparison.
 
 ## Constructor
@@ -148,6 +148,36 @@ Two dictionaries are considered equal if
 
 You can use this capability to compare any two objects implementing `IDictionary`. Generic and non-generic
 dictionaries (Hashtables) may be successfully compared.
+
+## Comparing Tuples
+
+`Tuple` and `ValueTuple` instances are compared member by member, using the same rules as for standalone values. Two
+tuples are equal when they have the same number of members and each pair of corresponding members is equal. So numeric
+members of different types compare by value, string modifiers such as `IgnoreCase` apply to the string members, and a
+tolerance is applied to the members that can take one while the others are compared exactly. See
+[Tolerances](Tolerance.md#arrays-collections-dictionaries-and-tuples) for details. Tuples with more than seven members
+are compared through their nested `Rest` tuple, so longer tuples work the same way.
+
+[!code-csharp[EqualConstraintTuples](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#EqualConstraintTuples)]
+
+From NUnit 5.1, a `Tuple` and a `ValueTuple` with equal members are also equal to each other. Earlier versions treated
+them as unrelated kinds of values and the assertion always failed, whatever their contents.
+
+```csharp
+Tuple<int, int, int> tuple = Tuple.Create(1, 2, 3);
+(double, double, double) valueTuple = (1.0, 2.0, 3.0);
+
+Assert.That(valueTuple, Is.EqualTo(tuple)); // Passes from NUnit 5.1, fails in earlier versions
+```
+
+> [!NOTE]
+> NUnit.Analyzers rule [NUnit2021](../../../nunit-analyzers/NUnit2021.md) does not yet know about this and reports a
+> `Tuple` to `ValueTuple` comparison as always failing. Suppress the diagnostic for that assertion until the analyzer is
+> updated; see analyzer issue [1028](https://github.com/nunit/nunit.analyzers/issues/1028).
+
+A class that derives from `Tuple<...>` is not treated as a tuple. NUnit compares it like any other class, using its own
+equality implementation, so extra state added by the derived class takes part in the comparison. The same applies when
+such a class is the `Rest` member of a longer tuple.
 
 ## Comparing DirectoryInfo
 

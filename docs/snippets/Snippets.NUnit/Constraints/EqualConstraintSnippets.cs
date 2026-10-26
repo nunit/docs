@@ -86,6 +86,22 @@ public class EqualConstraintSnippets
     }
     #endregion
 
+    #region EqualConstraintTuples
+    [Test]
+    public void CompareTuples()
+    {
+        // Members are compared one by one, with the same rules as for standalone values
+        Assert.That(("Hello", 3), Is.EqualTo(("Hello", 3)));
+        Assert.That(Tuple.Create(1, 2, 3), Is.EqualTo(Tuple.Create(1.0, 2.0, 3.0)));
+
+        // A tolerance is applied to the members that can take one; the string is compared exactly
+        Assert.That(("Hello", 3), Is.EqualTo(("Hello", 4)).Within(1));
+
+        // Tuples with a different number of members are never equal
+        Assert.That(("Hello", 3), Is.Not.EqualTo(("Hello", 3, 1)));
+    }
+    #endregion
+
     #region EqualConstraintClasses
     private sealed class Person
     {
