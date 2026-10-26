@@ -233,7 +233,14 @@ However, it has been seen to also have adverse effects, so use with caution.
 
 From version 6.4. When set to `true`, the adapter tells Test Explorer how to group each test: assembly, namespace,
 NUnit fixture and method. The fixture name is NUnit's own, so a parameterized fixture is one node with its arguments,
-for example `Fixture(1, "a.b")`, and a nested class is shown as `Outer+Inner`. MSTest does the same.
+for example `Fixture(1, "a.b")`, and a nested class is shown as `Outer+Inner`.
+
+The adapter also tells Visual Studio which method in the source each test belongs to. Visual Studio uses this to
+merge the test it finds in the source with the test the adapter reports. Without it, a test such as
+`TupleTests([(System.Object, System.Object)])` can show as two nodes: one from the source, never run, and one with the
+result but no source link ([#782](https://github.com/nunit/nunit3-vs-adapter/issues/782)).
+
+MSTest does both by default.
 
 Without it, Test Explorer builds the tree by splitting the fully qualified name at each dot, also at dots inside the
 arguments. A test such as `[TestCase("I am a good test case (the best, even).")]` then shows as a node named
