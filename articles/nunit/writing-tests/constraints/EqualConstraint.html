@@ -89,7 +89,7 @@
 <p>An EqualConstraint is used to test whether an actual value is equal to the expected value supplied in its constructor,
 optionally within a specified tolerance.</p>
 <p>It works with numeric types, floating point values, strings, <code>DateTime</code>, <code>TimeSpan</code>, arrays, collections, dictionaries,
-<code>DirectoryInfo</code>, and classes/structures. For custom types, a user-specified comparer can be provided using the <code>Using</code>
+tuples, <code>DirectoryInfo</code>, and classes/structures. For custom types, a user-specified comparer can be provided using the <code>Using</code>
 modifier, or the <code>UsingPropertiesComparer</code> modifier can be used for property-by-property comparison.</p>
 <h2 id="constructor">Constructor</h2>
 <pre><code class="lang-csharp">EqualConstraint(object expected)
@@ -267,6 +267,43 @@ public void CompareArraysAndCollections()
 </ol>
 <p>You can use this capability to compare any two objects implementing <code>IDictionary</code>. Generic and non-generic
 dictionaries (Hashtables) may be successfully compared.</p>
+<h2 id="comparing-tuples">Comparing Tuples</h2>
+<p><code>Tuple</code> and <code>ValueTuple</code> instances are compared member by member, using the same rules as for standalone values. Two
+tuples are equal when they have the same number of members and each pair of corresponding members is equal. So numeric
+members of different types compare by value, string modifiers such as <code>IgnoreCase</code> apply to the string members, and a
+tolerance is applied to the members that can take one while the others are compared exactly. See
+<a href="Tolerance.html#arrays-collections-dictionaries-and-tuples">Tolerances</a> for details. Tuples with more than seven members
+are compared through their nested <code>Rest</code> tuple, so longer tuples work the same way.</p>
+<pre><code class="lang-csharp" name="EqualConstraintTuples">[Test]
+public void CompareTuples()
+{
+    // Members are compared one by one, with the same rules as for standalone values
+    Assert.That((&quot;Hello&quot;, 3), Is.EqualTo((&quot;Hello&quot;, 3)));
+    Assert.That(Tuple.Create(1, 2, 3), Is.EqualTo(Tuple.Create(1.0, 2.0, 3.0)));
+
+    // A tolerance is applied to the members that can take one; the string is compared exactly
+    Assert.That((&quot;Hello&quot;, 3), Is.EqualTo((&quot;Hello&quot;, 4)).Within(1));
+
+    // Tuples with a different number of members are never equal
+    Assert.That((&quot;Hello&quot;, 3), Is.Not.EqualTo((&quot;Hello&quot;, 3, 1)));
+}
+</code></pre>
+<p>From NUnit 5.1, a <code>Tuple</code> and a <code>ValueTuple</code> with equal members are also equal to each other. Earlier versions treated
+them as unrelated kinds of values and the assertion always failed, whatever their contents.</p>
+<pre><code class="lang-csharp">Tuple&lt;int, int, int&gt; tuple = Tuple.Create(1, 2, 3);
+(double, double, double) valueTuple = (1.0, 2.0, 3.0);
+
+Assert.That(valueTuple, Is.EqualTo(tuple)); // Passes from NUnit 5.1, fails in earlier versions
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>NUnit.Analyzers rule <a href="../../../nunit-analyzers/NUnit2021.html">NUnit2021</a> does not yet know about this and reports a
+<code>Tuple</code> to <code>ValueTuple</code> comparison as always failing. Suppress the diagnostic for that assertion until the analyzer is
+updated; see analyzer issue <a href="https://github.com/nunit/nunit.analyzers/issues/1028">1028</a>.</p>
+</div>
+<p>A class that derives from <code>Tuple&lt;...&gt;</code> is not treated as a tuple. NUnit compares it like any other class, using its own
+equality implementation, so extra state added by the derived class takes part in the comparison. The same applies when
+such a class is the <code>Rest</code> member of a longer tuple.</p>
 <h2 id="comparing-directoryinfo">Comparing DirectoryInfo</h2>
 <p>Two DirectoryInfo objects are considered equal if both have the same path, creation time and last access time.</p>
 <pre><code class="lang-csharp">Assert.That(new DirectoryInfo(actual), Is.EqualTo(expected));
