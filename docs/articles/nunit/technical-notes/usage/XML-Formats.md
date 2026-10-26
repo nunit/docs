@@ -66,6 +66,44 @@ See [Test Filters](Test-Filters.md) for details.
 
 ## Progress Reports
 
+As a test run progresses, the engine sends XML fragments to every `ITestEventListener`, including
+[event listener extensions](xref:eventlisteners). Each fragment is a single top-level element.
+
+### `<start-run>`
+
+Sent once by the engine before any test starts.
+
+* **Contained Elements:** `<command-line>`, holding the command used to start the run in a CDATA section.
+* **Attributes:**
+  * **count** The number of test cases the run is expected to execute, after filtering.
+  * **start-time** The UTC time the run started, in `yyyy-MM-dd HH:mm:ssZ` format.
+  * **engine-version** The version of the NUnit engine.
+  * **clr-version** The runtime version the engine is running on, taken from `Environment.Version`.
+
+> [!WARNING]
+> **count** is not always available. When the console runner is given the `--agents` option, the engine does not load
+> the test assemblies until an agent is free, so it cannot count the tests before the run starts and reports `0`.
+> Older versions of the console runner reported `0` in all cases. Extensions that show progress should treat a count of
+> `0` as "unknown" rather than as an empty run.
+
+### `<start-suite>` and `<start-test>`
+
+Sent by the framework when a suite (assembly, namespace, fixture or parameterized method) or an individual test case
+begins. The start events carry only identifying information. The result arrives later in the matching `<test-suite>`
+or `<test-case>` element.
+
+* **Attributes:**
+  * **id** The unique id of the test.
+  * **parentId** The id of the containing suite, or an empty string for the top-level suite.
+  * **name** The name of the test.
+  * **fullname** The full name of the test.
+  * **type** The kind of test, such as `Assembly`, `TestFixture`, `ParameterizedMethod` or `TestMethod`.
+  * **framework-version** On the `<start-suite>` for an assembly only, the version of the NUnit framework in use.
+  * **classname** On `<start-test>` only, the full name of the class containing the test method.
+  * **methodname** On `<start-test>` only, the name of the test method.
+
+### `<test-suite>`, `<test-case>` and `<test-run>`
+
 As a test run progresses, individual test run results are sent as xml fragments from the result file under construction.
 A runner can, in fact, construct a copy of the result file incrementally using these fragments if desired.
 
