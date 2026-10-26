@@ -38,6 +38,31 @@ Issues [#5253](https://github.com/nunit/nunit/issues/5253) and [#5265](https://g
 > `global`, at the top of each file that needs them. This doesn't work for `ActualValueDelegate<T>`, because C# aliases
 > can't be open generic types. Replace that one with `Func<T>`.
 
+The new overloads also change what happens when the *actual* value is itself a delegate:
+
+> [!WARNING]
+> Because `Assert.That` now has a `Func<T>` overload, a `Func<T>` passed as the *actual* value is **evaluated**, and the
+> constraint is applied to its result. In NUnit 4.5 and earlier, a `Func<T>` only matched the generic `TActual`
+> overload, so the constraint was applied to the delegate itself. For example:
+>
+> ```csharp
+> Func<bool> testFunc = CreateFunc();
+>
+> // NUnit 4.5: checks that the delegate is not null.
+> // NUnit 5.0: calls testFunc() and checks that the returned bool is not null, which always passes.
+> Assert.That(testFunc, Is.Not.Null);
+> ```
+>
+> To assert on the delegate rather than on its result, cast it to `object` or use the classic assertion:
+>
+> ```csharp
+> Assert.That((object)testFunc, Is.Not.Null);
+> ClassicAssert.IsNotNull(testFunc);
+> ```
+>
+> The [NUnit.Analyzers](xref:nunitanalyzers) package reports an error when a constraint such as `Is.Not.Null` is
+> applied to a value type like `bool`, which makes this change easier to spot.
+
 ### `Assert.ThrowsAsync`, `Assert.CatchAsync` and `Assert.DoesNotThrowAsync` must be awaited
 
 Issue [#4384](https://github.com/nunit/nunit/issues/4384)

@@ -2,13 +2,13 @@
 
 ## Remove unnecessary lambda expression
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2057
-| Severity | Info
-| Enabled  | True
-| Category | Assertion
-| Code     | [DelegateUnnecessaryAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DelegateUnnecessary/DelegateUnnecessaryAnalyzer.cs)
+| Topic    | Value                                                                                                                                                      |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2057                                                                                                                                                  |
+| Severity | Info                                                                                                                                                       |
+| Enabled  | True                                                                                                                                                       |
+| Category | Assertion                                                                                                                                                  |
+| Code     | [DelegateUnnecessaryAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/DelegateUnnecessary/DelegateUnnecessaryAnalyzer.cs) |
 
 ## Description
 

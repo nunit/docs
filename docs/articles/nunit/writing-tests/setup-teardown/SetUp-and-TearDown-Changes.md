@@ -40,21 +40,21 @@ function clearer.
 
 ### Attribute Usage by Fixture Type
 
-|                     | TestFixture  | SetUpFixture |
-|---------------------|--------------|--------------|
-| OneTimeSetUp        |  Supported   |  Supported   |
-| OneTimeTearDown     |  Supported   |  Supported   |
-| TestFixtureSetUp    |  Deprecated  | Not Allowed  |
-| TestFixtureTearDown |  Deprecated  | Not Allowed  |
-| SetUp               |  Supported   | Not Allowed  |
-| TearDown            |  Supported   | Not Allowed  |
+|                     | TestFixture | SetUpFixture |
+| ------------------- | ----------- | ------------ |
+| OneTimeSetUp        | Supported   | Supported    |
+| OneTimeTearDown     | Supported   | Supported    |
+| TestFixtureSetUp    | Deprecated  | Not Allowed  |
+| TestFixtureTearDown | Deprecated  | Not Allowed  |
+| SetUp               | Supported   | Not Allowed  |
+| TearDown            | Supported   | Not Allowed  |
 
 ## Backward Compatibility
 
-**TestFixtureSetUpAttribute** and **TestFixtureTearDownAttribute** continue to be supported as synonyms for
-**OneTimeSetUpAttribute** and **OneTimeTearDownAttribute** in test fixtures, but are deprecated.
+`TestFixtureSetUpAttribute` and `TestFixtureTearDownAttribute` continue to be supported as synonyms for
+`OneTimeSetUpAttribute` and `OneTimeTearDownAttribute` in test fixtures, but are deprecated.
 
-Since **SetUpAttribute** and **TearDownAttribute** are used in two different ways, it's not possible to simply deprecate
+Since `SetUpAttribute` and `TearDownAttribute` are used in two different ways, it's not possible to simply deprecate
 their usage in SetUpFixture. They have been disallowed in that context, which is a [breaking
 change](xref:breakingchanges).
 

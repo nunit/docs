@@ -12,15 +12,15 @@ uid: attribute-description
 DescriptionAttribute(string description)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter     | Type     | Description                                   |
+| ------------- | -------- | --------------------------------------------- |
 | `description` | `string` | The descriptive text for the test or fixture. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 ## Alternative Syntax
 

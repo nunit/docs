@@ -7,7 +7,7 @@ uid: classic-collection-assert
 The CollectionAssert class provides a number of methods that are useful when examining collections and their contents or
 for comparing two collections. These methods may be used with any object implementing `IEnumerable`.
 
-The **AreEqual** overloads succeed if the corresponding elements of the two collections are equal. **AreEquivalent**
+The `AreEqual` overloads succeed if the corresponding elements of the two collections are equal. `AreEquivalent`
 tests whether the collection contents are equal, but without regard to order. In both cases, elements are compared using
 NUnit's default equality comparison.
 
@@ -101,6 +101,32 @@ them would break callers that use named arguments. The constraint-based equivale
 Assert.That(new[] { 1, 2 }, Does.Contain(3));
 Assert.That(new[] { 1, 2 }, Has.Member(3));
 ```
+
+## Examples
+
+### Comparing collections
+
+[!code-csharp[CollectionAssertBasicExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertBasicExamples)]
+
+### Testing for members
+
+[!code-csharp[CollectionAssertContainsExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertContainsExamples)]
+
+### Subsets
+
+[!code-csharp[CollectionAssertSubsetExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertSubsetExamples)]
+
+### Empty collections
+
+[!code-csharp[CollectionAssertEmptyExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertEmptyExamples)]
+
+### Ordering
+
+[!code-csharp[CollectionAssertOrderedExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertOrderedExamples)]
+
+### Item types
+
+[!code-csharp[CollectionAssertItemTypeExamples](~/snippets/Snippets.NUnit/ClassicCollectionAssertExamples.cs#CollectionAssertItemTypeExamples)]
 
 ## See Also
 

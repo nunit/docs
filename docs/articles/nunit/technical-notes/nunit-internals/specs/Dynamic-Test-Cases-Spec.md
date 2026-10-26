@@ -33,17 +33,17 @@ test cases in NUnit 3.0. Some existing attributes will be re-purposed and new at
 The two types of test cases have important differences in how they may be used by NUnit and each has certain advantages
 and limitations as well.
 
-|  Pre-Generated  |  Dynamically Generated  |
-|-----------------|-------------------------|
-| Data must be known at the time of loading in order to construct the test. | Data is not needed until the point of running the test. |
-| Data may not change between test runs unless the tests are reloaded. | Data may change between test runs. |
-| Test cases are available to show in the Gui as soon as the test is loaded. | Test cases can only be displayed after the test has been run. |
-| Certain types of errors may be displayed as soon as the test is loaded. | Errors can only be displayed after the test has been run. |
-| Data may not be initialized in OneTimeSetUp because the individual test cases have already been created by that time. | Data may be initialized in OneTimeSetUp if desired. |
-| External changes to a data source have no effect on subsequent test runs. | Each test run reflects the current state of the data. |
-| Static methods, properties and fields must be used to hold test data for two forms of the TestCaseSource attribute. | Instance methods, properties and fields may be used in all cases. |
-| Test runs are automatically repeatable within a session at least until the test is reloaded. | Repeatability within a session will require special support within NUnit. |
-| Data-generating code is only executed once - as the test is loaded. | Data-generating code is executed for each run. |
+| Pre-Generated                                                                                                         | Dynamically Generated                                                     |
+| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Data must be known at the time of loading in order to construct the test.                                             | Data is not needed until the point of running the test.                   |
+| Data may not change between test runs unless the tests are reloaded.                                                  | Data may change between test runs.                                        |
+| Test cases are available to show in the Gui as soon as the test is loaded.                                            | Test cases can only be displayed after the test has been run.             |
+| Certain types of errors may be displayed as soon as the test is loaded.                                               | Errors can only be displayed after the test has been run.                 |
+| Data may not be initialized in OneTimeSetUp because the individual test cases have already been created by that time. | Data may be initialized in OneTimeSetUp if desired.                       |
+| External changes to a data source have no effect on subsequent test runs.                                             | Each test run reflects the current state of the data.                     |
+| Static methods, properties and fields must be used to hold test data for two forms of the TestCaseSource attribute.   | Instance methods, properties and fields may be used in all cases.         |
+| Test runs are automatically repeatable within a session at least until the test is reloaded.                          | Repeatability within a session will require special support within NUnit. |
+| Data-generating code is only executed once - as the test is loaded.                                                   | Data-generating code is executed for each run.                            |
 
 ### General Approach
 
@@ -63,9 +63,9 @@ Except as noted below, attributes will not change syntactically and will continu
 of them will now generate test cases dynamically. The following paragraphs describe the impact of the change on each
 attribute.
 
-**TestCaseAttribute** will continue to work as it now does, producing pre-generated test cases.
+`TestCaseAttribute` will continue to work as it now does, producing pre-generated test cases.
 
-**TestCaseSourceAttribute** and **ValueSourceAttribute** will continue to create pre-generated test cases, but will be
+`TestCaseSourceAttribute` and `ValueSourceAttribute` will continue to create pre-generated test cases, but will be
 more limited in their usage than before. The following data sources will be supported:
 
 * Static fields, properties or methods of the test fixture.
@@ -75,18 +75,18 @@ more limited in their usage than before. The following data sources will be supp
 > leading to instantiation of the test class at load time. If that occurs, the results are undefined. Obviously, such
 > trickery is not recommended and we'll try hard to detect and reject such attempts.
 
-A new **DynamicDataSourceAttribute** (the name is a placeholder) will supplant both **TestCaseSourceAttribute** and
-**ValueSourceAttribute** for dynamic generation of test cases and parameter values respectively. Suggestions are welcome
+A new `DynamicDataSourceAttribute` (the name is a placeholder) will supplant both `TestCaseSourceAttribute` and
+`ValueSourceAttribute` for dynamic generation of test cases and parameter values respectively. Suggestions are welcome
 for the final name of this attribute.
 
-**ValuesAttribute**, **RangeAttribute**, **RandomAttribute**, **CombinatorialAttribute**, **PairwiseAttribute** and
-**SequentialAttribute** (that is, all other data attributes) will be used to produce test cases dynamically.
+`ValuesAttribute`, `RangeAttribute`, `RandomAttribute`, `CombinatorialAttribute`, `PairwiseAttribute` and
+`SequentialAttribute` (that is, all other data attributes) will be used to produce test cases dynamically.
 
-**DatapointAttribute** and **DatapointsAttribute** are only used for Theories, but for the sake of completeness it may
+`DatapointAttribute` and `DatapointsAttribute` are only used for Theories, but for the sake of completeness it may
 be noted that they will also operate dynamically.
 
 Where necessary, additional properties may be added to some attributes in order to provide for repeatability of tests.
-At the moment, the only known requirement is for specification of a random seed for **RandomAttribute** but others may
+At the moment, the only known requirement is for specification of a random seed for `RandomAttribute` but others may
 arise in implementation.
 
 #### Gui Design Notes

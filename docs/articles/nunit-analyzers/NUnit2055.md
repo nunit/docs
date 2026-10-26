@@ -2,13 +2,13 @@
 
 ## Consider using Is.InstanceOf\<T> constraint instead of an 'is T' expression
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2055
-| Severity | Info
-| Enabled  | True
-| Category | Assertion
-| Code     | [InstanceOfAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/InstanceOf/InstanceOfAnalyzer.cs)
+| Topic    | Value                                                                                                                           |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------ |
+| Id       | NUnit2055                                                                                                                       |
+| Severity | Info                                                                                                                            |
+| Enabled  | True                                                                                                                            |
+| Category | Assertion                                                                                                                       |
+| Code     | [InstanceOfAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/InstanceOf/InstanceOfAnalyzer.cs) |
 
 ## Description
 

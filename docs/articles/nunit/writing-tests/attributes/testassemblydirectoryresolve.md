@@ -34,8 +34,8 @@ This is typically placed in a file like `AssemblyInfo.cs` or a dedicated assembl
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ❌ | ❌ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ❌           | ❌                      | ✅       |
 
 ## Example
 

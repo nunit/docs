@@ -13,16 +13,16 @@ AuthorAttribute(string name)
 AuthorAttribute(string name, string email)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `name` | `string` | The name of the test author. |
-| `email` | `string` | The email address of the author. When provided, stored as `"name <email>"`. |
+| Parameter | Type     | Description                                                                 |
+| --------- | -------- | --------------------------------------------------------------------------- |
+| `name`    | `string` | The name of the test author.                                                |
+| `email`   | `string` | The email address of the author. When provided, stored as `"name <email>"`. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 ## Alternative Syntax
 

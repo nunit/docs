@@ -4,7 +4,7 @@ uid: classic-assert-are-equal
 
 # Assert.AreEqual
 
-**Assert.AreEqual** tests whether the two arguments are equal.
+`Assert.AreEqual` tests whether the two arguments are equal.
 
 > [!NOTE]
 > From version 4.5.0, using C# 14, you don't need to use the ClassicAssert class, nor the NUnit.Framework.Legacy
@@ -51,4 +51,5 @@ NUnit 3.0 adds the ability to compare generic collections and dictionaries.
 ## See Also
 
 * [Equal Constraint](xref:constraint-equal)
+* [Tolerances](xref:tolerance)
 * [DefaultFloatingPointTolerance Attribute](../../attributes/defaultfloatingpointtolerance.md)

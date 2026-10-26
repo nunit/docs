@@ -12,15 +12,15 @@ uid: attribute-levelofparallelism
 LevelOfParallelismAttribute(int level)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `level` | `int` | The maximum number of worker threads to be created by the framework for running tests. |
+| Parameter | Type  | Description                                                                            |
+| --------- | ----- | -------------------------------------------------------------------------------------- |
+| `level`   | `int` | The maximum number of worker threads to be created by the framework for running tests. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ❌ | ❌ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ❌           | ❌                      | ✅       |
 
 Typically placed in `AssemblyInfo.cs` or a global usings file.
 
@@ -45,9 +45,12 @@ using NUnit.Framework;
 3. Setting the level to 1 effectively disables parallelism (only one test runs at a time).
 4. This value can be overridden using the `--workers` command-line option in the NUnit console runner.
 5. Consider your test dependencies and shared resources when setting this value. Higher parallelism can cause issues with tests that share state.
+6. The attribute cannot be applied to a single fixture or test. To limit how many cases of one test run at the same time, throttle inside the test itself, for example with a `SemaphoreSlim`. See [Running Tests in Parallel](xref:paralleltests#limiting-parallelism-for-one-test).
 
 ## See Also
 
+* [Running Tests in Parallel](xref:paralleltests)
+* [Framework Parallel Test Execution](../../technical-notes/usage/Framework-Parallel-Test-Execution.md)
 * [Parallelizable Attribute](xref:attribute-parallelizable)
 * [NonParallelizable Attribute](xref:attribute-nonparallelizable)
 * [Console Command Line](xref:consolecommandline)

@@ -14,15 +14,15 @@ You can apply it at method, fixture, or assembly scope.
 DefaultFloatingPointToleranceAttribute(double tolerance)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter   | Type     | Description                                                                                        |
+| ----------- | -------- | -------------------------------------------------------------------------------------------------- |
 | `tolerance` | `double` | The default tolerance used for floating-point comparisons when no explicit tolerance is specified. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 > [!NOTE]
 > When applied at fixture or assembly level, this default tolerance applies to all contained tests unless overridden by a more specific scope or by an explicit tolerance in an assertion.
@@ -47,3 +47,4 @@ DefaultFloatingPointToleranceAttribute(double tolerance)
 
 * [Assert.AreEqual](xref:classic-assert-are-equal)
 * [EqualConstraint](xref:constraint-equal) — numeric **`Within`** tolerances and floating-point comparison behavior (including the **Comparing floating-point values** section)
+* [Tolerances](xref:tolerance) — all tolerance modes, supported types and workarounds for unsupported types

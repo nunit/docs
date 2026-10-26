@@ -2,13 +2,13 @@
 
 ## Incorrect IgnoreCase usage
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2008
-| Severity | Warning
-| Enabled  | True
-| Category | Assertion
-| Code     | [IgnoreCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/IgnoreCaseUsage/IgnoreCaseUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                          |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2008                                                                                                                                      |
+| Severity | Warning                                                                                                                                        |
+| Enabled  | True                                                                                                                                           |
+| Category | Assertion                                                                                                                                      |
+| Code     | [IgnoreCaseUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/IgnoreCaseUsage/IgnoreCaseUsageAnalyzer.cs) |
 
 ## Description
 

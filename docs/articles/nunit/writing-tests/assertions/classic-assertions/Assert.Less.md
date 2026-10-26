@@ -4,7 +4,7 @@ uid: classic-assert-less
 
 # Assert.Less
 
-**Assert.Less** tests whether one object is less than another.
+`Assert.Less` tests whether one object is less than another.
 Contrary to the normal order of Asserts, these methods are designed to be
 read in the "natural" English-language or mathematical order. Thus
 **Assert.Less(x, y)** asserts that x is less than y (x < y).
@@ -45,6 +45,10 @@ Assert.Less(IComparable arg1, IComparable arg2);
 Assert.Less(IComparable arg1, IComparable arg2,
             string message, params object[] params);
 ```
+
+## Examples
+
+[!code-csharp[LessExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#LessExamples)]
 
 ## See Also
 

@@ -16,12 +16,12 @@ under development, and will always be 0 for release versions.)
 
 The version numbers have to be edited in the following files, and should match:
 
-| File | Change |
-| ---- | ------ |
-| `AssemblyInfo.cs`,  found in the NUnitTestAdapter project | change both file and assembly version number |
-| `source.extensions.vsixmanifest`, found under the NUnitTestAdapterInstall project | change Version tag |
-| `nunit-vs-adapter.build`, found under the Solution Items folder.| change the version number, but only use the two first digits. |
-| `license.rtf`, found under the NUNitTestAdapterInstall project. | If the major/minor number has changed, update that here, 2nd line. If year is changed, update copyright years accordingly.|
+| File                                                                              | Change                                                                                                                     |
+| --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `AssemblyInfo.cs`,  found in the NUnitTestAdapter project                         | change both file and assembly version number                                                                               |
+| `source.extensions.vsixmanifest`, found under the NUnitTestAdapterInstall project | change Version tag                                                                                                         |
+| `nunit-vs-adapter.build`, found under the Solution Items folder.                  | change the version number, but only use the two first digits.                                                              |
+| `license.rtf`, found under the NUNitTestAdapterInstall project.                   | If the major/minor number has changed, update that here, 2nd line. If year is changed, update copyright years accordingly. |
 
 ## Build
 
@@ -33,16 +33,16 @@ Use NAnt and use the package target `NAnt package` Run this from the solution ro
 
 The resulting files can be found in the "package" folder:
 
-* **NUnitVisualStudioTestAdapter-[VERSION].vsix**  This is the extension for Visual Studio, which is uploaded to the
+* `NUnitVisualStudioTestAdapter-[VERSION].vsix`  This is the extension for Visual Studio, which is uploaded to the
   [Visual Studio Gallery].
 
-* **NUnitVisualStudioTestAdapter-[VERSION].zip**  This is a zipped package for use with TFS Server Builds when you don't
+* `NUnitVisualStudioTestAdapter-[VERSION].zip`  This is a zipped package for use with TFS Server Builds when you don't
   use the NuGet package in your solution. See  [this blog] for more information.
 
-* **NUnitVisualStudioTestAdapter-[VERSION].nupkg** This is the NuGet package, which is uploaded to [NuGet for the
+* `NUnitVisualStudioTestAdapter-[VERSION].nupkg` This is the NuGet package, which is uploaded to [NuGet for the
   adapter]
 
-* **NUnitVisualStudioTestAdapterAndFramework-[VERSION].nupkg** This is a NuGet package which includes the NUnit 2.6.3
+* `NUnitVisualStudioTestAdapterAndFramework-[VERSION].nupkg` This is a NuGet package which includes the NUnit 2.6.3
   framework, uploaded to [NuGet for the adapter with framework]
 
 ### Publishing the Release
@@ -109,10 +109,10 @@ Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
 
 The adapter release notes should be updated.  
 
-The file is named **vsTestAdapterReleaseNotes.html**, and is found under Docs/2.6.4 in the nunit.org repository, branch
+The file is named `vsTestAdapterReleaseNotes.html`, and is found under Docs/2.6.4 in the nunit.org repository, branch
 "vs-adapter-2.0"
 
-Also check that the files **vsTestAdapterLicense.html** and **vsTestAdapterReleaseNotes.html** is up to date.
+Also check that the files `vsTestAdapterLicense.html` and `vsTestAdapterReleaseNotes.html` is up to date.
 
 [semantic versioning]:https://semver.org/
 [Visual Studio Gallery]:https://visualstudiogallery.msdn.microsoft.com/6ab922d0-21c0-4f06-ab5f-4ecd1fe7175d

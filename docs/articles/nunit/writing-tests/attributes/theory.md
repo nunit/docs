@@ -10,8 +10,8 @@ the code of the test or - in the case of [Parameterized Tests](xref:parameterize
 method. A theory, on the other hand, makes a general statement that all of its assertions will pass for all arguments
 satisfying certain assumptions.
 
-Theories are implemented in NUnit as non-generic methods within a **TestFixture**, which are annotated with the
-**TheoryAttribute**. Theory methods must always have arguments and therefore appears quite similar to [Parameterized
+Theories are implemented in NUnit as non-generic methods within a `TestFixture`, which are annotated with the
+`TheoryAttribute`. Theory methods must always have arguments and therefore appears quite similar to [Parameterized
 Tests](xref:parameterizedtests) at first glance. However, a Theory incorporates additional data sources for its
 arguments and allows special processing for assumptions about that data. The key difference, though, is that theories
 make general statements and are more than just a set of examples.
@@ -22,15 +22,15 @@ make general statements and are more than just a set of examples.
 TheoryAttribute(bool searchInDeclaringTypes = false)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter                | Type   | Description                                                                          |
+| ------------------------ | ------ | ------------------------------------------------------------------------------------ |
 | `searchInDeclaringTypes` | `bool` | When `true`, datapoints are resolved on declaring types as well. Default is `false`. |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ❌                      | ❌       |
 
 ## Data for Theories
 
@@ -55,7 +55,7 @@ are supplied to the argument. This feature is disabled if the user supplies any 
 ## Assumptions
 
 The theory itself is responsible for ensuring that all data supplied meets its assumptions. It does this by use of the
-**Assume.That(...)** construct, which works just like **Assert.That(...)** but does not cause a failure. If the
+`Assume.That(...)` construct, which works just like `Assert.That(...)` but does not cause a failure. If the
 assumption is not satisfied for a particular test case, that case returns an Inconclusive result, rather than a Success
 or Failure.
 
@@ -78,24 +78,7 @@ following definition:
 > Given a non-negative number, the square root of that number is always non-negative and, when multiplied by itself,
 > gives the original number.
 
-```csharp
-public class SqrtTests
-{
-    [DatapointSource]
-    public double[] values = new double[] { 0.0, 1.0, -1.0, 42.0 };
-
-    [Theory]
-    public void SquareRootDefinition(double num)
-    {
-        Assume.That(num >= 0.0);
-
-        double sqrt = Math.Sqrt(num);
-
-        Assert.That(sqrt >= 0.0);
-        Assert.That(sqrt * sqrt, Is.EqualTo(num).Within(0.000001));
-    }
-}
-```
+[!code-csharp[TheoryBasic](~/snippets/Snippets.NUnit/Attributes/TheoryAttributeExamples.cs#TheoryBasic)]
 
 ## Theories in Generic Fixtures
 
@@ -103,25 +86,7 @@ In a generic fixture with Type parameter `T` individual methods using `T` as a p
 has been resolved to an actual Type in instantiating the fixture instance. You may use such methods as theories and any
 data of the appropriate type will be used.
 
-```csharp
-[TestFixture(typeof(int))]
-[TestFixture(typeof(double))]
-public class TheorySampleTestsGeneric<T>
-{
-    [Datapoint]
-    public double[] ArrayDouble1 = { 1.2, 3.4 };
-    [Datapoint]
-    public double[] ArrayDouble2 = { 5.6, 7.8 };
-    [Datapoint]
-    public int[] ArrayInt = { 0, 1, 2, 3 };
-
-    [Theory]
-    public void TestGenericForArbitraryArray(T[] array)
-    {
-        Assert.That(array.Length, Is.EqualTo(4));
-    }
-}
-```
+[!code-csharp[TheoryGenericFixture](~/snippets/Snippets.NUnit/Attributes/TheoryAttributeExamples.cs#TheoryGenericFixture)]
 
 ## See also
 

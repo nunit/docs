@@ -130,14 +130,14 @@ This is from the older documentation, and is still valid, but we recommend you u
 ### Using NuGet Packages and the NUnit Console
 
 In Visual Studio, from the Tools menu, select NuGet Package Manager | Manage NuGet packages for solution...
-Open the Browser tab, and Scroll or use search to locate the **NUnit** and **NUnit.Console** packages.
+Open the Browser tab, and Scroll or use search to locate the `NUnit` and `NUnit.Console` packages.
 
 ### NUnit and NUnit.Console
 
-Install both packages. The **NUnit** package should be referenced by each of your test assemblies, but not by any
+Install both packages. The `NUnit` package should be referenced by each of your test assemblies, but not by any
 others.
 
-Locate nunit3-console in the **packages\NUnit.ConsoleRunner.3.X.X\tools** (or your configured package directory of
+Locate nunit3-console in the `packages\NUnit.ConsoleRunner.3.X.X\tools` (or your configured package directory of
 choice) directory under your solution. This is the location from which you must run nunit3-console when if you would
 like to run NUnit3 from console. We recommend you only use this approach when running under the control of a script on
 your build server.
@@ -166,8 +166,10 @@ to add a reference to the `NUnitLite` package in your test assembly.
 
 To run your tests, simply run your executable test assembly. No other runner is needed.
 
-Note that since this approach includes a `Program.cs` it can not be combined with the ordinary unit test project, as
-that would create two entry points, which would confuse the compiler.
+The package does not add a `Program.cs` to your project. You write the `Main` method yourself and call the NUnitLite
+runner from it, as shown on the [NUnitLite](xref:nunitlite) page. Because the test project becomes a console
+application with its own entry point, you can run the tests with `dotnet run` as well as with `dotnet test` or the
+Visual Studio Test Explorer.
 
 ### Downloading the Zip File -- Not Recommended
 

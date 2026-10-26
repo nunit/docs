@@ -2,13 +2,13 @@
 
 ## The source type does not have a default constructor
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1016
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1016                                                                                                                                                            |
+| Severity | Error                                                                                                                                                                |
+| Enabled  | True                                                                                                                                                                 |
+| Category | Structure                                                                                                                                                            |
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs) |
 
 ## Description
 

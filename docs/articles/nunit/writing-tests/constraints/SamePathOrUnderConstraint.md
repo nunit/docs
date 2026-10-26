@@ -41,7 +41,7 @@ and convert paths to a canonical form before comparing them.
 
 3. It is usually not necessary to know the file system of the paths
 in order to compare them. Where necessary, the programmer may
-use the **IgnoreCase** and **RespectCase** modifiers to provide
+use the `IgnoreCase` and `RespectCase` modifiers to provide
 behavior other than the system default.
 
 ## See also

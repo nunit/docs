@@ -2,13 +2,13 @@
 
 ## The source specified by the TestCaseSource does not return an I(Async)Enumerable or a type that implements I(Async)Enumerable
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1019
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs)
+| Topic    | Value                                                                                                                                                                |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1019                                                                                                                                                            |
+| Severity | Error                                                                                                                                                                |
+| Enabled  | True                                                                                                                                                                 |
+| Category | Structure                                                                                                                                                            |
+| Code     | [TestCaseSourceUsesStringAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestCaseSourceUsage/TestCaseSourceUsesStringAnalyzer.cs) |
 
 ## Description
 

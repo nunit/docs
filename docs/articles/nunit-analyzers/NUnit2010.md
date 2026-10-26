@@ -2,13 +2,13 @@
 
 ## Use EqualConstraint for better assertion messages in case of failure
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2010
-| Severity | Info
-| Enabled  | True
-| Category | Assertion
-| Code     | [EqualConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ConstraintUsage/EqualConstraintUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                                    |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2010                                                                                                                                                |
+| Severity | Info                                                                                                                                                     |
+| Enabled  | True                                                                                                                                                     |
+| Category | Assertion                                                                                                                                                |
+| Code     | [EqualConstraintUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ConstraintUsage/EqualConstraintUsageAnalyzer.cs) |
 
 ## Description
 

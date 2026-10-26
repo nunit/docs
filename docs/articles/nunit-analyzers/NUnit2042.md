@@ -2,13 +2,13 @@
 
 ## Comparison constraint on object
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2042
-| Severity | Info
-| Enabled  | True
-| Category | Assertion
-| Code     | [ComparableTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ComparableTypes/ComparableTypesAnalyzer.cs)
+| Topic    | Value                                                                                                                                          |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2042                                                                                                                                      |
+| Severity | Info                                                                                                                                           |
+| Enabled  | True                                                                                                                                           |
+| Category | Assertion                                                                                                                                      |
+| Code     | [ComparableTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ComparableTypes/ComparableTypesAnalyzer.cs) |
 
 ## Description
 

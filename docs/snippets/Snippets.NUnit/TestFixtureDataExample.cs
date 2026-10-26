@@ -62,4 +62,41 @@ public class TestFixtureDataExample
     }
     #endregion
 
+    #region TestFixtureDataFluentExample
+    [TestFixtureSource(typeof(ServerFixtureData), nameof(ServerFixtureData.Servers))]
+    public class ServerTests
+    {
+        private readonly Uri _server;
+
+        public ServerTests(Uri server)
+        {
+            _server = server;
+        }
+
+        [Test]
+        public void UsesHttps()
+        {
+            Assert.That(_server.Scheme, Is.EqualTo(Uri.UriSchemeHttps));
+        }
+    }
+
+    public class ServerFixtureData
+    {
+        public static IEnumerable Servers
+        {
+            get
+            {
+                // Fixture is named ServerTests(Production) instead of ServerTests(https://example.com/)
+                yield return new TestFixtureData(new Uri("https://example.com/"))
+                    .SetArgDisplayNames("Production");
+                yield return new TestFixtureData(new Uri("https://staging.example.com/"))
+                    .SetArgDisplayNames("Staging")
+                    .Explicit("Only run against staging on demand");
+                yield return new TestFixtureData(new Uri("https://legacy.example.com/"))
+                    .SetArgDisplayNames("Legacy")
+                    .Ignore("Legacy server is being decommissioned");
+            }
+        }
+    }
+    #endregion
 }

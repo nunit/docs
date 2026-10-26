@@ -8,7 +8,7 @@ An EqualConstraint is used to test whether an actual value is equal to the expec
 optionally within a specified tolerance.
 
 It works with numeric types, floating point values, strings, `DateTime`, `TimeSpan`, arrays, collections, dictionaries,
-`DirectoryInfo`, and classes/structures. For custom types, a user-specified comparer can be provided using the `Using`
+tuples, `DirectoryInfo`, and classes/structures. For custom types, a user-specified comparer can be provided using the `Using`
 modifier, or the `UsingPropertiesComparer` modifier can be used for property-by-property comparison.
 
 ## Constructor
@@ -59,13 +59,15 @@ Is.Zero // Equivalent to Is.EqualTo(0)
 
 Numerics are compared based on their values. Different types may be compared successfully if their values are equal.
 
-Using the **Within** modifier, numerics may be tested for equality within a fixed or percent tolerance.
+Using the `Within` modifier, numerics may be tested for equality within a fixed or percent tolerance. The
+[Tolerances](Tolerance.md) page describes the tolerance modes in detail, which types accept a tolerance, and what to do
+for types that do not.
 
 [!code-csharp[EqualConstraintNumerics](~/snippets/Snippets.NUnit/ConstraintExamples.cs#EqualConstraintNumerics)]
 
 ## Comparing Floating Point Values
 
-Values of type float and double are normally compared using a tolerance specified by the **Within** modifier. The
+Values of type float and double are normally compared using a tolerance specified by the `Within` modifier. The
 special values PositiveInfinity, NegativeInfinity and NaN compare as equal to themselves.
 
 Floating-point values may be compared using a tolerance in "Units in the Last Place" or ULPs. For certain types of
@@ -86,33 +88,14 @@ This can be done with the `IgnoreWhiteSpace` modifier.
 It allows using pretty formatted Json in NUnit tests regardless
 whether the code under test uses different formatting or no white space at all.
 
-```csharp
-const string prettyJson = """
-    "persons":[
-      {
-        "name": "John",
-        "surname": "Smith"
-      },
-      {
-        "name": "Jane",
-        "surname": "Doe"
-      }
-    ]
-    """;
-    
-const string condensedJson = """
-    "persons":[{"name":"John","surname":"Smith",},{"name": "Jane","surname": "Doe"}]
-    """;
+[!code-csharp[EqualConstraintIgnoreWhiteSpace](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#EqualConstraintIgnoreWhiteSpace)]
 
-Assert.That(condensedJson, Is.EqualTo(prettyJson).IgnoreWhiteSpace);
-```
-
-The above tests fails and the messages has been updated to include two carrets
+The above test fails because of the stray comma in the condensed version. The message includes two carets
 to indicate the mismatched location in both _expected_ and _actual_ values:
 
 ```text
  Assert.That(condensedJson, Is.EqualTo(prettyJson).IgnoreWhiteSpace)
- Expected string length 122 but was 79. Strings differ at index 65.
+ Expected string length 123 but was 80. Strings differ at index 65.
  Expected: "...,\r\n    "surname": "Smith"\r\n  },\r\n  {\r\n    "name": "Jane",\r...", ignoring white-space
  -----------------------------------------------^
  But was:  ""persons":[{"name":"John","surname":"Smith",},{"name": "Jane"..."
@@ -125,21 +108,18 @@ The characters ignored are the same as for the C# `Char.IsWhiteSpace`.
 
 ## Comparing DateTimes and TimeSpans
 
-**DateTimes** and **TimeSpans** may be compared either with or without a tolerance. A tolerance is specified using
-**Within** with either a **TimeSpan** as an argument or with a numeric value followed by a one of the time conversion
-modifiers: **Days**, **Hours**, **Minutes**, **Seconds**, **Milliseconds** or **Ticks**.
+`DateTime` and `TimeSpan` values may be compared either with or without a tolerance. A tolerance is specified using
+`Within` with either a `TimeSpan` as an argument or with a numeric value followed by a one of the time conversion
+modifiers: `Days`, `Hours`, `Minutes`, `Seconds`, `Milliseconds` or `Ticks`.
 
-When comparing **DateTimeOffsets** you can use the optional **WithSameOffset** modifier to check the offset along with
-the date and time.
+When comparing `DateTimeOffset` values you can use the optional `WithSameOffset` modifier to check the offset along with
+the date and time. `WithSameOffset` cannot be combined with `Within`.
 
-```csharp
-DateTime now = DateTime.Now;
-DateTime later = now + TimeSpan.FromHours(1.0);
+[!code-csharp[EqualConstraintDateTime](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#EqualConstraintDateTime)]
 
-Assert.That(now, Is.EqualTo(now));
-Assert.That(later, Is.EqualTo(now).Within(TimeSpan.FromHours(3.0));
-Assert.That(later, Is.EqualTo(now).Within(3).Hours);
-```
+From NUnit 4.3, `Is.EqualTo` has dedicated overloads for `DateTime`, `DateTimeOffset` and `TimeSpan` values. On these
+a numeric tolerance must be followed by a unit; `Is.EqualTo(now).Within(3)` by itself is not a usable constraint and
+the assertion does not compile. See [Tolerances](Tolerance.md#time-units).
 
 ## Comparing Arrays, Collections and IEnumerables with AsCollection
 
@@ -149,7 +129,7 @@ IEnumerable is supported. Two arrays, collections or IEnumerables are considered
 and if each of the corresponding elements is equal.
 
 If you want to treat two arrays of different shapes as simple collections for purposes of comparison, use the
-**AsCollection** modifier, which causes the comparison to be made element by element, without regard for the rank or
+`AsCollection` modifier, which causes the comparison to be made element by element, without regard for the rank or
 dimensions of the array. Note that jagged arrays (arrays of arrays) do not have a single underlying collection. The
 modifier would be applied to each array separately, which has no effect in most cases.
 
@@ -157,18 +137,7 @@ The `AsCollection` modifier is also useful on classes implementing both `IEnumer
 modifier, the `IEquatable` implementation is used to test equality. With the modifier specified, `IEquatable` is ignored
 and the contents of the enumeration are compared one by one.
 
-```csharp
-int[] i3 = new int[] { 1, 2, 3 };
-double[] d3 = new double[] { 1.0, 2.0, 3.0 };
-int[] iunequal = new int[] { 1, 3, 2 };
-Assert.That(i3, Is.EqualTo(d3));
-Assert.That(i3, Is.Not.EqualTo(iunequal));
-
-int[,] array2x2 = new int[,] { { 1, 2 }, { 3, 4 } };
-int[] array4 = new int[] { 1, 2, 3, 4 };
-Assert.That(array2x2, Is.Not.EqualTo(array4));
-Assert.That(array2x2, Is.EqualTo(array4).AsCollection);
-```
+[!code-csharp[EqualConstraintArrays](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#EqualConstraintArrays)]
 
 ## Comparing Dictionaries
 
@@ -177,8 +146,38 @@ Two dictionaries are considered equal if
  1. The list of keys is the same - without regard to ordering.
  2. The values associated with each key are equal.
 
-You can use this capability to compare any two objects implementing **IDictionary**. Generic and non-generic
+You can use this capability to compare any two objects implementing `IDictionary`. Generic and non-generic
 dictionaries (Hashtables) may be successfully compared.
+
+## Comparing Tuples
+
+`Tuple` and `ValueTuple` instances are compared member by member, using the same rules as for standalone values. Two
+tuples are equal when they have the same number of members and each pair of corresponding members is equal. So numeric
+members of different types compare by value, string modifiers such as `IgnoreCase` apply to the string members, and a
+tolerance is applied to the members that can take one while the others are compared exactly. See
+[Tolerances](Tolerance.md#arrays-collections-dictionaries-and-tuples) for details. Tuples with more than seven members
+are compared through their nested `Rest` tuple, so longer tuples work the same way.
+
+[!code-csharp[EqualConstraintTuples](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#EqualConstraintTuples)]
+
+From NUnit 5.1, a `Tuple` and a `ValueTuple` with equal members are also equal to each other. Earlier versions treated
+them as unrelated kinds of values and the assertion always failed, whatever their contents.
+
+```csharp
+Tuple<int, int, int> tuple = Tuple.Create(1, 2, 3);
+(double, double, double) valueTuple = (1.0, 2.0, 3.0);
+
+Assert.That(valueTuple, Is.EqualTo(tuple)); // Passes from NUnit 5.1, fails in earlier versions
+```
+
+> [!NOTE]
+> NUnit.Analyzers rule [NUnit2021](../../../nunit-analyzers/NUnit2021.md) does not yet know about this and reports a
+> `Tuple` to `ValueTuple` comparison as always failing. Suppress the diagnostic for that assertion until the analyzer is
+> updated; see analyzer issue [1028](https://github.com/nunit/nunit.analyzers/issues/1028).
+
+A class that derives from `Tuple<...>` is not treated as a tuple. NUnit compares it like any other class, using its own
+equality implementation, so extra state added by the derived class takes part in the comparison. The same applies when
+such a class is the `Rest` member of a longer tuple.
 
 ## Comparing DirectoryInfo
 
@@ -194,28 +193,7 @@ If a class/structure implements `IEquatable<T>` then it is up to the class to de
 If not, then the standard .NET `Equals` is called which means for classes,
 it is reference equality and for structures it is value equality.
 
-```csharp
-private sealed class Person
-{
-    public Person(string name, int yearOfBirth)
-    {
-        Name = name;
-        YearOfBirth = yearOfBirth;
-    }
-
-    public string Name { get; }
-    public int YearOfBirth { get; }
-}
-
-[Test]
-public void ComparePersons()
-{
-    var person1 = new Person("Charlie", 1985);
-    var person2 = new Person("Charlie", 1985);
-
-    Assert.That(person2, Is.EqualTo(person1));
-}
-```
+[!code-csharp[EqualConstraintClasses](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#EqualConstraintClasses)]
 
 The above test fails because even though _person1_ and _person2_ have the same property values,
 they are different instances.
@@ -243,24 +221,18 @@ own through the `Using` modifier. When used with `EqualConstraint`, you may supp
 Assert.That(myObj1, Is.EqualTo(myObj2).Using(myComparer));
 ```
 
+A user-specified comparer takes over the whole comparison, so it cannot be combined with `Within`: from NUnit 4.0,
+specifying both results in a `NotSupportedException`. If you need an approximate comparison for a type that NUnit does
+not support, build the tolerance into the comparer itself. See
+[Tolerances for your own types](Tolerance.md#tolerances-for-your-own-types).
+
 Prior to NUnit 2.6, only one comparer could be used. If multiple comparers were specified, all but one was ignored.
 Beginning with NUnit 2.6, multiple generic comparers for different types may be specified. NUnit will use the
 appropriate comparer for any two types being compared. As a result, it is now possible to provide a comparer for an
 array, a collection type or a dictionary. The user-provided comparer will be used directly, bypassing the default NUnit
 logic for array, collection or dictionary equality.
 
-```csharp
-class ListOfIntComparer : IEqualityComparer<List<int>>
-{
-    /* ... */
-}
-
-var list1 = new List<int>();
-var list2 = new List<int>();
-var myComparer = new ListOfIntComparer();
-/* ... */
-Assert.That(list1, Is.EqualTo(list2).Using(myComparer));
-```
+[!code-csharp[EqualConstraintUsingComparer](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#EqualConstraintUsingComparer)]
 
 ## Properties Comparer
 
@@ -275,6 +247,9 @@ This can be recursive, e.g. if one has a class `Group` holding a collection of `
 
 The comparer will use the specified tolerance as specified using `.Within(amount)` if possible.
 This can be useful when comparing floating point numbers of calculation results.
+Properties that cannot take a tolerance, such as strings, are compared exactly.
+From version 4.4 the configuration also has a `Within` method, which allows separate tolerances
+for numeric and time properties; see [Tolerances](Tolerance.md#objects-compared-property-by-property).
 
 The comparer can deal with recursive data structures,
 it will stop comparing if it already previously has compared two the same instances.
@@ -289,20 +264,7 @@ By default, the `PropertiesComparer` only compares instances of the same type.
 But sometimes we want to compare the properties of a Dto object with an Domain entity.
 If all properties have the same name, this can be done with the `AllowDifferentTypes()` modifier.
 
-```csharp
-private record struct PersonDto(string Name, int YearOfBirth);
-private record struct PersonEntity(string Name, int YearOfBirth);
-
-[Test]
-public void CompareDifferentTypes()
-{
-    var dto = new PersonDto("Hejlsberg", 1960);
-    var entity = new PersonEntity("Hejlsberg", 1960);
-
-    Assert.That(dto, Is.EqualTo(entity)
-                       .UsingPropertiesComparer(o => o.AllowDifferentTypes()));
-}
-```
+[!code-csharp[PropertiesComparerAllowDifferentTypes](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#PropertiesComparerAllowDifferentTypes)]
 
 ### Excluding some Properties for Comparison
 
@@ -315,20 +277,7 @@ We would like to compare the two, but ignore the `Id` property.
 To only compare those properties available on both types, use: `.CompareOnlyCommonProperties()`.
 This method implies `.AllowDifferentTypes()`.
 
-```csharp
-private record struct PersonDto(string Name, int YearOfBirth);
-private record struct PersonEntity(Guid Id, string Name, int YearOfBirth);
-
-[Test]
-public void CompareDifferentTypesWithExcessFields()
-{
-   var dto = new PersonDto("Hejlsberg", 1960);
-   var entity = new PersonEntity(Guid.NewGuid(), "Hejlsberg", 1960);
-
-   Assert.That(dto, Is.EqualTo(entity)
-                      .UsingPropertiesComparer(o => o.CompareOnlyCommonProperties()));
-}
-```
+[!code-csharp[PropertiesComparerCommonProperties](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#PropertiesComparerCommonProperties)]
 
 #### Use only specified Properties
 
@@ -337,26 +286,11 @@ You can do this with the `Using` method.
 
 There are two overloads, one expecting a `string` and the other a type safe `Expression`.
 The latter has the advantage that you get intellisense helping you with available property names.
-However, that overload is only available on some constraints which have been update with a generic type parameter.
+The `Expression` overloads are defined on the generic `PropertiesComparerConfiguration<T>`. Because `Is.EqualTo`
+returns the non-generic `EqualConstraint`, you reach them by passing the type of the _expected_ value as a type
+argument to `UsingPropertiesComparer<T>()`, as shown below.
 
-```csharp
-private record struct Person(string Name, int YearOfBirth);
-
-[Test]
-public void CompareDifferentTypesOnNameOnly()
-{
-   var dto1 = new PersonDto("Hejlsberg", 1960);
-   var dto2 = new PersonDto("Hejlsberg", 1966);
-
-   // Specify name as a string
-   Assert.That(dto2, Is.EqualTo(dto1).UsingPropertiesComparer(
-      o => o.Using("Name")));
-
-   // Specify name as an expression
-   Assert.That(dto2, Is.EqualTo(dto1).UsingPropertiesComparer(
-      o => o.Using(x => x.Name)));
-}
-```
+[!code-csharp[PropertiesComparerUsing](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#PropertiesComparerUsing)]
 
 #### Use all but some properties
 
@@ -364,21 +298,7 @@ If you don't care about the equality of one property, like database id field,
 you can exclude this specifically with the `Exclude` method.
 This method also has two overloads: `string` and `Expression`.
 
-```csharp
-private record struct PersonEntity(Guid Id, string Name, int YearOfBirth);
-
-[Test]
-public void CompareDifferentTypesExcludingId()
-{
-   var entity1 = new PersonEntity(Guid.NewGuid(), "Hejlsberg", 1960);
-   var entity2 = new PersonEntity(Guid.NewGuid(), "Hejlsberg", 1960);
-
-   Assert.That(entity2, Is.EqualTo(entity1).UsingPropertiesComparer(
-      o => o.Excluding(nameof(PersonEntity.Id))));
-   Assert.That(entity2, Is.EqualTo(entity1).UsingPropertiesComparer(
-      o => o.Excluding(x => x.Id)));
-}
-```
+[!code-csharp[PropertiesComparerExcluding](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#PropertiesComparerExcluding)]
 
 ### Mapping Property Names
 
@@ -386,49 +306,17 @@ Sometimes the property names are different between classes.
 You can use the `Map` property to map property names from the _expected_ to the _actual_ name.
 
 Because the constraints are separate from the actual `Assert` call, you do need to specify the
-type of the _actual_ instance when using the type safe `Expression` overload.
+type of the _actual_ instance when using the type safe `Expression` overload, in addition to the
+type of the _expected_ instance on `UsingPropertiesComparer<T>()`.
 
-```csharp
-private record struct PersonDto(string Name, int YearOfBirth);
-private record struct PersonEntity(string LastName, int BirthYear);
-
-[Test]
-public void CompareDifferentTypesWithExcessFields()
-{
-   var dto = new PersonDto("Hejlsberg", 1960);
-   var entity = new PersonEntity("Hejlsberg", 1960);
-
-   Assert.That(dto, Is.EqualTo(entity).UsingPropertiesComparer(
-      o => o.Map(nameof(PersonEntity.LastName), nameof(PersonDto.Name))
-            .Map(nameof(PersonEntity.BirthYear), nameof(PersonDto.YearOfBirth))));
-
-   Assert.That(dto, Is.EqualTo(entity).UsingPropertiesComparer(
-      o => o.Map<PersonDto>(entity => entity.LastName, dto => dto.Name)
-            .Map<PersonDto>(entity => entity.BirthYear, dto => dto.YearOfBirth)));
-}
-```
+[!code-csharp[PropertiesComparerMapNames](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#PropertiesComparerMapNames)]
 
 ### Mapping Property Values
 
 Sometimes one class doesn't have the properties the other has, but we only want to compare
 if the value of the other has a specific value.
 
-```csharp
-private sealed record Address(string House, string Street, string City, string PostalCode, string Country);
-private sealed record USAddress(string House, string Street, string City, string ZipCode);
-
-[Test]
-public void CompareMatchingDifferentAddresses()
-{
-   var address = new Address("10", "CSI", "Las Vegas", "89030", "U.S.A.");
-   var usAddress = new USAddress("10", "CSI", "Las Vegas", "89030");
-
-   // We can supply a Value for the missing property 'Country'
-   Assert.That(usAddress, Is.EqualTo(address).UsingPropertiesComparer(
-      o => o.Map<Address, USAddress>(world => world.PostalCode, usa => usa.ZipCode)
-            .Map<Address>(world => world.Country, "U.S.A.")));
-}
-```
+[!code-csharp[PropertiesComparerMapValues](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#PropertiesComparerMapValues)]
 
 All `USAddress` instances are assumed to be in the `U.S.A`.
 To compare this with world wide addresses, they should only match
@@ -440,33 +328,16 @@ We could have excluded the _Country_ property, but then we might get matches of 
 
 The above can be combined for nested types:
 
-```csharp
-private sealed record Address(string House, string Street, string City, string AreaCode, string Country);
-private sealed record Person(string Name, Address Address);
+[!code-csharp[PropertiesComparerNested](~/snippets/Snippets.NUnit/Constraints/EqualConstraintSnippets.cs#PropertiesComparerNested)]
 
-private sealed record USAddress(string House, string Street, string City, string ZipCode);
-private sealed record USPerson(string Name, USAddress USAddress);
-
-[Test]
-public void CompareMismatchedDifferentTypes()
-{
-   var person = new Person("John Doe", new Address("10", "CSI", "Las Vegas", "89030", "U.S.A."));
-   var usPerson = new USPerson("John Doe", new USAddress("10", "CSI", "Las Vegas", "89031"));
-
-   Assert.That(usPerson, Is.EqualTo(person).UsingPropertiesComparer(
-   o => o.Map<Person, USPerson>(x => x.Address, y => y.USAddress)
-         .Map<Address, USAddress>(x => x.AreaCode, y => y.ZipCode)
-         .Map<Address>(x => x.Country, "U.S.A.")));
-}
-```
-
-The mapped property names and values are shown in the failure message:
+The above test fails on purpose, because the zip code differs. The mapped property names and values are shown
+in the failure message:
 
 ```text
-Assert.That(usPerson, Is.EqualTo(person).UsingPropertiesComparer(
-                  c => c.Map<Person, USPerson>(x => x.Address, y => y.USAddress)
-                        .Map<Address, USAddress>(x => x.AreaCode, y => y.ZipCode)
-                        .Map<Address>(x => x.Country, "U.S.A.")))
+Assert.That(usPerson, Is.EqualTo(person).UsingPropertiesComparer<Person>(
+            o => o.Map<Person, USPerson>(x => x.Address, y => y.USAddress)
+                  .Map<Address, USAddress>(x => x.AreaCode, y => y.ZipCode)
+                  .Map<Address>(x => x.Country, "U.S.A.")))
 Expected: <Person { Name = John Doe, Address = Address { House = 10, Street = CSI, City = Las Vegas, AreaCode = 89030, Country = U.S.A. } }>
 But was:  <USPerson { Name = John Doe, USAddress = USAddress { House = 10, Street = CSI, City = Las Vegas, ZipCode = 89031 } }>
 Values differ at property Person.Address => USPerson.USAddress:
@@ -487,27 +358,41 @@ But was:  "89031"
    implements the appropriate interface, NUnit makes use of the `Equals` override on the expected object. If you neglect
    to either implement `IEquatable<T>` or to override `Equals`, you can expect failures comparing non-identical objects.
    In particular, overriding `operator ==` without overriding `Equals` or implementing the interface has no effect.
-2. The **Within** modifier was originally designed for use with floating point values only. Beginning with NUnit 2.4,
-   comparisons of **DateTime** values may use a **TimeSpan** as a tolerance. Beginning with NUnit 2.4.2, non-float
-   numeric comparisons may also specify a tolerance.
+2. The `Within` modifier works with all numeric types and, given a `TimeSpan` tolerance, with `DateTime`,
+   `DateTimeOffset` and `TimeSpan`. It is applied recursively to the elements of arrays, collections, dictionaries and
+   tuples. For any other type the tolerance cannot be applied; before NUnit 4.0 it was silently ignored, from NUnit 4.0
+   the assertion errors with a `NotSupportedException`. See [Tolerances](Tolerance.md) for details and workarounds.
 3. Float and double comparisons for which no tolerance is specified use a default value, which can be specified with
-   **DefaultFloatingPointToleranceAttribute**. If this is not in place, a tolerance of 0.0d is used. (Prior to NUnit
+   `DefaultFloatingPointToleranceAttribute`. If this is not in place, a tolerance of 0.0d is used. (Prior to NUnit
    3.7, default tolerance was instead set via `GlobalSettings.DefaultFloatingPointTolerance`.)
 4. Prior to NUnit 2.2.3, comparison of two NaN values would always fail, as specified by IEEE floating point standards.
    The new behavior, was introduced after some discussion because it seems more useful in tests. To avoid confusion,
-   consider using **Is.NaN** where appropriate.
+   consider using `Is.NaN` where appropriate.
 5. When an equality test between two strings fails, the relevant portion of both strings is displayed in the error
    message, clipping the strings to fit the length of the line as needed. Beginning with 2.4.4, this behavior may be
-   modified by use of the **NoClip** modifier on the constraint. In addition, the maximum line length may be modified
-   for all tests by setting the value of **TextMessageWriter.MaximumLineLength** in the appropriate level of setup.
+   modified by use of the `NoClip` modifier on the constraint. In addition, the maximum line length may be modified
+   for all tests by setting the value of `TextMessageWriter.MaximumLineLength` in the appropriate level of setup.
 6. When used with arrays, collections or dictionaries, EqualConstraint operates recursively. Any modifiers are saved and
    used as they apply to individual items.
-7. A user-specified comparer will not be called by **EqualConstraint** if either or both arguments are null. If both are
+7. A user-specified comparer will not be called by `EqualConstraint` if either or both arguments are null. If both are
    null, the Constraint succeeds. If only one is null, it fails.
-8. NUnit has special semantics for comparing **Streams** and **DirectoryInfos**. For a **Stream**, the contents are
-   compared. For a **DirectoryInfo**, the first-level directory contents are compared.
+8. NUnit has special semantics for comparing `Stream` and `DirectoryInfo` instances. For a `Stream`, the contents are
+   compared. For a `DirectoryInfo`, the first-level directory contents are compared.
+9. **F# callers:** since NUnit 4.3.0, `Is.EqualTo` has overloads taking `object`, `T` and `IEnumerable<T>`. C# picks the
+   right one, but the F# compiler cannot choose between them when the expected value is a list or other collection and
+   reports _A unique overload for method 'EqualTo' could not be determined_. Specify the type argument on the call to
+   resolve the ambiguity:
+
+   ```fsharp
+   Assert.That([2; 3], Is.EqualTo<int list>([2; 3]))
+   ```
+
+   This is a known limitation of F# overload resolution
+   ([dotnet/fsharp#1647](https://github.com/dotnet/fsharp/issues/1647)); see NUnit issue
+   [4920](https://github.com/nunit/nunit/issues/4920) for the discussion.
 
 ## See also
 
+* [Tolerances](Tolerance.md)
 * [Assert.AreEqual](xref:classic-assert-are-equal)
 * [DefaultFloatingPointTolerance Attribute](xref:attribute-defaultfloatingpointtolerance)

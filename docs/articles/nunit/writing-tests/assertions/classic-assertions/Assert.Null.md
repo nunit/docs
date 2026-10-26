@@ -4,7 +4,7 @@ uid: classic-assert-null
 
 # Assert.Null
 
-**Assert.Null** and **Assert.IsNull** test that the specified object is null.
+`Assert.Null` and `Assert.IsNull` test that the specified object is null.
 The two forms are provided for compatibility with past versions of NUnit and
 NUnitLite.
 
@@ -22,6 +22,10 @@ Assert.Null(object anObject, string message, params object[] params);
 Assert.IsNull(object anObject);
 Assert.IsNull(object anObject, string message, params object[] params);
 ```
+
+## Examples
+
+[!code-csharp[NullExamples](~/snippets/Snippets.NUnit/ClassicAssertExamples.cs#NullExamples)]
 
 ## See Also
 

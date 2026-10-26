@@ -9,35 +9,23 @@ same constraint in several places can lead to unexpected results.
 
 Consider the following code as an example:
 
-```csharp
-Constraint myConstraint = Is.Not.Null;
-Assert.That("not a null", myConstraint); // Passes, of course
-Assert.That("not a null", myConstraint); // Fails! What's that about?
-```
+[!code-csharp[ReusableConstraintProblem](~/snippets/Snippets.NUnit/Constraints/ReusableConstraintSnippets.cs#ReusableConstraintProblem)]
 
 We'll save the technical explanation for later and show the
 solution first:
 
-```csharp
-ReusableConstraint myConstraint = Is.Not.Null;
-Assert.That("not a null", myConstraint); // Passes
-Assert.That("not a null", myConstraint); // Passes
-```
+[!code-csharp[ReusableConstraintImplicit](~/snippets/Snippets.NUnit/Constraints/ReusableConstraintSnippets.cs#ReusableConstraintImplicit)]
 
 Or alternatively..
 
-```csharp
-var myConstraint = new ReusableConstraint(Is.Not.Null);
-Assert.That("not a null", myConstraint); // Passes
-Assert.That("not a null", myConstraint); // Passes
-```
+[!code-csharp[ReusableConstraintExplicit](~/snippets/Snippets.NUnit/Constraints/ReusableConstraintSnippets.cs#ReusableConstraintExplicit)]
 
 ## Technical Explanation
 
 In the original example, the value assigned to myConstraint is
 known as an **unresolved** constraint. In fact, it's an
 unresolved NullConstraint, because that was the last constraint
-encountered in the expression. It's associated with a **Not**
+encountered in the expression. It's associated with a `Not`
 operator that has not yet been applied.
 
 That's OK for use with Assert.That(), because the method
@@ -58,7 +46,7 @@ of resolving the constraint, in this case
 NotConstraint => NullConstraint
 ```
 
-That's what **ReusableConstraint** does for us. It resolves
+That's what `ReusableConstraint` does for us. It resolves
 the full expression and saves the result. Then it passes all
 operations on to that saved result.
 
@@ -87,6 +75,6 @@ Constraint myConstraint = new AndConstraint(
     new LessThanConstraint(100));
 ```
 
-However, there is no significant penalty to using **ReusableConstraint**.
+However, there is no significant penalty to using `ReusableConstraint`.
 It makes your intent much clearer and the exceptions listed are accidents of
 the internal implementation and could disappear in future releases.

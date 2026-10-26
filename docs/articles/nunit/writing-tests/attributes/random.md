@@ -14,9 +14,9 @@ uid: attribute-random
 RandomAttribute(int count)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `count` | `int` | The number of random values to generate. The type is inferred from the parameter. |
+| Parameter | Type  | Description                                                                       |
+| --------- | ----- | --------------------------------------------------------------------------------- |
+| `count`   | `int` | The number of random values to generate. The type is inferred from the parameter. |
 
 ### With Range (Type-specific)
 
@@ -26,34 +26,34 @@ RandomAttribute(double min, double max, int count)
 // Also available for: uint, long, ulong, short, ushort, byte, sbyte, float
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `min` | varies | The minimum value (inclusive). |
-| `max` | varies | The maximum value (exclusive). |
-| `count` | `int` | The number of random values to generate. |
+| Parameter | Type   | Description                              |
+| --------- | ------ | ---------------------------------------- |
+| `min`     | varies | The minimum value (inclusive).           |
+| `max`     | varies | The maximum value (exclusive).           |
+| `count`   | `int`  | The number of random values to generate. |
 
 ## Properties
 
-| Property | Type | Description | Default |
-|----------|------|-------------|---------|
+| Property   | Type   | Description                                                        | Default |
+| ---------- | ------ | ------------------------------------------------------------------ | ------- |
 | `Distinct` | `bool` | When `true`, no value will be repeated among the generated values. | `false` |
 
 ## Applies To
 
 | Method Parameters | Test Methods | Test Fixtures (Classes) | Assembly |
-|-------------------|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ | ❌ |
+| ----------------- | ------------ | ----------------------- | -------- |
+| ✅                | ❌           | ❌                      | ❌       |
 
 ## Supported Types
 
-| Type | Count-only | With Range |
-|------|------------|------------|
-| `int`, `uint`, `long`, `ulong` | Yes | Yes |
-| `short`, `ushort`, `byte`, `sbyte` | Yes | Yes |
-| `double`, `float` | Yes | Yes |
-| `decimal` | Yes | No (use `int` or `double` range) |
-| `Guid` | Yes | No |
-| `enum` | Yes | No |
+| Type                               | Count-only | With Range                       |
+| ---------------------------------- | ---------- | -------------------------------- |
+| `int`, `uint`, `long`, `ulong`     | Yes        | Yes                              |
+| `short`, `ushort`, `byte`, `sbyte` | Yes        | Yes                              |
+| `double`, `float`                  | Yes        | Yes                              |
+| `decimal`                          | Yes        | No (use `int` or `double` range) |
+| `Guid`                             | Yes        | No                               |
+| `enum`                             | Yes        | No                               |
 
 ## Examples
 
@@ -84,6 +84,10 @@ RandomAttribute(double min, double max, int count)
 3. `Guid` does not support min/max ranges - only the count-only constructor works.
 4. When using `Distinct = true`, ensure the range is large enough to provide the requested number of distinct values.
 5. `Guid` support was added in **NUnit 4.0**.
+6. The values are generated when the tests are loaded, using NUnit's seeded [Randomizer](xref:randomizermethods), so
+   the same seed reproduces the same test cases. Prefer this attribute over calling `System.Random` from a
+   `[TestCaseSource]` or `[ValueSource]` member, which produces different test cases on every load. See
+   [Load Time and Execution Time](xref:loadtimeandexecutiontime).
 
 ## See Also
 

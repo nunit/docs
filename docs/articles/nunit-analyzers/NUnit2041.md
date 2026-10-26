@@ -2,13 +2,13 @@
 
 ## Incompatible types for comparison constraint
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit2041
-| Severity | Error
-| Enabled  | True
-| Category | Assertion
-| Code     | [ComparableTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ComparableTypes/ComparableTypesAnalyzer.cs)
+| Topic    | Value                                                                                                                                          |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit2041                                                                                                                                      |
+| Severity | Error                                                                                                                                          |
+| Enabled  | True                                                                                                                                           |
+| Category | Assertion                                                                                                                                      |
+| Code     | [ComparableTypesAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/ComparableTypes/ComparableTypesAnalyzer.cs) |
 
 ## Description
 

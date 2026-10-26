@@ -14,21 +14,21 @@ Unlike `CancelAfter`, this attribute does **not** cancel the test - it waits for
 MaxTimeAttribute(int milliseconds)
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter      | Type  | Description                                                                        |
+| -------------- | ----- | ---------------------------------------------------------------------------------- |
 | `milliseconds` | `int` | The maximum elapsed time in milliseconds. If the test exceeds this time, it fails. |
 
 ## Named Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| Parameter     | Type  | Description                                                                                                                                                                                                                             |
+| ------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `WarningTime` | `int` | An optional warning threshold in milliseconds. If the test takes longer than this time but less than the maximum time, the test result is set to `Warning`. A value of `0` (the default) disables the warning threshold. (**NUnit 5+**) |
 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ❌                      | ❌       |
 
 ## Examples
 

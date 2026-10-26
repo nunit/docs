@@ -2,13 +2,13 @@
 
 ## The async test method must have a non-void return type
 
-| Topic    | Value
-| :--      | :--
-| Id       | NUnit1012
-| Severity | Error
-| Enabled  | True
-| Category | Structure
-| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs)
+| Topic    | Value                                                                                                                                          |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| Id       | NUnit1012                                                                                                                                      |
+| Severity | Error                                                                                                                                          |
+| Enabled  | True                                                                                                                                           |
+| Category | Structure                                                                                                                                      |
+| Code     | [TestMethodUsageAnalyzer](https://github.com/nunit/nunit.analyzers/blob/4.12.0/src/nunit.analyzers/TestMethodUsage/TestMethodUsageAnalyzer.cs) |
 
 ## Description
 

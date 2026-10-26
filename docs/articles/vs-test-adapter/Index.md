@@ -3,7 +3,7 @@
 The NUnit Test Adapter lets you run NUnit tests in Visual Studio, Rider and Visual Studio Code, and from the command
 line with `dotnet test`. It runs tests written with NUnit 3, NUnit 4 and NUnit 5.
 
-The adapter is published on NuGet as **NUnit3TestAdapter**. The name comes from the NUnit 3 era; the same package is
+The adapter is published on NuGet as `NUnit3TestAdapter`. The name comes from the NUnit 3 era; the same package is
 used for all current NUnit versions.
 
 * [Download released versions](https://www.nuget.org/packages/NUnit3TestAdapter/)

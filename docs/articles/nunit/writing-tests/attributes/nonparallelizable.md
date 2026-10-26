@@ -15,8 +15,8 @@ uid: attribute-nonparallelizable
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ✅ | ✅ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ✅                      | ✅       |
 
 When used at assembly level, execution starts on the non-parallel queue; child suites or methods can still opt into parallelism with [Parallelizable](xref:attribute-parallelizable).
 
@@ -30,5 +30,7 @@ does not support parallelization.
 
 ## See Also
 
+* [Running Tests in Parallel](xref:paralleltests)
+* [Framework Parallel Test Execution](../../technical-notes/usage/Framework-Parallel-Test-Execution.md)
 * [Parallelizable Attribute](xref:attribute-parallelizable)
 * [LevelOfParallelism Attribute](xref:attribute-levelofparallelism)

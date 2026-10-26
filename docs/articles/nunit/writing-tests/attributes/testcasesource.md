@@ -23,12 +23,12 @@ See **Usage** below for when to use each form.
 
 ## Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `Category` | `string?` | Assigns categories to **every** test case produced from this source. |
-| `SourceName` | `string?` | Resolved source member name (if applicable). |
-| `SourceType` | `Type?` | External type supplying the source (if applicable). |
-| `MethodParams` | `object?[]?` | Arguments forwarded to a parameterized source method. |
+| Property       | Type         | Description                                                          |
+| -------------- | ------------ | -------------------------------------------------------------------- |
+| `Category`     | `string?`    | Assigns categories to **every** test case produced from this source. |
+| `SourceName`   | `string?`    | Resolved source member name (if applicable).                         |
+| `SourceType`   | `Type?`      | External type supplying the source (if applicable).                  |
+| `MethodParams` | `object?[]?` | Arguments forwarded to a parameterized source method.                |
 
 ## Named parameters
 
@@ -51,13 +51,13 @@ expecting case-level tagging; that attaches to the **fixture** metadata instead 
 ## Applies To
 
 | Test Methods | Test Fixtures (Classes) | Assembly |
-|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ |
+| ------------ | ----------------------- | -------- |
+| ✅           | ❌                      | ❌       |
 
 ## Usage
 
 Consider a test of the divide operation, taking three arguments: the numerator, the denominator and the expected result.
-We can specify the test and its data using one of the forms of **TestCaseSourceAttribute**:
+We can specify the test and its data using one of the forms of `TestCaseSourceAttribute`:
 
 ### Form 1 - `[TestCaseSource(string sourceName)]`
 
@@ -184,6 +184,23 @@ test case data.
 
 [!code-csharp[OptionalParameters](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#OptionalParameters)]
 
+### Params arrays
+
+When the last parameter of the test method is a `params` array, any arguments supplied by the source beyond the fixed
+parameters are gathered into that array, just as they are for [TestCase](xref:attribute-testcase). A test case that
+supplies no extra arguments gives an empty array, and a test case whose last argument is already an array of the right
+type passes it through unchanged. (_NUnit 4.5+_)
+
+[!code-csharp[ParamsArray](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#ParamsArray)]
+
+> [!NOTE]
+> A `params` array must be the last parameter of the method, so a test that uses one cannot also declare the
+> `CancellationToken` parameter that [CancelAfter](xref:attribute-cancelafter) injects (see
+> [CancellationToken support](#cancellationtoken-support) below). When combining `[CancelAfter]` with a `params`
+> array, read the token from `TestContext.CurrentContext.CancellationToken` instead.
+
+[!code-csharp[ParamsArrayWithCancelAfter](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#ParamsArrayWithCancelAfter)]
+
 ### CancellationToken support
 
 When using `[CancelAfter]` with `TestCaseSource`, NUnit automatically injects a `CancellationToken` as the last
@@ -191,6 +208,9 @@ parameter of the test method. The test case source should **not** include the `C
 provides it automatically.
 
 [!code-csharp[CancellationTokenSupport](~/snippets/Snippets.NUnit/TestCaseSourceExamples.cs#CancellationTokenSupport)]
+
+Because the injected `CancellationToken` must be the last parameter, this cannot be combined with a
+[`params` array](#params-arrays). In that case, use `TestContext.CurrentContext.CancellationToken` instead.
 
 See [CancelAfter](xref:attribute-cancelafter) for more information on cancellation token handling.
 
@@ -231,10 +251,10 @@ In constructing tests, NUnit uses each item returned by the enumerator as follow
 Individual test cases are executed in the order in which NUnit discovers them. This order does **not** follow the
 lexical order of the attributes and will often vary between different compilers or different versions of the CLR.
 
-As a result, when **TestCaseSourceAttribute** appears multiple times on a method or when other data-providing attributes
-are used in combination with **TestCaseSourceAttribute**, the order of the test cases is undefined.
+As a result, when `TestCaseSourceAttribute` appears multiple times on a method or when other data-providing attributes
+are used in combination with `TestCaseSourceAttribute`, the order of the test cases is undefined.
 
-However, when a single **TestCaseSourceAttribute** is used by itself, the order of the tests follows exactly the order
+However, when a single `TestCaseSourceAttribute` is used by itself, the order of the tests follows exactly the order
 in which the test cases are returned from the source.
 
 ### Object Construction
@@ -243,3 +263,14 @@ NUnit locates the test cases at the time the tests are loaded. It creates instan
 form of the attribute and builds a list of tests to be executed. Each data source class is only created once at this
 time and is destroyed after all tests are loaded. By design, no communication is possible between the load and execution
 phases except through the tests that are created.
+
+This has two consequences for the source member:
+
+* It runs **before** any `[OneTimeSetUp]`, `[SetUpFixture]` or `[SetUp]` method, and for every test in the assembly,
+  even when only one test is selected. State created in setup methods is not available to it. If a source needs
+  expensive or shared state, initialize that state lazily from the source itself.
+* Its data must be **repeatable**. Runners may load the assembly more than once, and the source runs once for every
+  method that uses it, so it must return the same cases every time. Do not use `Random` or depend on static state that
+  other code changes.
+
+See [Load Time and Execution Time](xref:loadtimeandexecutiontime) for the full set of rules and a worked example.

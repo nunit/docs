@@ -16,8 +16,8 @@ This legacy attribute is deprecated and should be replaced with `[OneTimeSetUp]`
 ## Applies To
 
 | Lifecycle Methods | Test Methods | Test Fixtures (Classes) | Assembly |
-|-------------------|--------------|--------------------------|----------|
-| ✅ | ❌ | ❌ | ❌ |
+| ----------------- | ------------ | ----------------------- | -------- |
+| ✅                | ❌           | ❌                      | ❌       |
 
 ## See Also
 
