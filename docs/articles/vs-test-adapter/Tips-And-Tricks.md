@@ -452,8 +452,9 @@ From version 6.4 it follows the VSTest escaping rules:
 
 NUnit writes some characters in a test name as the text `\uXXXX`: control characters, U+0080 to U+009F except U+0085,
 unpaired surrogates, U+FFFE and U+FFFF. Such a test is listed with that text in its name, for example
-`My.Tests.Check("a\u001bb")`. From version 6.4 a filter with that name, as listed, selects the test, also from Test
-Explorer.
+`My.Tests.Check("a\u001bb")`. From version 6.4 a filter with that name selects the test, also from Test Explorer.
+In the filter the name is escaped like any other value, the backslash included:
+`FullyQualifiedName=My.Tests.Check\("a\\u001bb"\)`.
 
 ### Some further information on directories
 
