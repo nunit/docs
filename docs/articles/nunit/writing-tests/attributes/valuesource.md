@@ -48,14 +48,14 @@ in which the data is returned from the source.
 
 ## Note on Object Construction
 
-NUnit locates the test cases at the time the tests are loaded, creates instances of each class with non-static sources
-and builds a list of tests to be executed. Each source object is only created once at this time and is destroyed after
-all tests are loaded.
+NUnit evaluates the source at the time the tests are loaded and builds the list of test cases from it. The source is
+not consulted again while the tests run. No communication is possible between these two phases - or between different
+runs - except through the parameters themselves.
 
-If the data source is in the test fixture itself, the object is created using the appropriate constructor for the
-fixture parameters provided on the `TestFixtureAttribute`, or the default constructor if no parameters were specified.
-Since this object is destroyed before the tests are run, no communication is possible between these two phases - or
-between different runs - except through the parameters themselves.
+The source therefore runs before any `[OneTimeSetUp]`, `[SetUpFixture]` or `[SetUp]` method, and cannot use state
+created there. It must also be repeatable: it runs once for every parameter that names it, and runners may load the
+assembly more than once, so it must return the same values every time. See
+[Load Time and Execution Time](xref:loadtimeandexecutiontime) for details.
 
 ## See Also
 

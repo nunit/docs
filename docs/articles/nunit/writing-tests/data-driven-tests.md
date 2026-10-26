@@ -54,3 +54,5 @@ For data built in code, use [`[TestFixtureSource]`](xref:attribute-testfixtureso
 
 - [Automating tests](xref:automatingtests) lets NUnit generate combinations of values for you.
 - [Parameterized tests](xref:parameterizedtests) describes all the details of how parameterized tests work.
+- [Load time and execution time](xref:loadtimeandexecutiontime) explains when data sources run, why they cannot use
+  anything created in setup methods, and why they must return the same data every time.
