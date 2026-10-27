@@ -32,9 +32,9 @@ Each project has a repository with one repro for each issue that has one:
 A repro is a folder named `Issue<number>`, for example `Issue1097` for issue 1097, with the smallest project that
 shows the bug and builds as it is. Link the folder from the issue. Guidelines for a repro:
 
+* If there is no csproj in the  issue, create a new one using `dotnet new unit`, or create it in Visual Studio, choose the NUnit template.
 * Use the code from the issue where you can, and add a comment that explains what the bug is.
-* Use the current target framework and package versions, unless the bug needs older ones.
-* Always reference `Microsoft.NET.Test.Sdk` and `coverlet.collector`, as a real test project does.
+* Update the packages to the latest versions, if you're not addressing a particular specific version.
 
 A repro is not required to raise an issue: some bugs are hard to reproduce. When you can make one, it makes the issue
 much easier for others to understand and fix.
@@ -43,16 +43,11 @@ much easier for others to understand and fix.
 
 Work with one repro at a time, on its own:
 
-```cmd
-cd Issue1097
-dotnet test
-```
-
-* Run its `run_*.cmd` or `run_*.sh` scripts instead when it has them, see below.
-* Open the solution in Visual Studio when the bug is about Visual Studio. A `.runsettings` in the folder is picked up
-  automatically. For Test Explorer bugs, see
-  [Checking Test Explorer with te-dump](Developing-the-Adapter.md#checking-test-explorer-with-te-dump).
-* Point it at an unreleased package to check a fix, see [Testing an unreleased package](#testing-an-unreleased-package).
+* Check the repro using CLI or Visual Studio, preferably both.  Use`dotnet test` or `dotnet test -s .runsettings` if a runsettings file is present.
+* Open the solution in Visual Studio when the bug is about Visual Studio. A `.runsettings` in the folder is picked up automatically.
+* For Test Explorer bugs, see
+  [Checking Test Explorer with te-dump](Developing-the-Adapter.md#checking-test-explorer-with-te-dump), especially if you use AI, then it can use te-dump.
+* Refer to an unreleased package to check a fix, see [Testing an unreleased package](#testing-an-unreleased-package).
 
 ### Files in a repro folder
 
@@ -60,7 +55,7 @@ dotnet test
 |-------------------------------------------------|---------------------------------------------------------------------------|
 | `*.csproj`, `*.slnx` or `*.sln`                 | The repro project or solution.                                            |
 | `NuGet.config`                                  | Package sources, with a local feed when testing an unreleased package.    |
-| `.runsettings`                                  | Optional. Settings the bug needs. Visual Studio only picks it up from the solution folder. |
+| `.runsettings`                                  | Optional. Settings the bug needs. Also can enable adapter dumps. Visual Studio only picks it up from the solution folder. |
 | `run_*.cmd` and `run_*.sh`                      | Optional. Commands to run instead of plain `dotnet test`, see below.      |
 | Marker file                                     | Optional. Says what kind of repro it is, see below.                       |
 | `issue_metadata.json`, `issue_initialstate.json`, `issue_results.json` | Written by IssueRunner, see below. |
@@ -68,7 +63,7 @@ dotnet test
 The `issue_*.json` files are information, and you don't need to make them: the issue's state, milestone and labels
 from GitHub, the target frameworks and packages the repro was made with, and the results of the last IssueRunner run.
 
-A marker file says what kind of repro it is. It can be an empty file, or a `.md` file that says why:
+A marker file, if present, says what kind of repro it is. It can be an empty file, or a `.md` file that says why:
 
 | Marker                 | Meaning                                                           |
 |------------------------|-------------------------------------------------------------------|
@@ -98,18 +93,43 @@ tests, for example a filter that runs nothing, has to check the count itself and
 ## Testing an unreleased package
 
 Both projects get their package version from [MinVer](https://github.com/adamralph/minver): the last tag and the
-number of commits since it, for example `6.4.0-alpha.0.25`. Build the package with the project's build script, and copy
-it to a local feed, by default `C:\nuget`. A repro then needs a `NuGet.config` with that feed. The dotnet tool
-[nugetc](https://github.com/HermitOS/nugetconfigcreator) makes and changes the file:
+number of commits since it, for example `6.4.0-alpha.0.25`.
+Build the package with the project's build script, and copy
+it to a local feed, e.g. `C:\nuget`.
+
+A repro then needs a `NuGet.config` with that feed.
+
+You use `dotnet new nuget` and `dotnet nuget add` to set this up, or use `nugetc` for a simpler syntax.
+
+### Using standard `dotnet nuget`
+
+```cmd
+dotnet new nuget.config
+dotnet nuget add source c:\nuget --name local
+dotnet nuget remove source local
+dotnet nuget disable source local
+```
+
+### Using `nugetc`
+
+The dotnet tool [nugetc](https://github.com/HermitOS/nugetconfigcreator) makes and changes the file:
 
 ```cmd
 dotnet tool install -g nugetc
 cd Issue1097
-nugetc add local
+nugetc add local  // Creates new or updates exsistins and adds default too
+nugetc remove local
+nugetc disable local
 ```
 
-`nugetc add local` creates a `NuGet.config` with nuget.org and `C:\nuget`, or adds `C:\nuget` to the file that is
-there:
+### Using published alpha releases from Myget
+
+`nugetc add myget` adds the NUnit MyGet feed,
+or use `dotnet nuget add source https://www.myget.org/F/nunit/api/v3/index.json --name myget`.
+
+### Manually
+
+You can also do it manually, it should look like:
 
 ```xml
 <configuration>
@@ -120,21 +140,7 @@ there:
 </configuration>
 ```
 
-`nugetc add myget` adds the NUnit MyGet feed, `https://www.myget.org/F/nunit/api/v3/index.json`.
-`nugetc remove local`, `disable local` and `enable local` change the file again, and `nugetc reset` sets it back to
-nuget.org only.
-
-Update the repro to the new package with [dotnet-outdated](https://github.com/dotnet-outdated/dotnet-outdated),
-instead of editing the version by hand. `-inc` updates the packages whose names contain the text, and `-exc` leaves
-out the packages whose names contain the text:
-
-```cmd
-REM An adapter fix
-dotnet outdated -u -pre Always -inc NUnit3TestAdapter
-
-REM A framework fix: the NUnit package, not the adapter or the analyzers
-dotnet outdated -u -pre Always -inc NUnit -exc NUnit3TestAdapter -exc NUnit.Analyzers
-```
+## Watch out for
 
 Two things to watch out for:
 
