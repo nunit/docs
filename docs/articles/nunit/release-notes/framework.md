@@ -34,6 +34,7 @@ There are in total 48 issues fixed in this release.
 * [4717](https://github.com/nunit/nunit/issues/4717) Provide generic type definitions for `TestCaseData` to make it type safe. Thanks to [Jonathan Gilbert](https://github.com/logiclrd) for [PR 5138](https://github.com/nunit/nunit/pull/5138)
 * [4384](https://github.com/nunit/nunit/issues/4384) Assert.ThrowsAsync, Assert.CatchAsync, and Assert.DoesNotThrowAsync should be awaitable. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5268](https://github.com/nunit/nunit/pull/5268)
 * [3947](https://github.com/nunit/nunit/issues/3947) Simplify asserting ArgumentException.ParamName. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5304](https://github.com/nunit/nunit/pull/5304)
+* [3692](https://github.com/nunit/nunit/issues/3692) Custom comparator ignored for comparisons to self or null. Thanks to NUnit Team member [Mikkel Nylander Bundgaard](https://github.com/mikkelbu) for [PR 5218](https://github.com/nunit/nunit/pull/5218)
 * [51](https://github.com/nunit/nunit/issues/51) Test Dependency Attribute. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5386](https://github.com/nunit/nunit/pull/5386)
 
 ### Bug fixes
@@ -49,7 +50,6 @@ There are in total 48 issues fixed in this release.
 * [5247](https://github.com/nunit/nunit/issues/5247) Assert for null-valued `dynamic` variables doesn't work in 4.6.0.
 * [4320](https://github.com/nunit/nunit/issues/4320) AssemblyHelper throws Exception when loading dynamically compiled Assemblies. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5308](https://github.com/nunit/nunit/pull/5308)
 * [3849](https://github.com/nunit/nunit/issues/3849) Assert.Catch inside Assert.Multiple gives unclear failure message. Thanks to NUnit Team member [Terje Sandstrom](https://github.com/OsirisTerje) for [PR 5280](https://github.com/nunit/nunit/pull/5280)
-* [3692](https://github.com/nunit/nunit/issues/3692) Custom comparator ignored for comparisons to self or null. Thanks to NUnit Team member [Mikkel Nylander Bundgaard](https://github.com/mikkelbu) for [PR 5218](https://github.com/nunit/nunit/pull/5218)
 * [3248](https://github.com/nunit/nunit/issues/3248) Null dereference in TestWorkerThreadProc. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5374](https://github.com/nunit/nunit/pull/5374)
 * [2789](https://github.com/nunit/nunit/issues/2789) No tests run when nested classes in generic fixture. Thanks to NUnit Team member [Manfred Brands](https://github.com/manfred-brands) for [PR 5370](https://github.com/nunit/nunit/pull/5370)
 * [1001](https://github.com/nunit/nunit/issues/1001) Too many Inconclusive test results. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5251](https://github.com/nunit/nunit/pull/5251)
