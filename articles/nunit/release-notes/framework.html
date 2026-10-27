@@ -111,6 +111,7 @@ type-safe NUnit.</p>
 <li><a href="https://github.com/nunit/nunit/issues/4717">4717</a> Provide generic type definitions for <code>TestCaseData</code> to make it type safe. Thanks to <a href="https://github.com/logiclrd">Jonathan Gilbert</a> for <a href="https://github.com/nunit/nunit/pull/5138">PR 5138</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/4384">4384</a> Assert.ThrowsAsync, Assert.CatchAsync, and Assert.DoesNotThrowAsync should be awaitable. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5268">PR 5268</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3947">3947</a> Simplify asserting ArgumentException.ParamName. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5304">PR 5304</a></li>
+<li><a href="https://github.com/nunit/nunit/issues/3692">3692</a> Custom comparator ignored for comparisons to self or null. Thanks to NUnit Team member <a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a> for <a href="https://github.com/nunit/nunit/pull/5218">PR 5218</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/51">51</a> Test Dependency Attribute. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5386">PR 5386</a></li>
 </ul>
 <h3 id="bug-fixes">Bug fixes</h3>
@@ -157,7 +158,6 @@ type-safe NUnit.</p>
 <li><a href="https://github.com/nunit/nunit/issues/5391">5391</a> Add missing test coverage for method dependencies on generic methods. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5392">PR 5392</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5367">5367</a> Eliminate StopRun(bool) method from .NET Core builds. Thanks to <a href="https://github.com/CharliePoole">CharliePoole</a> for <a href="https://github.com/nunit/nunit/pull/5369">PR 5369</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5271">5271</a> Update Collection Equivalency performance tests to use MaxTime. Thanks to <a href="https://github.com/Will-thom">Silva Dev BR</a> for <a href="https://github.com/nunit/nunit/pull/5276">PR 5276</a></li>
-<li><a href="https://github.com/nunit/nunit/issues/5218">5218</a> Feat/allow custom comparer null self.</li>
 <li><a href="https://github.com/nunit/nunit/issues/5145">5145</a> Remove the <code>object?</code> overloads for <code>Is.SameAs</code> and underlying constraint. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5160">PR 5160</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/5007">5007</a> Create generic type checking constraints. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5191">PR 5191</a></li>
 <li><a href="https://github.com/nunit/nunit/issues/3669">3669</a> Update recognized platform names so that &quot;NET&quot; and &quot;DotNET&quot; means .NET instead of .NET Framework. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5300">PR 5300</a></li>
@@ -198,6 +198,8 @@ type-safe NUnit.</p>
 </ul>
 <p>Version 4.14 or higher of the <code>nunit.analyzers</code> nuget package can help automate this conversion by reporting and optionally fixing unawaited assertions. The analyzer will also update the immediately enclosing function to return a <code>Task</code> if necessary.</p>
 </div>
+</li>
+<li><p><a href="https://github.com/nunit/nunit/issues/3692">3692</a> Custom comparator ignored for comparisons to self or null. Thanks to NUnit Team member <a href="https://github.com/mikkelbu">Mikkel Nylander Bundgaard</a> for <a href="https://github.com/nunit/nunit/pull/5218">PR 5218</a></p>
 </li>
 <li><p><a href="https://github.com/nunit/nunit/issues/3669">3669</a> Update recognized platform names so that &quot;NET&quot; and &quot;DotNET&quot; means .NET instead of .NET Framework. Thanks to NUnit Team member <a href="https://github.com/stevenaw">Steven Weerdenburg</a> for <a href="https://github.com/nunit/nunit/pull/5300">PR 5300</a></p>
 <div class="IMPORTANT">
