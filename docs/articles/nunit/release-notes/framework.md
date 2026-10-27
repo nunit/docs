@@ -34,6 +34,7 @@ There are in total 48 issues fixed in this release.
 * [4717](https://github.com/nunit/nunit/issues/4717) Provide generic type definitions for `TestCaseData` to make it type safe. Thanks to [Jonathan Gilbert](https://github.com/logiclrd) for [PR 5138](https://github.com/nunit/nunit/pull/5138)
 * [4384](https://github.com/nunit/nunit/issues/4384) Assert.ThrowsAsync, Assert.CatchAsync, and Assert.DoesNotThrowAsync should be awaitable. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5268](https://github.com/nunit/nunit/pull/5268)
 * [3947](https://github.com/nunit/nunit/issues/3947) Simplify asserting ArgumentException.ParamName. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5304](https://github.com/nunit/nunit/pull/5304)
+* [3692](https://github.com/nunit/nunit/issues/3692) Custom comparator ignored for comparisons to self or null. Thanks to NUnit Team member [Mikkel Nylander Bundgaard](https://github.com/mikkelbu) for [PR 5218](https://github.com/nunit/nunit/pull/5218)
 * [51](https://github.com/nunit/nunit/issues/51) Test Dependency Attribute. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5386](https://github.com/nunit/nunit/pull/5386)
 
 ### Bug fixes
@@ -80,7 +81,6 @@ There are in total 48 issues fixed in this release.
 * [5391](https://github.com/nunit/nunit/issues/5391) Add missing test coverage for method dependencies on generic methods. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5392](https://github.com/nunit/nunit/pull/5392)
 * [5367](https://github.com/nunit/nunit/issues/5367) Eliminate StopRun(bool) method from .NET Core builds. Thanks to [CharliePoole](https://github.com/CharliePoole) for [PR 5369](https://github.com/nunit/nunit/pull/5369)
 * [5271](https://github.com/nunit/nunit/issues/5271) Update Collection Equivalency performance tests to use MaxTime. Thanks to [Silva Dev BR](https://github.com/Will-thom) for [PR 5276](https://github.com/nunit/nunit/pull/5276)
-* [5218](https://github.com/nunit/nunit/issues/5218) Feat/allow custom comparer null self.
 * [5145](https://github.com/nunit/nunit/issues/5145) Remove the `object?` overloads for `Is.SameAs` and underlying constraint. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5160](https://github.com/nunit/nunit/pull/5160)
 * [5007](https://github.com/nunit/nunit/issues/5007) Create generic type checking constraints. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5191](https://github.com/nunit/nunit/pull/5191)
 * [3669](https://github.com/nunit/nunit/issues/3669) Update recognized platform names so that "NET" and "DotNET" means .NET instead of .NET Framework. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5300](https://github.com/nunit/nunit/pull/5300)
@@ -110,6 +110,7 @@ There are in total 48 issues fixed in this release.
   >
   > Version 4.14 or higher of the `nunit.analyzers` nuget package can help automate this conversion by reporting and optionally fixing unawaited assertions. The analyzer will also update the immediately enclosing function to return a `Task` if necessary.
 
+* [3692](https://github.com/nunit/nunit/issues/3692) Custom comparator ignored for comparisons to self or null. Thanks to NUnit Team member [Mikkel Nylander Bundgaard](https://github.com/mikkelbu) for [PR 5218](https://github.com/nunit/nunit/pull/5218)
 * [3669](https://github.com/nunit/nunit/issues/3669) Update recognized platform names so that "NET" and "DotNET" means .NET instead of .NET Framework. Thanks to NUnit Team member [Steven Weerdenburg](https://github.com/stevenaw) for [PR 5300](https://github.com/nunit/nunit/pull/5300)
 
   > [!IMPORTANT]
