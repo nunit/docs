@@ -23,13 +23,13 @@ described below.
   line.
 
 Just for fun, to see how the different runners are being used, we can look at the `nuget.org` download statistics for
-each of the runners, per Oct 2023:
+each of the runners, as of October 2026:
 
-| Runner            | Downloads     | Comment                                        |
-| ----------------- | ------------- | ---------------------------------------------- |
-| NUnit3TestAdapter | 211.4 million | Used by Visual Studio, VS Code and dotnet test |
-| NUnit.Console     | 22.5 million  |                                                |
-| NUnitLite         | 4.6 million   |                                                |
+| Runner                | Downloads     | Comment                                        |
+| --------------------- | ------------- | ---------------------------------------------- |
+| NUnit3TestAdapter     | 591.0 million | Used by Visual Studio, VS Code and dotnet test |
+| NUnit.ConsoleRunner  | 79.4 million  |                                                |
+| NUnitLite             | 8.8 million   |                                                |
 
 ## Other runners
 
