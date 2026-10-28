@@ -28,7 +28,7 @@ each of the runners, as of October 2026:
 | Runner                | Downloads     | Comment                                        |
 | --------------------- | ------------- | ---------------------------------------------- |
 | NUnit3TestAdapter     | 591.0 million | Used by Visual Studio, VS Code and dotnet test |
-| NUnit.Console.Runner  | 79.4 million  |                                                |
+| NUnit.ConsoleRunner  | 79.4 million  |                                                |
 | NUnitLite             | 8.8 million   |                                                |
 
 ## Other runners
