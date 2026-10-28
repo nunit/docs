@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Developing the Adapter | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Developing the Adapter | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="developing-the-adapter">Developing the Adapter</h1>
+
+<p>This page follows the <a href="Developing-NUnit.html">common workflow</a> for the
+<a href="https://github.com/nunit/nunit3-vs-adapter">NUnit3 VS Adapter</a>. The repros are in
+<a href="https://github.com/nunit/nunit3-vs-adapter.issues">nunit3-vs-adapter.issues</a>. The adapter connects NUnit to VSTest
+and Microsoft.Testing.Platform, so many of its bugs are about finding a test, selecting it with a filter, or showing
+it in Visual Studio Test Explorer. This page also shows how to check those.</p>
+<h2 id="building-and-testing">Building and testing</h2>
+<p>The repository has a Cake build script, <code>build.cmd</code> (or <code>build.ps1</code>), in the repository root:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>build</code></td>
+<td>Builds the solution (default target).</td>
+</tr>
+<tr>
+<td><code>build -t test</code></td>
+<td>Runs the unit tests on net462 and net8.0, with both VSTest and <code>dotnet test</code>.</td>
+</tr>
+<tr>
+<td><code>build -t package</code></td>
+<td>Creates the NuGet package and zip in <code>package\</code>. It does not build first.</td>
+</tr>
+<tr>
+<td><code>build -t acceptance</code></td>
+<td>Builds, creates the NuGet package and runs the acceptance tests against that package.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Run the acceptance tests with <code>build -t acceptance</code>. They test the NuGet package, so running the acceptance test
+project directly uses a stale or missing package.</li>
+<li><code>build -t package</code> packs the binaries that are already built. Run <code>build</code> first, or the package contains old code.</li>
+</ul>
+<p>Copy the package to the local feed with <code>copynp.cmd</code>, giving the version from the file name in <code>package\</code>:</p>
+<pre><code class="lang-cmd">.\copynp.cmd 6.4.0-alpha.0.25
+</code></pre>
+<p>Then point the repro at it, see <a class="xref" href="Developing-NUnit.html#testing-an-unreleased-package">Testing an unreleased package</a>.</p>
+<h2 id="the-adapters-dump-files">The adapter's dump files</h2>
+<p>Turn on the adapter's dump files in the repro's <code>.runsettings</code> while you work on a bug, see
+<a class="xref" href="../vs-test-adapter/Tips-And-Tricks.html#dumpxmltestdiscovery-and-dumpxmltestresults">DumpXmlTestDiscovery and DumpXmlTestResults</a>:</p>
+<pre><code class="lang-xml">&lt;RunSettings&gt;
+  &lt;NUnit&gt;
+    &lt;DumpXmlTestDiscovery&gt;true&lt;/DumpXmlTestDiscovery&gt;
+    &lt;DumpXmlTestResults&gt;true&lt;/DumpXmlTestResults&gt;
+  &lt;/NUnit&gt;
+&lt;/RunSettings&gt;
+</code></pre>
+<p>The dumps are written to <code>bin\&lt;configuration&gt;\&lt;target framework&gt;\Dump</code>:</p>
+<ul>
+<li><code>D_&lt;assembly&gt;.dump</code> is the discovery: the NUnit XML of every test.</li>
+<li><code>E_&lt;assembly&gt;.dump</code> is the execution. Its <code>VS_Input_TestCases</code> section lists exactly which tests VSTest or Visual
+Studio asked the adapter to run, and the <code>TestFilter</code> section shows the NUnit filter the adapter made from them.</li>
+</ul>
+<p>These two sections tell you whether a test was lost before it reached the adapter, or inside the adapter. The
+execution dump is overwritten by each run; set <code>DumpNumberedFiles</code> to keep one for each run.</p>
+<h2 id="checking-filters-from-the-command-line">Checking filters from the command line</h2>
+<p>Many adapter bugs are about selecting a test: a test is found, but a filter for it runs nothing, or an error. VSTest
+can list the fully qualified names and run a filter, without Visual Studio:</p>
+<pre><code class="lang-cmd">dotnet vstest bin\Debug\net10.0\Issue677.dll /ListFullyQualifiedTests /ListTestsTargetPath:fqn.txt
+dotnet vstest bin\Debug\net10.0\Issue677.dll &quot;/TestCaseFilter:FullyQualifiedName=TestFixtureSourceError.TestsBroken(Windows Edgium).Test1&quot;
+</code></pre>
+<p>Run each listed name alone as a filter, both as written and with <code>\</code>, <code>(</code>, <code>)</code>, <code>&amp;</code>, <code>|</code>, <code>=</code>, <code>!</code> and <code>~</code> escaped
+with a <code>\</code>, and compare the number of tests run with the number listed. A small script that loops over <code>fqn.txt</code> does
+this for a whole repro. <code>dotnet test --filter</code> uses the same filter syntax.</p>
+<h2 id="checking-test-explorer-with-te-dump">Checking Test Explorer with te-dump</h2>
+<p>Some bugs show only in Visual Studio Test Explorer: a test in the wrong place in the tree, an extra node that never
+runs, or a result that is not shown. <code>te-dump</code>
+(<a href="https://github.com/nunit/NUnit.Tools.TestExplorerDump">NUnit.Tools.TestExplorerDump</a>) prints the Test Explorer
+tree as text, so you, a script or an AI assistant can see exactly what Test Explorer shows, and compare it before and
+after a fix. It can also drive Visual Studio: start it on a solution, rebuild, run all or some tests, and close it. It
+reads Test Explorer through Windows UI Automation and drives Visual Studio through EnvDTE; nothing is installed into
+Visual Studio. It runs on Windows only. Its README has the install steps and all options.</p>
+<h3 id="a-full-round-trip">A full round trip</h3>
+<p>Clean the repro first, so no results or test lists from earlier runs are left: delete the <code>.vs</code>, <code>bin</code> and <code>obj</code>
+folders, for example with <a href="https://github.com/OsirisTerje/VSClean">vsclean</a> <code>-d</code>. Then run a session in the repro
+folder:</p>
+<pre><code class="lang-cmd">cd Issue1408
+te-dump session
+</code></pre>
+<p><code>session</code> starts a new Visual Studio on the solution, rebuilds it, waits for test discovery, dumps the tree, runs all
+tests, dumps the tree again and closes Visual Studio, also when a step fails. The trees are printed, and written to a
+<code>te-dump</code> folder next to the solution, for example <code>te-dump\Issue1408-20261026-194618-discovered.txt</code> and
+<code>...-after-run.txt</code>. Add <code>te-dump/</code> to <code>.gitignore</code>.</p>
+<p>Each line is <code>Kind: Name [Outcome] (test count)</code>; a test has no kind and no count:</p>
+<pre><code class="lang-text"># after run
+Project: Issue1408 [Passed] (3)
+  Namespace: NUnitTestExplorerFailure [Passed] (3)
+    Class: Tests [Passed] (3)
+      Test Group: Demonstration [Passed] (2)
+        Demonstration([(0, 0)]) [Passed]
+        Demonstration([(1, 2), (3, 4)]) [Passed]
+      Demonstration [Not Run]
+</code></pre>
+<p>Here the two tests ran, and <code>Demonstration [Not Run]</code> is an extra node. It comes from Visual Studio's own source-based
+test discovery, which finds the method in the source code but cannot match it to the tests the adapter reports.</p>
+<h3 id="running-single-tests">Running single tests</h3>
+<p>Test Explorer often runs only some tests: a single test, or one node of the tree. Bugs in that path do not show with
+Run All. Keep Visual Studio open and run the tests one at a time:</p>
+<pre><code class="lang-cmd">te-dump start
+te-dump --pid 73760 --expand-all
+te-dump run --pid 73760 --filter SimpleTest
+te-dump --pid 73760 --expand-all
+te-dump close --pid 73760
+</code></pre>
+<p><code>start</code> prints the process id to use with the other commands. <code>--filter</code> is Test Explorer's search text, for example
+<code>SimpleTest</code>, <code>FullName:&quot;Ns.Class.Method&quot;</code> or <code>Class:&quot;Class1&quot;</code>. <code>te-dump list</code> shows the Visual Studio instances that
+have Test Explorer open.</p>
+<p>Do not run a session on a solution that is already open in another Visual Studio: both use the same <code>.vs</code> folder.</p>
+<h3 id="reading-the-results">Reading the results</h3>
+<p>When Test Explorer shows a test as Not Run after it has run, look at the adapter's execution dump from that run:</p>
+<ul>
+<li>The test is not in <code>VS_Input_TestCases</code>: Visual Studio did not ask the adapter to run it.</li>
+<li>The test is in <code>VS_Input_TestCases</code> but has no result in the dump: the adapter's filter did not select it, see the
+<code>TestFilter</code> section.</li>
+<li>The test has a result in the dump: NUnit ran it, and the adapter received the result. The dump records it before the
+adapter converts the result and reports it to VSTest, so a failure in that step is still possible; look for errors
+in the Tests output pane. With no errors there, Visual Studio did not match the reported result to the test it shows.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/developer-info/Developing-the-Adapter.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

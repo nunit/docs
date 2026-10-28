@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCB5BYBNM2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PCB5BYBNM2');
+    </script>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>How to Develop and Fix Bugs in NUnit | NUnit Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="How to Develop and Fix Bugs in NUnit | NUnit Docs ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="developingnunit">
+<h1 id="how-to-develop-and-fix-bugs-in-nunit">How to Develop and Fix Bugs in NUnit</h1>
+
+<p>This page describes how we work on a bug in the NUnit framework or the NUnit3 VS Adapter: reproduce it, fix it, check
+the fix against the repro, and keep the repro as a regression test. The steps for each project are on their own pages:</p>
+<ul>
+<li><a href="Developing-the-Framework.html">Developing the Framework</a></li>
+<li><a href="Developing-the-Adapter.html">Developing the Adapter</a></li>
+</ul>
+<h2 id="the-workflow">The workflow</h2>
+<ol>
+<li><strong>Reproduce.</strong> Make a repro project for the issue in the project's issues repository, and check that it shows
+the bug with the released packages.</li>
+<li><strong>Specify.</strong> Write a failing unit test or acceptance test in the project repository.</li>
+<li><strong>Fix.</strong> Change the code until the test passes, and run the project's tests.</li>
+<li><strong>Check.</strong> Build a package with the fix, point the repro at it, and check that the bug is gone.</li>
+<li><strong>Submit.</strong> Raise the pull request, with <code>Fixed #&lt;issue&gt;</code> at the top of the description, see
+<a href="Contributions.html">Contributions</a>. Keep the repro, with the package versions updated.</li>
+</ol>
+<h2 id="the-issues-repositories">The issues repositories</h2>
+<p>Each project has a repository with one repro for each issue that has one:</p>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Repros for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/nunit/nunit.issues">nunit.issues</a></td>
+<td>The NUnit framework</td>
+</tr>
+<tr>
+<td><a href="https://github.com/nunit/nunit3-vs-adapter.issues">nunit3-vs-adapter.issues</a></td>
+<td>The NUnit3 VS Adapter</td>
+</tr>
+</tbody>
+</table>
+<p>A repro is a folder named <code>Issue&lt;number&gt;</code>, for example <code>Issue1097</code> for issue 1097, with the smallest project that
+shows the bug and builds as it is. Link the folder from the issue. Guidelines for a repro:</p>
+<ul>
+<li>If there is no csproj in the  issue, create a new one using <code>dotnet new unit</code>, or create it in Visual Studio, choose the NUnit template.</li>
+<li>Use the code from the issue where you can, and add a comment that explains what the bug is.</li>
+<li>Update the packages to the latest versions, if you're not addressing a particular specific version.</li>
+</ul>
+<p>A repro is not required to raise an issue: some bugs are hard to reproduce. When you can make one, it makes the issue
+much easier for others to understand and fix.</p>
+<h3 id="using-a-repro">Using a repro</h3>
+<p>Work with one repro at a time, on its own:</p>
+<ul>
+<li>Check the repro using CLI or Visual Studio, preferably both.  Use<code>dotnet test</code> or <code>dotnet test -s .runsettings</code> if a runsettings file is present.</li>
+<li>Open the solution in Visual Studio when the bug is about Visual Studio. A <code>.runsettings</code> in the folder is picked up automatically.</li>
+<li>For Test Explorer bugs, see
+<a href="Developing-the-Adapter.html#checking-test-explorer-with-te-dump">Checking Test Explorer with te-dump</a>, especially if you use AI, then it can use te-dump.</li>
+<li>Refer to an unreleased package to check a fix, see <a href="#testing-an-unreleased-package">Testing an unreleased package</a>.</li>
+</ul>
+<h3 id="files-in-a-repro-folder">Files in a repro folder</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.csproj</code>, <code>*.slnx</code> or <code>*.sln</code></td>
+<td>The repro project or solution.</td>
+</tr>
+<tr>
+<td><code>NuGet.config</code></td>
+<td>Package sources, with a local feed when testing an unreleased package.</td>
+</tr>
+<tr>
+<td><code>.runsettings</code></td>
+<td>Optional. Settings the bug needs. Also can enable adapter dumps. Visual Studio only picks it up from the solution folder.</td>
+</tr>
+<tr>
+<td><code>run_*.cmd</code> and <code>run_*.sh</code></td>
+<td>Optional. Commands to run instead of plain <code>dotnet test</code>, see below.</td>
+</tr>
+<tr>
+<td>Marker file</td>
+<td>Optional. Says what kind of repro it is, see below.</td>
+</tr>
+<tr>
+<td><code>issue_metadata.json</code>, <code>issue_initialstate.json</code>, <code>issue_results.json</code></td>
+<td>Written by IssueRunner, see below.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>issue_*.json</code> files are information, and you don't need to make them: the issue's state, milestone and labels
+from GitHub, the target frameworks and packages the repro was made with, and the results of the last IssueRunner run.</p>
+<p>A marker file, if present, says what kind of repro it is. It can be an empty file, or a <code>.md</code> file that says why:</p>
+<table>
+<thead>
+<tr>
+<th>Marker</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ignore</code></td>
+<td>The repro should not be run.</td>
+</tr>
+<tr>
+<td><code>explicit</code></td>
+<td>The repro must be run by hand, for example one project at a time.</td>
+</tr>
+<tr>
+<td><code>wip</code></td>
+<td>Work in progress.</td>
+</tr>
+<tr>
+<td><code>gui</code></td>
+<td>The bug shows only in a GUI, such as Visual Studio Test Explorer.</td>
+</tr>
+<tr>
+<td><code>closedasnotplanned</code></td>
+<td>The issue was closed as not planned.</td>
+</tr>
+<tr>
+<td><code>windows</code></td>
+<td>The repro runs on Windows only.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="custom-run-scripts">Custom run scripts</h3>
+<p>By default a repro is run with <code>dotnet test</code>. When it needs a filter, a runsettings file or only some of its
+projects, add a <code>run_&lt;name&gt;.cmd</code> and a <code>run_&lt;name&gt;.sh</code> with the same commands. Both are needed, since the repros are
+run on Windows and Linux. Comments in the first 10 lines can say what to expect:</p>
+<pre><code class="lang-cmd">REM EXPECT_TESTS=1
+REM EXPECT_PASS=1
+dotnet test --filter &quot;FullyQualifiedName~Baz\(1\)&quot;
+</code></pre>
+<p>The keys are <code>EXPECT_TESTS</code>, <code>EXPECT_PASS</code>, <code>EXPECT_FAIL</code> and <code>EXPECT_SKIP</code>. They are information for the reader:
+IssueRunner does not check them, it only looks at the script's exit code. A script that must catch a wrong number of
+tests, for example a filter that runs nothing, has to check the count itself and exit with a non-zero code.</p>
+<h2 id="testing-an-unreleased-package">Testing an unreleased package</h2>
+<p>Both projects get their package version from <a href="https://github.com/adamralph/minver">MinVer</a>: the last tag and the
+number of commits since it, for example <code>6.4.0-alpha.0.25</code>.
+Build the package with the project's build script, and copy
+it to a local feed, e.g. <code>C:\nuget</code>.</p>
+<p>A repro then needs a <code>NuGet.config</code> with that feed.</p>
+<p>You use <code>dotnet new nuget</code> and <code>dotnet nuget add</code> to set this up, or use <code>nugetc</code> for a simpler syntax.</p>
+<h3 id="using-standard-dotnet-nuget">Using standard <code>dotnet nuget</code></h3>
+<pre><code class="lang-cmd">dotnet new nuget.config
+dotnet nuget add source c:\nuget --name local
+dotnet nuget remove source local
+dotnet nuget disable source local
+</code></pre>
+<h3 id="using-nugetc">Using <code>nugetc</code></h3>
+<p>The dotnet tool <a href="https://github.com/HermitOS/nugetconfigcreator">nugetc</a> makes and changes the file:</p>
+<pre><code class="lang-cmd">dotnet tool install -g nugetc
+cd Issue1097
+nugetc add local  // Creates new or updates exsistins and adds default too
+nugetc remove local
+nugetc disable local
+</code></pre>
+<h3 id="using-published-alpha-releases-from-myget">Using published alpha releases from Myget</h3>
+<p><code>nugetc add myget</code> adds the NUnit MyGet feed,
+or use <code>dotnet nuget add source https://www.myget.org/F/nunit/api/v3/index.json --name myget</code>.</p>
+<h3 id="manually">Manually</h3>
+<p>You can also do it manually, it should look like:</p>
+<pre><code class="lang-xml">&lt;configuration&gt;
+  &lt;packageSources&gt;
+    &lt;add key=&quot;nuget.org&quot; value=&quot;https://api.nuget.org/v3/index.json&quot; protocolVersion=&quot;3&quot; /&gt;
+    &lt;add key=&quot;local&quot; value=&quot;C:\nuget&quot; /&gt;
+  &lt;/packageSources&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="watch-out-for">Watch out for</h2>
+<p>Two things to watch out for:</p>
+<ul>
+<li><strong>Same version, different code.</strong> Two branches with the same number of commits get the same version. NuGet caches
+a package by its version, so a repro can silently use an older package with that version. Give a package a version
+of its own with <code>set MINVERVERSIONOVERRIDE=6.4.0-alpha.0.40</code> before building and packing, or restore into an
+isolated folder with <code>dotnet restore --packages &lt;folder&gt;</code>.</li>
+<li><strong>Check what you test.</strong> After a restore, check that the repro uses the package you expect, for example in
+<code>obj\project.assets.json</code>.</li>
+</ul>
+<h2 id="running-all-repros-with-issuerunner">Running all repros with IssueRunner</h2>
+<p><a href="https://github.com/nunit/nunit.tools.issuerunner">IssueRunner</a> runs all or some repros of an issues repository and
+reports which pass, for example to see if they still work with a new package before a release. You don't need it to
+work on a bug. Clone it next to the issues repository, build it with its <code>build.cmd</code>, and run it from the root of the
+issues repository:</p>
+<pre><code class="lang-cmd">..\nunit.tools.issuerunner\run-tests.cmd --issues 1097,782 --feed Local
+..\nunit.tools.issuerunner\run-tests.cmd --scope Regression
+</code></pre>
+<ul>
+<li><code>--feed Local</code> adds <code>C:\nuget</code>. <code>--scope Regression</code> runs the closed issues, <code>Open</code> the open ones.</li>
+<li>It skips folders with an <code>ignore</code>, <code>explicit</code>, <code>wip</code>, <code>gui</code> or <code>closedasnotplanned</code> marker, also when you ask for
+them by number. <code>windows</code> folders are skipped with <code>--skip-netfx</code>.</li>
+<li>The issues repositories also run it in their CI workflows.</li>
+</ul>
+<p>The IssueRunner README has all commands and options.</p>
+
+</article>
+          </div>
+
+          <div class="col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nunit/docs/blob/master/docs/articles/developer-info/Developing-NUnit.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Generated by <strong>DocFX</strong></span> | Copyright (c) 2018-<span id="currentYear"></span> The NUnit Project - Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
