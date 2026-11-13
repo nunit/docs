@@ -94,6 +94,10 @@ See
  [Microsoft docs](https://learn.microsoft.com/en-us/aspnet/core/migration/50-to-60-samples?view=aspnetcore-8.0#project-file-csproj)
  for more info, and some alternatives.
 
+* Is `Console.WriteLine` or `ILogger` output from inside your application missing from the test output when you use
+  `WebApplicationFactory`? See [Capturing output from other threads and hosted
+  applications](../writing-tests/TestContext.md#capturing-output-from-other-threads-and-hosted-applications).
+
 #### My tests multi-target .NET Core and .NET Framework, why can't I run both in Visual Studio
 
 This was a limitation in earlier versions of  Visual Studio, but is fixed in Visual Studio 2022.
