@@ -22,14 +22,12 @@ described below.
   internally in the team, but can be used by anyone who wants to have a simple way of running tests from the command
   line.
 
-Just for fun, to see how the different runners are being used, we can look at the `nuget.org` download statistics for
-each of the runners, as of October 2026:
-
-| Runner                | Downloads     | Comment                                        |
-| --------------------- | ------------- | ---------------------------------------------- |
-| NUnit3TestAdapter     | 591.0 million | Used by Visual Studio, VS Code and dotnet test |
-| NUnit.ConsoleRunner  | 79.4 million  |                                                |
-| NUnitLite             | 8.8 million   |                                                |
+The table shows total NuGet downloads for each runner package.
+| Runner | Downloads | Comment |
+| --- | --- | --- |
+| NUnit3TestAdapter | [![NUnit3TestAdapter downloads](https://img.shields.io/nuget/dt/NUnit3TestAdapter.svg?style=flat)](https://www.nuget.org/packages/NUnit3TestAdapter/) | Used by Visual Studio, VS Code and dotnet test |
+| NUnit.ConsoleRunner | [![NUnit.ConsoleRunner downloads](https://img.shields.io/nuget/dt/NUnit.ConsoleRunner.svg?style=flat)](https://www.nuget.org/packages/NUnit.ConsoleRunner/) | |
+| NUnitLite | [![NUnitLite downloads](https://img.shields.io/nuget/dt/NUnitLite.svg?style=flat)](https://www.nuget.org/packages/NUnitLite/) | |
 
 ## Other runners
 
