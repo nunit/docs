@@ -23,6 +23,7 @@ described below.
   line.
 
 The table shows total NuGet downloads for each runner package.
+
 | Runner | Downloads | Comment |
 | --- | --- | --- |
 | NUnit3TestAdapter | [![NUnit3TestAdapter downloads](https://img.shields.io/nuget/dt/NUnit3TestAdapter.svg?style=flat)](https://www.nuget.org/packages/NUnit3TestAdapter/) | Used by Visual Studio, VS Code and dotnet test |
