@@ -115,8 +115,6 @@ The following values are recognized as platform specifiers. They may be expresse
 
 #### Other Runtimes
 
-* SSCLI
-* Rotor
 * Mono
 * MonoTouch
 
