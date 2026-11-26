@@ -39,6 +39,13 @@
    Visual Studio cache. Close Visual Studio and delete
    `C:\Users\username\AppData\Local\Temp\VisualStudioTestExplorerExtensions\NUnit3TestAdapter.{{version}}`
 
+10. Output written inside an ASP.NET Core application under test, such as `Console.WriteLine` or `ILogger` calls in a
+    request handler hosted by `WebApplicationFactory`, is missing from the test output or appears under the wrong test.
+    This is framework behavior rather than an adapter problem: the request pipeline runs outside the test's execution
+    context. See [Capturing output from other threads and hosted
+    applications](../nunit/writing-tests/TestContext.md#capturing-output-from-other-threads-and-hosted-applications)
+    for the cause and the `PreserveExecutionContext` fix.
+
 ## Issues with other tools
 
 * Versions of ReSharper earlier than the 8.2 version has an issue with the NuGet adapter, which will prevent NUnit tests
