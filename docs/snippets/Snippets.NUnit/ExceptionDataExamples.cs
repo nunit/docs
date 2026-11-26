@@ -3,8 +3,8 @@ using NUnit.Framework;
 
 namespace Snippets.NUnit;
 
-// These tests fail on purpose to show what NUnit to expose the exception data
-// Marked the tests as Explicit to avoid failing the doc build and test runs
+// These tests fail on purpose to expose the exception data.
+// Marked the tests as Explicit to avoid failing the snippets test run.
 public class ExceptionDataExamples
 {
     #region ExceptionDataOuterAndInner
@@ -32,8 +32,8 @@ public class ExceptionDataExamples
             _details["Column"] = column;
         }
 
-        // NUnit reads Data, so overriding it keeps test-only detail out of the
-        // dictionary that production error reporting would otherwise see.
+        // NUnit reads Data, so a custom exception can expose its own
+        // properties through it instead of callers filling the dictionary.
         public override IDictionary Data => _details;
     }
 
