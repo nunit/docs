@@ -279,7 +279,8 @@ and/or a stack trace.
 
 ## `<message>`
 
-Optional element with a CDATA section containing a message relating to the test's result.
+Optional element with a CDATA section containing a message relating to the test's result. When a test fails because of
+an exception, the message contains the type and message of the exception, the entries of its `Exception.Data` dictionary, and the same information for each inner exception. See [What appears in a failure message](xref:assertions#what-appears-in-a-failure-message).
 
 * **Containing Elements:** [`<failure>`](#failure), [`<reason>`](#reason), [`<assertion>`](#assertion)
 * **Contained Elements:** None

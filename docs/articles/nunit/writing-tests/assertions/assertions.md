@@ -66,3 +66,29 @@ Assert expression.  This also works for the ClassicAsserts, but what you will se
 expression.
 
 ![Classic-Assert-Fails](../../../../images/nunit-classic-asserts-fails.png)
+
+## What appears in a failure message
+
+A failed assertion reports the constraint's message and the stack trace of the assertion.
+
+If a test fails with an unexpected exception, NUnit reports the exception's type and message, the entries in its
+`Exception.Data`, and the same for every inner exception. This is a handy way to attach context, such as the row being
+processed, without writing any logging code:
+
+[!code-csharp[ExceptionDataOuterAndInner](~/snippets/Snippets.NUnit/ExceptionDataExamples.cs#ExceptionDataOuterAndInner)]
+
+```text
+System.InvalidOperationException : Import failed
+Data:
+  Row: 42
+  ----> System.FormatException : Invalid number
+Data:
+  Column: Amount
+```
+
+If you have your own exception type, you can override the virtual `Data` property to expose its details, so callers
+don't have to fill the dictionary by hand. NUnit reads it the same way:
+
+[!code-csharp[ExceptionDataCustomException](~/snippets/Snippets.NUnit/ExceptionDataExamples.cs#ExceptionDataCustomException)]
+
+The message ends up in the `<message>` element of the [test result XML](xref:testresultxmlformat).
