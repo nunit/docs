@@ -25,6 +25,11 @@ execution. See below for properties of the current context.
 
 Gets a TextWriter used for sending output to the current test result.
 
+> [!TIP]
+> To attach diagnostic context to a failing test, you do not always need to write output. When a test fails with an
+> exception, NUnit includes the contents of `Exception.Data`, for the exception and its inner exceptions, in the failure
+> message. See [What appears in a failure message](xref:assertions#what-appears-in-a-failure-message).
+
 ### Error
 
 Gets a TextWriter used for sending error output intended for immediate display.
